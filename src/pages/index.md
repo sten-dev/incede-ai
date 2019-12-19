@@ -45,9 +45,13 @@ home:
   subTitle: home sub title
   title: Home title
 about:
-  button: button
-  subTitle: about sub title
-  title: About title
+  button: Know More
+  subTitle: >-
+    We are a data analytics, strategy and consulting firm that leverages our AI
+    technology capabilities and our industry knowledge to solve our customer’s
+    business problems. Incede provides outcome-based AI solutions and offers
+    end-to-end services to make businesses profitable.
+  title: About Us
 description: >-
   Kaldi is the ultimate spot for coffee lovers who want to learn about their
   java’s origin and support the farmers that grew it. We take coffee production,
@@ -70,3 +74,4 @@ main:
     alt: Coffee beans
     image: /img/products-grid1.jpg
 ---
+
