@@ -38,9 +38,10 @@ const TemplateWrapper = ({ children }) => {
         <link
           rel="mask-icon"
           href={`${withPrefix("/")}img/safari-pinned-tab.svg`}
-          color="#ff4400"
+          color="#5c4abb"
         />
         <meta name="theme-color" content="#fff" />
+        <link  href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700&display=swap" rel="stylesheet"/>
 
         <meta property="og:type" content="business.business" />
         <meta property="og:title" content={title} />
@@ -49,10 +50,7 @@ const TemplateWrapper = ({ children }) => {
           property="og:image"
           content={`${withPrefix("/")}img/og-image.jpg`}
         />
-        {/* <link
-          rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        /> */}
+      
       </Helmet>
       <Navbar />
       <div style={{ backgroundColor: "#fff" }}>{children}</div>

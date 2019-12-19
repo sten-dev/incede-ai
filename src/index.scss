@@ -1,5 +1,10 @@
 @import "./bs.scss";
-
+body {
+  font-family: "Noto Sans", sans-serif;
+}
 .primary-text {
   color: $primary;
+}
+footer.footer {
+  background: #474747 !important;
 }
