@@ -21,7 +21,7 @@ export const IndexPageTemplate = ({
       <div className="col-5 d-flex flex-column justify-content-center">
         <div>
           <h1
-            className=" p-2 text-primary "
+            className=" p-2 primary-text "
             style={{
               lineHeight: "1.3"
             }}
