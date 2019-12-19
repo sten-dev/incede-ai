@@ -2,19 +2,19 @@ import React from "react";
 import { Link } from "gatsby";
 import "./styles/footer.module.css";
 
-import logo from "../img/logo.svg";
+import logo from "../img/logo_white.svg";
 import facebook from "../img/social/facebook.svg";
 import instagram from "../img/social/instagram.svg";
 import twitter from "../img/social/twitter.svg";
 import vimeo from "../img/social/vimeo.svg";
-
+import { Row, Container, Col } from "reactstrap";
 const Footer = class extends React.Component {
   render() {
     return (
       <footer className="footer">
-        <div className="container">
-          <div className="row">
-            <div className="col-3">
+        <Container>
+          <Row>
+            <Col md="3" sm="12" lg="3">
               <img
                 src={logo}
                 alt="incede.ai"
@@ -42,8 +42,8 @@ const Footer = class extends React.Component {
                   </Link>
                 </li>
               </ul>
-            </div>
-            <div className="col-3">
+            </Col>
+            <Col md="3" sm="12" lg="3">
               <section className="menu">
                 <ul className="list-unstyled">
                   <li>
@@ -66,8 +66,8 @@ const Footer = class extends React.Component {
                   </li>
                 </ul>
               </section>
-            </div>
-            <div className="col-3">
+            </Col>
+            <Col md="3" sm="12" lg="3">
               <section className="menu">
                 <ul className="list-unstyled">
                   <li>
@@ -85,10 +85,10 @@ const Footer = class extends React.Component {
                   </li>
                 </ul>
               </section>
-            </div>
-            <div className="col-3">
-              {" "}
+            </Col>
+            <Col md="3" sm="12" lg="3">
               <a title="facebook" href="https://facebook.com">
+                {/* <i style="fas fa-instagram" /> */}
                 <img
                   src={facebook}
                   alt="Facebook"
@@ -117,9 +117,9 @@ const Footer = class extends React.Component {
                   style={{ width: "1em", height: "1em" }}
                 />
               </a>
-            </div>
-          </div>
-        </div>
+            </Col>
+          </Row>
+        </Container>
       </footer>
     );
   }
