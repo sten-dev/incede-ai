@@ -1,9 +1,9 @@
 ---
 templateKey: index-page
-title: Great coffee with a conscience
+title: We provide business outcome based AI solutions
 image: /img/home-jumbotron.jpg
 heading: Great coffee with a conscience
-subheading: Support sustainable farming while enjoying a cup
+subheading: Build an AI Roadmap for your business
 mainpitch:
   title: Why Kaldi
   description: >
