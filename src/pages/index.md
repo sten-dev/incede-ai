@@ -42,8 +42,8 @@ subheading: Build an AI Roadmap for your business
 about:
   button: button
   image: /img/blog-index.jpg
-  subTitle: sub title title
-  title: About title
+  subTitle: home sub title
+  title: Home title
 description: >-
   Kaldi is the ultimate spot for coffee lovers who want to learn about their
   java’s origin and support the farmers that grew it. We take coffee production,
