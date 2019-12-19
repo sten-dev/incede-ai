@@ -8,9 +8,11 @@ body {
 footer {
   &.footer {
     background: #474747 !important;
-    
+
     a,
-    p,h6 ,address{
+    p,
+    h6,
+    address {
       color: whitesmoke;
     }
     h6 {
@@ -18,7 +20,13 @@ footer {
       font-size: large;
     }
     section {
-      padding: 78px 32px;
+      padding: 120px 32px;
+      &.half-menu{
+        padding: 16px 0;
+      }
+      &.social{
+        padding: 120px 32px;
+      }
     }
   }
 }

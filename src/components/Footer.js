@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
-import "./styles/footer.module.css";
+// import "./styles/footer.module.css";
 
 import logo from "../img/logo_white.svg";
 import facebook from "../img/social/facebook.svg";
@@ -18,30 +18,32 @@ const Footer = class extends React.Component {
               <img
                 src={logo}
                 alt="incede.ai"
-                style={{ width: "14em", height: "10em" }}
+                style={{ width: "10em", height: "6.5em" }}
               />
-              <ul className="list-unstyled">
-                <li>
-                  <Link to="/" className="navbar-item">
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link className="navbar-item" to="/about">
-                    About us
-                  </Link>
-                </li>
-                <li>
-                  <Link className="navbar-item" to="/products">
-                    Our Customers
-                  </Link>
-                </li>
-                <li>
-                  <Link className="navbar-item" to="/contact/examples">
-                    Contact
-                  </Link>
-                </li>
-              </ul>
+              <section className="half-menu">
+                <ul className="list-unstyled">
+                  <li>
+                    <Link to="/" className="navbar-item">
+                      Home
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="navbar-item" to="/about">
+                      About us
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="navbar-item" to="/products">
+                      Our Customers
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="navbar-item" to="/contact/examples">
+                      Contact
+                    </Link>
+                  </li>
+                </ul>
+              </section>
             </Col>
             <Col md="3" sm="12" lg="3">
               <section className="menu">
@@ -87,36 +89,38 @@ const Footer = class extends React.Component {
               </section>
             </Col>
             <Col md="3" sm="12" lg="3">
-              <a title="facebook" href="https://facebook.com">
-                {/* <i style="fas fa-instagram" /> */}
-                <img
-                  src={facebook}
-                  alt="Facebook"
-                  style={{ width: "1em", height: "1em" }}
-                />
-              </a>
-              <a title="twitter" href="https://twitter.com">
-                <img
-                  className="fas fa-lg"
-                  src={twitter}
-                  alt="Twitter"
-                  style={{ width: "1em", height: "1em" }}
-                />
-              </a>
-              <a title="instagram" href="https://instagram.com">
-                <img
-                  src={instagram}
-                  alt="Instagram"
-                  style={{ width: "1em", height: "1em" }}
-                />
-              </a>
-              <a title="vimeo" href="https://vimeo.com">
-                <img
-                  src={vimeo}
-                  alt="Vimeo"
-                  style={{ width: "1em", height: "1em" }}
-                />
-              </a>
+              <section className="social">
+                <a title="facebook" href="https://facebook.com">
+                  {/* <i style="fas fa-instagram" /> */}
+                  <img
+                    src={facebook}
+                    alt="Facebook"
+                    style={{ width: "1em", height: "1em" }}
+                  />
+                </a>
+                <a title="twitter" href="https://twitter.com">
+                  <img
+                    className="fas fa-lg"
+                    src={twitter}
+                    alt="Twitter"
+                    style={{ width: "1em", height: "1em" }}
+                  />
+                </a>
+                <a title="instagram" href="https://instagram.com">
+                  <img
+                    src={instagram}
+                    alt="Instagram"
+                    style={{ width: "1em", height: "1em" }}
+                  />
+                </a>
+                <a title="vimeo" href="https://vimeo.com">
+                  <img
+                    src={vimeo}
+                    alt="Vimeo"
+                    style={{ width: "1em", height: "1em" }}
+                  />
+                </a>
+              </section>
             </Col>
           </Row>
         </Container>
