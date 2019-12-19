@@ -48,6 +48,10 @@ const TemplateWrapper = ({ children }) => {
           property="og:image"
           content={`${withPrefix('/')}img/og-image.jpg`}
         />
+        {/* <link
+          rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        /> */}
       </Helmet>
       <Navbar />
       <div>{children}</div>
