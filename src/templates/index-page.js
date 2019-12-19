@@ -12,6 +12,7 @@ export const IndexPageTemplate = ({
   heading,
   subheading,
   mainpitch,
+  about,
   description,
   intro
 }) => (
@@ -26,7 +27,7 @@ export const IndexPageTemplate = ({
                 lineHeight: "1.3"
               }}
             >
-              {title}
+              {about.title}
             </h1>
             <h3
               className=" p-2 "
@@ -36,7 +37,7 @@ export const IndexPageTemplate = ({
                 fontWeight: 400
               }}
             >
-              {subheading}
+              {about.subTitle}
             </h3>
             <div className="p-2">
               <button
@@ -44,7 +45,7 @@ export const IndexPageTemplate = ({
                 className=" btn btn-secondary btn-lg"
               // style={{ color: "#fff", backgroundColor: "" }}
               >
-                Explore Our Solutions <i className="fas fa chevron-down"></i>
+                {about.button} <i className="fas fa chevron-down"></i>
               </button>
             </div>
           </div>
@@ -61,10 +62,10 @@ export const IndexPageTemplate = ({
                 <div className="content">
                   <div className="content">
                     <div className="tile">
-                      <h1 className="title">{mainpitch.title}</h1>
+                      {/* <h1 className="title">{mainpitch.title}</h1> */}
                     </div>
                     <div className="tile">
-                      <h3 className="subtitle">{mainpitch.description}</h3>
+                      {/* <h3 className="subtitle">{mainpitch.description}</h3> */}
                     </div>
                   </div>
                   <div className="columns">
@@ -109,6 +110,7 @@ IndexPageTemplate.propTypes = {
   heading: PropTypes.string,
   subheading: PropTypes.string,
   mainpitch: PropTypes.object,
+  about: PropTypes.object,
   description: PropTypes.string,
   intro: PropTypes.shape({
     blurbs: PropTypes.array
@@ -125,7 +127,7 @@ const IndexPage = ({ data }) => {
         title={frontmatter.title}
         heading={frontmatter.heading}
         subheading={frontmatter.subheading}
-        mainpitch={frontmatter.mainpitch}
+        about={frontmatter.about}
         description={frontmatter.description}
         intro={frontmatter.intro}
       />
@@ -157,9 +159,17 @@ export const pageQuery = graphql`
         }
         heading
         subheading
-        mainpitch {
+        about {
           title
-          description
+          subTitle
+          button
+          image {
+            childImageSharp {
+              fluid(maxWidth: 240, quality: 64) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
         }
         description
         intro {
