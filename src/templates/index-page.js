@@ -157,18 +157,6 @@ export const pageQuery = graphql`
         }
         heading
         subheading
-        about{
-          title
-          subTitle
-          button
-          image {
-            childImageSharp {
-              fluid(maxWidth: 240, quality: 64) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-        }
         mainpitch {
           title
           description
