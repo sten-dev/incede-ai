@@ -39,7 +39,7 @@ title: We provide business outcome based AI solutions
 image: /img/home-jumbotron.jpg
 heading: Great coffee with a conscience
 subheading: Build an AI Roadmap for your business
-about:
+home:
   button: button
   image: /img/blog-index.jpg
   subTitle: home sub title
@@ -66,4 +66,3 @@ main:
     alt: Coffee beans
     image: /img/products-grid1.jpg
 ---
-
