@@ -70,8 +70,8 @@ collections:
           - { label: Heading, name: heading, widget: string }
           - { label: Subheading, name: subheading, widget: string }
           - {
-              label: About,
-              name: about,
+              label: Home,
+              name: home,
               widget: object,
               fields:
                 [

@@ -12,7 +12,7 @@ export const IndexPageTemplate = ({
   heading,
   subheading,
   mainpitch,
-  about,
+  home,
   description,
   intro
 }) => (
@@ -27,7 +27,7 @@ export const IndexPageTemplate = ({
                 lineHeight: "1.3"
               }}
             >
-              {about.title}
+              {home.title}
             </h1>
             <h3
               className=" p-2 "
@@ -37,7 +37,7 @@ export const IndexPageTemplate = ({
                 fontWeight: 400
               }}
             >
-              {about.subTitle}
+              {home.subTitle}
             </h3>
             <div className="p-2">
               <button
@@ -45,7 +45,7 @@ export const IndexPageTemplate = ({
                 className=" btn btn-secondary btn-lg"
               // style={{ color: "#fff", backgroundColor: "" }}
               >
-                {about.button} <i className="fas fa chevron-down"></i>
+                {home.button} <i className="fas fa chevron-down"></i>
               </button>
             </div>
           </div>
@@ -110,7 +110,7 @@ IndexPageTemplate.propTypes = {
   heading: PropTypes.string,
   subheading: PropTypes.string,
   mainpitch: PropTypes.object,
-  about: PropTypes.object,
+  home: PropTypes.object,
   description: PropTypes.string,
   intro: PropTypes.shape({
     blurbs: PropTypes.array
@@ -127,7 +127,7 @@ const IndexPage = ({ data }) => {
         title={frontmatter.title}
         heading={frontmatter.heading}
         subheading={frontmatter.subheading}
-        about={frontmatter.about}
+        home={frontmatter.home}
         description={frontmatter.description}
         intro={frontmatter.intro}
       />
@@ -159,7 +159,7 @@ export const pageQuery = graphql`
         }
         heading
         subheading
-        about {
+        home {
           title
           subTitle
           button
