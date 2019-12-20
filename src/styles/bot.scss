@@ -4,7 +4,10 @@ section {
   &.bot {
     background: $primary;
     height: 100vh !important;
-
+    .chat {
+      overflow: auto;
+      height: 65vh;
+    }
     .chat-pill {
       padding: 16px;
       background: $white;
