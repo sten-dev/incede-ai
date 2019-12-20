@@ -1,0 +1,14 @@
+@import "../bs";
+
+.incede-nav {
+  .nav-item {
+    padding: 36px 44px;
+    a {
+      color: $gray;
+      font-weight: bolder;
+    }
+  }
+  .navbar-brand{
+    padding: 30px !important;
+  }
+}
