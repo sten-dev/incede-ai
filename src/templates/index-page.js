@@ -17,6 +17,7 @@ export const IndexPageTemplate = ({
   mainpitch,
   home,
   about,
+  location,
   description,
   intro
 }) => (
@@ -84,6 +85,7 @@ IndexPageTemplate.propTypes = {
   mainpitch: PropTypes.object,
   home: PropTypes.object,
   about: PropTypes.object,
+  location: PropTypes.object,
   description: PropTypes.string,
   intro: PropTypes.shape({
     blurbs: PropTypes.array
@@ -102,6 +104,7 @@ const IndexPage = ({ data }) => {
         subheading={frontmatter.subheading}
         home={frontmatter.home}
         about={frontmatter.about}
+        location={frontmatter.location}
         description={frontmatter.description}
         intro={frontmatter.intro}
       />
@@ -149,6 +152,13 @@ export const pageQuery = graphql`
           title
           subTitle
           button
+        }
+        location {
+          title
+          subTitle
+          phone
+          email
+          address
         }
         description
         intro {

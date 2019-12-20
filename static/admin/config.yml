@@ -92,6 +92,19 @@ collections:
                   { label: Button Text, name: button, widget: string },
                 ],
             }
+          - {
+              label: Location,
+              name: location,
+              widget: object,
+              fields:
+                [
+                  { label: Title, name: title, widget: string },
+                  { label: Sub Title, name: subTitle, widget: string },
+                  { label: Phone, name: phone, widget: string },
+                  { label: Email, name: email, widget: string },
+                  { label: Address, name: address, widget: text },
+                ],
+            }
           - { label: Description, name: description, widget: string }
           - {
               label: Intro,

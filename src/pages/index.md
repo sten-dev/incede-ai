@@ -52,6 +52,12 @@ about:
     business problems. Incede provides outcome-based AI solutions and offers
     end-to-end services to make businesses profitable.
   title: About Us
+location:
+  title: We provide business outcome based AI solutions
+  subTitle: Build an AI Roadmap for your business
+  phone: 408-898-4606
+  email: info@locussolutions.com
+  address: 5201 Great America Parkway, Suite, Santa Clara, CA 95054
 description: >-
   Kaldi is the ultimate spot for coffee lovers who want to learn about their
   java’s origin and support the farmers that grew it. We take coffee production,
@@ -74,4 +80,3 @@ main:
     alt: Coffee beans
     image: /img/products-grid1.jpg
 ---
-
