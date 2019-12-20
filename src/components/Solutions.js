@@ -71,7 +71,6 @@ export default () => (
         query={graphql`
       query SolutionsQuery {
         allMarkdownRemark(
-          sort: { order: DESC, fields: [frontmatter___date] }
           filter: { frontmatter: { templateKey: { eq: "solutions-post" } } }
         ) {
           edges {

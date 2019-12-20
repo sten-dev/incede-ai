@@ -7,12 +7,10 @@ import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 
 export const SolutionsPostTemplate = ({
-    contentComponent,
     subTitle,
     title,
     helmet,
 }) => {
-    const PostContent = contentComponent || Content
 
     return (
         <section className="section">
@@ -32,7 +30,6 @@ export const SolutionsPostTemplate = ({
 }
 
 SolutionsPostTemplate.propTypes = {
-    contentComponent: PropTypes.func,
     title: PropTypes.string,
     subTitle: PropTypes.string,
     helmet: PropTypes.object,
@@ -45,7 +42,6 @@ const SolutionsPost = ({ data }) => {
         <Layout>
             <SolutionsPostTemplate
                 content={post.html}
-                contentComponent={HTMLContent}
                 subTitle={post.frontmatter.subTitle}
                 helmet={
                     <Helmet titleTemplate="%s | Solution">
