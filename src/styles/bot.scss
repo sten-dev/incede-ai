@@ -3,5 +3,27 @@
 section {
   &.bot {
     background: $primary;
+    height: 100vh !important;
+
+    .chat-pill {
+      padding: 16px;
+      background: $white;
+      max-width: 768px;
+      margin: 4px;
+      margin-bottom: 8px;
+      color: #383737;
+      .chat-text {
+        margin: 0;
+        font-weight: 500;
+      }
+      &.right-pill {
+        border-radius: 28px 28px 0 28px;
+        background: $secondary;
+        color: $white;
+      }
+      &.left-pill {
+        border-radius: 28px 28px 28px 0;
+      }
+    }
   }
 }
