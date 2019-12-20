@@ -9,8 +9,8 @@ class Home extends React.Component {
       <section className="landing-home">
         <Container fluid>
           <Row>
-            <Col lg={2} md={2}></Col>
-            <Col lg={6} md={5}>
+            <Col lg={1} md={2}></Col>
+            <Col lg={7} md={5}>
               <article className="gap-y">
                 <h1 className="display-4 text-primary">{home.title}</h1>
                 <h3>{home.subTitle}</h3>

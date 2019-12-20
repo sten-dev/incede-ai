@@ -9,6 +9,7 @@ import {
   Row,
   Col
 } from "reactstrap";
+import "../../styles/contact-us.scss"
 const ContactUs = props => {
   let { location } = props;
   return (
@@ -16,22 +17,21 @@ const ContactUs = props => {
       <Container>
         <Row>
           <Col
-            lg={{ offset: 2, size: 8 }}
-            md={{ offset: 3, size: 6 }}
-            sm={{ offset: 1, size: 10 }}
-            xs={12}
+            // lg={{ offset: 2, size: 8 }}
+            // md={{ offset: 3, size: 6 }}
+            // sm={{ offset: 1, size: 10 }}
+            // xs={12}
           >
             <article className="gap-y">
               <h1 className="display-4 text-primary">Contact Us</h1>
               <Card>
                 <CardBody>
-                  <CardTitle>{location.title}</CardTitle>
-                  <CardSubtitle>{location.subTitle}</CardSubtitle>
+                  <h2 className="contact-title">{location.title}</h2>
+                  <h6 className="contact-subtitle text-uppercase">{location.subTitle}</h6>
                 </CardBody>
-                {/* <img width="100%" src="/assets/318x180.svg" alt="Card image cap" /> */}
                 <CardBody>
                   <em>{location.phone}</em>
-                  <CardText>{location.email}</CardText>
+                  <p>{location.email}</p>
                   <address>{location.address}</address>
                 </CardBody>
               </Card>
