@@ -10,6 +10,7 @@ import AboutUs from "../components/Landing/AboutUs";
 import ContactUs from "../components/Landing/ContactUs";
 import BotSection from "../components/Landing/BotSection";
 import Solutions from "../components/Solutions";
+import CaseStudies from "../components/CaseStudies";
 
 export const IndexPageTemplate = ({
   image,
@@ -23,14 +24,15 @@ export const IndexPageTemplate = ({
   description,
   intro
 }) => (
-  <div>
-    <BotSection />
-    <Home home={home} />
-    <AboutUs about={about} />
-    <Solutions />
-    <ContactUs location={location} />
-  </div>
-);
+    <div>
+      <BotSection />
+      <Home home={home} />
+      <AboutUs about={about} />
+      <Solutions />
+      <CaseStudies />
+      <ContactUs location={location} />
+    </div>
+  );
 
 IndexPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),

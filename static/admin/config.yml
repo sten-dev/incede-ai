@@ -59,7 +59,6 @@ collections:
           default: "case-study",
         }
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Sub Title", name: "subTitle", widget: "string" }
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Image", name: "image", widget: image }
   - name: "pages"

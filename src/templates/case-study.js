@@ -7,7 +7,6 @@ import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 
 export const CaseStudyTemplate = ({
     title,
-    subTitle,
     description,
     image,
     helmet,
@@ -22,9 +21,10 @@ export const CaseStudyTemplate = ({
                         <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
                             {title}
                         </h1>
-                        <p>{subTitle}</p>
                         <p>{description}</p>
-                        <PreviewCompatibleImage imageInfo={image} />
+                        {image && (
+                            <PreviewCompatibleImage imageInfo={image} />
+                        )}
                     </div>
                 </div>
             </div>
@@ -54,7 +54,6 @@ const CaseStudy = ({ data }) => {
                     </Helmet>
                 }
                 title={post.frontmatter.title}
-                subTitle={post.frontmatter.subTitle}
                 description={post.frontmatter.description}
                 image={post.frontmatter.image}
             />
@@ -77,11 +76,10 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        subTitle
         description
         image {
             childImageSharp {
-              fluid(maxWidth: 240, quality: 64) {
+              fluid(maxWidth: 240, quality: 100) {
                 ...GatsbyImageSharpFluid
               }
             }
