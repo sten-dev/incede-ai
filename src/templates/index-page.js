@@ -27,8 +27,8 @@ export const IndexPageTemplate = ({
     <BotSection />
     <Home home={home} />
     <AboutUs about={about} />
-    <ContactUs location={location} />
     <Solutions />
+    <ContactUs location={location} />
   </div>
 );
 
