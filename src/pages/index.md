@@ -1,21 +1,5 @@
 ---
 templateKey: index-page
-title: We provide business outcome based AI solutions
-image: /img/home-jumbotron.jpg
-heading: Great coffee with a conscience
-subheading: Build an AI Roadmap for your business
-mainpitch:
-  title: Why Kaldi
-  description: >
-    Kaldi is the coffee store for everyone who believes that great coffee
-    shouldn't just taste good, it should do good too. We source all of our beans
-    directly from small scale sustainable farmers and make sure part of the
-    profits are reinvested in their communities.
-description: >-
-  Kaldi is the ultimate spot for coffee lovers who want to learn about their
-  java’s origin and support the farmers that grew it. We take coffee production,
-  roasting and brewing seriously and we’re glad to pass that knowledge to
-  anyone.
 intro:
   blurbs:
     - image: /img/coffee.png
@@ -51,6 +35,28 @@ intro:
     java’s origin and support the farmers that grew it. We take coffee
     production, roasting and brewing seriously and we’re glad to pass that
     knowledge to anyone. This is an edit via identity...
+title: We provide business outcome based AI solutions
+image: /img/home-jumbotron.jpg
+heading: Great coffee with a conscience
+subheading: Build an AI Roadmap for your business
+home:
+  button: button
+  image: /img/blog-index.jpg
+  subTitle: home sub title
+  title: Home title
+about:
+  button: Know More
+  subTitle: >-
+    We are a data analytics, strategy and consulting firm that leverages our AI
+    technology capabilities and our industry knowledge to solve our customer’s
+    business problems. Incede provides outcome-based AI solutions and offers
+    end-to-end services to make businesses profitable.
+  title: About Us
+description: >-
+  Kaldi is the ultimate spot for coffee lovers who want to learn about their
+  java’s origin and support the farmers that grew it. We take coffee production,
+  roasting and brewing seriously and we’re glad to pass that knowledge to
+  anyone.
 main:
   heading: Great coffee with no compromises
   description: >
@@ -68,3 +74,4 @@ main:
     alt: Coffee beans
     image: /img/products-grid1.jpg
 ---
+

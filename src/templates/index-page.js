@@ -12,96 +12,98 @@ export const IndexPageTemplate = ({
   heading,
   subheading,
   mainpitch,
+  home,
+  about,
   description,
   intro
 }) => (
-  <div>
-    <div className="d-flex justify-content-center row">
-      <div className="col-2"></div>
-      <div className="col-5 d-flex flex-column justify-content-center">
-        <div>
-          <h1
-            className=" p-2 primary-text "
-            style={{
-              lineHeight: "1.3"
-            }}
-          >
-            {title}
-          </h1>
-          <h3
-            className=" p-2 "
-            style={{
-              color: "##00000085",
-              lineHeight: "1",
-              fontWeight: 400
-            }}
-          >
-            {subheading}
-          </h3>
-          <div className="p-2">
-            <button
-              type="button"
-              className=" btn btn-secondary btn-lg"
-              // style={{ color: "#fff", backgroundColor: "" }}
+    <div>
+      <div className="d-flex justify-content-center row">
+        <div className="col-2"></div>
+        <div className="col-5 d-flex flex-column justify-content-center">
+          <div>
+            <h1
+              className=" p-2 primary-text "
+              style={{
+                lineHeight: "1.3"
+              }}
             >
-              Explore Our Solutions <i className="fas fa chevron-down"></i>
-            </button>
+              {home.title}
+            </h1>
+            <h3
+              className=" p-2 "
+              style={{
+                color: "##00000085",
+                lineHeight: "1",
+                fontWeight: 400
+              }}
+            >
+              {home.subTitle}
+            </h3>
+            <div className="p-2">
+              <button
+                type="button"
+                className=" btn btn-secondary btn-lg"
+              // style={{ color: "#fff", backgroundColor: "" }}
+              >
+                {home.button} <i className="fas fa chevron-down"></i>
+              </button>
+            </div>
           </div>
         </div>
+        <div className="col-5" style={{ height: "500px" }}></div>
       </div>
-      <div className="col-5" style={{ height: "500px" }}></div>
-    </div>
 
-    {/* </div> */}
-    <section className="section section--gradient">
-      <div className="container">
-        <div className="section">
-          <div className="columns">
-            <div className="column is-10 is-offset-1">
-              <div className="content">
+      {/* </div> */}
+      <section className="section section--gradient">
+        <div className="container">
+          <div className="section">
+            <div className="columns">
+              <div className="column is-10 is-offset-1">
                 <div className="content">
-                  <div className="tile">
-                    <h1 className="title">{mainpitch.title}</h1>
+                  <div className="content">
+                    <div className="tile">
+                      {/* <h1 className="title">{mainpitch.title}</h1> */}
+                    </div>
+                    <div className="tile">
+                      {/* <h3 className="subtitle">{mainpitch.description}</h3> */}
+                    </div>
                   </div>
-                  <div className="tile">
-                    <h3 className="subtitle">{mainpitch.description}</h3>
+                  <div className="columns">
+                    <div className="column is-12">
+                      <h3 className="has-text-weight-semibold is-size-2">
+                        {heading}
+                      </h3>
+                      <p>{description}</p>
+                    </div>
                   </div>
-                </div>
-                <div className="columns">
+                  <Features gridItems={intro.blurbs} />
+                  <div className="columns">
+                    <div className="column is-12 has-text-centered">
+                      <Link className="btn" to="/products">
+                        See all products
+                    </Link>
+                    </div>
+                  </div>
                   <div className="column is-12">
                     <h3 className="has-text-weight-semibold is-size-2">
-                      {heading}
-                    </h3>
-                    <p>{description}</p>
-                  </div>
-                </div>
-                <Features gridItems={intro.blurbs} />
-                <div className="columns">
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/products">
-                      See all products
-                    </Link>
-                  </div>
-                </div>
-                <div className="column is-12">
-                  <h3 className="has-text-weight-semibold is-size-2">
-                    Latest stories
+                      Latest stories
                   </h3>
-                  <BlogRoll />
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/blog">
-                      Read more
+                    <BlogRoll />
+                    <div className="column is-12 has-text-centered">
+                      <Link className="btn" to="/blog">
+                        Read more
                     </Link>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  </div>
-);
+      </section>
+    </div>
+  );
 
 IndexPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
@@ -109,6 +111,8 @@ IndexPageTemplate.propTypes = {
   heading: PropTypes.string,
   subheading: PropTypes.string,
   mainpitch: PropTypes.object,
+  home: PropTypes.object,
+  about: PropTypes.object,
   description: PropTypes.string,
   intro: PropTypes.shape({
     blurbs: PropTypes.array
@@ -117,7 +121,7 @@ IndexPageTemplate.propTypes = {
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark;
-
+  console.log("data index", data);
   return (
     <Layout>
       <IndexPageTemplate
@@ -125,7 +129,8 @@ const IndexPage = ({ data }) => {
         title={frontmatter.title}
         heading={frontmatter.heading}
         subheading={frontmatter.subheading}
-        mainpitch={frontmatter.mainpitch}
+        home={frontmatter.home}
+        about={frontmatter.about}
         description={frontmatter.description}
         intro={frontmatter.intro}
       />
@@ -157,9 +162,22 @@ export const pageQuery = graphql`
         }
         heading
         subheading
-        mainpitch {
+        home {
           title
-          description
+          subTitle
+          button
+          image {
+            childImageSharp {
+              fluid(maxWidth: 240, quality: 64) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+        about {
+          title
+          subTitle
+          button
         }
         description
         intro {
