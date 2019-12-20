@@ -9,7 +9,7 @@ export const ChatPillAsk = props => {
           className="chat-textfield flex-grow-1"
           placeholder={props.placeholder}
         />
-        <img src={send} />
+        <img src={send} onClick={props.onClick} />
       </section>
     </div>
   );
