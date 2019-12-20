@@ -6,7 +6,7 @@ class Home extends React.Component {
   render() {
     const { home } = this.props;
     return (
-      <section class="landing-home">
+      <section className="landing-home">
         <Container fluid>
           <Row>
             <Col lg={2} md={2}></Col>
