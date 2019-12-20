@@ -36,9 +36,9 @@ export default () => (
                 slug
               }
               frontmatter {
-                title
                 templateKey
-                subTitle
+                title
+                description
                 image {
                   childImageSharp {
                     fluid(maxWidth: 120, quality: 100) {
