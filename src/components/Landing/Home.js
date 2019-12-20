@@ -26,7 +26,7 @@ class Home extends React.Component {
               md={5}
               className="image-section"
               style={{
-                background: `url(${home.image.childImageSharp.fluid.src})`
+                background: `url(${home?.image?.childImageSharp?.fluid?.src})`
               }}
             ></Col>
           </Row>
