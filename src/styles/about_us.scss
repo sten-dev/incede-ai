@@ -1,8 +1,11 @@
+@import "../bs";
+
 section {
   &.about {
     background: $primary;
-  }
-  h1,h6{
+    h1,
+    h6 {
       color: $white;
+    }
   }
 }

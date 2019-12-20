@@ -1,11 +1,11 @@
 body {
   font-family: "Noto Sans", sans-serif;
 }
-@import "./bs.scss";
-@import "./styles/home.scss";
-@import "./styles/about_us.scss";
-@import "./styles/bot.scss";
-@import "./styles/footer.scss";
+@import "bs.scss";
+// @import "./styles/home.scss";
+// @import "./styles/about_us.scss";
+// @import "./styles/bot.scss";
+// @import "./styles/footer.scss";
 
 .primary-text {
   color: $primary;

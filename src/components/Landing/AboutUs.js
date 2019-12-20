@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
-
+import "../../styles/about_us.scss"
 class AboutUs extends React.Component {
   state = {};
   render() {
