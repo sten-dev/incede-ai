@@ -76,7 +76,6 @@ export default () => (
         ) {
           edges {
             node {
-              excerpt(pruneLength: 400)
               id
               fields {
                 slug
@@ -84,9 +83,8 @@ export default () => (
               frontmatter {
                 title
                 templateKey
-                date(formatString: "MMMM DD, YYYY")
-                featuredpost
-                featuredimage {
+                subTitle
+                image {
                   childImageSharp {
                     fluid(maxWidth: 120, quality: 100) {
                       ...GatsbyImageSharpFluid

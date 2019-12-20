@@ -46,7 +46,6 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Sub Title", name: "subTitle", widget: "text" }
       - { label: "Image", name: "image", widget: image }
-
   - name: "pages"
     label: "Pages"
     files:
