@@ -6,7 +6,7 @@ class AboutUs extends React.Component {
   render() {
     const { about } = this.props;
     return (
-      <section class="about">
+      <section className="about">
         <Container>
           <Row>
             <Col>

@@ -1,8 +1,9 @@
 section {
   &.landing-home {
     .image-section {
-      background-repeat: no-repeat !important;
-      background-size: 580px !important;
+      position: absolute;
+      right: -200px;
+      width: 460px;
     }
   }
 }

@@ -1,15 +1,17 @@
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
-import "../../styles/home.scss"
+import "../../styles/home.scss";
+import PreviewCompatibleImage from "../PreviewCompatibleImage";
+
 class Home extends React.Component {
   state = {};
   render() {
     const { home } = this.props;
     return (
       <section className="landing-home">
-        <Container fluid>
+        <Container>
           <Row>
-            <Col lg={1} md={2}></Col>
+            {/* <Col lg={1} md={2}></Col> */}
             <Col lg={7} md={5}>
               <article className="gap-y">
                 <h1 className="display-4 text-primary">{home.title}</h1>
@@ -19,16 +21,24 @@ class Home extends React.Component {
                     {home.button} <i className="fas fa chevron-down"></i>
                   </button>
                 </div>
+                {/* <pre>{JSON.stringify(home, null, 2)}</pre> */}
               </article>
             </Col>
             <Col
               lg={4}
               md={5}
-              className="image-section"
-              style={{
-                background: `url(${home?.image?.childImageSharp?.fluid?.src})`
-              }}
-            ></Col>
+              
+             className="d-none d-md-block"
+            >
+             <div className="image-section">
+             <PreviewCompatibleImage
+                imageInfo={{
+                  image: home.image,
+                  alt: `featured image thumbnail`
+                }}
+              />
+             </div>
+            </Col>
           </Row>
         </Container>
       </section>
