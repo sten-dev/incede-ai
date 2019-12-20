@@ -1,45 +1,28 @@
 import React from "react";
+import { Container, Row, Col } from "reactstrap";
 
 class AboutUs extends React.Component {
   state = {};
   render() {
     const { about } = this.props;
     return (
-      <div className="d-flex justify-content-center row">
-        <div className="col-2"></div>
-        <div className="col-5 d-flex flex-column justify-content-center">
-          <div>
-            <h1
-              className=" p-2 primary-text "
-              style={{
-                lineHeight: "1.3"
-              }}
-            >
-              {about.title}
-            </h1>
-            <h3
-              className=" p-2 "
-              style={{
-                color: "##00000085",
-                lineHeight: "1",
-                fontWeight: 400
-              }}
-            >
-              {about.subTitle}
-            </h3>
-            <div className="p-2">
-              <button
-                type="button"
-                className=" btn btn-secondary btn-lg"
-                // style={{ color: "#fff", backgroundColor: "" }}
-              >
-                {about.button} <i className="fas fa chevron-down"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className="col-5" style={{ height: "500px" }}></div>
-      </div>
+      <section class="about">
+        <Container>
+          <Row>
+            <Col>
+              <article className="gap-y">
+                <h1>{about.title}</h1>
+                <h6 className="lead">{about.subTitle}</h6>
+                <div className="py-2">
+                  <button type="button" className="btn btn-secondary btn-lg">
+                    {about.button} <i className="fas fa chevron-right"></i>
+                  </button>
+                </div>
+              </article>
+            </Col>
+          </Row>
+        </Container>
+      </section>
     );
   }
 }

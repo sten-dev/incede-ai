@@ -2,31 +2,18 @@ body {
   font-family: "Noto Sans", sans-serif;
 }
 @import "./bs.scss";
+@import "./styles/home.scss";
+@import "./styles/about_us.scss";
+@import "./styles/bot.scss";
+@import "./styles/footer.scss";
+
 .primary-text {
   color: $primary;
 }
-footer {
-  &.footer {
-    background: #474747 !important;
 
-    a,
-    p,
-    h6,
-    address {
-      color: whitesmoke;
-    }
-    h6 {
-      font-weight: 500;
-      font-size: large;
-    }
-    section {
-      padding: 120px 32px;
-      &.half-menu{
-        padding: 16px 0;
-      }
-      &.social{
-        padding: 120px 32px;
-      }
-    }
-  }
+.gap-y{
+  padding: 64px 0;
+}
+.gap-x{
+  padding: 0 64px;
 }
