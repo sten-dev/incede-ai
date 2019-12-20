@@ -40,10 +40,10 @@ image: /img/home-jumbotron.jpg
 heading: Great coffee with a conscience
 subheading: Build an AI Roadmap for your business
 home:
-  button: button
-  image: /img/blog-index.jpg
-  subTitle: home sub title
-  title: Home title
+  button: Explore Our Solutions
+  image: /img/new-project-min.png
+  subTitle: Build an AI Roadmap for your business
+  title: We provide business outcome based AI solutions
 about:
   button: Know More
   subTitle: >-
