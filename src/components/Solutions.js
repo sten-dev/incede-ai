@@ -1,30 +1,39 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Link, graphql, StaticQuery } from 'gatsby'
+import React from "react";
+import PropTypes from "prop-types";
+import { Link, graphql, StaticQuery } from "gatsby";
 
 class Solutions extends React.Component {
-    render() {
-        const { data } = this.props
-        const { edges: solutions } = data.allMarkdownRemark
-        console.log(solutions);
-        return (
-            <div className="columns is-multiline">
-            </div>
-        )
-    }
+  render() {
+    const { data } = this.props;
+    const { edges: solutions } = data.allMarkdownRemark;
+    console.log(solutions);
+    return (
+      <div className="columns is-multiline">
+        {solutions.map(x => {
+          let solution = x.node.frontmatter;
+          return (
+            <>
+              <p>{solution.title}</p>
+              <p>{solution.subTitle}</p>
+            </>
+          );
+        })}
+      </div>
+    );
+  }
 }
 
 Solutions.propTypes = {
-    data: PropTypes.shape({
-        allMarkdownRemark: PropTypes.shape({
-            edges: PropTypes.array,
-        }),
-    }),
-}
+  data: PropTypes.shape({
+    allMarkdownRemark: PropTypes.shape({
+      edges: PropTypes.array
+    })
+  })
+};
 
 export default () => (
-    <StaticQuery
-        query={graphql`
+  <StaticQuery
+    query={graphql`
       query SolutionsQuery {
         allMarkdownRemark(
           filter: { frontmatter: { templateKey: { eq: "solutions-post" } } }
@@ -52,6 +61,6 @@ export default () => (
         }
       }
     `}
-        render={(data, count) => <Solutions data={data} />}
-    />
-)
+    render={(data, count) => <Solutions data={data} />}
+  />
+);
