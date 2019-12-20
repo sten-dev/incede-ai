@@ -1,7 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
+// import Navbar from "../components/Navbar";
 // import "./all.sass";
 // import "bootstrap/dist/css/bootstrap.css";
 import "../index.scss";
@@ -40,8 +40,8 @@ const TemplateWrapper = ({ children }) => {
           href={`${withPrefix("/")}img/safari-pinned-tab.svg`}
           color="#5c4abb"
         />
-        <meta name="theme-color" content="#fff" />
-        <link  href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700&display=swap" rel="stylesheet"/>
+        <meta name="theme-color" content="#5c4abb" />
+        {/* <link  href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700&display=swap" rel="stylesheet"/> */}
 
         <meta property="og:type" content="business.business" />
         <meta property="og:title" content={title} />
@@ -52,7 +52,7 @@ const TemplateWrapper = ({ children }) => {
         />
       
       </Helmet>
-      <Navbar />
+    
       <div >{children}</div>
       <Footer />
     </div>
