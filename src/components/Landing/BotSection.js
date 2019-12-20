@@ -131,10 +131,10 @@ class BotSection extends Component {
           <Row>
             <Col>
               <section className="chat d-flex flex-column flex-grow-1">
-                {/* <ChatPill text="Our solutions provide outsome-based answers to the business problems." />
+                <ChatPill text="Our solutions provide outsome-based answers to the business problems." />
                 <ChatPill text="Which solutions are you looking for?" />
                 <ChatPill right text="Customer Analytics" />
-                <ChatPill text="You can use our customer analytics solution to target the right customers with predictive modeling. Identify dissatisfied customers by uncovering patterns of behavior. Address customer service issues faster by correlating and analyzing a variety of data." /> */}
+                <ChatPill text="You can use our customer analytics solution to target the right customers with predictive modeling. Identify dissatisfied customers by uncovering patterns of behavior. Address customer service issues faster by correlating and analyzing a variety of data." />
                 {this.state.messages.map((x, i) => (
                   <>
                     <ChatPill right={x.user === "ME"} text={x.message} />
