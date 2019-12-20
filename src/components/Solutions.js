@@ -4,6 +4,7 @@ import { Link, graphql, StaticQuery } from "gatsby";
 import "../styles/solutions.scss";
 import { Container, Row, Col, Card, CardBody } from "reactstrap";
 import PreviewCompatibleImage from "./PreviewCompatibleImage";
+import SolutionView from "./Solutions/SolutionView";
 class Solutions extends React.Component {
   render() {
     const { data } = this.props;
@@ -22,21 +23,7 @@ class Solutions extends React.Component {
               let solution = x.node.frontmatter;
               return (
                 <Col key={i} lg={6} md={6} sm={12} xs={12}>
-                  <Card className="card-section">
-                    <div className="image-section">
-                      <PreviewCompatibleImage
-                        imageInfo={{
-                          image: solution.image,
-                          alt: `featured image thumbnail`,
-                          style: { width: "120px" }
-                        }}
-                      />
-                    </div>
-                    <CardBody className="text-center">
-                      <h4>{solution.title}</h4>
-                      <h6 className="subTitle">{solution.subTitle}</h6>
-                    </CardBody>
-                  </Card>
+                  <SolutionView solution={solution} />
                 </Col>
               );
             })}
