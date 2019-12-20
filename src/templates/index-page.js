@@ -7,6 +7,7 @@ import Features from "../components/Features";
 import BlogRoll from "../components/BlogRoll";
 import Home from "../components/Landing/Home";
 import AboutUs from "../components/Landing/AboutUs";
+import ContactUs from "../components/Landing/ContactUs";
 import BotSection from "../components/Landing/BotSection";
 
 export const IndexPageTemplate = ({
@@ -25,6 +26,7 @@ export const IndexPageTemplate = ({
     <BotSection />
     <Home home={home} />
     <AboutUs about={about} />
+    <ContactUs location={location} />
 
     {/* </div> */}
     <section className="section section--gradient">

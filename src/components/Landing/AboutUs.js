@@ -11,7 +11,7 @@ class AboutUs extends React.Component {
           <Row>
             <Col>
               <article className="gap-y">
-                <h1>{about.title}</h1>
+                <h1 className="display-4">{about.title}</h1>
                 <h6 className="lead">{about.subTitle}</h6>
                 <div className="py-2">
                   <button type="button" className="btn btn-secondary btn-lg">

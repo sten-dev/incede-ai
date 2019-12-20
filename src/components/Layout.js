@@ -53,7 +53,7 @@ const TemplateWrapper = ({ children }) => {
       
       </Helmet>
       <Navbar />
-      <div style={{ backgroundColor: "#fff" }}>{children}</div>
+      <div >{children}</div>
       <Footer />
     </div>
   );
