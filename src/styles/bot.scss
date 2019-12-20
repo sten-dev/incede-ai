@@ -27,6 +27,18 @@ section {
       &.left-pill {
         border-radius: 28px 28px 28px 0;
       }
+      &.ask{
+        width: 400px;
+      }
+      .chat-textfield {
+        background: #18a88c;
+        border: none;
+        color: $white;
+        &::placeholder{
+          color: $white
+        }
+        // border-bottom: 1px solid white;
+      }
     }
   }
 }

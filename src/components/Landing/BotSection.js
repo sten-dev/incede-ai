@@ -3,6 +3,10 @@ import "../../styles/bot.scss";
 import { Container, Row, Col } from "reactstrap";
 import logo from "../../img/logo_white.svg";
 import { ChatPill } from "./bot/ChatPill";
+import { ChatPillAsk } from "./bot/ChatPillAsk";
+import io from 'socket.io-client';
+
+const socket = io('http://localhost');
 class BotSection extends Component {
   constructor(props) {
     super(props);
@@ -37,6 +41,7 @@ class BotSection extends Component {
                 <ChatPill right text="Customer Analytics" />
                 <ChatPill text="You can use our customer analytics solution to target the right customers with predictive modeling. Identify dissatisfied customers by uncovering patterns of behavior. Address customer service issues faster by correlating and analyzing a variety of data." />
               </section>
+                <ChatPillAsk placeholder={"Enter your name here"}/>
             </Col>
           </Row>
         </Container>
