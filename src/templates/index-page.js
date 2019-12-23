@@ -13,16 +13,9 @@ import Solutions from "../components/Solutions";
 import CaseStudies from "../components/CaseStudies";
 
 export const IndexPageTemplate = ({
-  image,
-  title,
-  heading,
-  subheading,
-  mainpitch,
   home,
   about,
   location,
-  description,
-  intro
 }) => (
     <div>
       <BotSection />
@@ -35,18 +28,9 @@ export const IndexPageTemplate = ({
   );
 
 IndexPageTemplate.propTypes = {
-  image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  title: PropTypes.string,
-  heading: PropTypes.string,
-  subheading: PropTypes.string,
-  mainpitch: PropTypes.object,
   home: PropTypes.object,
   about: PropTypes.object,
   location: PropTypes.object,
-  description: PropTypes.string,
-  intro: PropTypes.shape({
-    blurbs: PropTypes.array
-  })
 };
 
 const IndexPage = ({ data }) => {
@@ -55,15 +39,9 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <IndexPageTemplate
-        image={frontmatter.image}
-        title={frontmatter.title}
-        heading={frontmatter.heading}
-        subheading={frontmatter.subheading}
         home={frontmatter.home}
         about={frontmatter.about}
         location={frontmatter.location}
-        description={frontmatter.description}
-        intro={frontmatter.intro}
       />
     </Layout>
   );
@@ -83,23 +61,13 @@ export const pageQuery = graphql`
   query IndexPageTemplate {
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
-        title
-        image {
-          childImageSharp {
-            fluid(maxWidth: 2048, quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        heading
-        subheading
         home {
           title
           subTitle
           button
           image {
             childImageSharp {
-              fluid(maxWidth: 240, quality: 64) {
+              fluid(maxWidth: 240, quality: 100) {
                 ...GatsbyImageSharpFluid
               }
             }
@@ -116,21 +84,6 @@ export const pageQuery = graphql`
           phone
           email
           address
-        }
-        description
-        intro {
-          blurbs {
-            image {
-              childImageSharp {
-                fluid(maxWidth: 240, quality: 64) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-            text
-          }
-          heading
-          description
         }
       }
     }

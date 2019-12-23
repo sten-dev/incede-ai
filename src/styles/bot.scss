@@ -4,6 +4,7 @@ section {
   &.bot {
     background: $primary;
     height: 100vh !important;
+    overflow: auto;
     .chat {
       overflow: auto;
       height: 65vh;

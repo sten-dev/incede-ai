@@ -18,7 +18,7 @@ const INavbar = props => {
 
   return (
     <nav className="incede-nav">
-      <Navbar color="white" expand="md" >
+      <Navbar color="white" expand="lg" >
         <NavbarBrand href="/">
           <img src={logo} alt="incede" />
         </NavbarBrand>
@@ -26,25 +26,25 @@ const INavbar = props => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar >
             <NavItem>
-              <Link to="/components/">Home</Link>
+              <Link to="/">Home</Link>
             </NavItem>
             <NavItem>
-              <Link  to="https://github.com/reactstrap/reactstrap">
+              <Link to="/">
                 About Us
               </Link>
             </NavItem>
             <NavItem>
-              <Link to="https://github.com/reactstrap/reactstrap">
+              <Link to="/">
                 What We Do
               </Link>
             </NavItem>
             <NavItem>
-              <Link to="https://github.com/reactstrap/reactstrap">
+              <Link to="/">
                 Our Customers
               </Link>
             </NavItem>
             <NavItem>
-              <Link to="https://github.com/reactstrap/reactstrap">
+              <Link to="/">
                 Contact us
               </Link>
             </NavItem>
