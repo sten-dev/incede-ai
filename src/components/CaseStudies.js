@@ -21,9 +21,9 @@ class CaseStudies extends React.Component {
             {caseStudies.map((x, i) => {
               let caseStudy = x.node.frontmatter;
               return (
-                <div>
+                <div key={i}>
                   <Row>
-                    <Col lg={7} md={5}>
+                    <Col lg={6} md={5}>
                       <h4 className="text-white header">Case Studies</h4>
                       <p className="text-white title">{caseStudy.title}</p>
                       <small className="text-white description">{caseStudy.description}</small>
@@ -37,7 +37,7 @@ class CaseStudies extends React.Component {
                         />
                       </button>
                     </Col>
-                    <Col lg={5} md={7} className="d-none d-md-block position-initial">
+                    <Col lg={6} md={7} className="d-none d-md-block position-initial">
                       <div className="image-section">
                         <PreviewCompatibleImage
                           imageInfo={{

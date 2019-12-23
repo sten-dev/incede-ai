@@ -6,6 +6,16 @@
     color: $gray;
   }
   .contact-subtitle {
-    color: #A1A1A1;
+    color: #a1a1a1;
+  }
+  .contact-us-card {
+    .card-body {
+      > div {
+        margin-bottom: 8px;
+      }
+    }
+    img {
+      margin-right: 8px;
+    }
   }
 }
