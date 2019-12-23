@@ -1,9 +1,7 @@
 ---
 templateKey: solutions-post
-title: Sales Performance Management
-subTitle: >-
-  Improve sales results and operational efficiency with better
-  https://incede-ai.netlify.com/img/social-media-analytics.svgmanagement.
+title: Financial Performance Management
+subTitle: 'Financial Planning, Budgeting, Forecasting, and Modeling solutions.'
 image: /img/alaska-airlines.png
 ---
 
