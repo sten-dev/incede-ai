@@ -1,0 +1,37 @@
+@import "../bs";
+.case-studies {
+  background: $primary;
+  .header {
+    font-size: 70px;
+    font-weight: 400;
+  }
+  .title {
+    font-size: 30px;
+  }
+  .description {
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    line-height: 34px;
+  }
+  .position-initial {
+    position: initial !important;
+  }
+  .image-section {
+    position: absolute;
+    right: 0px;
+    width: 400px;
+    height: 100%;
+    display: flex;
+    img {
+      width: 100%;
+    }
+  }
+  padding: 64px 0;
+  .carousel {
+    .slide {
+      background: transparent !important;
+      background: transparent !important;
+      text-align: left;
+    }
+  }
+}
