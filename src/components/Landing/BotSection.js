@@ -15,7 +15,7 @@ class BotSection extends Component {
     this.state = { messages: [], msg: "" };
   }
   componentDidMount() {
-    this.initializeScoketIo();
+    // this.initializeScoketIo();
   }
   initializeScoketIo = () => {
     let scope = this;
