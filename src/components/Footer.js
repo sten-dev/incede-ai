@@ -13,12 +13,14 @@ const Footer = class extends React.Component {
       <footer className="footer">
         <Container>
           <Row>
-            <Col md="3" sm="12" lg="3">
+            <Col md="12" sm="12" lg="12">
               <img
                 src={logo}
                 alt="incede.ai"
                 style={{ width: "10em", height: "6.5em" }}
               />
+            </Col>
+            <Col md="3" sm="12" lg="3">
               <section className="half-menu">
                 <ul className="list-unstyled">
                   <li>
@@ -27,17 +29,17 @@ const Footer = class extends React.Component {
                     </Link>
                   </li>
                   <li>
-                    <Link className="navbar-item" to="/about">
+                    <Link className="navbar-item" to="/">
                       About us
                     </Link>
                   </li>
                   <li>
-                    <Link className="navbar-item" to="/products">
+                    <Link className="navbar-item" to="/">
                       Our Customers
                     </Link>
                   </li>
                   <li>
-                    <Link className="navbar-item" to="/contact/examples">
+                    <Link className="navbar-item" to="/">
                       Contact
                     </Link>
                   </li>
@@ -51,17 +53,17 @@ const Footer = class extends React.Component {
                     <h6>What We Do</h6>
                   </li>
                   <li>
-                    <Link className="navbar-item" to="/about">
+                    <Link className="navbar-item" to="/">
                       Services
                     </Link>
                   </li>
                   <li>
-                    <Link className="navbar-item" to="/products">
+                    <Link className="navbar-item" to="/">
                       Solutions
                     </Link>
                   </li>
                   <li>
-                    <Link className="navbar-item" to="/contact/examples">
+                    <Link className="navbar-item" to="/">
                       Industries
                     </Link>
                   </li>

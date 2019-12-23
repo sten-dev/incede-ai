@@ -14,17 +14,23 @@ footer {
       font-weight: 500;
       font-size: large;
     }
-    section {
-      padding: 120px 32px;
-      &.half-menu {
-        padding: 16px 0;
-      }
-      &.social {
-        padding: 120px 32px;
+    // section {
+    //   padding: 120px 32px;
+    //   &.half-menu {
+    //     padding: 16px 0;
+    //   }
+    //   &.social {
+    //     padding: 120px 32px;
+    //   }
+    // }
+    .social {
+      margin-bottom: 24px;
+      a {
+        padding: 12px;
       }
     }
-    .social a {
-      padding: 12px;
+    li {
+      margin-bottom: 16px;
     }
   }
 }

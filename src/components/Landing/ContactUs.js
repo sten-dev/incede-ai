@@ -31,8 +31,7 @@ const ContactUs = props => {
                 <CardBody>
                   <h2 className="contact-title">{location.title}</h2>
                   <h6 className="contact-subtitle text-uppercase">{location.subTitle}</h6>
-                </CardBody>
-                <CardBody>
+                  <br />
                   <div>
                     <img
                       src={call}
