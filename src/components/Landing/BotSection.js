@@ -142,7 +142,7 @@ class BotSection extends Component {
                       x.type === "options" &&
                       x.options.map(option => (
                         <div onPress={() => this.handleOnOptionClick(option)}>
-                          <div style={styles.waOption}>
+                          <div>
                             <p>{option.label}</p>
                           </div>
                         </div>
