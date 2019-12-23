@@ -24,7 +24,7 @@ class CaseStudies extends React.Component {
                 <div key={i}>
                   <Row>
                     <Col lg={6} md={5}>
-                      <h4 className="text-white header">Case Studies</h4>
+                      <h4 className="text-white display-4 header">Case Studies</h4>
                       <p className="text-white title">{caseStudy.title}</p>
                       <small className="text-white description">{caseStudy.description}</small>
                       <br />
