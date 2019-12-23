@@ -4,6 +4,9 @@ section {
       position: absolute;
       right: 0px;
       width: 460px;
+      img {
+        width: 100%;
+      }
     }
     .position-initial {
       position: initial !important;
