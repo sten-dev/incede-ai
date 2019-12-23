@@ -35,9 +35,6 @@ class BotSection extends Component {
       let data = message;
       if (data.success === undefined) {
         if (!scope.session_id || scope.session_id === data.session_id) {
-          if (!scope.session_id) {
-            scope.sessionTimeOut = new Date().getTime() + 4 * 60 * 1000;
-          }
           scope.session_id = data.session_id;
           if (data && data.context && data.context.skills) {
             scope.myData = data.context.skills["main skill"].user_defined;
@@ -75,9 +72,6 @@ class BotSection extends Component {
   };
 
   sendMessage = () => {
-    if (!this.session_id || new Date().getTime() > this.sessionTimeOut) {
-      this.session_id = undefined;
-    }
     let data = {
       payload: this.state.msg,
       params: { session_id: this.session_id },

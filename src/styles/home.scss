@@ -2,8 +2,11 @@ section {
   &.landing-home {
     .image-section {
       position: absolute;
-      right: -200px;
+      right: 0px;
       width: 460px;
+    }
+    .position-initial {
+      position: initial !important;
     }
   }
 }

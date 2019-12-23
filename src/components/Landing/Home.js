@@ -26,7 +26,7 @@ class Home extends React.Component {
                   {/* <pre>{JSON.stringify(home, null, 2)}</pre> */}
                 </article>
               </Col>
-              <Col lg={4} md={5} className="d-none d-md-block">
+              <Col lg={4} md={5} className="d-none d-md-block position-initial">
                 <div className="image-section">
                   <PreviewCompatibleImage
                     imageInfo={{
