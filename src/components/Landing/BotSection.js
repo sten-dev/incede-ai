@@ -21,8 +21,8 @@ class BotSection extends Component {
     let scope = this;
     this.socket = socketIO("wss://cc-api.mybluemix.net", {
       path: "/socket.io/cin",
-      transports: ["websocket"],
-      jsonp: false
+      // transports: ["websocket"],
+      // jsonp: false
     });
     this.socket.connect();
 
