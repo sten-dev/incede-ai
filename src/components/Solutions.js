@@ -11,7 +11,7 @@ class Solutions extends React.Component {
     const { edges: solutions } = data.allMarkdownRemark;
     console.log(solutions);
     return (
-      <section class="solutions gap-y">
+      <section className="solutions gap-y">
         <Container>
           <Row>
             <Col>
