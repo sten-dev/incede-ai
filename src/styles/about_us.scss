@@ -3,6 +3,15 @@
 section {
   &.about {
     background: $primary;
+    .title {
+      letter-spacing: 0.76px;
+      line-height: 67px;
+    }
+    .sub-title {
+      font-size: 22px;
+      letter-spacing: 0.55px;
+      line-height: 44px;
+    }
     h1,
     h6 {
       color: $white;

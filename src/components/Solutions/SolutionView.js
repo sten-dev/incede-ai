@@ -14,7 +14,7 @@ const SolutionView = ({ solution }) => {
           }}
         />
       </div>
-      <CardBody className="text-center">
+      <CardBody className="text-center pt-0">
         <h4>{solution.title}</h4>
         <h6 className="subTitle">{solution.subTitle}</h6>
       </CardBody>

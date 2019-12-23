@@ -3,6 +3,7 @@ import { Container, Row, Col } from "reactstrap";
 import "../../styles/home.scss";
 import PreviewCompatibleImage from "../PreviewCompatibleImage";
 import INavbar from "../Navbar";
+import arrow from "../../img/arrow.svg"
 class Home extends React.Component {
   state = {};
   render() {
@@ -20,7 +21,12 @@ class Home extends React.Component {
                   <h3>{home.subTitle}</h3>
                   <div className="py-2">
                     <button type="button" className="btn btn-secondary btn-lg">
-                      {home.button} <i className="fas fa chevron-down"></i>
+                      {home.button}
+                      <img
+                        src={arrow}
+                        alt="next"
+                        style={{ width: "12px", }}
+                      />
                     </button>
                   </div>
                   {/* <pre>{JSON.stringify(home, null, 2)}</pre> */}

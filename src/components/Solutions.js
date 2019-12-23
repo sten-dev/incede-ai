@@ -15,7 +15,7 @@ class Solutions extends React.Component {
         <Container>
           <Row>
             <Col>
-              <h1 className="display-4 text-primary">What we do</h1>
+              <h1 className="display-4 title text-primary">What we do</h1>
             </Col>
           </Row>
           <Row>

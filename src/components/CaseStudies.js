@@ -6,6 +6,7 @@ import { Carousel } from 'react-responsive-carousel';
 import "../styles/case-studies.scss";
 import { Container, Row, Col } from 'reactstrap';
 import PreviewCompatibleImage from './PreviewCompatibleImage';
+import arrow from "../img/arrow.svg"
 
 class CaseStudies extends React.Component {
   render() {
@@ -29,7 +30,11 @@ class CaseStudies extends React.Component {
                       <br />
                       <br />
                       <button type="button" className="btn btn-secondary btn-lg">
-                        Download Case Study <i className="fas fa chevron-down"></i>
+                        Download Case Study <img
+                          src={arrow}
+                          alt="next"
+                          style={{ width: "12px", marginTop: "6px" }}
+                        />
                       </button>
                     </Col>
                     <Col lg={5} md={7} className="d-none d-md-block position-initial">
