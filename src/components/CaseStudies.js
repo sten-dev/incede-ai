@@ -25,6 +25,15 @@ class CaseStudies extends React.Component {
                   <Row>
                     <Col lg={6} md={5}>
                       <h4 className="text-white display-4 header">Case Studies</h4>
+                      <div className="xs-image d-block d-sm-none">
+                        <PreviewCompatibleImage
+                          imageInfo={{
+                            image: caseStudy.image,
+                            alt: `case study`,
+                            style: { width: "100%", height: "250px", marginBottom: 16 }
+                          }}
+                        />
+                      </div>
                       <p className="text-white title">{caseStudy.title}</p>
                       <small className="text-white description">{caseStudy.description}</small>
                       <br />
