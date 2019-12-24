@@ -56,7 +56,7 @@ class BotSection extends Component {
           }
         });
         this.setState({
-          messages
+          messages: messages.reverse()
         });
       }
     }
