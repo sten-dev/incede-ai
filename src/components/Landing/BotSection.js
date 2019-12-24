@@ -14,6 +14,9 @@ class BotSection extends Component {
   constructor(props) {
     super(props);
     this.state = { messages: [], msg: "" };
+    this.roomName = localStorage.getItem("roomName");
+    this.roomId = localStorage.getItem("roomId");
+    this.wASessionId = localStorage.getItem("wASessionId");
   }
   componentDidMount() {
     this.initializeSocketIo();
@@ -37,9 +40,7 @@ class BotSection extends Component {
     });
     let messages = [];
     let time = new Date().getTime();
-    this.roomName = localStorage.getItem("roomName");
-    this.roomId = localStorage.getItem("roomId");
-    this.wASessionId = localStorage.getItem("wASessionId");
+   
     if (this.roomId) {
       let chatsResp = await httpClient("chats", "POST", {
         roomId: this.roomId
