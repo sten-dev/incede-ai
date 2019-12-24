@@ -8,7 +8,9 @@ import socketIO from "socket.io-client";
 import { API_URL, SOCKET_PATHS, httpClient } from "../../constants";
 
 class BotSection extends Component {
-  time = undefined;
+  roomName = undefined;
+  roomId;
+  wASessionId;
   constructor(props) {
     super(props);
     this.state = { messages: [], msg: "" };
@@ -34,12 +36,14 @@ class BotSection extends Component {
       console.debug("connected to server");
     });
     let messages = [];
-    this.time = new Date().getTime();
-    let roomName = localStorage.getItem("roomName");
-    let roomId = localStorage.getItem("roomId");
-    let wASessionId = localStorage.getItem("wASessionId");
-    if (roomId) {
-      let chatsResp = await httpClient("chats", "POST", { roomId });
+    let time = new Date().getTime();
+    this.roomName = localStorage.getItem("roomName");
+    this.roomId = localStorage.getItem("roomId");
+    this.wASessionId = localStorage.getItem("wASessionId");
+    if (this.roomId) {
+      let chatsResp = await httpClient("chats", "POST", {
+        roomId: this.roomId
+      });
       if (chatsResp.success === true) {
         chatsResp.data.forEach(x => {
           if (x.TEXT) {
@@ -52,15 +56,15 @@ class BotSection extends Component {
           }
         });
         this.setState({
-          messages
+          messages: messages.reverse()
         });
       }
     }
     this.socket.emit(SOCKET_PATHS.CONNECT, {
       payload: "",
-      roomName: roomName ? roomName : "room" + this.time,
-      roomId: roomId ? roomId : undefined,
-      wASessionId: wASessionId ? wASessionId : undefined
+      roomName: this.roomName ? this.roomName : "room" + time,
+      roomId: this.roomId ? this.roomId : undefined,
+      wASessionId: this.wASessionId ? this.wASessionId : undefined
     });
 
     this.socket.on(SOCKET_PATHS.BOT_RESPONSE, (eventName, response) => {
@@ -75,89 +79,56 @@ class BotSection extends Component {
           localStorage.setItem("wASessionId", response.sessionId);
           localStorage.setItem("roomId", response.roomId);
           localStorage.setItem("roomName", response.roomName);
-          let data = response.data;
-          if (data && Array.isArray(data)) {
-            // scope.myData = data.context.skills["main skill"].user_defined;
-            messages = [...this.state.messages];
-            data.forEach(x => {
-              if (x.text || x.title) {
-                messages.push({
-                  user: "WA",
-                  message: x.options ? x.title : x.text,
-                  type: x.options ? "options" : "text",
-                  options: x.options || []
-                });
-              }
-            });
-            this.setState({
-              messages
-            });
-          }
-        } else {
-          if (response.success === false) {
+         } else {
+          // if (response.success === false) {
             console.error(response);
-          }
-        }
-      } else {
-        if (eventName === "WATSON") {
-        } else {
-          console.warn(eventName, response);
+          // }e;s
         }
       }
-      // if (data.newRoom === undefined) {
-      //   if (!scope.session_id || scope.session_id === data.session_id) {
-      //     scope.session_id = data.session_id;
-      //     if (data && data.context && data.context.skills) {
-      //       scope.myData = data.context.skills["main skill"].user_defined;
-      //       let messages = [...this.state.messages];
-      //       data.output.generic.forEach(x => {
-      //         if (x.text || x.title) {
-      //           messages.push({
-      //             user: "WA",
-      //             message: x.options ? x.title : x.text,
-      //             type: x.options ? "options" : "text",
-      //             options: x.options || []
-      //           });
-      //         }
-      //       });
-      //       this.setState({
-      //         messages
-      //       });
-      //     }
-      //   }
-      // } else {
-      //   if (!scope.session_id || scope.session_id === data.session_id) {
-      //     let messages = [...this.state.messages];
-      //     if (data.message && (!data.type || data.type != "user")) {
-      //       messages.push({
-      //         user: data.type === "user" ? "US" : "WA",
-      //         message: data.message
-      //       });
-      //     }
-      //     this.setState({
-      //       messages
-      //     });
-      //   }
-      // }
+
+      if (eventName === "WATSON") {
+        let data = response.data;
+        if (data && Array.isArray(data)) {
+          // scope.myData = data.context.skills["main skill"].user_defined;
+          messages = [...this.state.messages];
+          data.forEach(x => {
+            if (x.text || x.title) {
+              messages.push({
+                user: "WA",
+                message: x.options ? x.title : x.text,
+                type: x.options ? "options" : "text",
+                options: x.options || []
+              });
+            }
+          });
+          this.setState({
+            messages
+          });
+        }
+      } else {
+        console.warn(eventName, response);
+      }
     });
   };
 
   send = () => {
-    console.log("time", this.time);
+    // console.log("time", this.time);
     let data = {
       comment: this.state.msg,
-      params: { session_id: this.session_id },
-      username: "user",
-      roomName: "room" + this.time
+      wASessionId: this.wASessionId,
+      roomName: this.roomName,
+      roomId: this.roomId
     };
     this.sendMessage(data, this.state.msg);
   };
 
   handleOnOptionClick = option => {
     let data = {
-      payload: option.value.input.text,
-      params: { session_id: this.session_id },
-      user: "user"
+      comment: option.value.input.text,
+      wASessionId: this.wASessionId,
+      user: "user",
+      roomName: this.roomName,
+      roomId: this.roomId
     };
     this.sendMessage(data, option.value.input.text);
   };
