@@ -150,7 +150,7 @@ class BotSection extends Component {
     // console.log("time", this.time);
     let data = {
       comment: this.state.msg,
-      params: { wASessionId: this.wASessionId },
+      wASessionId: this.wASessionId,
       // username: "user",
       roomId: this.roomId
     };
@@ -160,7 +160,7 @@ class BotSection extends Component {
   handleOnOptionClick = option => {
     let data = {
       payload: option.value.input.text,
-      params: { wASessionId: this.wASessionId },
+      wASessionId: this.wASessionId,
       user: "user",
       roomId: this.roomId
     };
