@@ -5,7 +5,7 @@ import logo from "../../img/logo_white.svg";
 import { ChatPill } from "./bot/ChatPill";
 import { ChatPillAsk } from "./bot/ChatPillAsk";
 import socketIO from "socket.io-client";
-import { API_URL, SOCKET_PATHS } from "../../constants";
+import { API_URL, SOCKET_PATHS, httpClient } from "../../constants";
 
 class BotSection extends Component {
   time = undefined;
@@ -22,7 +22,7 @@ class BotSection extends Component {
       msg: eve.target.value
     });
   };
-  initializeSocketIo = () => {
+  initializeSocketIo = async () => {
     // let scope = this;
     this.socket = socketIO.connect(API_URL, {
       reconnection: true,
@@ -33,20 +33,34 @@ class BotSection extends Component {
     this.socket.on("connect", function() {
       console.debug("connected to server");
     });
-
+    let messages = [];
     this.time = new Date().getTime();
-
+    let roomName = localStorage.getItem("roomName");
+    let roomId = localStorage.getItem("roomId");
+    let wASessionId = localStorage.getItem("wASessionId");
+    if (roomId) {
+      let chatsResp = await httpClient("chats", "POST", { roomId });
+      if (chatsResp.success === true) {
+        chatsResp.data.forEach(x => {
+          if (x.TEXT) {
+            messages.push({
+              user: x.USER === "WATSON" ? "WA" : "ME",
+              message: x.options ? x.title : x.TEXT,
+              type: x.options ? "options" : "text",
+              options: x.options || []
+            });
+          }
+        });
+        this.setState({
+          messages
+        });
+      }
+    }
     this.socket.emit(SOCKET_PATHS.CONNECT, {
       payload: "",
-      roomName: localStorage.getItem("roomName")
-        ? localStorage.getItem("roomName")
-        : "room" + this.time,
-      roomId: localStorage.getItem("roomId")
-        ? localStorage.getItem("roomId")
-        : undefined,
-      wASessionId: localStorage.getItem("wASessionId")
-        ? localStorage.getItem("wASessionId")
-        : undefined
+      roomName: roomName ? roomName : "room" + this.time,
+      roomId: roomId ? roomId : undefined,
+      wASessionId: wASessionId ? wASessionId : undefined
     });
 
     this.socket.on(SOCKET_PATHS.BOT_RESPONSE, (eventName, response) => {
@@ -64,7 +78,7 @@ class BotSection extends Component {
           let data = response.data;
           if (data && Array.isArray(data)) {
             // scope.myData = data.context.skills["main skill"].user_defined;
-            let messages = [...this.state.messages];
+            messages = [...this.state.messages];
             data.forEach(x => {
               if (x.text || x.title) {
                 messages.push({
