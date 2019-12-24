@@ -9,7 +9,9 @@ import {
 import call from "../../img/call.svg";
 import location_icon from "../../img/location.svg";
 import mail from "../../img/mail.svg";
+import contact_us from "../../img/contact-us.svg";
 import "../../styles/contact-us.scss";
+
 const ContactUs = props => {
   let { location } = props;
   return (
@@ -23,31 +25,39 @@ const ContactUs = props => {
           // xs={12}
           >
             <article className="gap-y">
-              <h1 className="display-4 text-primary">Contact Us</h1>
+              <h1 className="display-4 semi-bold text-primary">Contact Us</h1>
+              <br />
+              <br className="d-block d-sm-none" />
+              <div>
+
+              </div>
               <Card className="contact-us-card">
-                <CardBody>
-                  <h2 className="contact-title">{location.title}</h2>
-                  <h6 className="contact-subtitle text-uppercase">{location.subTitle}</h6>
-                  <br />
-                  <div>
-                    <img
-                      src={call}
-                      alt="call"
-                    /><em>{location.phone}</em>
-                  </div>
-                  <div>
-                    <p className="mb-0">
-                      <img
-                        src={mail}
-                        alt="mail"
-                      />
-                      {location.email}</p>
-                  </div>
+
+                <CardBody className="p-0 d-none d-sm-block">
                   <div className="d-flex">
-                    <img
-                      src={location_icon}
-                      alt="location"
-                    /><address className="mb-0">{location.address}</address>
+                    <div>
+                      <img
+                        src={contact_us}
+                        alt="contact"
+                      />
+                    </div>
+                    <div className="pt-4">
+                      <ContactInfo location={location} />
+                    </div>
+                  </div>
+                </CardBody>
+                <CardBody className="p-0  d-block d-sm-none">
+                  <div className="d-flex flex-column">
+                    <div>
+                      <img
+                        className="d-block d-sm-none xs-image"
+                        src={contact_us}
+                        alt="contact"
+                      />
+                    </div>
+                    <div className="p-4">
+                      <ContactInfo location={location} />
+                    </div>
                   </div>
                 </CardBody>
               </Card>
@@ -58,5 +68,36 @@ const ContactUs = props => {
     </section>
   );
 };
+
+const ContactInfo = (props) => {
+  let location = props.location
+  return (<React.Fragment>
+    <h2 className="contact-title">{location.title}</h2>
+    <h6 className="contact-subtitle semi-bold text-uppercase fs-16">{location.subTitle}</h6>
+    <br />
+    <div>
+      <img
+        src={call}
+        alt="call"
+      /><em>{location.phone}</em>
+    </div>
+    <br />
+    <div>
+      <p className="mb-0">
+        <img
+          src={mail}
+          alt="mail"
+        />
+        {location.email}</p>
+    </div>
+    <br />
+    <div className="d-flex">
+      <img
+        src={location_icon}
+        alt="location"
+      /><address className="mb-0">{location.address}</address>
+    </div>
+  </React.Fragment>);
+}
 
 export default ContactUs;

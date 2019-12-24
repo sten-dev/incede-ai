@@ -9,13 +9,18 @@
     color: #a1a1a1;
   }
   .contact-us-card {
-    .card-body {
-      > div {
-        margin-bottom: 8px;
-      }
-    }
+    background: #ffffff;
+    box-shadow: 2px 2px 12px -1px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    border-radius: 4px;
     img {
       margin-right: 8px;
+    }
+    .xs-image {
+      width: 106%;
+      height: 150px;
+      object-fit: cover;
+      object-position: 15% 22%;
     }
   }
 }
