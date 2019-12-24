@@ -159,7 +159,7 @@ class BotSection extends Component {
 
   handleOnOptionClick = option => {
     let data = {
-      payload: option.value.input.text,
+      comment: option.value.input.text,
       wASessionId: this.wASessionId,
       user: "user",
       roomId: this.roomId
