@@ -5,11 +5,10 @@ import logo from "../../img/logo_white.svg";
 import { ChatPill } from "./bot/ChatPill";
 import { ChatPillAsk } from "./bot/ChatPillAsk";
 import socketIO from "socket.io-client";
-import { API_URL } from "../../constants";
-
+import { API_URL, SOCKET_PATHS } from "../../constants";
 
 class BotSection extends Component {
-  time = undefined
+  time = undefined;
   constructor(props) {
     super(props);
     this.state = { messages: [], msg: "" };
@@ -17,35 +16,33 @@ class BotSection extends Component {
   componentDidMount() {
     this.initializeSocketIo();
   }
-  handleMessageChange = (event) => {
+  handleMessageChange = event => {
     let eve = { ...event };
     this.setState({
       msg: eve.target.value
-    })
-  }
+    });
+  };
   initializeSocketIo = () => {
     let scope = this;
-    this.socket = socketIO.connect(API_URL);
+    this.socket = socketIO.connect(API_URL, {
+      reconnection: true,
+      reconnectionDelay: 1000,
+      reconnectionDelayMax: 5000,
+      reconnectionAttempts: 5
+    });
+    this.socket.on("connect", function() {
+      console.debug("connected to server");
+    });
 
-    // this.socket.on('connect', function () {
-    //   console.log("connected")
-    // });
-    // this.socket.on('event', function (data) {
-    //   console.log("event", data)
-    // });
-    // this.socket.on('disconnect', function () {
-    //   console.log("disconnect")
-    // });
-    this.socket.connect();
-    this.time = new Date().getTime()
-    this.socket.emit("create", {
+    this.time = new Date().getTime();
+    this.socket.emit(SOCKET_PATHS.CONNECT, {
       payload: "",
       room: "room" + this.time,
       username: "user" + this.time
     });
 
-    this.socket.on("sendmessage", (message, newData) => {
-      console.log("send message", message)
+    this.socket.on(SOCKET_PATHS.BOT_RESPONSE, (message, newData) => {
+      console.info(SOCKET_PATHS.BOT_RESPONSE, message);
       let data = message;
       if (data.success === undefined) {
         if (!scope.session_id || scope.session_id === data.session_id) {
@@ -91,15 +88,9 @@ class BotSection extends Component {
       comment: this.state.msg,
       params: { session_id: this.session_id },
       username: "user",
-      room: "room" + this.time,
+      room: "room" + this.time
     };
-    this.socket.emit("sendchat", data);
-    let messages = [...this.state.messages];
-    messages.push({ user: "ME", message: this.state.msg, type: "text" });
-    this.setState({
-      messages,
-      msg: ""
-    });
+    this.sendMessage(data, this.state.msg);
   };
 
   handleOnOptionClick = option => {
@@ -108,14 +99,18 @@ class BotSection extends Component {
       params: { session_id: this.session_id },
       user: "user"
     };
-    this.socket.emit("sendchat", data);
+    this.sendMessage(data, option.value.input.text);
+  };
+
+  sendMessage(data, message) {
+    this.socket.emit(SOCKET_PATHS.CONNECT, data);
     let messages = [...this.state.messages];
-    messages.push({ user: "ME", message: option.value.input.text });
+    messages.push({ user: "ME", message: message, type: "text" });
     this.setState({
       messages,
       msg: ""
     });
-  };
+  }
 
   render() {
     return (
@@ -141,10 +136,10 @@ class BotSection extends Component {
           <Row>
             <Col>
               <section className="chat d-flex flex-column flex-grow-1">
-                <ChatPill text="Our solutions provide outsome-based answers to the business problems." />
+                {/* <ChatPill text="Our solutions provide outsome-based answers to the business problems." />
                 <ChatPill text="Which solutions are you looking for?" />
                 <ChatPill right text="Customer Analytics" />
-                <ChatPill text="You can use our customer analytics solution to target the right customers with predictive modeling. Identify dissatisfied customers by uncovering patterns of behavior. Address customer service issues faster by correlating and analyzing a variety of data." />
+                <ChatPill text="You can use our customer analytics solution to target the right customers with predictive modeling. Identify dissatisfied customers by uncovering patterns of behavior. Address customer service issues faster by correlating and analyzing a variety of data." /> */}
                 {this.state.messages.map((x, i) => (
                   <div key={i}>
                     <ChatPill right={x.user === "ME"} text={x.message} />
