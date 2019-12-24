@@ -9,6 +9,7 @@ import IndexPagePreview from './preview-templates/IndexPagePreview'
 import SolutionsPostPreview from './preview-templates/SolutionsPostPreview'
 import CaseStudyPreview from './preview-templates/CaseStudyPreview'
 import ServicePreview from './preview-templates/ServicePreview'
+import IndustriesPreview from './preview-templates/IndustryPreview'
 
 
 CMS.registerMediaLibrary(uploadcare)
@@ -20,4 +21,5 @@ CMS.registerPreviewTemplate('products', ProductPagePreview)
 CMS.registerPreviewTemplate('blog', BlogPostPreview)
 CMS.registerPreviewTemplate('solutions', SolutionsPostPreview)
 CMS.registerPreviewTemplate('services', ServicePreview)
+CMS.registerPreviewTemplate('industries', IndustriesPreview)
 CMS.registerPreviewTemplate('case-study', CaseStudyPreview)
