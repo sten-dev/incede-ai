@@ -7,6 +7,7 @@ import facebook from "../img/social/facebook.svg";
 import instagram from "../img/social/instagram.svg";
 import twitter from "../img/social/twitter.svg";
 import { Row, Container, Col } from "reactstrap";
+import FooterLocation from "./FooterLocation";
 const Footer = class extends React.Component {
   render() {
     return (
@@ -72,21 +73,7 @@ const Footer = class extends React.Component {
             </Col>
             <Col md="3" sm="12" lg="3">
               <section className="menu">
-                <ul className="list-unstyled">
-                  <li>
-                    <h6>Contact Us</h6>
-                  </li>
-
-                  <li>
-                    <p>408-898-4606, info@locussolutions,com</p>
-                  </li>
-                  <li>
-                    <address>
-                      5201 Great American Parkway, Suite #320, Santa Clara, CA
-                      95054
-                    </address>
-                  </li>
-                </ul>
+                <FooterLocation />
               </section>
             </Col>
             <Col md="3" sm="12" lg="3">
