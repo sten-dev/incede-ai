@@ -28,7 +28,7 @@ class Services extends React.Component {
   }
 }
 
-Solutions.propTypes = {
+Services.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
       edges: PropTypes.array
