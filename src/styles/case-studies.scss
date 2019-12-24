@@ -1,6 +1,12 @@
 @import "../bs";
 .case-studies {
   background: $primary;
+  .carousel.carousel-slider {
+    overflow: initial;
+    .control-dots {
+      bottom: -35px;
+    }
+  }
   .header {
     font-size: 70px;
     font-weight: 400;

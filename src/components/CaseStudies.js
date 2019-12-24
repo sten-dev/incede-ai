@@ -17,7 +17,7 @@ class CaseStudies extends React.Component {
     return (
       <section className="case-studies">
         <Container>
-          <Carousel showThumbs={false} showStatus={false} infiniteLoop={true} showArrows={false}>
+          <Carousel showThumbs={false} showStatus={false} infiniteLoop={false} showArrows={false}>
             {caseStudies.map((x, i) => {
               let caseStudy = x.node.frontmatter;
               return (
