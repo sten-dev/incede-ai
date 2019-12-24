@@ -5,33 +5,39 @@ import logo from "../../img/logo_white.svg";
 import { ChatPill } from "./bot/ChatPill";
 import { ChatPillAsk } from "./bot/ChatPillAsk";
 import socketIO from "socket.io-client";
+import { API_URL } from "../../constants";
 
-// const ws = io("wss://cc-api.mybluemix.net", {
-//   path: "/socket.io/cin"
-// });
 class BotSection extends Component {
   constructor(props) {
     super(props);
     this.state = { messages: [], msg: "" };
   }
   componentDidMount() {
-    // this.initializeScoketIo();
+    this.initializeSocketIo();
   }
-  initializeScoketIo = () => {
+  initializeSocketIo = () => {
     let scope = this;
-    this.socket = socketIO("wss://cc-api.mybluemix.net", {
-      path: "/socket.io/cin",
-      // transports: ["websocket"],
-      // jsonp: false
-    });
+    this.socket = socketIO.connect(API_URL);
+
+    // this.socket.on('connect', function () {
+    //   console.log("connected")
+    // });
+    // this.socket.on('event', function (data) {
+    //   console.log("event", data)
+    // });
+    // this.socket.on('disconnect', function () {
+    //   console.log("disconnect")
+    // });
     this.socket.connect();
 
-    this.socket.emit("chat message", {
+    this.socket.emit("create", {
       payload: "",
-      params: {}
+      room: "test",
+      username: "test"
     });
 
-    this.socket.on("chat message", message => {
+    this.socket.on("sendmessage", (message, newData) => {
+      console.log("send message", message)
       let data = message;
       if (data.success === undefined) {
         if (!scope.session_id || scope.session_id === data.session_id) {
@@ -73,11 +79,11 @@ class BotSection extends Component {
 
   sendMessage = () => {
     let data = {
-      payload: this.state.msg,
+      comment: this.state.msg,
       params: { session_id: this.session_id },
-      user: "user"
+      username: "user"
     };
-    this.socket.emit("chat message", data);
+    this.socket.emit("sendchat", data);
     let messages = [...this.state.messages];
     messages.push({ user: "ME", message: this.state.msg, type: "text" });
     this.setState({
