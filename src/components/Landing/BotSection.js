@@ -79,70 +79,35 @@ class BotSection extends Component {
           localStorage.setItem("wASessionId", response.sessionId);
           localStorage.setItem("roomId", response.roomId);
           localStorage.setItem("roomName", response.roomName);
-          let data = response.data;
-          if (data && Array.isArray(data)) {
-            // scope.myData = data.context.skills["main skill"].user_defined;
-            messages = [...this.state.messages];
-            data.forEach(x => {
-              if (x.text || x.title) {
-                messages.push({
-                  user: "WA",
-                  message: x.options ? x.title : x.text,
-                  type: x.options ? "options" : "text",
-                  options: x.options || []
-                });
-              }
-            });
-            this.setState({
-              messages
-            });
-          }
-        } else {
-          if (response.success === false) {
+         } else {
+          // if (response.success === false) {
             console.error(response);
-          }
-        }
-      } else {
-        if (eventName === "WATSON") {
-        } else {
-          console.warn(eventName, response);
+          // }e;s
         }
       }
-      // if (data.newRoom === undefined) {
-      //   if (!scope.session_id || scope.session_id === data.session_id) {
-      //     scope.session_id = data.session_id;
-      //     if (data && data.context && data.context.skills) {
-      //       scope.myData = data.context.skills["main skill"].user_defined;
-      //       let messages = [...this.state.messages];
-      //       data.output.generic.forEach(x => {
-      //         if (x.text || x.title) {
-      //           messages.push({
-      //             user: "WA",
-      //             message: x.options ? x.title : x.text,
-      //             type: x.options ? "options" : "text",
-      //             options: x.options || []
-      //           });
-      //         }
-      //       });
-      //       this.setState({
-      //         messages
-      //       });
-      //     }
-      //   }
-      // } else {
-      //   if (!scope.session_id || scope.session_id === data.session_id) {
-      //     let messages = [...this.state.messages];
-      //     if (data.message && (!data.type || data.type != "user")) {
-      //       messages.push({
-      //         user: data.type === "user" ? "US" : "WA",
-      //         message: data.message
-      //       });
-      //     }
-      //     this.setState({
-      //       messages
-      //     });
-      //   }
-      // }
+
+      if (eventName === "WATSON") {
+        let data = response.data;
+        if (data && Array.isArray(data)) {
+          // scope.myData = data.context.skills["main skill"].user_defined;
+          messages = [...this.state.messages];
+          data.forEach(x => {
+            if (x.text || x.title) {
+              messages.push({
+                user: "WA",
+                message: x.options ? x.title : x.text,
+                type: x.options ? "options" : "text",
+                options: x.options || []
+              });
+            }
+          });
+          this.setState({
+            messages
+          });
+        }
+      } else {
+        console.warn(eventName, response);
+      }
     });
   };
 
@@ -151,7 +116,7 @@ class BotSection extends Component {
     let data = {
       comment: this.state.msg,
       wASessionId: this.wASessionId,
-      // username: "user",
+      roomName: this.roomName,
       roomId: this.roomId
     };
     this.sendMessage(data, this.state.msg);
@@ -162,6 +127,7 @@ class BotSection extends Component {
       comment: option.value.input.text,
       wASessionId: this.wASessionId,
       user: "user",
+      roomName: this.roomName,
       roomId: this.roomId
     };
     this.sendMessage(data, option.value.input.text);
