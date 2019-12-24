@@ -4,8 +4,6 @@ import { graphql, StaticQuery } from 'gatsby'
 
 class FooterLocation extends React.Component {
     render() {
-
-        console.log("footer location", this.props)
         const { location } = this.props
         return (
             <ul className="list-unstyled">
@@ -40,23 +38,6 @@ export default () => (
     query FooterLocationTemplate {
         markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
           frontmatter {
-            home {
-              title
-              subTitle
-              button
-              image {
-                childImageSharp {
-                  fluid(maxWidth: 240, quality: 100) {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
-            }
-            about {
-              title
-              subTitle
-              button
-            }
             location {
               title
               subTitle
