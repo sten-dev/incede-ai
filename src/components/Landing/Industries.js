@@ -8,7 +8,7 @@ class Industries extends React.Component {
   render() {
     const { data } = this.props;
     const { edges: industries } = data.allMarkdownRemark;
-    console.log("industries", industries);
+    // console.log("industries", industries);
     return (
       <section className="industries gap-y">
         <Container>

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 
@@ -11,7 +11,7 @@ export const CaseStudyTemplate = ({
     image,
     helmet,
 }) => {
-    console.log("case study", image)
+    // console.log("case study", image)
     return (
         <section className="section">
             {helmet || ''}

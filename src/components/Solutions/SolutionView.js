@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import PreviewCompatibleImage from "../PreviewCompatibleImage";
 import { Card, CardBody } from "reactstrap";
 

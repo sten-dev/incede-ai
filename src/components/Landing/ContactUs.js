@@ -1,10 +1,7 @@
 import React from "react";
 import {
   Card,
-  CardTitle,
   CardBody,
-  CardText,
-  CardSubtitle,
   Container,
   Row,
   Col

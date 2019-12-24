@@ -1,15 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link, graphql, StaticQuery } from "gatsby";
+import { graphql, StaticQuery } from "gatsby";
 import "../styles/solutions.scss";
-import { Container, Row, Col, Card, CardBody } from "reactstrap";
-import PreviewCompatibleImage from "./PreviewCompatibleImage";
+import { Container, Row, Col } from "reactstrap";
 import SolutionView from "./Solutions/SolutionView";
 class Solutions extends React.Component {
   render() {
     const { data } = this.props;
     const { edges: solutions } = data.allMarkdownRemark;
-    console.log(solutions);
+    // console.log(solutions);
     return (
       <section className="solutions gap-y">
         <Container>
@@ -67,6 +66,6 @@ export default () => (
         }
       }
     `}
-    render={(data, count) => <Solutions data={data} />}
+    render={(data) => <Solutions data={data} />}
   />
 );

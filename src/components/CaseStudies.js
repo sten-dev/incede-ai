@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link, graphql, StaticQuery } from 'gatsby'
+import { graphql, StaticQuery } from 'gatsby'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import "../styles/case-studies.scss";
@@ -13,7 +13,7 @@ class CaseStudies extends React.Component {
     const { data } = this.props
     const { edges: caseStudies } = data.allMarkdownRemark
 
-    console.log("caseStudies", caseStudies);
+    // console.log("caseStudies", caseStudies);
     return (
       <section className="case-studies">
         <Container>

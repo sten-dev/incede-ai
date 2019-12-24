@@ -8,7 +8,7 @@ class Services extends React.Component {
   render() {
     const { data } = this.props;
     const { edges: services } = data.allMarkdownRemark;
-    console.log("services", services);
+    // console.log("services", services);
     return (
       <section className="services gap-y">
         <Container>

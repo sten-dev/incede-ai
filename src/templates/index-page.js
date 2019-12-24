@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 
 import Layout from "../components/Layout";
 import Home from "../components/Landing/Home";
@@ -33,7 +33,7 @@ IndexPageTemplate.propTypes = {
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark;
-  console.log("data index", data);
+  // console.log("data index", data);
   return (
     <Layout>
       <IndexPageTemplate

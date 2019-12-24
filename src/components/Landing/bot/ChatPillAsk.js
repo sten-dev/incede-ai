@@ -11,7 +11,7 @@ export const ChatPillAsk = props => {
           onChange={props.onChange}
           value={props.value}
         />
-        <img src={send} onClick={props.onClick} />
+        <img alt="send" src={send} onClick={props.onClick} />
       </section>
     </div>
   );
