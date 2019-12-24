@@ -1,7 +1,8 @@
 @import "../bs";
 
 section {
-  &.solutions {
+  &.solutions,
+  &.services {
     .title {
       font-size: 70px;
       font-weight: 400;
