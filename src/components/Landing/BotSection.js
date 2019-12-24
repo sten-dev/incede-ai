@@ -5,7 +5,7 @@ import logo from "../../img/logo_white.svg";
 import { ChatPill } from "./bot/ChatPill";
 import { ChatPillAsk } from "./bot/ChatPillAsk";
 import socketIO from "socket.io-client";
-import { API_URL, SOCKET_PATHS } from "../../constants";
+import { API_URL, SOCKET_PATHS, httpClient } from "../../constants";
 
 class BotSection extends Component {
   time = undefined;
@@ -22,8 +22,8 @@ class BotSection extends Component {
       msg: eve.target.value
     });
   };
-  initializeSocketIo = () => {
-    let scope = this;
+  initializeSocketIo = async () => {
+    // let scope = this;
     this.socket = socketIO.connect(API_URL, {
       reconnection: true,
       reconnectionDelay: 1000,
@@ -33,24 +33,53 @@ class BotSection extends Component {
     this.socket.on("connect", function() {
       console.debug("connected to server");
     });
-
+    let messages = [];
     this.time = new Date().getTime();
+    let roomName = localStorage.getItem("roomName");
+    let roomId = localStorage.getItem("roomId");
+    let wASessionId = localStorage.getItem("wASessionId");
+    if (roomId) {
+      let chatsResp = await httpClient("chats", "POST", { roomId });
+      if (chatsResp.success === true) {
+        chatsResp.data.forEach(x => {
+          if (x.TEXT) {
+            messages.push({
+              user: x.USER === "WATSON" ? "WA" : "ME",
+              message: x.options ? x.title : x.TEXT,
+              type: x.options ? "options" : "text",
+              options: x.options || []
+            });
+          }
+        });
+        this.setState({
+          messages
+        });
+      }
+    }
     this.socket.emit(SOCKET_PATHS.CONNECT, {
       payload: "",
-      room: "room" + this.time,
-      username: "user" + this.time
+      roomName: roomName ? roomName : "room" + this.time,
+      roomId: roomId ? roomId : undefined,
+      wASessionId: wASessionId ? wASessionId : undefined
     });
 
-    this.socket.on(SOCKET_PATHS.BOT_RESPONSE, (message, newData) => {
-      console.info(SOCKET_PATHS.BOT_RESPONSE, message);
-      let data = message;
-      if (data.success === undefined) {
-        if (!scope.session_id || scope.session_id === data.session_id) {
-          scope.session_id = data.session_id;
-          if (data && data.context && data.context.skills) {
-            scope.myData = data.context.skills["main skill"].user_defined;
-            let messages = [...this.state.messages];
-            data.output.generic.forEach(x => {
+    this.socket.on(SOCKET_PATHS.BOT_RESPONSE, (eventName, response) => {
+      debugger;
+      console.info(SOCKET_PATHS.BOT_RESPONSE, eventName, response);
+      if (eventName === "SERVER_CONNECT") {
+        console.info("Bot connected, waiting for bot to wakeup");
+        return;
+      }
+      if (response.newRoom === true && eventName === "WATSON") {
+        if (response.sessionId) {
+          localStorage.setItem("wASessionId", response.sessionId);
+          localStorage.setItem("roomId", response.roomId);
+          localStorage.setItem("roomName", response.roomName);
+          let data = response.data;
+          if (data && Array.isArray(data)) {
+            // scope.myData = data.context.skills["main skill"].user_defined;
+            messages = [...this.state.messages];
+            data.forEach(x => {
               if (x.text || x.title) {
                 messages.push({
                   user: "WA",
@@ -64,31 +93,62 @@ class BotSection extends Component {
               messages
             });
           }
+        } else {
+          if (response.success === false) {
+            console.error(response);
+          }
         }
       } else {
-        if (!scope.session_id || scope.session_id === data.session_id) {
-          let messages = [...this.state.messages];
-          if (data.message && (!data.type || data.type != "user")) {
-            messages.push({
-              user: data.type === "user" ? "US" : "WA",
-              message: data.message
-            });
-          }
-          this.setState({
-            messages
-          });
+        if (eventName === "WATSON") {
+        } else {
+          console.warn(eventName, response);
         }
       }
+      // if (data.newRoom === undefined) {
+      //   if (!scope.session_id || scope.session_id === data.session_id) {
+      //     scope.session_id = data.session_id;
+      //     if (data && data.context && data.context.skills) {
+      //       scope.myData = data.context.skills["main skill"].user_defined;
+      //       let messages = [...this.state.messages];
+      //       data.output.generic.forEach(x => {
+      //         if (x.text || x.title) {
+      //           messages.push({
+      //             user: "WA",
+      //             message: x.options ? x.title : x.text,
+      //             type: x.options ? "options" : "text",
+      //             options: x.options || []
+      //           });
+      //         }
+      //       });
+      //       this.setState({
+      //         messages
+      //       });
+      //     }
+      //   }
+      // } else {
+      //   if (!scope.session_id || scope.session_id === data.session_id) {
+      //     let messages = [...this.state.messages];
+      //     if (data.message && (!data.type || data.type != "user")) {
+      //       messages.push({
+      //         user: data.type === "user" ? "US" : "WA",
+      //         message: data.message
+      //       });
+      //     }
+      //     this.setState({
+      //       messages
+      //     });
+      //   }
+      // }
     });
   };
 
-  sendMessage = () => {
+  send = () => {
     console.log("time", this.time);
     let data = {
       comment: this.state.msg,
       params: { session_id: this.session_id },
       username: "user",
-      room: "room" + this.time
+      roomName: "room" + this.time
     };
     this.sendMessage(data, this.state.msg);
   };
@@ -102,7 +162,7 @@ class BotSection extends Component {
     this.sendMessage(data, option.value.input.text);
   };
 
-  sendMessage(data, message) {
+  sendMessage = (data, message) => {
     this.socket.emit(SOCKET_PATHS.CONNECT, data);
     let messages = [...this.state.messages];
     messages.push({ user: "ME", message: message, type: "text" });
@@ -110,7 +170,7 @@ class BotSection extends Component {
       messages,
       msg: ""
     });
-  }
+  };
 
   render() {
     return (
@@ -159,7 +219,7 @@ class BotSection extends Component {
                 value={this.state.msg}
                 onChange={this.handleMessageChange}
                 placeholder={"Enter your name here"}
-                onClick={() => this.sendMessage()}
+                onClick={this.send}
               />
             </Col>
           </Row>
