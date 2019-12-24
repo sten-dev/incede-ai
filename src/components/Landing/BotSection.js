@@ -7,13 +7,21 @@ import { ChatPillAsk } from "./bot/ChatPillAsk";
 import socketIO from "socket.io-client";
 import { API_URL } from "../../constants";
 
+
 class BotSection extends Component {
+  time = undefined
   constructor(props) {
     super(props);
     this.state = { messages: [], msg: "" };
   }
   componentDidMount() {
     this.initializeSocketIo();
+  }
+  handleMessageChange = (event) => {
+    let eve = { ...event };
+    this.setState({
+      msg: eve.target.value
+    })
   }
   initializeSocketIo = () => {
     let scope = this;
@@ -29,11 +37,11 @@ class BotSection extends Component {
     //   console.log("disconnect")
     // });
     this.socket.connect();
-
+    this.time = new Date().getTime()
     this.socket.emit("create", {
       payload: "",
-      room: "test",
-      username: "test"
+      room: "room" + this.time,
+      username: "user" + this.time
     });
 
     this.socket.on("sendmessage", (message, newData) => {
@@ -78,10 +86,12 @@ class BotSection extends Component {
   };
 
   sendMessage = () => {
+    console.log("time", this.time);
     let data = {
       comment: this.state.msg,
       params: { session_id: this.session_id },
-      username: "user"
+      username: "user",
+      room: "room" + this.time,
     };
     this.socket.emit("sendchat", data);
     let messages = [...this.state.messages];
@@ -98,7 +108,7 @@ class BotSection extends Component {
       params: { session_id: this.session_id },
       user: "user"
     };
-    this.socket.emit("chat message", data);
+    this.socket.emit("sendchat", data);
     let messages = [...this.state.messages];
     messages.push({ user: "ME", message: option.value.input.text });
     this.setState({
@@ -136,7 +146,7 @@ class BotSection extends Component {
                 <ChatPill right text="Customer Analytics" />
                 <ChatPill text="You can use our customer analytics solution to target the right customers with predictive modeling. Identify dissatisfied customers by uncovering patterns of behavior. Address customer service issues faster by correlating and analyzing a variety of data." />
                 {this.state.messages.map((x, i) => (
-                  <>
+                  <div key={i}>
                     <ChatPill right={x.user === "ME"} text={x.message} />
                     {i === this.state.messages.length - 1 &&
                       x.type === "options" &&
@@ -147,10 +157,12 @@ class BotSection extends Component {
                           </div>
                         </div>
                       ))}
-                  </>
+                  </div>
                 ))}
               </section>
               <ChatPillAsk
+                value={this.state.msg}
+                onChange={this.handleMessageChange}
                 placeholder={"Enter your name here"}
                 onClick={() => this.sendMessage()}
               />
