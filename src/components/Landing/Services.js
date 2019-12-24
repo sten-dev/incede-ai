@@ -5,40 +5,40 @@ import "../styles/solutions.scss";
 import { Container, Row, Col } from "reactstrap";
 import ServiceView from "../services/ServiceView";
 class Services extends React.Component {
-    render() {
-        const { data } = this.props;
-        const { edges: services } = data.allMarkdownRemark;
-        console.log(services);
-        return (
-            <section className="services gap-y">
-                <Container>
-                    <Row>
-                        {services.map((x, i) => {
-                            let service = x.node.frontmatter;
-                            return (
-                                <Col key={i} lg={6} md={6} sm={12} xs={12}>
-                                    <ServiceView service={service} />
-                                </Col>
-                            );
-                        })}
-                    </Row>
-                </Container>
-            </section>
-        );
-    }
+  render() {
+    const { data } = this.props;
+    const { edges: services } = data.allMarkdownRemark;
+    console.log("services", services);
+    return (
+      <section className="services gap-y">
+        <Container>
+          <Row>
+            {services.map((x, i) => {
+              let service = x.node.frontmatter;
+              return (
+                <Col key={i} lg={6} md={6} sm={12} xs={12}>
+                  <ServiceView service={service} />
+                </Col>
+              );
+            })}
+          </Row>
+        </Container>
+      </section>
+    );
+  }
 }
 
 Solutions.propTypes = {
-    data: PropTypes.shape({
-        allMarkdownRemark: PropTypes.shape({
-            edges: PropTypes.array
-        })
+  data: PropTypes.shape({
+    allMarkdownRemark: PropTypes.shape({
+      edges: PropTypes.array
     })
+  })
 };
 
 export default () => (
-    <StaticQuery
-        query={graphql`
+  <StaticQuery
+    query={graphql`
       query ServicesQuery {
         allMarkdownRemark(
           filter: { frontmatter: { templateKey: { eq: "services" } } }
@@ -66,6 +66,6 @@ export default () => (
         }
       }
     `}
-        render={(data) => <Services data={data} />}
-    />
+    render={(data) => <Services data={data} />}
+  />
 );
