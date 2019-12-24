@@ -1,5 +1,23 @@
 @import "../bs";
 
+.menu-tabs {
+  .header {
+    border-bottom: 2px solid #7a7979;
+  }
+  .tab {
+    font-size: 26px;
+    color: #7a7979;
+    padding: 0 32px;
+    margin-bottom: -2px;
+    cursor: pointer;
+    &.selected-tab,
+    &:hover {
+      color: #ed8d58;
+      border-bottom: 2px solid #ed8d58;
+    }
+  }
+}
+
 section {
   &.solutions,
   &.services,
@@ -28,6 +46,15 @@ section {
       img {
         width: 150px !important;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .header-section {
+    .tab {
+      font-size: 18px;
+      padding: 0 8px;
     }
   }
 }

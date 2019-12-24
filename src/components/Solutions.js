@@ -14,11 +14,6 @@ class Solutions extends React.Component {
       <section className="solutions gap-y">
         <Container>
           <Row>
-            <Col>
-              <h1 className="display-4 title text-primary">What we do</h1>
-            </Col>
-          </Row>
-          <Row>
             {solutions.map((x, i) => {
               let solution = x.node.frontmatter;
               return (

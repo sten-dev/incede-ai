@@ -7,10 +7,8 @@ import Home from "../components/Landing/Home";
 import AboutUs from "../components/Landing/AboutUs";
 import ContactUs from "../components/Landing/ContactUs";
 import BotSection from "../components/Landing/BotSection";
-import Solutions from "../components/Solutions";
 import CaseStudies from "../components/CaseStudies";
-import Services from "../components/Landing/Services";
-import Industries from "../components/Landing/Industries";
+import WhatWeDo from "../components/Landing/WhatWeDo";
 
 export const IndexPageTemplate = ({
   home,
@@ -21,9 +19,7 @@ export const IndexPageTemplate = ({
       <BotSection />
       <Home home={home} />
       <AboutUs about={about} />
-      <Solutions />
-      <Services />
-      <Industries />
+      <WhatWeDo />
       <CaseStudies />
       <ContactUs location={location} />
     </div>
