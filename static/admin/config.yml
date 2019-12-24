@@ -27,6 +27,21 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Sub Title", name: "subTitle", widget: "text" }
       - { label: "Image", name: "image", widget: image }
+  - name: "services"
+    label: "Services"
+    folder: "src/pages/services"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "services",
+        }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Sub Title", name: "subTitle", widget: "text" }
+      - { label: "Image", name: "image", widget: image }
   - name: "case-study"
     label: "Case Study"
     folder: "src/pages/case-study"

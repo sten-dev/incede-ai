@@ -9,6 +9,7 @@ import ContactUs from "../components/Landing/ContactUs";
 import BotSection from "../components/Landing/BotSection";
 import Solutions from "../components/Solutions";
 import CaseStudies from "../components/CaseStudies";
+import Services from "../components/Landing/Services";
 
 export const IndexPageTemplate = ({
   home,
@@ -20,6 +21,7 @@ export const IndexPageTemplate = ({
       <Home home={home} />
       <AboutUs about={about} />
       <Solutions />
+      <Services />
       <CaseStudies />
       <ContactUs location={location} />
     </div>
