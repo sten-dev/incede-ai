@@ -41,7 +41,7 @@ const ContactUs = props => {
                         alt="contact"
                       />
                     </div>
-                    <div className="pt-4">
+                    <div className="p-4">
                       <ContactInfo location={location} />
                     </div>
                   </div>
