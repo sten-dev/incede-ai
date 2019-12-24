@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { graphql, StaticQuery } from "gatsby";
-import "../../styles/solutions.scss";
+import "../../styles/what-we-do.scss";
 import { Container, Row, Col } from "reactstrap";
 import ServiceView from "../services/ServiceView";
 class Services extends React.Component {

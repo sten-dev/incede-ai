@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import "../../styles/solutions.scss";
+import "../../styles/what-we-do.scss";
 import { Container, Row, Col } from "reactstrap";
 import Solutions from '../Solutions';
 import Industries from './Industries';
@@ -19,8 +19,8 @@ class WhatWeDo extends Component {
     render() {
         return (
             <React.Fragment>
-                <section className="solutions gap-t">
-                    <Container>
+                <section className="what-we-do gap-t">
+                    <Container fluid>
                         <Row className="header-section">
                             <div className="mr-3">
                                 <h1 className="display-4 title text-primary">What we do</h1>

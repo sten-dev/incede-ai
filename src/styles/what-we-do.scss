@@ -2,12 +2,12 @@
 
 .menu-tabs {
   .header {
-    border-bottom: 2px solid #7a7979;
+    border-bottom: 2px solid #dbdbdb;
   }
   .tab {
     font-size: 26px;
     color: #7a7979;
-    padding: 0 32px;
+    padding: 0 32px 12px 32px;
     margin-bottom: -2px;
     cursor: pointer;
     &.selected-tab,
@@ -19,9 +19,10 @@
 }
 
 section {
-  &.solutions,
-  &.services,
-  &.industries {
+  &.what-we-do {
+    .header-section {
+      margin-left: 20.5%;
+    }
     .title {
       font-size: 70px;
       font-weight: 400;
@@ -52,9 +53,23 @@ section {
 
 @media screen and (max-width: 599px) {
   .header-section {
+    margin-left: 0;
     .tab {
       font-size: 18px;
-      padding: 0 8px;
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1179px) {
+  .header-section {
+    margin-left: 0;
+    flex-direction: column;
+    .tab {
+      font-size: 22px;
+      padding-left: 16px;
+      padding-right: 16px;
     }
   }
 }
