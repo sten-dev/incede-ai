@@ -6,6 +6,6 @@ description: >-
   to improve the way business analytics informed decision-making processes
   throughout the company. To take on this challenge, Alaska turned to IBM
   Planning Analytics and Locus Solutions.
-image: /img/alaska-airlines.png
+image: /img/products-grid2.jpg
 ---
 
