@@ -1,52 +1,75 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { graphql, StaticQuery } from 'gatsby'
+import React from "react";
+import PropTypes from "prop-types";
+import { graphql, StaticQuery } from "gatsby";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from 'react-responsive-carousel';
+import { Carousel } from "react-responsive-carousel";
 import "../styles/case-studies.scss";
-import { Container, Row, Col } from 'reactstrap';
-import PreviewCompatibleImage from './PreviewCompatibleImage';
-import arrow from "../img/arrow.svg"
+import { Container, Row, Col } from "reactstrap";
+import PreviewCompatibleImage from "./PreviewCompatibleImage";
+import arrow from "../img/arrow.svg";
 
 class CaseStudies extends React.Component {
   render() {
-    const { data } = this.props
-    const { edges: caseStudies } = data.allMarkdownRemark
+    const { data } = this.props;
+    const { edges: caseStudies } = data.allMarkdownRemark;
 
     // console.log("caseStudies", caseStudies);
     return (
       <section className="case-studies">
         <Container>
-          <Carousel showThumbs={false} showStatus={false} infiniteLoop={false} showArrows={false}>
+          <Carousel
+            showThumbs={false}
+            showStatus={false}
+            infiniteLoop={false}
+            showArrows={false}
+          >
             {caseStudies.map((x, i) => {
               let caseStudy = x.node.frontmatter;
               return (
                 <div key={i}>
                   <Row>
                     <Col lg={6} md={5}>
-                      <h4 className="text-white display-4 header">Case Studies</h4>
-                      <div className="xs-image d-block d-sm-none">
+                      <h4 className="text-white display-4 header">
+                        Case Studies
+                      </h4>
+                      <div className="image-section-mobile xs-image d-block d-sm-none">
                         <PreviewCompatibleImage
                           imageInfo={{
                             image: caseStudy.image,
-                            alt: `case study`,
-                            style: { width: "100%", height: "250px", marginBottom: 16 }
+                            alt: `case study`
+                            // style: {
+                            //   width: "100%",
+                            //   height: "250px",
+                            //   marginBottom: 16,
+                            //   clipPath:
+                            //     " polygon(25% 0, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)"
+                            // }
                           }}
                         />
                       </div>
                       <p className="text-white title">{caseStudy.title}</p>
-                      <small className="text-white description">{caseStudy.description}</small>
+                      <small className="text-white description">
+                        {caseStudy.description}
+                      </small>
                       <br />
                       <br />
-                      <button type="button" className="btn btn-secondary btn-lg">
-                        Download Case Study <img
+                      <button
+                        type="button"
+                        className="btn btn-secondary btn-lg"
+                      >
+                        Download Case Study{" "}
+                        <img
                           src={arrow}
                           alt="next"
                           style={{ width: "12px", marginTop: "6px" }}
                         />
                       </button>
                     </Col>
-                    <Col lg={6} md={7} className="d-none d-md-block position-initial">
+                    <Col
+                      lg={6}
+                      md={7}
+                      className="d-none d-md-block position-initial"
+                    >
                       <div className="image-section">
                         <PreviewCompatibleImage
                           imageInfo={{
@@ -64,17 +87,17 @@ class CaseStudies extends React.Component {
           </Carousel>
         </Container>
       </section>
-    )
+    );
   }
 }
 
 CaseStudies.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
-      edges: PropTypes.array,
-    }),
-  }),
-}
+      edges: PropTypes.array
+    })
+  })
+};
 
 export default () => (
   <StaticQuery
@@ -106,6 +129,6 @@ export default () => (
         }
       }
     `}
-    render={(data) => <CaseStudies data={data} />}
+    render={data => <CaseStudies data={data} />}
   />
-)
+);
