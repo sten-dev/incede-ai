@@ -39,8 +39,8 @@ const AboutPage = ({ data }) => {
     <Layout>
       <h1>about</h1>
       <AboutPageTemplate
-        title={post.frontmatter.title}
-        section={post.frontmatter.section}
+        title={about.frontmatter.title}
+        section={about.frontmatter.section}
       />
     </Layout>
   )
