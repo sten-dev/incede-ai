@@ -14,12 +14,26 @@ const Footer = class extends React.Component {
       <footer className="footer">
         <Container>
           <Row>
-            <Col md="12" sm="12" lg="12">
-              <img
-                src={logo}
-                alt="incede.ai"
-                style={{ width: "10em", height: "6.5em" }}
-              />
+            <Col className="incede-img" md="12" sm="12" lg="12">
+              <Row>
+                <Col>
+                  <img src={logo} alt="incede.ai" />
+                </Col>
+                <Col className="d-block d-md-none text-right">
+                  <section className="social">
+                    <a title="facebook" href="https://facebook.com">
+                      {/* <i style="fas fa-instagram" /> */}
+                      <img src={facebook} alt="Facebook" />
+                    </a>
+                    <a title="twitter" href="https://twitter.com">
+                      <img className="fas fa-lg" src={twitter} alt="Twitter" />
+                    </a>
+                    <a title="instagram" href="https://instagram.com">
+                      <img src={instagram} alt="Instagram" />
+                    </a>
+                  </section>
+                </Col>
+              </Row>
             </Col>
             <Col md="3" sm="12" lg="3">
               <section className="half-menu">
@@ -76,30 +90,17 @@ const Footer = class extends React.Component {
                 <FooterLocation />
               </section>
             </Col>
-            <Col md="3" sm="12" lg="3">
+            <Col className="d-none d-md-block" md="3" sm="12" lg="3">
               <section className="social">
                 <a title="facebook" href="https://facebook.com">
                   {/* <i style="fas fa-instagram" /> */}
-                  <img
-                    src={facebook}
-                    alt="Facebook"
-                    style={{ width: "2em", height: "2em" }}
-                  />
+                  <img src={facebook} alt="Facebook" />
                 </a>
                 <a title="twitter" href="https://twitter.com">
-                  <img
-                    className="fas fa-lg"
-                    src={twitter}
-                    alt="Twitter"
-                    style={{ width: "2em", height: "2em" }}
-                  />
+                  <img className="fas fa-lg" src={twitter} alt="Twitter" />
                 </a>
                 <a title="instagram" href="https://instagram.com">
-                  <img
-                    src={instagram}
-                    alt="Instagram"
-                    style={{ width: "2em", height: "2em" }}
-                  />
+                  <img src={instagram} alt="Instagram" />
                 </a>
               </section>
             </Col>
