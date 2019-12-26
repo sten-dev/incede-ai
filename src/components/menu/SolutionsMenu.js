@@ -1,18 +1,28 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { graphql, StaticQuery } from "gatsby";
-import { Container } from "reactstrap";
+import { graphql, StaticQuery , Link} from "gatsby";
+import { Container , ListGroup} from "reactstrap";
 class SolutionsMenu extends React.Component {
   render() {
     const { data } = this.props;
     const { edges: solutionsList } = data.allMarkdownRemark;
     console.log(solutionsList);
     return (
-      <section className="solutions gap-y">
-        <Container>
+      <section className="menu">
+      <ListGroup>
+        {solutionsList.map((s, i) => {
+          let solution = s.node;
 
-        </Container>
-      </section>
+          return (
+            <h5 key={i} className="mt-2">
+              <Link to={solution.fields.slug}>
+                {solution.frontmatter.title}
+              </Link>
+            </h5>
+          );
+        })}
+      </ListGroup>
+    </section>
     );
   }
 }
