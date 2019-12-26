@@ -3,7 +3,7 @@ import PreviewCompatibleImage from "../PreviewCompatibleImage";
 import { Card, CardBody } from "reactstrap";
 import { HTMLContent } from "../Content";
 
-const SolutionView = ({ solution, html }) => {
+const SolutionView = ({ solution }) => {
   return (
     <Card className="card-section">
       <div className="image-section">
@@ -19,7 +19,7 @@ const SolutionView = ({ solution, html }) => {
         <h4>{solution.title}</h4>
         <h6 className="subTitle">{solution.subTitle}</h6>
         <div className="" html></div>
-        <HTMLContent content={html}></HTMLContent>
+        {/* <HTMLContent content={html}></HTMLContent> */}
       </CardBody>
     </Card>
   );
