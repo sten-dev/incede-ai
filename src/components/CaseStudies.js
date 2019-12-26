@@ -32,18 +32,11 @@ class CaseStudies extends React.Component {
                       <h4 className="text-white display-4 header">
                         Case Studies
                       </h4>
-                      <div className="image-section-mobile xs-image d-block d-sm-none">
+                      <div className="image-section-mobile xs-image d-block d-md-none">
                         <PreviewCompatibleImage
                           imageInfo={{
                             image: caseStudy.image,
                             alt: `case study`
-                            // style: {
-                            //   width: "100%",
-                            //   height: "250px",
-                            //   marginBottom: 16,
-                            //   clipPath:
-                            //     " polygon(25% 0, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)"
-                            // }
                           }}
                         />
                       </div>
