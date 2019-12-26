@@ -1,33 +1,43 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { graphql, StaticQuery } from "gatsby";
-import { Container } from "reactstrap";
+import { graphql, StaticQuery , Link} from "gatsby";
+import { Container , ListGroup} from "reactstrap";
 class IndustriesMenu extends React.Component {
-    render() {
-        const { data } = this.props;
-        const { edges: industriesList } = data.allMarkdownRemark;
-        console.log("industries list", industriesList);
-        return (
-            <section className="solutions gap-y">
-                <Container>
+  render() {
+    const { data } = this.props;
+    const { edges: industriesList } = data.allMarkdownRemark;
+    console.log("industries list", industriesList);
+    return (
+      <section className="menu">
+        <ListGroup>
+          {industriesList.map((s, i) => {
+            let industry = s.node;
 
-                </Container>
-            </section>
-        );
-    }
+            return (
+              <h5 key={i} className="mt-2">
+                <Link to={industry.fields.slug}>
+                  {industry.frontmatter.title}
+                </Link>
+              </h5>
+            );
+          })}
+        </ListGroup>
+      </section>
+    );
+  }
 }
 
 IndustriesMenu.propTypes = {
-    data: PropTypes.shape({
-        allMarkdownRemark: PropTypes.shape({
-            edges: PropTypes.array
-        })
+  data: PropTypes.shape({
+    allMarkdownRemark: PropTypes.shape({
+      edges: PropTypes.array
     })
+  })
 };
 
 export default () => (
-    <StaticQuery
-        query={graphql`
+  <StaticQuery
+    query={graphql`
       query IndustriesMenuQuery {
         allMarkdownRemark(
           filter: { frontmatter: { templateKey: { eq: "industries" } } }
@@ -47,6 +57,6 @@ export default () => (
         }
       }
     `}
-        render={data => <IndustriesMenu data={data} />}
-    />
+    render={data => <IndustriesMenu data={data} />}
+  />
 );

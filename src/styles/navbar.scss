@@ -15,7 +15,17 @@
   }
 }
 
-.what-we-do-menu{
+.what-we-do-menu {
   min-width: 100vw;
-  height: 500px;
+  max-height: 480px;
+  h1{
+    color: $light-gray;
+  }
+}
+.menu {
+  h5 {
+    a {
+      color: $gray;
+    }
+  }
 }
