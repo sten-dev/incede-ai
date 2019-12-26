@@ -67,6 +67,6 @@ export default () => (
         }
       }
     `}
-    render={(data) => <Solutions data={data} />}
+    render={data => <Solutions data={data} />}
   />
 );

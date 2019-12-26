@@ -1,6 +1,7 @@
 import React from "react";
 import PreviewCompatibleImage from "../PreviewCompatibleImage";
 import { Card, CardBody } from "reactstrap";
+import { HTMLContent } from "../Content";
 
 const SolutionView = ({ solution }) => {
   return (
@@ -17,6 +18,7 @@ const SolutionView = ({ solution }) => {
       <CardBody className="text-center pt-0">
         <h4>{solution.title}</h4>
         <h6 className="subTitle">{solution.subTitle}</h6>
+        {/* <HTMLContent content={html}></HTMLContent> */}
       </CardBody>
     </Card>
   );

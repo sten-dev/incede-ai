@@ -3,13 +3,16 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
+import Content, { HTMLContent } from '../components/Content'
 
 export const SolutionsPostTemplate = ({
     subTitle,
     title,
+    content,
+    contentComponent,
     helmet,
 }) => {
-
+    const PageContent = contentComponent || Content;
     return (
         <section className="section">
             {helmet || ''}
@@ -21,6 +24,7 @@ export const SolutionsPostTemplate = ({
                         </h1>
                         <p>{subTitle}</p>
                     </div>
+                    <PageContent className="content" content={content} />
                 </div>
             </div>
         </section>
@@ -40,6 +44,7 @@ const SolutionsPost = ({ data }) => {
         <Layout>
             <SolutionsPostTemplate
                 content={post.html}
+                contentComponent={HTMLContent}
                 subTitle={post.frontmatter.subTitle}
                 helmet={
                     <Helmet titleTemplate="%s | Solution">
@@ -50,7 +55,6 @@ const SolutionsPost = ({ data }) => {
                         />
                     </Helmet>
                 }
-                tags={post.frontmatter.tags}
                 title={post.frontmatter.title}
             />
         </Layout>
