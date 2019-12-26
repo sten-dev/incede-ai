@@ -12,7 +12,6 @@ export const SolutionsPostTemplate = ({
     contentComponent,
     helmet,
 }) => {
-    console.log("content", content)
     const PageContent = contentComponent || Content;
     return (
         <section className="section">
