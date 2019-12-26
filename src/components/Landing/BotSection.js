@@ -14,11 +14,11 @@ class BotSection extends Component {
   constructor(props) {
     super(props);
     this.state = { messages: [], msg: "" };
+  }
+  componentDidMount() {
     this.roomName = localStorage.getItem("roomName");
     this.roomId = localStorage.getItem("roomId");
     this.wASessionId = localStorage.getItem("wASessionId");
-  }
-  componentDidMount() {
     this.initializeSocketIo();
   }
   handleMessageChange = event => {
@@ -35,12 +35,12 @@ class BotSection extends Component {
       reconnectionDelayMax: 5000,
       reconnectionAttempts: 5
     });
-    this.socket.on("connect", function() {
+    this.socket.on("connect", function () {
       console.debug("connected to server");
     });
     let messages = [];
     let time = new Date().getTime();
-   
+
     if (this.roomId) {
       let chatsResp = await httpClient("chats", "POST", {
         roomId: this.roomId
@@ -80,9 +80,9 @@ class BotSection extends Component {
           localStorage.setItem("wASessionId", response.sessionId);
           localStorage.setItem("roomId", response.roomId);
           localStorage.setItem("roomName", response.roomName);
-         } else {
+        } else {
           // if (response.success === false) {
-            console.error(response);
+          console.error(response);
           // }e;s
         }
       }
