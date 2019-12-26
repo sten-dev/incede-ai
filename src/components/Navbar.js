@@ -39,8 +39,8 @@ const INavbar = props => {
             <NavItem>
               <Link to="/about">About Us</Link>
             </NavItem>
-            <NavItem>
-              <Link id="whatWeDo">What We Do</Link>
+            <NavItem id="whatWeDo" className="btn">
+              <Link>What We Do</Link>
             </NavItem>
             <NavItem>
               <Link to="/">Our Customers</Link>
@@ -52,7 +52,8 @@ const INavbar = props => {
         </Collapse>
       </Navbar>
       <Popover
-        popperClassName="what-we-do-menu" boundariesElement="window"
+        popperClassName="what-we-do-menu"
+        boundariesElement="window"
         placement="bottom"
         isOpen={popoverOpen}
         target="whatWeDo"
