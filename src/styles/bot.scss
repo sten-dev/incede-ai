@@ -8,6 +8,7 @@ section {
     .chat {
       overflow: auto;
       height: 65vh;
+      padding: 16px;
     }
     .chat-pill {
       padding: 16px;
@@ -44,3 +45,20 @@ section {
     }
   }
 }
+/**Scroll Bar*/
+
+.chat::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: $primary;
+}
+
+.chat::-webkit-scrollbar {
+  width: 10px;
+  background-color: $primary;
+}
+
+.chat::-webkit-scrollbar-thumb {
+  background-color: #4c3e92;
+  background-image: none;
+}
+/***/
