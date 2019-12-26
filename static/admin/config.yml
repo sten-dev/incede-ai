@@ -121,3 +121,25 @@ collections:
                   { label: Address, name: address, widget: text },
                 ],
             }
+      - file: "src/pages/about/index.md"
+        label: "About"
+        name: "about"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "about-page",
+            }
+          - { label: "Title", name: "title", widget: "string" }
+          - {
+              label: Section,
+              name: section,
+              widget: list,
+              fields:
+                [
+                  { label: Title, name: title, widget: string },
+                  { label: Description, name: description, widget: text },
+                  { label: Image, name: image, widget: image },
+                ],
+            }
