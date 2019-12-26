@@ -12,9 +12,10 @@ const SolutionsPostPreview = ({ entry, widgetFor }) => {
                 title={entry.getIn(['data', 'title'])}
                 subTitle={entry.getIn(['data', 'subTitle'])}
                 image={entry.getIn(['data', 'image'])}
+                content={widgetFor('body')}
             />
             {/* <HTMLContent className="content" content={widgetFor('body')} /> */}
-            {widgetFor('body')}
+
         </React.Fragment>
     )
 }
