@@ -7,6 +7,7 @@ const IndustriesPreview = ({ entry, widgetFor }) => (
         title={entry.getIn(['data', 'title'])}
         subTitle={entry.getIn(['data', 'subTitle'])}
         image={entry.getIn(['data', 'image'])}
+        content={widgetFor('body')}
     />
 )
 
