@@ -4,13 +4,17 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
+import Content, { HTMLContent } from '../components/Content'
 
 export const IndustriesTemplate = ({
     title,
     subTitle,
     image,
     helmet,
+    content,
+    contentComponent,
 }) => {
+    const PageContent = contentComponent || Content;
     return (
         <section className="section">
             {helmet || ''}
@@ -25,6 +29,7 @@ export const IndustriesTemplate = ({
                             <PreviewCompatibleImage imageInfo={image} />
                         )}
                     </div>
+                    <PageContent className="content" content={content} />
                 </div>
             </div>
         </section>
@@ -55,6 +60,8 @@ const Industries = ({ data }) => {
                 subTitle={post.frontmatter.subTitle}
                 title={post.frontmatter.title}
                 image={post.frontmatter.image}
+                content={post.html}
+                contentComponent={HTMLContent}
             />
         </Layout>
     )

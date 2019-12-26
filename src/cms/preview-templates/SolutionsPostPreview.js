@@ -4,8 +4,6 @@ import { SolutionsPostTemplate } from '../../templates/solutions-post'
 import { HTMLContent } from '../../components/Content';
 
 const SolutionsPostPreview = ({ entry, widgetFor }) => {
-    console.log(widgetFor('body'));
-    console.log(entry.getIn(['data', 'body']));
     return (
         <React.Fragment>
             <SolutionsPostTemplate
