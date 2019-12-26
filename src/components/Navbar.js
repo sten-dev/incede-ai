@@ -16,6 +16,9 @@ import {
   Row,
   Col
 } from "reactstrap";
+import SolutionsMenu from "./menu/SolutionsMenu";
+import ServicesMenu from "./menu/ServicesMenu";
+import IndustriesMenu from "./menu/IndustriesMenu";
 
 const INavbar = props => {
   const [isOpen, setIsOpen] = useState(false);
@@ -51,6 +54,9 @@ const INavbar = props => {
           </Nav>
         </Collapse>
       </Navbar>
+      {/* <SolutionsMenu />
+      <ServicesMenu />
+      <IndustriesMenu /> */}
       <Popover
         popperClassName="what-we-do-menu"
         boundariesElement="window"
