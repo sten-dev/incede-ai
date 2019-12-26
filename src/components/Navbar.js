@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
 import logo from "../img/logo.svg";
-import "../styles/navbar.scss"
+import "../styles/navbar.scss";
 import {
   Collapse,
   Navbar,
   NavbarToggler,
   NavbarBrand,
   Nav,
-  NavItem,
+  NavItem
 } from "reactstrap";
 
 const INavbar = props => {
@@ -18,35 +18,27 @@ const INavbar = props => {
 
   return (
     <nav className="incede-nav">
-      <Navbar color="white" expand="lg" >
+      <Navbar color="white" expand="lg">
         <NavbarBrand href="/">
           <img src={logo} alt="incede" />
         </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-          <Nav className="ml-auto" navbar >
+          <Nav className="ml-auto" navbar>
             <NavItem>
               <Link to="/">Home</Link>
             </NavItem>
             <NavItem>
-              <Link to="/">
-                About Us
-              </Link>
+              <Link to="/about">About Us</Link>
             </NavItem>
             <NavItem>
-              <Link to="/">
-                What We Do
-              </Link>
+              <Link to="/">What We Do</Link>
             </NavItem>
             <NavItem>
-              <Link to="/">
-                Our Customers
-              </Link>
+              <Link to="/">Our Customers</Link>
             </NavItem>
             <NavItem>
-              <Link to="/">
-                Contact us
-              </Link>
+              <Link to="/">Contact us</Link>
             </NavItem>
           </Nav>
         </Collapse>
@@ -54,6 +46,5 @@ const INavbar = props => {
     </nav>
   );
 };
-
 
 export default INavbar;
