@@ -32,25 +32,23 @@ AboutPageTemplate.propTypes = {
 }
 
 const AboutPage = ({ data }) => {
-  const { markdownRemark: post } = data;
-  console.log("preview about", data)
+  const { markdownRemark: about } = data;
+  console.log("preview about", about.frontmatter)
 
   return (
     <Layout>
+      <h1>about</h1>
       <AboutPageTemplate
-        contentComponent={HTMLContent}
         title={post.frontmatter.title}
+        section={post.frontmatter.section}
       />
     </Layout>
   )
 }
 
 AboutPage.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.object
-    })
-  })
+  // title: PropTypes.string,
+  // section: PropTypes.array,
 }
 
 export default AboutPage
@@ -60,6 +58,17 @@ export const aboutPageQuery = graphql`
     markdownRemark(frontmatter: { templateKey: { eq: "about-page" } }) {
       frontmatter {
         title
+        section {
+          title
+          description
+          image {
+            childImageSharp {
+              fluid(maxWidth: 500, quality: 100) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
       }
     }
   }

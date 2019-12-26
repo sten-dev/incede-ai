@@ -131,7 +131,7 @@ collections:
               widget: "hidden",
               default: "about-page",
             }
-          - { label: "Title", name: "title", widget: "string" }
+          - { label: Title, name: title, widget: string }
           - {
               label: Section,
               name: section,
