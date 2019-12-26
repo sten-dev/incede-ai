@@ -10,7 +10,6 @@ class Home extends React.Component {
     const { home } = this.props;
     return (
       <>
-        <INavbar />
         <section className="landing-home">
           <Container>
             <Row>
