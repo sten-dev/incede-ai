@@ -49,6 +49,7 @@ export default () => (
               fields {
                 slug
               }
+              html
               frontmatter {
                 title
                 templateKey
