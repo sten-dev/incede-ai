@@ -80,6 +80,9 @@ class BotSection extends Component {
           localStorage.setItem("wASessionId", response.sessionId);
           localStorage.setItem("roomId", response.roomId);
           localStorage.setItem("roomName", response.roomName);
+          this.roomName = response.roomName;
+          this.roomId = response.roomId;
+          this.wASessionId = response.sessionId;
         } else {
           // if (response.success === false) {
           console.error(response);
