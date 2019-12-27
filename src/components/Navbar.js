@@ -29,7 +29,7 @@ const INavbar = props => {
   const toggleWhatWeDoMenu = () => setPopoverOpen(!popoverOpen);
   return (
     <nav className="incede-nav">
-      <Navbar color="white" expand="lg" fixed>
+      <Navbar color="white" expand="lg" light >
         <NavbarBrand href="/">
           <img src={logo} alt="incede" />
         </NavbarBrand>
