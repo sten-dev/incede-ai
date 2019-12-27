@@ -148,3 +148,18 @@ small,
   background: $primary;
   color: $white;
 }
+.mat-input {
+  background: $primary !important;
+  outline: none !important;
+  border: none !important;
+  border-bottom: 1px solid $white !important;
+  color: $white !important;
+  border-radius: 0 !important;
+  margin-bottom: 24px !important;
+  &::placeholder {
+    color: $white !important;
+  }
+  &textarea {
+    resize: none !important;
+  }
+}
