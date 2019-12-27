@@ -5,6 +5,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import Content, { HTMLContent } from '../components/Content'
+import { Col, Row, Container } from "reactstrap";
 
 export const IndustriesTemplate = ({
     title,
@@ -16,23 +17,29 @@ export const IndustriesTemplate = ({
 }) => {
     const PageContent = contentComponent || Content;
     return (
-        <section className="section">
-            {helmet || ''}
-            <div className="container content">
-                <div className="columns">
-                    <div className="column is-10 is-offset-1">
-                        <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-                            {title}
-                        </h1>
-                        <p>{subTitle}</p>
-                        {image && (
-                            <PreviewCompatibleImage imageInfo={image} />
-                        )}
-                    </div>
-                    <PageContent className="content" content={content} />
-                </div>
-            </div>
-        </section>
+        <section className="service-page">
+      {helmet || ""}
+      <section className="header-section gap-y">
+        <Container>
+          <Row>
+            <Col>
+              <h1 className="display-4">{title}</h1>
+              <h2>{subTitle}</h2>
+              {/* {image && <PreviewCompatibleImage imageInfo={image} />} */}
+            </Col>
+          </Row>
+        </Container>
+      </section>
+      <Container>
+        <Row>
+          <Col>
+            <main className="content gap-y-half">
+              <PageContent content={content} />
+            </main>
+          </Col>
+        </Row>
+      </Container>
+    </section>
     )
 }
 

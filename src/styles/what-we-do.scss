@@ -20,7 +20,7 @@
 
 section {
   &.what-we-do {
-    .header-section {
+    .what-we-do-header-section {
       margin-left: 20.5%;
     }
     .title {
@@ -52,7 +52,7 @@ section {
 }
 
 @media screen and (max-width: 599px) {
-  .header-section {
+  .what-we-do-header-section {
     margin-left: 0 !important;
     .menu-tabs {
       padding: 0 !important;
@@ -70,7 +70,7 @@ section {
 }
 
 @media screen and (min-width: 600px) and (max-width: 1179px) {
-  .header-section {
+  .what-we-do-header-section {
     margin-left: 0 !important;
     flex-direction: column;
     .tab {
