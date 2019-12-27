@@ -9,7 +9,7 @@ import useSiteMetadata from "./SiteMetadata";
 import { withPrefix } from "gatsby";
 import INavbar from "./Navbar";
 
-const TemplateWrapper = ({ children }) => {
+const Layout = ({ children }) => {
   const { title, description } = useSiteMetadata();
   return (
     <div>
@@ -63,4 +63,4 @@ const TemplateWrapper = ({ children }) => {
   );
 };
 
-export default TemplateWrapper;
+export default Layout;

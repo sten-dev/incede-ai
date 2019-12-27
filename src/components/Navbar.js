@@ -49,7 +49,7 @@ const INavbar = props => {
               <Link to="/">Our Customers</Link>
             </NavItem>
             <NavItem>
-              <Link to="/">Contact us</Link>
+              <Link to="/contact">Contact us</Link>
             </NavItem>
           </Nav>
         </Collapse>

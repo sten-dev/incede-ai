@@ -71,6 +71,7 @@ const ContactUs = props => {
 
 const ContactInfo = (props) => {
   let location = props.location
+  console.log("props location", props)
   return (<React.Fragment>
     <h2 className="contact-title">{location.title}</h2>
     <h6 className="contact-subtitle semi-bold text-uppercase fs-16">{location.subTitle}</h6>
