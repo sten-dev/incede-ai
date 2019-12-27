@@ -11,7 +11,6 @@ import {
   Nav,
   NavItem,
   Popover,
-  PopoverHeader,
   PopoverBody,
   Container,
   Row,
@@ -35,7 +34,7 @@ const INavbar = props => {
           <img src={logo} alt="incede" />
         </NavbarBrand>
         <NavbarToggler onClick={toggle}>
-          <img src={menu} />
+          <img src={menu} alt="menu" />
         </NavbarToggler>
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
@@ -52,7 +51,7 @@ const INavbar = props => {
               <Link to="/customers">Our Customers</Link>
             </NavItem>
             <NavItem className="btn">
-              <Link to="/contact">Contact us</Link>
+              <Link to="/contact">Contact Us</Link>
             </NavItem>
           </Nav>
         </Collapse>
@@ -78,7 +77,7 @@ const INavbar = props => {
                   onClick={toggleWhatWeDoMenu}
                   className="btn d-block d-sm-none"
                 >
-                  ❌
+                  <span role="img" aria-label="close">❌</span>
                 </h2>
               </Col>
               <Col lg={3} md={3} sm={6} xs={12}>
