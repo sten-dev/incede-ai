@@ -10,9 +10,9 @@ import SolutionsPostPreview from "./preview-templates/SolutionsPostPreview";
 import CaseStudyPreview from "./preview-templates/CaseStudyPreview";
 import ServicePreview from "./preview-templates/ServicePreview";
 import IndustriesPreview from "./preview-templates/IndustryPreview";
-import { YoutubeLink } from "./editor-components/youtubeLink";
+// import { YoutubeLink } from "./editor-components/youtubeLink";
 
-CMS.registerEditorComponent(YoutubeLink);
+// CMS.registerEditorComponent(YoutubeLink);
 CMS.registerMediaLibrary(uploadcare);
 CMS.registerMediaLibrary(cloudinary);
 
