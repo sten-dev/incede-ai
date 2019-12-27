@@ -3,10 +3,10 @@ export const YoutubeLink = {
   label: "Youtube",
   fields: [{ name: 'id', label: 'Youtube Video ID', widget: 'string' }],
   pattern: /^<span class="yo-youtube"><iframe src="\/\/www.youtube.com\/embed\/(.*)" frameborder="0" allowfullscreen><\/iframe><\/span>/,
-  fromBlock: function (match) {
-    console.log(match)
+  fromBlock: function (YoutubeLinkMatch) {
+    // console.log(match)
     return {
-      id: match && match[1] ? match[1] : ""
+      id: YoutubeLinkMatch && YoutubeLinkMatch[1] ? YoutubeLinkMatch[1] : ""
     };
   },
   toBlock: function (obj) {
