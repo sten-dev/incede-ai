@@ -1,79 +1,83 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
-import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
-import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
-import Content, { HTMLContent } from '../components/Content'
+import React from "react";
+import PropTypes from "prop-types";
+import Helmet from "react-helmet";
+import { graphql } from "gatsby";
+import Layout from "../components/Layout";
+import PreviewCompatibleImage from "../components/PreviewCompatibleImage";
+import Content, { HTMLContent } from "../components/Content";
+import { Col, Row, Container } from "reactstrap";
 
 export const ServicesTemplate = ({
-    title,
-    subTitle,
-    image,
-    helmet,
-    content,
-    contentComponent,
+  title,
+  subTitle,
+  image,
+  helmet,
+  content,
+  contentComponent
 }) => {
-    const PageContent = contentComponent || Content;
-    return (
-        <section className="section">
-            {helmet || ''}
-            <div className="container content">
-                <div className="columns">
-                    <div className="column is-10 is-offset-1">
-                        <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-                            {title}
-                        </h1>
-                        <p>{subTitle}</p>
-                        {image && (
-                            <PreviewCompatibleImage imageInfo={image} />
-                        )}
-                    </div>
-                    <PageContent className="content" content={content} />
-                </div>
-            </div>
-        </section>
-    )
-}
+  const PageContent = contentComponent || Content;
+  return (
+    <section className="service-page">
+      {helmet || ""}
+      <section className="header-section gap-y">
+        <Container>
+          <Row>
+            <Col>
+              <h1 className="display-4">{title}</h1>
+              <h2>{subTitle}</h2>
+              {/* {image && <PreviewCompatibleImage imageInfo={image} />} */}
+            </Col>
+          </Row>
+        </Container>
+      </section>
+      <Container>
+        <Row>
+          <Col>
+            <main className="content gap-y-half">
+              <PageContent content={content} />
+            </main>
+          </Col>
+        </Row>
+      </Container>
+    </section>
+  );
+};
 
 ServicesTemplate.propTypes = {
-    title: PropTypes.string,
-    subTitle: PropTypes.string,
-    helmet: PropTypes.object,
-}
+  title: PropTypes.string,
+  subTitle: PropTypes.string,
+  helmet: PropTypes.object
+};
 
 const Services = ({ data }) => {
-    const { markdownRemark: post } = data
+  const { markdownRemark: post } = data;
 
-    return (
-        <Layout>
-            <ServicesTemplate
-                helmet={
-                    <Helmet titleTemplate="%s | Service">
-                        <title>{`${post.frontmatter.title}`}</title>
-                        <meta
-                            name="description"
-                            content={`${post.frontmatter.subTitle}`}
-                        />
-                    </Helmet>
-                }
-                subTitle={post.frontmatter.subTitle}
-                title={post.frontmatter.title}
-                image={post.frontmatter.image}
-                content={post.html}
-                contentComponent={HTMLContent}
-            />
-        </Layout>
-    )
-}
+  return (
+    <Layout>
+      <ServicesTemplate
+        helmet={
+          <Helmet titleTemplate="%s | Service">
+            <title>{`${post.frontmatter.title}`}</title>
+            <meta name="description" content={`${post.frontmatter.subTitle}`} />
+          </Helmet>
+        }
+        subTitle={post.frontmatter.subTitle}
+        title={post.frontmatter.title}
+        image={post.frontmatter.image}
+        content={post.html}
+        contentComponent={HTMLContent}
+      />
+    </Layout>
+  );
+};
 
 Services.propTypes = {
-    data: PropTypes.shape({
-        markdownRemark: PropTypes.object,
-    }),
-}
+  data: PropTypes.shape({
+    markdownRemark: PropTypes.object
+  })
+};
 
-export default Services
+export default Services;
 
 export const pageQuery = graphql`
   query ServicesByID($id: String!) {
@@ -84,13 +88,13 @@ export const pageQuery = graphql`
         title
         subTitle
         image {
-            childImageSharp {
-              fluid(maxWidth: 240, quality: 64) {
-                ...GatsbyImageSharpFluid
-              }
+          childImageSharp {
+            fluid(maxWidth: 240, quality: 64) {
+              ...GatsbyImageSharpFluid
             }
+          }
         }
       }
     }
   }
-`
+`;
