@@ -102,7 +102,7 @@ section {
 .bot-menu-btn {
   position: fixed;
   height: 250px;
-  background: rgba(202, 202, 202, 0.3);
+  background: rgba(202, 202, 202, 0.45);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -123,19 +123,19 @@ section {
       height: 0;
       /* border-left: 80px solid transparent; */
       border-right: 98px solid transparent;
-      border-top: 111px solid rgba(202, 202, 202, 0.3);
+      border-top: 111px solid rgba(202, 202, 202, 0.45);
       clear: both;
     }
     &::after {
       content: "";
       position: absolute;
-      left: -81%;
+      left: -78%;
       top: -109px;
       width: 103%;
       height: 0;
       border-left: 80px solid transparent;
       border-right: 98px solid transparent;
-      border-bottom: 109px solid rgba(202, 202, 202, 0.3);
+      border-bottom: 109px solid rgba(202, 202, 202, 0.45);
       clear: both;
     }
   }
