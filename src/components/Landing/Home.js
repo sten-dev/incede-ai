@@ -20,7 +20,7 @@ class Home extends React.Component {
                   <h3>{home.subTitle}</h3>
                   <div className="py-2">
                     <button type="button" className="btn btn-secondary btn-lg">
-                      {home.button}
+                      {home.button}{"  "}
                       <img
                         src={arrow}
                         alt="next"

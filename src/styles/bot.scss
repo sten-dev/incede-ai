@@ -31,16 +31,32 @@ section {
       }
       &.ask {
         width: 400px;
-      }
-      .chat-textfield {
-        background: $secondary;
-        border: none;
+        padding: 0;
+        border-radius: 16px 16px 0px 16px;
+        background: $white;
         color: $white;
-        outline: none;
-        &::placeholder {
-          color: $white;
+        overflow: hidden;
+        .chat-textfield {
+          // background: $;
+          border: none;
+          padding: 16px;
+          // color: $white;
+          outline: none;
+          &::placeholder {
+            color: $white;
+          }
+          // border-bottom: 1px solid white;
         }
-        // border-bottom: 1px solid white;
+        .send {
+          background: $secondary;
+          // padding: 8px;
+          display: flex;
+          // align-items: center;
+          // justify-content: center;
+          .span {
+            color: $white;
+          }
+        }
       }
     }
   }

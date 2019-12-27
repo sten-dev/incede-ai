@@ -1,9 +1,10 @@
 import React from "react";
 import send from "../../../img/Send.svg";
+import {Button} from 'reactstrap';
 export const ChatPillAsk = props => {
   return (
     <div className={`d-flex justify-content-end`}>
-      <section className={`chat-pill right-pill ask d-flex`}>
+      <section className={`chat-pill ask d-flex`}>
         <input
           type="text"
           className="chat-textfield flex-grow-1"
@@ -11,7 +12,12 @@ export const ChatPillAsk = props => {
           onChange={props.onChange}
           value={props.value}
         />
-        <img alt="send" src={send} onClick={props.onClick} />
+        <div className="send">
+          <Button color="secondary">
+            <img alt="send" src={send} onClick={props.onClick} />{" "}
+            <span>Send</span>
+          </Button>
+        </div>
       </section>
     </div>
   );
