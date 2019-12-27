@@ -21,7 +21,7 @@ class WhatWeDo extends Component {
             <React.Fragment>
                 <section className="what-we-do gap-t">
                     <Container fluid>
-                        <Row className="header-section">
+                        <Row className="what-we-do-header-section">
                             <div className="mr-3">
                                 <h1 className="display-4 title text-primary">What we do</h1>
                             </div>
