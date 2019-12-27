@@ -28,3 +28,9 @@
 .got-any-questions {
   color: rgba(255, 255, 255, 0.2);
 }
+
+@media screen and (max-width: 599px) {
+  .xs-image {
+    width: 100%;
+  }
+}
