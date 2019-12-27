@@ -96,6 +96,9 @@ small,
 .gap-y {
   padding: 108px 0;
 }
+.gap-y-half {
+  padding: 54px 0;
+}
 .gap-t {
   padding-top: 108px;
 }
@@ -140,4 +143,8 @@ small,
   .gap-x {
     padding: 0 24px;
   }
+}
+.header-section {
+  background: $primary;
+  color: $white;
 }
