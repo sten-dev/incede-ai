@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 
@@ -9,26 +9,42 @@ import ContactUs from "../components/Landing/ContactUs";
 import BotSection from "../components/Landing/BotSection";
 import CaseStudies from "../components/CaseStudies";
 import WhatWeDo from "../components/Landing/WhatWeDo";
-
-export const IndexPageTemplate = ({
-  home,
-  about,
-  location,
-}) => (
+import { Modal, ModalBody, Button, ModalFooter } from "reactstrap";
+import "../styles/bot.scss";
+import chat from "../img/chat.svg";
+export const IndexPageTemplate = ({ home, about, location }) => {
+  const [modal, setModal] = useState(false);
+  const toggle = () => setModal(!modal);
+  return (
     <div>
-      <BotSection />
+      <div onClick={toggle} className="bot-menu-btn left">
+        <img src={chat} alt="chat" />
+        <div>Let us converse</div>
+      </div>
+
       <Home home={home} />
       <AboutUs about={about} />
       <WhatWeDo />
       <CaseStudies />
       <ContactUs location={location} />
+      <Modal
+        isOpen={modal}
+        toggle={toggle}
+        className="bot-side-menu"
+        backdrop="static"
+      >
+        <ModalBody>
+          <BotSection toggle={toggle} />
+        </ModalBody>
+      </Modal>
     </div>
   );
+};
 
 IndexPageTemplate.propTypes = {
   home: PropTypes.object,
   about: PropTypes.object,
-  location: PropTypes.object,
+  location: PropTypes.object
 };
 
 const IndexPage = ({ data }) => {
