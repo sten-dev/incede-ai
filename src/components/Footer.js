@@ -19,7 +19,7 @@ const Footer = class extends React.Component {
                 <Col>
                   <img src={logo} alt="incede.ai" />
                 </Col>
-                <Col className="d-block d-md-none text-right">
+                <Col className="text-right">
                   <section className="social">
                     <a title="facebook" href="https://facebook.com">
                       {/* <i style="fas fa-instagram" /> */}
@@ -88,20 +88,6 @@ const Footer = class extends React.Component {
             <Col md="3" sm="12" lg="3">
               <section className="menu">
                 <FooterLocation />
-              </section>
-            </Col>
-            <Col className="d-none d-md-block" md="3" sm="12" lg="3">
-              <section className="social">
-                <a title="facebook" href="https://facebook.com">
-                  {/* <i style="fas fa-instagram" /> */}
-                  <img src={facebook} alt="Facebook" />
-                </a>
-                <a title="twitter" href="https://twitter.com">
-                  <img className="fas fa-lg" src={twitter} alt="Twitter" />
-                </a>
-                <a title="instagram" href="https://instagram.com">
-                  <img src={instagram} alt="Instagram" />
-                </a>
               </section>
             </Col>
           </Row>
