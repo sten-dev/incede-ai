@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
 import logo from "../img/logo.svg";
+import menu from "../img/menu.svg";
 import "../styles/navbar.scss";
 import {
   Collapse,
@@ -29,26 +30,28 @@ const INavbar = props => {
   const toggleWhatWeDoMenu = () => setPopoverOpen(!popoverOpen);
   return (
     <nav className="incede-nav">
-      <Navbar color="white" expand="lg">
+      <Navbar color="white" expand="lg" fixed>
         <NavbarBrand href="/">
           <img src={logo} alt="incede" />
         </NavbarBrand>
-        <NavbarToggler onClick={toggle} />
+        <NavbarToggler onClick={toggle}>
+          <img src={menu} />
+        </NavbarToggler>
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
-            <NavItem>
+            <NavItem className="btn">
               <Link to="/">Home</Link>
             </NavItem>
-            <NavItem>
+            <NavItem className="btn">
               <Link to="/about">About Us</Link>
             </NavItem>
             <NavItem id="whatWeDo" className="btn">
               <a>What We Do</a>
             </NavItem>
-            <NavItem>
+            <NavItem className="btn">
               <Link to="/customers">Our Customers</Link>
             </NavItem>
-            <NavItem>
+            <NavItem className="btn">
               <Link to="/contact">Contact us</Link>
             </NavItem>
           </Nav>
@@ -68,7 +71,15 @@ const INavbar = props => {
           <Container fluid className="p-4">
             <Row>
               <Col lg={3} md={3} sm={6} xs={12}>
-                <h1 className="display-4 text-gray">What we do</h1>
+                <h1 className="display-4 text-gray d-none d-sm-block">
+                  What we do
+                </h1>
+                <h2
+                  onClick={toggleWhatWeDoMenu}
+                  className="btn d-block d-sm-none"
+                >
+                  ❌
+                </h2>
               </Col>
               <Col lg={3} md={3} sm={6} xs={12}>
                 <h3>Services</h3>
