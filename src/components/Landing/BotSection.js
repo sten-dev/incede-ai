@@ -109,6 +109,16 @@ class BotSection extends Component {
             messages
           });
         }
+      } else if (eventName === "AGENT") {
+        let data = response.data;
+        let messages = this.state.messages;
+        if (data) {
+          messages.push({
+            user: "AG",
+            message: response.data
+          });
+          this.setState({ messages: messages });
+        }
       } else {
         console.warn(eventName, response);
       }
