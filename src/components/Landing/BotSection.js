@@ -49,7 +49,8 @@ class BotSection extends Component {
         chatsResp.data.forEach(x => {
           if (x.TEXT) {
             messages.push({
-              user: x.USER === "WATSON" ? "WA" : "ME",
+              user:
+                x.USER === "WATSON" ? "WA" : x.USER === "AGENT" ? "AG" : "ME",
               message: x.options ? x.title : x.TEXT,
               type: x.options ? "options" : "text",
               options: x.options || []
