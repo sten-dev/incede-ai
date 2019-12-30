@@ -112,6 +112,7 @@ section {
   text-align: center;
   top: 25%;
   cursor: pointer;
+  z-index: 99;
   &.left {
     left: 0;
     &::before {

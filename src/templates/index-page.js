@@ -9,18 +9,21 @@ import ContactUs from "../components/Landing/ContactUs";
 import BotSection from "../components/Landing/BotSection";
 import CaseStudies from "../components/CaseStudies";
 import WhatWeDo from "../components/Landing/WhatWeDo";
-import { Modal, ModalBody, Button, ModalFooter } from "reactstrap";
+import { Modal, ModalBody } from "reactstrap";
 import "../styles/bot.scss";
 import chat from "../img/chat.svg";
 export const IndexPageTemplate = ({ home, about, location }) => {
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
+  console.log("typeof window ", typeof window, window)
   return (
     <div>
-      <div onClick={toggle} className="bot-menu-btn left">
-        <img src={chat} alt="chat" />
-        <div>Let us converse</div>
-      </div>
+      {typeof window !== undefined && window.location.pathname.indexOf("/admin/") !== 0 && (
+        <div onClick={toggle} className="bot-menu-btn left">
+          <img src={chat} alt="chat" />
+          <div>Let us converse</div>
+        </div>
+      )}
 
       <Home home={home} />
       <AboutUs about={about} />
