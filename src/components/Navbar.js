@@ -19,7 +19,7 @@ import {
 import SolutionsMenu from "./menu/SolutionsMenu";
 import ServicesMenu from "./menu/ServicesMenu";
 import IndustriesMenu from "./menu/IndustriesMenu";
-
+import dropdown from "../img/dropdown.svg"
 const INavbar = props => {
   const [isOpen, setIsOpen] = useState(false);
   const [popoverOpen, setPopoverOpen] = useState(false);
@@ -45,7 +45,7 @@ const INavbar = props => {
               <Link to="/about">About Us</Link>
             </NavItem>
             <NavItem id="whatWeDo" className="btn">
-              <a>What We Do</a>
+              <a>What We Do  <img className={`${popoverOpen ? 'active-what-we-do' : ''}`} alt="send" src={dropdown} onClick={props.onClick} />{" "}</a>
             </NavItem>
             <NavItem className="btn">
               <Link to="/customers">Our Customers</Link>
@@ -73,22 +73,22 @@ const INavbar = props => {
                 <h1 className="display-4 text-gray d-none d-sm-block">
                   What we do
                 </h1>
-                <h2
+                <h4
                   onClick={toggleWhatWeDoMenu}
-                  className="btn d-block d-sm-none"
+                  className="d-block d-sm-none"
                 >
-                  <span role="img" aria-label="close">❌</span>
-                </h2>
+                  <img className="back-icon" alt="send" src={dropdown} />{" "}What We Do
+                </h4>
               </Col>
-              <Col lg={3} md={3} sm={6} xs={12}>
+              <Col className="wwd-sub-menu" lg={3} md={3} sm={6} xs={12}>
                 <h3>Services</h3>
                 <ServicesMenu />
               </Col>
-              <Col lg={3} md={3} sm={6} xs={12}>
+              <Col className="wwd-sub-menu" lg={3} md={3} sm={6} xs={12}>
                 <h3>Solutions</h3>
                 <SolutionsMenu />
               </Col>
-              <Col lg={3} md={3} sm={6} xs={12}>
+              <Col className="wwd-sub-menu" lg={3} md={3} sm={6} xs={12}>
                 <h3>Industries</h3>
                 <IndustriesMenu />
               </Col>
