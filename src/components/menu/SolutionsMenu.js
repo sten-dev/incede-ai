@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { graphql, StaticQuery , Link} from "gatsby";
-import { Container , ListGroup} from "reactstrap";
+import { graphql, StaticQuery, Link } from "gatsby";
+import { Container, ListGroup } from "reactstrap";
 class SolutionsMenu extends React.Component {
   render() {
     const { data } = this.props;
@@ -9,20 +9,20 @@ class SolutionsMenu extends React.Component {
     console.log(solutionsList);
     return (
       <section className="menu">
-      <ListGroup>
-        {solutionsList.map((s, i) => {
-          let solution = s.node;
+        <ListGroup>
+          {solutionsList.map((s, i) => {
+            let solution = s.node;
 
-          return (
-            <h5 key={i} className="mt-2">
-              <Link to={solution.fields.slug}>
-                {solution.frontmatter.title}
-              </Link>
-            </h5>
-          );
-        })}
-      </ListGroup>
-    </section>
+            return (
+              <h6 key={i} className="mt-2">
+                <Link to={solution.fields.slug}>
+                  {solution.frontmatter.title}
+                </Link>
+              </h6>
+            );
+          })}
+        </ListGroup>
+      </section>
     );
   }
 }

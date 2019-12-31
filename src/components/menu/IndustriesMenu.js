@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { graphql, StaticQuery , Link} from "gatsby";
-import { Container , ListGroup} from "reactstrap";
+import { graphql, StaticQuery, Link } from "gatsby";
+import { Container, ListGroup } from "reactstrap";
 class IndustriesMenu extends React.Component {
   render() {
     const { data } = this.props;
@@ -14,11 +14,11 @@ class IndustriesMenu extends React.Component {
             let industry = s.node;
 
             return (
-              <h5 key={i} className="mt-2">
+              <h6 key={i} className="mt-2">
                 <Link to={industry.fields.slug}>
                   {industry.frontmatter.title}
                 </Link>
-              </h5>
+              </h6>
             );
           })}
         </ListGroup>
