@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import Home from "./Landing/Home";
 import AboutUs from "./Landing/AboutUs";
 import WhatWeDo from "./Landing/WhatWeDo";
@@ -30,9 +30,6 @@ class Main extends Component {
 
   render() {
     const { home, about, location } = this.props;
-    // if (this.state.window && this.state.window.location) {
-    //     console.log("window", this.state.window.location.pathname.indexOf("/admin/"));
-    // }
     return (
       <React.Fragment>
         {this.state.window &&
