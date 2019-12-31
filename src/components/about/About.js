@@ -14,7 +14,7 @@ class About extends React.Component {
             <Row>
               <Col>
                 <article className="gap-y">
-                  <h1 className="display-4 title">About Us</h1>
+                  <h1 className="title">About Us</h1>
                   <h6 className="lead sub-title">{title}</h6>
                 </article>
               </Col>
@@ -37,7 +37,7 @@ class About extends React.Component {
               </Col>
               <Col sm={6} lg={6} md={6}>
                 <article className="gap-y text-center text-sm-left pr-0 pr-md-3 pr-lg-5">
-                  <h1 className="display-4 title ">{section.title}</h1>
+                  <h1 className="title ">{section.title}</h1>
                   <div className="image-section2  d-block d-sm-none">
                     <PreviewCompatibleImage
                       imageInfo={{

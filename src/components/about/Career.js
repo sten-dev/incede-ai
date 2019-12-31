@@ -14,7 +14,7 @@ class Career extends React.Component {
             <Row>
               <Col>
                 <article className="gap-y">
-                  <h1 className="display-4 title">Careers</h1>
+                  <h1 className="title">Careers</h1>
                   <h6 className="lead sub-title">
                     <HTMLContent content={careerSummary} />
                   </h6>
