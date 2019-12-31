@@ -3,7 +3,7 @@ import { Container, Row, Col } from "reactstrap";
 import "../../styles/home.scss";
 import PreviewCompatibleImage from "../PreviewCompatibleImage";
 import INavbar from "../Navbar";
-import arrow from "../../img/arrow.svg"
+import arrow from "../../img/arrow.svg";
 class Home extends React.Component {
   state = {};
   render() {
@@ -16,16 +16,13 @@ class Home extends React.Component {
               {/* <Col lg={1} md={2}></Col> */}
               <Col lg={7} md={5}>
                 <article className="gap-y">
-                  <h1 className="display-4 text-primary">{home.title}</h1>
-                  <h3>{home.subTitle}</h3>
+                  <h2 className="text-primary mb-4 bold">{home.title}</h2>
+                  <h4 className="mb-4">{home.subTitle}</h4>
                   <div className="py-2">
                     <button type="button" className="btn btn-secondary btn-lg">
-                      {home.button}{"  "}
-                      <img
-                        src={arrow}
-                        alt="next"
-                        style={{ width: "12px", }}
-                      />
+                      {home.button}
+                      {"  "}
+                      <img src={arrow} alt="next" style={{ width: "12px" }} />
                     </button>
                   </div>
                   {/* <pre>{JSON.stringify(home, null, 2)}</pre> */}

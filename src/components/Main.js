@@ -49,7 +49,7 @@ class Main extends Component {
         <Modal
           isOpen={this.state.modal}
           toggle={this.toggle}
-          className="bot-side-menu ml-0 mb-0"
+          className="bot-side-menu ml-0"
           backdrop="static"
         >
           <ModalBody>
