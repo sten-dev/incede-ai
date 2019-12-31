@@ -1,0 +1,28 @@
+@import "../bs";
+
+section {
+  &.menu-section {
+    background: $primary;
+    height: 100% !important;
+    overflow: auto;
+    color: #ffff !important;
+    .menu-close {
+      cursor: pointer;
+    }
+    .menu-items {
+      line-height: 3;
+      font-size: 22px;
+      a {
+        color: #ffff !important;
+      }
+    }
+    .sub-menu-items {
+      section {
+        padding-left: 1rem;
+        a {
+          color: #fff !important;
+        }
+      }
+    }
+  }
+}
