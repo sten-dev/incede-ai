@@ -69,7 +69,7 @@ const INavbar = props => {
         <PopoverBody>
           <Container fluid className="p-4">
             <Row>
-              <Col lg={3} md={3} sm={6} xs={12}>
+              <Col lg={3} md={3} sm={12} xs={12}>
                 <h1 className="display-4 text-gray d-none d-sm-block">
                   What we do
                 </h1>
@@ -80,6 +80,9 @@ const INavbar = props => {
                   <img className="back-icon" alt="send" src={dropdown} />{" "}What We Do
                 </h4>
               </Col>
+              <br className="d-block d-md-none" />
+              <br className="d-block d-md-none" />
+              <br className="d-block d-md-none" />
               <Col className="wwd-sub-menu" lg={3} md={3} sm={6} xs={12}>
                 <h3>Services</h3>
                 <ServicesMenu />

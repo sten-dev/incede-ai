@@ -52,8 +52,21 @@
   .what-we-do-menu {
     max-height: 100vh !important;
     overflow: auto !important;
+    .popover-body {
+      background: $primary;
+      color: #fff;
+    }
     h3 {
       font-size: 18px;
+    }
+    ul {
+      padding-left: 16px;
+      h5 {
+        a {
+          font-size: 14px;
+          color: #fff !important;
+        }
+      }
     }
   }
 }

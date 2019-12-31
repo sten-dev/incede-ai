@@ -1,46 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
-
 import Layout from "../components/Layout";
-import Home from "../components/Landing/Home";
-import AboutUs from "../components/Landing/AboutUs";
-import ContactUs from "../components/Landing/ContactUs";
-import BotSection from "../components/Landing/BotSection";
-import CaseStudies from "../components/CaseStudies";
-import WhatWeDo from "../components/Landing/WhatWeDo";
-import { Modal, ModalBody } from "reactstrap";
 import "../styles/bot.scss";
-import chat from "../img/chat.svg";
-export const IndexPageTemplate = ({ home, about, location }) => {
-  const [modal, setModal] = useState(false);
-  const toggle = () => setModal(!modal);
-  console.log("typeof window ", typeof window, window)
-  return (
-    <div>
-      {typeof window !== undefined && window.location.pathname.indexOf("/admin/") !== 0 && (
-        <div onClick={toggle} className="bot-menu-btn left">
-          <img src={chat} alt="chat" />
-          <div>Let us converse</div>
-        </div>
-      )}
+import Main from "../components/Main";
 
-      <Home home={home} />
-      <AboutUs about={about} />
-      <WhatWeDo />
-      <CaseStudies />
-      <ContactUs location={location} />
-      <Modal
-        isOpen={modal}
-        toggle={toggle}
-        className="bot-side-menu"
-        backdrop="static"
-      >
-        <ModalBody>
-          <BotSection toggle={toggle} />
-        </ModalBody>
-      </Modal>
-    </div>
+export const IndexPageTemplate = ({ home, about, location }) => {
+  return (
+    <Main home={home} about={about} location={location} />
   );
 };
 
