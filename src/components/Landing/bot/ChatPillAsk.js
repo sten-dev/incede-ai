@@ -1,6 +1,6 @@
 import React from "react";
 import send from "../../../img/Send.svg";
-import {Button} from 'reactstrap';
+import { Button } from 'reactstrap';
 export const ChatPillAsk = props => {
   return (
     <div className={`d-flex justify-content-end`}>
@@ -15,7 +15,7 @@ export const ChatPillAsk = props => {
         <div className="send">
           <Button color="secondary">
             <img alt="send" src={send} onClick={props.onClick} />{" "}
-            <span>Send</span>
+            <span className="d-none d-sm-block">Send</span>
           </Button>
         </div>
       </section>
