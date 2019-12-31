@@ -20,9 +20,6 @@
 
 section {
   &.what-we-do {
-    .what-we-do-header-section {
-      margin-left: 20.5%;
-    }
     // .title {
     //   font-size: 70px;
     //   font-weight: 400;
@@ -48,6 +45,11 @@ section {
         width: 150px !important;
       }
     }
+  }
+}
+@media screen and (min-width: 1200px) {
+  .what-we-do-header-section {
+    margin-left: 20.5% !important;
   }
 }
 
