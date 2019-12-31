@@ -29,9 +29,9 @@ class CaseStudies extends React.Component {
                 <div key={i}>
                   <Row>
                     <Col lg={6} md={5}>
-                      <h4 className="text-white header">
+                      <h1 className="text-white header">
                         Case Studies
-                      </h4>
+                      </h1>
                       <div className="image-section-mobile xs-image d-block d-md-none">
                         <PreviewCompatibleImage
                           imageInfo={{
