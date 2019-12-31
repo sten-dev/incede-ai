@@ -13,7 +13,8 @@ section {
 
       overflow: auto;
       height: 100vh;
-      max-height: calc(100vh - 256px) !important;
+      // max-height: calc(100vh - 256px) !important;
+      max-height: calc(100vh - 356px) !important;
       padding: 16px;
     }
     .chat-pill {
