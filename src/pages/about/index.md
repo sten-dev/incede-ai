@@ -19,7 +19,7 @@ section:
       technologies to deliver right-fit solutions, analytics strategies,
       phase-one projects, full implementations, standardization and
       enhancement services.
-    image: /img/jumbotron.jpg
+    image: /img/image_1.png
     title: Leadership
 ---
 
