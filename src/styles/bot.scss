@@ -3,7 +3,8 @@
 section {
   &.bot {
     background: $primary;
-    height: calc(100vh - 18px) !important;
+    // height: calc(100vh - 18px) !important;
+    height: calc(100vh - 0.6px) !important;
     overflow: auto;
     .chat {
       overflow: auto;
