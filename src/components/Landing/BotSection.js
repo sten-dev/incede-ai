@@ -70,7 +70,6 @@ class BotSection extends Component {
     });
 
     this.socket.on(SOCKET_PATHS.BOT_RESPONSE, (eventName, response) => {
-      debugger;
       console.info(SOCKET_PATHS.BOT_RESPONSE, eventName, response);
       if (eventName === "SERVER_CONNECT") {
         console.info("Bot connected, waiting for bot to wakeup");
