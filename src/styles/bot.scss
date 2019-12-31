@@ -68,6 +68,11 @@ section {
     }
   }
 }
+.side-bar {
+  > div:nth-child(1) {
+    position: fixed !important;
+  }
+}
 /**Scroll Bar*/
 
 .chat::-webkit-scrollbar-track {

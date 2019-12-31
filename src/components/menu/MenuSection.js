@@ -90,19 +90,19 @@ class MenuSection extends Component {
                 <Col>
                   <Row xs="1" sm="2" md="3" className="pl-3 sub-menu">
                     <Col className="pb-4">
-                      <h5>Services</h5>
+                      <h5 className="mt-0">Services</h5>
                       <span className="sub-menu-items">
                         <ServicesMenu />
                       </span>
                     </Col>
                     <Col className="pb-4">
-                      <h5>Solutions</h5>
+                      <h5 className="mt-0">Solutions</h5>
                       <span className="sub-menu-items">
                         <SolutionsMenu />
                       </span>
                     </Col>
                     <Col className="pb-4">
-                      <h5>Industries</h5>
+                      <h5 className="mt-0">Industries</h5>
                       <span className="sub-menu-items">
                         <IndustriesMenu />
                       </span>

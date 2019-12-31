@@ -1,4 +1,6 @@
-html {font-size: 100%;}
+html {
+  font-size: 100%;
+}
 
 body {
   background-color: white;
@@ -22,9 +24,15 @@ body {
   margin-left: 0 !important;
 }
 
-p {margin-bottom: 0 !important;}
+p {
+  margin-bottom: 0 !important;
+}
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   margin: 2.75rem 0 1.05rem !important;
   font-weight: 400 !important;
   line-height: 1.5 !important;
@@ -35,16 +43,26 @@ h1 {
   font-size: 2.488em !important;
 }
 
-h2 {font-size: 2.074em !important;}
+h2 {
+  font-size: 2.074em !important;
+}
 
-h3 {font-size: 1.728em !important;}
+h3 {
+  font-size: 1.728em !important;
+}
 
-h4 {font-size: 1.44em !important;}
+h4 {
+  font-size: 1.44em !important;
+}
 
-h5 {font-size: 1.2em !important;}
+h5 {
+  font-size: 1.2em !important;
+}
 
-small, .text_small {font-size: 0.833em !important;}
-
+small,
+.text_small {
+  font-size: 0.833em !important;
+}
 
 @import "bs.scss";
 
@@ -93,6 +111,9 @@ small, .text_small {font-size: 0.833em !important;}
 }
 
 @media screen and (max-width: 599px) {
+  h1 {
+    line-height: 1.15 !important;
+  }
   .gap-y {
     padding: 32px 0;
   }

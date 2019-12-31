@@ -55,7 +55,7 @@ const INavbar = props => {
                   className={`${popoverOpen ? "active-what-we-do" : ""}`}
                   alt="send"
                   src={dropdown}
-                  // onClick={props.onClick}
+                // onClick={props.onClick}
                 />{" "}
               </a>
             </NavItem>
@@ -95,15 +95,15 @@ const INavbar = props => {
               <br className="d-block d-md-none" />
               <br className="d-block d-md-none" />
               <Col className="wwd-sub-menu" lg={3} md={3} sm={6} xs={12}>
-                <h5>Services</h5>
+                <h5 className="mt-0">Services</h5>
                 <ServicesMenu />
               </Col>
               <Col className="wwd-sub-menu" lg={3} md={3} sm={6} xs={12}>
-                <h5>Solutions</h5>
+                <h5 className="mt-0">Solutions</h5>
                 <SolutionsMenu />
               </Col>
               <Col className="wwd-sub-menu" lg={3} md={3} sm={6} xs={12}>
-                <h5>Industries</h5>
+                <h5 className="mt-0">Industries</h5>
                 <IndustriesMenu />
               </Col>
             </Row>

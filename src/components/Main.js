@@ -62,6 +62,7 @@ class Main extends Component {
             content: { position: "initial" },
             root: { position: "initial" }
           }}
+          rootClassName="side-bar"
         >
           {" "}
         </Sidebar>
