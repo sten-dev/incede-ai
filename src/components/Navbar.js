@@ -83,7 +83,7 @@ const INavbar = props => {
           <Container fluid className="p-4">
             <Row>
               <Col lg={3} md={3} sm={12} xs={12}>
-                <h1 className="display-4 text-gray d-none d-sm-block">
+                <h1 className="text-gray d-none d-sm-block">
                   What we do
                 </h1>
                 <h4 onClick={toggleWhatWeDoMenu} className="d-block d-sm-none">

@@ -22,8 +22,8 @@ export const ServicesTemplate = ({
         <Container>
           <Row>
             <Col>
-              <h1 className="display-4">{title}</h1>
-              <h2>{subTitle}</h2>
+              <h1>{title}</h1>
+              <h4>{subTitle}</h4>
               {/* {image && <PreviewCompatibleImage imageInfo={image} />} */}
             </Col>
           </Row>

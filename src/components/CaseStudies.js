@@ -29,7 +29,7 @@ class CaseStudies extends React.Component {
                 <div key={i}>
                   <Row>
                     <Col lg={6} md={5}>
-                      <h4 className="text-white display-4 header">
+                      <h4 className="text-white header">
                         Case Studies
                       </h4>
                       <div className="image-section-mobile xs-image d-block d-md-none">

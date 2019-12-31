@@ -88,7 +88,7 @@ class MenuSection extends Component {
             {this.state.subMenu && (
               <React.Fragment>
                 <Col>
-                  <Row xs="1" sm="2" md="3" className="pl-3">
+                  <Row xs="1" sm="2" md="3" className="pl-3 sub-menu">
                     <Col className="pb-4">
                       <h5>Services</h5>
                       <span className="sub-menu-items">

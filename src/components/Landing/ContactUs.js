@@ -25,7 +25,7 @@ const ContactUs = props => {
           // xs={12}
           >
             <article className="gap-y">
-              <h1 className="display-4 semi-bold text-primary">Contact Us</h1>
+              <h1 className="semi-bold text-primary">Contact Us</h1>
               <br />
               <br className="d-block d-sm-none" />
               <div>
