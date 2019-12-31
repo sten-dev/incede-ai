@@ -15,6 +15,7 @@ class Main extends Component {
       modal: false,
       window: undefined
     };
+    this.fullscreenModal = React.createRef();
   }
   componentDidMount() {
     this.setState({
@@ -23,6 +24,12 @@ class Main extends Component {
   }
 
   toggle = () => {
+    const elem = this.fullscreenModal.current;
+
+    /* Interact with it as a normal DOM element: */
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    }
     this.setState({
       modal: !this.state.modal
     });
@@ -47,6 +54,7 @@ class Main extends Component {
         <CaseStudies />
         <ContactUs location={location} />
         <Modal
+          ref={this.fullscreenModal}
           isOpen={this.state.modal}
           toggle={this.toggle}
           className="bot-side-menu"
