@@ -8,6 +8,15 @@
       font-size: 18px;
       letter-spacing: 0;
       font-weight: bolder;
+      text-decoration: none;
+    }
+    a:hover {
+      color: $secondary !important;
+    }
+    a.selected {
+      color: $secondary !important;
+      border-bottom: 2px solid $secondary;
+      padding-bottom: 0.5rem;
     }
   }
   .navbar-brand {
