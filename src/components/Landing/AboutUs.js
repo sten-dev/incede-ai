@@ -11,7 +11,7 @@ class AboutUs extends React.Component {
         <Container>
           <Row>
             <Col>
-              <article className="gap-y">
+              <article className="gap-y text-center text-sm-left">
                 <h1 className="title">{about.title}</h1>
                 <h5 className="text-white sub-title">{about.subTitle}</h5>
                 <div className="py-2">
