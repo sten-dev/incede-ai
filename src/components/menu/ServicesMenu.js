@@ -14,11 +14,11 @@ class ServicesMenu extends React.Component {
             let service = s.node;
 
             return (
-              <h5 key={i} className="mt-2">
+              <h6 key={i} className="mt-2">
                 <Link to={service.fields.slug}>
                   {service.frontmatter.title}
                 </Link>
-              </h5>
+              </h6>
             );
           })}
         </ListGroup>
