@@ -8,9 +8,9 @@ section {
       line-height: 67px;
     }
     .sub-title {
-      font-size: 22px;
+      // font-size: 22px;
       letter-spacing: 0.55px;
-      line-height: 44px;
+      line-height: 34px;
     }
     h1,
     h6 {
@@ -18,76 +18,7 @@ section {
     }
     img {
       width: 12px;
-    }
-  }
-}
-
-@media screen and (max-width: 991.99px) {
-  section {
-    &.about {
-      text-align: center;
-      .title {
-        font-size: 46px;
-      }
-      .sub-title {
-        font-size: 20px;
-        letter-spacing: 0px;
-        line-height: 40px;
-      }
-      img {
-        width: 10px;
-        margin-left: 8px;
-      }
-      .btn-lg {
-        font-size: 18px;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 767.99px) {
-  section {
-    &.about {
-      text-align: left;
-      .title {
-        font-size: 36px;
-      }
-      .sub-title {
-        font-size: 18px;
-        letter-spacing: 0px;
-        line-height: 34px;
-      }
-      img {
-        width: 8px;
-        margin-left: 6px;
-      }
-      .btn-lg {
-        font-size: 16px;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 575.99px) {
-  section {
-    &.about {
-      text-align: center;
-      .title {
-        font-size: 26px;
-      }
-      .sub-title {
-        font-size: 14px;
-        letter-spacing: 0px;
-        line-height: 24px;
-        padding: 0px 16px;
-      }
-      img {
-        width: 6px;
-        margin-left: 6px;
-      }
-      .btn-lg {
-        font-size: 12px;
-      }
+      margin-left: 8px;
     }
   }
 }
