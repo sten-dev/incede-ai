@@ -58,7 +58,9 @@ class Main extends Component {
           open={this.state.modal}
           onSetOpen={this.toggle}
           styles={{
-            sidebar: { width: "100%", overflowX: "hidden" }
+            sidebar: { width: "100%", overflowX: "hidden" },
+            content: { position: "initial" },
+            root: { position: "initial" }
           }}
         >
           {" "}
