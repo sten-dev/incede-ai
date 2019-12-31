@@ -173,6 +173,9 @@ section {
 }
 
 @media screen and (max-width: 991.99px) {
+  .bot-side-menu {
+    overflow-x: hidden !important;
+  }
   .bot-menu-btn {
     height: 220px;
     width: 85px;
@@ -196,6 +199,9 @@ section {
 }
 
 @media screen and (max-width: 767.99px) {
+  .bot-side-menu {
+    overflow-x: hidden !important;
+  }
   .bot-menu-btn {
     height: 180px;
     width: 55px;
