@@ -23,7 +23,7 @@ class WhatWeDo extends Component {
                     <Container fluid>
                         <Row className="what-we-do-header-section">
                             <div className="mr-3">
-                                <h1 className="display-4 title text-primary">What we do</h1>
+                                <h1 className="title text-primary">What we do</h1>
                             </div>
                             <Col className="menu-tabs d-flex align-items-center">
                                 <div className="header w-100">
