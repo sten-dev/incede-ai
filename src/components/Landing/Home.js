@@ -16,8 +16,8 @@ class Home extends React.Component {
               {/* <Col lg={1} md={2}></Col> */}
               <Col lg={7} md={5}>
                 <article className="gap-y">
-                  <h2 className="text-primary mb-4 bold">{home.title}</h2>
-                  <h4 className="mb-4">{home.subTitle}</h4>
+                  <h1 className="text-primary bold">{home.title}</h1>
+                  <h4 >{home.subTitle}</h4>
                   <div className="py-2">
                     <button type="button" className="btn btn-secondary btn-lg">
                       {home.button}
