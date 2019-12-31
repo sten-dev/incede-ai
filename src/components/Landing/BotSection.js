@@ -163,7 +163,7 @@ class BotSection extends Component {
       <section className="bot">
         <div onClick={this.props.toggle} className="bot-menu-btn right">
           <img src={chat} alt="chat" />
-          <div>Explore our site</div>
+          <div className="d-none d-md-block">Explore our site</div>
         </div>
         <Container>
           <Row>
