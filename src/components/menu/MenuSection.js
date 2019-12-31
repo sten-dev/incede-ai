@@ -33,7 +33,7 @@ class MenuSection extends Component {
                 />
               </div>
               <div className="align-self-center menu-close">
-                <img src={close} alt="close" onClick={this.props.toggle} />
+                <img src={close} alt="close" style={{ width: "16px" }} onClick={this.props.toggle} />
               </div>
             </Col>
             {!this.state.subMenu && (
