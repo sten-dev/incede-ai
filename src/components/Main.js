@@ -9,15 +9,17 @@ import BotSection from './Landing/BotSection';
 import "../styles/bot.scss";
 import chat from "../img/chat.svg";
 class Main extends Component {
-    window;
     constructor(props) {
         super(props);
         this.state = {
-            modal: false
+            modal: false,
+            window: undefined
         }
     }
     componentDidMount() {
-        this.window = window
+        this.setState({
+            window: window
+        })
     }
 
     toggle = () => {
@@ -28,11 +30,13 @@ class Main extends Component {
 
     render() {
         const { home, about, location } = this.props;
-        console.log(this.props);
+        // if (this.state.window && this.state.window.location) {
+        //     console.log("window", this.state.window.location.pathname.indexOf("/admin/"));
+        // }
         return (
             <React.Fragment>
 
-                {typeof this.window !== "undefined" && this.window.location && this.window.location.pathname.indexOf("/admin/") !== 0 && (
+                {this.state.window && this.state.window.location && this.state.window.location.pathname.indexOf("/admin/") !== 0 && (
                     <div onClick={this.toggle} className="bot-menu-btn left">
                         <img src={chat} alt="chat" />
                         <div>Let us converse</div>
