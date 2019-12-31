@@ -37,6 +37,7 @@ const ContactUs = props => {
                   <div className="d-flex">
                     <div>
                       <img
+                        className="contact-card-img"
                         src={contact_us}
                         alt="contact"
                       />
@@ -72,7 +73,7 @@ const ContactUs = props => {
 const ContactInfo = (props) => {
   let location = props.location
   return (<React.Fragment>
-    <h2 className="contact-title">{location.title}</h2>
+    <h1 className="contact-title">{location.title}</h1>
     <h6 className="contact-subtitle semi-bold text-uppercase fs-16">{location.subTitle}</h6>
     <br />
     <div>

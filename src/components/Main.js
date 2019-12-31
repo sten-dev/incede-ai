@@ -1,11 +1,11 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import Home from "./Landing/Home";
 import AboutUs from "./Landing/AboutUs";
 import WhatWeDo from "./Landing/WhatWeDo";
 import CaseStudies from "./CaseStudies";
 import ContactUs from "./Landing/ContactUs";
-import { Modal, ModalBody } from "reactstrap";
 import BotSection from "./Landing/BotSection";
+import Sidebar from "react-sidebar";
 import "../styles/bot.scss";
 import chat from "../img/chat.svg";
 class Main extends Component {
@@ -23,6 +23,9 @@ class Main extends Component {
   }
 
   toggle = () => {
+    if (!this.state.modal) document.body.style.overflow = "hidden";
+    else document.body.style.overflow = "auto";
+
     this.setState({
       modal: !this.state.modal
     });
@@ -30,11 +33,15 @@ class Main extends Component {
 
   render() {
     const { home, about, location } = this.props;
+    // if (this.state.window && this.state.window.location) {
+    //     console.log("window", this.state.window.location.pathname.indexOf("/admin/"));
+    // }
     return (
       <React.Fragment>
         {this.state.window &&
           this.state.window.location &&
-          this.state.window.location.pathname.indexOf("/admin/") !== 0 && (
+          this.state.window.location.pathname.indexOf("/admin/") !== 0 &&
+          !this.state.modal && (
             <div onClick={this.toggle} className="bot-menu-btn left">
               <img src={chat} alt="chat" />
               <div className="d-none d-md-block">Let us converse</div>
@@ -46,16 +53,18 @@ class Main extends Component {
         <WhatWeDo />
         <CaseStudies />
         <ContactUs location={location} />
-        <Modal
-          isOpen={this.state.modal}
-          toggle={this.toggle}
-          className="bot-side-menu"
-          backdrop="static"
+        <Sidebar
+          sidebar={<BotSection toggle={this.toggle} />}
+          open={this.state.modal}
+          onSetOpen={this.toggle}
+          styles={{
+            sidebar: { width: "100%", overflowX: "hidden" },
+            content: { position: "initial" },
+            root: { position: "initial" }
+          }}
         >
-          <ModalBody>
-            <BotSection toggle={this.toggle} />
-          </ModalBody>
-        </Modal>
+          {" "}
+        </Sidebar>
       </React.Fragment>
     );
   }

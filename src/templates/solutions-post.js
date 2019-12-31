@@ -22,7 +22,7 @@ export const SolutionsPostTemplate = ({
           <Row>
             <Col>
             <h1>{title}</h1>
-              <h4>{subTitle}</h4>
+            <h6>{subTitle}</h6>
             </Col>
           </Row>
         </Container>

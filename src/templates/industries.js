@@ -24,7 +24,7 @@ export const IndustriesTemplate = ({
           <Row>
             <Col>
               <h1>{title}</h1>
-              <h4>{subTitle}</h4>
+              <h6>{subTitle}</h6>
               {/* {image && <PreviewCompatibleImage imageInfo={image} />} */}
             </Col>
           </Row>
