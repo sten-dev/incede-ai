@@ -12,7 +12,7 @@ class Services extends React.Component {
     return (
       <section className="services gap-y">
         <Container>
-          <Row>
+          <Row className=" xs-wwd-list">
             {services.map((x, i) => {
               let service = x.node.frontmatter;
               return (

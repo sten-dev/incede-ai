@@ -69,6 +69,15 @@ section {
       padding-right: 4px;
     }
   }
+  .xs-wwd-list {
+    flex-wrap: nowrap !important;
+    overflow-y: hidden;
+    overflow-x: auto;
+    &::-webkit-scrollbar {
+      width: 0px !important;
+      display: none;
+    }
+  }
 }
 
 @media screen and (min-width: 600px) and (max-width: 1179px) {

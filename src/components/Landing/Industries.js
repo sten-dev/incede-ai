@@ -12,7 +12,7 @@ class Industries extends React.Component {
     return (
       <section className="industries gap-y">
         <Container>
-          <Row>
+          <Row className=" xs-wwd-list">
             {industries.map((x, i) => {
               let industry = x.node.frontmatter;
               return (

@@ -12,7 +12,7 @@ class Solutions extends React.Component {
     return (
       <section className="solutions gap-y">
         <Container>
-          <Row>
+          <Row className=" xs-wwd-list">
             {solutions.map((x, i) => {
               let solution = x.node.frontmatter;
               return (
