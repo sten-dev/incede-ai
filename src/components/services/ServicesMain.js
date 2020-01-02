@@ -2,20 +2,20 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql, StaticQuery } from 'gatsby'
 
-class SolutionsMain extends React.Component {
+class ServicesMain extends React.Component {
     render() {
         const { data } = this.props
-        const { edges: solutions } = data.allMarkdownRemark
-        console.log("solutions list", solutions)
+        const { edges: services } = data.allMarkdownRemark
+        console.log("services list", services)
         return (
-            <div>
+            <div >
 
             </div>
         )
     }
 }
 
-SolutionsMain.propTypes = {
+ServicesMain.propTypes = {
     data: PropTypes.shape({
         allMarkdownRemark: PropTypes.shape({
             edges: PropTypes.array,
@@ -26,9 +26,9 @@ SolutionsMain.propTypes = {
 export default () => (
     <StaticQuery
         query={graphql`
-      query SolutionsMainQuery {
+      query ServicesMainQuery {
         allMarkdownRemark(
-          filter: { frontmatter: { templateKey: { eq: "solutions-post" } } }
+          filter: { frontmatter: { templateKey: { eq: "services" } } }
         ) {
           edges {
             node {
@@ -54,6 +54,6 @@ export default () => (
         }
       }
     `}
-        render={(data) => <SolutionsMain data={data} />}
+        render={(data) => <ServicesMain data={data} />}
     />
 )
