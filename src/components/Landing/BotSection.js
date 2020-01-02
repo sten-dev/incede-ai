@@ -13,7 +13,7 @@ class BotSection extends Component {
   wASessionId;
   constructor(props) {
     super(props);
-    this.state = { messages: [], msg: "" };
+    this.state = { messages: [], msg: "", lastWAUserIndex: -1 };
   }
   componentDidMount() {
     this.roomName = localStorage.getItem("roomName");
@@ -35,7 +35,7 @@ class BotSection extends Component {
       reconnectionDelayMax: 5000,
       reconnectionAttempts: 5
     });
-    this.socket.on("connect", function() {
+    this.socket.on("connect", function () {
       console.debug("connected to server");
     });
     let messages = [];
@@ -45,9 +45,14 @@ class BotSection extends Component {
       let chatsResp = await httpClient("chats", "POST", {
         roomId: this.roomId
       });
+      let lastWAUserIndex = -1
       if (chatsResp.success === true) {
-        chatsResp.data.forEach(x => {
+        let data = chatsResp.data.reverse()
+        data.forEach((x, i) => {
           if (x.TEXT) {
+            if (x.USER === "WATSON" || x.USER === "AGENT") {
+              lastWAUserIndex = i
+            }
             messages.push({
               user:
                 x.USER === "WATSON" ? "WA" : x.USER === "AGENT" ? "AG" : "ME",
@@ -58,8 +63,9 @@ class BotSection extends Component {
           }
         });
         this.setState({
-          messages: messages.reverse()
-        });
+          messages: messages,
+          lastWAUserIndex
+        }, this.scrollToBottom);
       }
     }
     this.socket.emit(SOCKET_PATHS.CONNECT, {
@@ -95,6 +101,7 @@ class BotSection extends Component {
         if (data && Array.isArray(data)) {
           // scope.myData = data.context.skills["main skill"].user_defined;
           messages = [...this.state.messages];
+          let lastWAUserIndex = this.state.lastWAUserIndex;
           data.forEach(x => {
             if (x.text || x.title) {
               messages.push({
@@ -103,21 +110,25 @@ class BotSection extends Component {
                 type: x.options ? "options" : "text",
                 options: x.options || []
               });
+              lastWAUserIndex = messages.length - 1
             }
           });
           this.setState({
-            messages
-          });
+            messages,
+            lastWAUserIndex
+          }, this.scrollToBottom);
         }
       } else if (eventName === "AGENT") {
         let data = response.data;
         let messages = this.state.messages;
+        let lastWAUserIndex = this.state.lastWAUserIndex;
         if (data) {
           messages.push({
             user: "AG",
             message: response.data
           });
-          this.setState({ messages: messages });
+          lastWAUserIndex = messages.length - 1
+          this.setState({ messages: messages, lastWAUserIndex }, this.scrollToBottom);
         }
       } else {
         console.warn(eventName, response);
@@ -154,8 +165,15 @@ class BotSection extends Component {
     this.setState({
       messages,
       msg: ""
-    });
+    }, this.scrollToBottom);
   };
+
+  scrollToBottom = () => {
+    setTimeout(function () {
+      var objDiv = document.getElementById("messages_container");
+      objDiv.scrollTop = objDiv.scrollHeight;
+    }, 1000);
+  }
 
   render() {
     return (
@@ -184,14 +202,10 @@ class BotSection extends Component {
           </Row>
           <Row>
             <Col>
-              <section className="chat d-flex flex-column flex-grow-1">
-                {/* <ChatPill text="Our solutions provide outsome-based answers to the business problems." /> */}
-                {/* <ChatPill text="Which solutions are you looking for?" />
-                <ChatPill right text="Customer Analytics" />
-                <ChatPill text="You can use our customer analytics solution to target the right customers with predictive modeling. Identify dissatisfied customers by uncovering patterns of behavior. Address customer service issues faster by correlating and analyzing a variety of data." /> */}
+              <section id="messages_container" className="chat d-flex flex-column flex-grow-1">
                 {this.state.messages.map((x, i) => (
                   <div key={i}>
-                    <ChatPill right={x.user === "ME"} text={x.message} />
+                    <ChatPill isLastWAUser={i === this.state.lastWAUserIndex} right={x.user === "ME"} text={x.message} />
                     {i === this.state.messages.length - 1 &&
                       x.type === "options" &&
                       x.options.map(option => (
