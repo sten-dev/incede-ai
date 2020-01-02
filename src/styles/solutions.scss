@@ -1,0 +1,17 @@
+.solutions-list {
+  .solution-card {
+    .card {
+      border: none;
+      border-bottom: 1px solid #ddd;
+      border-radius: 0;
+    }
+    margin: 2em 0;
+    .image-section {
+      width: 100%;
+    }
+    .card-container {
+      padding-top: 1.5em;
+      padding-bottom: 1.5em;
+    }
+  }
+}
