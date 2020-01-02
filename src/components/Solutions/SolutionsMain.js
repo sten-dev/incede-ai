@@ -1,17 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql, StaticQuery, Link } from 'gatsby'
-import { Container, Row, Col, Card, CardBody, CardTitle, CardSubtitle, CardText } from 'reactstrap';
+import { Container, Row, Col, Card, CardBody, CardText } from 'reactstrap';
 import PreviewCompatibleImage from '../PreviewCompatibleImage';
 import arrow from "../../img/arrow.svg"
-import "../../styles/solutions.scss";
+import "../../styles/what-to-do-list.scss";
 class SolutionsMain extends React.Component {
   render() {
     const { data } = this.props
     const { edges: solutions } = data.allMarkdownRemark
     console.log("solutions list", solutions)
     return (
-      <section className="solutions-list ">
+      <section className="wtd-list ">
         <section className="header-section gap-y text-center">
           <Container>
             <Row>
@@ -25,7 +25,7 @@ class SolutionsMain extends React.Component {
           {solutions.map((x, i) => {
             let solution = x.node.frontmatter;
             return (
-              <Row className="solution-card" key={i}>
+              <Row className="wtd-card" key={i}>
                 <Col>
                   <Card>
                     <CardBody className="p-0">
@@ -52,11 +52,6 @@ class SolutionsMain extends React.Component {
                             {"  "}
                               <img src={arrow} alt="next" style={{ width: "12px", height: "12px", marginTop: -2 }} />
                             </Link>
-                            {/* <button type="button" className="btn btn-secondary btn-sm" >
-                              Read More
-                            {"  "}
-                              <img src={arrow} alt="next" style={{ width: "12px", height: "12px", marginTop: -2 }} />
-                            </button> */}
                           </div>
                         </Col>
                       </Row>
