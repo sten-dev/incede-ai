@@ -33,12 +33,13 @@ h2,
 h3,
 h4,
 h5 {
-  margin: 2.75rem 0 1.05rem !important;
+  margin: 1.5rem 0 1.05rem !important;
   font-weight: 400 !important;
   line-height: 1.5 !important;
 }
 
 h1 {
+  line-height: 1.15 !important;
   margin-top: 0 !important;
   font-size: 2.488em !important;
 }
@@ -113,9 +114,6 @@ small,
 }
 
 @media screen and (max-width: 599px) {
-  h1 {
-    line-height: 1.15 !important;
-  }
   .gap-y {
     padding: 32px 0;
   }
