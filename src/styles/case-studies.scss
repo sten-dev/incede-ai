@@ -37,6 +37,17 @@
       margin-bottom: 16px;
       clip-path: polygon(25% 0, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
     }
+
+    @media screen and (max-width: 768px) {
+      div:first-child {
+        height: 288px;
+      }
+    }
+    @media screen and (max-width: 423px) {
+      div:first-child {
+        height: 256px;
+      }
+    }
   }
   .image-section {
     position: absolute;

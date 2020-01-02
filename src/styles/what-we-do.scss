@@ -74,11 +74,16 @@ section {
 @media screen and (min-width: 600px) and (max-width: 1179px) {
   .what-we-do-header-section {
     margin-left: 0 !important;
-    flex-direction: column;
+    // flex-direction: column;
     .tab {
       font-size: 22px;
       padding-left: 16px;
       padding-right: 16px;
     }
+  }
+}
+@media screen and (max-width: 676px) {
+  .what-we-do-header-section {
+    flex-direction: column;
   }
 }
