@@ -208,13 +208,18 @@ class BotSection extends Component {
                     <ChatPill isLastWAUser={i === this.state.lastWAUserIndex} right={x.user === "ME"} text={x.message} />
                     {i === this.state.messages.length - 1 &&
                       x.type === "options" &&
-                      x.options.map(option => (
-                        <div onPress={() => this.handleOnOptionClick(option)}>
-                          <div>
-                            <p>{option.label}</p>
-                          </div>
-                        </div>
-                      ))}
+                      <div className="options-container">
+                        <Row>
+                          {x.options.map(option => (
+                            <Col lg={4} md={4} sm={6} xs={12} onClick={() => this.handleOnOptionClick(option)}>
+                              <div className="wa-option">
+                                <p>{option.label}</p>
+                              </div>
+                            </Col>
+                          ))}
+                        </Row>
+                      </div>
+                    }
                   </div>
                 ))}
               </section>
