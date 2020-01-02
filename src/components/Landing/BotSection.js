@@ -171,7 +171,9 @@ class BotSection extends Component {
   scrollToBottom = () => {
     setTimeout(function () {
       var objDiv = document.getElementById("messages_container");
-      objDiv.scrollTop = objDiv.scrollHeight;
+      if (objDiv) {
+        objDiv.scrollTop = objDiv.scrollHeight;
+      }
     }, 1000);
   }
   handleKeyDown = (event) => {
