@@ -32,7 +32,7 @@ class CaseStudies extends React.Component {
                       <h1 className="text-white header">
                         Case Studies
                       </h1>
-                      <div className="image-section-mobile xs-image d-block d-md-none">
+                      <div className="image-section-mobile xs-image d-block d-md-none mb-sm-3 mb-xs-3">
                         <PreviewCompatibleImage
                           imageInfo={{
                             image: caseStudy.image,
@@ -40,7 +40,7 @@ class CaseStudies extends React.Component {
                           }}
                         />
                       </div>
-                      <p className="text-white title">{caseStudy.title}</p>
+                      <p className="text-white title mb-sm-3 mb-xs-3">{caseStudy.title}</p>
                       <small className="text-white description">
                         {caseStudy.description}
                       </small>
