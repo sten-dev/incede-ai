@@ -137,14 +137,15 @@ class BotSection extends Component {
   };
 
   send = () => {
-    // console.log("time", this.time);
-    let data = {
-      comment: this.state.msg,
-      wASessionId: this.wASessionId,
-      roomName: this.roomName,
-      roomId: this.roomId
-    };
-    this.sendMessage(data, this.state.msg);
+    if (this.state.msg && this.state.msg.length > 0) {
+      let data = {
+        comment: this.state.msg,
+        wASessionId: this.wASessionId,
+        roomName: this.roomName,
+        roomId: this.roomId
+      };
+      this.sendMessage(data, this.state.msg);
+    }
   };
 
   handleOnOptionClick = option => {
@@ -173,6 +174,11 @@ class BotSection extends Component {
       var objDiv = document.getElementById("messages_container");
       objDiv.scrollTop = objDiv.scrollHeight;
     }, 1000);
+  }
+  handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      this.send()
+    }
   }
 
   render() {
@@ -224,6 +230,7 @@ class BotSection extends Component {
                 ))}
               </section>
               <ChatPillAsk
+                handleKeyDown={this.handleKeyDown}
                 value={this.state.msg}
                 onChange={this.handleMessageChange}
                 placeholder={"Enter your name here"}

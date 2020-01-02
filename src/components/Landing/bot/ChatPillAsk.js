@@ -11,9 +11,10 @@ export const ChatPillAsk = props => {
           placeholder={props.placeholder}
           onChange={props.onChange}
           value={props.value}
+          onKeyDown={props.handleKeyDown}
         />
         <div className="send">
-          <Button color="secondary" onClick={props.onClick}>
+          <Button disabled={!props.value || props.value.length === 0} color="secondary" onClick={props.onClick}>
             <img alt="send" src={send} />{" "}
             <span className="d-none d-sm-block">Send</span>
           </Button>
