@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { graphql, StaticQuery, Link } from 'gatsby'
-import { Container, Row, Col, Card, CardBody, CardText } from 'reactstrap';
-import PreviewCompatibleImage from '../PreviewCompatibleImage';
-import arrow from "../../img/arrow.svg"
+import { graphql, StaticQuery } from 'gatsby'
+import { Container, Row, Col } from 'reactstrap';
+import WhatToDoListCard from '../WhatToDoListCard';
 import "../../styles/what-to-do-list.scss";
 class SolutionsMain extends React.Component {
   render() {
@@ -25,40 +24,7 @@ class SolutionsMain extends React.Component {
           {solutions.map((x, i) => {
             let solution = x.node.frontmatter;
             return (
-              <Row className="wtd-card" key={i}>
-                <Col>
-                  <Card>
-                    <CardBody className="p-0">
-                      <Row>
-                        <Col lg={2} md={2} sm={4} xs={12} className="image-section">
-                          <PreviewCompatibleImage
-                            imageInfo={{
-                              image: solution.image,
-                              alt: `thumbnail`,
-                              style: { width: "100%" }
-                            }}
-                          />
-                        </Col>
-                        <Col lg={10} md={10} sm={8} xs={12} className="card-container">
-                          <h5 className="mt-0">{solution.title}</h5>
-                          <h6 className="mt-0">{solution.subTitle}</h6>
-                          <CardText>
-                            {x.node.excerpt}
-                          </CardText>
-                          <br />
-                          <div>
-                            <Link to={x.node.fields.slug} className="btn btn-secondary btn-sm">
-                              Read More
-                            {"  "}
-                              <img src={arrow} alt="next" style={{ width: "12px", height: "12px", marginTop: -2 }} />
-                            </Link>
-                          </div>
-                        </Col>
-                      </Row>
-                    </CardBody>
-                  </Card>
-                </Col>
-              </Row>
+              <WhatToDoListCard image={solution.image} key={i} title={solution.title} subTitle={solution.subTitle} excerpt={x.node.excerpt} slug={x.node.fields.slug} />
             );
           })}
         </Container>
