@@ -8,10 +8,10 @@ import instagram from "../img/social/instagram.svg";
 import twitter from "../img/social/twitter.svg";
 import { Row, Container, Col } from "reactstrap";
 import FooterLocation from "./FooterLocation";
-const Footer = class extends React.Component {
+class Footer extends React.Component {
   render() {
     return (
-      <footer className="footer">
+      <footer className="footer gap-y-half">
         <Container>
           <Row>
             <Col className="incede-img" md="12" sm="12" lg="12">
@@ -68,17 +68,17 @@ const Footer = class extends React.Component {
                     <h6>What We Do</h6>
                   </li>
                   <li>
-                    <Link className="navbar-item" to="/">
+                    <Link className="navbar-item" to="/services">
                       Services
                     </Link>
                   </li>
                   <li>
-                    <Link className="navbar-item" to="/">
+                    <Link className="navbar-item" to="/solutions">
                       Solutions
                     </Link>
                   </li>
                   <li>
-                    <Link className="navbar-item" to="/">
+                    <Link className="navbar-item" to="/industries">
                       Industries
                     </Link>
                   </li>

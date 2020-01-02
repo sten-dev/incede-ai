@@ -13,8 +13,8 @@ export const ChatPillAsk = props => {
           value={props.value}
         />
         <div className="send">
-          <Button color="secondary">
-            <img alt="send" src={send} onClick={props.onClick} />{" "}
+          <Button color="secondary" onClick={props.onClick}>
+            <img alt="send" src={send} />{" "}
             <span className="d-none d-sm-block">Send</span>
           </Button>
         </div>
