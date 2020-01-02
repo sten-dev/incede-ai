@@ -68,17 +68,17 @@ class Footer extends React.Component {
                     <h6>What We Do</h6>
                   </li>
                   <li>
-                    <Link className="navbar-item" to="/">
+                    <Link className="navbar-item" to="/services">
                       Services
                     </Link>
                   </li>
                   <li>
-                    <Link className="navbar-item" to="/">
+                    <Link className="navbar-item" to="/solutions">
                       Solutions
                     </Link>
                   </li>
                   <li>
-                    <Link className="navbar-item" to="/">
+                    <Link className="navbar-item" to="/industries">
                       Industries
                     </Link>
                   </li>

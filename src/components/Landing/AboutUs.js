@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "reactstrap";
 import arrow from "../../img/arrow.svg";
 import "../../styles/about_us.scss";
+import { Link } from 'gatsby';
 class AboutUs extends React.Component {
   state = {};
   render() {
@@ -15,14 +16,15 @@ class AboutUs extends React.Component {
                 <h1 className="title">{about.title}</h1>
                 <h5 className="text-white sub-title">{about.subTitle}</h5>
                 <div className="py-2">
-                  <button type="button" className="btn btn-secondary btn-lg">
+
+                  <Link to="/about" className="btn btn-secondary btn-lg">
                     {about.button}
                     <img
                       src={arrow}
                       alt="next"
-                      // style={{ width: "12px", }}
+                    // style={{ width: "12px", }}
                     />
-                  </button>
+                  </Link>
                 </div>
               </article>
             </Col>

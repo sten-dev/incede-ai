@@ -4,6 +4,7 @@ import "../../styles/home.scss";
 import PreviewCompatibleImage from "../PreviewCompatibleImage";
 import INavbar from "../Navbar";
 import arrow from "../../img/arrow.svg";
+import { Link } from "gatsby";
 class Home extends React.Component {
   state = {};
   render() {
@@ -19,11 +20,11 @@ class Home extends React.Component {
                   <h1 className="text-primary bold">{home.title}</h1>
                   <h4 >{home.subTitle}</h4>
                   <div className="py-2">
-                    <button type="button" className="btn btn-secondary btn-lg">
+                    <Link to="/solutions" className="btn btn-secondary btn-lg">
                       {home.button}
                       {"  "}
                       <img src={arrow} alt="next" style={{ width: "12px" }} />
-                    </button>
+                    </Link>
                   </div>
                   {/* <pre>{JSON.stringify(home, null, 2)}</pre> */}
                 </article>
