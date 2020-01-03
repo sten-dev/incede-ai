@@ -13,10 +13,10 @@ export const ChatPillAsk = props => {
           value={props.value}
           onKeyDown={props.handleKeyDown}
         />
-        <div className="send">
+        <div className="d-flex send send-msg">
           <Button disabled={!props.value || props.value.length === 0} color="secondary" onClick={props.onClick}>
             <img alt="send" src={send} />{" "}
-            <span className="d-none d-sm-block">Send</span>
+            <span>Send</span>
           </Button>
         </div>
       </section>

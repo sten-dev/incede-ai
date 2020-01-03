@@ -189,6 +189,13 @@ section {
       font-size: 14px;
     }
   }
+  .send-msg {
+    button {
+      span {
+        display: none;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 768px) {
