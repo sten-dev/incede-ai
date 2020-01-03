@@ -163,9 +163,20 @@ section {
   &.is-last-wa-user {
     img {
       margin-right: 16px;
+      // animation: yAxis 2.5s infinite ease-out;
     }
   }
 }
+.options-container {
+  margin-left: 74px;
+}
+
+// @keyframes xAxis {
+//   50% {
+//     animation-timing-function: ease-in;
+//     transform: translateX(8px);
+//   }
+// }
 
 @media screen and (max-width: 992px) {
   .bot-menu-btn {
@@ -181,7 +192,8 @@ section {
 }
 
 @media screen and (max-width: 768px) {
-  .chat-section-left {
+  .chat-section-left,
+  .options-container {
     margin-left: 0px !important;
   }
   .bot-menu-btn {
