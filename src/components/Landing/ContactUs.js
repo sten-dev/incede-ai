@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  Card,
-  CardBody,
-  Container,
-  Row,
-  Col
-} from "reactstrap";
+import { Card, CardBody, Container, Row, Col } from "reactstrap";
 import call from "../../img/call.svg";
 import location_icon from "../../img/location.svg";
 import mail from "../../img/mail.svg";
@@ -25,14 +19,13 @@ const ContactUs = props => {
           // xs={12}
           >
             <article className="gap-y">
-              <h1 className="semi-bold text-primary">Contact Us</h1>
+              <h1 className="semi-bold text-primary text-center text-sm-left">
+                Contact Us
+              </h1>
               <br />
               <br className="d-block d-sm-none" />
-              <div>
-
-              </div>
+              <div></div>
               <Card className="contact-us-card">
-
                 <CardBody className="p-0 d-none d-sm-block">
                   <div className="d-flex">
                     <div>
@@ -70,35 +63,33 @@ const ContactUs = props => {
   );
 };
 
-const ContactInfo = (props) => {
-  let location = props.location
-  return (<React.Fragment>
-    <h1 className="contact-title">{location.title}</h1>
-    <h6 className="contact-subtitle semi-bold text-uppercase fs-16">{location.subTitle}</h6>
-    <br />
-    <div>
-      <img
-        src={call}
-        alt="call"
-      /><em>{location.phone}</em>
-    </div>
-    <br />
-    <div>
-      <p className="mb-0">
-        <img
-          src={mail}
-          alt="mail"
-        />
-        {location.email}</p>
-    </div>
-    <br />
-    <div className="d-flex">
-      <img
-        src={location_icon}
-        alt="location"
-      /><address className="mb-0">{location.address}</address>
-    </div>
-  </React.Fragment>);
-}
+const ContactInfo = props => {
+  let location = props.location;
+  return (
+    <React.Fragment>
+      <h1 className="contact-title">{location.title}</h1>
+      <h6 className="contact-subtitle semi-bold text-uppercase fs-16">
+        {location.subTitle}
+      </h6>
+      <br />
+      <div>
+        <img src={call} alt="call" />
+        <em>{location.phone}</em>
+      </div>
+      <br />
+      <div>
+        <p className="mb-0">
+          <img src={mail} alt="mail" />
+          {location.email}
+        </p>
+      </div>
+      <br />
+      <div className="d-flex">
+        <img src={location_icon} alt="location" />
+        <address className="mb-0">{location.address}</address>
+      </div>
+    </React.Fragment>
+  );
+};
 
 export default ContactUs;
