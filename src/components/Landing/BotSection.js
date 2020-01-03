@@ -113,6 +113,25 @@ class BotSection extends Component {
       }
 
       if (eventName === "WATSON") {
+        this.isAgent = false;
+        if (response.intent === "agent") {
+          this.isAgent = true;
+
+          setTimeout(() => {
+            if (this.isAgent) {
+              let messages = [...this.state.messages];
+              messages.push({
+                user: "WA",
+                message: "Our agents are not available. We will call back.",
+                type: "text",
+                options: []
+              });
+              this.setState({
+                messages: messages
+              }, this.scrollToBottom)
+            }
+          }, 3 * 60 * 1000)
+        }
         if (response.type === "demo" && response.intent === "exit_demo") {
           localStorage.removeItem("demoRoomName");
           localStorage.removeItem("demoRoomId");
@@ -157,6 +176,7 @@ class BotSection extends Component {
           }
         }
       } else if (eventName === "AGENT") {
+        this.isAgent = false;
         let data = response.data;
         let messages = this.state.messages;
         let lastWAUserIndex = this.state.lastWAUserIndex;
