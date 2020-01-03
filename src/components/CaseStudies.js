@@ -29,7 +29,7 @@ class CaseStudies extends React.Component {
                 <div key={i}>
                   <Row>
                     <Col lg={6} md={5}>
-                      <h1 className="text-white xs-center mb-3 mb-md-0 header">
+                      <h1 className="text-white xs-center mb-3  header">
                         Case Studies
                       </h1>
                       <div className="image-section-mobile xs-image mb-3 mb-md-0 d-block d-md-none xs-center">
@@ -40,7 +40,7 @@ class CaseStudies extends React.Component {
                           }}
                         />
                       </div>
-                      <p className="text-white title xs-center mb-3 mb-md-0">
+                      <p className="text-white title xs-center mb-2">
                         {caseStudy.title}
                       </p>
                       <small className="text-white xs-center description">
@@ -48,7 +48,7 @@ class CaseStudies extends React.Component {
                       </small>
                       <br />
                       <br />
-                      <div className="xs-center mb-4 mb-md-0">
+                      <div className="xs-center mt-4">
                         <button
                           type="button"
                           className="btn btn-secondary btn-lg"
