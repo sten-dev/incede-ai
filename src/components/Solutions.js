@@ -16,7 +16,7 @@ class Solutions extends React.Component {
             {solutions.map((x, i) => {
               let solution = x.node.frontmatter;
               return (
-                <Col key={i} lg={6} md={6} sm={12} xs={12}>
+                <Col key={i} lg={6} md={6} sm={12} xs={11}>
                   <SolutionView solution={solution} />
                 </Col>
               );
