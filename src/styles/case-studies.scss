@@ -5,7 +5,7 @@
   .carousel.carousel-slider {
     overflow: initial;
     .control-dots {
-      bottom: -35px;
+      bottom: -65px;
     }
   }
   // .header {
@@ -79,5 +79,19 @@
         background: #ed8d58;
       }
     }
+  }
+}
+@media screen and (max-width: 768px) {
+  .xs-center {
+    text-align: center;
+  }
+  .case-studies {
+    .control-dots {
+      text-align: center !important;
+    }
+  }
+  .description {
+    display: flex;
+    line-height: 1.8;
   }
 }

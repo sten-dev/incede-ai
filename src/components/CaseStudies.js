@@ -40,10 +40,10 @@ class CaseStudies extends React.Component {
                           }}
                         />
                       </div>
-                      <p className="text-white title mb-sm-3 mb-xs-3">{caseStudy.title}</p>
-                      <small className="text-white description">
+                      <h4 className="mt-0 text-white title mb-sm-3 mb-xs-3">{caseStudy.title}</h4>
+                      <p className="text-white description">
                         {caseStudy.description}
-                      </small>
+                      </p>
                       <br />
                       <br />
                       <button
@@ -57,6 +57,8 @@ class CaseStudies extends React.Component {
                           style={{ width: "12px", marginTop: "6px" }}
                         />
                       </button>
+                      <br />
+                      <br />
                     </Col>
                     <Col
                       lg={6}
