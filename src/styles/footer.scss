@@ -47,7 +47,7 @@ footer {
       margin-bottom: 16px;
     }
 
-    @media screen and (max-width: 767.99px) {
+    @media screen and (max-width: 576px) {
       .incede-img {
         padding-top: 22px;
         img {
@@ -72,7 +72,7 @@ footer {
         font-size: 12px !important;
       }
       .row {
-        div {
+        div:not(:first-child) {
           margin-top: 14px;
         }
       }

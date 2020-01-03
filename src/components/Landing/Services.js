@@ -16,7 +16,7 @@ class Services extends React.Component {
             {services.map((x, i) => {
               let service = x.node.frontmatter;
               return (
-                <Col key={i} lg={6} md={6} sm={12} xs={12}>
+                <Col key={i} lg={6} md={6} sm={12} xs={11}>
                   <ServiceView service={service} />
                 </Col>
               );

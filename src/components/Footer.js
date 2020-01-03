@@ -35,7 +35,7 @@ class Footer extends React.Component {
                 </Col>
               </Row>
             </Col>
-            <Col md="3" sm="12" lg="3">
+            <Col md="3" sm="3" xs="12" lg="3">
               <section className="half-menu">
                 <ul className="list-unstyled">
                   <li>
@@ -61,7 +61,7 @@ class Footer extends React.Component {
                 </ul>
               </section>
             </Col>
-            <Col md="3" sm="12" lg="3">
+            <Col md="3" sm="3" xs="12" lg="3">
               <section className="menu">
                 <ul className="list-unstyled">
                   <li>
@@ -85,7 +85,7 @@ class Footer extends React.Component {
                 </ul>
               </section>
             </Col>
-            <Col md="3" sm="12" lg="3">
+            <Col md="3" sm="3" xs="12" lg="3">
               <section className="menu">
                 <FooterLocation />
               </section>
@@ -95,6 +95,6 @@ class Footer extends React.Component {
       </footer>
     );
   }
-};
+}
 
 export default Footer;
