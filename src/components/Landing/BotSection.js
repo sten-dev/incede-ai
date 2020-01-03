@@ -11,6 +11,7 @@ class BotSection extends Component {
   roomName = undefined;
   roomId;
   wASessionId;
+  isDemo = false
   constructor(props) {
     super(props);
     this.state = { messages: [], msg: "", lastWAUserIndex: -1 };
@@ -58,7 +59,8 @@ class BotSection extends Component {
                 x.USER === "WATSON" ? "WA" : x.USER === "AGENT" ? "AG" : "ME",
               message: x.options ? x.title : x.TEXT,
               type: x.options ? "options" : "text",
-              options: x.options || []
+              options: x.options || [],
+              intent: x.intent
             });
           }
         });
@@ -82,23 +84,28 @@ class BotSection extends Component {
       }
       if (response.newRoom === true && eventName === "WATSON") {
         if (response.sessionId) {
-          localStorage.setItem("wASessionId", response.sessionId);
-          localStorage.setItem("roomId", response.roomId);
-          localStorage.setItem("roomName", response.roomName);
+          if (response.type === "demo") {
+            localStorage.setItem("demoWASessionId", response.sessionId);
+            localStorage.setItem("demoRoomId", response.roomId);
+            localStorage.setItem("demoRoomName", response.roomName);
+            this.isDemo = true;
+          } else {
+            this.isDemo = false;
+            localStorage.setItem("wASessionId", response.sessionId);
+            localStorage.setItem("roomId", response.roomId);
+            localStorage.setItem("roomName", response.roomName);
+          }
           this.roomName = response.roomName;
           this.roomId = response.roomId;
           this.wASessionId = response.sessionId;
         } else {
-          // if (response.success === false) {
           console.error(response);
-          // }e;s
         }
       }
 
       if (eventName === "WATSON") {
         let data = response.data;
         if (data && Array.isArray(data)) {
-          // scope.myData = data.context.skills["main skill"].user_defined;
           messages = [...this.state.messages];
           let lastWAUserIndex = this.state.lastWAUserIndex;
           data.forEach(x => {
@@ -107,7 +114,8 @@ class BotSection extends Component {
                 user: "WA",
                 message: x.options ? x.title : x.text,
                 type: x.options ? "options" : "text",
-                options: x.options || []
+                options: x.options || [],
+                intent: x.intent
               });
               lastWAUserIndex = messages.length - 1
             }
@@ -147,13 +155,19 @@ class BotSection extends Component {
     }
   };
 
-  handleOnOptionClick = option => {
+  handleOnOptionClick = (message, optionIndex) => {
+    let option = message.options[optionIndex];
+    let type = "chat";
+    if (message.intent && message.intent.toLowerCase() === "demo") {
+      type = "demo";
+    }
     let data = {
       comment: option.value.input.text,
       wASessionId: this.wASessionId,
       user: "user",
       roomName: this.roomName,
-      roomId: this.roomId
+      roomId: this.roomId,
+      type: type
     };
     this.sendMessage(data, option.value.input.text);
   };
@@ -217,8 +231,8 @@ class BotSection extends Component {
                       x.type === "options" &&
                       <div className="options-container">
                         <Row>
-                          {x.options.map(option => (
-                            <Col lg={4} md={4} sm={6} xs={12} onClick={() => this.handleOnOptionClick(option)}>
+                          {x.options.map((option, index) => (
+                            <Col lg={4} md={4} sm={6} xs={12} onClick={() => this.handleOnOptionClick(x, index)}>
                               <div className="wa-option">
                                 <p>{option.label}</p>
                               </div>
