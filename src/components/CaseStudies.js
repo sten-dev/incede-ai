@@ -29,10 +29,10 @@ class CaseStudies extends React.Component {
                 <div key={i}>
                   <Row>
                     <Col lg={6} md={5}>
-                      <h1 className="text-white xs-center mb-3  header">
+                      <h1 className="text-white header">
                         Case Studies
                       </h1>
-                      <div className="image-section-mobile xs-image mb-3 mb-md-0 d-block d-md-none xs-center">
+                      <div className="image-section-mobile xs-image d-block d-md-none mb-sm-3 mb-xs-3">
                         <PreviewCompatibleImage
                           imageInfo={{
                             image: caseStudy.image,
@@ -40,27 +40,25 @@ class CaseStudies extends React.Component {
                           }}
                         />
                       </div>
-                      <p className="text-white title xs-center mb-2">
-                        {caseStudy.title}
-                      </p>
-                      <small className="text-white xs-center description">
+                      <h4 className="mt-0 text-white title mb-sm-3 mb-xs-3">{caseStudy.title}</h4>
+                      <p className="text-white description">
                         {caseStudy.description}
-                      </small>
+                      </p>
                       <br />
                       <br />
-                      <div className="xs-center mt-4">
-                        <button
-                          type="button"
-                          className="btn btn-secondary btn-lg"
-                        >
-                          Download Case Study{" "}
-                          <img
-                            src={arrow}
-                            alt="next"
-                            style={{ width: "12px", marginTop: "6px" }}
-                          />
-                        </button>
-                      </div>
+                      <button
+                        type="button"
+                        className="btn btn-secondary btn-lg"
+                      >
+                        Download Case Study{" "}
+                        <img
+                          src={arrow}
+                          alt="next"
+                          style={{ width: "12px", marginTop: "6px" }}
+                        />
+                      </button>
+                      <br />
+                      <br />
                     </Col>
                     <Col
                       lg={6}

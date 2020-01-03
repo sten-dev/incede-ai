@@ -16,7 +16,7 @@ class Industries extends React.Component {
             {industries.map((x, i) => {
               let industry = x.node.frontmatter;
               return (
-                <Col key={i} lg={6} md={6} sm={12} xs={12}>
+                <Col key={i} lg={6} md={6} sm={12} xs={11}>
                   <IndustryView industry={industry} />
                 </Col>
               );
