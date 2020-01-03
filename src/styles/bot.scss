@@ -158,7 +158,7 @@ section {
 }
 .chat-section-left {
   &:not(.is-last-wa-user) {
-    margin-left: 60px;
+    margin-left: 74px;
   }
   &.is-last-wa-user {
     img {
@@ -181,6 +181,9 @@ section {
 }
 
 @media screen and (max-width: 768px) {
+  .chat-section-left {
+    margin-left: 0px !important;
+  }
   .bot-menu-btn {
     height: 380px;
     width: 55px;
