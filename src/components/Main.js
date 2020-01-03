@@ -13,6 +13,7 @@ class Main extends Component {
     super(props);
     this.state = {
       modal: false,
+      isFirst: true,
       window: undefined
     };
   }
@@ -27,7 +28,8 @@ class Main extends Component {
     else document.body.style.overflow = "auto";
 
     this.setState({
-      modal: !this.state.modal
+      modal: !this.state.modal,
+      isFirst: false
     });
   };
 
@@ -55,10 +57,11 @@ class Main extends Component {
         <ContactUs location={location} />
         <Sidebar
           sidebar={
-            <BotSection
-              toggle={this.toggle}
-              shouldConnectApi={this.state.modal}
-            />
+            !this.state.isFirst ? (
+              <BotSection toggle={this.toggle} />
+            ) : (
+              <React.Fragment></React.Fragment>
+            )
           }
           open={this.state.modal}
           onSetOpen={this.toggle}

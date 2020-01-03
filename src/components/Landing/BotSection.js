@@ -25,18 +25,8 @@ class BotSection extends Component {
     this.roomName = localStorage.getItem("roomName");
     this.roomId = localStorage.getItem("roomId");
     this.wASessionId = localStorage.getItem("wASessionId");
-    // this.initializeSocketIo();
+    this.initializeSocketIo();
   }
-
-  componentWillUpdate = async (nextProps, nextState) => {
-    if (
-      nextState.shouldConnectApi &&
-      this.state.messages.length === 0 &&
-      nextProps.shouldConnectApi === true
-    ) {
-      await this.initializeSocketIo();
-    }
-  };
 
   handleMessageChange = event => {
     let eve = { ...event };
@@ -45,7 +35,6 @@ class BotSection extends Component {
     });
   };
   initializeSocketIo = async () => {
-    if (this.state.shouldConnectApi) this.setState({ shouldConnectApi: false });
     // let scope = this;
     this.socket = socketIO.connect(API_URL, {
       reconnection: true,
