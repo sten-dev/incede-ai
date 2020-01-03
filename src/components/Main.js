@@ -54,7 +54,12 @@ class Main extends Component {
         <CaseStudies />
         <ContactUs location={location} />
         <Sidebar
-          sidebar={<BotSection toggle={this.toggle} />}
+          sidebar={
+            <BotSection
+              toggle={this.toggle}
+              shouldConnectApi={this.state.modal}
+            />
+          }
           open={this.state.modal}
           onSetOpen={this.toggle}
           styles={{

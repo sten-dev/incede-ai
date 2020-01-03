@@ -13,14 +13,30 @@ class BotSection extends Component {
   wASessionId;
   constructor(props) {
     super(props);
-    this.state = { messages: [], msg: "", lastWAUserIndex: -1 };
+    this.state = {
+      messages: [],
+      msg: "",
+      lastWAUserIndex: -1,
+      shouldConnectApi: true
+    };
   }
   componentDidMount() {
     this.roomName = localStorage.getItem("roomName");
     this.roomId = localStorage.getItem("roomId");
     this.wASessionId = localStorage.getItem("wASessionId");
-    this.initializeSocketIo();
+    // this.initializeSocketIo();
   }
+
+  componentWillUpdate = async (nextProps, nextState) => {
+    if (
+      nextState.shouldConnectApi &&
+      this.state.messages.length === 0 &&
+      nextProps.shouldConnectApi === true
+    ) {
+      await this.initializeSocketIo();
+    }
+  };
+
   handleMessageChange = event => {
     let eve = { ...event };
     this.setState({
@@ -28,6 +44,7 @@ class BotSection extends Component {
     });
   };
   initializeSocketIo = async () => {
+    if (this.state.shouldConnectApi) this.setState({ shouldConnectApi: false });
     // let scope = this;
     this.socket = socketIO.connect(API_URL, {
       reconnection: true,
@@ -35,7 +52,7 @@ class BotSection extends Component {
       reconnectionDelayMax: 5000,
       reconnectionAttempts: 5
     });
-    this.socket.on("connect", function () {
+    this.socket.on("connect", function() {
       console.debug("connected to server");
     });
     let messages = [];
@@ -45,13 +62,13 @@ class BotSection extends Component {
       let chatsResp = await httpClient("chats", "POST", {
         roomId: this.roomId
       });
-      let lastWAUserIndex = -1
+      let lastWAUserIndex = -1;
       if (chatsResp.success === true) {
-        let data = chatsResp.data.reverse()
+        let data = chatsResp.data.reverse();
         data.forEach((x, i) => {
           if (x.TEXT) {
             if (x.USER === "WATSON" || x.USER === "AGENT") {
-              lastWAUserIndex = i
+              lastWAUserIndex = i;
             }
             messages.push({
               user:
@@ -62,10 +79,13 @@ class BotSection extends Component {
             });
           }
         });
-        this.setState({
-          messages: messages,
-          lastWAUserIndex
-        }, this.scrollToBottom);
+        this.setState(
+          {
+            messages: messages,
+            lastWAUserIndex
+          },
+          this.scrollToBottom
+        );
       }
     }
     this.socket.emit(SOCKET_PATHS.CONNECT, {
@@ -109,13 +129,16 @@ class BotSection extends Component {
                 type: x.options ? "options" : "text",
                 options: x.options || []
               });
-              lastWAUserIndex = messages.length - 1
+              lastWAUserIndex = messages.length - 1;
             }
           });
-          this.setState({
-            messages,
-            lastWAUserIndex
-          }, this.scrollToBottom);
+          this.setState(
+            {
+              messages,
+              lastWAUserIndex
+            },
+            this.scrollToBottom
+          );
         }
       } else if (eventName === "AGENT") {
         let data = response.data;
@@ -126,8 +149,11 @@ class BotSection extends Component {
             user: "AG",
             message: response.data
           });
-          lastWAUserIndex = messages.length - 1
-          this.setState({ messages: messages, lastWAUserIndex }, this.scrollToBottom);
+          lastWAUserIndex = messages.length - 1;
+          this.setState(
+            { messages: messages, lastWAUserIndex },
+            this.scrollToBottom
+          );
         }
       } else {
         console.warn(eventName, response);
@@ -162,25 +188,28 @@ class BotSection extends Component {
     this.socket.emit(SOCKET_PATHS.CONNECT, data);
     let messages = [...this.state.messages];
     messages.push({ user: "ME", message: message, type: "text" });
-    this.setState({
-      messages,
-      msg: ""
-    }, this.scrollToBottom);
+    this.setState(
+      {
+        messages,
+        msg: ""
+      },
+      this.scrollToBottom
+    );
   };
 
   scrollToBottom = () => {
-    setTimeout(function () {
+    setTimeout(function() {
       var objDiv = document.getElementById("messages_container");
       if (objDiv) {
         objDiv.scrollTop = objDiv.scrollHeight;
       }
     }, 1000);
-  }
-  handleKeyDown = (event) => {
-    if (event.key === 'Enter') {
-      this.send()
+  };
+  handleKeyDown = event => {
+    if (event.key === "Enter") {
+      this.send();
     }
-  }
+  };
 
   render() {
     return (
@@ -209,24 +238,37 @@ class BotSection extends Component {
           </Row>
           <Row>
             <Col>
-              <section id="messages_container" className="chat d-flex flex-column flex-grow-1">
+              <section
+                id="messages_container"
+                className="chat d-flex flex-column flex-grow-1"
+              >
                 {this.state.messages.map((x, i) => (
                   <div key={i}>
-                    <ChatPill isLastWAUser={i === this.state.lastWAUserIndex} right={x.user === "ME"} text={x.message} />
+                    <ChatPill
+                      isLastWAUser={i === this.state.lastWAUserIndex}
+                      right={x.user === "ME"}
+                      text={x.message}
+                    />
                     {i === this.state.messages.length - 1 &&
-                      x.type === "options" &&
-                      <div className="options-container">
-                        <Row>
-                          {x.options.map(option => (
-                            <Col lg={4} md={4} sm={6} xs={12} onClick={() => this.handleOnOptionClick(option)}>
-                              <div className="wa-option">
-                                <p>{option.label}</p>
-                              </div>
-                            </Col>
-                          ))}
-                        </Row>
-                      </div>
-                    }
+                      x.type === "options" && (
+                        <div className="options-container">
+                          <Row>
+                            {x.options.map(option => (
+                              <Col
+                                lg={4}
+                                md={4}
+                                sm={6}
+                                xs={12}
+                                onClick={() => this.handleOnOptionClick(option)}
+                              >
+                                <div className="wa-option">
+                                  <p>{option.label}</p>
+                                </div>
+                              </Col>
+                            ))}
+                          </Row>
+                        </div>
+                      )}
                   </div>
                 ))}
               </section>
