@@ -29,10 +29,10 @@ class CaseStudies extends React.Component {
                 <div key={i}>
                   <Row>
                     <Col lg={6} md={5}>
-                      <h1 className="text-white header">
+                      <h1 className="text-white xs-center mb-3 mb-md-0 header">
                         Case Studies
                       </h1>
-                      <div className="image-section-mobile xs-image d-block d-md-none mb-sm-3 mb-xs-3">
+                      <div className="image-section-mobile xs-image mb-3 mb-md-0 d-block d-md-none xs-center">
                         <PreviewCompatibleImage
                           imageInfo={{
                             image: caseStudy.image,
@@ -40,23 +40,27 @@ class CaseStudies extends React.Component {
                           }}
                         />
                       </div>
-                      <p className="text-white title mb-sm-3 mb-xs-3">{caseStudy.title}</p>
-                      <small className="text-white description">
+                      <p className="text-white title xs-center mb-3 mb-md-0">
+                        {caseStudy.title}
+                      </p>
+                      <small className="text-white xs-center description">
                         {caseStudy.description}
                       </small>
                       <br />
                       <br />
-                      <button
-                        type="button"
-                        className="btn btn-secondary btn-lg"
-                      >
-                        Download Case Study{" "}
-                        <img
-                          src={arrow}
-                          alt="next"
-                          style={{ width: "12px", marginTop: "6px" }}
-                        />
-                      </button>
+                      <div className="xs-center mb-4 mb-md-0">
+                        <button
+                          type="button"
+                          className="btn btn-secondary btn-lg"
+                        >
+                          Download Case Study{" "}
+                          <img
+                            src={arrow}
+                            alt="next"
+                            style={{ width: "12px", marginTop: "6px" }}
+                          />
+                        </button>
+                      </div>
                     </Col>
                     <Col
                       lg={6}
