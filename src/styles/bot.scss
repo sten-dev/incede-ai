@@ -202,6 +202,16 @@ section {
     }
   }
 }
+.chat-section-left {
+  &:not(.is-last-wa-user) {
+    margin-left: 60px;
+  }
+  &.is-last-wa-user {
+    img {
+      margin-right: 16px;
+    }
+  }
+}
 
 @media screen and (max-width: 992px) {
   // .bot-side-menu {

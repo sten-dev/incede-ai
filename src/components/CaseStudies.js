@@ -80,6 +80,7 @@ class CaseStudies extends React.Component {
               );
             })}
           </Carousel>
+          <br />
         </Container>
       </section>
     );

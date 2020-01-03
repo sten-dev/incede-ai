@@ -3,7 +3,7 @@ import waAgent from "../../../img/waAgent.svg";
 export const ChatPill = props => {
   return (
     <div
-      className={`d-flex ${
+      className={`chat-section-${props.right ? 'right' : 'left'} d-flex ${
         props.right ? "justify-content-end" : "justify-content-start"
         } ${props.isLastWAUser ? 'is-last-wa-user' : ''}`}
     >
