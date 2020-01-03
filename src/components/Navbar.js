@@ -43,10 +43,10 @@ const INavbar = props => {
         <Collapse isOpen={false} navbar>
           <Nav className="ml-auto" navbar>
             <NavItem className="btn">
-              <Link to="/">Home</Link>
+              <Link activeClassName="selected" to="/">Home</Link>
             </NavItem>
             <NavItem className="btn">
-              <Link to="/about">About Us</Link>
+              <Link activeClassName="selected" to="/about">About Us</Link>
             </NavItem>
             <NavItem id="whatWeDo" className="btn">
               <a>
@@ -60,10 +60,10 @@ const INavbar = props => {
               </a>
             </NavItem>
             <NavItem className="btn">
-              <Link to="/customers">Our Customers</Link>
+              <Link activeClassName="selected" to="/customers">Our Customers</Link>
             </NavItem>
             <NavItem className="btn">
-              <Link to="/contact">Contact Us</Link>
+              <Link activeClassName="selected" to="/contact">Contact Us</Link>
             </NavItem>
           </Nav>
         </Collapse>

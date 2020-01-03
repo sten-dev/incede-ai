@@ -68,6 +68,18 @@
       text-align: left;
     }
   }
+  .control-dots {
+    text-align: left !important;
+    padding-left: 0;
+    .dot {
+      width: 40px !important;
+      height: 5px !important;
+      border-radius: 0 !important;
+      &.selected {
+        background: #ed8d58;
+      }
+    }
+  }
 }
 @media screen and (max-width: 768px) {
   .xs-center {

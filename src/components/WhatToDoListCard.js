@@ -11,14 +11,16 @@ const WhatToDoListCard = (props) => {
                 <Card>
                     <CardBody className="p-0">
                         <Row>
-                            <Col lg={2} md={2} sm={4} xs={12} className="image-section">
-                                <PreviewCompatibleImage
-                                    imageInfo={{
-                                        image: props.image,
-                                        alt: `thumbnail`,
-                                        style: { width: "100%" }
-                                    }}
-                                />
+                            <Col lg={2} md={2} sm={4} xs={12}>
+                                <div className="image-section">
+                                    <PreviewCompatibleImage
+                                        imageInfo={{
+                                            image: props.image,
+                                            alt: `thumbnail`,
+                                            style: { width: "100%" }
+                                        }}
+                                    />
+                                </div>
                             </Col>
                             <Col lg={10} md={10} sm={8} xs={12} className="card-container">
                                 <h5 className="mt-0">{props.title}</h5>
