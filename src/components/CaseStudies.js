@@ -28,11 +28,11 @@ class CaseStudies extends React.Component {
               return (
                 <div key={i}>
                   <Row>
-                    <Col lg={6} md={5}>
-                      <h1 className="text-white header">
+                    <Col lg={6} md={5} className="text-center text-md-left">
+                      <h1 className="text-white header mb-5 mb-md-0">
                         Case Studies
                       </h1>
-                      <div className="image-section-mobile xs-image d-block d-md-none mb-sm-3 mb-xs-3">
+                      <div className="image-section-mobile text-center xs-image ml-3 mb-5 d-block d-md-none">
                         <PreviewCompatibleImage
                           imageInfo={{
                             image: caseStudy.image,
@@ -40,7 +40,9 @@ class CaseStudies extends React.Component {
                           }}
                         />
                       </div>
-                      <h4 className="mt-0 text-white title mb-sm-3 mb-xs-3">{caseStudy.title}</h4>
+                      <h4 className="mt-0 text-white title mb-sm-3 mb-xs-3">
+                        {caseStudy.title}
+                      </h4>
                       <p className="text-white description">
                         {caseStudy.description}
                       </p>
