@@ -159,6 +159,7 @@ section {
     top: 13%;
     color: $white;
     img {
+      filter: invert(1);
       margin-bottom: 16px;
     }
   }

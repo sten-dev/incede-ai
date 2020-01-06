@@ -162,16 +162,7 @@ class BotSection extends Component {
           this.isAgentPending = true;
           setTimeout(() => {
             if (this.isAgentPending) {
-              let messages = [...this.state.messages];
-              messages.push({
-                user: "WA",
-                message: "Our agents are not available. We will call back.",
-                type: "text",
-                options: []
-              });
-              this.setState({
-                messages: messages
-              }, this.scrollToBottom)
+              this.sendCustomMessage("agent not available", false)
             }
           }, this.agentTimeOut)
         }
@@ -242,18 +233,22 @@ class BotSection extends Component {
 
   send = () => {
     if (this.state.msg && this.state.msg.length > 0) {
-      this.checkWASession();
-      let data = {
-        comment: this.state.msg,
-        wASessionId: this.wASessionId,
-        roomName: this.roomName,
-        roomId: this.roomId,
-        type: this.isDemo ? "demo" : "chat",
-        demoProperty: this.isDemo ? localStorage.getItem("demoProperty") : undefined
-      };
-      this.sendMessage(data, this.state.msg);
+      this.sendCustomMessage(this.state.msg, true)
     }
   };
+
+  sendCustomMessage = (msg, shouldAddToMessages) => {
+    this.checkWASession();
+    let data = {
+      comment: msg,
+      wASessionId: this.wASessionId,
+      roomName: this.roomName,
+      roomId: this.roomId,
+      type: this.isDemo ? "demo" : "chat",
+      demoProperty: this.isDemo ? localStorage.getItem("demoProperty") : undefined
+    };
+    this.sendMessage(data, msg, shouldAddToMessages);
+  }
 
   handleOnOptionClick = (message, optionIndex) => {
     let option = message.options[optionIndex];
@@ -278,10 +273,12 @@ class BotSection extends Component {
     this.sendMessage(data, option.value.input.text);
   };
 
-  sendMessage = (data, message) => {
+  sendMessage = (data, message, shouldAddToMessages) => {
     this.socket.emit(SOCKET_PATHS.CONNECT, data);
     let messages = [...this.state.messages];
-    messages.push({ user: "ME", message: message, type: "text" });
+    if (shouldAddToMessages) {
+      messages.push({ user: "ME", message: message, type: "text" });
+    }
     this.setState(
       {
         messages,
