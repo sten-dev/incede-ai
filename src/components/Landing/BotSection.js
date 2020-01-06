@@ -83,10 +83,12 @@ class BotSection extends Component {
       let lastWAUserIndex = -1;
       if (chatsResp.success === true) {
         let data = chatsResp.data.reverse();
+        let chatRepeatIndex = -1;
         data.forEach((x, i) => {
           if (x.TEXT) {
+            chatRepeatIndex++;
             if (x.USER === "WATSON" || x.USER === "AGENT") {
-              lastWAUserIndex = i;
+              lastWAUserIndex = chatRepeatIndex;
             }
             messages.push({
               user:
