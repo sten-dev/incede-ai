@@ -14,6 +14,8 @@ class BotSection extends Component {
   isDemo = false;
   isAgentPending = false;
   agentTimeOut = 3 * 60 * 1000;
+  waTimeOut = 1 * 60 * 60 * 1000;
+  waCreatedTime;
   constructor(props) {
     super(props);
     this.state = {
@@ -27,6 +29,7 @@ class BotSection extends Component {
     this.roomName = localStorage.getItem("roomName");
     this.roomId = localStorage.getItem("roomId");
     this.wASessionId = localStorage.getItem("wASessionId");
+    this.waCreatedTime = localStorage.getItem("waCreatedTime");
     this.initializeSocketIo();
   }
 
@@ -81,6 +84,21 @@ class BotSection extends Component {
         );
       }
     }
+    let isInWaSession = true;
+    if (!this.waCreatedTime) {
+      isInWaSession = false
+    } else {
+      let now = new Date().getTime();
+      let createdTime = new Date(Number(this.waCreatedTime)).getTime();
+      if (now - createdTime >= this.waTimeOut) {
+        isInWaSession = false;
+      }
+    }
+    if (isInWaSession === false) {
+      this.roomName = undefined;
+      this.roomId = undefined;
+      this.wASessionId = undefined
+    }
     this.socket.emit(SOCKET_PATHS.CONNECT, {
       payload: "",
       roomName: this.roomName ? this.roomName : "room" + time,
@@ -102,6 +120,7 @@ class BotSection extends Component {
             this.isDemo = true;
           } else {
             this.isDemo = false;
+            localStorage.setItem("waCreatedTime", new Date().getTime());
             localStorage.setItem("wASessionId", response.sessionId);
             localStorage.setItem("roomId", response.roomId);
             localStorage.setItem("roomName", response.roomName);

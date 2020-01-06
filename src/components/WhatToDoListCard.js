@@ -6,7 +6,7 @@ import { Link } from 'gatsby';
 import "../styles/what-to-do-list.scss";
 const WhatToDoListCard = (props) => {
     return (
-        <Row className="wtd-card" key={props.key}>
+        <Row className="wtd-card" >
             <Col>
                 <Card>
                     <CardBody className="p-0">
