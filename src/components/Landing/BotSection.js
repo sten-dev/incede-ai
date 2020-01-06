@@ -287,7 +287,7 @@ class BotSection extends Component {
             </Col>
           </Row>
           <Row>
-            <Col>
+            <Col className="bot-container">
               <section
                 id="messages_container"
                 className="chat d-flex flex-column flex-grow-1"
