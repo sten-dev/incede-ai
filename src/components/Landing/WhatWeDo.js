@@ -20,13 +20,13 @@ class WhatWeDo extends Component {
         return (
             <React.Fragment>
                 <section className="what-we-do gap-t">
-                    <Container fluid>
+                    <Container>
                         <Row className="what-we-do-header-section">
                             <div className="mr-3">
                                 <h1 className="title text-primary">What we do</h1>
                             </div>
                             <Col className="menu-tabs d-flex align-items-center">
-                                <div className="header w-100">
+                                <div className="header w-100 d-flex justify-content-end">
                                     <label onClick={() => this.handleTabChange("solutions")} className={`tab ${this.state.selectedTab === 'solutions' ? 'selected-tab' : ''}`}>Solutions</label>
                                     <label onClick={() => this.handleTabChange("services")} className={`tab ${this.state.selectedTab === 'services' ? 'selected-tab' : ''}`}>Services</label>
                                     <label onClick={() => this.handleTabChange("industries")} className={`tab ${this.state.selectedTab === 'industries' ? 'selected-tab' : ''}`}>Industries</label>

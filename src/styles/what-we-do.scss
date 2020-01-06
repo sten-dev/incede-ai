@@ -2,7 +2,7 @@
 
 .menu-tabs {
   .header {
-    border-bottom: 2px solid #dbdbdb;
+    border-bottom: 2px solid transparent;
   }
   .tab {
     font-size: 26px;
@@ -47,15 +47,9 @@ section {
     }
   }
 }
-@media screen and (min-width: 1200px) {
-  .what-we-do-header-section {
-    margin-left: 20.5% !important;
-  }
-}
 
 @media screen and (max-width: 599px) {
   .what-we-do-header-section {
-    margin-left: 0 !important;
     .menu-tabs {
       padding: 0 !important;
       > div {
@@ -82,8 +76,6 @@ section {
 
 @media screen and (min-width: 600px) and (max-width: 1179px) {
   .what-we-do-header-section {
-    margin-left: 0 !important;
-    // flex-direction: column;
     .tab {
       font-size: 22px;
       padding-left: 16px;
