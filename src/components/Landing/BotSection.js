@@ -42,7 +42,7 @@ class BotSection extends Component {
       reconnectionDelayMax: 5000,
       reconnectionAttempts: 5
     });
-    this.socket.on("connect", function() {
+    this.socket.on("connect", function () {
       console.debug("connected to server");
     });
     let messages = [];
@@ -113,31 +113,70 @@ class BotSection extends Component {
       }
 
       if (eventName === "WATSON") {
-        let data = response.data;
-        if (data && Array.isArray(data)) {
-          messages = [...this.state.messages];
-          let lastWAUserIndex = this.state.lastWAUserIndex;
-          data.forEach(x => {
-            if (x.text || x.title) {
+        this.isAgent = false;
+        if (response.intent === "agent") {
+          this.isAgent = true;
+
+          setTimeout(() => {
+            if (this.isAgent) {
+              let messages = [...this.state.messages];
               messages.push({
                 user: "WA",
-                message: x.options ? x.title : x.text,
-                type: x.options ? "options" : "text",
-                options: x.options || [],
-                intent: x.intent
+                message: "Our agents are not available. We will call back.",
+                type: "text",
+                options: []
               });
-              lastWAUserIndex = messages.length - 1;
+              this.setState({
+                messages: messages
+              }, this.scrollToBottom)
             }
-          });
-          this.setState(
-            {
-              messages,
-              lastWAUserIndex
-            },
-            this.scrollToBottom
-          );
+          }, 3 * 60 * 1000)
+        }
+        if (response.type === "demo" && response.intent === "exit_demo") {
+          localStorage.removeItem("demoRoomName");
+          localStorage.removeItem("demoRoomId");
+          localStorage.removeItem("demoWASessionId");
+          localStorage.removeItem("demoProperty");
+          this.roomId = localStorage.getItem("roomId");
+          this.roomName = localStorage.getItem("roomName");
+          this.wASessionId = localStorage.getItem("wASessionId");
+          this.isDemo = false;
+          let data = {
+            comment: "demo done",
+            wASessionId: this.wASessionId,
+            user: "user",
+            roomName: this.roomName,
+            roomId: this.roomId,
+          };
+          this.socket.emit(SOCKET_PATHS.CONNECT, data);
+        } else {
+          let data = response.data;
+          if (data && Array.isArray(data)) {
+            messages = [...this.state.messages];
+            let lastWAUserIndex = this.state.lastWAUserIndex;
+            data.forEach(x => {
+              if (x.text || x.title) {
+                messages.push({
+                  user: "WA",
+                  message: x.options ? x.title : x.text,
+                  type: x.options ? "options" : "text",
+                  options: x.options || [],
+                  intent: response.intent
+                });
+                lastWAUserIndex = messages.length - 1;
+              }
+            });
+            this.setState(
+              {
+                messages,
+                lastWAUserIndex
+              },
+              this.scrollToBottom
+            );
+          }
         }
       } else if (eventName === "AGENT") {
+        this.isAgent = false;
         let data = response.data;
         let messages = this.state.messages;
         let lastWAUserIndex = this.state.lastWAUserIndex;
@@ -164,7 +203,9 @@ class BotSection extends Component {
         comment: this.state.msg,
         wASessionId: this.wASessionId,
         roomName: this.roomName,
-        roomId: this.roomId
+        roomId: this.roomId,
+        type: this.isDemo ? "demo" : "chat",
+        demoProperty: this.isDemo ? localStorage.getItem("demoProperty") : undefined
       };
       this.sendMessage(data, this.state.msg);
     }
@@ -175,14 +216,20 @@ class BotSection extends Component {
     let type = "chat";
     if (message.intent && message.intent.toLowerCase() === "demo") {
       type = "demo";
+      this.wASessionId = undefined;
+      this.roomId = undefined;
+      this.roomName = "room" + new Date().getTime();
+      localStorage.setItem("demoProperty", option.value.input.text);
     }
+
     let data = {
       comment: option.value.input.text,
       wASessionId: this.wASessionId,
       user: "user",
       roomName: this.roomName,
       roomId: this.roomId,
-      type: type
+      type: type,
+      demoProperty: type === "demo" ? option.value.input.text : undefined
     };
     this.sendMessage(data, option.value.input.text);
   };
@@ -201,7 +248,7 @@ class BotSection extends Component {
   };
 
   scrollToBottom = () => {
-    setTimeout(function() {
+    setTimeout(function () {
       var objDiv = document.getElementById("messages_container");
       if (objDiv) {
         objDiv.scrollTop = objDiv.scrollHeight;
@@ -258,6 +305,7 @@ class BotSection extends Component {
                           <Row>
                             {x.options.map((option, index) => (
                               <Col
+                                key={index}
                                 lg={4}
                                 md={4}
                                 sm={6}
