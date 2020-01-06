@@ -27,6 +27,7 @@ class BotSection extends Component {
     };
   }
   componentDidMount() {
+    console.log("component did mount");
     this.roomName = localStorage.getItem("roomName");
     this.roomId = localStorage.getItem("roomId");
     this.wASessionId = localStorage.getItem("wASessionId");
@@ -40,6 +41,27 @@ class BotSection extends Component {
       msg: eve.target.value
     });
   };
+
+  checkWASession = () => {
+    this.waCreatedTime = localStorage.getItem("waCreatedTime");
+    let isInWaSession = true;
+    if (!this.waCreatedTime) {
+      isInWaSession = false;
+      localStorage.clear()
+    } else {
+      let now = new Date().getTime();
+      let createdTime = new Date(Number(this.waCreatedTime)).getTime();
+      if (now - createdTime >= this.waTimeOut) {
+        isInWaSession = false;
+      }
+    }
+    if (isInWaSession === false) {
+      this.roomName = undefined;
+      this.roomId = undefined;
+      this.wASessionId = undefined
+    }
+  }
+
   initializeSocketIo = async () => {
     // let scope = this;
     this.socket = socketIO.connect(API_URL, {
@@ -85,22 +107,9 @@ class BotSection extends Component {
         );
       }
     }
-    let isInWaSession = true;
-    if (!this.waCreatedTime) {
-      isInWaSession = false;
-      localStorage.clear()
-    } else {
-      let now = new Date().getTime();
-      let createdTime = new Date(Number(this.waCreatedTime)).getTime();
-      if (now - createdTime >= this.waTimeOut) {
-        isInWaSession = false;
-      }
-    }
-    if (isInWaSession === false) {
-      this.roomName = undefined;
-      this.roomId = undefined;
-      this.wASessionId = undefined
-    }
+
+    this.checkWASession();
+
     this.socket.emit(SOCKET_PATHS.CONNECT, {
       payload: "",
       roomName: this.roomName ? this.roomName : "room" + time,
@@ -233,6 +242,7 @@ class BotSection extends Component {
 
   send = () => {
     if (this.state.msg && this.state.msg.length > 0) {
+      this.checkWASession();
       let data = {
         comment: this.state.msg,
         wASessionId: this.wASessionId,
