@@ -7,6 +7,7 @@ import { ChatPillAsk } from "./bot/ChatPillAsk";
 import socketIO from "socket.io-client";
 import { API_URL, SOCKET_PATHS, httpClient } from "../../constants";
 import chat from "../../img/chat.svg";
+import ChatLocation from "../ChatLocation";
 class BotSection extends Component {
   roomName = undefined;
   roomId;
@@ -86,7 +87,8 @@ class BotSection extends Component {
     }
     let isInWaSession = true;
     if (!this.waCreatedTime) {
-      isInWaSession = false
+      isInWaSession = false;
+      localStorage.clear()
     } else {
       let now = new Date().getTime();
       let createdTime = new Date(Number(this.waCreatedTime)).getTime();
@@ -135,9 +137,20 @@ class BotSection extends Component {
 
       if (eventName === "WATSON") {
         this.isAgentPending = false;
-        if (response.intent === "agent") {
+        if (response.intent === "location") {
+          let messages = [...this.state.messages];
+          messages.push({
+            user: "WA",
+            message: "",
+            type: "location",
+            options: []
+          });
+          this.setState({
+            messages: messages
+          }, this.scrollToBottom)
+        }
+        else if (response.intent === "agent") {
           this.isAgentPending = true;
-
           setTimeout(() => {
             if (this.isAgentPending) {
               let messages = [...this.state.messages];
@@ -153,7 +166,7 @@ class BotSection extends Component {
             }
           }, this.agentTimeOut)
         }
-        if (response.type === "demo" && response.intent === "exit_demo") {
+        else if (response.type === "demo" && response.intent === "exit_demo") {
           localStorage.removeItem("demoRoomName");
           localStorage.removeItem("demoRoomId");
           localStorage.removeItem("demoWASessionId");
@@ -313,35 +326,42 @@ class BotSection extends Component {
                 id="messages_container"
                 className="chat d-flex flex-column flex-grow-1"
               >
+
                 {this.state.messages.map((x, i) => (
                   <div key={i}>
-                    <ChatPill
-                      isLastWAUser={i === this.state.lastWAUserIndex}
-                      right={x.user === "ME"}
-                      text={x.message}
-                    />
-                    {i === this.state.messages.length - 1 &&
-                      x.type === "options" && (
-                        <div className="options-container">
-                          <Row>
-                            {x.options.map((option, index) => (
-                              <Col
-                                key={index}
-                                lg={4}
-                                md={4}
-                                sm={6}
-                                xs={12}
-                                onClick={() =>
-                                  this.handleOnOptionClick(x, index)
-                                }
-                              >
-                                <div className="wa-option">
-                                  <p>{option.label}</p>
-                                </div>
-                              </Col>
-                            ))}
-                          </Row>
-                        </div>
+                    {x.type === "location" ? (
+                      <ChatLocation />
+                    ) : (
+                        <React.Fragment>
+                          <ChatPill
+                            isLastWAUser={i === this.state.lastWAUserIndex}
+                            right={x.user === "ME"}
+                            text={x.message}
+                          />
+                          {i === this.state.messages.length - 1 &&
+                            x.type === "options" && (
+                              <div className="options-container">
+                                <Row>
+                                  {x.options.map((option, index) => (
+                                    <Col
+                                      key={index}
+                                      lg={4}
+                                      md={4}
+                                      sm={6}
+                                      xs={12}
+                                      onClick={() =>
+                                        this.handleOnOptionClick(x, index)
+                                      }
+                                    >
+                                      <div className="wa-option">
+                                        <p>{option.label}</p>
+                                      </div>
+                                    </Col>
+                                  ))}
+                                </Row>
+                              </div>
+                            )}
+                        </React.Fragment>
                       )}
                   </div>
                 ))}

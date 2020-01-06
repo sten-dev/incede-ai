@@ -177,7 +177,16 @@ section {
 .options-container {
   margin-left: 74px;
 }
-
+.chat-location {
+  a {
+    text-decoration: none !important;
+    color: #383737 !important;
+  }
+  max-width: 300px;
+  margin-left: 74px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
 // @keyframes xAxis {
 //   50% {
 //     animation-timing-function: ease-in;
@@ -207,7 +216,8 @@ section {
 
 @media screen and (max-width: 768px) {
   .chat-section-left,
-  .options-container {
+  .options-container,
+  .chat-location {
     margin-left: 0px !important;
   }
   .bot-menu-btn {
