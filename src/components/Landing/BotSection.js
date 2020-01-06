@@ -12,6 +12,8 @@ class BotSection extends Component {
   roomId;
   wASessionId;
   isDemo = false;
+  isAgentPending = false;
+  agentTimeOut = 3 * 60 * 1000;
   constructor(props) {
     super(props);
     this.state = {
@@ -113,12 +115,12 @@ class BotSection extends Component {
       }
 
       if (eventName === "WATSON") {
-        this.isAgent = false;
+        this.isAgentPending = false;
         if (response.intent === "agent") {
-          this.isAgent = true;
+          this.isAgentPending = true;
 
           setTimeout(() => {
-            if (this.isAgent) {
+            if (this.isAgentPending) {
               let messages = [...this.state.messages];
               messages.push({
                 user: "WA",
@@ -130,7 +132,7 @@ class BotSection extends Component {
                 messages: messages
               }, this.scrollToBottom)
             }
-          }, 3 * 60 * 1000)
+          }, this.agentTimeOut)
         }
         if (response.type === "demo" && response.intent === "exit_demo") {
           localStorage.removeItem("demoRoomName");
@@ -176,7 +178,7 @@ class BotSection extends Component {
           }
         }
       } else if (eventName === "AGENT") {
-        this.isAgent = false;
+        this.isAgentPending = false;
         let data = response.data;
         let messages = this.state.messages;
         let lastWAUserIndex = this.state.lastWAUserIndex;
@@ -287,7 +289,7 @@ class BotSection extends Component {
             </Col>
           </Row>
           <Row>
-            <Col>
+            <Col className="bot-container">
               <section
                 id="messages_container"
                 className="chat d-flex flex-column flex-grow-1"
