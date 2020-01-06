@@ -88,7 +88,7 @@ class BotSection extends Component {
 
     this.socket.on(SOCKET_PATHS.BOT_RESPONSE, (eventName, response) => {
       if (eventName === "SERVER_CONNECT") {
-        console.info("Bot connected, waiting for bot to wakeup");
+        console.info("Bot connected, waiting for bot to wake up");
         return;
       }
       if (response.newRoom === true && eventName === "WATSON") {
@@ -329,7 +329,7 @@ class BotSection extends Component {
                 handleKeyDown={this.handleKeyDown}
                 value={this.state.msg}
                 onChange={this.handleMessageChange}
-                placeholder={"Enter your name here"}
+                placeholder="Type here"
                 onClick={this.send}
               />
             </Col>

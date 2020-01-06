@@ -16,6 +16,7 @@ section {
       // max-height: calc(100vh - 256px) !important;
       max-height: calc(100vh - 336px) !important;
       padding: 16px;
+      margin-bottom: 16px;
     }
     .options-container {
       max-width: 768px;
@@ -34,7 +35,7 @@ section {
       }
     }
     .chat-pill {
-      padding: 16px;
+      padding: 16px 22px;
       background: $white;
       max-width: 768px;
       min-width: 150px;
@@ -66,9 +67,10 @@ section {
           padding: 16px;
           // color: $white;
           outline: none;
-          &::placeholder {
-            color: $white;
-          }
+          // &::placeholder {
+          //   color: $white;
+          // }
+
           // border-bottom: 1px solid white;
         }
         .send {
