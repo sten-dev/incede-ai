@@ -231,7 +231,8 @@ section {
     }
   }
   .bot-container {
-    height: calc(100vh - 170px) !important;
+    // height: calc(100vh - 170px) !important;
     min-height: -webkit-fill-available;
+    height: -webkit-fill-available;
   }
 }
