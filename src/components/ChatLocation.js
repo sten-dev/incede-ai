@@ -4,7 +4,6 @@ import location from "../img/location.png"
 const ChatLocation = () => {
     return (
         <div className="chat-location">
-
             <a href={`https://www.google.com/maps/search/?api=1&query=17.369265,78.539638`} target="_blank">
                 <Card>
                     <CardImg top width="100%" src={location} alt="Card image cap" />
