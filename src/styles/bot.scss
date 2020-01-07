@@ -256,7 +256,31 @@ section {
     }
   }
   .chat-header {
-    display: none;
+    display: none !important;
+  }
+  .bot-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    #messages_container {
+      height: 100% !important;
+      max-height: 100% !important;
+    }
+    .chat-pill {
+      &:not(.ask) {
+        padding: 8px !important;
+      }
+      &.right-pill {
+        border-radius: 8px 8px 0 8px !important;
+      }
+      &.left-pill {
+        border-radius: 8px 8px 8px 0 !important;
+      }
+    }
+    .wa-option {
+      height: auto !important;
+      margin: 4px 0 !important;
+    }
   }
   // .bot-container {
   //   // height: calc(100vh - 170px) !important;
