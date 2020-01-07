@@ -23,7 +23,8 @@ class BotSection extends Component {
       messages: [],
       msg: "",
       lastWAUserIndex: -1,
-      shouldConnectApi: true
+      shouldConnectApi: true,
+      isLoading: false
     };
   }
   componentDidMount() {
@@ -79,6 +80,9 @@ class BotSection extends Component {
     this.checkWASession();
 
     if (this.roomId) {
+      this.setState({
+        isLoading: true
+      })
       let chatsResp = await httpClient("chats", "POST", {
         roomId: this.roomId
       });
@@ -105,7 +109,8 @@ class BotSection extends Component {
         this.setState(
           {
             messages: messages,
-            lastWAUserIndex
+            lastWAUserIndex,
+            isLoading: false
           },
           this.scrollToBottom
         );
@@ -327,7 +332,7 @@ class BotSection extends Component {
                 />
               </div>
               <div className="d-flex justify-content-center flex-grow-1">
-                <p className="lead text-white">
+                <p className="lead text-white d-none d-md-block">
                   Incede provides outcome-based AI solutions and offers
                 </p>
               </div>
@@ -350,6 +355,7 @@ class BotSection extends Component {
                           <ChatPill
                             isLastWAUser={i === this.state.lastWAUserIndex}
                             right={x.user === "ME"}
+                            user={x.user}
                             text={x.message}
                           />
                           {i === this.state.messages.length - 1 &&
@@ -379,6 +385,16 @@ class BotSection extends Component {
                       )}
                   </div>
                 ))}
+                {this.state.isLoading && (
+                  <div>
+                    <ChatPill
+                      isLastWAUser={false}
+                      right={false}
+                      user={"WA"}
+                      text="Loading..."
+                    />
+                  </div>
+                )}
               </section>
               <ChatPillAsk
                 handleKeyDown={this.handleKeyDown}

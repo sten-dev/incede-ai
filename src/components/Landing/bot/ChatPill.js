@@ -1,22 +1,32 @@
 import React from "react";
-import waAgent from "../../../img/waAgent.svg";
+import waIcon from "../../../img/waAgent.svg";
+import agentIcon from "../../../img/agent.png";
 export const ChatPill = props => {
   return (
     <div
-      className={`chat-section-${props.right ? 'right' : 'left'} d-flex ${
+      className={`chat-section-${props.right ? 'right' : 'left'}  d-flex ${
         props.right ? "justify-content-end" : "justify-content-start"
         } ${props.isLastWAUser ? 'is-last-wa-user' : ''}`}
     >
       {props.isLastWAUser && (
         <div className="d-none d-md-block">
-          <img
-            src={waAgent}
-            alt="incede.ai"
-          />
+          {props.right === "AG" ? (
+            <div className="agent-icon">
+              <img
+                src={agentIcon}
+                alt="incede.ai"
+              />
+            </div>
+          ) : (
+              <img
+                src={waIcon}
+                alt="incede.ai"
+              />
+            )}
         </div>
       )}
       <section
-        className={`chat-pill ${props.right ? "right-pill" : "left-pill"}`}
+        className={`chat-pill ${props.user ? `user-${props.user.toLowerCase()}` : ''} ${props.right ? "right-pill" : "left-pill"}`}
       >
         {props.text ? (
           <p

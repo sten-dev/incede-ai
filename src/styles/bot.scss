@@ -47,6 +47,9 @@ section {
       margin: 4px;
       margin-bottom: 8px;
       color: #383737;
+      &.user-ag {
+        background: #fff8b6;
+      }
       .chat-text {
         margin: 0;
         font-weight: 500;
@@ -88,6 +91,17 @@ section {
             color: $white;
           }
         }
+      }
+    }
+    .agent-icon {
+      width: 60px;
+      height: 60px;
+      background: #fff;
+      padding: 8px;
+      border-radius: 50%;
+      margin-right: 8px;
+      img {
+        width: 100%;
       }
     }
   }
