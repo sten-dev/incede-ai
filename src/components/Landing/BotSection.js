@@ -322,7 +322,7 @@ class BotSection extends Component {
           <div className="d-none d-md-block">Explore our site</div>
         </div>
         <Container>
-          <Row>
+          <Row className="chat-header">
             <Col className="d-flex flex-column">
               <div className="d-flex justify-content-center flex-grow-1">
                 <img
@@ -336,7 +336,7 @@ class BotSection extends Component {
                   Incede provides outcome-based AI solutions and offers
                 </p>
               </div>
-              <br className="d-none d-md-block" />
+              <br />
             </Col>
           </Row>
           <Row>
