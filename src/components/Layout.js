@@ -27,9 +27,9 @@ const Layout = ({ children }) => {
         <link rel="apple-touch-icon" sizes="152x152" href={`${withPrefix("/")}img/fav/apple-icon-152x152.png`} />
         <link rel="apple-touch-icon" sizes="180x180" href={`${withPrefix("/")}img/fav/apple-icon-180x180.png`} />
         <link rel="icon" type="image/png" sizes="192x192" href={`${withPrefix("/")}img/fav/android-icon-192x192.png`} />
-        <link rel="icon" type="image/png" sizes="32x32" href={`${withPrefix("/")}img/fav/favicon-32x32.png`} />
-        <link rel="icon" type="image/png" sizes="96x96" href={`${withPrefix("/")}img/fav/favicon-96x96.png`} />
-        <link rel="icon" type="image/png" sizes="16x16" href={`${withPrefix("/")}img/fav/favicon-16x16.png`} />
+        <link rel="icon" type="image/png" sizes="32x32" href={`${withPrefix("/")}img/fav/favicon.ico`} />
+        <link rel="icon" type="image/png" sizes="96x96" href={`${withPrefix("/")}img/fav/favicon.ico`} />
+        <link rel="icon" type="image/png" sizes="16x16" href={`${withPrefix("/")}img/fav/favicon.ico`} />
         <link rel="manifest" href={`${withPrefix("/")}img/fav/manifest.json`} />
         <meta name="msapplication-TileImage" content={`${withPrefix("/")}img/fav/ms-icon-144x144.png`}></meta>
 
