@@ -52,7 +52,7 @@ class BotSection extends Component {
     } else {
       let now = new Date().getTime();
       let createdTime = new Date(Number(this.waCreatedTime)).getTime();
-      if (now - createdTime >= this.waTimeOut) {
+      if ((now - createdTime) >= this.waTimeOut) {
         isInWaSession = false;
       }
     }
@@ -336,7 +336,7 @@ class BotSection extends Component {
                   Incede provides outcome-based AI solutions and offers
                 </p>
               </div>
-              <br />
+              <br className="d-none d-md-block" />
             </Col>
           </Row>
           <Row>
