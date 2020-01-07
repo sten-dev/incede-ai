@@ -221,6 +221,7 @@ section {
       font-size: 14px;
     }
   }
+
   .send-msg {
     button {
       span {
@@ -256,6 +257,12 @@ section {
       width: 30px;
     }
   }
+  .ttest {
+    position: absolute !important;
+    bottom: 0;
+    right: 0;
+    // margin-right: "24px";
+  }
   .chat-header {
     display: none !important;
   }
@@ -263,6 +270,7 @@ section {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    padding-bottom: 60px;
     #messages_container {
       height: 100% !important;
       max-height: 100% !important;

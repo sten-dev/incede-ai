@@ -4,8 +4,8 @@ import { Button } from "reactstrap";
 export const ChatPillAsk = props => {
   return (
     <div
-      className={`d-flex justify-content-end`}
-      style={{ position: "absolute", bottom: 0, right: 0, marginRight: "24px" }}
+      className={`d-flex justify-content-end ttest`}
+      // style={{ position: "absolute", bottom: 0, right: 0, marginRight: "24px" }}
     >
       <section className={`chat-pill ask d-flex`}>
         <input
