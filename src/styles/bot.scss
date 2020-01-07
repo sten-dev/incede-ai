@@ -202,6 +202,10 @@ section {
   margin-left: 74px;
   margin-top: 16px;
   margin-bottom: 16px;
+  img {
+    height: 250px;
+    object-fit: cover;
+  }
 }
 // @keyframes xAxis {
 //   50% {
