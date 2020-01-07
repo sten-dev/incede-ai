@@ -24,8 +24,13 @@ class Main extends Component {
   }
 
   toggle = () => {
-    if (!this.state.modal) document.body.style.overflow = "hidden";
-    else document.body.style.overflow = "auto";
+    if (!this.state.modal) {
+      document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+    } else {
+      document.body.style.overflow = "auto";
+      document.body.style.position = "initial";
+    }
 
     this.setState({
       modal: !this.state.modal,
@@ -60,8 +65,8 @@ class Main extends Component {
             !this.state.isFirst ? (
               <BotSection toggle={this.toggle} />
             ) : (
-                <React.Fragment></React.Fragment>
-              )
+              <React.Fragment></React.Fragment>
+            )
           }
           open={this.state.modal}
           onSetOpen={this.toggle}

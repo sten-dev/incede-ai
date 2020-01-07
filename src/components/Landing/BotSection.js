@@ -48,20 +48,20 @@ class BotSection extends Component {
     let isInWaSession = true;
     if (!this.waCreatedTime) {
       isInWaSession = false;
-      localStorage.clear()
+      localStorage.clear();
     } else {
       let now = new Date().getTime();
       let createdTime = new Date(Number(this.waCreatedTime)).getTime();
-      if ((now - createdTime) >= this.waTimeOut) {
+      if (now - createdTime >= this.waTimeOut) {
         isInWaSession = false;
       }
     }
     if (isInWaSession === false) {
       this.roomName = undefined;
       this.roomId = undefined;
-      this.wASessionId = undefined
+      this.wASessionId = undefined;
     }
-  }
+  };
 
   initializeSocketIo = async () => {
     // let scope = this;
@@ -71,7 +71,7 @@ class BotSection extends Component {
       reconnectionDelayMax: 5000,
       reconnectionAttempts: 5
     });
-    this.socket.on("connect", function () {
+    this.socket.on("connect", function() {
       console.debug("connected to server");
     });
     let messages = [];
@@ -82,7 +82,7 @@ class BotSection extends Component {
     if (this.roomId) {
       this.setState({
         isLoading: true
-      })
+      });
       let chatsResp = await httpClient("chats", "POST", {
         roomId: this.roomId
       });
@@ -161,20 +161,24 @@ class BotSection extends Component {
             type: "location",
             options: []
           });
-          this.setState({
-            messages: messages
-          }, this.scrollToBottom)
-        }
-        else if (response.intent === "agent") {
+          this.setState(
+            {
+              messages: messages
+            },
+            this.scrollToBottom
+          );
+        } else if (response.intent === "agent") {
           this.isAgentPending = true;
           this.pushWAMessage(response);
           setTimeout(() => {
             if (this.isAgentPending) {
-              this.sendCustomMessage("agent not available", false)
+              this.sendCustomMessage("agent not available", false);
             }
-          }, this.agentTimeOut)
-        }
-        else if (response.type === "demo" && response.intent === "exit_demo") {
+          }, this.agentTimeOut);
+        } else if (
+          response.type === "demo" &&
+          response.intent === "exit_demo"
+        ) {
           localStorage.removeItem("demoRoomName");
           localStorage.removeItem("demoRoomId");
           localStorage.removeItem("demoWASessionId");
@@ -188,7 +192,7 @@ class BotSection extends Component {
             wASessionId: this.wASessionId,
             user: "user",
             roomName: this.roomName,
-            roomId: this.roomId,
+            roomId: this.roomId
           };
           this.socket.emit(SOCKET_PATHS.CONNECT, data);
         } else {
@@ -241,11 +245,11 @@ class BotSection extends Component {
         this.scrollToBottom
       );
     }
-  }
+  };
 
   send = () => {
     if (this.state.msg && this.state.msg.length > 0) {
-      this.sendCustomMessage(this.state.msg, true)
+      this.sendCustomMessage(this.state.msg, true);
     }
   };
 
@@ -257,10 +261,12 @@ class BotSection extends Component {
       roomName: this.roomName,
       roomId: this.roomId,
       type: this.isDemo ? "demo" : "chat",
-      demoProperty: this.isDemo ? localStorage.getItem("demoProperty") : undefined
+      demoProperty: this.isDemo
+        ? localStorage.getItem("demoProperty")
+        : undefined
     };
     this.sendMessage(data, msg, shouldAddToMessages);
-  }
+  };
 
   handleOnOptionClick = (message, optionIndex) => {
     let option = message.options[optionIndex];
@@ -301,7 +307,7 @@ class BotSection extends Component {
   };
 
   scrollToBottom = () => {
-    setTimeout(function () {
+    setTimeout(function() {
       var objDiv = document.getElementById("messages_container");
       if (objDiv) {
         objDiv.scrollTop = objDiv.scrollHeight;
@@ -345,44 +351,43 @@ class BotSection extends Component {
                 id="messages_container"
                 className="chat d-flex flex-column flex-grow-1"
               >
-
                 {this.state.messages.map((x, i) => (
                   <div key={i}>
                     {x.type === "location" ? (
                       <ChatLocation />
                     ) : (
-                        <React.Fragment>
-                          <ChatPill
-                            isLastWAUser={i === this.state.lastWAUserIndex}
-                            right={x.user === "ME"}
-                            user={x.user}
-                            text={x.message}
-                          />
-                          {i === this.state.messages.length - 1 &&
-                            x.type === "options" && (
-                              <div className="options-container">
-                                <Row>
-                                  {x.options.map((option, index) => (
-                                    <Col
-                                      key={index}
-                                      lg={4}
-                                      md={4}
-                                      sm={6}
-                                      xs={12}
-                                      onClick={() =>
-                                        this.handleOnOptionClick(x, index)
-                                      }
-                                    >
-                                      <div className="wa-option">
-                                        <p>{option.label}</p>
-                                      </div>
-                                    </Col>
-                                  ))}
-                                </Row>
-                              </div>
-                            )}
-                        </React.Fragment>
-                      )}
+                      <React.Fragment>
+                        <ChatPill
+                          isLastWAUser={i === this.state.lastWAUserIndex}
+                          right={x.user === "ME"}
+                          user={x.user}
+                          text={x.message}
+                        />
+                        {i === this.state.messages.length - 1 &&
+                          x.type === "options" && (
+                            <div className="options-container">
+                              <Row>
+                                {x.options.map((option, index) => (
+                                  <Col
+                                    key={index}
+                                    lg={4}
+                                    md={4}
+                                    sm={6}
+                                    xs={12}
+                                    onClick={() =>
+                                      this.handleOnOptionClick(x, index)
+                                    }
+                                  >
+                                    <div className="wa-option">
+                                      <p>{option.label}</p>
+                                    </div>
+                                  </Col>
+                                ))}
+                              </Row>
+                            </div>
+                          )}
+                      </React.Fragment>
+                    )}
                   </div>
                 ))}
                 {this.state.isLoading && (
@@ -396,16 +401,23 @@ class BotSection extends Component {
                   </div>
                 )}
               </section>
-              <ChatPillAsk
+              {/* <ChatPillAsk
                 handleKeyDown={this.handleKeyDown}
                 value={this.state.msg}
                 onChange={this.handleMessageChange}
                 placeholder="Type here"
                 onClick={this.send}
-              />
+              /> */}
             </Col>
           </Row>
         </Container>
+        <ChatPillAsk
+          handleKeyDown={this.handleKeyDown}
+          value={this.state.msg}
+          onChange={this.handleMessageChange}
+          placeholder="Type here"
+          onClick={this.send}
+        />
       </section>
     );
   }
