@@ -109,6 +109,7 @@ section {
 .side-bar {
   > div:nth-child(1) {
     position: fixed !important;
+    overflow: hidden !important;
   }
 }
 /**Scroll Bar*/
