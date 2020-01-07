@@ -2,7 +2,7 @@
 templateKey: index-page
 home:
   button: Explore Our Solutions
-  image: /img/new1.png
+  image: /img/landing-image.png
   subTitle: Build an AI Roadmap for your business
   title: We provide business outcome based AI solutions
 about:
