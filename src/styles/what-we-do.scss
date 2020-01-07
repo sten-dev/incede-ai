@@ -83,6 +83,14 @@ section {
     }
   }
 }
+@media screen and (min-width: 767px) {
+  .what-we-do-header-section {
+    .header {
+      justify-content: flex-end !important;
+    }
+  }
+}
+
 @media screen and (max-width: 676px) {
   .what-we-do-header-section {
     flex-direction: column;

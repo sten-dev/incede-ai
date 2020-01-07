@@ -76,6 +76,8 @@ class BotSection extends Component {
     let messages = [];
     let time = new Date().getTime();
 
+    this.checkWASession();
+
     if (this.roomId) {
       let chatsResp = await httpClient("chats", "POST", {
         roomId: this.roomId
@@ -109,8 +111,6 @@ class BotSection extends Component {
         );
       }
     }
-
-    this.checkWASession();
 
     this.socket.emit(SOCKET_PATHS.CONNECT, {
       payload: "",
@@ -162,6 +162,7 @@ class BotSection extends Component {
         }
         else if (response.intent === "agent") {
           this.isAgentPending = true;
+          this.pushWAMessage(response);
           setTimeout(() => {
             if (this.isAgentPending) {
               this.sendCustomMessage("agent not available", false)
@@ -186,30 +187,7 @@ class BotSection extends Component {
           };
           this.socket.emit(SOCKET_PATHS.CONNECT, data);
         } else {
-          let data = response.data;
-          if (data && Array.isArray(data)) {
-            messages = [...this.state.messages];
-            let lastWAUserIndex = this.state.lastWAUserIndex;
-            data.forEach(x => {
-              if (x.text || x.title) {
-                messages.push({
-                  user: "WA",
-                  message: x.options ? x.title : x.text,
-                  type: x.options ? "options" : "text",
-                  options: x.options || [],
-                  intent: response.intent
-                });
-                lastWAUserIndex = messages.length - 1;
-              }
-            });
-            this.setState(
-              {
-                messages,
-                lastWAUserIndex
-              },
-              this.scrollToBottom
-            );
-          }
+          this.pushWAMessage(response);
         }
       } else if (eventName === "AGENT") {
         this.isAgentPending = false;
@@ -232,6 +210,33 @@ class BotSection extends Component {
       }
     });
   };
+
+  pushWAMessage = response => {
+    let data = response.data;
+    if (data && Array.isArray(data)) {
+      let messages = [...this.state.messages];
+      let lastWAUserIndex = this.state.lastWAUserIndex;
+      data.forEach(x => {
+        if (x.text || x.title) {
+          messages.push({
+            user: "WA",
+            message: x.options ? x.title : x.text,
+            type: x.options ? "options" : "text",
+            options: x.options || [],
+            intent: response.intent
+          });
+          lastWAUserIndex = messages.length - 1;
+        }
+      });
+      this.setState(
+        {
+          messages,
+          lastWAUserIndex
+        },
+        this.scrollToBottom
+      );
+    }
+  }
 
   send = () => {
     if (this.state.msg && this.state.msg.length > 0) {
@@ -272,7 +277,7 @@ class BotSection extends Component {
       type: type,
       demoProperty: type === "demo" ? option.value.input.text : undefined
     };
-    this.sendMessage(data, option.value.input.text);
+    this.sendMessage(data, option.value.input.text, true);
   };
 
   sendMessage = (data, message, shouldAddToMessages) => {

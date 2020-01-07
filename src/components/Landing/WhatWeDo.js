@@ -26,7 +26,7 @@ class WhatWeDo extends Component {
                                 <h1 className="title text-primary">What we do</h1>
                             </div>
                             <Col className="menu-tabs d-flex align-items-center">
-                                <div className="header w-100 d-flex justify-content-end">
+                                <div className="header w-100 d-flex">
                                     <label onClick={() => this.handleTabChange("solutions")} className={`tab ${this.state.selectedTab === 'solutions' ? 'selected-tab' : ''}`}>Solutions</label>
                                     <label onClick={() => this.handleTabChange("services")} className={`tab ${this.state.selectedTab === 'services' ? 'selected-tab' : ''}`}>Services</label>
                                     <label onClick={() => this.handleTabChange("industries")} className={`tab ${this.state.selectedTab === 'industries' ? 'selected-tab' : ''}`}>Industries</label>
