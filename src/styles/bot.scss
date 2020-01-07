@@ -261,6 +261,7 @@ section {
     position: absolute !important;
     bottom: 0;
     right: 0;
+    width: 100%;
     // margin-right: "24px";
   }
   .chat-header {
@@ -270,7 +271,7 @@ section {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    padding-bottom: 60px;
+    padding-bottom: 84px;
     #messages_container {
       height: 100% !important;
       max-height: 100% !important;
