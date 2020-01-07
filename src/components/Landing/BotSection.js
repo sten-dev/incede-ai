@@ -410,14 +410,14 @@ class BotSection extends Component {
               /> */}
             </Col>
           </Row>
+          <ChatPillAsk
+            handleKeyDown={this.handleKeyDown}
+            value={this.state.msg}
+            onChange={this.handleMessageChange}
+            placeholder="Type here"
+            onClick={this.send}
+          />
         </Container>
-        <ChatPillAsk
-          handleKeyDown={this.handleKeyDown}
-          value={this.state.msg}
-          onChange={this.handleMessageChange}
-          placeholder="Type here"
-          onClick={this.send}
-        />
       </section>
     );
   }
