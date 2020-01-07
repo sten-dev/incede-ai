@@ -36,6 +36,21 @@ class BotSection extends Component {
     this.initializeSocketIo();
   }
 
+  initializeHeight = () => {
+
+    window.addEventListener('resize', function () {
+      this.setDocHeight();
+    });
+    window.addEventListener('orientationchange', function () {
+      this.setDocHeight();
+    });
+
+    this.setDocHeight();
+  }
+  setDocHeight() {
+    document.documentElement.style.setProperty('--vh', `${window.innerHeight / 100}px`);
+  };
+
   handleMessageChange = event => {
     let eve = { ...event };
     this.setState({
