@@ -34,6 +34,7 @@ class BotSection extends Component {
     this.wASessionId = localStorage.getItem("wASessionId");
     this.waCreatedTime = localStorage.getItem("waCreatedTime");
     this.initializeSocketIo();
+    this.initializeHeight();
   }
 
   initializeHeight = () => {
@@ -47,9 +48,7 @@ class BotSection extends Component {
 
     this.setDocHeight();
   }
-  setDocHeight() {
-    document.documentElement.style.setProperty('--vh', `${window.innerHeight / 100}px`);
-  };
+
 
   handleMessageChange = event => {
     let eve = { ...event };
