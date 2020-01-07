@@ -10,7 +10,8 @@ const NotFoundPage = () => (
       <Col lg={3} md={5} sm={10} xs={12}>
         <Card>
           <CardBody>
-            <h1>😮</h1>
+            <h1>
+              <span role="img" aria-label="404 page">😮</span></h1>
             <h3>404</h3>
             <h6>Page Not Found</h6>
             <br />

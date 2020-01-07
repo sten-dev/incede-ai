@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import Home from "./Landing/Home";
 import AboutUs from "./Landing/AboutUs";
 import WhatWeDo from "./Landing/WhatWeDo";
@@ -60,8 +60,8 @@ class Main extends Component {
             !this.state.isFirst ? (
               <BotSection toggle={this.toggle} />
             ) : (
-              <React.Fragment></React.Fragment>
-            )
+                <React.Fragment></React.Fragment>
+              )
           }
           open={this.state.modal}
           onSetOpen={this.toggle}

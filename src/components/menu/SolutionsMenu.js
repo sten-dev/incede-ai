@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { graphql, StaticQuery, Link } from "gatsby";
-import { Container, ListGroup } from "reactstrap";
+import { ListGroup } from "reactstrap";
 class SolutionsMenu extends React.Component {
   render() {
     const { data } = this.props;

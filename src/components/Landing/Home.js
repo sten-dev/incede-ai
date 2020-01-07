@@ -2,7 +2,6 @@ import React from "react";
 import { Container, Row, Col } from "reactstrap";
 import "../../styles/home.scss";
 import PreviewCompatibleImage from "../PreviewCompatibleImage";
-import INavbar from "../Navbar";
 import arrow from "../../img/arrow.svg";
 import { Link } from "gatsby";
 class Home extends React.Component {

@@ -1,7 +1,6 @@
 import React from "react";
 import PreviewCompatibleImage from "../PreviewCompatibleImage";
 import { Card, CardBody } from "reactstrap";
-import { HTMLContent } from "../Content";
 
 const SolutionView = ({ solution }) => {
   return (
