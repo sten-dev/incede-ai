@@ -247,9 +247,7 @@ section {
     }
   }
 }
-@function vh($quantity) {
-  @return calc(var(--vh, 1vh) * #{$quantity});
-}
+
 @media screen and (max-width: 576px) {
   .bot-menu-btn {
     height: 120px;
@@ -264,7 +262,7 @@ section {
   .bot-container {
     display: flex;
     flex-direction: column;
-    height: vh(100);
+    height: 100vh;
     #messages_container {
       height: 100% !important;
       max-height: 100% !important;

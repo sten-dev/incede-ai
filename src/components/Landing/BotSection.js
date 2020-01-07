@@ -34,21 +34,7 @@ class BotSection extends Component {
     this.wASessionId = localStorage.getItem("wASessionId");
     this.waCreatedTime = localStorage.getItem("waCreatedTime");
     this.initializeSocketIo();
-    this.initializeHeight();
   }
-
-  initializeHeight = () => {
-
-    window.addEventListener('resize', function () {
-      this.setDocHeight();
-    });
-    window.addEventListener('orientationchange', function () {
-      this.setDocHeight();
-    });
-
-    this.setDocHeight();
-  }
-
 
   handleMessageChange = event => {
     let eve = { ...event };
