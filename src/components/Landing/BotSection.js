@@ -179,6 +179,23 @@ class BotSection extends Component {
               this.sendCustomMessage("agent not available", false);
             }
           }, this.agentTimeOut);
+          setTimeout(() => {
+            if (this.isAgentPending) {
+              let messages = [...this.state.messages];
+              messages.push({
+                user: "WA",
+                message: "Our agents are busy. Please hold on.",
+                type: "text",
+                options: [],
+                intent: undefined
+              });
+              let lastWAUserIndex = messages.length - 1;
+              this.setState({
+                messages,
+                lastWAUserIndex
+              })
+            }
+          }, this.agentTimeOut / 3);
         } else if (
           response.type === "demo" &&
           response.intent === "exit_demo"
