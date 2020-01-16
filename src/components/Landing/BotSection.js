@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../../styles/bot.scss";
-import { Container, Row, Col } from "reactstrap";
+import { Container, Row, Col, Button } from "reactstrap";
 import logo from "../../img/logo_white.svg";
 import { ChatPill } from "./bot/ChatPill";
 import { ChatPillAsk } from "./bot/ChatPillAsk";
@@ -71,7 +71,7 @@ class BotSection extends Component {
       reconnectionDelayMax: 5000,
       reconnectionAttempts: 5
     });
-    this.socket.on("connect", function() {
+    this.socket.on("connect", function () {
       console.debug("connected to server");
     });
     let messages = [];
@@ -96,14 +96,16 @@ class BotSection extends Component {
             if (x.USER === "WATSON" || x.USER === "AGENT") {
               lastWAUserIndex = chatRepeatIndex;
             }
-            messages.push({
-              user:
-                x.USER === "WATSON" ? "WA" : x.USER === "AGENT" ? "AG" : "ME",
-              message: x.options ? x.title : x.TEXT,
-              type: x.options ? "options" : "text",
-              options: x.options || [],
-              intent: x.intent
-            });
+            if (x.title || x.TEXT) {
+              messages.push({
+                user:
+                  x.USER === "WATSON" ? "WA" : x.USER === "AGENT" ? "AG" : "ME",
+                message: x.options ? x.title : x.TEXT,
+                type: x.options ? "options" : "text",
+                options: x.options || [],
+                intent: x.intent
+              });
+            }
           }
         });
         this.setState(
@@ -111,8 +113,10 @@ class BotSection extends Component {
             messages: messages,
             lastWAUserIndex,
             isLoading: false
-          },
-          this.scrollToBottom
+          }, () => {
+            this.scrollToBottom();
+            this.sendCustomMessage("welcome_back", false);
+          }
         );
       }
     }
@@ -188,7 +192,7 @@ class BotSection extends Component {
           this.wASessionId = localStorage.getItem("wASessionId");
           this.isDemo = false;
           let data = {
-            comment: "demo done",
+            comment: "completed demo test",
             wASessionId: this.wASessionId,
             user: "user",
             roomName: this.roomName,
@@ -253,6 +257,10 @@ class BotSection extends Component {
     }
   };
 
+  exitWADemo = () => {
+    this.sendCustomMessage("exit_demo", false);
+  }
+
   sendCustomMessage = (msg, shouldAddToMessages) => {
     this.checkWASession();
     let data = {
@@ -307,12 +315,12 @@ class BotSection extends Component {
   };
 
   scrollToBottom = () => {
-    setTimeout(function() {
+    setTimeout(function () {
       var objDiv = document.getElementById("messages_container");
       if (objDiv) {
         objDiv.scrollTop = objDiv.scrollHeight;
       }
-    }, 1000);
+    }, 500);
   };
   handleKeyDown = event => {
     if (event.key === "Enter") {
@@ -356,38 +364,38 @@ class BotSection extends Component {
                     {x.type === "location" ? (
                       <ChatLocation />
                     ) : (
-                      <React.Fragment>
-                        <ChatPill
-                          isLastWAUser={i === this.state.lastWAUserIndex}
-                          right={x.user === "ME"}
-                          user={x.user}
-                          text={x.message}
-                        />
-                        {i === this.state.messages.length - 1 &&
-                          x.type === "options" && (
-                            <div className="options-container">
-                              <Row>
-                                {x.options.map((option, index) => (
-                                  <Col
-                                    key={index}
-                                    lg={4}
-                                    md={4}
-                                    sm={6}
-                                    xs={12}
-                                    onClick={() =>
-                                      this.handleOnOptionClick(x, index)
-                                    }
-                                  >
-                                    <div className="wa-option">
-                                      <p>{option.label}</p>
-                                    </div>
-                                  </Col>
-                                ))}
-                              </Row>
-                            </div>
-                          )}
-                      </React.Fragment>
-                    )}
+                        <React.Fragment>
+                          <ChatPill
+                            isLastWAUser={i === this.state.lastWAUserIndex}
+                            right={x.user === "ME"}
+                            user={x.user}
+                            text={x.message}
+                          />
+                          {i === this.state.messages.length - 1 &&
+                            x.type === "options" && (
+                              <div className="options-container">
+                                <Row>
+                                  {x.options.map((option, index) => (
+                                    <Col
+                                      key={index}
+                                      lg={4}
+                                      md={4}
+                                      sm={6}
+                                      xs={12}
+                                      onClick={() =>
+                                        this.handleOnOptionClick(x, index)
+                                      }
+                                    >
+                                      <div className="wa-option">
+                                        <p>{option.label}</p>
+                                      </div>
+                                    </Col>
+                                  ))}
+                                </Row>
+                              </div>
+                            )}
+                        </React.Fragment>
+                      )}
                   </div>
                 ))}
                 {this.state.isLoading && (
@@ -400,6 +408,11 @@ class BotSection extends Component {
                     />
                   </div>
                 )}
+                {this.isDemo && (
+                  <Button onClick={this.exitWADemo} className="exit-demo-btn mr-1 d-block d-sm-none">
+                    Exit Demo
+                </Button>
+                )}
               </section>
               {/* <ChatPillAsk
                 handleKeyDown={this.handleKeyDown}
@@ -410,13 +423,20 @@ class BotSection extends Component {
               /> */}
             </Col>
           </Row>
-          <ChatPillAsk
-            handleKeyDown={this.handleKeyDown}
-            value={this.state.msg}
-            onChange={this.handleMessageChange}
-            placeholder="Type here"
-            onClick={this.send}
-          />
+          <div className={`d-flex justify-content-end align-items-center ask-container`}>
+            {this.isDemo && (
+              <Button onClick={this.exitWADemo} className="exit-demo-btn mr-1 d-none d-sm-block">
+                Exit Demo
+            </Button>
+            )}
+            <ChatPillAsk
+              handleKeyDown={this.handleKeyDown}
+              value={this.state.msg}
+              onChange={this.handleMessageChange}
+              placeholder="Type here"
+              onClick={this.send}
+            />
+          </div>
         </Container>
       </section>
     );
