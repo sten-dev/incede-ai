@@ -281,8 +281,11 @@ section {
   .bot-container {
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    padding-bottom: 92px;
+    height: calc(100vh - 136px) !important;
+    margin-top: 4px;
+    // height: 100vh;
+    // height: 80vh !important;
+    // padding-bottom: 96px;
     #messages_container {
       height: 100% !important;
       max-height: 100% !important;
