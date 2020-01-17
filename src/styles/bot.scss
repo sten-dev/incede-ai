@@ -23,6 +23,9 @@ section {
       padding: 16px;
       margin-bottom: 16px;
     }
+    .call-back-form {
+      max-width: 500px;
+    }
     .options-container {
       max-width: 768px;
       .wa-option {
@@ -37,6 +40,10 @@ section {
         color: #fff;
         cursor: pointer;
         padding: 8px;
+        &.cancel {
+          background: transparent;
+          border: 1px solid #ddd;
+        }
       }
     }
     .chat-pill {

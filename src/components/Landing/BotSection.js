@@ -8,20 +8,22 @@ import socketIO from "socket.io-client";
 import { API_URL, SOCKET_PATHS, httpClient } from "../../constants";
 import chat from "../../img/chat.svg";
 import ChatLocation from "../ChatLocation";
+import CallBackForm from "./bot/CallBackForm";
 class BotSection extends Component {
   roomName = undefined;
   roomId;
   wASessionId;
-  isDemo = false;
   isAgentPending = false;
-  agentTimeOut = 3 * 60 * 1000;
+  agentTimeOut = 3 * 1000;
   waTimeOut = 1 * 60 * 60 * 1000;
   waCreatedTime;
+  currentIntent
   constructor(props) {
     super(props);
     this.state = {
       messages: [],
       msg: "",
+      isDemo: false,
       lastWAUserIndex: -1,
       shouldConnectApi: true,
       isLoading: false
@@ -139,9 +141,13 @@ class BotSection extends Component {
             localStorage.setItem("demoWASessionId", response.sessionId);
             localStorage.setItem("demoRoomId", response.roomId);
             localStorage.setItem("demoRoomName", response.roomName);
-            this.isDemo = true;
+            this.setState({
+              isDemo: true
+            });
           } else {
-            this.isDemo = false;
+            this.setState({
+              isDemo: false
+            });
             localStorage.setItem("waCreatedTime", new Date().getTime());
             localStorage.setItem("wASessionId", response.sessionId);
             localStorage.setItem("roomId", response.roomId);
@@ -207,9 +213,11 @@ class BotSection extends Component {
           this.roomId = localStorage.getItem("roomId");
           this.roomName = localStorage.getItem("roomName");
           this.wASessionId = localStorage.getItem("wASessionId");
-          this.isDemo = false;
+          this.setState({
+            isDemo: false
+          });
           let data = {
-            comment: "completed demo test",
+            comment: "completed demo",
             wASessionId: this.wASessionId,
             user: "user",
             roomName: this.roomName,
@@ -256,6 +264,9 @@ class BotSection extends Component {
             intent: response.intent
           });
           lastWAUserIndex = messages.length - 1;
+          if (x.text === "Sure thing. I need some basic information from you to setup a call with our agent") {
+            messages.push({ user: "ME", message: "", type: "callback_form" });
+          }
         }
       });
       this.setState(
@@ -276,6 +287,11 @@ class BotSection extends Component {
 
   exitWADemo = () => {
     this.sendCustomMessage("exit_demo", false);
+    setTimeout(() => {
+      this.setState({
+        isDemo: false
+      })
+    }, 500);
   }
 
   sendCustomMessage = (msg, shouldAddToMessages) => {
@@ -285,8 +301,8 @@ class BotSection extends Component {
       wASessionId: this.wASessionId,
       roomName: this.roomName,
       roomId: this.roomId,
-      type: this.isDemo ? "demo" : "chat",
-      demoProperty: this.isDemo
+      type: this.state.isDemo ? "demo" : "chat",
+      demoProperty: this.state.isDemo
         ? localStorage.getItem("demoProperty")
         : undefined
     };
@@ -296,16 +312,19 @@ class BotSection extends Component {
   handleOnOptionClick = (message, optionIndex) => {
     let option = message.options[optionIndex];
     let type = "chat";
-    if (message.intent && message.intent.toLowerCase() === "demo") {
+    if (message.intent && message.intent.toLowerCase() === "demo" && option.value.input.text.toLowerCase() !== "cancel") {
       type = "demo";
       this.wASessionId = undefined;
       this.roomId = undefined;
       this.roomName = "room" + new Date().getTime();
       localStorage.setItem("demoProperty", option.value.input.text);
     }
-
+    let comment = option.value.input.text;
+    if (message.intent === "demo_done" && comment.toLowerCase() === "yes") {
+      comment = "talk to agent";
+    }
     let data = {
-      comment: option.value.input.text,
+      comment: comment,
       wASessionId: this.wASessionId,
       user: "user",
       roomName: this.roomName,
@@ -313,7 +332,7 @@ class BotSection extends Component {
       type: type,
       demoProperty: type === "demo" ? option.value.input.text : undefined
     };
-    this.sendMessage(data, option.value.input.text, true);
+    this.sendMessage(data, comment, true);
   };
 
   sendMessage = (data, message, shouldAddToMessages) => {
@@ -382,12 +401,20 @@ class BotSection extends Component {
                       <ChatLocation />
                     ) : (
                         <React.Fragment>
-                          <ChatPill
-                            isLastWAUser={i === this.state.lastWAUserIndex}
-                            right={x.user === "ME"}
-                            user={x.user}
-                            text={x.message}
-                          />
+                          {x.type === "callback_form" ? (
+                            <React.Fragment>
+                              <CallBackForm roomId={this.roomId} />
+                            </React.Fragment>
+                          ) : (
+                              <React.Fragment>
+                                <ChatPill
+                                  isLastWAUser={i === this.state.lastWAUserIndex}
+                                  right={x.user === "ME"}
+                                  user={x.user}
+                                  text={x.message}
+                                />
+                              </React.Fragment>
+                            )}
                           {i === this.state.messages.length - 1 &&
                             x.type === "options" && (
                               <div className="options-container">
@@ -403,7 +430,7 @@ class BotSection extends Component {
                                         this.handleOnOptionClick(x, index)
                                       }
                                     >
-                                      <div className="wa-option">
+                                      <div className={`wa-option ${option.label.toLowerCase()}`}>
                                         <p>{option.label}</p>
                                       </div>
                                     </Col>
@@ -425,10 +452,10 @@ class BotSection extends Component {
                     />
                   </div>
                 )}
-                {this.isDemo && (
+                {this.state.isDemo && (
                   <Button onClick={this.exitWADemo} className="exit-demo-btn mr-1 d-block d-sm-none">
                     Exit Demo
-                </Button>
+                  </Button>
                 )}
               </section>
               {/* <ChatPillAsk
@@ -441,7 +468,7 @@ class BotSection extends Component {
             </Col>
           </Row>
           <div className={`d-flex justify-content-end align-items-center ask-container`}>
-            {this.isDemo && (
+            {this.state.isDemo && (
               <Button onClick={this.exitWADemo} className="exit-demo-btn mr-1 d-none d-sm-block">
                 Exit Demo
             </Button>
