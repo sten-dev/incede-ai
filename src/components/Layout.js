@@ -1,13 +1,11 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import Footer from "../components/Footer";
-// import Navbar from "../components/Navbar";
-// import "./all.sass";
-// import "bootstrap/dist/css/bootstrap.css";
 import "../index.scss";
 import useSiteMetadata from "./SiteMetadata";
 import { withPrefix } from "gatsby";
 import INavbar from "./Navbar";
+import ChatMain from "./Landing/bot/ChatMain";
 
 const Layout = ({ children }) => {
   const { title, description } = useSiteMetadata();
@@ -54,6 +52,7 @@ const Layout = ({ children }) => {
         />
       </Helmet>
       <INavbar />
+      <ChatMain />
       <div>{children}</div>
       <Footer />
     </div>
