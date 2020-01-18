@@ -22,9 +22,12 @@ class MenuSection extends Component {
   render() {
     return (
       <section className="menu-section">
-        <Container fluid style={{ padding: " 0.5rem 1rem" }}>
-          <Row className="m-0 flex-column ">
-            <Col className="d-flex justify-content-between">
+        <Container fluid style={{
+          padding: " 0.5rem 1rem", height: "100vh",
+          overflow: "auto"
+        }}>
+          <div className="m-0 flex-column ">
+            <div className="d-flex justify-content-between">
               <div>
                 <img
                   src={logo}
@@ -35,22 +38,22 @@ class MenuSection extends Component {
               <div className="align-self-center menu-close">
                 <img src={close} alt="close" style={{ width: "16px" }} onClick={this.props.toggle} />
               </div>
-            </Col>
+            </div>
             {!this.state.subMenu && (
               <React.Fragment>
-                <Col className="menu-items">
+                <div className="menu-items">
                   <Link to="/">
                     <span onClick={this.props.toggle}>Home</span>
                   </Link>
-                </Col>
-                <Col className="menu-items">
+                </div>
+                <div className="menu-items">
                   <Link to="/about">
                     <span onClick={this.props.toggle}>About Us</span>
                   </Link>
-                </Col>
+                </div>
               </React.Fragment>
             )}
-            <Col className="menu-items">
+            <div className="menu-items">
               <span onClick={this.handleSubMenu} className="d-inline-flex">
                 {this.state.subMenu && (
                   <React.Fragment>
@@ -70,24 +73,24 @@ class MenuSection extends Component {
                   </React.Fragment>
                 )}
               </span>
-            </Col>
+            </div>
             {!this.state.subMenu && (
               <React.Fragment>
-                <Col className="menu-items">
+                <div className="menu-items">
                   <Link to="/customers">
                     <span onClick={this.props.toggle}>Our Customers</span>
                   </Link>
-                </Col>
-                <Col className="menu-items">
+                </div>
+                <div className="menu-items">
                   <Link to="/contact">
                     <span onClick={this.props.toggle}>Contact Us</span>
                   </Link>
-                </Col>
+                </div>
               </React.Fragment>
             )}
             {this.state.subMenu && (
               <React.Fragment>
-                <Col>
+                <div>
                   <Row xs="1" sm="2" md="3" className="pl-3 sub-menu">
                     <Col className="pb-4">
                       <h5 className="mt-0">Services</h5>
@@ -108,10 +111,10 @@ class MenuSection extends Component {
                       </span>
                     </Col>
                   </Row>
-                </Col>
+                </div>
               </React.Fragment>
             )}
-          </Row>
+          </div>
         </Container>
       </section>
     );
