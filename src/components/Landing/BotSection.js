@@ -9,6 +9,7 @@ import { API_URL, SOCKET_PATHS, httpClient } from "../../constants";
 import chat from "../../img/chat.svg";
 import ChatLocation from "../ChatLocation";
 import CallBackForm from "./bot/CallBackForm";
+import DiscoverySearchResults from "./bot/DiscoverySearchResults";
 class BotSection extends Component {
   roomName = undefined;
   roomId;
@@ -93,21 +94,43 @@ class BotSection extends Component {
         let data = chatsResp.data.reverse();
         let chatRepeatIndex = -1;
         data.forEach((x, i) => {
-          if (x.TEXT) {
-            chatRepeatIndex++;
-            if (x.USER === "WATSON" || x.USER === "AGENT") {
-              lastWAUserIndex = chatRepeatIndex;
-            }
-            if (x.title || x.TEXT) {
+          switch (x.TYPE) {
+            case "text":
+            case "options":
+              chatRepeatIndex++;
+              if (x.USER === "WATSON" || x.USER === "AGENT") {
+                lastWAUserIndex = chatRepeatIndex;
+              }
+              if (x.title || x.TEXT) {
+                messages.push({
+                  user:
+                    x.USER === "WATSON" ? "WA" : x.USER === "AGENT" ? "AG" : "ME",
+                  message: x.options ? x.title : x.TEXT,
+                  type: x.options ? "options" : "text",
+                  options: x.TYPE === "options" ? JSON.parse(x.OPTIONS) : [],
+                  intent: x.intent
+                });
+              }
+              break;
+            case "location":
+              chatRepeatIndex++;
+              if (x.USER === "WATSON" || x.USER === "AGENT") {
+                lastWAUserIndex = chatRepeatIndex;
+              }
               messages.push({
-                user:
-                  x.USER === "WATSON" ? "WA" : x.USER === "AGENT" ? "AG" : "ME",
-                message: x.options ? x.title : x.TEXT,
-                type: x.options ? "options" : "text",
-                options: x.options || [],
-                intent: x.intent
+                user: "WA",
+                message: "",
+                type: "location",
+                options: []
               });
-            }
+              break;
+            case "callback":
+              chatRepeatIndex++;
+              if (x.USER === "WATSON" || x.USER === "AGENT") {
+                lastWAUserIndex = chatRepeatIndex;
+              }
+              messages.push({ user: "ME", message: "", type: "callback_form" });
+              break;
           }
         });
         this.setState(
@@ -171,9 +194,11 @@ class BotSection extends Component {
             type: "location",
             options: []
           });
+          let lastWAUserIndex = messages.length - 1;
           this.setState(
             {
-              messages: messages
+              messages: messages,
+              lastWAUserIndex
             },
             this.scrollToBottom
           );
@@ -255,7 +280,24 @@ class BotSection extends Component {
       let messages = [...this.state.messages];
       let lastWAUserIndex = this.state.lastWAUserIndex;
       data.forEach(x => {
-        if (x.text || x.title) {
+        if (x.response_type === "search") {
+          if (x.results && x.results.length > 0) {
+            messages.push({
+              user: "WA",
+              message: x.header,
+              data: x.results,
+              type: "search-result",
+            });
+            lastWAUserIndex = messages.length - 1;
+          } else {
+            messages.push({
+              user: "WA",
+              message: "I didn't understand. Please try again",
+              type: "text",
+            });
+            lastWAUserIndex = messages.length - 1;
+          }
+        } else if (x.text || x.title) {
           messages.push({
             user: "WA",
             message: x.options ? x.title : x.text,
@@ -263,10 +305,10 @@ class BotSection extends Component {
             options: x.options || [],
             intent: response.intent
           });
-          lastWAUserIndex = messages.length - 1;
           if (x.text === "Sure thing. I need some basic information from you to setup a call with our agent") {
             messages.push({ user: "ME", message: "", type: "callback_form" });
           }
+          lastWAUserIndex = messages.length - 1;
         }
       });
       this.setState(
@@ -364,6 +406,42 @@ class BotSection extends Component {
     }
   };
 
+  getChatUiByType = (data, index) => {
+    console.log("type added", data)
+    switch (data.type) {
+      case "location":
+        return <ChatLocation isLastWAUser={index === this.state.lastWAUserIndex} />;
+      case "callback_form":
+        return <CallBackForm roomId={this.roomId} />;
+      case "search-result":
+        return (
+          <React.Fragment>
+            {data.data && data.data.length > 0 ? (
+              <DiscoverySearchResults data={data} isLastWAUser={index === this.state.lastWAUserIndex} />
+            ) : (
+                <React.Fragment>
+                  <ChatPill
+                    isLastWAUser={index === this.state.lastWAUserIndex}
+                    right={data.user === "ME"}
+                    user={data.user}
+                    text=""
+                  />
+                </React.Fragment>
+              )}
+          </React.Fragment>
+        );
+      default:
+        return <React.Fragment>
+          <ChatPill
+            isLastWAUser={index === this.state.lastWAUserIndex}
+            right={data.user === "ME"}
+            user={data.user}
+            text={data.message}
+          />
+        </React.Fragment>
+    }
+  }
+
   render() {
     return (
       <section className="bot">
@@ -397,48 +475,29 @@ class BotSection extends Component {
               >
                 {this.state.messages.map((x, i) => (
                   <div key={i}>
-                    {x.type === "location" ? (
-                      <ChatLocation />
-                    ) : (
-                        <React.Fragment>
-                          {x.type === "callback_form" ? (
-                            <React.Fragment>
-                              <CallBackForm roomId={this.roomId} />
-                            </React.Fragment>
-                          ) : (
-                              <React.Fragment>
-                                <ChatPill
-                                  isLastWAUser={i === this.state.lastWAUserIndex}
-                                  right={x.user === "ME"}
-                                  user={x.user}
-                                  text={x.message}
-                                />
-                              </React.Fragment>
-                            )}
-                          {i === this.state.messages.length - 1 &&
-                            x.type === "options" && (
-                              <div className="options-container">
-                                <Row>
-                                  {x.options.map((option, index) => (
-                                    <Col
-                                      key={index}
-                                      lg={4}
-                                      md={4}
-                                      sm={6}
-                                      xs={12}
-                                      onClick={() =>
-                                        this.handleOnOptionClick(x, index)
-                                      }
-                                    >
-                                      <div className={`wa-option ${option.label.toLowerCase()}`}>
-                                        <p>{option.label}</p>
-                                      </div>
-                                    </Col>
-                                  ))}
-                                </Row>
-                              </div>
-                            )}
-                        </React.Fragment>
+                    {this.getChatUiByType(x, i)}
+                    {i === this.state.messages.length - 1 &&
+                      x.type === "options" && (
+                        <div className="options-container">
+                          <Row>
+                            {x.options.map((option, index) => (
+                              <Col
+                                key={index}
+                                lg={4}
+                                md={4}
+                                sm={6}
+                                xs={12}
+                                onClick={() =>
+                                  this.handleOnOptionClick(x, index)
+                                }
+                              >
+                                <div className={`wa-option ${option.label.toLowerCase()}`}>
+                                  <p>{option.label}</p>
+                                </div>
+                              </Col>
+                            ))}
+                          </Row>
+                        </div>
                       )}
                   </div>
                 ))}
@@ -482,7 +541,7 @@ class BotSection extends Component {
             />
           </div>
         </Container>
-      </section>
+      </section >
     );
   }
 }

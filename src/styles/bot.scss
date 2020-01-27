@@ -113,6 +113,17 @@ section {
     }
   }
 }
+.max-wa-container {
+  max-width: 768px;
+}
+.discovery-search-results-container {
+  max-height: 400px;
+  margin-bottom: 16px;
+  overflow: auto;
+  .list-group-item {
+    line-height: 1.2 !important;
+  }
+}
 .side-bar {
   > div:nth-child(1) {
     position: fixed !important;
@@ -185,6 +196,9 @@ section {
       margin-bottom: 16px;
     }
   }
+}
+.wa-icon img {
+  margin-right: 16px;
 }
 .chat-section-left {
   &:not(.is-last-wa-user) {

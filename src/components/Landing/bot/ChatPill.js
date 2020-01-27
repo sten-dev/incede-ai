@@ -1,6 +1,7 @@
 import React from "react";
 import waIcon from "../../../img/waAgent.svg";
 import agentIcon from "../../../img/agent.png";
+import LastWAIcon from "./LastWAIcon";
 export const ChatPill = props => {
   return (
     <div
@@ -9,20 +10,8 @@ export const ChatPill = props => {
         } ${props.isLastWAUser ? 'is-last-wa-user' : ''}`}
     >
       {props.isLastWAUser && (
-        <div className="d-none d-md-block">
-          {props.right === "AG" ? (
-            <div className="agent-icon">
-              <img
-                src={agentIcon}
-                alt="incede.ai"
-              />
-            </div>
-          ) : (
-              <img
-                src={waIcon}
-                alt="incede.ai"
-              />
-            )}
+        <div className="d-none d-md-block wa-user">
+          <LastWAIcon isAgent={props.right === "AG"} />
         </div>
       )}
       <section
