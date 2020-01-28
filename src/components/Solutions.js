@@ -15,9 +15,10 @@ class Solutions extends React.Component {
           <Row className=" xs-wwd-list">
             {solutions.map((x, i) => {
               let solution = x.node.frontmatter;
+              let path = x.node.fields.slug;
               return (
                 <Col key={i} lg={6} md={6} sm={12} xs={11}>
-                  <SolutionView solution={solution} />
+                  <SolutionView solution={solution} path={path} />
                 </Col>
               );
             })}

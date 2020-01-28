@@ -15,9 +15,10 @@ class Industries extends React.Component {
           <Row className=" xs-wwd-list">
             {industries.map((x, i) => {
               let industry = x.node.frontmatter;
+              let path = x.node.fields.slug;
               return (
                 <Col key={i} lg={6} md={6} sm={12} xs={11}>
-                  <IndustryView industry={industry} />
+                  <IndustryView industry={industry} path={path} />
                 </Col>
               );
             })}
@@ -66,6 +67,6 @@ export default () => (
         }
       }
     `}
-    render={(data) => <Industries data={data} />}
+    render={data => <Industries data={data} />}
   />
 );

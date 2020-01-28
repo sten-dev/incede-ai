@@ -15,9 +15,10 @@ class Services extends React.Component {
           <Row className=" xs-wwd-list">
             {services.map((x, i) => {
               let service = x.node.frontmatter;
+              let path = x.node.fields.slug;
               return (
                 <Col key={i} lg={6} md={6} sm={12} xs={11}>
-                  <ServiceView service={service} />
+                  <ServiceView service={service} path={path} />
                 </Col>
               );
             })}
@@ -66,6 +67,6 @@ export default () => (
         }
       }
     `}
-    render={(data) => <Services data={data} />}
+    render={data => <Services data={data} />}
   />
 );
