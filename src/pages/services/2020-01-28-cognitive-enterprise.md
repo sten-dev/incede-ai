@@ -2,7 +2,7 @@
 templateKey: services
 title: 'Cognitive Enterprise '
 subTitle: 'Search Applications '
-image: /img/cloud-professional-services.png
+image: /img/big-data-services.png
 ---
 Search with artificial intelligence (AI) to deliver actionable information and data derived from a rich spectrum of content types and sources, both inside and outside the enterprise. Cognitive Search Solutions that doesn’t just extract information – it crawls complex business documents serves up answers with context, leading businesses to insights impossible to derive otherwise.
 
