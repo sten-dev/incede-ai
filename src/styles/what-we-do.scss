@@ -24,8 +24,9 @@ section {
     //   font-size: 70px;
     //   font-weight: 400;
     // }
-    .no-text-decoration {
+    .no-color-decoration {
       text-decoration: none;
+      color: inherit;
     }
     .card-section {
       background: #ffffff;

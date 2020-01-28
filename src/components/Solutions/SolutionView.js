@@ -5,7 +5,7 @@ import { Link } from "gatsby";
 
 const SolutionView = ({ solution, path }) => {
   return (
-    <Link to={path} className="no-text-decoration">
+    <Link to={path} className="no-color-decoration">
       <Card className="card-section">
         <div className="image-section">
           <PreviewCompatibleImage
