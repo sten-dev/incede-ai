@@ -15,7 +15,7 @@ class CaseStudies extends React.Component {
     const { data } = this.props;
     const { edges: caseStudies } = data.allMarkdownRemark;
 
-    console.log("caseStudies", caseStudies);
+    // console.log("caseStudies", caseStudies);
     return (
       <section className="case-studies">
         <Container>
