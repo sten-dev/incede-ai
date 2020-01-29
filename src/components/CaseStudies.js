@@ -9,6 +9,7 @@ import PreviewCompatibleImage from "./PreviewCompatibleImage";
 import arrow from "../img/arrow.svg";
 import { Link } from "gatsby";
 
+
 class CaseStudies extends React.Component {
   render() {
     const { data } = this.props;
