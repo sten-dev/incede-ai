@@ -2,7 +2,7 @@
 templateKey: case-study
 title: Prudential Singapore
 description: 'Scaling expertise across >4,600 financial consultants with IBM Watson'
-image: /img/managed-services.png
+image: /img/financial-_-legal-services.png
 ---
 To support Singapore’s largest exclusive agency force and to enable call center consultants to focus on more complex queries, Prudential Singapore developed an industry-first chatbot with IBM® Watson®. Fielding questions in real time, askPRU helps the insurer’s financial consultants (FCs) deliver greater value with confidence.
 
