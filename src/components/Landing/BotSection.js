@@ -336,12 +336,20 @@ class BotSection extends Component {
     }, 500);
   }
 
+  resetDemo = () => {
+    localStorage.clear();
+    this.sendCustomMessage("", true);
+    this.setState({
+      messages: []
+    })
+  }
+
   sendCustomMessage = (msg, shouldAddToMessages) => {
     this.checkWASession();
     let data = {
       comment: msg,
       wASessionId: this.wASessionId,
-      roomName: this.roomName,
+      roomName: this.roomName ? this.roomName : "room" + new Date().getTime(),
       roomId: this.roomId,
       type: this.state.isDemo ? "demo" : "chat",
       demoProperty: this.state.isDemo
@@ -461,7 +469,7 @@ class BotSection extends Component {
               </div>
               <div className="d-flex justify-content-center flex-grow-1">
                 <p className="lead text-white d-none d-md-block">
-                  Incede provides outcome-based AI solutions and offers
+                  Incede provides outcome-based AI solutions and offers. Powered by Watson Assistant
                 </p>
               </div>
               <br />
@@ -501,7 +509,7 @@ class BotSection extends Component {
                       )}
                   </div>
                 ))}
-                {this.state.isLoading && (
+                {(this.state.isLoading || this.state.messages.length === 0) && (
                   <div>
                     <ChatPill
                       isLastWAUser={false}
@@ -527,11 +535,19 @@ class BotSection extends Component {
             </Col>
           </Row>
           <div className={`d-flex justify-content-end align-items-center ask-container`}>
-            {this.state.isDemo && (
+            {this.state.isDemo ? (
               <Button onClick={this.exitWADemo} className="exit-demo-btn mr-1 d-none d-sm-block">
                 Exit Demo
             </Button>
-            )}
+            ) : (
+                <React.Fragment>
+                  {this.state.messages.length > 0 && (
+                    <Button onClick={this.resetDemo} className="exit-demo-btn mr-1 d-none d-sm-block">
+                      Reset
+                </Button>
+                  )}
+                </React.Fragment>
+              )}
             <ChatPillAsk
               handleKeyDown={this.handleKeyDown}
               value={this.state.msg}
