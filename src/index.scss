@@ -66,6 +66,9 @@ small,
 .text_small {
   font-size: 0.833em !important;
 }
+.gatsby-editor-view p {
+  margin: 16px 0 !important;
+}
 
 @import "bs.scss";
 

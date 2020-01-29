@@ -34,8 +34,10 @@ const INavbar = props => {
   return (
     <nav className="incede-nav">
       <Navbar color="white" expand="lg" light>
-        <NavbarBrand href="/">
-          <img src={logo} alt="incede" />
+        <NavbarBrand>
+          <Link to="/">
+            <img src={logo} alt="incede" />
+          </Link>
         </NavbarBrand>
         <NavbarToggler onClick={toggle}>
           <img src={menu} alt="menu" />

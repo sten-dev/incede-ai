@@ -41,7 +41,7 @@ class CaseStudies extends React.Component {
                           }}
                         />
                       </div>
-                      <h4 className="mt-0 text-white title mb-sm-3 mb-xs-3">
+                      <h4 className="text-white title mb-sm-3 mb-xs-3">
                         {caseStudy.title}
                       </h4>
                       <p className="text-white description">
