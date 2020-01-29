@@ -7,13 +7,14 @@ import "../styles/case-studies.scss";
 import { Container, Row, Col } from "reactstrap";
 import PreviewCompatibleImage from "./PreviewCompatibleImage";
 import arrow from "../img/arrow.svg";
+import { Link } from "gatsby";
 
 class CaseStudies extends React.Component {
   render() {
     const { data } = this.props;
     const { edges: caseStudies } = data.allMarkdownRemark;
 
-    // console.log("caseStudies", caseStudies);
+    console.log("caseStudies", caseStudies);
     return (
       <section className="case-studies">
         <Container>
@@ -48,17 +49,18 @@ class CaseStudies extends React.Component {
                       </p>
                       <br />
                       <br />
-                      <button
+                      <Link
+                        to={x.node.fields.slug}
                         type="button"
                         className="btn btn-secondary btn-lg"
                       >
-                        Download Case Study{" "}
+                        View Case Study{" "}
                         <img
                           src={arrow}
                           alt="next"
                           style={{ width: "12px", marginTop: "6px" }}
                         />
-                      </button>
+                      </Link>
                       <br />
                       <br />
                     </Col>

@@ -21,7 +21,7 @@ const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark;
   // console.log("data index", data);
   return (
-    <Layout>
+    <Layout isHome={true}>
       <IndexPageTemplate
         home={frontmatter.home}
         about={frontmatter.about}

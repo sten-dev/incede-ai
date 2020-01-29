@@ -7,7 +7,7 @@ import { withPrefix } from "gatsby";
 import INavbar from "./Navbar";
 import ChatMain from "./Landing/bot/ChatMain";
 
-const Layout = ({ children }) => {
+const Layout = ({ children, isHome }) => {
   const { title, description } = useSiteMetadata();
   return (
     <div>
@@ -52,7 +52,7 @@ const Layout = ({ children }) => {
         />
       </Helmet>
       <INavbar />
-      <ChatMain />
+      <ChatMain isHome={isHome} />
       <div>{children}</div>
       <Footer />
     </div>

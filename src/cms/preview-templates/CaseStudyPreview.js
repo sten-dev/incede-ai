@@ -7,6 +7,7 @@ const CaseStudyPreview = ({ entry, widgetFor }) => (
         title={entry.getIn(['data', 'title'])}
         description={entry.getIn(['data', 'description'])}
         image={entry.getIn(['data', 'image'])}
+        content={widgetFor('body')}
     />
 )
 

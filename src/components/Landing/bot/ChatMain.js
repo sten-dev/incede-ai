@@ -14,7 +14,11 @@ class ChatMain extends Component {
     }
     componentDidMount() {
         this.setState({
-            window: window
+            window: window,
+        }, () => {
+            // if (this.props.isHome) {
+            //     this.toggle()
+            // }
         });
     }
 

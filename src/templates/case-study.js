@@ -4,30 +4,41 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
-
+import Content, { HTMLContent } from "../components/Content";
+import { Col, Row, Container } from "reactstrap";
 export const CaseStudyTemplate = ({
     title,
     description,
     image,
     helmet,
+    content,
+    contentComponent
 }) => {
     // console.log("case study", image)
+    const PageContent = contentComponent || Content;
     return (
-        <section className="section">
-            {helmet || ''}
-            <div className="container content">
-                <div className="columns">
-                    <div className="column is-10 is-offset-1">
-                        <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-                            {title}
-                        </h1>
-                        <p>{description}</p>
-                        {image && (
-                            <PreviewCompatibleImage imageInfo={image} />
-                        )}
-                    </div>
-                </div>
-            </div>
+        <section className="case-study">
+            {helmet || ""}
+            <section className="header-section gap-y">
+                <Container>
+                    <Row>
+                        <Col>
+                            <h1>{title}</h1>
+                            <h6>{description}</h6>
+                            {/* {image && <PreviewCompatibleImage imageInfo={image} />} */}
+                        </Col>
+                    </Row>
+                </Container>
+            </section>
+            <Container>
+                <Row>
+                    <Col>
+                        <main className="content gap-y-half">
+                            <PageContent content={content} />
+                        </main>
+                    </Col>
+                </Row>
+            </Container>
         </section>
     )
 }
@@ -56,6 +67,8 @@ const CaseStudy = ({ data }) => {
                 title={post.frontmatter.title}
                 description={post.frontmatter.description}
                 image={post.frontmatter.image}
+                content={post.html}
+                contentComponent={HTMLContent}
             />
         </Layout>
     )
