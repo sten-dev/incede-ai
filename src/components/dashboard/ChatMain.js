@@ -58,11 +58,14 @@ class ChatMain extends Component {
 
   openCloseChatScreen = (roomId, roomName) => {
     // this.setState({ isLoading: true });
-    this.setState({
-      showChatScreen: roomId ? true : false,
-      selectedRoomId: roomId,
-      selectedRoomName: roomName
-    });
+    this.setState(
+      {
+        showChatScreen: roomId ? true : false,
+        selectedRoomId: roomId,
+        selectedRoomName: roomName
+      },
+      () => this.props.handleRoomChange(this.state.selectedRoomId)
+    );
   };
 
   updateRoomJoinedIds = (roomId, type) => {
