@@ -91,7 +91,7 @@ class BotSection extends Component {
       });
       let lastWAUserIndex = -1;
       if (chatsResp.success === true) {
-        let data = chatsResp.data.reverse();
+        let data = chatsResp.data.reverse().filter(x => ["welcome_back"].indexOf(x.TEXT) === -1);
         let chatRepeatIndex = -1;
         data.forEach((x, i) => {
           switch (x.TYPE) {
@@ -415,7 +415,6 @@ class BotSection extends Component {
   };
 
   getChatUiByType = (data, index) => {
-    console.log("type added", data)
     switch (data.type) {
       case "location":
         return <ChatLocation isLastWAUser={index === this.state.lastWAUserIndex} />;
@@ -469,7 +468,7 @@ class BotSection extends Component {
               </div>
               <div className="d-flex justify-content-center flex-grow-1">
                 <p className="lead text-white d-none d-md-block">
-                  Incede provides outcome-based AI solutions and offers. Powered by Watson Assistant
+                  Experts in developing AI Infused Business Applications. Powered by Watson Assistant
                 </p>
               </div>
               <br />
