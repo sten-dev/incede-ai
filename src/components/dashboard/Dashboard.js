@@ -5,7 +5,14 @@ import ChatMain from './ChatMain';
 class Dashboard extends Component {
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {
+            selectedRoomId: null
+        }
+    }
+    handleOnRoomChange = (roomId) => {
+        this.setState({
+            selectedRoomId: roomId
+        })
     }
     render() {
         return (
@@ -13,10 +20,10 @@ class Dashboard extends Component {
                 <Container fluid>
                     <Row>
                         <Col lg={3} md={3} sm={12} xs={12}>
-                            <ChatMain />
+                            <ChatMain handleRoomChange={this.handleOnRoomChange} />
                         </Col>
                         <Col lg={9} md={9} sm={12} xs={12}>
-                            <DashboardMain />
+                            <DashboardMain selectedRoomId={this.state.selectedRoomId} />
                         </Col>
                     </Row>
                 </Container>
