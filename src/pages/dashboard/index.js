@@ -11,7 +11,7 @@ export default class Index extends React.Component {
 
     render() {
         return (
-            <Layout>
+            <Layout page="dashboard">
                 <Dashboard />
             </Layout>
         )

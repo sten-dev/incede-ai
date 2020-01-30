@@ -16,7 +16,7 @@ class ChatMain extends Component {
         this.setState({
             window: window,
         }, () => {
-            if (this.props.isHome) {
+            if (this.props.page === "home") {
                 this.toggle()
             }
         });
@@ -43,12 +43,13 @@ class ChatMain extends Component {
                 {this.state.window &&
                     this.state.window.location &&
                     this.state.window.location.pathname.indexOf("/admin/") !== 0 &&
-                    !this.state.modal && (
+                    !this.state.modal && this.props.page !== "dashboard" && (
                         <div onClick={this.toggle} className="bot-menu-btn left">
                             <img src={chat} alt="chat" />
                             <div className="d-none d-md-block">Let us converse</div>
                         </div>
                     )}
+
                 <Sidebar
                     sidebar={
                         !this.state.isFirst ? (
