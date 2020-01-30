@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { httpClient, COGNOS_SOURCE } from '../../constants';
 import { dashSpec } from './new-dash-spec';
+import defaultGraph from "../../img/default-graph.png";
 var roomId;
 class DashboardMain extends Component {
     sessionObj = null;
@@ -62,14 +63,14 @@ class DashboardMain extends Component {
                     node: document.getElementById("dash")
                 });
                 let dashSpecObj = { ...dashSpec };
-                if (dashSpecObj.pageContext && dashSpecObj.pageContext.length > 0) {
-                    dashSpecObj.pageContext[0].tupleSet = {
-                        ["CALL_TONE.ROOM_ID->[" + this.props.selectedRoomId + "]"]: {
-                            "u": "CALL_TONE.ROOM_ID->[" + this.props.selectedRoomId + "]",
-                            "d": this.props.selectedRoomId
-                        }
-                    }
-                };
+                // if (dashSpecObj.pageContext && dashSpecObj.pageContext.length > 0) {
+                //     dashSpecObj.pageContext[0].tupleSet = {
+                //         ["CALL_TONE.ROOM_ID->[" + this.props.selectedRoomId + "]"]: {
+                //             "u": "CALL_TONE.ROOM_ID->[" + this.props.selectedRoomId + "]",
+                //             "d": this.props.selectedRoomId
+                //         }
+                //     }
+                // };
                 dashSpecObj.dataSources.sources.forEach(element => {
                     element.module.source = { ...this.state.source }
                 });
@@ -116,8 +117,12 @@ class DashboardMain extends Component {
             <React.Fragment>
                 <div className="text-center" id="dash">
                     <br />
+                    <br />
                     <div>
-                        Dashboard Loads here
+                        <img src={defaultGraph} alt="graph" />
+                    </div>
+                    <div>
+                        Click on the <strong>Active Rooms List</strong> on the left to load Dashboard
                     </div>
                     <div>
 
