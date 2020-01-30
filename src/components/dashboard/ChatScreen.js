@@ -215,6 +215,7 @@ class ChatScreen extends Component {
               onChange={this.handleMessageChange}
               value={this.state.msg}
               onKeyDown={this.handleKeyDown}
+              autoFocus
             />
             <div className="d-flex send send-msg">
               <Button
