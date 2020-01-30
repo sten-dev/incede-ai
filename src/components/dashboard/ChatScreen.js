@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { SOCKET_PATHS, USER_ABB, IF_USER_IS } from "../../constants";
-import { getRoomChats } from "../../../Service";
+import { getRoomChats, joinOrExitRoomChats } from "../../../Service";
 import { Spinner, Button } from "reactstrap";
 import "../../styles/dashboard.scss";
 import send from "../../img/Send.svg";
@@ -12,10 +12,17 @@ class ChatScreen extends Component {
   socket;
   constructor(props) {
     super(props);
-    this.state = { messages: [], isLoading: true, msg: "" };
+    this.state = {
+      messages: [],
+      isLoading: true,
+      msg: "",
+      joined: this.props.roomJoined,
+      isFabLoading: false
+    };
   }
   componentDidMount = () => {
-    console.log("chat cdm rendered");
+    console.log("chat cdm rendered", this.state.joined);
+
     this.socket = this.props.socket;
     this.getRoomChats();
     this.socketIO();
@@ -99,6 +106,26 @@ class ChatScreen extends Component {
     });
   };
 
+  joinRoom = async () => {
+    this.setState({ isFabLoading: true });
+
+    if (!this.props.roomId) {
+      //   this.props.snackBar.show("Error try again later", "error");
+      return;
+    }
+    let result = await joinOrExitRoomChats({
+      roomId: this.props.roomId,
+      statusUpdate: "yes"
+    });
+    if (result && result.success) {
+      this.setState({ joined: true, isFabLoading: false });
+      this.props.updateRoomJoinedIds(this.props.roomId, "joined");
+    } else {
+      //   this.props.snackBar.show("Error while joining room", "error");
+      this.setState({ isFabLoading: false });
+    }
+  };
+
   getRoomChats = async () => {
     let result = await getRoomChats({
       roomId: this.props.roomId
@@ -122,7 +149,7 @@ class ChatScreen extends Component {
       );
     } else {
       this.setState({ isLoading: false });
-      this.props.snackBar.show(result.message, "error");
+      //   this.props.snackBar.show(result.message, "error");
     }
   };
 
@@ -217,24 +244,38 @@ class ChatScreen extends Component {
             {this.state.messages.map(this.renderFlatListItem)}
           </div>
           <div className="send-chat-container">
-            <input
-              type="text"
-              className="chat-textField flex-grow-1"
-              placeholder="type here .."
-              onChange={this.handleMessageChange}
-              value={this.state.msg}
-              onKeyDown={this.handleKeyDown}
-              autoFocus
-            />
-            <div className="d-flex send send-msg">
+            {this.state.joined ? (
+              <>
+                <input
+                  type="text"
+                  className="chat-textField flex-grow-1"
+                  placeholder="type here .."
+                  onChange={this.handleMessageChange}
+                  value={this.state.msg}
+                  onKeyDown={this.handleKeyDown}
+                  autoFocus
+                />
+                <div className="d-flex send send-msg">
+                  <Button
+                    disabled={!this.state.msg || this.state.msg.length === 0}
+                    color="secondary"
+                    onClick={this.sendMessage}
+                  >
+                    <img alt="send" src={send} />
+                  </Button>
+                </div>
+              </>
+            ) : (
               <Button
-                disabled={!this.state.msg || this.state.msg.length === 0}
-                color="secondary"
-                onClick={this.sendMessage}
+                onClick={this.joinRoom}
+                block
+                className="interact"
+                color="primary"
               >
-                <img alt="send" src={send} />
+                {this.state.isFabLoading && <Spinner size="sm" />}
+                Interact
               </Button>
-            </div>
+            )}
           </div>
         </div>
       </React.Fragment>

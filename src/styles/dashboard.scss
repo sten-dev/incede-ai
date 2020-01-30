@@ -19,8 +19,22 @@
 .chat-textField {
   margin-right: 2px;
 }
+.custom-breadcrumb {
+  .breadcrumb {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.interact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .spinner-border {
+    margin-right: 6px;
+  }
+}
 
-#dash{
+#dash {
   height: calc(100vh - 90px);
   background: #fff;
   border: 1px solid #ddd;
