@@ -4,6 +4,7 @@ import { getRoomChats } from "../../../Service";
 import { Spinner, Button } from "reactstrap";
 import "../../styles/dashboard.scss";
 import send from "../../img/Send.svg";
+import { Loading } from "../ReuseableComponents";
 
 let agentMessage = [];
 
@@ -202,7 +203,7 @@ class ChatScreen extends Component {
           <div className="chat-container" id="messages_container">
             {this.state.isLoading && (
               <div className="text-center">
-                <Spinner size="lg" type="grow" />
+                <Loading />
               </div>
             )}
             {this.state.messages.map(this.renderFlatListItem)}
