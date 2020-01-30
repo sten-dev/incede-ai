@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { httpClient, COGNOS_SOURCE } from '../../constants';
 import { dashSpec } from './new-dash-spec';
+var roomId;
 class DashboardMain extends Component {
     sessionObj = null;
     cognosApi = null;
@@ -20,24 +21,38 @@ class DashboardMain extends Component {
             this.setState({
                 window: window,
             }, () => {
-                if (this.sessionCode && Number(this.expTime) > new Date().getTime()) {
-                    this.initializeCognosApi();
-                } else {
-                    this.getDashBoardSession();
-                }
+                this.checkDashboardSession();
             });
         }, 2000);
     }
-    static getDerivedStateFromProps(nextProps, prevState) {
+
+    static getDerivedStateFromProps = (nextProps, prevState) => {
         if (nextProps.selectedRoomId !== prevState.selectedRoomId) {
-            this.initializeCognosApi()
+            return {
+                selectedRoomId: nextProps.selectedRoomId
+            }
+        }
+        return null
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps.selectedRoomId !== this.props.selectedRoomId) {
+            this.checkDashboardSession();
         }
     }
+
+    checkDashboardSession = () => {
+        if (this.sessionCode && Number(this.expTime) > new Date().getTime()) {
+            this.initializeCognosApi();
+        } else {
+            this.getDashBoardSession();
+        }
+    }
+
     initializeCognosApi = () => {
         this.sessionObj = null;
         this.cognosApi = null;
-        let selectedRoomId = "123";
-        if (selectedRoomId) {
+        if (this.props.selectedRoomId) {
             if (this.state.window && this.state.window.CognosApi) {
                 let window = this.state.window;
                 this.cognosApi = new window.CognosApi({
@@ -47,15 +62,24 @@ class DashboardMain extends Component {
                     node: document.getElementById("dash")
                 });
                 let dashSpecObj = { ...dashSpec };
-                dashSpecObj.pageContext[0].tupleSet = {
-                    ["CALL_TONE.ROOM_ID->[" + selectedRoomId + "]"]: {
-                        "u": "CALL_TONE.ROOM_ID->[" + selectedRoomId + "]",
-                        "d": selectedRoomId
+                if (dashSpecObj.pageContext && dashSpecObj.pageContext.length > 0) {
+                    dashSpecObj.pageContext[0].tupleSet = {
+                        ["CALL_TONE.ROOM_ID->[" + this.props.selectedRoomId + "]"]: {
+                            "u": "CALL_TONE.ROOM_ID->[" + this.props.selectedRoomId + "]",
+                            "d": this.props.selectedRoomId
+                        }
                     }
                 };
                 dashSpecObj.dataSources.sources.forEach(element => {
                     element.module.source = { ...this.state.source }
                 });
+
+                Object.keys(dashSpecObj.widgets).forEach(widgetKey => {
+                    if (dashSpecObj.widgets[widgetKey].localFilters && dashSpecObj.widgets[widgetKey].localFilters.length > 0 && dashSpecObj.widgets[widgetKey].localFilters[0].values && dashSpecObj.widgets[widgetKey].localFilters[0].values.length > 0) {
+                        dashSpecObj.widgets[widgetKey].localFilters[0].values[0].d = this.props.selectedRoomId
+                    }
+                });
+
 
                 this.cognosApi.initialize().then(() => {
                     this.cognosApi.dashboard
