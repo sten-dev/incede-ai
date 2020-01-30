@@ -39,7 +39,9 @@ class ChatScreen extends Component {
             response.roomName == scope.props.roomName
           ) {
             let messages = scope.state.messages;
-            let id = messages[messages.length - 1].id;
+            let id = messages[messages.length - 1]
+              ? messages[messages.length - 1].id
+              : 0;
             data.forEach(x => {
               if (x.text || x.title) {
                 messages.push({
@@ -64,7 +66,10 @@ class ChatScreen extends Component {
             messages.push({
               user: USER_ABB["USER"],
               message: data,
-              id: messages[messages.length - 1].id + 1
+              id:
+                (messages[messages.length - 1]
+                  ? messages[messages.length - 1].id
+                  : 0) + 1
             });
             scope.setState({ messages: messages }, scope.scrollToBottom);
           }
@@ -82,7 +87,10 @@ class ChatScreen extends Component {
               messages.push({
                 user: USER_ABB["AGENT"],
                 message: data,
-                id: messages[messages.length - 1].id + 1
+                id:
+                  (messages[messages.length - 1]
+                    ? messages[messages.length - 1].id
+                    : 0) + 1
               });
             scope.setState({ messages: messages }, scope.scrollToBottom);
           }
