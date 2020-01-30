@@ -79,6 +79,20 @@ small,
 .text-center {
   text-align: center;
 }
+.custom-modal {
+  margin-left: auto !important;
+  .modal-header {
+    border: none;
+    padding-bottom: 0;
+    .modal-title {
+      margin-top: 0 !important;
+    }
+  }
+  .modal-footer {
+    border: none;
+    padding-top: 0;
+  }
+}
 
 @import "bs.scss";
 
