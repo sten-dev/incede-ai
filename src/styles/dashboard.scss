@@ -7,13 +7,17 @@
   height: 100%;
 }
 .chat-container {
-  height: 90%;
+  height: calc(100% - 50px);
   overflow: auto;
   padding: 0 8px;
 }
 .send-chat-container {
   display: flex;
   margin-top: 4px;
+}
+.room-list {
+  height: 100%;
+  overflow: auto;
 }
 
 .chat-textField {
@@ -48,4 +52,5 @@
   height: calc(100vh - 90px);
   background: #fff;
   border: 1px solid #ddd;
+  padding: 8px;
 }

@@ -145,11 +145,11 @@ class ChatMain extends Component {
             </div>
           )}
           {!this.state.showChatScreen ? (
-            <div>
+            <div className="room-list">
               {!this.state.isLoading && this.state.rooms.length === 0 && (
-                <div> No Rooms found </div>
+                <div> No Active Rooms found </div>
               )}
-              <ListGroup>
+              <ListGroup className="">
                 {this.state.rooms.map(room => (
                   <ListGroupItem
                     key={room.id}
