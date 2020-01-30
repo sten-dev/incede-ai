@@ -1,0 +1,21 @@
+@import "../bs";
+
+.chat-main {
+  height: calc(100vh - 156px);
+}
+.chat-screen {
+  height: 100%;
+}
+.chat-container {
+  height: 90%;
+  overflow: auto;
+  padding: 0 8px;
+}
+.send-chat-container {
+  display: flex;
+  margin-top: 4px;
+}
+
+.chat-textField {
+  margin-right: 2px;
+}
