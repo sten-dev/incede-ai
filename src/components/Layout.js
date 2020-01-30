@@ -7,7 +7,7 @@ import { withPrefix } from "gatsby";
 import INavbar from "./Navbar";
 import ChatMain from "./Landing/bot/ChatMain";
 
-const Layout = ({ children, isHome }) => {
+const Layout = ({ children, page }) => {
   const { title, description } = useSiteMetadata();
   return (
     <div>
@@ -50,11 +50,14 @@ const Layout = ({ children, isHome }) => {
           property="og:image"
           content={`${withPrefix("/")}img/og-image.jpg`}
         />
+        <script src="https://dde-us-south.analytics.ibm.com/daas/CognosApi.js"></script>
       </Helmet>
-      <INavbar />
-      <ChatMain isHome={isHome} />
+      <INavbar page={page} />
+      <ChatMain page={page} />
       <div>{children}</div>
-      <Footer />
+      {page !== "dashboard" && (
+        <Footer />
+      )}
     </div>
   );
 };
