@@ -11,6 +11,7 @@ import {
 } from "reactstrap";
 import "../../styles/dashboard.scss";
 import ChatScreen from "./ChatScreen";
+import { Loading } from "../ReuseableComponents";
 class ChatMain extends Component {
   socket;
   constructor(props) {
@@ -86,7 +87,7 @@ class ChatMain extends Component {
 
           {this.state.isLoading && (
             <div className="text-center">
-              <Spinner size="lg" type="grow" />
+              <Loading />
             </div>
           )}
           {!this.state.showChatScreen ? (
