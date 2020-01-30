@@ -8,11 +8,13 @@ import {
   Spinner,
   Breadcrumb,
   BreadcrumbItem,
-  Button
+  Button,
+  Badge
 } from "reactstrap";
 import "../../styles/dashboard.scss";
 import ChatScreen from "./ChatScreen";
 import { Loading } from "../ReuseableComponents";
+import ConfirmModal from "../ConfirmModal";
 class ChatMain extends Component {
   socket;
   constructor(props) {
@@ -23,7 +25,8 @@ class ChatMain extends Component {
       showChatScreen: false,
       selectedRoomId: undefined,
       selectedRoomName: undefined,
-      roomJoinedIds: []
+      roomJoinedIds: [],
+      modal: { isOpen: false }
     };
   }
   componentDidMount = () => {
@@ -106,6 +109,13 @@ class ChatMain extends Component {
     }
   };
 
+  handelModalCloseOpen = ans => {
+    if (ans === true) {
+      this.disconnectChat();
+    }
+    this.setState({ modal: { isOpen: false } });
+  };
+
   render() {
     console.log("roomsJoined", this.state.roomJoinedIds);
     return (
@@ -116,21 +126,21 @@ class ChatMain extends Component {
               <BreadcrumbItem>Active Rooms</BreadcrumbItem>
             ) : (
               <>
-                <Button
+                <span
                   onClick={() => this.openCloseChatScreen()}
-                  size="sm"
-                  outline
-                  color="info"
+                  style={{ color: "#18a88c", display: "flex" }}
+                  className="pointer"
                 >
+                  <img src={require("../../img/chevron-left.svg")} />
                   Back
-                </Button>
+                </span>
                 {this.state.roomJoinedIds.find(
                   roomId => roomId === this.state.selectedRoomId
                 ) && (
                   <Button
                     color="link"
-                    style={{ color: "#ff6347" }}
-                    onClick={this.disconnectChat}
+                    style={{ color: "#ff6347", padding: 0 }}
+                    onClick={() => this.setState({ modal: { isOpen: true } })}
                   >
                     DISCONNECT
                   </Button>
@@ -160,6 +170,15 @@ class ChatMain extends Component {
                     action
                   >
                     {room.title}
+                    {this.state.roomJoinedIds.find(
+                      roomId => roomId === room.id
+                    ) && (
+                      <div>
+                        <Badge color="primary" pill>
+                          Connected
+                        </Badge>
+                      </div>
+                    )}
                   </ListGroupItem>
                 ))}
               </ListGroup>
@@ -180,6 +199,13 @@ class ChatMain extends Component {
             />
           )}
         </div>
+        <ConfirmModal
+          isOpen={this.state.modal.isOpen}
+          handelCloseOpen={ans => this.handelModalCloseOpen(ans)}
+          title="Leaving the room"
+        >
+          Do you want to exit room?
+        </ConfirmModal>
       </React.Fragment>
     );
   }

@@ -18,6 +18,12 @@
 .room-list {
   height: 100%;
   overflow: auto;
+  .list-group {
+    li {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
 }
 
 .chat-textField {
@@ -32,6 +38,7 @@
   .breadcrumb {
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
 }
 .send-msg {
