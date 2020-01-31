@@ -76,7 +76,7 @@ class BotSection extends Component {
       reconnectionDelayMax: 5000,
       reconnectionAttempts: 5
     });
-    this.socket.on("connect", function() {
+    this.socket.on("connect", function () {
       console.debug("connected to server");
     });
     let messages = [];
@@ -111,8 +111,8 @@ class BotSection extends Component {
                     x.USER === "WATSON"
                       ? "WA"
                       : x.USER === "AGENT"
-                      ? "AG"
-                      : "ME",
+                        ? "AG"
+                        : "ME",
                   message: x.options ? x.title : x.TEXT,
                   type: x.options ? "options" : "text",
                   options: x.TYPE === "options" ? JSON.parse(x.OPTIONS) : [],
@@ -309,6 +309,10 @@ class BotSection extends Component {
             });
             lastWAUserIndex = messages.length - 1;
           }
+        } else if (x.response_type === "suggestion") {
+          if (x.suggestions && x.suggestions.length > 0 && x.suggestions[0].output && x.suggestions[0].output.generic && x.suggestions[0].output.generic.length > 0) {
+            this.pushWAMessage({ data: x.suggestions[0].output.generic })
+          }
         } else if (x.text || x.title) {
           messages.push({
             user: "WA",
@@ -422,7 +426,7 @@ class BotSection extends Component {
   };
 
   scrollToBottom = () => {
-    setTimeout(function() {
+    setTimeout(function () {
       var objDiv = document.getElementById("messages_container");
       if (objDiv) {
         objDiv.scrollTop = objDiv.scrollHeight;
@@ -452,18 +456,18 @@ class BotSection extends Component {
                 isLastWAUser={index === this.state.lastWAUserIndex}
               />
             ) : (
-              <React.Fragment>
-                <ChatPill
-                  isLastWAUser={
-                    index === this.state.lastWAUserIndex &&
-                    !this.state.isMsgLoading
-                  }
-                  right={data.user === "ME"}
-                  user={data.user}
-                  text=""
-                />
-              </React.Fragment>
-            )}
+                <React.Fragment>
+                  <ChatPill
+                    isLastWAUser={
+                      index === this.state.lastWAUserIndex &&
+                      !this.state.isMsgLoading
+                    }
+                    right={data.user === "ME"}
+                    user={data.user}
+                    text=""
+                  />
+                </React.Fragment>
+              )}
           </React.Fragment>
         );
       default:
@@ -545,17 +549,7 @@ class BotSection extends Component {
                       )}
                   </div>
                 ))}
-                {(this.state.isLoading || this.state.messages.length === 0) && (
-                  <div>
-                    <ChatPill
-                      isLastWAUser={false}
-                      right={false}
-                      user={"WA"}
-                      text="Loading..."
-                    />
-                  </div>
-                )}
-                {this.state.isMsgLoading && (
+                {(this.state.isMsgLoading || this.state.isLoading || this.state.messages.length === 0) && (
                   <ChatPill isLastWAUser={true} right={false} user={"WA"}>
                     {/* <Loading /> */}
                     <Spinner size="sm" type="grow" color="primary" />
@@ -583,7 +577,7 @@ class BotSection extends Component {
             </Col>
           </Row>
           <div
-            className={`d-flex justify-content-end align-items-center ask-container`}
+            className={`chat-section d-flex justify-content-end align-items-center ask-container`}
           >
             {this.state.isDemo ? (
               <Button
@@ -593,17 +587,17 @@ class BotSection extends Component {
                 Exit Demo
               </Button>
             ) : (
-              <React.Fragment>
-                {this.state.messages.length > 0 && (
-                  <Button
-                    onClick={this.resetDemo}
-                    className="exit-demo-btn mr-1 d-none d-sm-block"
-                  >
-                    Reset
+                <React.Fragment>
+                  {this.state.messages.length > 0 && (
+                    <Button
+                      onClick={this.resetDemo}
+                      className="reset-btn mr-1 d-none d-sm-block"
+                    >
+                      Reset
                   </Button>
-                )}
-              </React.Fragment>
-            )}
+                  )}
+                </React.Fragment>
+              )}
             <ChatPillAsk
               handleKeyDown={this.handleKeyDown}
               value={this.state.msg}

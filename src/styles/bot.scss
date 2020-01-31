@@ -214,6 +214,13 @@ section {
 .options-container {
   margin-left: 74px;
 }
+.chat-section {
+  .exit-demo-btn,
+  .reset-btn {
+    border-radius: 16px;
+    height: 60px;
+  }
+}
 .chat-location {
   a {
     text-decoration: none !important;
@@ -273,7 +280,8 @@ section {
     }
   }
 }
-.exit-demo-btn {
+.exit-demo-btn,
+.reset-btn {
   background: #fb8c00 !important;
   border: 1px solid #fb8c00 !important;
   outline: none !important;

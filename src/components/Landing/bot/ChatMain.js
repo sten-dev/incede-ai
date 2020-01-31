@@ -17,7 +17,22 @@ class ChatMain extends Component {
             window: window,
         }, () => {
             if (this.props.page === "home") {
-                this.toggle()
+                let waCreatedTime = localStorage.getItem("waCreatedTime");
+                let isInWaSession = true;
+                if (!waCreatedTime) {
+                    isInWaSession = false;
+                    localStorage.clear();
+                } else {
+                    let now = new Date().getTime();
+                    let createdTime = new Date(Number(waCreatedTime)).getTime();
+                    if (now - createdTime >= this.waTimeOut) {
+                        isInWaSession = false;
+                    }
+                }
+                if (isInWaSession === false) {
+                    this.toggle()
+                }
+
             }
         });
     }
