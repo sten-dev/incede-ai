@@ -18,7 +18,7 @@ class BotSection extends Component {
   wASessionId;
   isAgentPending = false;
   agentTimeOut = 3 * 60 * 1000;
-  waTimeOut = 1 * 60 * 60 * 1000;
+  waTimeOut = 1 * 60 * 60 * 1000; // one hour
   waCreatedTime;
   currentIntent;
   constructor(props) {
@@ -57,7 +57,7 @@ class BotSection extends Component {
     let isInWaSession = true;
     if (!this.waCreatedTime) {
       isInWaSession = false;
-      localStorage.clear();
+      this.resetLocalStorage();
     } else {
       let now = new Date().getTime();
       let createdTime = new Date(Number(this.waCreatedTime)).getTime();
@@ -247,10 +247,7 @@ class BotSection extends Component {
           response.type === "demo" &&
           response.intent === "exit_demo"
         ) {
-          localStorage.removeItem("demoRoomName");
-          localStorage.removeItem("demoRoomId");
-          localStorage.removeItem("demoWASessionId");
-          localStorage.removeItem("demoProperty");
+          this.resetLocalStorage(true)
           this.roomId = localStorage.getItem("roomId");
           this.roomName = localStorage.getItem("roomName");
           this.wASessionId = localStorage.getItem("wASessionId");
@@ -289,6 +286,19 @@ class BotSection extends Component {
       }
     });
   };
+
+  resetLocalStorage = (isDemo) => {
+    localStorage.removeItem("demoProperty");
+    localStorage.removeItem("demoWASessionId");
+    localStorage.removeItem("demoRoomId");
+    localStorage.removeItem("demoRoomName");
+    if (isDemo !== true) {
+      localStorage.removeItem("waCreatedTime");
+      localStorage.removeItem("wASessionId");
+      localStorage.removeItem("roomId");
+      localStorage.removeItem("roomName");
+    }
+  }
 
   pushWAMessage = response => {
     let data = response.data;
@@ -362,7 +372,7 @@ class BotSection extends Component {
   };
 
   resetDemo = () => {
-    localStorage.clear();
+    this.resetLocalStorage();
     this.sendCustomMessage("", true);
     this.setState({
       messages: []

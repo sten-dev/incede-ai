@@ -4,6 +4,7 @@ import "../../../styles/bot.scss";
 import Sidebar from 'react-sidebar';
 import BotSection from '../BotSection';
 class ChatMain extends Component {
+    waTimeOut = 1 * 60 * 60 * 1000; // one hour
     constructor(props) {
         super(props);
         this.state = {
@@ -21,7 +22,7 @@ class ChatMain extends Component {
                 let isInWaSession = true;
                 if (!waCreatedTime) {
                     isInWaSession = false;
-                    localStorage.clear();
+                    this.resetLocalStorage();
                 } else {
                     let now = new Date().getTime();
                     let createdTime = new Date(Number(waCreatedTime)).getTime();
@@ -35,6 +36,17 @@ class ChatMain extends Component {
 
             }
         });
+    }
+
+    resetLocalStorage = () => {
+        localStorage.removeItem("demoProperty");
+        localStorage.removeItem("demoWASessionId");
+        localStorage.removeItem("demoRoomId");
+        localStorage.removeItem("demoRoomName");
+        localStorage.removeItem("waCreatedTime");
+        localStorage.removeItem("wASessionId");
+        localStorage.removeItem("roomId");
+        localStorage.removeItem("roomName");
     }
 
     toggle = () => {

@@ -38,7 +38,7 @@ class ChatScreen extends Component {
     });
 
     this.socket.on(SOCKET_PATHS.BOT_RESPONSE, (eventName, response) => {
-      if (eventName === "WATSON") {
+      if (eventName === IF_USER_IS.watson) {
         let data = response.data;
         if (data && Array.isArray(data)) {
           if (
@@ -51,8 +51,9 @@ class ChatScreen extends Component {
               : 0;
             data.forEach(x => {
               if (x.text || x.title) {
+
                 messages.push({
-                  user: USER_ABB["WATSON"],
+                  user: USER_ABB[IF_USER_IS.watson],
                   message: x.options ? x.title : x.text,
                   id: id + 1
                 });
@@ -62,7 +63,7 @@ class ChatScreen extends Component {
           }
         }
       }
-      if (eventName === "USER") {
+      if (eventName === IF_USER_IS.user) {
         let data = response.data;
         let messages = scope.state.messages;
         if (data) {
@@ -71,7 +72,7 @@ class ChatScreen extends Component {
             response.roomName == scope.props.roomName
           ) {
             messages.push({
-              user: USER_ABB["USER"],
+              user: USER_ABB[IF_USER_IS.user],
               message: data,
               id:
                 (messages[messages.length - 1]
@@ -82,7 +83,7 @@ class ChatScreen extends Component {
           }
         }
       }
-      if (eventName === "AGENT") {
+      if (eventName === IF_USER_IS.agent) {
         let data = response.data;
         let messages = scope.state.messages;
         if (data) {
@@ -92,7 +93,7 @@ class ChatScreen extends Component {
           ) {
             if (!agentMessage.find(d => d === data))
               messages.push({
-                user: USER_ABB["AGENT"],
+                user: USER_ABB[IF_USER_IS.agent],
                 message: data,
                 id:
                   (messages[messages.length - 1]
@@ -182,8 +183,8 @@ class ChatScreen extends Component {
         ? { ...styles.myMessage, borderRadius: "16px 4px 2px 16px" }
         : styles.myMessage
       : isPrevMsgContiguous
-      ? { ...styles.otherMessage, borderRadius: "4px 16px 16px 2px" }
-      : styles.otherMessage;
+        ? { ...styles.otherMessage, borderRadius: "4px 16px 16px 2px" }
+        : styles.otherMessage;
     // let messageStyle = myMessage ? styles.myMessage : styles.otherMessage;
     let textColor = myMessage ? { color: "#fff" } : {};
 
@@ -228,7 +229,7 @@ class ChatScreen extends Component {
   };
 
   scrollToBottom = () => {
-    setTimeout(function() {
+    setTimeout(function () {
       var objDiv = document.getElementById("messages_container");
       if (objDiv) {
         objDiv.scrollTop = objDiv.scrollHeight;
@@ -273,16 +274,16 @@ class ChatScreen extends Component {
                 </div>
               </>
             ) : (
-              <Button
-                onClick={this.joinRoom}
-                block
-                className="interact"
-                color="primary"
-              >
-                {this.state.isFabLoading && <Spinner size="sm" />}
-                Interact
+                <Button
+                  onClick={this.joinRoom}
+                  block
+                  className="interact"
+                  color="primary"
+                >
+                  {this.state.isFabLoading && <Spinner size="sm" />}
+                  Interact
               </Button>
-            )}
+              )}
           </div>
         </div>
       </React.Fragment>

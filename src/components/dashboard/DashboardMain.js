@@ -78,6 +78,9 @@ class DashboardMain extends Component {
                 Object.keys(dashSpecObj.widgets).forEach(widgetKey => {
                     if (dashSpecObj.widgets[widgetKey].localFilters && dashSpecObj.widgets[widgetKey].localFilters.length > 0 && dashSpecObj.widgets[widgetKey].localFilters[0].values && dashSpecObj.widgets[widgetKey].localFilters[0].values.length > 0) {
                         dashSpecObj.widgets[widgetKey].localFilters[0].values[0].d = this.props.selectedRoomId
+                        if (dashSpecObj.widgets[widgetKey].localFilters[0].values[0].u) {
+                            dashSpecObj.widgets[widgetKey].localFilters[0].values[0].u = dashSpecObj.widgets[widgetKey].localFilters[0].values[0].u.replace("[650]", "[" + this.props.selectedRoomId + "]")
+                        }
                     }
                 });
 
