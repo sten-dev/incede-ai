@@ -62,8 +62,11 @@ const INavbar = props => {
               </a>
             </NavItem>
             <NavItem className="btn">
-              <Link activeClassName="selected" to="/customers">Our Customers</Link>
+              <Link activeClassName="selected" to="/case-study">Case Studies</Link>
             </NavItem>
+            {/* <NavItem className="btn">
+              <Link activeClassName="selected" to="/customers">Our Customers</Link>
+            </NavItem> */}
             <NavItem className="btn">
               <Link activeClassName="selected" to="/contact">Contact Us</Link>
             </NavItem>
