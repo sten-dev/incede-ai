@@ -1,7 +1,11 @@
 .card-img {
   //   height: 200px !important;
-  img {
-    height: 250px !important;
+  //   img {
+  //     height: 250px !important;
+  //   }
+
+  .gatsby-image-wrapper {
+    height: 220px;
   }
 }
 .card {
