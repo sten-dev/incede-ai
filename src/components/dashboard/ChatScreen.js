@@ -257,7 +257,7 @@ class ChatScreen extends Component {
                 <input
                   type="text"
                   className="chat-textField flex-grow-1"
-                  placeholder="type here .."
+                  placeholder="Type here .."
                   onChange={this.handleMessageChange}
                   value={this.state.msg}
                   onKeyDown={this.handleKeyDown}
