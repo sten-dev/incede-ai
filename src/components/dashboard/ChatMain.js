@@ -30,6 +30,10 @@ class ChatMain extends Component {
     };
   }
   componentDidMount = () => {
+    let roomJoinedIds = localStorage.getItem("roomJoinedIds");
+    this.setState({
+      roomJoinedIds: roomJoinedIds ? JSON.parse(roomJoinedIds) : []
+    });
     this.initializeSocketIo();
   };
   initializeSocketIo = () => {
@@ -42,7 +46,7 @@ class ChatMain extends Component {
       reconnectionAttempts: 5
     });
 
-    this.socket.on("connect", function () {
+    this.socket.on("connect", function() {
       //   console.warn("connected to server");
     });
     this.socket.emit(SOCKET_PATHS.CONNECT_ROOMS, {});
@@ -56,6 +60,17 @@ class ChatMain extends Component {
       let rooms = this.state.rooms;
       let isFound = rooms.find(d => d.id === response.id);
       if (!isFound) scope.setState({ rooms: [response, ...rooms] });
+    });
+  };
+
+  refreshRooms = () => {
+    let scope = this;
+    this.setState({ isLoading: true });
+    this.socket.emit(SOCKET_PATHS.CONNECT_ROOMS, {});
+    this.socket.on(SOCKET_PATHS.GET_ROOMS, response => {
+      let rooms = [];
+      response.forEach(d => rooms.push({ id: d.id, title: d.title }));
+      scope.setState({ rooms: rooms, isLoading: false });
     });
   };
 
@@ -86,6 +101,7 @@ class ChatMain extends Component {
         this.openCloseChatScreen
       );
     }
+    localStorage.setItem("roomJoinedIds", JSON.stringify(roomJoinedIds));
   };
 
   disconnectChat = async () => {
@@ -123,30 +139,40 @@ class ChatMain extends Component {
         <div className="chat-main">
           <Breadcrumb className="custom-breadcrumb">
             {!this.state.showChatScreen ? (
-              <BreadcrumbItem>Active Rooms</BreadcrumbItem>
+              <>
+                <span>Active Rooms</span>
+                <img
+                  className="pointer"
+                  onClick={this.refreshRooms}
+                  src={require("../../img/refresh.svg")}
+                />
+              </>
             ) : (
-                <>
-                  <span
-                    onClick={() => this.openCloseChatScreen()}
-                    style={{ color: "#18a88c", display: "flex" }}
+              <>
+                <span
+                  onClick={() => this.openCloseChatScreen()}
+                  style={{ color: "#18a88c", display: "flex" }}
+                  className="pointer"
+                >
+                  <img
                     className="pointer"
-                  >
-                    <img src={require("../../img/chevron-left.svg")} />
-                    Back
+                    src={require("../../img/chevron-left.svg")}
+                  />
+                  Back
                 </span>
-                  {this.state.roomJoinedIds.find(
-                    roomId => roomId === this.state.selectedRoomId
-                  ) && (
-                      <Button
-                        color="link"
-                        style={{ color: "#ff6347", padding: 0 }}
-                        onClick={() => this.setState({ modal: { isOpen: true } })}
-                      >
-                        DISCONNECT
+                {this.state.roomJoinedIds.find(
+                  roomId => roomId === this.state.selectedRoomId
+                ) && (
+                  <Button
+                    color="link"
+                    style={{ color: "#ff6347", padding: 0 }}
+                    onClick={() => this.setState({ modal: { isOpen: true } })}
+                  >
+                    DISCONNECT
                   </Button>
-                    )}
-                </>
-              )}
+                )}
+              </>
+            )}
           </Breadcrumb>
 
           {this.state.isLoading && (
@@ -173,31 +199,31 @@ class ChatMain extends Component {
                     {this.state.roomJoinedIds.find(
                       roomId => roomId === room.id
                     ) && (
-                        <div>
-                          <Badge color="primary" pill>
-                            Connected
+                      <div>
+                        <Badge color="primary" pill>
+                          Connected
                         </Badge>
-                        </div>
-                      )}
+                      </div>
+                    )}
                   </ListGroupItem>
                 ))}
               </ListGroup>
             </div>
           ) : (
-              <ChatScreen
-                roomId={this.state.selectedRoomId}
-                roomName={this.state.selectedRoomName}
-                socket={this.socket}
-                updateRoomJoinedIds={this.updateRoomJoinedIds}
-                roomJoined={
-                  this.state.roomJoinedIds.find(
-                    roomId => roomId === this.state.selectedRoomId
-                  )
-                    ? true
-                    : false
-                }
-              />
-            )}
+            <ChatScreen
+              roomId={this.state.selectedRoomId}
+              roomName={this.state.selectedRoomName}
+              socket={this.socket}
+              updateRoomJoinedIds={this.updateRoomJoinedIds}
+              roomJoined={
+                this.state.roomJoinedIds.find(
+                  roomId => roomId === this.state.selectedRoomId
+                )
+                  ? true
+                  : false
+              }
+            />
+          )}
         </div>
         <ConfirmModal
           isOpen={this.state.modal.isOpen}

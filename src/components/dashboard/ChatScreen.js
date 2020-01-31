@@ -1,5 +1,10 @@
 import React, { Component } from "react";
-import { SOCKET_PATHS, USER_ABB, IF_USER_IS } from "../../constants";
+import {
+  SOCKET_PATHS,
+  USER_ABB,
+  IF_USER_IS,
+  IGNORE_MSG
+} from "../../constants";
 import { getRoomChats, joinOrExitRoomChats } from "../../../Service";
 import { Spinner, Button } from "reactstrap";
 import "../../styles/dashboard.scss";
@@ -51,12 +56,14 @@ class ChatScreen extends Component {
               : 0;
             data.forEach(x => {
               if (x.text || x.title) {
-
-                messages.push({
-                  user: USER_ABB[IF_USER_IS.watson],
-                  message: x.options ? x.title : x.text,
-                  id: id + 1
-                });
+                let msg = x.options ? x.title : x.text;
+                if (!IGNORE_MSG.includes(msg)) {
+                  messages.push({
+                    user: USER_ABB[IF_USER_IS.watson],
+                    message: x.options ? x.title : x.text,
+                    id: id + 1
+                  });
+                }
               }
             });
             scope.setState({ messages: messages }, scope.scrollToBottom);
@@ -66,7 +73,7 @@ class ChatScreen extends Component {
       if (eventName === IF_USER_IS.user) {
         let data = response.data;
         let messages = scope.state.messages;
-        if (data) {
+        if (data && !IGNORE_MSG.includes(data)) {
           if (
             response.roomId == scope.props.roomId ||
             response.roomName == scope.props.roomName
@@ -86,7 +93,7 @@ class ChatScreen extends Component {
       if (eventName === IF_USER_IS.agent) {
         let data = response.data;
         let messages = scope.state.messages;
-        if (data) {
+        if (data && !IGNORE_MSG.includes(data)) {
           if (
             response.roomId == scope.props.roomId ||
             response.roomName == scope.props.roomName
@@ -144,7 +151,7 @@ class ChatScreen extends Component {
 
       for (let i = len - 1; i >= 0; i--) {
         let data = result.data[i];
-        if (data.TEXT)
+        if (data.TEXT && !IGNORE_MSG.includes(data.TEXT))
           messages.push({
             user: USER_ABB[data.USER],
             message: data.TEXT,
@@ -183,8 +190,8 @@ class ChatScreen extends Component {
         ? { ...styles.myMessage, borderRadius: "16px 4px 2px 16px" }
         : styles.myMessage
       : isPrevMsgContiguous
-        ? { ...styles.otherMessage, borderRadius: "4px 16px 16px 2px" }
-        : styles.otherMessage;
+      ? { ...styles.otherMessage, borderRadius: "4px 16px 16px 2px" }
+      : styles.otherMessage;
     // let messageStyle = myMessage ? styles.myMessage : styles.otherMessage;
     let textColor = myMessage ? { color: "#fff" } : {};
 
@@ -229,7 +236,7 @@ class ChatScreen extends Component {
   };
 
   scrollToBottom = () => {
-    setTimeout(function () {
+    setTimeout(function() {
       var objDiv = document.getElementById("messages_container");
       if (objDiv) {
         objDiv.scrollTop = objDiv.scrollHeight;
@@ -274,16 +281,16 @@ class ChatScreen extends Component {
                 </div>
               </>
             ) : (
-                <Button
-                  onClick={this.joinRoom}
-                  block
-                  className="interact"
-                  color="primary"
-                >
-                  {this.state.isFabLoading && <Spinner size="sm" />}
-                  Interact
+              <Button
+                onClick={this.joinRoom}
+                block
+                className="interact"
+                color="primary"
+              >
+                {this.state.isFabLoading && <Spinner size="sm" />}
+                Interact
               </Button>
-              )}
+            )}
           </div>
         </div>
       </React.Fragment>
