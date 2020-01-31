@@ -190,15 +190,17 @@ class ChatScreen extends Component {
         ? { ...styles.myMessage, borderRadius: "16px 4px 2px 16px" }
         : styles.myMessage
       : isPrevMsgContiguous
-      ? { ...styles.otherMessage, borderRadius: "4px 16px 16px 2px" }
-      : styles.otherMessage;
+        ? { ...styles.otherMessage, borderRadius: "4px 16px 16px 2px" }
+        : styles.otherMessage;
     // let messageStyle = myMessage ? styles.myMessage : styles.otherMessage;
     let textColor = myMessage ? { color: "#fff" } : {};
 
     return (
       <div style={containerStyle}>
         <div style={messageStyle}>
-          <span style={textColor}>{item.message}</span>
+          <span style={textColor} dangerouslySetInnerHTML={{ __html: item.message }}>
+            {/* {item.message} */}
+          </span>
         </div>
       </div>
     );
@@ -236,7 +238,7 @@ class ChatScreen extends Component {
   };
 
   scrollToBottom = () => {
-    setTimeout(function() {
+    setTimeout(function () {
       var objDiv = document.getElementById("messages_container");
       if (objDiv) {
         objDiv.scrollTop = objDiv.scrollHeight;
@@ -281,16 +283,16 @@ class ChatScreen extends Component {
                 </div>
               </>
             ) : (
-              <Button
-                onClick={this.joinRoom}
-                block
-                className="interact"
-                color="primary"
-              >
-                {this.state.isFabLoading && <Spinner size="sm" />}
-                Interact
+                <Button
+                  onClick={this.joinRoom}
+                  block
+                  className="interact"
+                  color="primary"
+                >
+                  {this.state.isFabLoading && <Spinner size="sm" />}
+                  Interact
               </Button>
-            )}
+              )}
           </div>
         </div>
       </React.Fragment>
