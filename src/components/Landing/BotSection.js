@@ -70,6 +70,16 @@ class BotSection extends Component {
       this.roomName = undefined;
       this.roomId = undefined;
       this.wASessionId = undefined;
+    } else {
+      if (this.state.isDemo) {
+        this.roomName = localStorage.getItem("demoRoomName");
+        this.roomId = localStorage.getItem("demoRoomId");
+        this.wASessionId = localStorage.getItem("demoWASessionId");
+      } else {
+        this.roomName = localStorage.getItem("roomName");
+        this.roomId = localStorage.getItem("roomId");
+        this.wASessionId = localStorage.getItem("wASessionId");
+      }
     }
   };
 
@@ -208,6 +218,7 @@ class BotSection extends Component {
             type: "location",
             options: []
           });
+
           let lastWAUserIndex = messages.length - 1;
           this.setState(
             {
@@ -215,7 +226,12 @@ class BotSection extends Component {
               lastWAUserIndex,
               isLoading: false
             },
-            this.scrollToBottom
+            () => {
+              let data = [...response.data]
+              data.splice(0, 1);
+              response.data = data;
+              this.pushWAMessage(response);
+            }
           );
         } else if (response.intent === "agent") {
           this.isAgentPending = true;
@@ -223,7 +239,7 @@ class BotSection extends Component {
           setTimeout(() => {
             if (this.isAgentPending) {
               this.setState({ isLoading: false });
-              this.sendCustomMessage("agent not available", false);
+              this.sendCustomMessage("agent_not_available", false);
             }
           }, this.agentTimeOut);
           setTimeout(() => {
@@ -364,12 +380,16 @@ class BotSection extends Component {
   };
 
   exitWADemo = () => {
-    this.sendCustomMessage("exit_demo", false);
-    setTimeout(() => {
-      this.setState({
-        isDemo: false
-      });
-    }, 500);
+    this.resetLocalStorage(true);
+    this.demoSocket = undefined;
+    // setTimeout(() => {
+    this.setState({
+      isDemo: false
+    }, () => {
+
+      this.sendCustomMessage("exit_demo", false);
+    });
+    // }, 500);
   };
 
   resetDemo = () => {
@@ -417,6 +437,12 @@ class BotSection extends Component {
     if (message.intent === "demo_done" && comment.toLowerCase() === "yes") {
       comment = "talk to agent";
     }
+
+    let isAdd = true
+    // if (message.message && message.message.toLowerCase() == "contact us" && comment.toLowerCase() === "cancel") {
+    //   comment = "What we do";
+    //   isAdd = false
+    // }
     let data = {
       comment: comment,
       wASessionId: this.wASessionId,
@@ -426,7 +452,8 @@ class BotSection extends Component {
       type: type,
       demoProperty: type === "demo" ? option.value.input.text : undefined
     };
-    this.sendMessage(data, comment, true);
+
+    this.sendMessage(data, comment, isAdd);
   };
 
   initializeDemoSocket = () => {
@@ -507,7 +534,8 @@ class BotSection extends Component {
     this.setState(
       {
         messages,
-        msg: ""
+        msg: "",
+        isLoading: true
       },
       this.scrollToBottom
     );
