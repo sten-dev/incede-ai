@@ -97,7 +97,6 @@ collections:
                 [
                   { label: Title, name: title, widget: string },
                   { label: Sub Title, name: subTitle, widget: string },
-                  { label: Button Text, name: button, widget: string },
                   { label: Image, name: image, widget: image },
                 ],
             }

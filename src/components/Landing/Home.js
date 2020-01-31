@@ -19,11 +19,11 @@ class Home extends React.Component {
                   <h1 className="text-primary bold">{home.title}</h1>
                   <h4 >{home.subTitle}</h4>
                   <div className="py-2">
-                    <Link to="/solutions" className="btn btn-secondary btn-lg">
+                    {/* <Link to="/solutions" className="btn btn-secondary btn-lg">
                       {home.button}
                       {"  "}
                       <img src={arrow} alt="next" style={{ width: "12px" }} />
-                    </Link>
+                    </Link> */}
                   </div>
                   {/* <pre>{JSON.stringify(home, null, 2)}</pre> */}
                 </article>
