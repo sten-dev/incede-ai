@@ -1,0 +1,18 @@
+.card-img {
+  //   height: 200px !important;
+  img {
+    height: 250px !important;
+  }
+}
+.card {
+  height: 100%;
+  .card-title {
+    text-align: left;
+    font-weight: 600;
+    // max-height: 70px;
+    // height: 100%;
+  }
+  .card-text {
+    text-align: left;
+  }
+}
