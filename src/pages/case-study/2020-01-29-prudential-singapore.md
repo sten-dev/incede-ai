@@ -6,11 +6,11 @@ image: /img/prudential.png
 ---
 To support Singapore’s largest exclusive agency force and to enable call center consultants to focus on more complex queries, Prudential Singapore developed an industry-first chatbot with IBM® Watson®. Fielding questions in real time, askPRU helps the insurer’s financial consultants (FCs) deliver greater value with confidence.
 
-### Business challenge 
+### Business challenge
 
 Prudential Singapore sought a cost-effective solution to help its FCs respond to product and policy questions more quickly, with the objective of providing an enhanced customer experience.
 
-### Transformation 
+### Transformation
 
 The company used IBM Watson Discovery and IBM Watson Assistant running on IBM Cloud™ infrastructure to develop an intelligent interface for FCs seeking answers to common queries.
 
@@ -43,3 +43,27 @@ Developing askPRU was much more than just a technological challenge for Prudenti
 With IBM Cloud technology, Prudential Singapore created a flexible, scalable hybrid cloud environment to consume Watson AI, reuse business microservices and safeguard sensitive customer data on premises. This configuration facilitates orchestration among multiple platforms and systems, optimizing process and data flow.
 
 The Prudential Singapore team built a proof of concept (POC) with Assistant and Discovery in just four weeks and took less than six months to fully launch the intelligent assistant. "For development purposes, Watson offers an intuitive visual interface that is easy to navigate, along with a highly scalable cloud architecture that supports future growth in workload,” says Chin Wee.
+
+
+
+## Results story 
+
+### Boosting FC productivity and customer service
+
+With askPRU, Prudential Singapore FCs are equipped with real-time information about the company’s suite of products and are empowered to independently advise customers about their policies at any time—day, night or weekend. In turn, this improvement allows FCs to work smarter and provide a higher level of service to customers expecting timely, consistent and accurate responses.
+
+Plus, askPRU significantly lightened the load for Prudential Singapore call center consultants by fielding the bulk of repetitive queries. The average waiting time at the insurer’s call center has fallen by almost half, to just nine seconds. As such, FCs can now seek advice for complex customer queries more promptly.
+
+Chin Wee emphasizes that the digital assistant is still evolving. “When we first launched askPRU last year, we were limited to a certain set of questions and constrained by a limited knowledge base. But every day we add domain knowledge in Watson using several methods. For example, when we launch new products, we add new intents for Assistant. Another source of domain knowledge is our continuous improvement efforts. We review transcripts of chats and identify areas where the answers were unclear and could be improved. I think it’s good that we’re not just launching the solution and stopping there. It’s an ongoing enhancement—adding more capabilities, adding more knowledge, keeping the system alive and useful.”
+
+Tsui Lin adds: “During the process, we continually interacted with the FCs and worked to fine-tune the chatbot’s language abilities, making it more conversational and interactive. In the initial phases, we focused on providing content on our products, processes and policy information. Through focus groups, we soon realized our FCs’ desire for more information. For instance, some wanted us to include information about their incentives in the askPRU knowledge base. Others requested an alert system in the chatbot to notify them about clients’ birthdays or when premiums are due. It is through these interactions that I see the interface evolving from a chatbot into a personal sales assistant one day.”
+
+Always evaluating new ways to improve askPRU’s offerings, the Prudential Singapore team recently launched a new speech-to-text feature in the chatbot, enabling FCs to verbalize their queries to askPRU. Looking further down the development roadmap, the Prudential Singapore team envisions features designed to analyze a conversation’s tone, perhaps determining midway through an exchange that the FC is getting frustrated and a call center consultant needs to step in.
+
+The askPRU digital assistant represents just the beginning phase of Prudential Singapore’s AI journey. Both Chin Wee and Tsui Lin are excited about what they call “Insurance 4.0”—when AI technology in general and Watson technology in particular become central to the business.
+
+“AI no longer remains a futuristic and elusive concept,” says Tsui Lin. “It is happening now and will become a pervasive technology with far-reaching benefits. We are pleased with the value that IBM and Watson bring, and we hope that our experience will encourage others to embrace AI’s benefits as well.”
+
+### About Prudential Singapore
+
+One of the leading life insurance companies in Singapore, Prudential Singapore has served the needs of its country’s citizens for 87 years. The company is the only life insurer in Singapore with an AA financial strength rating from leading credit rating agency Standard & Poor’s and manages more than SGD 36 billion in funds.

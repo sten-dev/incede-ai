@@ -9,9 +9,12 @@ export const DEMO_SOCKET_URL = "wss://cc-api.mybluemix.net";
 export const SOCKET_PATHS = {
   CONNECT: "CONNECT_BOT",
   BOT_RESPONSE: "BOT_RESPONSE",
-  CONNECT_ROOMS: "CONNECT_ROOMS",
+  CONNECT_ROOMS: "CONNECT_ROOMS", // talk to agent active rooms
   GET_ROOMS: "GET_ROOMS",
-  NEW_ROOMS: "NEW_ROOMS"
+  NEW_ROOMS: "NEW_ROOMS",
+  CONNECT_ALL_ROOMS: "CONNECT_ALL_ROOMS", // all active rooms
+  GET_ALL_ROOMS: "GET_ALL_ROOMS",
+  NEW_ALL_ROOMS: "NEW_ALL_ROOMS"
 };
 
 export const IF_USER_IS = {
