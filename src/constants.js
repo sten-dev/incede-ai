@@ -1,6 +1,6 @@
 //dev
 export const API_URL =
-  "https://test-app3117-accountable-wombat-hx.eu-gb.mybluemix.net/";
+  "https://incede-api-insightful-raven.eu-gb.mybluemix.net/";
 
 // local
 // export const API_URL = "http://localhost:8080/";
@@ -25,14 +25,14 @@ export const USER_ABB = {
   [IF_USER_IS.watson]: "WA"
 };
 
-export const COGNOS_SOURCE={
+export const COGNOS_SOURCE = {
   "id": "c962e5c7-65f4-4895-885d-4187b166d44b:e653bf07-0b24-4bd4-a3cd-b9d613e8a2a5:/INCEDE/CALL_TONE:table:CALL_TONE",
   "user": "bluadmin",
   "password": "ODg3ODcwZjBiNDlk",
   "jdbc": {
-      "jdbcUrl": "jdbc:db2://dashdb-txn-flex-yp-dal10-720.services.dal.bluemix.net:50000/BLUDB",
-      "driverClassName": "com.ibm.db2.jcc.DB2Driver",
-      "schema": "INCEDE"
+    "jdbcUrl": "jdbc:db2://dashdb-txn-flex-yp-dal10-720.services.dal.bluemix.net:50000/BLUDB",
+    "driverClassName": "com.ibm.db2.jcc.DB2Driver",
+    "schema": "INCEDE"
   }
 }
 
