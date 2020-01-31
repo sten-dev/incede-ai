@@ -20,9 +20,7 @@ class Footer extends React.Component {
                   <img src={logo} alt="incede.ai" />
                 </Col>
                 <Col className="text-right">
-                  <section className="social">
-                    <a title="facebook" href="https://facebook.com">
-                      {/* <i style="fas fa-instagram" /> */}
+                  {/* <section className="social">
                       <img src={facebook} alt="Facebook" />
                     </a>
                     <a title="twitter" href="https://twitter.com">
@@ -31,7 +29,7 @@ class Footer extends React.Component {
                     <a title="instagram" href="https://instagram.com">
                       <img src={instagram} alt="Instagram" />
                     </a>
-                  </section>
+                  </section> */}
                 </Col>
               </Row>
             </Col>
