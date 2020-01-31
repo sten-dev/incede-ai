@@ -1,13 +1,13 @@
 @import "../bs";
 
 .chat-main {
-  height: calc(100vh - 156px);
+  height: calc(100vh - 166px);
 }
 .chat-screen {
   height: 100%;
 }
 .chat-container {
-  height: 90%;
+  height: calc(100% - 50px);
   overflow: auto;
   padding: 0 8px;
 }
@@ -15,14 +15,35 @@
   display: flex;
   margin-top: 4px;
 }
+.room-list {
+  height: 100%;
+  overflow: auto;
+  .list-group {
+    li {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
 
 .chat-textField {
-  margin-right: 2px;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  background: #f9f9f9;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
 }
 .custom-breadcrumb {
   .breadcrumb {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+  }
+}
+.send-msg {
+  button {
+    border-radius: 0 8px 8px 0 !important;
   }
 }
 .interact {
@@ -38,4 +59,5 @@
   height: calc(100vh - 90px);
   background: #fff;
   border: 1px solid #ddd;
+  padding: 8px;
 }

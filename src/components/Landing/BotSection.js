@@ -11,6 +11,7 @@ import ChatLocation from "../ChatLocation";
 import CallBackForm from "./bot/CallBackForm";
 import DiscoverySearchResults from "./bot/DiscoverySearchResults";
 import { Loading } from "../ReuseableComponents";
+import ConfirmModal from "../ConfirmModal";
 class BotSection extends Component {
   roomName = undefined;
   roomId;
@@ -29,7 +30,10 @@ class BotSection extends Component {
       lastWAUserIndex: -1,
       shouldConnectApi: true,
       isLoading: false,
-      isMsgLoading: false
+      isMsgLoading: false,
+      modal: {
+        isOpen: false
+      }
     };
   }
   componentDidMount() {
@@ -486,6 +490,13 @@ class BotSection extends Component {
     }
   };
 
+  handelModalCloseOpen = ans => {
+    if (ans === true) {
+      this.resetDemo();
+    }
+    this.setState({ modal: { isOpen: false } });
+  };
+
   render() {
     console.log("msg loading", this.state.isMsgLoading);
     return (
@@ -590,7 +601,9 @@ class BotSection extends Component {
                 <React.Fragment>
                   {this.state.messages.length > 0 && (
                     <Button
-                      onClick={this.resetDemo}
+                      onClick={() => {
+                        this.setState({ modal: { isOpen: true } });
+                      }}
                       className="reset-btn mr-1 d-none d-sm-block"
                     >
                       Reset
@@ -606,6 +619,13 @@ class BotSection extends Component {
               onClick={this.send}
             />
           </div>
+          <ConfirmModal
+            isOpen={this.state.modal.isOpen}
+            handelCloseOpen={ans => this.handelModalCloseOpen(ans)}
+            title="Are you sure?"
+          >
+            Do you want to reset chat history?
+          </ConfirmModal>
         </Container>
       </section>
     );

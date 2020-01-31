@@ -118,6 +118,13 @@ class ChatScreen extends Component {
       statusUpdate: "yes"
     });
     if (result && result.success) {
+      let data = {
+        comment: "You are now chatting with an agent",
+        roomName: this.props.roomName,
+        senderType: "agent",
+        roomId: this.props.roomId
+      };
+      this.socket.emit(SOCKET_PATHS.CONNECT, data);
       this.setState({ joined: true, isFabLoading: false });
       this.props.updateRoomJoinedIds(this.props.roomId, "joined");
     } else {
