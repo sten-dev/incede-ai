@@ -61,13 +61,19 @@ class ChatMain extends Component {
       let isFound = rooms.find(d => d.id === response.id);
       if (!isFound) scope.setState({ rooms: [response, ...rooms] });
     });
+    this.socket.on(SOCKET_PATHS.NEW_ALL_ROOMS, response => {
+      //   console.log("NEW_ROOMS => ", response);
+      let rooms = this.state.rooms;
+      let isFound = rooms.find(d => d.id === response.id);
+      if (!isFound) scope.setState({ rooms: [response, ...rooms] });
+    });
   };
 
   refreshRooms = () => {
     let scope = this;
     this.setState({ isLoading: true });
     this.socket.emit(SOCKET_PATHS.CONNECT_ALL_ROOMS, {});
-    this.socket.on(SOCKET_PATHS.GET_ROOMS, response => {
+    this.socket.on(SOCKET_PATHS.GET_ALL_ROOMS, response => {
       let rooms = [];
       response.forEach(d => rooms.push({ id: d.id, title: d.title }));
       scope.setState({ rooms: rooms, isLoading: false });
