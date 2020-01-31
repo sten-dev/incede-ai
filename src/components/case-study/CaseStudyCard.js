@@ -10,14 +10,14 @@ import {
 import { Link } from "gatsby";
 import PreviewCompatibleImage from "../PreviewCompatibleImage";
 import "../../styles/case-study-page.scss";
-
+import arrow from "../../img/arrow.svg";
 class CaseStudyCard extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
   render() {
-    const { title, description, image } = this.props;
+    const { title, description, image, slug } = this.props;
     let desLen = description.length;
     return (
       <React.Fragment>
@@ -38,7 +38,15 @@ class CaseStudyCard extends Component {
             </CardText>
             <br />
             <div className="text-right">
-              <Link className="btn btn-primary">View</Link>
+              <Link to={slug} className="btn btn-primary">
+                View &nbsp;
+                <img
+                  src={arrow}
+                  height="16px"
+                  alt="next"
+                  // style={{ width: "12px", }}
+                />
+              </Link>
             </div>
           </CardBody>
         </Card>
