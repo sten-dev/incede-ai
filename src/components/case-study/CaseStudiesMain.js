@@ -22,6 +22,7 @@ class CaseStudiesMain extends React.Component {
                     title={caseStudy.node.frontmatter.title}
                     description={caseStudy.node.frontmatter.description}
                     image={caseStudy.node.frontmatter.image}
+                    slug={caseStudy.node.fields.slug}
                   />
                 </Col>
               ))}
