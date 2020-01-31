@@ -1,16 +1,18 @@
 //dev
-export const API_URL =
-  "https://incede-api-insightful-raven.eu-gb.mybluemix.net/";
+// export const API_URL =
+//   "https://incede-api-insightful-raven.eu-gb.mybluemix.net/";
 
 // local
-// export const API_URL = "http://localhost:8080/";
+export const API_URL = "http://localhost:8080/";
 
 export const SOCKET_PATHS = {
   CONNECT: "CONNECT_BOT",
   BOT_RESPONSE: "BOT_RESPONSE",
   CONNECT_ROOMS: "CONNECT_ROOMS",
   GET_ROOMS: "GET_ROOMS",
-  NEW_ROOMS: "NEW_ROOMS"
+  NEW_ROOMS: "NEW_ROOMS",
+  CONNECT_ALL_ROOMS: "CONNECT_ALL_ROOMS",
+  GET_ALL_ROOMS: "GET_ALL_ROOMS"
 };
 
 export const IF_USER_IS = {
