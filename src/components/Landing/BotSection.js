@@ -5,7 +5,7 @@ import logo from "../../img/logo_white.svg";
 import { ChatPill } from "./bot/ChatPill";
 import { ChatPillAsk } from "./bot/ChatPillAsk";
 import socketIO from "socket.io-client";
-import { API_URL, SOCKET_PATHS, httpClient } from "../../constants";
+import { API_URL, SOCKET_PATHS, httpClient, DEMO_SOCKET_URL } from "../../constants";
 import chat from "../../img/chat.svg";
 import ChatLocation from "../ChatLocation";
 import CallBackForm from "./bot/CallBackForm";
@@ -21,6 +21,7 @@ class BotSection extends Component {
   waTimeOut = 1 * 60 * 60 * 1000; // one hour
   waCreatedTime;
   currentIntent;
+  demoSocket = undefined
   constructor(props) {
     super(props);
     this.state = {
@@ -30,7 +31,7 @@ class BotSection extends Component {
       lastWAUserIndex: -1,
       shouldConnectApi: true,
       isLoading: false,
-      isMsgLoading: false,
+      isLoading: false,
       modal: {
         isOpen: false
       }
@@ -212,7 +213,7 @@ class BotSection extends Component {
             {
               messages: messages,
               lastWAUserIndex,
-              isMsgLoading: false
+              isLoading: false
             },
             this.scrollToBottom
           );
@@ -221,7 +222,7 @@ class BotSection extends Component {
           this.pushWAMessage(response);
           setTimeout(() => {
             if (this.isAgentPending) {
-              this.setState({ isMsgLoading: false });
+              this.setState({ isLoading: false });
               this.sendCustomMessage("agent not available", false);
             }
           }, this.agentTimeOut);
@@ -239,7 +240,7 @@ class BotSection extends Component {
               this.setState({
                 messages,
                 lastWAUserIndex,
-                isMsgLoading: false
+                isLoading: false
               });
             }
           }, this.agentTimeOut / 3);
@@ -277,7 +278,7 @@ class BotSection extends Component {
           });
           lastWAUserIndex = messages.length - 1;
           this.setState(
-            { messages: messages, lastWAUserIndex, isMsgLoading: false },
+            { messages: messages, lastWAUserIndex, isLoading: false },
             this.scrollToBottom
           );
         }
@@ -348,7 +349,7 @@ class BotSection extends Component {
         {
           messages,
           lastWAUserIndex,
-          isMsgLoading: false
+          isLoading: false
         },
         this.scrollToBottom
       );
@@ -358,7 +359,7 @@ class BotSection extends Component {
   send = () => {
     if (this.state.msg && this.state.msg.length > 0) {
       this.sendCustomMessage(this.state.msg, true);
-      this.setState({ isMsgLoading: true });
+      this.setState({ isLoading: true });
     }
   };
 
@@ -373,6 +374,7 @@ class BotSection extends Component {
 
   resetDemo = () => {
     this.resetLocalStorage();
+    this.demoSocket = undefined;
     this.sendCustomMessage("", true);
     this.setState({
       messages: []
@@ -405,6 +407,9 @@ class BotSection extends Component {
       type = "demo";
       this.wASessionId = undefined;
       this.roomId = undefined;
+      this.setState({
+        isDemo: true
+      })
       this.roomName = "room" + new Date().getTime();
       localStorage.setItem("demoProperty", option.value.input.text);
     }
@@ -424,9 +429,78 @@ class BotSection extends Component {
     this.sendMessage(data, comment, true);
   };
 
+  initializeDemoSocket = () => {
+    this.demoSocket = socketIO.connect(DEMO_SOCKET_URL, {
+      reconnection: true,
+      reconnectionDelay: 1000,
+      reconnectionDelayMax: 5000,
+      reconnectionAttempts: 5
+    });
+    this.demoSocket.on("connect", function () {
+      console.debug("demo socket connected to server");
+    });
+    this.demoSocket.on("chat message", (message) => {
+      let data = message;
+      let session_id = localStorage.getItem("demoWASessionId");
+      let messages = [...this.state.messages];
+      let lastWAUserIndex = this.state.lastWAUserIndex;
+      if (data.success === undefined) {
+        if (!session_id || session_id === data.session_id) {
+          localStorage.setItem("demoWASessionId", data.session_id);
+          if (data && data.context && data.context.skills) {
+            data.output.generic.forEach(x => {
+              if (x.text || x.title) {
+                messages.push({
+                  user: "WA",
+                  message: x.options ? x.title : x.text,
+                  type: x.options ? "options" : "text",
+                  options: x.options || []
+                });
+                lastWAUserIndex = messages.length - 1;
+              }
+            });
+          }
+        }
+      } else {
+        if (!session_id || session_id === data.session_id) {
+          if (data.message && (!data.type || data.type != "user")) {
+            messages.push({
+              user: data.type === "user" ? "US" : "WA",
+              message: data.message
+            });
+            lastWAUserIndex = messages.length - 1;
+          }
+        }
+      }
+      this.setState(
+        {
+          messages,
+          msg: "",
+          lastWAUserIndex,
+          isLoading: false
+        },
+        this.scrollToBottom
+      );
+
+
+    });
+  }
+
   sendMessage = (data, message, shouldAddToMessages) => {
-    this.socket.emit(SOCKET_PATHS.CONNECT, data);
     let messages = [...this.state.messages];
+    if (this.state.isDemo) {
+      if (!this.demoSocket) {
+        this.initializeDemoSocket()
+      }
+      let demoWASessionId = localStorage.getItem("demoWASessionId");
+      this.demoSocket.emit("chat message", {
+        payload: data.comment,
+        params: { session_id: demoWASessionId },
+        user: "user",
+      })
+    } else {
+      this.socket.emit(SOCKET_PATHS.CONNECT, data);
+    }
     if (shouldAddToMessages) {
       messages.push({ user: "ME", message: message, type: "text" });
     }
@@ -474,7 +548,7 @@ class BotSection extends Component {
                   <ChatPill
                     isLastWAUser={
                       index === this.state.lastWAUserIndex &&
-                      !this.state.isMsgLoading
+                      !this.state.isLoading
                     }
                     right={data.user === "ME"}
                     user={data.user}
@@ -489,7 +563,7 @@ class BotSection extends Component {
           <React.Fragment>
             <ChatPill
               isLastWAUser={
-                index === this.state.lastWAUserIndex && !this.state.isMsgLoading
+                index === this.state.lastWAUserIndex && !this.state.isLoading
               }
               right={data.user === "ME"}
               user={data.user}
@@ -508,7 +582,7 @@ class BotSection extends Component {
   };
 
   render() {
-    console.log("msg loading", this.state.isMsgLoading);
+    console.log("msg loading", this.state.isLoading);
     return (
       <section className="bot">
         <div onClick={this.props.toggle} className="bot-menu-btn right">
@@ -570,9 +644,8 @@ class BotSection extends Component {
                       )}
                   </div>
                 ))}
-                {(this.state.isMsgLoading || this.state.isLoading || this.state.messages.length === 0) && (
+                {(this.state.isLoading || this.state.messages.length === 0) && (
                   <ChatPill isLastWAUser={true} right={false} user={"WA"}>
-                    {/* <Loading /> */}
                     <Spinner size="sm" type="grow" color="primary" />
                     <Spinner size="sm" type="grow" color="primary" />
                     <Spinner size="sm" type="grow" color="primary" />

@@ -4,7 +4,7 @@ home:
   button: Explore Our Solutions
   image: /img/landing-image.png
   subTitle: Build an AI Roadmap for your business
-  title: We provide business outcome based AI solutions
+  title: Experts in developing AI Infused Business Applications
 about:
   button: Know More
   subTitle: >-
