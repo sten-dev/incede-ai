@@ -1,9 +1,9 @@
 //dev
-// export const API_URL =
-//   "https://incede-api-insightful-raven.eu-gb.mybluemix.net/";
+export const API_URL =
+  "https://incede-api-insightful-raven.eu-gb.mybluemix.net/";
 
 // local
-export const API_URL = "http://localhost:8080/";
+// export const API_URL = "http://localhost:8080/";
 
 export const DEMO_SOCKET_URL = "wss://cc-api.mybluemix.net";
 export const SOCKET_PATHS = {
