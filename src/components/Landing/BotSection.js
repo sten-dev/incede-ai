@@ -25,13 +25,16 @@ class BotSection extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      messages: [],
+      messages: [{
+        user: "WA",
+        message: "Hi, I am incede bot",
+        type: "text",
+      }],
       msg: "",
       isDemo: false,
       lastWAUserIndex: -1,
       shouldConnectApi: true,
-      isLoading: false,
-      isLoading: false,
+      isLoading: true,
       modal: {
         isOpen: false
       }
@@ -397,7 +400,11 @@ class BotSection extends Component {
     this.demoSocket = undefined;
     this.sendCustomMessage("", true);
     this.setState({
-      messages: []
+      messages: [{
+        user: "WA",
+        message: "Hi, I am incede bot",
+        type: "text",
+      }]
     });
   };
 
