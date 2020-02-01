@@ -7,10 +7,17 @@ class ServicesMenu extends React.Component {
     const { data } = this.props;
     const { edges: servicesList } = data.allMarkdownRemark;
     console.log("services list", servicesList);
+    let newServicesList = [...servicesList]
+    if (newServicesList && newServicesList.length >= 3) {
+      let zeroIndexObj = newServicesList[0];
+      let secondIndexObj = newServicesList[2];
+      newServicesList[0] = secondIndexObj;
+      newServicesList[2] = zeroIndexObj;
+    }
     return (
       <section className="menu">
         <ListGroup>
-          {servicesList.map((s, i) => {
+          {newServicesList.map((s, i) => {
             let service = s.node;
 
             return (

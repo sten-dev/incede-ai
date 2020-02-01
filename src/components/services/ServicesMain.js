@@ -8,7 +8,14 @@ class ServicesMain extends React.Component {
   render() {
     const { data } = this.props
     const { edges: services } = data.allMarkdownRemark
-    console.log("services list", services)
+    console.log("services list", services);
+    let newServicesList = [...services]
+    if (newServicesList && newServicesList.length >= 3) {
+      let zeroIndexObj = newServicesList[0];
+      let secondIndexObj = newServicesList[2];
+      newServicesList[0] = secondIndexObj;
+      newServicesList[2] = zeroIndexObj;
+    }
     return (
       <section className="wtd-list ">
         <section className="header-section gap-y text-center">
@@ -21,7 +28,7 @@ class ServicesMain extends React.Component {
           </Container>
         </section>
         <Container>
-          {services.map((x, i) => {
+          {newServicesList.map((x, i) => {
             let service = x.node.frontmatter;
             return (
               <WhatToDoListCard image={service.image} key={i} title={service.title} subTitle={service.subTitle} excerpt={x.node.excerpt} slug={x.node.fields.slug} />
