@@ -29,7 +29,7 @@ const Partners = (props) => {
                             <br />
                             <div>
                                 <img style={style.partnerImage} className="mr-2" src={ibmImg} alt="ibm" />
-                                <img style={style.partnerImage} className="mr-2" src={thoughtSpot} alt="thought-spot" />
+                                {/* <img style={style.partnerImage} className="mr-2" src={thoughtSpot} alt="thought-spot" /> */}
                             </div>
                         </article>
                     </Col>
