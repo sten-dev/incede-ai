@@ -4,6 +4,7 @@ import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import About from "../components/about/About";
 import Career from "../components/about/Career";
+import Partners from "../components/about/Partners";
 
 const careerSummary = `We are here for people who want to get out and do great work for customers, who enjoy being measured on results, who expect to share in the success they create. The spirit is entrepreneurial; the culture is co-operative; and the result is growth.
 <br /><br />
