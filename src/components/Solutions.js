@@ -17,7 +17,7 @@ class Solutions extends React.Component {
               let solution = x.node.frontmatter;
               let path = x.node.fields.slug;
               return (
-                <Col key={i} lg={6} md={6} sm={12} xs={11}>
+                <Col key={i} className="wwd-list-card" lg={6} md={6} sm={12} xs={11}>
                   <SolutionView solution={solution} path={path} />
                 </Col>
               );

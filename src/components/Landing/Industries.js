@@ -18,7 +18,7 @@ class Industries extends React.Component {
               let path = x.node.fields.slug;
               return (
                 <Col key={i} lg={6} md={6} sm={12} xs={11}>
-                  <IndustryView industry={industry} path={path} />
+                  <IndustryView className="wwd-list-card" industry={industry} path={path} />
                 </Col>
               );
             })}

@@ -17,7 +17,7 @@ class Services extends React.Component {
               let service = x.node.frontmatter;
               let path = x.node.fields.slug;
               return (
-                <Col key={i} lg={6} md={6} sm={12} xs={11}>
+                <Col className="wwd-list-card" key={i} lg={6} md={6} sm={12} xs={11}>
                   <ServiceView service={service} path={path} />
                 </Col>
               );
