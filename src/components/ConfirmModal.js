@@ -1,5 +1,5 @@
-import React from "react";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import React from 'react';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 class ConfirmModal extends React.Component {
   constructor(props) {
@@ -11,21 +11,22 @@ class ConfirmModal extends React.Component {
       <Modal
         isOpen={this.props.isOpen}
         toggle={() => this.props.handelCloseOpen()}
-        className="custom-modal"
-        backdrop="static"
-      >
+        className='custom-modal'
+        backdrop='static'>
         <ModalHeader toggle={this.props.handelCloseOpen}>
-          {this.props.title || "Modal Title"}
+          {this.props.title || 'Modal Title'}
         </ModalHeader>
         <ModalBody>{this.props.children}</ModalBody>
         <ModalFooter>
-          <Button color="danger" outline onClick={this.props.handelCloseOpen}>
+          <Button
+            color='secondary'
+            outline
+            onClick={this.props.handelCloseOpen}>
             Cancel
           </Button>
           <Button
-            color="primary"
-            onClick={() => this.props.handelCloseOpen(true)}
-          >
+            color='danger'
+            onClick={() => this.props.handelCloseOpen(true)}>
             Confirm
           </Button>
         </ModalFooter>
