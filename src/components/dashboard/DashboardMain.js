@@ -75,6 +75,12 @@ class DashboardMain extends Component {
                     element.module.source = { ...this.state.source }
                 });
 
+                // if (!this.props.selectedRoomId) {
+                //     let tabs = [...dashSpecObj.layout.items]
+                //     tabs.splice(0, 1);
+                //     dashSpecObj.layout.items = [...tabs];
+                // }
+
                 Object.keys(dashSpecObj.widgets).forEach(widgetKey => {
                     if (dashSpecObj.widgets[widgetKey].localFilters && dashSpecObj.widgets[widgetKey].localFilters.length > 0 && dashSpecObj.widgets[widgetKey].localFilters[0].values && dashSpecObj.widgets[widgetKey].localFilters[0].values.length > 0) {
                         dashSpecObj.widgets[widgetKey].localFilters[0].values[0].d = this.props.selectedRoomId
