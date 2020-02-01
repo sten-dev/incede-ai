@@ -1,7 +1,6 @@
 ---
 templateKey: index-page
 home:
-  button: Explore Our Solutions
   image: /img/landing-image.png
   subTitle: Build an AI Roadmap for your business
   title: Experts in developing AI Infused Business Applications
@@ -15,7 +14,7 @@ about:
   title: About Us
 location:
   address: '5201 Great America Parkway, Suite #320, Santa Clara, CA 95054'
-  email: 'info@locussolutions,com'
+  email: info@incede.ai
   phone: 408-898-4606
   subTitle: Corporate Headquaters
   title: United States
