@@ -7,7 +7,7 @@ import Career from "../components/about/Career";
 
 const careerSummary = `We are here for people who want to get out and do great work for customers, who enjoy being measured on results, who expect to share in the success they create. The spirit is entrepreneurial; the culture is co-operative; and the result is growth.
 <br /><br />
-If you’re interested in a combination of professional challenges and personal development, join Locus Solutions. Contact us at careers@locussolution.com. We offer competitive salaries and benefits, sponsored training and education.`;
+If you’re interested in a combination of professional challenges and personal development, join Locus Solutions. Contact us at  info@incede.ai. We offer competitive salaries and benefits, sponsored training and education.`;
 
 export const AboutPageTemplate = ({ title, section }) => {
   return (

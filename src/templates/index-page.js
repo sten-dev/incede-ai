@@ -48,7 +48,6 @@ export const pageQuery = graphql`
         home {
           title
           subTitle
-          button
           image {
             childImageSharp {
               fluid(maxWidth: 240, quality: 100) {
