@@ -17,7 +17,7 @@ class BotSection extends Component {
   roomId;
   wASessionId;
   isAgentPending = false;
-  agentTimeOut = 3 * 60 * 1000;
+  agentTimeOut = 30 * 1000;
   waTimeOut = 1 * 60 * 60 * 1000; // one hour
   waCreatedTime;
   currentIntent;

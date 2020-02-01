@@ -88,6 +88,11 @@ class Footer extends React.Component {
                 <FooterLocation />
               </section>
             </Col>
+            <Col lg="12" md="12" sm="12" xs="12">
+              <p className="m-0">
+                © Copyright 2020 Incede AI
+            </p>
+            </Col>
           </Row>
         </Container>
       </footer>
