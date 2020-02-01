@@ -1,6 +1,6 @@
 ---
 templateKey: services
-title: 'Cognitive Enterprise '
+title: "Cognitive Enterprise\_Search Applications"
 subTitle: 'Search Applications '
 image: /img/big-data-services.png
 ---
