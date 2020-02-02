@@ -9,7 +9,7 @@ const ChatLocation = () => {
                     <CardImg top width="100%" src={location} alt="Card image cap" />
                     <CardBody>
                         <h6 className="m-0">
-                            <strong>Locus Solutions</strong>
+                            <strong>Incede</strong>
                         </h6>
                         <p>
                             5201 Great America Pkwy #320 Santa Clara, CA 95054

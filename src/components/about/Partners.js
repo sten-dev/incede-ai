@@ -23,7 +23,7 @@ const Partners = (props) => {
                                 </p>
                             <br />
                             <p className="lead text-white">
-                                Locus Solutions account managers and consultants are experts in IBM’s and ThoughtSpot’s technology and utilize our best practice, proven methodology.
+                                Incede account managers and consultants are experts in IBM’s and ThoughtSpot’s technology and utilize our best practice, proven methodology.
                             </p>
                             <br />
                             <br />
