@@ -46,11 +46,17 @@ class Footer extends React.Component {
                       About us
                     </Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link className="navbar-item" to="/customers">
                       Our Customers
                     </Link>
+                  </li> */}
+                  <li>
+                    <Link className="navbar-item" to="/case-study">
+                      Case Study
+                    </Link>
                   </li>
+
                   <li>
                     <Link className="navbar-item" to="/contact">
                       Contact

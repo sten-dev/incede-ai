@@ -19,7 +19,6 @@ class Career extends React.Component {
                   <h6 className="lead sub-title">
                     <HTMLContent content={careerSummary} />
                   </h6>
-                  <Partners />
                 </article>
               </Col>
             </Row>

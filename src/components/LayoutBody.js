@@ -18,7 +18,6 @@ class LayoutBody extends Component {
         document.removeEventListener('scroll', this.trackScrolling);
     }
     isBottom = (el) => {
-        console.log(el)
         if (el && el.getBoundingClientRect) {
             return (el.getBoundingClientRect().bottom - window.innerHeight) <= 50;
         }
