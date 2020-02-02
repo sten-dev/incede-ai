@@ -617,7 +617,6 @@ class BotSection extends Component {
   };
 
   render() {
-    console.log("msg loading", this.state.isLoading);
     return (
       <section className="bot">
         <div onClick={this.props.toggle} className="bot-menu-btn right">

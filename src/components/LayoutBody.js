@@ -12,13 +12,13 @@ class LayoutBody extends Component {
     }
     componentDidMount() {
         document.addEventListener('scroll', this.trackScrolling);
+        this.trackScrolling()
     }
 
     componentWillUnmount() {
         document.removeEventListener('scroll', this.trackScrolling);
     }
     isBottom = (el) => {
-        console.log(el)
         if (el && el.getBoundingClientRect) {
             return (el.getBoundingClientRect().bottom - window.innerHeight) <= 50;
         }

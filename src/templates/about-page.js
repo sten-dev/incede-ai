@@ -15,6 +15,7 @@ export const AboutPageTemplate = ({ title, section }) => {
     <section className="section section--gradient">
       <About title={title} section={section[0]} />
       <Career careerSummary={careerSummary} />
+      <Partners />
     </section>
   );
 };

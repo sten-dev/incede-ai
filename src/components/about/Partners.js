@@ -11,18 +11,18 @@ const Partners = (props) => {
     }
     return (
         <React.Fragment>
-            <section className="career">
+            <section className="gap-x">
                 <Row>
                     <Col>
                         <article className="gap-y">
                             <h1 className="title">Our Partners</h1>
-                            <p className="text-white sub-title">We service every aspect of your partners. From functionality, licensing, implementation to training.</p>
+                            <p className=" sub-title">We service every aspect of your partners. From functionality, licensing, implementation to training.</p>
                             <br />
-                            <p className="lead text-white">
+                            <p className="lead">
                                 Our close relationship with IBM and ThoughtSpot has helped us deliver numerous successful implementations. This success is based upon the fact that they share our vision to deliver the greatest business value for our customers.
                                 </p>
                             <br />
-                            <p className="lead text-white">
+                            <p className="lead">
                                 Incede account managers and consultants are experts in IBM’s and ThoughtSpot’s technology and utilize our best practice, proven methodology.
                             </p>
                             <br />
