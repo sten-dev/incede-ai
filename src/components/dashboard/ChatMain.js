@@ -104,7 +104,8 @@ class ChatMain extends Component {
       let rooms = this.state.rooms.filter(d => d.id !== roomId);
       this.setState(
         { roomJoinedIds: roomJoinedIds, rooms: rooms },
-        this.openCloseChatScreen
+        this.openCloseChatScreen,
+        this.refreshRooms
       );
     }
     localStorage.setItem('roomJoinedIds', JSON.stringify(roomJoinedIds));
