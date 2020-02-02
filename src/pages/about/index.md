@@ -11,7 +11,7 @@ section:
       executive management team drives the innovation and
       performance at the core of our company. Our leaders are
       leading visionary thinkers and problem solvers, positioning
-      Locus to continue thriving as the world class data analytics
+      Incede to continue thriving as the world class data analytics
       consulting company.
 
       We are trusted by our customers to navigate Artificial
@@ -22,4 +22,3 @@ section:
     image: /img/image_1.png
     title: Leadership
 ---
-

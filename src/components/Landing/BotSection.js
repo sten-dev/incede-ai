@@ -175,7 +175,7 @@ class BotSection extends Component {
 
     this.socket.emit(SOCKET_PATHS.CONNECT, {
       payload: "",
-      roomName: this.roomName ? this.roomName : "room" + time,
+      roomName: this.roomName ? this.roomName : "session-" + time,
       roomId: this.roomId ? this.roomId : undefined,
       wASessionId: this.wASessionId ? this.wASessionId : undefined
     });
@@ -413,7 +413,7 @@ class BotSection extends Component {
     let data = {
       comment: msg,
       wASessionId: this.wASessionId,
-      roomName: this.roomName ? this.roomName : "room" + new Date().getTime(),
+      roomName: this.roomName ? this.roomName : "session-" + new Date().getTime(),
       roomId: this.roomId,
       type: this.state.isDemo ? "demo" : "chat",
       demoProperty: this.state.isDemo
@@ -437,7 +437,7 @@ class BotSection extends Component {
       this.setState({
         isDemo: true
       })
-      this.roomName = "room" + new Date().getTime();
+      this.roomName = "session-" + new Date().getTime();
       localStorage.setItem("demoProperty", option.value.input.text);
     }
     let comment = option.value.input.text;

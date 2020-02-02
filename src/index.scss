@@ -153,7 +153,16 @@ small,
 .gap-x {
   padding: 0 64px;
 }
-
+.scroll-to-bottom-container {
+  position: fixed;
+  bottom: 8px;
+  right: 16px;
+  svg {
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+  }
+}
 @media screen and (max-width: 599px) {
   .gap-y {
     padding: 32px 0;

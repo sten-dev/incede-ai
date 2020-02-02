@@ -4,8 +4,7 @@ import Footer from "../components/Footer";
 import "../index.scss";
 import useSiteMetadata from "./SiteMetadata";
 import { withPrefix } from "gatsby";
-import INavbar from "./Navbar";
-import ChatMain from "./Landing/bot/ChatMain";
+import LayoutBody from "./LayoutBody";
 
 const Layout = ({ children, page }) => {
   const { title, description } = useSiteMetadata();
@@ -52,12 +51,9 @@ const Layout = ({ children, page }) => {
         />
         <script src="https://dde-us-south.analytics.ibm.com/daas/CognosApi.js"></script>
       </Helmet>
-      <INavbar page={page} />
-      <ChatMain page={page} />
-      <div>{children}</div>
-      {page !== "dashboard" && (
-        <Footer />
-      )}
+      <LayoutBody page={page}>
+        {children}
+      </LayoutBody>
     </div>
   );
 };
