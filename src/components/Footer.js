@@ -1,25 +1,25 @@
-import React from "react";
-import { Link } from "gatsby";
-import "../styles/footer.scss";
+import React from 'react';
+import { Link } from 'gatsby';
+import '../styles/footer.scss';
 
-import logo from "../img/logo_white.svg";
-import facebook from "../img/social/facebook.svg";
-import instagram from "../img/social/instagram.svg";
-import twitter from "../img/social/twitter.svg";
-import { Row, Container, Col } from "reactstrap";
-import FooterLocation from "./FooterLocation";
+import logo from '../img/logo_white.svg';
+import facebook from '../img/social/facebook.svg';
+import instagram from '../img/social/instagram.svg';
+import twitter from '../img/social/twitter.svg';
+import { Row, Container, Col } from 'reactstrap';
+import FooterLocation from './FooterLocation';
 class Footer extends React.Component {
   render() {
     return (
-      <footer className="footer gap-y-half">
+      <footer className='footer gap-y-half'>
         <Container>
           <Row>
-            <Col className="incede-img" md="12" sm="12" lg="12">
+            <Col className='incede-img' md='12' sm='12' lg='12'>
               <Row>
                 <Col>
-                  <img src={logo} alt="incede.ai" />
+                  <img src={logo} alt='incede.ai' />
                 </Col>
-                <Col className="text-right">
+                <Col className='text-right'>
                   {/* <section className="social">
                       <img src={facebook} alt="Facebook" />
                     </a>
@@ -33,65 +33,66 @@ class Footer extends React.Component {
                 </Col>
               </Row>
             </Col>
-            <Col md="3" sm="3" xs="12" lg="3">
-              <section className="half-menu">
-                <ul className="list-unstyled">
+            <Col md='3' sm='3' xs='12' lg='3'>
+              <section className='half-menu'>
+                <ul className='list-unstyled'>
                   <li>
-                    <Link to="/" className="navbar-item">
+                    <Link to='/' className='navbar-item'>
                       Home
                     </Link>
                   </li>
                   <li>
-                    <Link className="navbar-item" to="/about">
+                    <Link className='navbar-item' to='/about'>
                       About us
                     </Link>
                   </li>
                   <li>
-                    <Link className="navbar-item" to="/customers">
-                      Our Customers
+                    <Link className='navbar-item' to='/case-study'>
+                      Case Studies
                     </Link>
+                    {/* <Link className="navbar-item" to="/customers">
+                      Our Customers
+                    </Link> */}
                   </li>
                   <li>
-                    <Link className="navbar-item" to="/contact">
+                    <Link className='navbar-item' to='/contact'>
                       Contact
                     </Link>
                   </li>
                 </ul>
               </section>
             </Col>
-            <Col md="3" sm="3" xs="12" lg="3">
-              <section className="menu">
-                <ul className="list-unstyled">
+            <Col md='3' sm='3' xs='12' lg='3'>
+              <section className='menu'>
+                <ul className='list-unstyled'>
                   <li>
                     <h6>What We Do</h6>
                   </li>
                   <li>
-                    <Link className="navbar-item" to="/services">
+                    <Link className='navbar-item' to='/services'>
                       Services
                     </Link>
                   </li>
                   <li>
-                    <Link className="navbar-item" to="/solutions">
+                    <Link className='navbar-item' to='/solutions'>
                       Solutions
                     </Link>
                   </li>
                   <li>
-                    <Link className="navbar-item" to="/industries">
+                    <Link className='navbar-item' to='/industries'>
                       Industries
                     </Link>
                   </li>
                 </ul>
               </section>
             </Col>
-            <Col md="3" sm="3" xs="12" lg="3">
-              <section className="menu">
+            <Col md='3' sm='3' xs='12' lg='3'>
+              <section className='menu'>
                 <FooterLocation />
               </section>
             </Col>
-            <Col lg="12" md="12" sm="12" xs="12">
-              <p className="m-0">
-                © Copyright 2020 Incede AI
-            </p>
+            <Col lg='12' md='12' sm='12' xs='12'>
+              <p className='m-0'>© Copyright 2020 Incede AI</p>
             </Col>
           </Row>
         </Container>
