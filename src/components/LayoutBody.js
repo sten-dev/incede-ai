@@ -12,6 +12,7 @@ class LayoutBody extends Component {
     }
     componentDidMount() {
         document.addEventListener('scroll', this.trackScrolling);
+        this.trackScrolling()
     }
 
     componentWillUnmount() {
