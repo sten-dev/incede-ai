@@ -196,7 +196,7 @@ class ChatScreen extends Component {
     let textColor = myMessage ? { color: "#fff" } : {};
 
     return (
-      <div style={containerStyle}>
+      <div key={`chat${index}`} style={containerStyle}>
         <div style={messageStyle}>
           <span style={textColor} dangerouslySetInnerHTML={{ __html: item.message }}>
             {/* {item.message} */}
