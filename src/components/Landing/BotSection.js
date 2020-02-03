@@ -5,7 +5,12 @@ import logo from "../../img/logo_white.svg";
 import { ChatPill } from "./bot/ChatPill";
 import { ChatPillAsk } from "./bot/ChatPillAsk";
 import socketIO from "socket.io-client";
-import { API_URL, SOCKET_PATHS, httpClient, DEMO_SOCKET_URL } from "../../constants";
+import {
+  API_URL,
+  SOCKET_PATHS,
+  httpClient,
+  DEMO_SOCKET_URL
+} from "../../constants";
 import chat from "../../img/chat.svg";
 import ChatLocation from "../ChatLocation";
 import CallBackForm from "./bot/CallBackForm";
@@ -21,15 +26,17 @@ class BotSection extends Component {
   waTimeOut = 1 * 60 * 60 * 1000; // one hour
   waCreatedTime;
   currentIntent;
-  demoSocket = undefined
+  demoSocket = undefined;
   constructor(props) {
     super(props);
     this.state = {
-      messages: [{
-        user: "WA",
-        message: "Hi, I am incede bot",
-        type: "text",
-      }],
+      messages: [
+        {
+          user: "WA",
+          message: "Hi, I am incede bot",
+          type: "text"
+        }
+      ],
       msg: "",
       isDemo: false,
       lastWAUserIndex: -1,
@@ -94,7 +101,7 @@ class BotSection extends Component {
       reconnectionDelayMax: 5000,
       reconnectionAttempts: 5
     });
-    this.socket.on("connect", function () {
+    this.socket.on("connect", function() {
       console.debug("connected to server");
     });
     let messages = [];
@@ -129,8 +136,8 @@ class BotSection extends Component {
                     x.USER === "WATSON"
                       ? "WA"
                       : x.USER === "AGENT"
-                        ? "AG"
-                        : "ME",
+                      ? "AG"
+                      : "ME",
                   message: x.options ? x.title : x.TEXT,
                   type: x.options ? "options" : "text",
                   options: x.TYPE === "options" ? JSON.parse(x.OPTIONS) : [],
@@ -230,7 +237,7 @@ class BotSection extends Component {
               isLoading: false
             },
             () => {
-              let data = [...response.data]
+              let data = [...response.data];
               data.splice(0, 1);
               response.data = data;
               this.pushWAMessage(response);
@@ -267,7 +274,7 @@ class BotSection extends Component {
           response.type === "demo" &&
           response.intent === "exit_demo"
         ) {
-          this.resetLocalStorage(true)
+          this.resetLocalStorage(true);
           this.roomId = localStorage.getItem("roomId");
           this.roomName = localStorage.getItem("roomName");
           this.wASessionId = localStorage.getItem("wASessionId");
@@ -307,7 +314,7 @@ class BotSection extends Component {
     });
   };
 
-  resetLocalStorage = (isDemo) => {
+  resetLocalStorage = isDemo => {
     localStorage.removeItem("demoProperty");
     localStorage.removeItem("demoWASessionId");
     localStorage.removeItem("demoRoomId");
@@ -318,10 +325,11 @@ class BotSection extends Component {
       localStorage.removeItem("roomId");
       localStorage.removeItem("roomName");
     }
-  }
-
+  };
+  message;
   pushWAMessage = response => {
     let data = response.data;
+    let shouldUpdate = true;
     if (data && Array.isArray(data)) {
       let messages = [...this.state.messages];
       let lastWAUserIndex = this.state.lastWAUserIndex;
@@ -344,8 +352,15 @@ class BotSection extends Component {
             lastWAUserIndex = messages.length - 1;
           }
         } else if (x.response_type === "suggestion") {
-          if (x.suggestions && x.suggestions.length > 0 && x.suggestions[0].output && x.suggestions[0].output.generic && x.suggestions[0].output.generic.length > 0) {
-            this.pushWAMessage({ data: x.suggestions[0].output.generic })
+          if (
+            x.suggestions &&
+            x.suggestions.length > 0 &&
+            x.suggestions[0].output &&
+            x.suggestions[0].output.generic &&
+            x.suggestions[0].output.generic.length > 0
+          ) {
+            shouldUpdate = false;
+            this.pushWAMessage({ data: x.suggestions[0].output.generic });
           }
         } else if (x.text || x.title) {
           messages.push({
@@ -364,14 +379,15 @@ class BotSection extends Component {
           lastWAUserIndex = messages.length - 1;
         }
       });
-      this.setState(
-        {
-          messages,
-          lastWAUserIndex,
-          isLoading: false
-        },
-        this.scrollToBottom
-      );
+      if (shouldUpdate)
+        this.setState(
+          {
+            messages,
+            lastWAUserIndex,
+            isLoading: false
+          },
+          this.scrollToBottom
+        );
     }
   };
 
@@ -386,12 +402,14 @@ class BotSection extends Component {
     this.resetLocalStorage(true);
     this.demoSocket = undefined;
     // setTimeout(() => {
-    this.setState({
-      isDemo: false
-    }, () => {
-
-      this.sendCustomMessage("exit_demo", false);
-    });
+    this.setState(
+      {
+        isDemo: false
+      },
+      () => {
+        this.sendCustomMessage("exit_demo", false);
+      }
+    );
     // }, 500);
   };
 
@@ -400,11 +418,13 @@ class BotSection extends Component {
     this.demoSocket = undefined;
     this.sendCustomMessage("", true);
     this.setState({
-      messages: [{
-        user: "WA",
-        message: "Hi, I am incede bot",
-        type: "text",
-      }]
+      messages: [
+        {
+          user: "WA",
+          message: "Hi, I am incede bot",
+          type: "text"
+        }
+      ]
     });
   };
 
@@ -413,7 +433,9 @@ class BotSection extends Component {
     let data = {
       comment: msg,
       wASessionId: this.wASessionId,
-      roomName: this.roomName ? this.roomName : "session-" + new Date().getTime(),
+      roomName: this.roomName
+        ? this.roomName
+        : "session-" + new Date().getTime(),
       roomId: this.roomId,
       type: this.state.isDemo ? "demo" : "chat",
       demoProperty: this.state.isDemo
@@ -436,7 +458,7 @@ class BotSection extends Component {
       this.roomId = undefined;
       this.setState({
         isDemo: true
-      })
+      });
       this.roomName = "session-" + new Date().getTime();
       localStorage.setItem("demoProperty", option.value.input.text);
     }
@@ -445,7 +467,7 @@ class BotSection extends Component {
       comment = "talk to agent";
     }
 
-    let isAdd = true
+    let isAdd = true;
     // if (message.message && message.message.toLowerCase() == "contact us" && comment.toLowerCase() === "cancel") {
     //   comment = "What we do";
     //   isAdd = false
@@ -470,10 +492,10 @@ class BotSection extends Component {
       reconnectionDelayMax: 5000,
       reconnectionAttempts: 5
     });
-    this.demoSocket.on("connect", function () {
+    this.demoSocket.on("connect", function() {
       console.debug("demo socket connected to server");
     });
-    this.demoSocket.on("chat message", (message) => {
+    this.demoSocket.on("chat message", message => {
       let data = message;
       let session_id = localStorage.getItem("demoWASessionId");
       let messages = [...this.state.messages];
@@ -515,23 +537,21 @@ class BotSection extends Component {
         },
         this.scrollToBottom
       );
-
-
     });
-  }
+  };
 
   sendMessage = (data, message, shouldAddToMessages) => {
     let messages = [...this.state.messages];
     if (this.state.isDemo) {
       if (!this.demoSocket) {
-        this.initializeDemoSocket()
+        this.initializeDemoSocket();
       }
       let demoWASessionId = localStorage.getItem("demoWASessionId");
       this.demoSocket.emit("chat message", {
         payload: data.comment,
         params: { session_id: demoWASessionId },
-        user: "user",
-      })
+        user: "user"
+      });
     } else {
       this.socket.emit(SOCKET_PATHS.CONNECT, data);
     }
@@ -549,7 +569,7 @@ class BotSection extends Component {
   };
 
   scrollToBottom = () => {
-    setTimeout(function () {
+    setTimeout(function() {
       var objDiv = document.getElementById("messages_container");
       if (objDiv) {
         objDiv.scrollTop = objDiv.scrollHeight;
@@ -579,18 +599,18 @@ class BotSection extends Component {
                 isLastWAUser={index === this.state.lastWAUserIndex}
               />
             ) : (
-                <React.Fragment>
-                  <ChatPill
-                    isLastWAUser={
-                      index === this.state.lastWAUserIndex &&
-                      !this.state.isLoading
-                    }
-                    right={data.user === "ME"}
-                    user={data.user}
-                    text=""
-                  />
-                </React.Fragment>
-              )}
+              <React.Fragment>
+                <ChatPill
+                  isLastWAUser={
+                    index === this.state.lastWAUserIndex &&
+                    !this.state.isLoading
+                  }
+                  right={data.user === "ME"}
+                  user={data.user}
+                  text=""
+                />
+              </React.Fragment>
+            )}
           </React.Fragment>
         );
       default:
@@ -715,19 +735,19 @@ class BotSection extends Component {
                 Exit Demo
               </Button>
             ) : (
-                <React.Fragment>
-                  {this.state.messages.length > 0 && (
-                    <Button
-                      onClick={() => {
-                        this.setState({ modal: { isOpen: true } });
-                      }}
-                      className="reset-btn mr-1 d-none d-sm-block"
-                    >
-                      Reset
+              <React.Fragment>
+                {this.state.messages.length > 0 && (
+                  <Button
+                    onClick={() => {
+                      this.setState({ modal: { isOpen: true } });
+                    }}
+                    className="reset-btn mr-1 d-none d-sm-block"
+                  >
+                    Reset
                   </Button>
-                  )}
-                </React.Fragment>
-              )}
+                )}
+              </React.Fragment>
+            )}
             <ChatPillAsk
               handleKeyDown={this.handleKeyDown}
               value={this.state.msg}
