@@ -53,64 +53,65 @@ class DashboardMain extends Component {
     initializeCognosApi = () => {
         this.sessionObj = null;
         this.cognosApi = null;
-        if (this.props.selectedRoomId) {
-            if (this.state.window && this.state.window.CognosApi) {
-                let window = this.state.window;
-                this.cognosApi = new window.CognosApi({
-                    cognosRootURL:
-                        "https://us-south.dynamic-dashboard-embedded.cloud.ibm.com/daas/",
-                    sessionCode: this.sessionCode,
-                    node: document.getElementById("dash")
-                });
-                let dashSpecObj = { ...dashSpec };
-                // if (dashSpecObj.pageContext && dashSpecObj.pageContext.length > 0) {
-                //     dashSpecObj.pageContext[0].tupleSet = {
-                //         ["CALL_TONE.ROOM_ID->[" + this.props.selectedRoomId + "]"]: {
-                //             "u": "CALL_TONE.ROOM_ID->[" + this.props.selectedRoomId + "]",
-                //             "d": this.props.selectedRoomId
-                //         }
-                //     }
-                // };
-                dashSpecObj.dataSources.sources.forEach(element => {
-                    element.module.source = { ...this.state.source }
-                });
-
-                // if (!this.props.selectedRoomId) {
-                //     let tabs = [...dashSpecObj.layout.items]
-                //     tabs.splice(0, 1);
-                //     dashSpecObj.layout.items = [...tabs];
-                // }
-
-                Object.keys(dashSpecObj.widgets).forEach(widgetKey => {
-                    if (dashSpecObj.widgets[widgetKey].localFilters && dashSpecObj.widgets[widgetKey].localFilters.length > 0 && dashSpecObj.widgets[widgetKey].localFilters[0].values && dashSpecObj.widgets[widgetKey].localFilters[0].values.length > 0) {
-                        dashSpecObj.widgets[widgetKey].localFilters[0].values[0].d = this.props.selectedRoomId
-                        if (dashSpecObj.widgets[widgetKey].localFilters[0].values[0].u) {
-                            dashSpecObj.widgets[widgetKey].localFilters[0].values[0].u = dashSpecObj.widgets[widgetKey].localFilters[0].values[0].u.replace("[650]", "[" + this.props.selectedRoomId + "]")
-                        }
-                    }
-                });
+        // if (this.props.selectedRoomId) {
+        if (this.state.window && this.state.window.CognosApi) {
+            let window = this.state.window;
+            this.cognosApi = new window.CognosApi({
+                cognosRootURL:
+                    "https://us-south.dynamic-dashboard-embedded.cloud.ibm.com/daas/",
+                sessionCode: this.sessionCode,
+                node: document.getElementById("dash")
+            });
+            let dashSpecObj = JSON.parse(JSON.stringify({ ...dashSpec }));
+            // if (dashSpecObj.pageContext && dashSpecObj.pageContext.length > 0) {
+            //     dashSpecObj.pageContext[0].tupleSet = {
+            //         ["CALL_TONE.ROOM_ID->[" + this.props.selectedRoomId + "]"]: {
+            //             "u": "CALL_TONE.ROOM_ID->[" + this.props.selectedRoomId + "]",
+            //             "d": this.props.selectedRoomId
+            //         }
+            //     }
+            // };
+            dashSpecObj.dataSources.sources.forEach(element => {
+                element.module.source = { ...this.state.source }
+            });
 
 
-                this.cognosApi.initialize().then(() => {
-                    this.cognosApi.dashboard
-                        .openDashboard({ dashboardSpec: dashSpecObj })
-                        .then((dashboardAPI) => {
-                            this.cognosApi.dashboardAPI = dashboardAPI;
-                        }, () => {
-                            this.getDashBoardSession();
-                        })
-                        .catch((err) => {
-                            this.getDashBoardSession();
-                            console.log(err);
-                        });
-                },
-                    (err) => {
-                        this.getDashBoardSession();
-                        console.log("Failed to create API. " + err.message);
-                    }
-                );
+            if (!this.props.selectedRoomId) {
+                let tabs = [...dashSpecObj.layout.items]
+                tabs.pop();
+                dashSpecObj.layout.items = [...tabs];
             }
+
+            Object.keys(dashSpecObj.widgets).forEach(widgetKey => {
+                if (dashSpecObj.widgets[widgetKey].localFilters && dashSpecObj.widgets[widgetKey].localFilters.length > 0 && dashSpecObj.widgets[widgetKey].localFilters[0].values && dashSpecObj.widgets[widgetKey].localFilters[0].values.length > 0) {
+                    dashSpecObj.widgets[widgetKey].localFilters[0].values[0].d = this.props.selectedRoomId
+                    if (dashSpecObj.widgets[widgetKey].localFilters[0].values[0].u) {
+                        dashSpecObj.widgets[widgetKey].localFilters[0].values[0].u = dashSpecObj.widgets[widgetKey].localFilters[0].values[0].u.replace("[650]", "[" + this.props.selectedRoomId + "]")
+                    }
+                }
+            });
+
+
+            this.cognosApi.initialize().then(() => {
+                this.cognosApi.dashboard
+                    .openDashboard({ dashboardSpec: dashSpecObj })
+                    .then((dashboardAPI) => {
+                        this.cognosApi.dashboardAPI = dashboardAPI;
+                    }, () => {
+                        this.getDashBoardSession();
+                    })
+                    .catch((err) => {
+                        this.getDashBoardSession();
+                        console.log(err);
+                    });
+            },
+                (err) => {
+                    this.getDashBoardSession();
+                    console.log("Failed to create API. " + err.message);
+                }
+            );
         }
+        // }
     }
     getDashBoardSession = async () => {
         let sessionResp = await httpClient("dash-session", "GET", undefined);
@@ -128,15 +129,13 @@ class DashboardMain extends Component {
                 <div className="text-center" id="dash">
                     <br />
                     <br />
-                    <div>
+                    <h4 className="lead">Loading..</h4>
+                    {/* <div>
                         <img src={defaultGraph} alt="graph" />
                     </div>
                     <div>
                         Click on the <strong>Active Session List</strong> on the left to load Dashboard
-                    </div>
-                    <div>
-
-                    </div>
+                    </div> */}
                 </div>
             </React.Fragment>
         );
