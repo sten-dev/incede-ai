@@ -5,7 +5,7 @@ import logo from "../../img/logo_white.svg";
 import { ChatPill } from "./bot/ChatPill";
 import { ChatPillAsk } from "./bot/ChatPillAsk";
 import socketIO from "socket.io-client";
-import { API_URL, SOCKET_PATHS, httpClient, DEMO_SOCKET_URL } from "../../constants";
+import { API_URL, SOCKET_PATHS, httpClient, DEMO_SOCKET_URL, WEB_URL } from "../../constants";
 import chat from "../../img/chat.svg";
 import ChatLocation from "../ChatLocation";
 import CallBackForm from "./bot/CallBackForm";
@@ -22,12 +22,13 @@ class BotSection extends Component {
   waCreatedTime;
   currentIntent;
   demoSocket = undefined
+  welcomeMsg = "Welcome!  I am Incede, your virtual assistant to help you quickly find what interests you."
   constructor(props) {
     super(props);
     this.state = {
       messages: [{
         user: "WA",
-        message: "Hi, I am incede bot",
+        message: "Welcome!  I am Incede, your virtual assistant to help you quickly find what interests you.",
         type: "text",
       }],
       msg: "",
@@ -402,7 +403,7 @@ class BotSection extends Component {
     this.setState({
       messages: [{
         user: "WA",
-        message: "Hi, I am incede bot",
+        message: "Welcome!  I am Incede, your virtual assistant to help you quickly find what interests you.",
         type: "text",
       }]
     });
@@ -425,6 +426,22 @@ class BotSection extends Component {
 
   handleOnOptionClick = (message, optionIndex) => {
     let option = message.options[optionIndex];
+    if (option && option.label && option.label === "Who are we" && message.message && message.message.indexOf("What are you most interested in today") > -1) {
+      window.open(WEB_URL + "about", '_blank');
+      return
+    }
+    if (option && option.label && option.label === "Custom AI Business solutions") {
+      window.open(WEB_URL + "services/2020-01-28-custom-ai-applications", '_blank');
+      return
+    }
+    if (option && option.label && option.label === "Smart Document Understanding") {
+      window.open(WEB_URL + "services/virtual-assistance-chatbots/", '_blank');
+      return
+    }
+    if (option && option.label && option.label === "Virtual Assistants, Chatbots") {
+      window.open(WEB_URL + "services/2020-01-28-cognitive-enterprise/", '_blank');
+      return
+    }
     let type = "chat";
     if (
       message.intent &&
@@ -655,24 +672,45 @@ class BotSection extends Component {
                       x.type === "options" && (
                         <div className="options-container">
                           <Row>
-                            {x.options.map((option, index) => (
-                              <Col
-                                key={index}
-                                lg={4}
-                                md={4}
-                                sm={6}
-                                xs={12}
-                                onClick={() =>
-                                  this.handleOnOptionClick(x, index)
-                                }
-                              >
-                                <div
-                                  className={`wa-option ${option.label.toLowerCase()}`}
-                                >
-                                  <p>{option.label}</p>
-                                </div>
-                              </Col>
-                            ))}
+                            {x.options.map((option, index) => {
+                              return (
+                                <React.Fragment>
+                                  {option.value.input.text.startsWith("<a") && option.value.input.text.indexOf("href") > -1 ? (
+                                    <Col
+                                      key={index}
+                                      lg={4}
+                                      md={4}
+                                      sm={6}
+                                      xs={12}
+                                    >
+                                      <div
+                                        className={`wa-option ${option.label.replace(/ /g, "-").toLowerCase()}`}
+                                      >
+                                        <p dangerouslySetInnerHTML={{ __html: option.value.input.text }}></p>
+                                      </div>
+                                    </Col>
+                                  ) : (
+                                      <Col
+                                        key={index}
+                                        lg={4}
+                                        md={4}
+                                        sm={6}
+                                        xs={12}
+                                        onClick={
+                                          () =>
+                                            this.handleOnOptionClick(x, index)
+                                        }
+                                      >
+                                        <div
+                                          className={`wa-option ${option.label.replace(/ /g, "-").toLowerCase()}`}
+                                        >
+                                          <p>{option.label}</p>
+                                        </div>
+                                      </Col>
+                                    )}
+                                </React.Fragment>
+                              )
+                            })}
                           </Row>
                         </div>
                       )}
@@ -744,7 +782,7 @@ class BotSection extends Component {
             Do you want to reset chat history?
           </ConfirmModal>
         </Container>
-      </section>
+      </section >
     );
   }
 }
