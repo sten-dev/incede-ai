@@ -11,7 +11,7 @@ class Career extends React.Component {
     return (
       <div>
         <section className="career gap-x">
-          <Container fluid>
+          <Container>
             <Row>
               <Col>
                 <article className="gap-y">
