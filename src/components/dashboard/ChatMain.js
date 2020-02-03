@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import socketIO from 'socket.io-client';
 import { API_URL, SOCKET_PATHS } from '../../constants';
-import { exitRoomChats } from '../../../Service';
+import { exitRoomChats, getDemoChats } from '../../../Service';
 import {
   ListGroup,
   ListGroupItem,
@@ -21,6 +21,7 @@ class ChatMain extends Component {
     super(props);
     this.state = {
       isLoading: false,
+      demoChats: [],
       rooms: [],
       showChatScreen: false,
       selectedRoomId: undefined,
@@ -29,13 +30,23 @@ class ChatMain extends Component {
       modal: { isOpen: false }
     };
   }
-  componentDidMount = () => {
+  componentDidMount = async () => {
     let roomJoinedIds = localStorage.getItem('roomJoinedIds');
     this.setState({
       roomJoinedIds: roomJoinedIds ? JSON.parse(roomJoinedIds) : []
     });
+    await this.getDemoChats();
     this.initializeSocketIo();
   };
+  getDemoChats = async () => {
+    let result = await getDemoChats();
+    console.log("demo chats", result);
+    if (result.success) {
+      this.setState({
+        demoChats: result.data
+      })
+    }
+  }
   initializeSocketIo = () => {
     this.setState({ isLoading: true });
     let scope = this;
@@ -46,7 +57,7 @@ class ChatMain extends Component {
       reconnectionAttempts: 5
     });
 
-    this.socket.on('connect', function() {
+    this.socket.on('connect', function () {
       //   console.warn("connected to server");
     });
     this.socket.emit(SOCKET_PATHS.CONNECT_ALL_ROOMS, {});
@@ -156,32 +167,32 @@ class ChatMain extends Component {
                 />
               </>
             ) : (
-              <>
-                <span
-                  onClick={() => this.openCloseChatScreen()}
-                  style={{ color: '#18a88c', display: 'flex' }}
-                  className='pointer'>
-                  <img
-                    className='pointer'
-                    src={require('../../img/chevron-left.svg')}
-                  />
-                  Back
+                <>
+                  <span
+                    onClick={() => this.openCloseChatScreen()}
+                    style={{ color: '#18a88c', display: 'flex' }}
+                    className='pointer'>
+                    <img
+                      className='pointer'
+                      src={require('../../img/chevron-left.svg')}
+                    />
+                    Back
                 </span>
-                <span style={{ color: '#5c4abb', fontSize: '15px' }}>
-                  {this.state.selectedRoomName}
-                </span>
-                {this.state.roomJoinedIds.find(
-                  roomId => roomId === this.state.selectedRoomId
-                ) && (
-                  <Button
-                    color='link'
-                    style={{ color: '#ff6347', padding: 0 }}
-                    onClick={() => this.setState({ modal: { isOpen: true } })}>
-                    DISCONNECT
+                  <span style={{ color: '#5c4abb', fontSize: '15px' }}>
+                    {this.state.selectedRoomName}
+                  </span>
+                  {this.state.roomJoinedIds.find(
+                    roomId => roomId === this.state.selectedRoomId
+                  ) && (
+                      <Button
+                        color='link'
+                        style={{ color: '#ff6347', padding: 0 }}
+                        onClick={() => this.setState({ modal: { isOpen: true } })}>
+                        DISCONNECT
                   </Button>
-                )}
-              </>
-            )}
+                    )}
+                </>
+              )}
           </Breadcrumb>
           <div className='room-list'>
             {this.state.isLoading && (
@@ -207,31 +218,32 @@ class ChatMain extends Component {
                       {this.state.roomJoinedIds.find(
                         roomId => roomId === room.id
                       ) && (
-                        <div>
-                          <Badge color='primary' pill>
-                            Live
+                          <div>
+                            <Badge color='primary' pill>
+                              Live
                           </Badge>
-                        </div>
-                      )}
+                          </div>
+                        )}
                     </ListGroupItem>
                   ))}
+
                 </ListGroup>
               </div>
             ) : (
-              <ChatScreen
-                roomId={this.state.selectedRoomId}
-                roomName={this.state.selectedRoomName}
-                socket={this.socket}
-                updateRoomJoinedIds={this.updateRoomJoinedIds}
-                roomJoined={
-                  this.state.roomJoinedIds.find(
-                    roomId => roomId === this.state.selectedRoomId
-                  )
-                    ? true
-                    : false
-                }
-              />
-            )}
+                <ChatScreen
+                  roomId={this.state.selectedRoomId}
+                  roomName={this.state.selectedRoomName}
+                  socket={this.socket}
+                  updateRoomJoinedIds={this.updateRoomJoinedIds}
+                  roomJoined={
+                    this.state.roomJoinedIds.find(
+                      roomId => roomId === this.state.selectedRoomId
+                    )
+                      ? true
+                      : false
+                  }
+                />
+              )}
           </div>
         </div>
         <ConfirmModal

@@ -17,3 +17,8 @@ export const exitRoomChats = async obj => {
   let response = await httpClient("rooms", "PATCH", obj);
   return response;
 };
+
+export const getDemoChats = async () => {
+  let response = await httpClient("demo-chats", "GET");
+  return response;
+};
