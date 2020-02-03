@@ -26,6 +26,7 @@ import dropdown from "../img/dropdown.svg";
 import MenuSection from "./menu/MenuSection";
 
 class INavbar extends Component {
+  window
   constructor(props) {
     super(props);
     this.state = {
@@ -34,18 +35,22 @@ class INavbar extends Component {
     }
   }
 
+  componentDidMount() {
+    this.window = window
+  }
+
   parseJwt = () => {
     let token = this.getToken();
     if (token) {
       var base64Url = token.split('.')[1];
       var base64 = base64Url.replace('-', '+').replace('_', '/');
-      return JSON.parse(window.atob(base64));
+      return JSON.parse(this.window.atob(base64));
     }
     return '';
   };
 
   getToken = () => {
-    let obj = window.localStorage.getItem('userAuthToken');
+    let obj = this.window.localStorage.getItem('userAuthToken');
     return obj;
   };
 

@@ -12,6 +12,7 @@ class LayoutBody extends Component {
         }
     }
     componentDidMount() {
+        this.window = window
         this.handleSession();
         document.addEventListener('scroll', this.trackScrolling);
         this.trackScrolling()
@@ -22,13 +23,13 @@ class LayoutBody extends Component {
         if (token) {
             var base64Url = token.split('.')[1];
             var base64 = base64Url.replace('-', '+').replace('_', '/');
-            return JSON.parse(window.atob(base64));
+            return JSON.parse(this.window.atob(base64));
         }
         return '';
     };
 
     getToken = () => {
-        let obj = window.localStorage.getItem('userAuthToken');
+        let obj = this.window.localStorage.getItem('userAuthToken');
         return obj;
     };
 
