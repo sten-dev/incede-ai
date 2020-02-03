@@ -50,8 +50,11 @@ class INavbar extends Component {
   };
 
   getToken = () => {
-    let obj = this.window.localStorage.getItem('userAuthToken');
-    return obj;
+    if (this.window && this.window.localStorage) {
+      let obj = this.window.localStorage.getItem('userAuthToken');
+      return obj;
+    }
+    return null
   };
 
   isTokenExpired = () => {
