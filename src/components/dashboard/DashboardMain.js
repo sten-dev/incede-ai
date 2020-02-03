@@ -117,7 +117,7 @@ class DashboardMain extends Component {
         this.sessionObj = sessionResp;
         this.sessionCode = this.sessionObj.sessionCode;
         localStorage.setItem("sessionCode", this.sessionObj.sessionCode);
-        var time = new Date().getTime() + 1000 * 60 * 60 * 3;
+        var time = new Date().getTime() + 1000 * 60 * 60 * 1;
         localStorage.setItem("expTime", time);
         this.initializeCognosApi();
     }
