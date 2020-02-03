@@ -258,7 +258,7 @@ class ChatScreen extends Component {
                 <Loading />
               </div>
             )}
-            {this.state.messages.map(this.renderFlatListItem)}
+            {this.state.messages.filter(x => ["agent_not_available", "welcome_back"].indexOf(x.message) === -1).map(this.renderFlatListItem)}
           </div>
           <div className="send-chat-container">
             {this.state.joined ? (

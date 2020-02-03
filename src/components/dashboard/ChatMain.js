@@ -202,7 +202,7 @@ class ChatMain extends Component {
             )}
             {!this.state.showChatScreen ? (
               <div className=''>
-                {!this.state.isLoading && this.state.rooms.length === 0 && (
+                {!this.state.isLoading && (this.state.rooms.length === 0 && this.state.demoChats.length === 0) && (
                   <div className='text-center'> No Active Sessions found </div>
                 )}
                 <ListGroup className=''>
@@ -227,6 +227,17 @@ class ChatMain extends Component {
                     </ListGroupItem>
                   ))}
 
+                  {this.state.demoChats.map(room => (
+                    <ListGroupItem
+                      key={room.ID}
+                      onClick={() =>
+                        this.openCloseChatScreen(room.ID, room.RNAME)
+                      }
+                      className='pointer'
+                      action>
+                      {room.RNAME}
+                    </ListGroupItem>
+                  ))}
                 </ListGroup>
               </div>
             ) : (

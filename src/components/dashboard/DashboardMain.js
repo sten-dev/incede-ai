@@ -124,6 +124,7 @@ class DashboardMain extends Component {
     render() {
         return (
             <React.Fragment>
+                <h3 className="lead mt-0">Dashboard</h3>
                 <div className="text-center" id="dash">
                     <br />
                     <br />
@@ -131,7 +132,7 @@ class DashboardMain extends Component {
                         <img src={defaultGraph} alt="graph" />
                     </div>
                     <div>
-                        Click on the <strong>Active Rooms List</strong> on the left to load Dashboard
+                        Click on the <strong>Active Session List</strong> on the left to load Dashboard
                     </div>
                     <div>
 

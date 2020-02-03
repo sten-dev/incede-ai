@@ -56,8 +56,16 @@
 }
 
 #dash {
-  height: calc(100vh - 90px);
+  height: calc(100vh - 160px);
   background: #fff;
   border: 1px solid #ddd;
   padding: 8px;
+}
+
+.red-chat {
+  background: #e53935;
+  color: #fff;
+}
+.yellow-chat {
+  background: #ffeb3b;
 }
