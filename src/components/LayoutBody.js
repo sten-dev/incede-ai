@@ -3,8 +3,8 @@ import INavbar from './Navbar';
 import ChatMain from './Landing/bot/ChatMain';
 import Footer from './Footer';
 import { animateScroll as scroll } from 'react-scroll'
-import { isTokenExpired } from '../Utils';
 class LayoutBody extends Component {
+    window
     constructor(props) {
         super(props);
         this.state = {
@@ -17,8 +17,37 @@ class LayoutBody extends Component {
         this.trackScrolling()
     }
 
+    parseJwt = () => {
+        let token = this.getToken();
+        if (token) {
+            var base64Url = token.split('.')[1];
+            var base64 = base64Url.replace('-', '+').replace('_', '/');
+            return JSON.parse(window.atob(base64));
+        }
+        return '';
+    };
+
+    getToken = () => {
+        let obj = window.localStorage.getItem('userAuthToken');
+        return obj;
+    };
+
+    isTokenExpired = () => {
+        var token = getToken();
+        if (token) {
+            let user = parseJwt();
+            var cur_time = new Date().getTime() / 1000;
+            if (user && user.exp && cur_time < user.exp) {
+                return false;
+            }
+            return true;
+        } else {
+            return true;
+        }
+    }
+
     handleSession = () => {
-        if (!window.location.pathname.startsWith("/login") && isTokenExpired()) {
+        if (!window.location.pathname.startsWith("/login") && this.isTokenExpired()) {
             window.location.href = "/login"
         }
     }

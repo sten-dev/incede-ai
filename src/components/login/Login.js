@@ -3,7 +3,6 @@ import { Container, Row, Card, CardBody, Col, FormGroup, Label, Input, Form, But
 import logo from "../../img/logo.svg";
 import { loginAgent } from '../../../Service';
 import "../../styles/login.scss";
-import { setToken } from '../../Utils';
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -36,7 +35,7 @@ class Login extends Component {
         });
         console.log(result)
         if (result.success) {
-            setToken(result.data);
+            window.localStorage.setItem("userAuthToken", result.data);
             this.setState({
                 isRequestPending: false,
             }, () => {
