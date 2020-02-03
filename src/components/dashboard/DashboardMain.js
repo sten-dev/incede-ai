@@ -129,7 +129,7 @@ class DashboardMain extends Component {
                 <div className="text-center" id="dash">
                     <br />
                     <br />
-                    <h4 className="lead">Loading..</h4>
+                    <h4 className="lead">Loading...</h4>
                     {/* <div>
                         <img src={defaultGraph} alt="graph" />
                     </div>
