@@ -9,13 +9,13 @@ export const parseJwt = () => {
 };
 
 export const setToken = token => {
-    localStorage.setItem('userAuthToken', token);
+    window.localStorage.setItem('userAuthToken', token);
 };
 export const removeToken = () => {
-    localStorage.removeItem('userAuthToken');
+    window.localStorage.removeItem('userAuthToken');
 };
 export const getToken = () => {
-    let obj = localStorage.getItem('userAuthToken');
+    let obj = window.localStorage.getItem('userAuthToken');
     return obj;
 };
 
