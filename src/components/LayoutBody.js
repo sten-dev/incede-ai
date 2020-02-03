@@ -33,9 +33,9 @@ class LayoutBody extends Component {
     };
 
     isTokenExpired = () => {
-        var token = getToken();
+        var token = this.getToken();
         if (token) {
-            let user = parseJwt();
+            let user = this.parseJwt();
             var cur_time = new Date().getTime() / 1000;
             if (user && user.exp && cur_time < user.exp) {
                 return false;
