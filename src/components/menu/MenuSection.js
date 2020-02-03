@@ -22,10 +22,14 @@ class MenuSection extends Component {
   render() {
     return (
       <section className="menu-section">
-        <Container fluid style={{
-          padding: " 0.5rem 1rem", height: "100vh",
-          overflow: "auto"
-        }}>
+        <Container
+          fluid
+          style={{
+            padding: " 0.5rem 1rem",
+            height: "100vh",
+            overflow: "auto"
+          }}
+        >
           <div className="m-0 flex-column ">
             <div className="d-flex justify-content-between">
               <div>
@@ -36,7 +40,12 @@ class MenuSection extends Component {
                 />
               </div>
               <div className="align-self-center menu-close">
-                <img src={close} alt="close" style={{ width: "16px" }} onClick={this.props.toggle} />
+                <img
+                  src={close}
+                  alt="close"
+                  style={{ width: "16px" }}
+                  onClick={this.props.toggle}
+                />
               </div>
             </div>
             {!this.state.subMenu && (
@@ -104,12 +113,12 @@ class MenuSection extends Component {
                         <SolutionsMenu />
                       </span>
                     </Col>
-                    <Col className="pb-4">
+                    {/* <Col className="pb-4">
                       <h5 className="mt-0">Industries</h5>
                       <span className="sub-menu-items">
                         <IndustriesMenu />
                       </span>
-                    </Col>
+                    </Col> */}
                   </Row>
                 </div>
               </React.Fragment>
