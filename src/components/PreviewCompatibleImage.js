@@ -5,12 +5,11 @@ import Img from 'gatsby-image'
 const PreviewCompatibleImage = ({ imageInfo }) => {
   const imageStyle = imageInfo.style ? imageInfo.style : {};
   const { alt = '', childImageSharp, image } = imageInfo
-  console.log("imageInfo", imageInfo)
   if (!!image && !!image.childImageSharp) {
     return (
       <React.Fragment>
         {image.childImageSharp.fluid.src ? (
-          <img style={imageStyle} src={image.childImageSharp.fluid.src} alt={alt} />
+          <img style={{ ...imageStyle, width: "100%" }} src={image.childImageSharp.fluid.src} alt={alt} />
         ) : (
             <Img style={imageStyle} fluid={image.childImageSharp.fluid} alt={alt} />
           )}

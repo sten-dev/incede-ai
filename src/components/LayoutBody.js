@@ -3,6 +3,7 @@ import INavbar from './Navbar';
 import ChatMain from './Landing/bot/ChatMain';
 import Footer from './Footer';
 import { animateScroll as scroll } from 'react-scroll'
+import { isTokenExpired } from '../Utils';
 class LayoutBody extends Component {
     constructor(props) {
         super(props);
@@ -11,8 +12,15 @@ class LayoutBody extends Component {
         }
     }
     componentDidMount() {
+        this.handleSession();
         document.addEventListener('scroll', this.trackScrolling);
         this.trackScrolling()
+    }
+
+    handleSession = () => {
+        if (!window.location.pathname.startsWith("/login") && isTokenExpired()) {
+            window.location.href = "/login"
+        }
     }
 
     componentWillUnmount() {

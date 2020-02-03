@@ -22,3 +22,8 @@ export const getDemoChats = async () => {
   let response = await httpClient("demo-chats", "GET");
   return response;
 };
+
+export const loginAgent = async (obj) => {
+  let response = await httpClient("auth-agents", "POST", obj);
+  return response;
+};
