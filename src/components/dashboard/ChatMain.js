@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import socketIO from 'socket.io-client';
-import { API_URL, SOCKET_PATHS } from '../../constants';
-import { exitRoomChats, getDemoChats } from '../../../Service';
+import React, { Component } from "react";
+import socketIO from "socket.io-client";
+import { API_URL, SOCKET_PATHS } from "../../constants";
+import { exitRoomChats, getDemoChats } from "../../../Service";
 import {
   ListGroup,
   ListGroupItem,
@@ -10,11 +10,13 @@ import {
   BreadcrumbItem,
   Button,
   Badge
-} from 'reactstrap';
-import '../../styles/dashboard.scss';
-import ChatScreen from './ChatScreen';
-import { Loading } from '../ReuseableComponents';
-import ConfirmModal from '../ConfirmModal';
+} from "reactstrap";
+import "../../styles/dashboard.scss";
+import ChatScreen from "./ChatScreen";
+import { Loading } from "../ReuseableComponents";
+import ConfirmModal from "../ConfirmModal";
+
+const moment = require("moment");
 class ChatMain extends Component {
   socket;
   constructor(props) {
@@ -32,7 +34,7 @@ class ChatMain extends Component {
     };
   }
   componentDidMount = async () => {
-    let roomJoinedIds = localStorage.getItem('roomJoinedIds');
+    let roomJoinedIds = localStorage.getItem("roomJoinedIds");
     this.setState({
       roomJoinedIds: roomJoinedIds ? JSON.parse(roomJoinedIds) : []
     });
@@ -45,9 +47,9 @@ class ChatMain extends Component {
     if (result.success) {
       this.setState({
         demoChats: result.data
-      })
+      });
     }
-  }
+  };
   initializeSocketIo = () => {
     this.setState({ isLoading: true });
     let scope = this;
@@ -58,13 +60,20 @@ class ChatMain extends Component {
       reconnectionAttempts: 5
     });
 
-    this.socket.on('connect', function () {
+    this.socket.on("connect", function() {
       //   console.warn("connected to server");
     });
     this.socket.emit(SOCKET_PATHS.CONNECT_ALL_ROOMS, {});
     this.socket.on(SOCKET_PATHS.GET_ALL_ROOMS, response => {
       let rooms = [];
-      response.forEach(d => rooms.push({ id: d.id, title: d.title }));
+      response.forEach(d =>
+        rooms.push({
+          id: d.id,
+          title: d.title,
+          createdAt: d.createdAt,
+          lastInteractAt: d.lastInteractAt
+        })
+      );
       scope.setState({ rooms: rooms, isLoading: false });
     });
     this.socket.on(SOCKET_PATHS.NEW_ROOMS, response => {
@@ -86,8 +95,16 @@ class ChatMain extends Component {
     this.setState({ isLoading: true });
     this.socket.emit(SOCKET_PATHS.CONNECT_ALL_ROOMS, {});
     this.socket.on(SOCKET_PATHS.GET_ALL_ROOMS, response => {
+      console.log("rooms", response);
       let rooms = [];
-      response.forEach(d => rooms.push({ id: d.id, title: d.title }));
+      response.forEach(d =>
+        rooms.push({
+          id: d.id,
+          title: d.title,
+          createdAt: d.createdAt,
+          lastInteractAt: d.lastInteractAt
+        })
+      );
       scope.setState({ rooms: rooms, isLoading: false });
     });
   };
@@ -108,7 +125,7 @@ class ChatMain extends Component {
   updateRoomJoinedIds = (roomId, type) => {
     roomId = Number(roomId);
     let roomJoinedIds = this.state.roomJoinedIds;
-    if (type === 'joined') {
+    if (type === "joined") {
       roomJoinedIds.push(roomId);
       this.setState({ roomJoinedIds: roomJoinedIds });
       //   console.warn('joined', this.state.roomJoinedIds);
@@ -121,7 +138,7 @@ class ChatMain extends Component {
         this.refreshRooms
       );
     }
-    localStorage.setItem('roomJoinedIds', JSON.stringify(roomJoinedIds));
+    localStorage.setItem("roomJoinedIds", JSON.stringify(roomJoinedIds));
   };
 
   disconnectChat = async () => {
@@ -131,9 +148,9 @@ class ChatMain extends Component {
     });
     if (result && result.success) {
       let data = {
-        comment: 'Our agent has disconnected',
+        comment: "Our agent has disconnected",
         roomName: this.state.selectedRoomName,
-        senderType: 'agent',
+        senderType: "agent",
         roomId: this.state.selectedRoomId
       };
       this.socket.emit(SOCKET_PATHS.CONNECT, data);
@@ -154,78 +171,105 @@ class ChatMain extends Component {
   };
 
   render() {
-    console.log('roomsJoined', this.state.roomJoinedIds);
+    console.log("roomsJoined", this.state.roomJoinedIds);
     return (
       <React.Fragment>
-        <div className='chat-main'>
-          <Breadcrumb className='custom-breadcrumb'>
+        <div className="chat-main">
+          <Breadcrumb className="custom-breadcrumb">
             {!this.state.showChatScreen ? (
               <>
                 <span>Active Sessions</span>
                 <img
-                  className='pointer'
+                  className="pointer"
                   onClick={this.refreshRooms}
-                  src={require('../../img/refresh.svg')}
+                  src={require("../../img/refresh.svg")}
                 />
               </>
             ) : (
-                <>
-                  <span
-                    onClick={() => this.openCloseChatScreen()}
-                    style={{ color: '#18a88c', display: 'flex' }}
-                    className='pointer'>
-                    <img
-                      className='pointer'
-                      src={require('../../img/chevron-left.svg')}
-                    />
-                    Back
+              <>
+                <span
+                  onClick={() => this.openCloseChatScreen()}
+                  style={{ color: "#18a88c", display: "flex" }}
+                  className="pointer"
+                >
+                  <img
+                    className="pointer"
+                    src={require("../../img/chevron-left.svg")}
+                  />
+                  Back
                 </span>
-                  <span style={{ color: '#5c4abb', fontSize: '15px' }}>
-                    {this.state.selectedRoomName}
-                  </span>
-                  {this.state.roomJoinedIds.find(
-                    roomId => roomId === this.state.selectedRoomId
-                  ) && (
-                      <Button
-                        color='link'
-                        style={{ color: '#ff6347', padding: 0 }}
-                        onClick={() => this.setState({ modal: { isOpen: true } })}>
-                        DISCONNECT
+                <span style={{ color: "#5c4abb", fontSize: "15px" }}>
+                  {this.state.selectedRoomName}
+                </span>
+                {this.state.roomJoinedIds.find(
+                  roomId => roomId === this.state.selectedRoomId
+                ) && (
+                  <Button
+                    color="link"
+                    style={{ color: "#ff6347", padding: 0 }}
+                    onClick={() => this.setState({ modal: { isOpen: true } })}
+                  >
+                    DISCONNECT
                   </Button>
-                    )}
-                </>
-              )}
+                )}
+              </>
+            )}
           </Breadcrumb>
-          <div className='room-list'>
+          <div className="room-list">
             {this.state.isLoading && (
-              <div className='text-center'>
+              <div className="text-center">
                 <Loading />
               </div>
             )}
             {!this.state.showChatScreen ? (
-              <div className=''>
-                {!this.state.isLoading && (this.state.rooms.length === 0 && this.state.demoChats.length === 0) && (
-                  <div className='text-center'> No Active Sessions found </div>
-                )}
-                <ListGroup className=''>
+              <div className="">
+                {!this.state.isLoading &&
+                  this.state.rooms.length === 0 &&
+                  this.state.demoChats.length === 0 && (
+                    <div className="text-center">
+                      {" "}
+                      No Active Sessions found{" "}
+                    </div>
+                  )}
+                <ListGroup className="">
                   {this.state.rooms.map(room => (
                     <ListGroupItem
                       key={room.id}
                       onClick={() =>
                         this.openCloseChatScreen(room.id, room.title, "false")
                       }
-                      className='pointer'
-                      action>
-                      {room.title}
-                      {this.state.roomJoinedIds.find(
-                        roomId => roomId === room.id
-                      ) && (
+                      className="pointer"
+                      action
+                    >
+                      <div className="title">
+                        {room.title}
+                        {this.state.roomJoinedIds.find(
+                          roomId => roomId === room.id
+                        ) && (
                           <div>
-                            <Badge color='primary' pill>
+                            <Badge color="primary" pill>
                               Live
-                          </Badge>
+                            </Badge>
                           </div>
                         )}
+                      </div>
+                      <div style={{ fontSize: "12px" }}>
+                        <div>
+                          at :{" "}
+                          <span>
+                            {moment(room.createdAt)
+                              // .add(5, "hour")
+                              // .add(30, "minute")
+                              .fromNow()}
+                          </span>
+                        </div>
+                        {room.lastInteractAt && (
+                          <div>
+                            last interacted at :{" "}
+                            <span>{moment(room.lastInteractAt).fromNow()}</span>
+                          </div>
+                        )}
+                      </div>
                     </ListGroupItem>
                   ))}
 
@@ -235,35 +279,37 @@ class ChatMain extends Component {
                       onClick={() =>
                         this.openCloseChatScreen(room.ID, room.RNAME, true)
                       }
-                      className='pointer'
-                      action>
+                      className="pointer"
+                      action
+                    >
                       {room.RNAME}
                     </ListGroupItem>
                   ))}
                 </ListGroup>
               </div>
             ) : (
-                <ChatScreen
-                  isDemo={this.state.isDemo}
-                  roomId={this.state.selectedRoomId}
-                  roomName={this.state.selectedRoomName}
-                  socket={this.socket}
-                  updateRoomJoinedIds={this.updateRoomJoinedIds}
-                  roomJoined={
-                    this.state.roomJoinedIds.find(
-                      roomId => roomId === this.state.selectedRoomId
-                    )
-                      ? true
-                      : false
-                  }
-                />
-              )}
+              <ChatScreen
+                isDemo={this.state.isDemo}
+                roomId={this.state.selectedRoomId}
+                roomName={this.state.selectedRoomName}
+                socket={this.socket}
+                updateRoomJoinedIds={this.updateRoomJoinedIds}
+                roomJoined={
+                  this.state.roomJoinedIds.find(
+                    roomId => roomId === this.state.selectedRoomId
+                  )
+                    ? true
+                    : false
+                }
+              />
+            )}
           </div>
         </div>
         <ConfirmModal
           isOpen={this.state.modal.isOpen}
           handelCloseOpen={ans => this.handelModalCloseOpen(ans)}
-          title='Leaving the session'>
+          title="Leaving the session"
+        >
           Do you want to end session?
         </ConfirmModal>
       </React.Fragment>

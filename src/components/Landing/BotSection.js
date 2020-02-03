@@ -231,7 +231,7 @@ class BotSection extends Component {
               isLoading: false
             },
             () => {
-              let data = [...response.data]
+              let data = [...response.data];
               data.splice(0, 1);
               response.data = data;
               this.pushWAMessage(response);
@@ -251,7 +251,7 @@ class BotSection extends Component {
               let messages = [...this.state.messages];
               messages.push({
                 user: "WA",
-                message: "Our agents are busy. Please hold on.",
+                message: "Our agents are assisting others. Please hold on.",
                 type: "text",
                 options: [],
                 intent: undefined
@@ -268,7 +268,7 @@ class BotSection extends Component {
           response.type === "demo" &&
           response.intent === "exit_demo"
         ) {
-          this.resetLocalStorage(true)
+          this.resetLocalStorage(true);
           this.roomId = localStorage.getItem("roomId");
           this.roomName = localStorage.getItem("roomName");
           this.wASessionId = localStorage.getItem("wASessionId");
@@ -308,7 +308,7 @@ class BotSection extends Component {
     });
   };
 
-  resetLocalStorage = (isDemo) => {
+  resetLocalStorage = isDemo => {
     localStorage.removeItem("demoProperty");
     localStorage.removeItem("demoWASessionId");
     localStorage.removeItem("demoRoomId");
@@ -319,10 +319,10 @@ class BotSection extends Component {
       localStorage.removeItem("roomId");
       localStorage.removeItem("roomName");
     }
-  }
-
+  };
   pushWAMessage = response => {
     let data = response.data;
+    let shouldUpdate = true;
     if (data && Array.isArray(data)) {
       let messages = [...this.state.messages];
       let lastWAUserIndex = this.state.lastWAUserIndex;
@@ -345,8 +345,15 @@ class BotSection extends Component {
             lastWAUserIndex = messages.length - 1;
           }
         } else if (x.response_type === "suggestion") {
-          if (x.suggestions && x.suggestions.length > 0 && x.suggestions[0].output && x.suggestions[0].output.generic && x.suggestions[0].output.generic.length > 0) {
-            this.pushWAMessage({ data: x.suggestions[0].output.generic })
+          if (
+            x.suggestions &&
+            x.suggestions.length > 0 &&
+            x.suggestions[0].output &&
+            x.suggestions[0].output.generic &&
+            x.suggestions[0].output.generic.length > 0
+          ) {
+            shouldUpdate = false;
+            this.pushWAMessage({ data: x.suggestions[0].output.generic });
           }
         } else if (x.text || x.title) {
           messages.push({
@@ -365,14 +372,15 @@ class BotSection extends Component {
           lastWAUserIndex = messages.length - 1;
         }
       });
-      this.setState(
-        {
-          messages,
-          lastWAUserIndex,
-          isLoading: false
-        },
-        this.scrollToBottom
-      );
+      if (shouldUpdate)
+        this.setState(
+          {
+            messages,
+            lastWAUserIndex,
+            isLoading: false
+          },
+          this.scrollToBottom
+        );
     }
   };
 
@@ -387,12 +395,14 @@ class BotSection extends Component {
     this.resetLocalStorage(true);
     this.demoSocket = undefined;
     // setTimeout(() => {
-    this.setState({
-      isDemo: false
-    }, () => {
-
-      this.sendCustomMessage("exit_demo", false);
-    });
+    this.setState(
+      {
+        isDemo: false
+      },
+      () => {
+        this.sendCustomMessage("exit_demo", false);
+      }
+    );
     // }, 500);
   };
 
@@ -414,46 +424,32 @@ class BotSection extends Component {
     let data = {
       comment: msg,
       wASessionId: this.wASessionId,
-      roomName: this.roomName ? this.roomName : "session-" + new Date().getTime(),
+      roomName: this.roomName
+        ? this.roomName
+        : "session-" + new Date().getTime(),
       roomId: this.roomId,
       type: this.state.isDemo ? "demo" : "chat",
       demoProperty: this.state.isDemo
         ? localStorage.getItem("demoProperty")
         : undefined
     };
+
     this.sendMessage(data, msg, shouldAddToMessages);
   };
 
   handleOnOptionClick = (message, optionIndex) => {
     let option = message.options[optionIndex];
-    if (option && option.label && option.label === "Who are we" && message.message && message.message.indexOf("What are you most interested in today") > -1) {
-      window.open(WEB_URL + "about", '_blank');
-      return
-    }
-    if (option && option.label && option.label === "Custom AI Business solutions") {
-      window.open(WEB_URL + "services/2020-01-28-custom-ai-applications", '_blank');
-      return
-    }
-    if (option && option.label && option.label === "Smart Document Understanding") {
-      window.open(WEB_URL + "services/virtual-assistance-chatbots/", '_blank');
-      return
-    }
-    if (option && option.label && option.label === "Virtual Assistants, Chatbots") {
-      window.open(WEB_URL + "services/2020-01-28-cognitive-enterprise/", '_blank');
-      return
-    }
     let type = "chat";
+    let isDemoUpdate = false;
     if (
       message.intent &&
-      message.intent.toLowerCase() === "demo" &&
-      option.value.input.text.toLowerCase() !== "cancel"
+      message.intent.toLowerCase() === "customer_service" &&
+      option.value.input.text.toLowerCase() === "view demo"
     ) {
       type = "demo";
       this.wASessionId = undefined;
       this.roomId = undefined;
-      this.setState({
-        isDemo: true
-      })
+      isDemoUpdate = true
       this.roomName = "session-" + new Date().getTime();
       localStorage.setItem("demoProperty", option.value.input.text);
     }
@@ -461,23 +457,26 @@ class BotSection extends Component {
     if (message.intent === "demo_done" && comment.toLowerCase() === "yes") {
       comment = "talk to agent";
     }
+    this.setState({
+      isDemo: isDemoUpdate ? true : this.state.isDemo
+    }, () => {
+      let isAdd = true;
+      // if (message.message && message.message.toLowerCase() == "contact us" && comment.toLowerCase() === "cancel") {
+      //   comment = "What we do";
+      //   isAdd = false
+      // }
+      let data = {
+        comment: comment,
+        wASessionId: this.wASessionId,
+        user: "user",
+        roomName: this.roomName,
+        roomId: this.roomId,
+        type: type,
+        demoProperty: type === "demo" ? option.value.input.text : undefined
+      };
 
-    let isAdd = true
-    // if (message.message && message.message.toLowerCase() == "contact us" && comment.toLowerCase() === "cancel") {
-    //   comment = "What we do";
-    //   isAdd = false
-    // }
-    let data = {
-      comment: comment,
-      wASessionId: this.wASessionId,
-      user: "user",
-      roomName: this.roomName,
-      roomId: this.roomId,
-      type: type,
-      demoProperty: type === "demo" ? option.value.input.text : undefined
-    };
-
-    this.sendMessage(data, comment, isAdd);
+      this.sendMessage(data, comment, isAdd);
+    });
   };
 
   initializeDemoSocket = () => {
@@ -490,7 +489,7 @@ class BotSection extends Component {
     this.demoSocket.on("connect", function () {
       console.debug("demo socket connected to server");
     });
-    this.demoSocket.on("chat message", (message) => {
+    this.demoSocket.on("chat message", message => {
       let data = message;
       let session_id = localStorage.getItem("demoWASessionId");
       let messages = [...this.state.messages];
@@ -532,23 +531,21 @@ class BotSection extends Component {
         },
         this.scrollToBottom
       );
-
-
     });
-  }
+  };
 
   sendMessage = (data, message, shouldAddToMessages) => {
     let messages = [...this.state.messages];
     if (this.state.isDemo) {
       if (!this.demoSocket) {
-        this.initializeDemoSocket()
+        this.initializeDemoSocket();
       }
       let demoWASessionId = localStorage.getItem("demoWASessionId");
       this.demoSocket.emit("chat message", {
         payload: data.comment,
         params: { session_id: demoWASessionId },
-        user: "user",
-      })
+        user: "user"
+      });
     } else {
       this.socket.emit(SOCKET_PATHS.CONNECT, data);
     }

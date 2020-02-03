@@ -83,105 +83,105 @@ class CallBackForm extends Component {
               />
             </React.Fragment>
           ) : (
-            <div className="call-back-form">
-              <Card>
-                <CardBody>
-                  <Form onSubmit={this.handleSubmit}>
-                    <h4 className="m-0 text-center">Callback Form</h4>
-                    <br />
-                    <Row>
-                      <Col lg={6} md={6} sm={12} xs={12}>
-                        <FormGroup>
-                          <Label>Name</Label>
-                          <Input
-                            onChange={this.handleOnChange}
-                            type="text"
-                            name="name"
-                            placeholder="Name"
-                            required
-                          />
-                        </FormGroup>
-                      </Col>
-                      <Col lg={6} md={6} sm={12} xs={12}>
-                        <FormGroup>
-                          <Label>Email</Label>
-                          <Input
-                            onChange={this.handleOnChange}
-                            type="email"
-                            name="email"
-                            placeholder="Email"
-                            required
-                          />
-                        </FormGroup>
-                      </Col>
-                      <Col lg={6} md={6} sm={12} xs={12}>
-                        <FormGroup>
-                          <Label>Phone</Label>
-                          <Input
-                            onChange={this.handleOnChange}
-                            type="text"
-                            name="phone"
-                            placeholder="Phone"
-                            required
-                          />
-                        </FormGroup>
-                      </Col>
-                      <Col lg={6} md={6} sm={12} xs={12}>
-                        <FormGroup>
-                          <Label>Company</Label>
-                          <Input
-                            onChange={this.handleOnChange}
-                            type="text"
-                            name="company"
-                            placeholder="Company"
-                            required
-                          />
-                        </FormGroup>
-                      </Col>
-                      <Col lg={12} md={12} sm={12} xs={12}>
-                        <FormGroup>
-                          <Label>What do you want to talk</Label>
-                          <Input
-                            onChange={this.handleOnChange}
-                            type="text"
-                            name="reason"
-                            placeholder="What do you want to talk"
-                            required
-                          />
-                        </FormGroup>
-                      </Col>
-                      <Col lg={12} md={12} sm={12} xs={12}>
-                        <FormGroup>
-                          <Label>Convenient Time</Label>
-                          <DateTime
-                            onChange={value => {
-                              this.setState({
-                                contactDetails: {
-                                  ...this.state.contactDetails,
-                                  date: value.toDate()
-                                }
-                              });
-                            }}
-                          />
-                        </FormGroup>
-                      </Col>
-                      <Col lg={12} md={12} sm={12} xs={12}>
-                        <Button className="btn btn-primary" type="submit">
-                          Submit
-                        </Button>
-                      </Col>
-                      {this.state.message && (
-                        <Col lg={12} md={12} sm={12} xs={12}>
-                          <br />
-                          <Alert color="danger">{this.state.message}</Alert>
+              <div className="call-back-form">
+                <Card>
+                  <CardBody>
+                    <Form onSubmit={this.handleSubmit}>
+                      <h4 className="m-0 text-center">Meeting Request Form</h4>
+                      <br />
+                      <Row>
+                        <Col lg={6} md={6} sm={12} xs={12}>
+                          <FormGroup>
+                            <Label>Name</Label>
+                            <Input
+                              onChange={this.handleOnChange}
+                              type="text"
+                              name="name"
+                              placeholder="Name"
+                              required
+                            />
+                          </FormGroup>
                         </Col>
-                      )}
-                    </Row>
-                  </Form>
-                </CardBody>
-              </Card>
-            </div>
-          )}
+                        <Col lg={6} md={6} sm={12} xs={12}>
+                          <FormGroup>
+                            <Label>Email</Label>
+                            <Input
+                              onChange={this.handleOnChange}
+                              type="email"
+                              name="email"
+                              placeholder="Email"
+                              required
+                            />
+                          </FormGroup>
+                        </Col>
+                        <Col lg={6} md={6} sm={12} xs={12}>
+                          <FormGroup>
+                            <Label>Phone</Label>
+                            <Input
+                              onChange={this.handleOnChange}
+                              type="text"
+                              name="phone"
+                              placeholder="Phone"
+                              required
+                            />
+                          </FormGroup>
+                        </Col>
+                        <Col lg={6} md={6} sm={12} xs={12}>
+                          <FormGroup>
+                            <Label>Company</Label>
+                            <Input
+                              onChange={this.handleOnChange}
+                              type="text"
+                              name="company"
+                              placeholder="Company"
+                              required
+                            />
+                          </FormGroup>
+                        </Col>
+                        <Col lg={12} md={12} sm={12} xs={12}>
+                          <FormGroup>
+                            <Label>What do you want to talk about</Label>
+                            <Input
+                              onChange={this.handleOnChange}
+                              type="text"
+                              name="reason"
+                              placeholder="What do you want to talk about"
+                              required
+                            />
+                          </FormGroup>
+                        </Col>
+                        <Col lg={12} md={12} sm={12} xs={12}>
+                          <FormGroup>
+                            <Label>Convenient Time</Label>
+                            <DateTime
+                              onChange={value => {
+                                this.setState({
+                                  contactDetails: {
+                                    ...this.state.contactDetails,
+                                    date: value.toDate()
+                                  }
+                                });
+                              }}
+                            />
+                          </FormGroup>
+                        </Col>
+                        <Col lg={12} md={12} sm={12} xs={12}>
+                          <Button className="btn btn-primary" type="submit">
+                            Submit
+                        </Button>
+                        </Col>
+                        {this.state.message && (
+                          <Col lg={12} md={12} sm={12} xs={12}>
+                            <br />
+                            <Alert color="danger">{this.state.message}</Alert>
+                          </Col>
+                        )}
+                      </Row>
+                    </Form>
+                  </CardBody>
+                </Card>
+              </div>
+            )}
         </div>
       </React.Fragment>
     );
