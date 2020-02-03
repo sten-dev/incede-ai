@@ -27,7 +27,8 @@ class ChatMain extends Component {
       selectedRoomId: undefined,
       selectedRoomName: undefined,
       roomJoinedIds: [],
-      modal: { isOpen: false }
+      modal: { isOpen: false },
+      isDemo: false
     };
   }
   componentDidMount = async () => {
@@ -91,13 +92,14 @@ class ChatMain extends Component {
     });
   };
 
-  openCloseChatScreen = (roomId, roomName) => {
+  openCloseChatScreen = (roomId, roomName, isDemo) => {
     // this.setState({ isLoading: true });
     this.setState(
       {
         showChatScreen: roomId ? true : false,
         selectedRoomId: roomId,
-        selectedRoomName: roomName
+        selectedRoomName: roomName,
+        isDemo: isDemo
       },
       () => this.props.handleRoomChange(this.state.selectedRoomId)
     );
@@ -210,7 +212,7 @@ class ChatMain extends Component {
                     <ListGroupItem
                       key={room.id}
                       onClick={() =>
-                        this.openCloseChatScreen(room.id, room.title)
+                        this.openCloseChatScreen(room.id, room.title, "false")
                       }
                       className='pointer'
                       action>
@@ -231,7 +233,7 @@ class ChatMain extends Component {
                     <ListGroupItem
                       key={room.ID}
                       onClick={() =>
-                        this.openCloseChatScreen(room.ID, room.RNAME)
+                        this.openCloseChatScreen(room.ID, room.RNAME, true)
                       }
                       className='pointer'
                       action>
@@ -242,6 +244,7 @@ class ChatMain extends Component {
               </div>
             ) : (
                 <ChatScreen
+                  isDemo={this.state.isDemo}
                   roomId={this.state.selectedRoomId}
                   roomName={this.state.selectedRoomName}
                   socket={this.socket}

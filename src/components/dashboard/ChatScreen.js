@@ -30,18 +30,18 @@ class ChatScreen extends Component {
 
     this.socket = this.props.socket;
     this.getRoomChats();
-    this.socketIO();
+    if (!this.props.isDemo) {
+      this.socketIO();
+    }
   };
 
   socketIO = () => {
     let scope = this;
-
     this.socket.emit(SOCKET_PATHS.CONNECT, {
       comment: "",
       roomName: this.props.roomName,
       senderType: "agent"
     });
-
     this.socket.on(SOCKET_PATHS.BOT_RESPONSE, (eventName, response) => {
       if (eventName === IF_USER_IS.watson) {
         let data = response.data;
