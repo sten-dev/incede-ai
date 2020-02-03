@@ -20,8 +20,10 @@
   overflow: auto;
   .list-group {
     li {
-      display: flex;
-      justify-content: space-between;
+      .title {
+        display: flex;
+        justify-content: space-between;
+      }
     }
   }
 }
