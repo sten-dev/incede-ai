@@ -170,6 +170,21 @@ class ChatMain extends Component {
     this.setState({ modal: { isOpen: false } });
   };
 
+  getTimes = date => {
+    return moment
+      .utc(date)
+      .local()
+      .format("Do MMM, YYYY HH:mm");
+  };
+
+  // for demo only ... need to remove
+  getBG = name => {
+    if (name.includes("David")) return "red-chat text-white demo";
+    if (name.includes("Suraj")) return "green-chat text-white demo";
+    if (name.includes("Tim")) return "yellow-chat text-white demo";
+    return "";
+  };
+
   render() {
     console.log("roomsJoined", this.state.roomJoinedIds);
     return (
@@ -238,7 +253,7 @@ class ChatMain extends Component {
                       onClick={() =>
                         this.openCloseChatScreen(room.id, room.title, "false")
                       }
-                      className="pointer"
+                      className="pointer "
                       action
                     >
                       <div className="title">
@@ -256,22 +271,12 @@ class ChatMain extends Component {
                       <div style={{ fontSize: "12px" }}>
                         <div>
                           start time :{" "}
-                          <span>
-                            {moment
-                              .utc(room.createdAt)
-                              .local()
-                              .format("Do MMM, YYYY HH:mm")}
-                          </span>
+                          <span>{this.getTimes(room.createdAt)}</span>
                         </div>
                         {room.lastInteractAt && (
                           <div>
                             last interact time :{" "}
-                            <span>
-                              {moment
-                                .utc(room.lastInteractAt)
-                                .local()
-                                .format("Do MMM, YYYY HH:mm")}
-                            </span>
+                            <span>{this.getTimes(room.lastInteractAt)}</span>
                           </div>
                         )}
                       </div>
@@ -284,10 +289,22 @@ class ChatMain extends Component {
                       onClick={() =>
                         this.openCloseChatScreen(room.ID, room.RNAME, true)
                       }
-                      className="pointer"
+                      className={"pointer " + this.getBG(room.RNAME)}
                       action
                     >
                       {room.RNAME}
+                      <div style={{ fontSize: "12px" }}>
+                        <div>
+                          start time :{" "}
+                          <span>{this.getTimes(room.CREATED_DATE)}</span>
+                        </div>
+                        {room.AGENT_ETIME && (
+                          <div>
+                            last interact time :{" "}
+                            <span>{this.getTimes(room.AGENT_ETIME)}</span>
+                          </div>
+                        )}
+                      </div>
                     </ListGroupItem>
                   ))}
                 </ListGroup>
