@@ -33,6 +33,8 @@ export const USER_ABB = {
 
 export const IGNORE_MSG = ["welcome_back"];
 
+export const MEETING_MSG = "Sure thing. I need some basic information from you to setup a meeting.";
+
 export const COGNOS_SOURCE = {
   id:
     "c962e5c7-65f4-4895-885d-4187b166d44b:e653bf07-0b24-4bd4-a3cd-b9d613e8a2a5:/INCEDE/CALL_TONE:table:CALL_TONE",
