@@ -393,7 +393,7 @@ class BotSection extends Component {
 
   exitWADemo = () => {
     this.resetLocalStorage(true);
-    this.demoSocket = undefined;
+    this.demoSocket.close();
     // setTimeout(() => {
     this.setState(
       {
@@ -441,6 +441,7 @@ class BotSection extends Component {
     let option = message.options[optionIndex];
     let type = "chat";
     let isDemoUpdate = false;
+    let comment = option.value.input.text;
     if (
       message.intent &&
       message.intent.toLowerCase() === "customer_service" &&
@@ -449,18 +450,21 @@ class BotSection extends Component {
       type = "demo";
       this.wASessionId = undefined;
       this.roomId = undefined;
-      isDemoUpdate = true
+      isDemoUpdate = true;
+      comment = "";
       this.roomName = "session-" + new Date().getTime();
       localStorage.setItem("demoProperty", option.value.input.text);
     }
-    let comment = option.value.input.text;
     if (message.intent === "demo_done" && comment.toLowerCase() === "yes") {
       comment = "talk to agent";
     }
     this.setState({
-      isDemo: isDemoUpdate ? true : this.state.isDemo
+      isDemo: type = "demo" && isDemoUpdate ? true : this.state.isDemo
     }, () => {
       let isAdd = true;
+      if (type = "demo" && isDemoUpdate) {
+        isAdd = false;
+      }
       // if (message.message && message.message.toLowerCase() == "contact us" && comment.toLowerCase() === "cancel") {
       //   comment = "What we do";
       //   isAdd = false
@@ -538,7 +542,10 @@ class BotSection extends Component {
     let messages = [...this.state.messages];
     if (this.state.isDemo) {
       if (!this.demoSocket) {
+        this.resetLocalStorage(true)
         this.initializeDemoSocket();
+      } else if (!data.wASessionId) {
+        this.demoSocket.connect();
       }
       let demoWASessionId = localStorage.getItem("demoWASessionId");
       this.demoSocket.emit("chat message", {
@@ -674,7 +681,7 @@ class BotSection extends Component {
                                 <React.Fragment>
                                   {option.value.input.text.startsWith("<a") && option.value.input.text.indexOf("href") > -1 ? (
                                     <Col
-                                      key={index}
+                                      key={`option${index}`}
                                       lg={4}
                                       md={4}
                                       sm={6}
@@ -688,7 +695,7 @@ class BotSection extends Component {
                                     </Col>
                                   ) : (
                                       <Col
-                                        key={index}
+                                        key={`option${index}`}
                                         lg={4}
                                         md={4}
                                         sm={6}
