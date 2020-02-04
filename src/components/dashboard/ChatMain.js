@@ -255,18 +255,23 @@ class ChatMain extends Component {
                       </div>
                       <div style={{ fontSize: "12px" }}>
                         <div>
-                          at :{" "}
+                          start time :{" "}
                           <span>
-                            {moment(room.createdAt)
-                              // .add(5, "hour")
-                              // .add(30, "minute")
-                              .fromNow()}
+                            {moment
+                              .utc(room.createdAt)
+                              .local()
+                              .format("Do MMM, YYYY HH:mm")}
                           </span>
                         </div>
                         {room.lastInteractAt && (
                           <div>
-                            last interacted at :{" "}
-                            <span>{moment(room.lastInteractAt).fromNow()}</span>
+                            last interact time :{" "}
+                            <span>
+                              {moment
+                                .utc(room.lastInteractAt)
+                                .local()
+                                .format("Do MMM, YYYY HH:mm")}
+                            </span>
                           </div>
                         )}
                       </div>
