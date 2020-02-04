@@ -1,9 +1,11 @@
 //dev
 export const API_URL =
-  "https://incede-api-insightful-raven.eu-gb.mybluemix.net/";
+  "https://incede-api-tired-leopard.mybluemix.net/";
 
 // local
 // export const API_URL = "http://localhost:8080/";
+
+export const WEB_URL = "https://incede.ai/"
 
 export const DEMO_SOCKET_URL = "wss://cc-api.mybluemix.net";
 export const SOCKET_PATHS = {
@@ -54,7 +56,7 @@ export const httpClient = async (
     type = type.toUpperCase();
     if (type.toLowerCase() === "get" && obj) {
       var params = Object.keys(obj)
-        .map(function(key) {
+        .map(function (key) {
           return key + "=" + obj[key];
         })
         .join("&");
@@ -67,7 +69,6 @@ export const httpClient = async (
       body: JSON.stringify(obj),
       headers: {
         "Content-Type": contentType
-        // at: getToken()
       }
     });
     return await res.json();
