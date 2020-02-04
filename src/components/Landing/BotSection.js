@@ -364,7 +364,7 @@ class BotSection extends Component {
             intent: response.intent
           });
           if (
-            x.text && x.text === "Sure thing. I need some basic information from you to setup a meeting."
+            x.text && x.text.indexOf("Sure thing. I need some basic information") > -1 && response.intent === "callback"
           ) {
             messages.push({ user: "ME", message: "", type: "callback_form" });
           }
