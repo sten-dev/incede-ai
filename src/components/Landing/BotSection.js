@@ -364,7 +364,7 @@ class BotSection extends Component {
             intent: response.intent
           });
           if (
-            x.text && x.text.indexOf("Sure thing. I need some basic information from you to setup a meeting.")
+            x.text && x.text === "Sure thing. I need some basic information from you to setup a meeting."
           ) {
             messages.push({ user: "ME", message: "", type: "callback_form" });
           }
@@ -681,8 +681,8 @@ class BotSection extends Component {
                                   {option.value.input.text.startsWith("<a") && option.value.input.text.indexOf("href") > -1 ? (
                                     <Col
                                       key={`option${index}`}
-                                      lg={4}
-                                      md={4}
+                                      lg={6}
+                                      md={6}
                                       sm={6}
                                       xs={12}
                                     >
@@ -695,8 +695,8 @@ class BotSection extends Component {
                                   ) : (
                                       <Col
                                         key={`option${index}`}
-                                        lg={4}
-                                        md={4}
+                                        lg={6}
+                                        md={6}
                                         sm={6}
                                         xs={12}
                                         onClick={
