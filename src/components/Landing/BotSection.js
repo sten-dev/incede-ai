@@ -10,7 +10,8 @@ import {
   SOCKET_PATHS,
   httpClient,
   DEMO_SOCKET_URL,
-  WEB_URL
+  IGNORE_MSG,
+  MEETING_MSG
 } from "../../constants";
 import chat from "../../img/chat.svg";
 import ChatLocation from "../ChatLocation";
@@ -124,7 +125,7 @@ class BotSection extends Component {
       if (chatsResp.success === true) {
         let data = chatsResp.data
           .reverse()
-          .filter(x => ["welcome_back"].indexOf(x.TEXT) === -1);
+          .filter(x => IGNORE_MSG.indexOf(x.TEXT) === -1);
         let chatRepeatIndex = -1;
         data.forEach((x, i) => {
           switch (x.TYPE) {
@@ -134,7 +135,7 @@ class BotSection extends Component {
               if (x.USER === "WATSON" || x.USER === "AGENT") {
                 lastWAUserIndex = chatRepeatIndex;
               }
-              if (x.title || x.TEXT) {
+              if (x.TEXT) {
                 messages.push({
                   user:
                     x.USER === "WATSON"
@@ -142,7 +143,7 @@ class BotSection extends Component {
                       : x.USER === "AGENT"
                         ? "AG"
                         : "ME",
-                  message: x.options ? x.title : x.TEXT,
+                  message: x.TEXT,
                   type: x.TYPE === "options" ? "options" : "text",
                   options: x.TYPE === "options" ? JSON.parse(x.OPTIONS) : [],
                   intent: x.intent
@@ -336,6 +337,10 @@ class BotSection extends Component {
     if (data && Array.isArray(data)) {
       let messages = [...this.state.messages];
       let lastWAUserIndex = this.state.lastWAUserIndex;
+      let isSearchResponse = data.findIndex(x => x.response_type === "search");
+      if (isSearchResponse && (isSearchResponse === data.length - 1)) {
+        data = data.reverse();
+      }
       data.forEach(x => {
         if (x.response_type === "search") {
           if (x.results && x.results.length > 0) {
@@ -365,7 +370,7 @@ class BotSection extends Component {
             shouldUpdate = false;
             this.pushWAMessage({ data: x.suggestions[0].output.generic });
           }
-        } else if (x.text || x.title) {
+        } else if (x.text || x.title || (x.options && x.options.length > 0)) {
           messages.push({
             user: "WA",
             message: x.options ? x.title : x.text,
@@ -374,7 +379,7 @@ class BotSection extends Component {
             intent: response.intent
           });
           if (
-            x.text && x.text.indexOf("Sure thing. I need some basic information") > -1 && response.intent === "callback"
+            x.text && x.text === MEETING_MSG && response.intent === "callback"
           ) {
             messages.push({ user: "ME", message: "", type: "callback_form" });
           }
@@ -632,14 +637,16 @@ class BotSection extends Component {
       default:
         return (
           <React.Fragment>
-            <ChatPill
-              isLastWAUser={
-                index === this.state.lastWAUserIndex && !this.state.isLoading
-              }
-              right={data.user === "ME"}
-              user={data.user}
-              text={data.message}
-            />
+            {data.message && (
+              <ChatPill
+                isLastWAUser={
+                  index === this.state.lastWAUserIndex && !this.state.isLoading
+                }
+                right={data.user === "ME"}
+                user={data.user}
+                text={data.message}
+              />
+            )}
           </React.Fragment>
         );
     }
