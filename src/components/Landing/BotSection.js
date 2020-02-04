@@ -10,7 +10,8 @@ import {
   SOCKET_PATHS,
   httpClient,
   DEMO_SOCKET_URL,
-  WEB_URL
+  IGNORE_MSG,
+  MEETING_MSG
 } from "../../constants";
 import chat from "../../img/chat.svg";
 import ChatLocation from "../ChatLocation";
@@ -124,7 +125,7 @@ class BotSection extends Component {
       if (chatsResp.success === true) {
         let data = chatsResp.data
           .reverse()
-          .filter(x => ["welcome_back"].indexOf(x.TEXT) === -1);
+          .filter(x => IGNORE_MSG.indexOf(x.TEXT) === -1);
         let chatRepeatIndex = -1;
         data.forEach((x, i) => {
           switch (x.TYPE) {
@@ -134,7 +135,7 @@ class BotSection extends Component {
               if (x.USER === "WATSON" || x.USER === "AGENT") {
                 lastWAUserIndex = chatRepeatIndex;
               }
-              if (x.title || x.TEXT) {
+              if (x.TEXT) {
                 messages.push({
                   user:
                     x.USER === "WATSON"
@@ -142,7 +143,7 @@ class BotSection extends Component {
                       : x.USER === "AGENT"
                         ? "AG"
                         : "ME",
-                  message: x.options ? x.title : x.TEXT,
+                  message: x.TEXT,
                   type: x.TYPE === "options" ? "options" : "text",
                   options: x.TYPE === "options" ? JSON.parse(x.OPTIONS) : [],
                   intent: x.intent
@@ -374,7 +375,7 @@ class BotSection extends Component {
             intent: response.intent
           });
           if (
-            x.text && x.text.indexOf("Sure thing. I need some basic information") > -1 && response.intent === "callback"
+            x.text && x.text === MEETING_MSG && response.intent === "callback"
           ) {
             messages.push({ user: "ME", message: "", type: "callback_form" });
           }
