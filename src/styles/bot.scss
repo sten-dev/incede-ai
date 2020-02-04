@@ -255,7 +255,9 @@ section {
 //     transform: translateX(8px);
 //   }
 // }
-
+.power-by {
+  font-size: 14px !important;
+}
 @media screen and (max-width: 992px) {
   .bot-menu-btn {
     height: 480px;
