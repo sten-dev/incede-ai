@@ -690,7 +690,7 @@ class BotSection extends Component {
                                       <div
                                         className={`wa-option ${option.label.replace(/ /g, "-").toLowerCase()}`}
                                       >
-                                        <p dangerouslySetInnerHTML={{ __html: option.value.input.text }}></p>
+                                        <p className="link" dangerouslySetInnerHTML={{ __html: option.value.input.text }}></p>
                                       </div>
                                     </Col>
                                   ) : (
