@@ -255,7 +255,7 @@ class ChatMain extends Component {
                       </div>
                       <div style={{ fontSize: "12px" }}>
                         <div>
-                          at :{" "}
+                          start time :{" "}
                           <span>
                             {moment
                               .utc(room.createdAt)
@@ -265,7 +265,7 @@ class ChatMain extends Component {
                         </div>
                         {room.lastInteractAt && (
                           <div>
-                            last interacted at :{" "}
+                            last interact time :{" "}
                             <span>
                               {moment
                                 .utc(room.lastInteractAt)
