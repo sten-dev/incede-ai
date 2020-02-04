@@ -185,6 +185,22 @@ class ChatMain extends Component {
     return "";
   };
 
+  getRandomArbitrary = (min = 1, max = 5) => {
+    return Number((Math.random() * (max - min) + min).toFixed());
+  };
+
+  getStartTime = value => {
+    return moment()
+      .subtract(value, "minute")
+      .format("Do MMM, YYYY HH:mm");
+  };
+  getLastIntTime = (maxValue = 1) => {
+    let value = this.getRandomArbitrary(1, maxValue);
+    return moment()
+      .subtract(value, "minute")
+      .format("Do MMM, YYYY HH:mm");
+  };
+
   render() {
     console.log("roomsJoined", this.state.roomJoinedIds);
     return (
@@ -283,30 +299,36 @@ class ChatMain extends Component {
                     </ListGroupItem>
                   ))}
 
-                  {this.state.demoChats.map(room => (
-                    <ListGroupItem
-                      key={room.ID}
-                      onClick={() =>
-                        this.openCloseChatScreen(room.ID, room.RNAME, true)
-                      }
-                      className={"pointer " + this.getBG(room.RNAME)}
-                      action
-                    >
-                      {room.RNAME}
-                      <div style={{ fontSize: "12px" }}>
-                        <div>
-                          start time :{" "}
-                          <span>{this.getTimes(room.CREATED_DATE)}</span>
-                        </div>
-                        {room.AGENT_ETIME && (
+                  {this.state.demoChats.map(room => {
+                    let ranNumber = this.getRandomArbitrary();
+                    let startTime = this.getStartTime(ranNumber);
+                    let lastInteractTime = this.getLastIntTime(ranNumber);
+                    return (
+                      <ListGroupItem
+                        key={room.ID}
+                        onClick={() =>
+                          this.openCloseChatScreen(room.ID, room.RNAME, true)
+                        }
+                        className={"pointer " + this.getBG(room.RNAME)}
+                        action
+                      >
+                        {room.RNAME}
+                        <div style={{ fontSize: "12px" }}>
                           <div>
-                            last interact time :{" "}
-                            <span>{this.getTimes(room.AGENT_ETIME)}</span>
+                            start time : <span>{startTime}</span>
+                            {/* <span>{this.getTimes(room.CREATED_DATE)}</span> */}
                           </div>
-                        )}
-                      </div>
-                    </ListGroupItem>
-                  ))}
+                          {room.AGENT_ETIME && (
+                            <div>
+                              last interact time :{" "}
+                              <span>{lastInteractTime}</span>
+                              {/* <span>{this.getTimes(room.AGENT_ETIME)}</span> */}
+                            </div>
+                          )}
+                        </div>
+                      </ListGroupItem>
+                    );
+                  })}
                 </ListGroup>
               </div>
             ) : (
