@@ -18,21 +18,25 @@ class ChatMain extends Component {
             window: window,
         }, () => {
             if (this.props.page === "home") {
-                let waCreatedTime = localStorage.getItem("waCreatedTime");
-                let isInWaSession = true;
-                if (!waCreatedTime) {
-                    isInWaSession = false;
-                    this.resetLocalStorage();
-                } else {
-                    let now = new Date().getTime();
-                    let createdTime = new Date(Number(waCreatedTime)).getTime();
-                    if (now - createdTime >= this.waTimeOut) {
-                        isInWaSession = false;
-                    }
-                }
-                if (isInWaSession === false) {
+                let isLastOpen = localStorage.getItem("isLastOpen");
+                if (!isLastOpen || isLastOpen === "true") {
                     this.toggle()
                 }
+                // let waCreatedTime = localStorage.getItem("waCreatedTime");
+                // let isInWaSession = true;
+                // if (!waCreatedTime) {
+                //     isInWaSession = false;
+                //     this.resetLocalStorage();
+                // } else {
+                //     let now = new Date().getTime();
+                //     let createdTime = new Date(Number(waCreatedTime)).getTime();
+                //     if (now - createdTime >= this.waTimeOut) {
+                //         isInWaSession = false;
+                //     }
+                // }
+                // if (isInWaSession === false) {
+                //     this.toggle()
+                // }
 
             }
         });
@@ -57,7 +61,7 @@ class ChatMain extends Component {
             document.body.style.overflow = "auto";
             document.body.style.position = "initial";
         }
-
+        localStorage.setItem("isLastOpen", !this.state.modal);
         this.setState({
             modal: !this.state.modal,
             isFirst: false

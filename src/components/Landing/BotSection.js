@@ -143,7 +143,7 @@ class BotSection extends Component {
                         ? "AG"
                         : "ME",
                   message: x.options ? x.title : x.TEXT,
-                  type: x.options ? "options" : "text",
+                  type: x.TYPE === "options" ? "options" : "text",
                   options: x.TYPE === "options" ? JSON.parse(x.OPTIONS) : [],
                   intent: x.intent
                 });
@@ -178,7 +178,7 @@ class BotSection extends Component {
           },
           () => {
             this.scrollToBottom();
-            this.sendCustomMessage("welcome_back", false);
+            // this.sendCustomMessage("welcome_back", false);
           }
         );
       }
@@ -696,7 +696,7 @@ class BotSection extends Component {
                           <Row>
                             {x.options.map((option, index) => {
                               return (
-                                <React.Fragment>
+                                <React.Fragment key={`option${index}`}>
                                   {option.value.input.text.startsWith("<a") &&
                                     option.value.input.text.indexOf("href") >
                                     -1 ? (
