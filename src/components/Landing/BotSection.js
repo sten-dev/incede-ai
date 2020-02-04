@@ -5,7 +5,13 @@ import logo from "../../img/logo_white.svg";
 import { ChatPill } from "./bot/ChatPill";
 import { ChatPillAsk } from "./bot/ChatPillAsk";
 import socketIO from "socket.io-client";
-import { API_URL, SOCKET_PATHS, httpClient, DEMO_SOCKET_URL, WEB_URL } from "../../constants";
+import {
+  API_URL,
+  SOCKET_PATHS,
+  httpClient,
+  DEMO_SOCKET_URL,
+  WEB_URL
+} from "../../constants";
 import chat from "../../img/chat.svg";
 import ChatLocation from "../ChatLocation";
 import CallBackForm from "./bot/CallBackForm";
@@ -21,16 +27,20 @@ class BotSection extends Component {
   waTimeOut = 1 * 60 * 60 * 1000; // one hour
   waCreatedTime;
   currentIntent;
-  demoSocket = undefined
-  welcomeMsg = "Welcome!  I am Incede, your virtual assistant to help you quickly find what interests you."
+  demoSocket = undefined;
+  welcomeMsg =
+    "Welcome!  I am Incede, your virtual assistant to help you quickly find what interests you.";
   constructor(props) {
     super(props);
     this.state = {
-      messages: [{
-        user: "WA",
-        message: "Welcome!  I am Incede, your virtual assistant to help you quickly find what interests you.",
-        type: "text",
-      }],
+      messages: [
+        {
+          user: "WA",
+          message:
+            "Welcome!  I am Incede, your virtual assistant to help you quickly find what interests you.",
+          type: "text"
+        }
+      ],
       msg: "",
       isDemo: false,
       lastWAUserIndex: -1,
@@ -410,11 +420,14 @@ class BotSection extends Component {
     this.demoSocket = undefined;
     this.sendCustomMessage("", true);
     this.setState({
-      messages: [{
-        user: "WA",
-        message: "Welcome!  I am Incede, your virtual assistant to help you quickly find what interests you.",
-        type: "text",
-      }]
+      messages: [
+        {
+          user: "WA",
+          message:
+            "Welcome!  I am Incede, your virtual assistant to help you quickly find what interests you.",
+          type: "text"
+        }
+      ]
     });
   };
 
@@ -457,29 +470,32 @@ class BotSection extends Component {
     if (message.intent === "demo_done" && comment.toLowerCase() === "yes") {
       comment = "talk to agent";
     }
-    this.setState({
-      isDemo: type = "demo" && isDemoUpdate ? true : this.state.isDemo
-    }, () => {
-      let isAdd = true;
-      if (type = "demo" && isDemoUpdate) {
-        isAdd = false;
-      }
-      // if (message.message && message.message.toLowerCase() == "contact us" && comment.toLowerCase() === "cancel") {
-      //   comment = "What we do";
-      //   isAdd = false
-      // }
-      let data = {
-        comment: comment,
-        wASessionId: this.wASessionId,
-        user: "user",
-        roomName: this.roomName,
-        roomId: this.roomId,
-        type: type,
-        demoProperty: type === "demo" ? option.value.input.text : undefined
-      };
+    this.setState(
+      {
+        isDemo: (type = "demo" && isDemoUpdate ? true : this.state.isDemo)
+      },
+      () => {
+        let isAdd = true;
+        if ((type = "demo" && isDemoUpdate)) {
+          isAdd = false;
+        }
+        // if (message.message && message.message.toLowerCase() == "contact us" && comment.toLowerCase() === "cancel") {
+        //   comment = "What we do";
+        //   isAdd = false
+        // }
+        let data = {
+          comment: comment,
+          wASessionId: this.wASessionId,
+          user: "user",
+          roomName: this.roomName,
+          roomId: this.roomId,
+          type: type,
+          demoProperty: type === "demo" ? option.value.input.text : undefined
+        };
 
-      this.sendMessage(data, comment, isAdd);
-    });
+        this.sendMessage(data, comment, isAdd);
+      }
+    );
   };
 
   initializeDemoSocket = () => {
@@ -541,7 +557,7 @@ class BotSection extends Component {
     let messages = [...this.state.messages];
     if (this.state.isDemo) {
       if (!this.demoSocket) {
-        this.resetLocalStorage(true)
+        this.resetLocalStorage(true);
         this.initializeDemoSocket();
       } else if (!data.wASessionId) {
         this.demoSocket.connect();
@@ -655,8 +671,11 @@ class BotSection extends Component {
               </div>
               <div className="d-flex justify-content-center flex-grow-1">
                 <p className="lead text-white d-none d-md-block">
-                  Experts in developing AI Infused Business Applications.
-                  Powered by Watson Assistant
+                  Experts in developing AI Infused Business Applications. (
+                  <small className="power-by">
+                    Powered by Watson Assistant
+                  </small>
+                  )
                 </p>
               </div>
               <br />
@@ -678,41 +697,51 @@ class BotSection extends Component {
                             {x.options.map((option, index) => {
                               return (
                                 <React.Fragment>
-                                  {option.value.input.text.startsWith("<a") && option.value.input.text.indexOf("href") > -1 ? (
-                                    <Col
-                                      key={`option${index}`}
-                                      lg={6}
-                                      md={6}
-                                      sm={6}
-                                      xs={12}
-                                    >
-                                      <div
-                                        className={`wa-option ${option.label.replace(/ /g, "-").toLowerCase()}`}
-                                      >
-                                        <p className="link" dangerouslySetInnerHTML={{ __html: option.value.input.text }}></p>
-                                      </div>
-                                    </Col>
-                                  ) : (
+                                  {option.value.input.text.startsWith("<a") &&
+                                    option.value.input.text.indexOf("href") >
+                                    -1 ? (
                                       <Col
                                         key={`option${index}`}
                                         lg={6}
                                         md={6}
                                         sm={6}
                                         xs={12}
-                                        onClick={
-                                          () =>
-                                            this.handleOnOptionClick(x, index)
+                                      >
+                                        <div
+                                          className={`wa-option ${option.label
+                                            .replace(/ /g, "-")
+                                            .toLowerCase()}`}
+                                        >
+                                          <p
+                                            className="link"
+                                            dangerouslySetInnerHTML={{
+                                              __html: option.value.input.text
+                                            }}
+                                          ></p>
+                                        </div>
+                                      </Col>
+                                    ) : (
+                                      <Col
+                                        key={`option${index}`}
+                                        lg={6}
+                                        md={6}
+                                        sm={6}
+                                        xs={12}
+                                        onClick={() =>
+                                          this.handleOnOptionClick(x, index)
                                         }
                                       >
                                         <div
-                                          className={`wa-option ${option.label.replace(/ /g, "-").toLowerCase()}`}
+                                          className={`wa-option ${option.label
+                                            .replace(/ /g, "-")
+                                            .toLowerCase()}`}
                                         >
                                           <p>{option.label}</p>
                                         </div>
                                       </Col>
                                     )}
                                 </React.Fragment>
-                              )
+                              );
                             })}
                           </Row>
                         </div>
@@ -785,7 +814,7 @@ class BotSection extends Component {
             Do you want to reset chat history?
           </ConfirmModal>
         </Container>
-      </section >
+      </section>
     );
   }
 }
