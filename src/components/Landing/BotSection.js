@@ -106,7 +106,12 @@ class BotSection extends Component {
     this.socket.on("connect", function () {
       console.debug("connected to server");
     });
-    let messages = [];
+    let messages = [{
+      user: "WA",
+      message:
+        "Welcome!  I am Incede, your virtual assistant to help you quickly find what interests you.",
+      type: "text"
+    }];
     let time = new Date().getTime();
 
     this.checkWASession();
@@ -607,7 +612,7 @@ class BotSection extends Component {
           <ChatLocation isLastWAUser={index === this.state.lastWAUserIndex} />
         );
       case "callback_form":
-        return <CallBackForm roomId={this.roomId} />;
+        return <CallBackForm roomId={this.roomId} sendCustomMessage={this.sendCustomMessage} />;
       case "search-result":
         return (
           <React.Fragment>

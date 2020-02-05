@@ -61,6 +61,8 @@ class CallBackForm extends Component {
         hasDetailsSubmitted: true,
         message:
           "Your details have been submitted successfully. Our agent will contact you soon."
+      }, () => {
+        this.props.sendCustomMessage("show_interested_options", false)
       });
     } else {
       this.setState({
