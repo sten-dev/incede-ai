@@ -459,7 +459,7 @@ class BotSection extends Component {
     if (
       message.intent &&
       message.intent.toLowerCase() === "customer_service" &&
-      option.value.input.text.toLowerCase() === "view demo"
+      option.value.input.text.toLowerCase() === "launch demo"
     ) {
       type = "demo";
       this.wASessionId = undefined;
