@@ -29,8 +29,6 @@ class BotSection extends Component {
   waCreatedTime;
   currentIntent;
   demoSocket = undefined;
-  welcomeMsg =
-    "Welcome!  I am Incede, your virtual assistant to help you quickly find what interests you.";
   constructor(props) {
     super(props);
     this.state = {
@@ -53,7 +51,6 @@ class BotSection extends Component {
     };
   }
   componentDidMount() {
-    console.log("component did mount");
     this.roomName = localStorage.getItem("roomName");
     this.roomId = localStorage.getItem("roomId");
     this.wASessionId = localStorage.getItem("wASessionId");

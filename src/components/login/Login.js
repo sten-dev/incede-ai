@@ -35,7 +35,7 @@ class Login extends Component {
         });
         console.log(result)
         if (result.success) {
-            window.localStorage.setItem("userAuthToken", result.data);
+            window.localStorage.setItem("incedeAuthToken", result.data);
             this.setState({
                 isRequestPending: false,
             }, () => {

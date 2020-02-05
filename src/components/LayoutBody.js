@@ -30,7 +30,7 @@ class LayoutBody extends Component {
 
     getToken = () => {
         if (this.window && this.window.localStorage) {
-            let obj = this.window.localStorage.getItem('userAuthToken');
+            let obj = this.window.localStorage.getItem('incedeAuthToken');
             return obj;
         }
         return null;
