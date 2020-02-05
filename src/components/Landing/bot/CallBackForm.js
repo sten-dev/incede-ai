@@ -15,6 +15,7 @@ import { httpClient } from "../../../constants";
 import { ChatPill } from "./ChatPill";
 import * as DateTime from "react-datetime";
 import "react-datetime/css/react-datetime.css";
+import moment from "moment";
 // var DateTime = require("react-datetime");
 class CallBackForm extends Component {
   constructor(props) {
@@ -46,8 +47,8 @@ class CallBackForm extends Component {
 
   handleSubmit = async event => {
     event.preventDefault();
-    console.log("data added", this.state.contactDetails);
-    console.log("roomId", this.props.roomId);
+    // console.log("data added", this.state.contactDetails);
+    // console.log("roomId", this.props.roomId);
     let result = await httpClient(
       `rooms/${this.props.roomId}/schedule`,
       "POST",
@@ -153,9 +154,10 @@ class CallBackForm extends Component {
                           </FormGroup>
                         </Col>
                         <Col lg={12} md={12} sm={12} xs={12}>
-                          <FormGroup>
+                          <FormGroup className="convenient-time">
                             <Label>Convenient Time</Label>
                             <DateTime
+                              isValidDate={(current) => moment(current).add(1, "days").toDate() > new Date()}
                               onChange={value => {
                                 this.setState({
                                   contactDetails: {
