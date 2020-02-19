@@ -40,7 +40,9 @@ export const ServicesTemplate = ({
             </main>
           </Col>
           <Col lg={5} md={4} sm={12} xs={12}>
-            <ServiceImageBySlug slug={slug} />
+            <main className="content gap-y-half">
+              <ServiceImageBySlug slug={slug} />
+            </main>
           </Col>
         </Row>
       </Container>
