@@ -19,7 +19,7 @@ section:
       technologies to deliver right-fit solutions, analytics strategies,
       phase-one projects, full implementations, standardization and
       enhancement services.
-    image: /img/leadership-2.jpg
+    image: /img/leadership-1.jpg
     title: Leadership
 ---
 
