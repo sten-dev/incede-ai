@@ -2,7 +2,7 @@
 templateKey: solutions-post
 title: Customer Service
 subTitle: Conversational AI Creates an Engaging Customer Experience
-image: /img/managed-services.png
+image: /img/Customer Service.png
 ---
 Every conversation with a customer matters; to ensure their needs are met, their questions are answered and their expectations are met.  Incede’s Natural Language Understanding (NLU) allows your customers to be themselves and engage in a convenient conversation when and where they want.
 
