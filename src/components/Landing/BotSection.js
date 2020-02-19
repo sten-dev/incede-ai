@@ -274,7 +274,7 @@ class BotSection extends Component {
                 messages,
                 lastWAUserIndex,
                 isLoading: false
-              });
+              }, this.scrollToBottom);
             }
           }, this.agentTimeOut / 3);
         } else if (
@@ -381,7 +381,7 @@ class BotSection extends Component {
             intent: response.intent
           });
           if (
-            x.text && x.text === MEETING_MSG && response.intent === "callback"
+            x.text && x.text === MEETING_MSG
           ) {
             messages.push({ user: "ME", message: "", type: "callback_form" });
           }
