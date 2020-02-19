@@ -19,7 +19,7 @@ const Partners = (props) => {
                                 <p className=" sub-title">We service every aspect of your partners. From functionality, licensing, implementation to training.</p>
                                 <br />
                                 <p className="lead">
-                                    Our close relationship with IBM and ThoughtSpot has helped us deliver numerous successful implementations. This success is based upon the fact that they share our vision to deliver the greatest business value for our customers.
+                                    Our close relationship with IBM has helped us deliver numerous successful implementations. This success is based upon the fact that they share our vision to deliver the greatest business value for our customers.
                                 </p>
                                 <br />
                                 <p className="lead">
