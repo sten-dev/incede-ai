@@ -2,7 +2,7 @@
 templateKey: solutions-post
 title: Sales Support Solutions
 subTitle: Enabling Sales to Sell and Engineering to Engineer
-image: /img/financial-performance-management.png
+image: /img/Sales Support Solutions.png
 ---
 Sellers want to get it right and they have the brand’s loyalty and customer’s experience at stake.  Incede’s Natural Language Understanding (NLU) allows salespeople to effectively engage and confirm the right solution for the customer – without delays, without taxing engineering and without deciphering the volumes of specifications.
 
