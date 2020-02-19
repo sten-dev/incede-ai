@@ -31,7 +31,7 @@ const AboutPage = ({ data }) => {
   console.log("preview about", about.frontmatter);
 
   return (
-    <Layout>
+    <Layout pageTitle="About | Incede">
       <AboutPageTemplate
         title={about.frontmatter.title}
         section={about.frontmatter.section}

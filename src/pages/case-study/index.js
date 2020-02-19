@@ -5,7 +5,7 @@ import CaseStudiesMain from '../../components/case-study/CaseStudiesMain';
 export default class CaseStudiesPage extends React.Component {
     render() {
         return (
-            <Layout>
+            <Layout pageTitle="Case Studies | Incede">
                 <CaseStudiesMain />
             </Layout>
         )

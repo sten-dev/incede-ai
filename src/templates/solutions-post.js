@@ -21,8 +21,8 @@ export const SolutionsPostTemplate = ({
         <Container>
           <Row>
             <Col>
-            <h1>{title}</h1>
-            <h6>{subTitle}</h6>
+              <h1>{title}</h1>
+              <h6>{subTitle}</h6>
             </Col>
           </Row>
         </Container>
@@ -50,7 +50,7 @@ const SolutionsPost = ({ data }) => {
   const { markdownRemark: post } = data;
 
   return (
-    <Layout>
+    <Layout pageTitle="Solutions | Incede">
       <SolutionsPostTemplate
         content={post.html}
         contentComponent={HTMLContent}

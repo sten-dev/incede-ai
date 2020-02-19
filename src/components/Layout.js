@@ -5,13 +5,14 @@ import useSiteMetadata from "./SiteMetadata";
 import { withPrefix } from "gatsby";
 import LayoutBody from "./LayoutBody";
 
-const Layout = ({ children, page }) => {
+const Layout = ({ children, page, pageTitle }) => {
+  console.log("pageTitle", pageTitle)
   const { title, description } = useSiteMetadata();
   return (
     <div>
       <Helmet>
         <html lang="en" />
-        <title>{title}</title>
+        <title>{pageTitle}</title>
         <meta name="description" content={description} />
         <link rel="apple-touch-icon" sizes="57x57" href={`${withPrefix("/")}img/fav/apple-icon-57x57.png`} />
         <link rel="apple-touch-icon" sizes="60x60" href={`${withPrefix("/")}img/fav/apple-icon-60x60.png`} />

@@ -26,7 +26,10 @@
 }
 
 .contact-card-img {
-    height: 350px;
+  height: 350px;
+  width: 100px;
+  object-fit: cover;
+  object-position: 25% center;
 }
 
 .got-any-questions {

@@ -57,7 +57,7 @@ ServicesTemplate.propTypes = {
 const Services = ({ data }) => {
   const { markdownRemark: post } = data;
   return (
-    <Layout>
+    <Layout pageTitle="Services | Incede">
       <ServicesTemplate
         helmet={
           <Helmet titleTemplate="%s | Service">
