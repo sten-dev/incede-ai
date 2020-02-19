@@ -2,7 +2,7 @@
 templateKey: solutions-post
 title: IT Service Desk
 subTitle: Level-2 Quality Enabled through Natural Language Understanding
-image: /img/cloud-professional-services.png
+image: /img/IT Service Desk.png
 ---
 IT Services are the backbone of the organization – including the IT service desk.  Incede provides quick resolution to the routine, low-value issues – the typical Level 1 requests.  Natural Language Understanding (NLU) allows Incede to address more complex requests that have traditionally been escalated to the support team – the typical Level 2 requests.
 
