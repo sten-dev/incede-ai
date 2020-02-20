@@ -22,6 +22,7 @@ section {
       max-height: calc(100vh - 230px) !important;
       padding: 16px;
       margin-bottom: 16px;
+      padding-bottom: 8px !important;
     }
     .call-back-form {
       max-width: 500px;
@@ -345,7 +346,7 @@ section {
   .bot-container {
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 100px) !important;
+    height: calc(100vh - 120px) !important;
     margin-top: 4px;
     // height: 100vh;
     // height: 80vh !important;
