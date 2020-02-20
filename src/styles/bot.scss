@@ -322,6 +322,7 @@ section {
     &.xs {
       height: auto !important;
       float: right;
+      z-index: 99;
     }
   }
   .ask-container {
@@ -344,7 +345,7 @@ section {
     // padding-bottom: 96px;
     #messages_container {
       height: 100% !important;
-      max-height: calc(100% - 48px) !important;
+      max-height: calc(100% - 52px) !important;
     }
     .chat-pill {
       &:not(.ask) {
