@@ -258,6 +258,14 @@ section {
 .power-by {
   font-size: 14px !important;
 }
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .bot-container {
+    #messages_container {
+      height: 100vh !important;
+      max-height: calc(100% - 260px) !important;
+    }
+  }
+}
 @media screen and (max-width: 992px) {
   .bot-menu-btn {
     height: 480px;
@@ -315,7 +323,7 @@ section {
   }
   .bot {
     > div:nth-child(2) {
-      height: calc(100% - 108px) !important;
+      height: calc(100% - 76px) !important;
     }
   }
   .exit-demo-btn {
@@ -337,7 +345,7 @@ section {
   .bot-container {
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 136px) !important;
+    height: calc(100vh - 48px) !important;
     margin-top: 4px;
     // height: 100vh;
     // height: 80vh !important;
