@@ -344,7 +344,7 @@ section {
     // padding-bottom: 96px;
     #messages_container {
       height: 100% !important;
-      max-height: calc(100% - 100px) !important;
+      max-height: calc(100% - 90px) !important;
     }
     .chat-pill {
       &:not(.ask) {
