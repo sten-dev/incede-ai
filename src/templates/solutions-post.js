@@ -5,13 +5,15 @@ import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
 import { Col, Row, Container } from "reactstrap";
+import SolutionsImageBySlug from "../components/Solutions/SolutionsImageBySlug";
 
 export const SolutionsPostTemplate = ({
   subTitle,
   title,
   content,
   contentComponent,
-  helmet
+  helmet,
+  slug
 }) => {
   const PageContent = contentComponent || Content;
   return (
@@ -32,6 +34,11 @@ export const SolutionsPostTemplate = ({
           <Col>
             <main className="content gap-y-half">
               <PageContent content={content} />
+            </main>
+          </Col>
+          <Col lg={5} md={4} sm={12} xs={12}>
+            <main className="content gap-y-half">
+              <SolutionsImageBySlug slug={slug} />
             </main>
           </Col>
         </Row>
@@ -62,6 +69,10 @@ const SolutionsPost = ({ data }) => {
           </Helmet>
         }
         title={post.frontmatter.title}
+        slug={post.fields.slug
+          .split("/")
+          .filter(x => x)
+          .pop()}
       />
     </Layout>
   );
@@ -80,6 +91,9 @@ export const pageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       id
       html
+      fields {
+        slug
+      }
       frontmatter {
         title
         subTitle
