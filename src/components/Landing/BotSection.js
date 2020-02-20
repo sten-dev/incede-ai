@@ -765,15 +765,8 @@ class BotSection extends Component {
                     <Spinner size="sm" type="grow" color="primary" />
                   </ChatPill>
                 )}
-                {this.state.isDemo && (
-                  <Button
-                    onClick={this.exitWADemo}
-                    className="exit-demo-btn mr-1 d-block d-sm-none"
-                  >
-                    Exit Demo
-                  </Button>
-                )}
               </section>
+
               {/* <ChatPillAsk
                 handleKeyDown={this.handleKeyDown}
                 value={this.state.msg}
@@ -783,6 +776,7 @@ class BotSection extends Component {
               /> */}
             </Col>
           </Row>
+
           <div
             className={`chat-section d-flex justify-content-end align-items-center ask-container`}
           >
@@ -823,6 +817,27 @@ class BotSection extends Component {
             Do you want to reset chat history?
           </ConfirmModal>
         </Container>
+        {this.state.isDemo ? (
+          <Button
+            onClick={this.exitWADemo}
+            className="exit-demo-btn xs mr-1 d-block d-sm-none"
+          >
+            Exit Demo
+                  </Button>
+        ) : (
+            <React.Fragment>
+              {this.state.messages.length > 0 && (
+                <Button
+                  onClick={() => {
+                    this.setState({ modal: { isOpen: true } });
+                  }}
+                  className="exit-demo-btn xs mr-1 d-block d-sm-none"
+                >
+                  Reset
+                    </Button>
+              )}
+            </React.Fragment>
+          )}
       </section>
     );
   }

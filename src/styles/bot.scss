@@ -313,6 +313,17 @@ section {
       width: 30px;
     }
   }
+  .bot {
+    > div:nth-child(2) {
+      height: calc(100% - 108px) !important;
+    }
+  }
+  .exit-demo-btn {
+    &.xs {
+      height: auto !important;
+      float: right;
+    }
+  }
   .ask-container {
     position: absolute !important;
     bottom: 0;
