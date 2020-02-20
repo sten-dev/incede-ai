@@ -774,7 +774,29 @@ class BotSection extends Component {
                   </ChatPill>
                 )}
               </section>
-
+              <div className="d-flex justify-content-end">
+                {this.state.isDemo ? (
+                  <Button
+                    onClick={this.exitWADemo}
+                    className="exit-demo-btn  xs mr-1 d-block d-sm-none"
+                  >
+                    Exit Demo
+                  </Button>
+                ) : (
+                  <React.Fragment>
+                    {this.state.messages.length > 0 && (
+                      <Button
+                        onClick={() => {
+                          this.setState({ modal: { isOpen: true } });
+                        }}
+                        className="exit-demo-btn xs mr-1 d-block d-sm-none"
+                      >
+                        Reset
+                      </Button>
+                    )}
+                  </React.Fragment>
+                )}
+              </div>
               {/* <ChatPillAsk
                 handleKeyDown={this.handleKeyDown}
                 value={this.state.msg}
@@ -784,7 +806,7 @@ class BotSection extends Component {
               /> */}
             </Col>
           </Row>
-          <div className="d-flex justify-content-end">
+          {/* <div className="d-flex justify-content-end">
             {this.state.isDemo ? (
               <Button
                 onClick={this.exitWADemo}
@@ -806,7 +828,7 @@ class BotSection extends Component {
                 )}
               </React.Fragment>
             )}
-          </div>
+          </div> */}
           <div
             className={`chat-section d-flex justify-content-end align-items-center ask-container`}
           >
