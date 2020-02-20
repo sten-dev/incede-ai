@@ -702,7 +702,7 @@ class BotSection extends Component {
             <Col className="bot-container ">
               <section
                 id="messages_container"
-                className="chat d-flex flex-column flex-grow-1 pb-0"
+                className="chat d-flex flex-column flex-grow-1"
               >
                 {this.state.messages.map((x, i) => (
                   <div key={i}>
@@ -784,11 +784,11 @@ class BotSection extends Component {
               /> */}
             </Col>
           </Row>
-          <div>
+          <div className="d-flex justify-content-end">
             {this.state.isDemo ? (
               <Button
                 onClick={this.exitWADemo}
-                className="exit-demo-btn xs mr-1 d-block d-sm-none"
+                className="exit-demo-btn  xs mr-1 d-block d-sm-none"
               >
                 Exit Demo
               </Button>
