@@ -9,14 +9,14 @@ import HeroImage from "../../img/hero_image.png";
 class Home extends React.Component {
   state = {};
   render() {
-    const { home } = this.props;
+    // const { home } = this.props;
     return (
       <>
         <section className="landing-home">
           <Container>
             <Row>
               {/* <Col lg={1} md={2}></Col> */}
-              <Col lg={7} md={6} sm={12} xs={12}>
+              <Col lg={8} md={7} sm={12} xs={12}>
                 <article className="gap-y">
                   {/* <h1 className="text-primary bold">{home.title}</h1> */}
                   <h1 className="text-primary bold">
@@ -38,7 +38,7 @@ class Home extends React.Component {
                   {/* <pre>{JSON.stringify(home, null, 2)}</pre> */}
                 </article>
               </Col>
-              <Col lg={5} md={6} className="d-none d-md-block position-initial">
+              <Col lg={4} md={5} className="d-none d-md-block position-initial">
                 <div className="image-section gap-y">
                   {/* <PreviewCompatibleImage
                     imageInfo={{

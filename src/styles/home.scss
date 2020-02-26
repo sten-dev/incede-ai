@@ -20,3 +20,15 @@ section {
 .wwd-list-card {
   margin-bottom: 16px;
 }
+
+@media screen and (min-width: 1200px) {
+  section {
+    &.landing-home {
+      .image-section {
+        img {
+          height: 450px;
+        }
+      }
+    }
+  }
+}
