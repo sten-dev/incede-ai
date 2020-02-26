@@ -5,7 +5,7 @@ import arrow from "../img/arrow.svg"
 import { Link } from 'gatsby';
 import "../styles/404.scss"
 const NotFoundPage = () => (
-  <Layout>
+  <Layout pageTitle="404 | Incede">
     <Row className="gap-y-half d-flex justify-content-center text-center page-404 m-0">
       <Col lg={3} md={5} sm={10} xs={12}>
         <Card>

@@ -103,15 +103,17 @@ class BotSection extends Component {
       reconnectionDelayMax: 5000,
       reconnectionAttempts: 5
     });
-    this.socket.on("connect", function () {
+    this.socket.on("connect", function() {
       console.debug("connected to server");
     });
-    let messages = [{
-      user: "WA",
-      message:
-        "Welcome!  I am Incede, your virtual assistant to help you quickly find what interests you.",
-      type: "text"
-    }];
+    let messages = [
+      {
+        user: "WA",
+        message:
+          "Welcome!  I am Incede, your virtual assistant to help you quickly find what interests you.",
+        type: "text"
+      }
+    ];
     let time = new Date().getTime();
 
     this.checkWASession();
@@ -143,8 +145,8 @@ class BotSection extends Component {
                     x.USER === "WATSON"
                       ? "WA"
                       : x.USER === "AGENT"
-                        ? "AG"
-                        : "ME",
+                      ? "AG"
+                      : "ME",
                   message: x.TEXT,
                   type: x.TYPE === "options" ? "options" : "text",
                   options: x.TYPE === "options" ? JSON.parse(x.OPTIONS) : [],
@@ -270,11 +272,14 @@ class BotSection extends Component {
                 intent: undefined
               });
               let lastWAUserIndex = messages.length - 1;
-              this.setState({
-                messages,
-                lastWAUserIndex,
-                isLoading: false
-              });
+              this.setState(
+                {
+                  messages,
+                  lastWAUserIndex,
+                  isLoading: false
+                },
+                this.scrollToBottom
+              );
             }
           }, this.agentTimeOut / 3);
         } else if (
@@ -340,7 +345,7 @@ class BotSection extends Component {
       let messages = [...this.state.messages];
       let lastWAUserIndex = this.state.lastWAUserIndex;
       let isSearchResponse = data.findIndex(x => x.response_type === "search");
-      if (isSearchResponse && (isSearchResponse === data.length - 1)) {
+      if (isSearchResponse && isSearchResponse === data.length - 1) {
         data = data.reverse();
       }
       data.forEach(x => {
@@ -380,9 +385,7 @@ class BotSection extends Component {
             options: x.options || [],
             intent: response.intent
           });
-          if (
-            x.text && x.text === MEETING_MSG && response.intent === "callback"
-          ) {
+          if (x.text && x.text === MEETING_MSG) {
             messages.push({ user: "ME", message: "", type: "callback_form" });
           }
           lastWAUserIndex = messages.length - 1;
@@ -512,7 +515,7 @@ class BotSection extends Component {
       reconnectionDelayMax: 5000,
       reconnectionAttempts: 5
     });
-    this.demoSocket.on("connect", function () {
+    this.demoSocket.on("connect", function() {
       console.debug("demo socket connected to server");
     });
     this.demoSocket.on("chat message", message => {
@@ -592,7 +595,7 @@ class BotSection extends Component {
   };
 
   scrollToBottom = () => {
-    setTimeout(function () {
+    setTimeout(function() {
       var objDiv = document.getElementById("messages_container");
       if (objDiv) {
         objDiv.scrollTop = objDiv.scrollHeight;
@@ -612,7 +615,12 @@ class BotSection extends Component {
           <ChatLocation isLastWAUser={index === this.state.lastWAUserIndex} />
         );
       case "callback_form":
-        return <CallBackForm roomId={this.roomId} sendCustomMessage={this.sendCustomMessage} />;
+        return (
+          <CallBackForm
+            roomId={this.roomId}
+            sendCustomMessage={this.sendCustomMessage}
+          />
+        );
       case "search-result":
         return (
           <React.Fragment>
@@ -622,18 +630,18 @@ class BotSection extends Component {
                 isLastWAUser={index === this.state.lastWAUserIndex}
               />
             ) : (
-                <React.Fragment>
-                  <ChatPill
-                    isLastWAUser={
-                      index === this.state.lastWAUserIndex &&
-                      !this.state.isLoading
-                    }
-                    right={data.user === "ME"}
-                    user={data.user}
-                    text=""
-                  />
-                </React.Fragment>
-              )}
+              <React.Fragment>
+                <ChatPill
+                  isLastWAUser={
+                    index === this.state.lastWAUserIndex &&
+                    !this.state.isLoading
+                  }
+                  right={data.user === "ME"}
+                  user={data.user}
+                  text=""
+                />
+              </React.Fragment>
+            )}
           </React.Fragment>
         );
       default:
@@ -707,48 +715,48 @@ class BotSection extends Component {
                               return (
                                 <React.Fragment key={`option${index}`}>
                                   {option.value.input.text.startsWith("<a") &&
-                                    option.value.input.text.indexOf("href") >
+                                  option.value.input.text.indexOf("href") >
                                     -1 ? (
-                                      <Col
-                                        key={`option${index}`}
-                                        lg={6}
-                                        md={6}
-                                        sm={6}
-                                        xs={12}
+                                    <Col
+                                      key={`option${index}`}
+                                      lg={6}
+                                      md={6}
+                                      sm={6}
+                                      xs={12}
+                                    >
+                                      <div
+                                        className={`wa-option ${option.label
+                                          .replace(/ /g, "-")
+                                          .toLowerCase()}`}
                                       >
-                                        <div
-                                          className={`wa-option ${option.label
-                                            .replace(/ /g, "-")
-                                            .toLowerCase()}`}
-                                        >
-                                          <p
-                                            className="link"
-                                            dangerouslySetInnerHTML={{
-                                              __html: option.value.input.text
-                                            }}
-                                          ></p>
-                                        </div>
-                                      </Col>
-                                    ) : (
-                                      <Col
-                                        key={`option${index}`}
-                                        lg={6}
-                                        md={6}
-                                        sm={6}
-                                        xs={12}
-                                        onClick={() =>
-                                          this.handleOnOptionClick(x, index)
-                                        }
+                                        <p
+                                          className="link"
+                                          dangerouslySetInnerHTML={{
+                                            __html: option.value.input.text
+                                          }}
+                                        ></p>
+                                      </div>
+                                    </Col>
+                                  ) : (
+                                    <Col
+                                      key={`option${index}`}
+                                      lg={6}
+                                      md={6}
+                                      sm={6}
+                                      xs={12}
+                                      onClick={() =>
+                                        this.handleOnOptionClick(x, index)
+                                      }
+                                    >
+                                      <div
+                                        className={`wa-option ${option.label
+                                          .replace(/ /g, "-")
+                                          .toLowerCase()}`}
                                       >
-                                        <div
-                                          className={`wa-option ${option.label
-                                            .replace(/ /g, "-")
-                                            .toLowerCase()}`}
-                                        >
-                                          <p>{option.label}</p>
-                                        </div>
-                                      </Col>
-                                    )}
+                                        <p>{option.label}</p>
+                                      </div>
+                                    </Col>
+                                  )}
                                 </React.Fragment>
                               );
                             })}
@@ -765,15 +773,30 @@ class BotSection extends Component {
                     <Spinner size="sm" type="grow" color="primary" />
                   </ChatPill>
                 )}
-                {this.state.isDemo && (
+              </section>
+              <div className="d-flex justify-content-end">
+                {this.state.isDemo ? (
                   <Button
                     onClick={this.exitWADemo}
-                    className="exit-demo-btn mr-1 d-block d-sm-none"
+                    className="exit-demo-btn  xs mr-1 d-block d-sm-none"
                   >
                     Exit Demo
                   </Button>
+                ) : (
+                  <React.Fragment>
+                    {this.state.messages.length > 0 && (
+                      <Button
+                        onClick={() => {
+                          this.setState({ modal: { isOpen: true } });
+                        }}
+                        className="exit-demo-btn xs mr-1 d-block d-sm-none"
+                      >
+                        Reset
+                      </Button>
+                    )}
+                  </React.Fragment>
                 )}
-              </section>
+              </div>
               {/* <ChatPillAsk
                 handleKeyDown={this.handleKeyDown}
                 value={this.state.msg}
@@ -783,6 +806,29 @@ class BotSection extends Component {
               /> */}
             </Col>
           </Row>
+          {/* <div className="d-flex justify-content-end">
+            {this.state.isDemo ? (
+              <Button
+                onClick={this.exitWADemo}
+                className="exit-demo-btn  xs mr-1 d-block d-sm-none"
+              >
+                Exit Demo
+              </Button>
+            ) : (
+              <React.Fragment>
+                {this.state.messages.length > 0 && (
+                  <Button
+                    onClick={() => {
+                      this.setState({ modal: { isOpen: true } });
+                    }}
+                    className="exit-demo-btn xs mr-1 d-block d-sm-none"
+                  >
+                    Reset
+                  </Button>
+                )}
+              </React.Fragment>
+            )}
+          </div> */}
           <div
             className={`chat-section d-flex justify-content-end align-items-center ask-container`}
           >
@@ -794,19 +840,19 @@ class BotSection extends Component {
                 Exit Demo
               </Button>
             ) : (
-                <React.Fragment>
-                  {this.state.messages.length > 0 && (
-                    <Button
-                      onClick={() => {
-                        this.setState({ modal: { isOpen: true } });
-                      }}
-                      className="reset-btn mr-1 d-none d-sm-block"
-                    >
-                      Reset
+              <React.Fragment>
+                {this.state.messages.length > 0 && (
+                  <Button
+                    onClick={() => {
+                      this.setState({ modal: { isOpen: true } });
+                    }}
+                    className="reset-btn mr-1 d-none d-sm-block"
+                  >
+                    Reset
                   </Button>
-                  )}
-                </React.Fragment>
-              )}
+                )}
+              </React.Fragment>
+            )}
             <ChatPillAsk
               handleKeyDown={this.handleKeyDown}
               value={this.state.msg}

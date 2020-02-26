@@ -11,7 +11,7 @@ export default class Index extends React.Component {
 
     render() {
         return (
-            <Layout page="login">
+            <Layout pageTitle="Login | Incede" page="login">
                 <Login />
             </Layout>
         )

@@ -53,7 +53,7 @@ const CaseStudy = ({ data }) => {
     const { markdownRemark: post } = data
 
     return (
-        <Layout>
+        <Layout pageTitle="Case Studies | Incede">
             <CaseStudyTemplate
                 helmet={
                     <Helmet titleTemplate="%s | Case Study">

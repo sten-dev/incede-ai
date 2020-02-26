@@ -5,11 +5,14 @@ import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
 import { Col, Row, Container } from "reactstrap";
+import ServiceImageBySlug from "../components/services/ServiceImageBySlug";
+
 
 export const ServicesTemplate = ({
   title,
   subTitle,
   image,
+  slug,
   helmet,
   content,
   contentComponent
@@ -31,9 +34,14 @@ export const ServicesTemplate = ({
       </section>
       <Container>
         <Row>
-          <Col>
+          <Col lg={7} md={8} sm={12} xs={12} >
             <main className="content gap-y-half">
               <PageContent content={content} />
+            </main>
+          </Col>
+          <Col lg={5} md={4} sm={12} xs={12}>
+            <main className="content gap-y-half">
+              <ServiceImageBySlug slug={slug} />
             </main>
           </Col>
         </Row>
@@ -50,9 +58,8 @@ ServicesTemplate.propTypes = {
 
 const Services = ({ data }) => {
   const { markdownRemark: post } = data;
-
   return (
-    <Layout>
+    <Layout pageTitle="Services | Incede">
       <ServicesTemplate
         helmet={
           <Helmet titleTemplate="%s | Service">
@@ -65,6 +72,7 @@ const Services = ({ data }) => {
         image={post.frontmatter.image}
         content={post.html}
         contentComponent={HTMLContent}
+        slug={post.fields.slug.split("/").filter(x => x).pop()}
       />
     </Layout>
   );
@@ -80,20 +88,23 @@ export default Services;
 
 export const pageQuery = graphql`
   query ServicesByID($id: String!) {
-    markdownRemark(id: { eq: $id }) {
-      id
+        markdownRemark(id: {eq: $id }) {
+        id
       html
+      fields {
+        slug
+      }
       frontmatter {
         title
         subTitle
         image {
-          childImageSharp {
-            fluid(maxWidth: 240, quality: 64) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
+        childImageSharp {
+        fluid(maxWidth: 240, quality: 64) {
+        ...GatsbyImageSharpFluid
+      }
       }
     }
   }
+}
+}
 `;

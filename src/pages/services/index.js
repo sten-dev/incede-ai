@@ -5,7 +5,7 @@ import ServicesMain from '../../components/services/ServicesMain';
 export default class ServicesPage extends React.Component {
     render() {
         return (
-            <Layout>
+            <Layout pageTitle="Services | Incede">
 
                 <ServicesMain />
             </Layout>

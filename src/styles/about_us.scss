@@ -22,3 +22,12 @@ section {
     }
   }
 }
+@media screen and (max-width: 599px) {
+  section {
+    &.partner {
+      img.xs-img {
+        width: 100%;
+      }
+    }
+  }
+}

@@ -51,7 +51,7 @@ const Industries = ({ data }) => {
   const { markdownRemark: post } = data
 
   return (
-    <Layout>
+    <Layout pageTitle="Industries | Incede">
       <IndustriesTemplate
         helmet={
           <Helmet titleTemplate="%s | Industry">

@@ -1,11 +1,10 @@
 //dev
-export const API_URL =
-  "https://incede-api-tired-leopard.mybluemix.net/";
+export const API_URL = "https://incede-api-tired-leopard.mybluemix.net/";
 
 // local
 // export const API_URL = "http://localhost:8080/";
 
-export const WEB_URL = "https://incede.ai/"
+export const WEB_URL = "https://incede.ai/";
 
 export const DEMO_SOCKET_URL = "wss://cc-api.mybluemix.net";
 export const SOCKET_PATHS = {
@@ -31,9 +30,10 @@ export const USER_ABB = {
   [IF_USER_IS.watson]: "WA"
 };
 
-export const IGNORE_MSG = ["welcome_back"];
+export const IGNORE_MSG = ["welcome_back", "agent_not_available"];
 
-export const MEETING_MSG = "Sure thing. I need some basic information from you to setup a meeting.";
+export const MEETING_MSG =
+  "Sure thing. I need some basic information from you to setup a meeting.";
 
 export const COGNOS_SOURCE = {
   id:
@@ -58,7 +58,7 @@ export const httpClient = async (
     type = type.toUpperCase();
     if (type.toLowerCase() === "get" && obj) {
       var params = Object.keys(obj)
-        .map(function (key) {
+        .map(function(key) {
           return key + "=" + obj[key];
         })
         .join("&");

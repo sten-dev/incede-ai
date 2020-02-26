@@ -3,7 +3,7 @@ import { Card, CardBody, Container, Row, Col } from "reactstrap";
 import call from "../../img/call.svg";
 import location_icon from "../../img/location.svg";
 import mail from "../../img/mail.svg";
-import contact_us from "../../img/contact-us.svg";
+import contact_us from "../../img/contact-us-3.jpg";
 import "../../styles/contact-us.scss";
 
 const ContactUs = props => {

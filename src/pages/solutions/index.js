@@ -6,7 +6,7 @@ import SolutionsMain from '../../components/Solutions/SolutionsMain';
 export default class SolutionsPage extends React.Component {
     render() {
         return (
-            <Layout>
+            <Layout pageTitle="Solutions | Incede">
 
                 <SolutionsMain />
             </Layout>
