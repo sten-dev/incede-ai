@@ -16,8 +16,8 @@ class Home extends React.Component {
           <Container>
             <Row>
               {/* <Col lg={1} md={2}></Col> */}
-              <Col lg={8} md={7} sm={12} xs={12}>
-                <article className="gap-y">
+              <Col lg={7} md={7} sm={12} xs={12}>
+                <article className="gap-y mt-5">
                   {/* <h1 className="text-primary bold">{home.title}</h1> */}
                   <h1 className="text-primary bold">
                     Incede infuses IBM Watson AI into your business processes
@@ -38,7 +38,7 @@ class Home extends React.Component {
                   {/* <pre>{JSON.stringify(home, null, 2)}</pre> */}
                 </article>
               </Col>
-              <Col lg={4} md={5} className="d-none d-md-block position-initial">
+              <Col lg={5} md={5} className="d-none d-md-block position-initial">
                 <div className="image-section gap-y">
                   {/* <PreviewCompatibleImage
                     imageInfo={{
