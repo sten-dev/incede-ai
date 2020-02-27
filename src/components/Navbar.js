@@ -18,6 +18,10 @@ import {
   Col,
   Modal,
   ModalBody
+  ,
+  ListGroup
+  ,
+  ListGroupItem
 } from "reactstrap";
 import SolutionsMenu from "./menu/SolutionsMenu";
 import ServicesMenu from "./menu/ServicesMenu";
@@ -31,7 +35,13 @@ class INavbar extends Component {
     super(props);
     this.state = {
       isOpen: false,
-      popoverOpen: false
+      isWWDPopoverOpen: false,
+      isServicesMenuOpen: false,
+      isSolutionsMenuOpen: false,
+      isIndustriesMenuOpen: false,
+      isWhyIncedeMenuOpen: false,
+      isAboutMenuOpen: false,
+
     };
   }
 
@@ -79,7 +89,32 @@ class INavbar extends Component {
   };
   toggleWhatWeDoMenu = () => {
     this.setState({
-      popoverOpen: !this.state.popoverOpen
+      isWWDPopoverOpen: !this.state.isWWDPopoverOpen
+    });
+  };
+  toggleServicesMenu = () => {
+    this.setState({
+      isServicesMenuOpen: !this.state.isServicesMenuOpen
+    });
+  };
+  toggleSolutionsMenu = () => {
+    this.setState({
+      isSolutionsMenuOpen: !this.state.isSolutionsMenuOpen
+    });
+  };
+  toggleIndustriesMenu = () => {
+    this.setState({
+      isIndustriesMenuOpen: !this.state.isIndustriesMenuOpen
+    });
+  };
+  toggleWhyIncedeMenu = () => {
+    this.setState({
+      isWhyIncedeMenuOpen: !this.state.isWhyIncedeMenuOpen
+    });
+  };
+  toggleAboutUsMenu = () => {
+    this.setState({
+      isAboutMenuOpen: !this.state.isAboutMenuOpen
     });
   };
   render() {
@@ -111,19 +146,14 @@ class INavbar extends Component {
                     <NavItem className="btn">
                       <Link activeClassName="selected" to="/">
                         Home
-                    </Link>
+                     </Link>
                     </NavItem>
-                    <NavItem className="btn">
-                      <Link activeClassName="selected" to="/about">
-                        About Us
-                    </Link>
-                    </NavItem>
-                    <NavItem id="whatWeDo" className="btn">
+                    <NavItem id="menu_services" className="btn">
                       <a>
-                        What We Do{" "}
+                        Services{" "}
                         <img
                           className={`${
-                            this.state.popoverOpen ? "active-what-we-do" : ""
+                            this.state.isServicesMenuOpen ? "active-what-we-do" : ""
                             }`}
                           alt="send"
                           src={dropdown}
@@ -131,6 +161,24 @@ class INavbar extends Component {
                         />{" "}
                       </a>
                     </NavItem>
+                    {/* <NavItem className="btn">
+                      <Link activeClassName="selected" to="/about">
+                        About Us
+                    </Link>
+                    </NavItem> */}
+                    {/* <NavItem id="whatWeDo" className="btn">
+                      <a>
+                        What We Do{" "}
+                        <img
+                          className={`${
+                            this.state.isWWDPopoverOpen ? "active-what-we-do" : ""
+                            }`}
+                          alt="send"
+                          src={dropdown}
+                        // onClick={props.onClick}
+                        />{" "}
+                      </a>
+                    </NavItem> */}
                     <NavItem className="btn">
                       <Link activeClassName="selected" to="/case-study">
                         Case Studies
@@ -144,20 +192,79 @@ class INavbar extends Component {
                         Contact Us
                     </Link>
                     </NavItem>
+                    <NavItem id="menu_why_incede" className="btn">
+                      <a>
+                        Why Incede{" "}
+                        <img
+                          className={`${
+                            this.state.isWhyIncedeMenuOpen ? "active-what-we-do" : ""
+                            }`}
+                          alt="send"
+                          src={dropdown}
+                        // onClick={props.onClick}
+                        />{" "}
+                      </a>
+                    </NavItem>
+                    <NavItem id="menu_about" className="btn">
+                      <a>
+                        About Us{" "}
+                        <img
+                          className={`${
+                            this.state.isAboutMenuOpen ? "active-what-we-do" : ""
+                            }`}
+                          alt="send"
+                          src={dropdown}
+                        // onClick={props.onClick}
+                        />{" "}
+                      </a>
+                    </NavItem>
                   </Nav>
                 </Collapse>
               </Navbar>
 
               <Popover
+                boundariesElement="window"
+                placement="bottom"
+                isOpen={this.state.isWhyIncedeMenuOpen}
+                target="menu_why_incede"
+                toggle={this.toggleWhyIncedeMenu}
+                trigger="legacy"
+              >
+                {/* <PopoverHeader>Popover Title</PopoverHeader> */}
+                <PopoverBody>
+                  <ul className="menu-links">
+                    <li>Our Process</li>
+                    <li>Our Expertise</li>
+                    <li>Our Experience</li>
+                  </ul>
+                </PopoverBody>
+              </Popover>
+              <Popover
+                boundariesElement="window"
+                placement="bottom"
+                isOpen={this.state.isAboutMenuOpen}
+                target="menu_about"
+                toggle={this.toggleAboutUsMenu}
+                trigger="legacy"
+              >
+                {/* <PopoverHeader>Popover Title</PopoverHeader> */}
+                <PopoverBody>
+                  <ul className="menu-links">
+                    <li>Leadership</li>
+                    <li>Careers</li>
+                    <li>Partnerships</li>
+                  </ul>
+                </PopoverBody>
+              </Popover>
+              {/* <Popover
                 popperClassName="what-we-do-menu"
                 boundariesElement="window"
                 placement="bottom"
-                isOpen={this.state.popoverOpen}
+                isOpen={this.state.isWWDPopoverOpen}
                 target="whatWeDo"
                 toggle={this.toggleWhatWeDoMenu}
                 trigger="legacy"
               >
-                {/* <PopoverHeader>Popover Title</PopoverHeader> */}
                 <PopoverBody>
                   <Container fluid className="p-4">
                     <Row>
@@ -184,14 +291,11 @@ class INavbar extends Component {
                         <h5 className="mt-0">Solutions</h5>
                         <SolutionsMenu />
                       </Col>
-                      {/* <Col className="wwd-sub-menu" lg={3} md={3} sm={6} xs={12}>
-                        <h5 className="mt-0">Industries</h5>
-                        <IndustriesMenu />
-                      </Col> */}
+                    
                     </Row>
                   </Container>
                 </PopoverBody>
-              </Popover>
+              </Popover> */}
               <Modal
                 isOpen={this.state.isOpen}
                 toggle={this.toggle}
