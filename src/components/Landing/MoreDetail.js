@@ -14,7 +14,7 @@ class MoreDetail extends React.Component {
         <Container>
           <Row>
             <Col lg={8} md={7} sm={12} xs={12}>
-              <article className="gap-y-half text-center text-sm-left">
+              <article className="gap-y-half  text-left">
                 <h1 className="title">
                   Harnessing the power of data, Artificial Intelligence and
                   Machine Learning
