@@ -377,9 +377,21 @@ class INavbar extends Component {
                 {/* <PopoverHeader>Popover Title</PopoverHeader> */}
                 <PopoverBody>
                   <ul className="menu-links">
-                    <li>Leadership</li>
-                    <li>Careers</li>
-                    <li>Partnerships</li>
+                    <li>
+                      <Link to="/about">
+                        Leadership
+                         </Link>
+                    </li>
+                    <li>
+                      <Link to="/about">
+                        Careers
+                         </Link>
+                    </li>
+                    <li>
+                      <Link to="/about">
+                        Partnerships
+                         </Link>
+                    </li>
                   </ul>
                 </PopoverBody>
               </Popover>
