@@ -377,17 +377,17 @@ class INavbar extends Component {
                 {/* <PopoverHeader>Popover Title</PopoverHeader> */}
                 <PopoverBody>
                   <ul className="menu-links">
-                    <li>
+                    <li onClick={this.toggleAboutUsMenu}>
                       <Link to="/about">
                         Leadership
                          </Link>
                     </li>
-                    <li>
+                    <li onClick={this.toggleAboutUsMenu}>
                       <Link to="/about">
                         Careers
                          </Link>
                     </li>
-                    <li>
+                    <li onClick={this.toggleAboutUsMenu}>
                       <Link to="/about">
                         Partnerships
                          </Link>
