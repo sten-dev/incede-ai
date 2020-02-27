@@ -148,7 +148,7 @@ class INavbar extends Component {
                         Home
                      </Link>
                     </NavItem>
-                    <NavItem id="menu_services" className="btn">
+                    {/* <NavItem id="menu_services" className="btn">
                       <a>
                         Services{" "}
                         <img
@@ -160,7 +160,7 @@ class INavbar extends Component {
                         // onClick={props.onClick}
                         />{" "}
                       </a>
-                    </NavItem>
+                    </NavItem> */}
                     {/* <NavItem className="btn">
                       <Link activeClassName="selected" to="/about">
                         About Us
@@ -179,19 +179,61 @@ class INavbar extends Component {
                         />{" "}
                       </a>
                     </NavItem> */}
-                    <NavItem className="btn">
+                    {/* <NavItem className="btn">
                       <Link activeClassName="selected" to="/case-study">
                         Case Studies
                     </Link>
-                    </NavItem>
+                    </NavItem> */}
                     {/* <NavItem className="btn">
               <Link activeClassName="selected" to="/customers">Our Customers</Link>
             </NavItem> */}
-                    <NavItem className="btn">
+                    {/* <NavItem className="btn">
                       <Link activeClassName="selected" to="/contact">
                         Contact Us
                     </Link>
+                    </NavItem> */}
+
+
+                    <NavItem id="menu_services" className="btn">
+                      <a>
+                        Services{" "}
+                        <img
+                          className={`${
+                            this.state.isServicesMenuOpen ? "active-what-we-do" : ""
+                            }`}
+                          alt="send"
+                          src={dropdown}
+                        // onClick={props.onClick}
+                        />{" "}
+                      </a>
                     </NavItem>
+                    <NavItem id="menu_solutions" className="btn">
+                      <a>
+                        Solutions{" "}
+                        <img
+                          className={`${
+                            this.state.isSolutionsMenuOpen ? "active-what-we-do" : ""
+                            }`}
+                          alt="send"
+                          src={dropdown}
+                        // onClick={props.onClick}
+                        />{" "}
+                      </a>
+                    </NavItem>
+                    <NavItem id="menu_industries" className="btn">
+                      <a>
+                        Industries{" "}
+                        <img
+                          className={`${
+                            this.state.isIndustriesMenuOpen ? "active-what-we-do" : ""
+                            }`}
+                          alt="send"
+                          src={dropdown}
+                        // onClick={props.onClick}
+                        />{" "}
+                      </a>
+                    </NavItem>
+
                     <NavItem id="menu_why_incede" className="btn">
                       <a>
                         Why Incede{" "}
@@ -221,6 +263,91 @@ class INavbar extends Component {
                   </Nav>
                 </Collapse>
               </Navbar>
+
+
+
+              <Popover
+                boundariesElement="window"
+                placement="bottom"
+                isOpen={this.state.isServicesMenuOpen}
+                target="menu_services"
+                toggle={this.toggleServicesMenu}
+                trigger="legacy"
+              >
+                {/* <PopoverHeader>Popover Title</PopoverHeader> */}
+                <PopoverBody>
+                  <ul className="menu-links">
+                    <li>Watson Assistant Services</li>
+                    <li>Watson Discovery Services</li>
+                    <li>Watson API Services</li>
+
+                  </ul>
+                </PopoverBody>
+              </Popover>
+
+              <Popover
+                boundariesElement="window"
+                placement="bottom"
+                isOpen={this.state.isSolutionsMenuOpen}
+                target="menu_solutions"
+                toggle={this.toggleSolutionsMenu}
+                trigger="legacy"
+              >
+                {/* <PopoverHeader>Popover Title</PopoverHeader> */}
+                <PopoverBody>
+                  <ul className="menu-links">
+                    <li>Customer Service </li>
+                    <li>Human Resource Services</li>
+                    <li>IT Service Desk</li>
+                    <li>Sales Support</li>
+
+                  </ul>
+                </PopoverBody>
+              </Popover>
+              <Popover
+                boundariesElement="window"
+                placement="bottom"
+                isOpen={this.state.isIndustriesMenuOpen}
+                target="menu_industries"
+                toggle={this.toggleIndustriesMenu}
+                trigger="legacy"
+              >
+                {/* <PopoverHeader>Popover Title</PopoverHeader> */}
+                <PopoverBody>
+                  <ul className="menu-links">
+                    <li onClick={this.toggleIndustriesMenu}>
+                      <Link to="/industries#retail-distribution">
+                        Retail/Distribution
+                      </Link>
+                    </li>
+                    <li onClick={this.toggleIndustriesMenu}>
+
+                      <Link to="/industries#industrial-manufacturing">
+                        Industrial/Manufacturing
+                    </Link>
+                    </li>
+                    <li onClick={this.toggleIndustriesMenu}>
+
+                      <Link to="/industries#banking-insurance">
+                        Banking &amp; Insurance
+                    </Link>
+                    </li>
+                    <li onClick={this.toggleIndustriesMenu}>
+                      <Link to="/industries#communications-services">
+                        Communications &amp; Services
+                    </Link>
+                    </li>
+                  </ul>
+                </PopoverBody>
+              </Popover>
+
+
+
+
+
+
+
+
 
               <Popover
                 boundariesElement="window"
