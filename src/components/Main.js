@@ -15,7 +15,7 @@ class Main extends Component {
         <MoreDetail />
         <WhatWeDo />
         <CaseStudies />
-        <ContactUs location={location} />
+        {/* <ContactUs location={location} /> */}
       </React.Fragment>
     );
   }
