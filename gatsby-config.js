@@ -1,11 +1,17 @@
 module.exports = {
   siteMetadata: {
     title: "incede.ai",
-    description:
-      "Build an AI Roadmap for your business"
+    description: "Build an AI Roadmap for your business"
   },
   plugins: [
     "gatsby-plugin-react-helmet",
+    `gatsby-plugin-page-transitions`,
+    {
+      resolve: "gatsby-plugin-page-transitions",
+      options: {
+        transitionTime: 500
+      }
+    },
     "gatsby-plugin-sass",
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
@@ -65,6 +71,7 @@ module.exports = {
         modulePath: `${__dirname}/src/cms/cms.js`
       }
     },
+
     // {
     //   resolve: "gatsby-plugin-purgecss", // purges all unused/unreferenced css rules
     //   options: {

@@ -6,7 +6,7 @@ import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
 import { Col, Row, Container } from "reactstrap";
 import ServiceImageBySlug from "../components/services/ServiceImageBySlug";
-
+import Transition from "../Transition";
 
 export const ServicesTemplate = ({
   title,
@@ -19,34 +19,36 @@ export const ServicesTemplate = ({
 }) => {
   const PageContent = contentComponent || Content;
   return (
-    <section className="service-page">
-      {helmet || ""}
-      <section className="header-section gap-y">
+    <Transition>
+      <section className="service-page">
+        {helmet || ""}
+        <section className="header-section gap-y">
+          <Container>
+            <Row>
+              <Col>
+                <h1>{title}</h1>
+                <h6>{subTitle}</h6>
+                {/* {image && <PreviewCompatibleImage imageInfo={image} />} */}
+              </Col>
+            </Row>
+          </Container>
+        </section>
         <Container>
           <Row>
-            <Col>
-              <h1>{title}</h1>
-              <h6>{subTitle}</h6>
-              {/* {image && <PreviewCompatibleImage imageInfo={image} />} */}
+            <Col lg={7} md={8} sm={12} xs={12}>
+              <main className="content gap-y-half">
+                <PageContent content={content} />
+              </main>
+            </Col>
+            <Col lg={5} md={4} sm={12} xs={12}>
+              <main className="content gap-y-half">
+                <ServiceImageBySlug slug={slug} />
+              </main>
             </Col>
           </Row>
         </Container>
       </section>
-      <Container>
-        <Row>
-          <Col lg={7} md={8} sm={12} xs={12} >
-            <main className="content gap-y-half">
-              <PageContent content={content} />
-            </main>
-          </Col>
-          <Col lg={5} md={4} sm={12} xs={12}>
-            <main className="content gap-y-half">
-              <ServiceImageBySlug slug={slug} />
-            </main>
-          </Col>
-        </Row>
-      </Container>
-    </section>
+    </Transition>
   );
 };
 
@@ -72,7 +74,10 @@ const Services = ({ data }) => {
         image={post.frontmatter.image}
         content={post.html}
         contentComponent={HTMLContent}
-        slug={post.fields.slug.split("/").filter(x => x).pop()}
+        slug={post.fields.slug
+          .split("/")
+          .filter(x => x)
+          .pop()}
       />
     </Layout>
   );
@@ -88,8 +93,8 @@ export default Services;
 
 export const pageQuery = graphql`
   query ServicesByID($id: String!) {
-        markdownRemark(id: {eq: $id }) {
-        id
+    markdownRemark(id: { eq: $id }) {
+      id
       html
       fields {
         slug
@@ -98,13 +103,13 @@ export const pageQuery = graphql`
         title
         subTitle
         image {
-        childImageSharp {
-        fluid(maxWidth: 240, quality: 64) {
-        ...GatsbyImageSharpFluid
-      }
+          childImageSharp {
+            fluid(maxWidth: 240, quality: 64) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }
-}
-}
 `;

@@ -4,10 +4,13 @@ import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import "../styles/bot.scss";
 import Main from "../components/Main";
+import Transition from "../Transition";
 
 export const IndexPageTemplate = ({ home, about, location }) => {
   return (
-    <Main home={home} about={about} location={location} />
+    <Transition>
+      <Main home={home} about={about} location={location} />
+    </Transition>
   );
 };
 
@@ -21,7 +24,7 @@ const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark;
   // console.log("data index", data);
   return (
-    <Layout pageTitle="Incede" page="home" >
+    <Layout pageTitle="Incede" page="home">
       <IndexPageTemplate
         home={frontmatter.home}
         about={frontmatter.about}

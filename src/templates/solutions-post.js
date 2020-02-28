@@ -6,6 +6,7 @@ import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
 import { Col, Row, Container } from "reactstrap";
 import SolutionsImageBySlug from "../components/Solutions/SolutionsImageBySlug";
+import Transition from "../Transition";
 
 export const SolutionsPostTemplate = ({
   subTitle,
@@ -17,33 +18,35 @@ export const SolutionsPostTemplate = ({
 }) => {
   const PageContent = contentComponent || Content;
   return (
-    <section className="solution-page">
-      {helmet || ""}
-      <section className="header-section gap-y">
+    <Transition>
+      <section className="solution-page">
+        {helmet || ""}
+        <section className="header-section gap-y">
+          <Container>
+            <Row>
+              <Col>
+                <h1>{title}</h1>
+                <h6>{subTitle}</h6>
+              </Col>
+            </Row>
+          </Container>
+        </section>
         <Container>
           <Row>
             <Col>
-              <h1>{title}</h1>
-              <h6>{subTitle}</h6>
+              <main className="content gap-y-half">
+                <PageContent content={content} />
+              </main>
+            </Col>
+            <Col lg={5} md={4} sm={12} xs={12}>
+              <main className="content gap-y-half">
+                <SolutionsImageBySlug slug={slug} />
+              </main>
             </Col>
           </Row>
         </Container>
       </section>
-      <Container>
-        <Row>
-          <Col>
-            <main className="content gap-y-half">
-              <PageContent content={content} />
-            </main>
-          </Col>
-          <Col lg={5} md={4} sm={12} xs={12}>
-            <main className="content gap-y-half">
-              <SolutionsImageBySlug slug={slug} />
-            </main>
-          </Col>
-        </Row>
-      </Container>
-    </section>
+    </Transition>
   );
 };
 

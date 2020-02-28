@@ -3,6 +3,7 @@ import { Link } from "gatsby";
 import logo from "../img/logo.svg";
 import menu from "../img/menu.svg";
 import "../styles/navbar.scss";
+// import PageTransition from "gatsby-plugin-page-transitions";
 import "../styles/bot.scss";
 import {
   Collapse,
@@ -139,6 +140,7 @@ class INavbar extends Component {
   render() {
     return (
       <React.Fragment>
+        {/* <PageTransition> */}
         {this.isTokenExpired() ? (
           <nav className="incede-nav " id="header">
             <Navbar color="white" expand="lg" light>
@@ -368,6 +370,7 @@ class INavbar extends Component {
             </Modal>
           </nav>
         )}
+        {/* </PageTransition> */}
       </React.Fragment>
     );
   }
