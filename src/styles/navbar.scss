@@ -59,13 +59,15 @@
   min-width: 200px;
   margin-bottom: 0;
   li {
-    padding: 8px 16px;
+    display: flex;
     cursor: pointer;
     margin-left: -12px;
     margin-right: -12px;
     a {
       color: #333;
       text-decoration: none;
+      width: 100%;
+      padding: 8px 16px;
     }
     &:hover {
       background: #ddd;
