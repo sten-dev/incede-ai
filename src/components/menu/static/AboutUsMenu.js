@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../../../styles/navBar.scss";
+import "../../../styles/navbar.scss";
 import { Link } from "gatsby";
 
 class AboutUsMenu extends Component {

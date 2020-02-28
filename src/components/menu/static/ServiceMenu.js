@@ -1,5 +1,5 @@
 import React from "react";
-import "../../../styles/navBar.scss";
+import "../../../styles/navbar.scss";
 
 class ServiceMenu extends React.Component {
   constructor(props) {
