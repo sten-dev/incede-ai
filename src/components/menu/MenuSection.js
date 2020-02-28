@@ -8,16 +8,53 @@ import { Link } from "gatsby";
 import ServicesMenu from "./ServicesMenu";
 import SolutionsMenu from "./SolutionsMenu";
 import IndustriesMenu from "./IndustriesMenu";
+import ServiceMenu from "./static/ServiceMenu";
+import IndustryMenu from "./static/IndustryMenu";
+import SolutionMenu from "./static/SolutionMenu";
+import WhyIncedeMenu from "./static/WhyIncedeMenu";
+import AboutUsMenu from "./static/AboutUsMenu";
 
 class MenuSection extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      subMenu: false
+      showSubMenu: false,
+      showService: false,
+      showSolution: false,
+      showIndustry: false,
+      showWhyIncede: false,
+      showAboutUs: false
     };
   }
-  handleSubMenu = () => {
-    this.setState({ subMenu: !this.state.subMenu });
+  showService = () => {
+    this.setState({
+      showSubMenu: !this.state.showSubMenu,
+      showService: !this.state.showService
+    });
+  };
+  showSolution = () => {
+    this.setState({
+      showSubMenu: !this.state.showSubMenu,
+      showSolution: !this.state.showSolution
+    });
+  };
+  showIndustry = () => {
+    this.setState({
+      showSubMenu: !this.state.showSubMenu,
+      showIndustry: !this.state.showIndustry
+    });
+  };
+  showWhyIncede = () => {
+    this.setState({
+      showSubMenu: !this.state.showSubMenu,
+      showWhyIncede: !this.state.showWhyIncede
+    });
+  };
+  showAboutUs = () => {
+    this.setState({
+      showSubMenu: !this.state.showSubMenu,
+      showAboutUs: !this.state.showAboutUs
+    });
   };
   render() {
     return (
@@ -27,7 +64,8 @@ class MenuSection extends Component {
           style={{
             padding: " 0.5rem 1rem",
             height: "100vh",
-            overflow: "auto"
+            overflow: "auto",
+            color: "#fff"
           }}
         >
           <div className="m-0 flex-column ">
@@ -48,79 +86,202 @@ class MenuSection extends Component {
                 />
               </div>
             </div>
-            {!this.state.subMenu && (
+            {!this.state.showSubMenu && (
               <React.Fragment>
                 <div className="menu-items">
                   <Link to="/">
                     <span onClick={this.props.toggle}>Home</span>
                   </Link>
                 </div>
-                <div className="menu-items">
+                {/* <div className="menu-items">
                   <Link to="/about">
                     <span onClick={this.props.toggle}>About Us</span>
                   </Link>
-                </div>
+                </div> */}
               </React.Fragment>
             )}
-            <div className="menu-items">
-              <span onClick={this.handleSubMenu} className="d-inline-flex">
-                {this.state.subMenu && (
-                  <React.Fragment>
-                    <img
-                      src={arrow}
-                      alt="next"
-                      style={{ width: "11px", transform: "scaleX(-1)" }}
-                    />
-                    &nbsp;&nbsp;
-                  </React.Fragment>
-                )}
-                What We Do
-                {!this.state.subMenu && (
-                  <React.Fragment>
-                    &nbsp;&nbsp;
-                    <img src={arrow} alt="next" style={{ width: "11px" }} />
-                  </React.Fragment>
-                )}
-              </span>
-            </div>
-            {!this.state.subMenu && (
+            {(!this.state.showSubMenu || this.state.showService) && (
+              <div className="menu-items">
+                <span onClick={this.showService} className="d-inline-flex">
+                  {this.state.showService && (
+                    <React.Fragment>
+                      <img
+                        src={arrow}
+                        alt="next"
+                        style={{
+                          width: "11px",
+                          marginTop: "4px",
+                          transform: "scaleX(-1)"
+                        }}
+                      />
+                      &nbsp;&nbsp;
+                    </React.Fragment>
+                  )}
+                  Services
+                  {!this.state.showService && (
+                    <React.Fragment>
+                      &nbsp;&nbsp;
+                      <img
+                        src={arrow}
+                        alt="next"
+                        style={{ width: "11px", marginTop: "4px" }}
+                      />
+                    </React.Fragment>
+                  )}
+                </span>
+              </div>
+            )}
+            {this.state.showSubMenu && this.state.showService && (
               <React.Fragment>
-                <div className="menu-items">
-                  <Link to="/customers">
-                    <span onClick={this.props.toggle}>Our Customers</span>
-                  </Link>
-                </div>
-                <div className="menu-items">
-                  <Link to="/contact">
-                    <span onClick={this.props.toggle}>Contact Us</span>
-                  </Link>
-                </div>
+                <ServiceMenu />
               </React.Fragment>
             )}
-            {this.state.subMenu && (
+
+            {(!this.state.showSubMenu || this.state.showSolution) && (
+              <div className="menu-items">
+                <span onClick={this.showSolution} className="d-inline-flex">
+                  {this.state.showSolution && (
+                    <React.Fragment>
+                      <img
+                        src={arrow}
+                        alt="next"
+                        style={{
+                          width: "11px",
+                          marginTop: "4px",
+                          transform: "scaleX(-1)"
+                        }}
+                      />
+                      &nbsp;&nbsp;
+                    </React.Fragment>
+                  )}
+                  Solutions
+                  {!this.state.showSolution && (
+                    <React.Fragment>
+                      &nbsp;&nbsp;
+                      <img
+                        src={arrow}
+                        alt="next"
+                        style={{ width: "11px", marginTop: "4px" }}
+                      />
+                    </React.Fragment>
+                  )}
+                </span>
+              </div>
+            )}
+            {this.state.showSubMenu && this.state.showSolution && (
               <React.Fragment>
-                <div>
-                  <Row xs="1" sm="2" md="3" className="pl-3 sub-menu">
-                    <Col className="pb-4">
-                      <h5 className="mt-0">Services</h5>
-                      <span className="sub-menu-items">
-                        <ServicesMenu />
-                      </span>
-                    </Col>
-                    <Col className="pb-4">
-                      <h5 className="mt-0">Solutions</h5>
-                      <span className="sub-menu-items">
-                        <SolutionsMenu />
-                      </span>
-                    </Col>
-                    {/* <Col className="pb-4">
-                      <h5 className="mt-0">Industries</h5>
-                      <span className="sub-menu-items">
-                        <IndustriesMenu />
-                      </span>
-                    </Col> */}
-                  </Row>
-                </div>
+                <SolutionMenu />
+              </React.Fragment>
+            )}
+
+            {(!this.state.showSubMenu || this.state.showIndustry) && (
+              <div className="menu-items">
+                <span onClick={this.showIndustry} className="d-inline-flex">
+                  {this.state.showIndustry && (
+                    <React.Fragment>
+                      <img
+                        src={arrow}
+                        alt="next"
+                        style={{
+                          width: "11px",
+                          marginTop: "4px",
+                          transform: "scaleX(-1)"
+                        }}
+                      />
+                      &nbsp;&nbsp;
+                    </React.Fragment>
+                  )}
+                  Industries
+                  {!this.state.showIndustry && (
+                    <React.Fragment>
+                      &nbsp;&nbsp;
+                      <img
+                        src={arrow}
+                        alt="next"
+                        style={{ width: "11px", marginTop: "4px" }}
+                      />
+                    </React.Fragment>
+                  )}
+                </span>
+              </div>
+            )}
+            {this.state.showSubMenu && this.state.showIndustry && (
+              <React.Fragment>
+                <IndustryMenu />
+              </React.Fragment>
+            )}
+
+            {(!this.state.showSubMenu || this.state.showWhyIncede) && (
+              <div className="menu-items">
+                <span onClick={this.showWhyIncede} className="d-inline-flex">
+                  {this.state.showWhyIncede && (
+                    <React.Fragment>
+                      <img
+                        src={arrow}
+                        alt="next"
+                        style={{
+                          width: "11px",
+                          marginTop: "4px",
+                          transform: "scaleX(-1)"
+                        }}
+                      />
+                      &nbsp;&nbsp;
+                    </React.Fragment>
+                  )}
+                  Why Incede
+                  {!this.state.showWhyIncede && (
+                    <React.Fragment>
+                      &nbsp;&nbsp;
+                      <img
+                        src={arrow}
+                        alt="next"
+                        style={{ width: "11px", marginTop: "4px" }}
+                      />
+                    </React.Fragment>
+                  )}
+                </span>
+              </div>
+            )}
+            {this.state.showSubMenu && this.state.showWhyIncede && (
+              <React.Fragment>
+                <WhyIncedeMenu />
+              </React.Fragment>
+            )}
+
+            {(!this.state.showSubMenu || this.state.showAboutUs) && (
+              <div className="menu-items">
+                <span onClick={this.showAboutUs} className="d-inline-flex">
+                  {this.state.showAboutUs && (
+                    <React.Fragment>
+                      <img
+                        src={arrow}
+                        alt="next"
+                        style={{
+                          width: "11px",
+                          marginTop: "4px",
+                          transform: "scaleX(-1)"
+                        }}
+                      />
+                      &nbsp;&nbsp;
+                    </React.Fragment>
+                  )}
+                  About Us
+                  {!this.state.showAboutUs && (
+                    <React.Fragment>
+                      &nbsp;&nbsp;
+                      <img
+                        src={arrow}
+                        alt="next"
+                        style={{ width: "11px", marginTop: "4px" }}
+                      />
+                    </React.Fragment>
+                  )}
+                </span>
+              </div>
+            )}
+            {this.state.showSubMenu && this.state.showAboutUs && (
+              <React.Fragment>
+                <AboutUsMenu />
               </React.Fragment>
             )}
           </div>

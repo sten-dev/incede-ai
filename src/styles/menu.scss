@@ -9,6 +9,11 @@ section {
     .menu-close {
       cursor: pointer;
     }
+    .menu-links {
+      a {
+        color: #ffff !important;
+      }
+    }
     .menu-items {
       line-height: 3;
       font-size: 22px;

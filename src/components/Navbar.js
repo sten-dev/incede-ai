@@ -26,6 +26,11 @@ import ServicesMenu from "./menu/ServicesMenu";
 import IndustriesMenu from "./menu/IndustriesMenu";
 import dropdown from "../img/dropdown.svg";
 import MenuSection from "./menu/MenuSection";
+import ServiceMenu from "./menu/static/ServiceMenu";
+import SolutionMenu from "./menu/static/SolutionMenu";
+import IndustryMenu from "./menu/static/IndustryMenu";
+import WhyIncedeMenu from "./menu/static/WhyIncedeMenu";
+import AboutUsMenu from "./menu/static/AboutUsMenu";
 
 class INavbar extends Component {
   window;
@@ -296,11 +301,7 @@ class INavbar extends Component {
             >
               {/* <PopoverHeader>Popover Title</PopoverHeader> */}
               <PopoverBody>
-                <ul className="menu-links">
-                  <li>Watson Assistant Services</li>
-                  <li>Watson Discovery Services</li>
-                  <li>Watson API Services</li>
-                </ul>
+                <ServiceMenu />
               </PopoverBody>
             </Popover>
 
@@ -314,12 +315,7 @@ class INavbar extends Component {
             >
               {/* <PopoverHeader>Popover Title</PopoverHeader> */}
               <PopoverBody>
-                <ul className="menu-links">
-                  <li>Customer Service </li>
-                  <li>Human Resource Services</li>
-                  <li>IT Service Desk</li>
-                  <li>Sales Support</li>
-                </ul>
+                <SolutionMenu />
               </PopoverBody>
             </Popover>
             <Popover
@@ -332,28 +328,7 @@ class INavbar extends Component {
             >
               {/* <PopoverHeader>Popover Title</PopoverHeader> */}
               <PopoverBody>
-                <ul className="menu-links">
-                  <li onClick={this.toggleIndustriesMenu}>
-                    <Link to="/industries#retail-distribution">
-                      Retail/Distribution
-                    </Link>
-                  </li>
-                  <li onClick={this.toggleIndustriesMenu}>
-                    <Link to="/industries#industrial-manufacturing">
-                      Industrial/Manufacturing
-                    </Link>
-                  </li>
-                  <li onClick={this.toggleIndustriesMenu}>
-                    <Link to="/industries#banking-insurance">
-                      Banking &amp; Insurance
-                    </Link>
-                  </li>
-                  <li onClick={this.toggleIndustriesMenu}>
-                    <Link to="/industries#communications-services">
-                      Communications &amp; Services
-                    </Link>
-                  </li>
-                </ul>
+                <IndustryMenu />
               </PopoverBody>
             </Popover>
 
@@ -367,11 +342,7 @@ class INavbar extends Component {
             >
               {/* <PopoverHeader>Popover Title</PopoverHeader> */}
               <PopoverBody>
-                <ul className="menu-links">
-                  <li>Our Process</li>
-                  <li>Our Expertise</li>
-                  <li>Our Experience</li>
-                </ul>
+                <WhyIncedeMenu />
               </PopoverBody>
             </Popover>
             <Popover
@@ -384,17 +355,9 @@ class INavbar extends Component {
             >
               {/* <PopoverHeader>Popover Title</PopoverHeader> */}
               <PopoverBody>
-                <ul className="menu-links">
-                  <li onClick={this.toggleAboutUsMenu}>
-                    <Link to="/about">Leadership</Link>
-                  </li>
-                  <li onClick={this.toggleAboutUsMenu}>
-                    <Link to="/about">Careers</Link>
-                  </li>
-                  <li onClick={this.toggleAboutUsMenu}>
-                    <Link to="/about">Partnerships</Link>
-                  </li>
-                </ul>
+                <AboutUsMenu
+                  toggleAboutUsMenu={() => this.toggleAboutUsMenu()}
+                />
               </PopoverBody>
             </Popover>
             {/* <Popover
