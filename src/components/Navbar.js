@@ -167,50 +167,6 @@ class INavbar extends Component {
                       Home
                     </Link>
                   </NavItem>
-                  {/* <NavItem id="menu_services" className="btn">
-                      <a>
-                        Services{" "}
-                        <img
-                          className={`${
-                            this.state.isServicesMenuOpen ? "active-what-we-do" : ""
-                            }`}
-                          alt="send"
-                          src={dropdown}
-                        // onClick={props.onClick}
-                        />{" "}
-                      </a>
-                    </NavItem> */}
-                  {/* <NavItem className="btn">
-                      <Link activeClassName="selected" to="/about">
-                        About Us
-                    </Link>
-                    </NavItem> */}
-                  {/* <NavItem id="whatWeDo" className="btn">
-                      <a>
-                        What We Do{" "}
-                        <img
-                          className={`${
-                            this.state.isWWDPopoverOpen ? "active-what-we-do" : ""
-                            }`}
-                          alt="send"
-                          src={dropdown}
-                        // onClick={props.onClick}
-                        />{" "}
-                      </a>
-                    </NavItem> */}
-                  {/* <NavItem className="btn">
-                      <Link activeClassName="selected" to="/case-study">
-                        Case Studies
-                    </Link>
-                    </NavItem> */}
-                  {/* <NavItem className="btn">
-              <Link activeClassName="selected" to="/customers">Our Customers</Link>
-            </NavItem> */}
-                  {/* <NavItem className="btn">
-                      <Link activeClassName="selected" to="/contact">
-                        Contact Us
-                    </Link>
-                    </NavItem> */}
 
                   <NavItem id="menu_services" className="btn">
                     <a>
