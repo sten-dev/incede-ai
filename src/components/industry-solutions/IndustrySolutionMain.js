@@ -7,6 +7,7 @@ import ViewMore from "./ViewMore";
 import { Container, Row, Col } from "reactstrap";
 import "../../styles/industry-solution.scss";
 import { Link, animateScroll as scroll, scroller } from "react-scroll";
+import IndustryHeader from "./IndustryHeader";
 
 class IndustrySolutionMain extends React.Component {
   refs;
@@ -25,69 +26,7 @@ class IndustrySolutionMain extends React.Component {
     const { activeIndex } = this.state;
     return (
       <section className="industry-solution">
-        <section className="header-section text-center">
-          <Container>
-            <br />
-            <br />
-            <Row>
-              <Col className="text-left">
-                <p className="mb-1 display-3">Industry</p>
-                <p className="my-0 h3">Solutions</p>
-              </Col>
-            </Row>
-            <br />
-            <br />
-            <br />
-            <br />
-            <Row className="list-scroll">
-              <Col>
-                <p
-                  id="retail-distribution"
-                  onClick={() => this.handelClick(1)}
-                  className={`tab pointer ${activeIndex === 1 ? "active" : ""}`}
-                >
-                  Retail / Distribution / CPM
-                </p>
-              </Col>
-              <Col>
-                <p
-                  id="industrial-manufacturing"
-                  onClick={() => this.handelClick(2)}
-                  className={`tab pointer ${activeIndex === 2 ? "active" : ""}`}
-                >
-                  Industrial / Manufacturing
-                </p>
-              </Col>
-              <Col>
-                <p
-                  id="banking-insurance"
-                  onClick={() => this.handelClick(3)}
-                  className={`tab pointer ${activeIndex === 3 ? "active" : ""}`}
-                >
-                  Banking & Insurance
-                </p>
-              </Col>
-              <Col>
-                <p
-                  id="communications-services"
-                  onClick={() => this.handelClick(4)}
-                  className={`tab pointer ${activeIndex === 4 ? "active" : ""}`}
-                >
-                  Communications & Services
-                </p>
-              </Col>
-              {/* <Col>
-                <p
-                  onClick={() => this.handelClick(5)}
-                  className={`tab pointer ${activeIndex === 5 ? "active" : ""}`}
-                >
-                  View More Industries
-                </p>
-              </Col> */}
-            </Row>
-            <br />
-          </Container>
-        </section>
+        <IndustryHeader />
         <Container>
           {/* {activeIndex === 1 && <RetailDistribution />}
           {activeIndex === 2 && <IndustryManufacturing />}

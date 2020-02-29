@@ -12,20 +12,20 @@ class IndustryMenu extends Component {
     return (
       <ul className="menu-links">
         <li>
-          <Link to="/industries#retail-distribution">Retail/Distribution</Link>
+          <Link to="/industries/retail-distribution">Retail/Distribution</Link>
         </li>
         <li>
-          <Link to="/industries#industrial-manufacturing">
+          <Link to="/industries/industrial-manufacturing">
             Industrial/Manufacturing
           </Link>
         </li>
         <li>
-          <Link to="/industries#banking-insurance">
+          <Link to="/industries/banking-insurance">
             Banking &amp; Insurance
           </Link>
         </li>
         <li>
-          <Link to="/industries#communications-services">
+          <Link to="/industries/communications-services">
             Communications &amp; Services
           </Link>
         </li>

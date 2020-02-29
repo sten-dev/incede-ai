@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "../../components/Layout";
-import IndustriesMain from "../../components/Landing/industry/IndustriesMain";
+// import IndustriesMain from "../../components/Landing/industry/IndustriesMain";
 import IndustrySolutionMain from "../../components/industry-solutions/IndustrySolutionMain";
 import Transition from "../../Transition";
 
