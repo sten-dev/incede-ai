@@ -4,6 +4,7 @@ import IndustryManufacturing from '../../components/industry-solutions/IndustryM
 import { Container } from 'reactstrap';
 import Transition from '../../Transition';
 import Layout from '../../components/Layout';
+import IndustryPreviousNextHeader from '../../components/industry-solutions/IndustryPreviousNextHeader';
 const IndustrialManufacturing = () => {
     return (
         <Layout pageTitle="Industrial Manufacturing | Incede">
@@ -11,6 +12,7 @@ const IndustrialManufacturing = () => {
                 <section className="industry-solution">
                     <IndustryHeader />
                     <Container>
+                        <IndustryPreviousNextHeader previousLink="/industries/retail-distribution" nextLink="/industries/banking-insurance"></IndustryPreviousNextHeader>
                         <IndustryManufacturing />
                     </Container>
                 </section>

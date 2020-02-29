@@ -4,6 +4,7 @@ import { Container } from 'reactstrap';
 import Communication from '../../components/industry-solutions/Communication';
 import Transition from '../../Transition';
 import Layout from '../../components/Layout';
+import IndustryPreviousNextHeader from '../../components/industry-solutions/IndustryPreviousNextHeader';
 const CommunicationsServices = () => {
     return (
         <Layout pageTitle="Communications Services | Incede">
@@ -11,6 +12,7 @@ const CommunicationsServices = () => {
                 <section className="industry-solution">
                     <IndustryHeader />
                     <Container>
+                        <IndustryPreviousNextHeader previousLink="/industries/banking-insurance"></IndustryPreviousNextHeader>
                         <Communication />
                     </Container>
                 </section>

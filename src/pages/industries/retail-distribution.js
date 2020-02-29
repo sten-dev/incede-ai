@@ -4,6 +4,7 @@ import { Container } from 'reactstrap';
 import RetailDistribution from '../../components/industry-solutions/RetailDistribution';
 import Transition from '../../Transition';
 import Layout from '../../components/Layout';
+import IndustryPreviousNextHeader from '../../components/industry-solutions/IndustryPreviousNextHeader';
 const RetailDistributionMain = () => {
     return (
         <Layout pageTitle="Retail Distribution  | Incede">
@@ -11,6 +12,7 @@ const RetailDistributionMain = () => {
                 <section className="industry-solution">
                     <IndustryHeader />
                     <Container>
+                        <IndustryPreviousNextHeader nextLink="/industries/industrial-manufacturing"></IndustryPreviousNextHeader>
                         <RetailDistribution />
                     </Container>
                 </section>
