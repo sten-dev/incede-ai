@@ -9,9 +9,21 @@ class ServiceMenu extends React.Component {
   render() {
     return (
       <ul className="menu-links">
-        <li>Watson Assistant Services</li>
-        <li>Watson Discovery Services</li>
-        <li>Watson API Services</li>
+        <li>
+          <a href="/">
+            Watson Assistant Services
+            </a>
+        </li>
+        <li>
+          <a href="/">
+            Watson Discovery Services
+            </a>
+        </li>
+        <li>
+          <a href="/">
+            Watson API Services
+            </a>
+        </li>
       </ul>
     );
   }

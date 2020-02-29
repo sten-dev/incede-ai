@@ -9,9 +9,18 @@ class WhyIncedeMenu extends Component {
   render() {
     return (
       <ul className="menu-links">
-        <li>Our Process</li>
-        <li>Our Expertise</li>
-        <li>Our Experience</li>
+        <li><a href="/">
+          Our Process
+          </a>
+        </li>
+        <li><a href="/">
+          Our Expertise
+          </a>
+        </li>
+        <li><a href="/">
+          Our Experience
+          </a>
+        </li>
       </ul>
     );
   }

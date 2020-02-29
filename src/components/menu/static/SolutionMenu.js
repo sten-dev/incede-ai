@@ -9,10 +9,22 @@ class SolutionMenu extends Component {
   render() {
     return (
       <ul className="menu-links">
-        <li>Customer Service </li>
-        <li>Human Resource Services</li>
-        <li>IT Service Desk</li>
-        <li>Sales Support</li>
+        <li><a href="/">
+          Customer Service
+          </a>
+        </li>
+        <li><a href="/">
+          Human Resource Services
+          </a>
+        </li>
+        <li><a href="/">
+          IT Service Desk
+          </a>
+        </li>
+        <li><a href="/">
+          Sales Support
+          </a>
+        </li>
       </ul>
     );
   }
