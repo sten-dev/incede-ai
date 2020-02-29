@@ -127,6 +127,7 @@
 .industry-previous-btn,
 .industry-next-btn {
   min-width: 150px;
+  margin: 8px 0;
 }
 /********************************** */
 
@@ -136,6 +137,13 @@
       img {
         height: 450px;
       }
+    }
+  }
+}
+@media screen and (max-width: 576px) {
+  .industry-solution-content {
+    .heading {
+      font-size: 20px !important;
     }
   }
 }

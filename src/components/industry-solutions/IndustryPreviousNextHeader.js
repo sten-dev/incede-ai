@@ -38,7 +38,7 @@ const IndustryPreviousNextHeader = (props) => {
                     )}
                 </div>
             </div>
-            <br />
+            {/* <br /> */}
         </React.Fragment>
     );
 }
