@@ -12,7 +12,11 @@ const BankingInsurance = () => {
                 <section className="industry-solution">
                     <IndustryHeader />
                     <Container>
-                        <IndustryPreviousNextHeader previousLink="/industries/industrial-manufacturing" nextLink="/industries/communications-services"></IndustryPreviousNextHeader>
+                        <IndustryPreviousNextHeader
+                            previousLink="/industries/industrial-manufacturing"
+                            previousName="Industrial Manufacturing"
+                            nextName="Communications Services"
+                            nextLink="/industries/communications-services"></IndustryPreviousNextHeader>
                         <Banking />
                     </Container>
                 </section>

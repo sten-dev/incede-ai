@@ -12,7 +12,9 @@ const CommunicationsServices = () => {
                 <section className="industry-solution">
                     <IndustryHeader />
                     <Container>
-                        <IndustryPreviousNextHeader previousLink="/industries/banking-insurance"></IndustryPreviousNextHeader>
+                        <IndustryPreviousNextHeader
+                            previousName="Banking Insurance"
+                            previousLink="/industries/banking-insurance"></IndustryPreviousNextHeader>
                         <Communication />
                     </Container>
                 </section>

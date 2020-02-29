@@ -12,7 +12,9 @@ const RetailDistributionMain = () => {
                 <section className="industry-solution">
                     <IndustryHeader />
                     <Container>
-                        <IndustryPreviousNextHeader nextLink="/industries/industrial-manufacturing"></IndustryPreviousNextHeader>
+                        <IndustryPreviousNextHeader
+                            nextName="Industrial Manufacturing"
+                            nextLink="/industries/industrial-manufacturing"></IndustryPreviousNextHeader>
                         <RetailDistribution />
                     </Container>
                 </section>

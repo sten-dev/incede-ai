@@ -17,8 +17,8 @@ const IndustryPreviousNextHeader = (props) => {
                                 alt="next"
                                 style={{ height: 12, marginTop: -1, marginRight: 8, transform: "rotate(180deg)" }}
                             />
-                            Previous
-                    </Link>
+                            {props.previousName || 'Previous'}
+                        </Link>
                     )}
 
                 </div>
@@ -28,8 +28,8 @@ const IndustryPreviousNextHeader = (props) => {
                             to={props.nextLink}
                             className="btn  industry-next-btn btn-primary btn-sm"
                         >
-                            Next
-                        <img
+                            {props.nextName || 'Next'}
+                            <img
                                 src={arrow}
                                 alt="next"
                                 style={{ height: 12, marginTop: -1, marginLeft: 8 }}
