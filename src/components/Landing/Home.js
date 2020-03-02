@@ -6,6 +6,7 @@ import arrow from "../../img/arrow.svg";
 import { Link } from "gatsby";
 // import HeroImage from "../../img/hero_image.png";
 
+import HeroImage from "../../img/incede-home-page.png"
 class Home extends React.Component {
   state = {};
   render() {
@@ -46,7 +47,7 @@ class Home extends React.Component {
                       alt: `featured image thumbnail`
                     }}
                   /> */}
-                  <img src="img/incede-home-page.png" alt="hero" />
+                  <img src={HeroImage} alt="hero" />
                 </div>
               </Col>
             </Row>

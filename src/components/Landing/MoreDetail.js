@@ -4,7 +4,7 @@ import arrow from "../../img/arrow.svg";
 import "../../styles/more_detail.scss";
 import { Link } from "gatsby";
 import TeamImageBG from "../../img/Team_image_bg.png";
-
+import AiImage from "../../img/incede-home-page-middle.png"
 class MoreDetail extends React.Component {
   state = {};
   render() {
@@ -36,7 +36,7 @@ class MoreDetail extends React.Component {
                         <img
                           src={arrow}
                           alt="next"
-                          // style={{ width: "12px", }}
+                        // style={{ width: "12px", }}
                         />
                       </button>
                     </Col>
@@ -49,7 +49,7 @@ class MoreDetail extends React.Component {
                         <img
                           src={arrow}
                           alt="next"
-                          // style={{ width: "12px", }}
+                        // style={{ width: "12px", }}
                         />
                       </Link>
                     </Col>
@@ -62,7 +62,7 @@ class MoreDetail extends React.Component {
                         <img
                           src={arrow}
                           alt="next"
-                          // style={{ width: "12px", }}
+                        // style={{ width: "12px", }}
                         />
                       </Link>
                     </Col>
@@ -72,7 +72,7 @@ class MoreDetail extends React.Component {
             </Col>
             <Col lg={4} md={5} className="d-none d-md-block position-initial">
               <div className="image-section gap-y">
-                <img src="img/incede-home-page-middle.png" alt="hero" />
+                <img src={AiImage} alt="hero" />
               </div>
             </Col>
           </Row>
