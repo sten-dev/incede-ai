@@ -59,7 +59,13 @@ class HumanResource extends Component {
                 </ul>
               </div>
             </Col>
-            <Col xs={12} sm={12} md={4} lg={5} className="mt-4 mt-lg-0">
+            <Col
+              xs={12}
+              sm={12}
+              md={4}
+              lg={5}
+              className="mt-4 mt-lg-0 d-flex align-items-center"
+            >
               <div className="image-section">
                 <img src={solutions1} alt="support image" />
               </div>
@@ -69,7 +75,7 @@ class HumanResource extends Component {
             <h4>Learn more..</h4>
             <Link
               to="/industries/communications-services"
-              className="btn btn-outline-secondary learn-more"
+              className="btn btn-secondary learn-more"
             >
               Communications & Services
             </Link>

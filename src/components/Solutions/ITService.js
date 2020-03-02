@@ -62,7 +62,13 @@ class ITService extends Component {
                 </ul>
               </div>
             </Col>
-            <Col xs={12} sm={12} md={4} lg={5} className="mt-4 mt-lg-0">
+            <Col
+              xs={12}
+              sm={12}
+              md={4}
+              lg={5}
+              className="mt-4 mt-lg-0 d-flex align-items-center"
+            >
               <div className="image-section">
                 <img src={solutions3} alt="support image" />
               </div>
@@ -72,14 +78,14 @@ class ITService extends Component {
             <h4>Learn more..</h4>
             <Link
               to="/industries/banking-insurance"
-              className="btn btn-outline-secondary learn-more"
+              className="btn btn-secondary learn-more"
             >
               Banking & Insurance
             </Link>
             &nbsp;&nbsp;
             <Link
               to="/industries/communications-services"
-              className="btn btn-outline-secondary learn-more"
+              className="btn btn-secondary learn-more"
             >
               Communications & Services
             </Link>

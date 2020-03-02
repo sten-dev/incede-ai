@@ -37,8 +37,14 @@ class WatsonDiscovery extends Component {
                 </p>
               </div>
             </Col>
-            <Col xs={12} sm={12} md={4} lg={5} className="mt-4 mt-lg-0">
-              <div className="image-section">
+            <Col
+              xs={12}
+              sm={12}
+              md={4}
+              lg={5}
+              className="mt-4 mt-lg-0 d-flex align-items-center flex-column"
+            >
+              <div className="image-section mt-5">
                 <img src={picture1} alt="support image" />
               </div>
               <br />
@@ -85,7 +91,13 @@ class WatsonDiscovery extends Component {
                 </p>
               </div>
             </Col>
-            <Col xs={12} sm={12} md={4} lg={5} className="mt-4 mt-lg-0">
+            <Col
+              xs={12}
+              sm={12}
+              md={4}
+              lg={5}
+              className="mt-4 mt-lg-0 d-flex align-items-center"
+            >
               <div className="image-section">
                 <img src={picture3} alt="support image" />
               </div>
@@ -176,7 +188,13 @@ class WatsonDiscovery extends Component {
                 </ul>
               </div>
             </Col>
-            <Col xs={12} sm={12} md={4} lg={5} className="mt-4 mt-lg-0">
+            <Col
+              xs={12}
+              sm={12}
+              md={4}
+              lg={5}
+              className="mt-4 mt-lg-0 d-flex align-items-center"
+            >
               <div className="image-section">
                 <img src={picture4} alt="support image" />
               </div>

@@ -36,14 +36,8 @@ class IndustryManufacturing extends Component {
                 maintenance procedures.
               </p>
             </Col>
-            <Col
-              xs={12}
-              sm={12}
-              md={12}
-              lg={6}
-              className="mt-4 mt-lg-0 image-center"
-            >
-              <div className="image-section">
+            <Col xs={12} sm={12} md={12} lg={6} className="mt-4 mt-lg-0">
+              <div className="image-section mt-5">
                 <img src={SupportField} alt="support image" />
               </div>
             </Col>
@@ -69,20 +63,10 @@ class IndustryManufacturing extends Component {
                 and tests the model to ensure document relevancy is obtained.
               </p>
             </Col>
-            <Col
-              xs={12}
-              sm={12}
-              md={12}
-              lg={6}
-              className="mt-4 mt-lg-0 image-center"
-            >
+            <Col xs={12} sm={12} md={12} lg={6} className="mt-4 mt-lg-0">
               <div className="woodside p-2 d-flex mt-5 flex-column flex-sm-row">
                 <div className="text-center">
-                  <img
-                    src={Woodside}
-                    alt="Woodside"
-                    className="case-study-image"
-                  />
+                  <img src={Woodside} alt="Woodside" />
                 </div>
                 <div className="flex-grow-1 ml-3">
                   <p className="pp-1">Woodside Case Study</p>
@@ -105,7 +89,7 @@ class IndustryManufacturing extends Component {
               </div>
             </Col>
           </Row>
-          {/* <br />
+          <br />
           <br />
           <br />
           <Row>
@@ -114,7 +98,7 @@ class IndustryManufacturing extends Component {
                 <img width="100%" src={Manufacturing} alt="support image" />
               </div>
             </Col>
-          </Row> */}
+          </Row>
         </Container>
       </section>
     );

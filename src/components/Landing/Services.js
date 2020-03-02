@@ -14,7 +14,8 @@ class Services extends React.Component {
         data: {
           image: "img/watson-professional-services.png",
           title: "Watson Professional Services",
-          subTitle: "Smart AI Assistance for Business"
+          subTitle: ""
+          // subTitle: "Smart AI Assistance for Business"
         },
         path: "/services/watson-assistant-services"
       },
@@ -22,7 +23,7 @@ class Services extends React.Component {
         data: {
           image: "img/watson-professional-services.png",
           title: "Watson Discovery Services",
-          subTitle: "Smart AI Assistance for Business"
+          subTitle: ""
         },
         path: "/services/watson-discovery-services"
       },
@@ -30,7 +31,7 @@ class Services extends React.Component {
         data: {
           image: "img/watson-professional-services.png",
           title: "Watson API Services",
-          subTitle: "Smart AI Assistance for Business"
+          subTitle: ""
         },
         path: "/"
       }

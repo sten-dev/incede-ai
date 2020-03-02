@@ -72,7 +72,7 @@ class MoreDetail extends React.Component {
             </Col>
             <Col lg={4} md={5} className="d-none d-md-block position-initial">
               <div className="image-section gap-y">
-                <img src={TeamImageBG} alt="hero" />
+                <img src="img/incede-home-page-middle.png" alt="hero" />
               </div>
             </Col>
           </Row>

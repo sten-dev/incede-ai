@@ -4,8 +4,9 @@ import "../../styles/industry-solution.scss";
 import SupportField from "../../img/industry-solution/support-field.png";
 import Manufacturing from "../../img/industry-solution/Manufacturing.png";
 import Woodside from "../../img/industry-solution/Woodside.svg";
-import DelticCaseStudy from "../../img/industry-solution/deltic-case-study.png";
-import FlowersCaseStudy from "../../img/industry-solution/1-800-case-study.png";
+import DelticCaseStudy from "../../img/industry-solution/deltic-group.png";
+import FlowersCaseStudy from "../../img/industry-solution/1800-flowers.png";
+import RetailImage from "../../img/industry-solution/retail-distribution.png";
 
 class RetailDistribution extends Component {
   constructor(props) {
@@ -33,28 +34,13 @@ class RetailDistribution extends Component {
                 conversations and then transactions.
               </p>
             </Col>
-            <Col
-              xs={12}
-              sm={12}
-              md={12}
-              lg={6}
-              className="mt-4 mt-lg-0 image-center"
-            >
-              <div className="woodside p-2 d-flex mt-5  flex-column flex-sm-row">
+            <Col xs={12} sm={12} md={12} lg={6} className="mt-4 mt-lg-0">
+              <div className="woodside p-4 d-flex mt-5  flex-column flex-sm-row">
                 <div className="text-center ">
-                  <img
-                    src={DelticCaseStudy}
-                    alt="Woodside"
-                    className="case-study-image"
-                  />
+                  <img src={DelticCaseStudy} alt="Woodside" className="" />
                 </div>
                 <div className="flex-grow-1 ml-3">
                   <p className="pp-1">Deltic Group Case Study</p>
-                  <p className="pp-2 my-2">
-                    Here’s a great example of how AI can be used to store and
-                    utilize staff knowledge. Which resulted in 75% reduction in
-                    reseach time for new employees.
-                  </p>
                   <p className="pp-3">
                     <a
                       href="/docs/deltic-group.pdf"
@@ -86,29 +72,14 @@ class RetailDistribution extends Component {
                 process payments and confirm pick-up details with the store and
                 customer.
               </p>
-            </Col>
-            <Col
-              xs={12}
-              sm={12}
-              md={12}
-              lg={6}
-              className="mt-4 mt-lg-0 image-center"
-            >
-              <div className="woodside p-2 d-flex mt-5 flex-column flex-sm-row">
+              <br />
+              <div className="woodside p-4 d-flex flex-column flex-sm-row">
                 <div className="text-center">
-                  <img
-                    src={FlowersCaseStudy}
-                    alt="Woodside"
-                    className="case-study-image"
-                  />
+                  <img src={FlowersCaseStudy} alt="Woodside" />
                 </div>
                 <div className="flex-grow-1 ml-3">
                   <p className="pp-1">1-800 Flowers Case Study</p>
-                  <p className="pp-2 my-2">
-                    Here’s a great example of how AI can be used to store and
-                    utilize staff knowledge. Which resulted in 75% reduction in
-                    reseach time for new employees.
-                  </p>
+
                   <p className="pp-3">
                     <a
                       href="https://www.ibm.com/services/ibmix/case-studies/1-800-flowers.html"
@@ -120,6 +91,11 @@ class RetailDistribution extends Component {
                     </a>
                   </p>
                 </div>
+              </div>
+            </Col>
+            <Col xs={12} sm={12} md={12} lg={6} className="mt-4 mt-lg-0">
+              <div className="image-section mt-5">
+                <img src={RetailImage} alt="support image" />
               </div>
             </Col>
           </Row>

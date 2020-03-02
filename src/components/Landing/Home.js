@@ -4,7 +4,7 @@ import "../../styles/home.scss";
 import PreviewCompatibleImage from "../PreviewCompatibleImage";
 import arrow from "../../img/arrow.svg";
 import { Link } from "gatsby";
-import HeroImage from "../../img/hero_image.png";
+// import HeroImage from "../../img/hero_image.png";
 
 class Home extends React.Component {
   state = {};
@@ -46,7 +46,7 @@ class Home extends React.Component {
                       alt: `featured image thumbnail`
                     }}
                   /> */}
-                  <img src={HeroImage} alt="hero" />
+                  <img src="img/incede-home-page.png" alt="hero" />
                 </div>
               </Col>
             </Row>
