@@ -73,7 +73,7 @@ class RetailDistribution extends Component {
                   <img src={Woodside} alt="Woodside" />
                 </div>
                 <div className="flex-grow-1 ml-3">
-                  <p className="pp-1">Woodside Case Study</p>
+                  <p className="pp-1">Deltic Group Case Study</p>
                   <p className="pp-2 my-2">
                     Here’s a great example of how AI can be used to store and
                     utilize staff knowledge. Which resulted in 75% reduction in
@@ -121,7 +121,7 @@ class RetailDistribution extends Component {
                   <img src={Woodside} alt="Woodside" />
                 </div>
                 <div className="flex-grow-1 ml-3">
-                  <p className="pp-1">Woodside Case Study</p>
+                  <p className="pp-1">1-800 Flowers Case Study</p>
                   <p className="pp-2 my-2">
                     Here’s a great example of how AI can be used to store and
                     utilize staff knowledge. Which resulted in 75% reduction in
