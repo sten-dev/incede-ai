@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Container, Row, Col } from "reactstrap";
 import "../../styles/solutions.scss";
 import solutions4 from "../../img/solutions/solutions-4.png";
+import { Link } from "gatsby";
 
 class SalesSupport extends Component {
   constructor(props) {
@@ -65,6 +66,15 @@ class SalesSupport extends Component {
               </div>
             </Col>
           </Row>
+          <div>
+            <h4>Learn more..</h4>
+            <Link
+              to="/industries/industrial-manufacturing"
+              className="btn btn-outline-secondary learn-more"
+            >
+              Industrial / Manufacturing
+            </Link>
+          </div>
         </Container>
       </section>
     );

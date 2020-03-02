@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Container, Row, Col } from "reactstrap";
 import "../../styles/solutions.scss";
 import solutions3 from "../../img/solutions/solutions-3.png";
-
+import { Link } from "gatsby";
 class ITService extends Component {
   constructor(props) {
     super(props);
@@ -40,7 +40,7 @@ class ITService extends Component {
                   </li>
                   <li>
                     <p>
-                      Augment suggestions with AI to recommendmost-helpful
+                      Augment suggestions with AI to recommend most-helpful
                       answers and resources.
                     </p>
                   </li>
@@ -68,6 +68,22 @@ class ITService extends Component {
               </div>
             </Col>
           </Row>
+          <div>
+            <h4>Learn more..</h4>
+            <Link
+              to="/industries/banking-insurance"
+              className="btn btn-outline-secondary learn-more"
+            >
+              Banking & Insurance
+            </Link>
+            &nbsp;&nbsp;
+            <Link
+              to="/industries/communications-services"
+              className="btn btn-outline-secondary learn-more"
+            >
+              Communications & Services
+            </Link>
+          </div>
         </Container>
       </section>
     );
