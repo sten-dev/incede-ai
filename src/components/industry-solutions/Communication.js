@@ -98,8 +98,9 @@ class Communication extends Component {
                   <p className="pp-3">
                     <a
                       href="https://www.ibm.com/case-studies/vidahora-watson-employee-engagement"
-                      target="blank"
+                      target="_blank"
                       className="case-study"
+                      rel="noopener noreferrer"
                     >
                       View Case Study
                     </a>

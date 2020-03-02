@@ -58,8 +58,9 @@ class RetailDistribution extends Component {
                   <p className="pp-3">
                     <a
                       href="/docs/deltic-group.pdf"
-                      target="blank"
+                      target="_blank"
                       className="case-study"
+                      rel="noopener noreferrer"
                     >
                       View Case Study
                     </a>
@@ -111,8 +112,9 @@ class RetailDistribution extends Component {
                   <p className="pp-3">
                     <a
                       href="https://www.ibm.com/services/ibmix/case-studies/1-800-flowers.html"
-                      target="blank"
+                      target="_blank"
                       className="case-study"
+                      rel="noopener noreferrer"
                     >
                       View Case Study
                     </a>

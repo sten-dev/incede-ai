@@ -63,8 +63,9 @@ class Banking extends Component {
                   <p className="pp-3">
                     <a
                       href="/docs/creval-banking.pdf"
-                      target="blank"
+                      target="_blank"
                       className="case-study"
+                      rel="noopener noreferrer"
                     >
                       View Case Study
                     </a>
@@ -122,8 +123,9 @@ class Banking extends Component {
                   <p className="pp-3">
                     <a
                       href="https://www.ibm.com/case-studies/caixabank"
-                      target="blank"
+                      target="_blank"
                       className="case-study"
+                      rel="noopener noreferrer"
                     >
                       View Case Study
                     </a>
