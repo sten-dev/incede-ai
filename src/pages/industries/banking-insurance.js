@@ -17,8 +17,8 @@ const BankingInsurance = () => {
                             previousName="Industrial Manufacturing"
                             nextName="Communications Services"
                             nextLink="/industries/communications-services"></IndustryPreviousNextHeader>
-                        <Banking />
                     </Container>
+                    <Banking />
                 </section>
             </Transition>
         </Layout>
