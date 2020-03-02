@@ -3,8 +3,11 @@ import { Container, Row, Col } from "reactstrap";
 import "../../styles/industry-solution.scss";
 import SupportField from "../../img/industry-solution/support-field.png";
 import Manufacturing from "../../img/industry-solution/Manufacturing.png";
-import CrevalCaseStudy from "../../img/industry-solution/creval-case-study.png";
-import CaixaBankCaseStudy from "../../img/industry-solution/caixa-bank-case-study.png";
+import CrevalCaseStudy from "../../img/industries/creval.png";
+import CaixaBankCaseStudy from "../../img/industries/caixa_bank.png";
+import CaixaBankMain from "../../img/industries/caixa_bank_main.png";
+import bankingImage from "../../img/industries/baking-1.png";
+import CaseStudyCard from "../CaseStudyCard";
 
 class Banking extends Component {
   constructor(props) {
@@ -45,7 +48,8 @@ class Banking extends Component {
               {/* <div className="image-section">
                 <img src={SupportField} alt="support image" />
               </div> */}
-              <div className="woodside p-2 d-flex mt-5 flex-column flex-sm-row">
+              <CaseStudyCard imageUrl={CrevalCaseStudy} title="Creval Banking Group" link="/docs/creval-banking.pdf" />
+              {/* <div className="woodside p-2 d-flex mt-5 flex-column flex-sm-row">
                 <div className="text-center">
                   <img
                     src={CrevalCaseStudy}
@@ -71,12 +75,21 @@ class Banking extends Component {
                     </a>
                   </p>
                 </div>
-              </div>
+              </div> */}
             </Col>
           </Row>
           <br />
           <br />
-          <Row>
+        </Container>
+        <Container fluid style={{ background: "rgba(122, 121, 121, 0.06)" }}>
+          <Container>
+            <section className="gap-y">
+              <img src={bankingImage} alt="banking" />
+            </section>
+          </Container>
+        </Container>
+        <Container>
+          <Row className="gap-y">
             <Col xs={12} sm={12} md={12} lg={6}>
               <p className="content-heading mb-3">
                 Automating Call Center Services{" "}
@@ -105,7 +118,8 @@ class Banking extends Component {
               lg={6}
               className="mt-4 mt-lg-0 image-center"
             >
-              <div className="woodside p-2 d-flex mt-5 flex-column flex-sm-row">
+              <CaseStudyCard imageUrl={CaixaBankCaseStudy} title="CaixaBank Case Study" link="https://www.ibm.com/case-studies/caixabank" />
+              {/* <div className="woodside p-2 d-flex mt-5 flex-column flex-sm-row">
                 <div className="text-center">
                   <img
                     src={CaixaBankCaseStudy}
@@ -131,7 +145,13 @@ class Banking extends Component {
                     </a>
                   </p>
                 </div>
-              </div>
+              </div> */}
+            </Col>
+            <Col xs={12} sm={12} md={12} lg={12} className="text-center">
+              <img
+                src={CaixaBankMain}
+                alt="Caixa Bank"
+              />
             </Col>
           </Row>
         </Container>
