@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "gatsby";
 import "../../../styles/navbar.scss";
 
 class WhyIncedeMenu extends Component {
@@ -9,17 +10,21 @@ class WhyIncedeMenu extends Component {
   render() {
     return (
       <ul className="menu-links">
-        <li><a href="/">
-          Our Process
-          </a>
+        <li>
+          <Link to="/why-incede">
+            Our Process
+          </Link>
         </li>
-        <li><a href="/">
-          Our Expertise
-          </a>
+        <li>
+          <Link to="/why-incede">
+            Our Expertise
+          </Link>
         </li>
-        <li><a href="/">
-          Our Experience
-          </a>
+        <li>
+          <Link to="/why-incede">
+            Our Experience
+          </Link>
+
         </li>
       </ul>
     );
