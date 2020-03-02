@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../../../styles/navbar.scss";
+import { Link } from "gatsby";
 
 class SolutionMenu extends Component {
   constructor(props) {
@@ -9,21 +10,21 @@ class SolutionMenu extends Component {
   render() {
     return (
       <ul className="menu-links">
-        <li><a href="/">
-          Customer Service
-          </a>
+        <li>
+          <Link to="/solutions/customer-service">Customer Service</Link>
         </li>
-        <li><a href="/">
-          Human Resource Services
-          </a>
+        <li>
+          <Link to="/solutions/human-resource-services">
+            Human Resource Services
+          </Link>
         </li>
-        <li><a href="/">
-          IT Service Desk
-          </a>
+        <li>
+          <Link to="/solutions/it-service-desk">IT Service Desk</Link>
         </li>
-        <li><a href="/">
-          Sales Support
-          </a>
+        <li>
+          <Link to="/solutions/sales-support-solutions">
+            Sales Support Solutions
+          </Link>
         </li>
       </ul>
     );
