@@ -36,14 +36,8 @@ class IndustryManufacturing extends Component {
                 maintenance procedures.
               </p>
             </Col>
-            <Col
-              xs={12}
-              sm={12}
-              md={12}
-              lg={6}
-              className="mt-4 mt-lg-0 image-center"
-            >
-              <div className="image-section">
+            <Col xs={12} sm={12} md={12} lg={6} className="mt-4 mt-lg-0">
+              <div className="image-section mt-5">
                 <img src={SupportField} alt="support image" />
               </div>
             </Col>
@@ -69,13 +63,7 @@ class IndustryManufacturing extends Component {
                 and tests the model to ensure document relevancy is obtained.
               </p>
             </Col>
-            <Col
-              xs={12}
-              sm={12}
-              md={12}
-              lg={6}
-              className="mt-4 mt-lg-0 image-center"
-            >
+            <Col xs={12} sm={12} md={12} lg={6} className="mt-4 mt-lg-0">
               <div className="woodside p-2 d-flex mt-5 flex-column flex-sm-row">
                 <div className="text-center">
                   <img src={Woodside} alt="Woodside" />
@@ -87,7 +75,16 @@ class IndustryManufacturing extends Component {
                     utilize staff knowledge. Which resulted in 75% reduction in
                     reseach time for new employees.
                   </p>
-                  <p className="pp-3">View Case Study</p>
+                  <p className="pp-3">
+                    <a
+                      href="https://www.ibm.com/watson/stories/woodside/"
+                      target="_blank"
+                      className="case-study"
+                      rel="noopener noreferrer"
+                    >
+                      View Case Study
+                    </a>
+                  </p>
                 </div>
               </div>
             </Col>

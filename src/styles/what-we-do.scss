@@ -35,6 +35,7 @@ section {
       border-radius: 8px;
       margin-bottom: 16px;
       min-height: 330px;
+      height: 100%;
     }
     .subTitle {
       color: $light-gray;
@@ -54,11 +55,16 @@ section {
 
 @media screen and (max-width: 599px) {
   .what-we-do-header-section {
+    .title {
+      padding-left: 1rem !important;
+    }
+
     .menu-tabs {
       padding: 0 !important;
       > div {
         display: flex;
         justify-content: space-between;
+        padding: 0 14px;
       }
     }
     .tab {

@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from "reactstrap";
 import "../../styles/industry-solution.scss";
-import SupportField from "../../img/industry-solution/support-field.png";
-import Manufacturing from "../../img/industry-solution/Manufacturing.png";
-import Woodside from "../../img/industry-solution/Woodside.svg";
+import Enterprise1 from "../../img/industry-solution/cognitive-enterprise-1.png";
+import Enterprise2 from "../../img/industry-solution/cognitive-enterprise-2.png";
+import Manufacturing from "../../img/industry-solution/communications.png";
+import VidahoraCaseSudy from "../../img/industry-solution/vidahora.png";
 
 class Communication extends Component {
   constructor(props) {
@@ -36,15 +37,9 @@ class Communication extends Component {
                 securely, efficiently and easy.
               </p>
             </Col>
-            <Col
-              xs={12}
-              sm={12}
-              md={12}
-              lg={6}
-              className="mt-4 mt-lg-0 image-center"
-            >
-              <div className="image-section">
-                <img src={SupportField} alt="support image" />
+            <Col xs={12} sm={12} md={12} lg={6} className="mt-4 mt-lg-0">
+              <div className="image-section mt-5">
+                <img src={Enterprise1} alt="support image" />
               </div>
             </Col>
           </Row>
@@ -68,29 +63,33 @@ class Communication extends Component {
                 employees and HR care most about. We integrate internal
                 documents such as the employee handbook and state & local
                 employment law documents. Watson Discovery can even integrate
-                client-
+                client-and employee-specific documents like a client travel
+                policies or statements of work agreement that would apply to the
+                employees on-site at the client.
               </p>
-            </Col>
-            <Col
-              xs={12}
-              sm={12}
-              md={12}
-              lg={6}
-              className="mt-4 mt-lg-0 image-center"
-            >
-              <div className="woodside p-2 d-flex mt-5 flex-column flex-sm-row">
-                <div className="text-center">
-                  <img src={Woodside} alt="Woodside" />
+              <br />
+              <div className="woodside p-4 d-flex flex-column flex-sm-row">
+                <div className="d-flex justify-content-center align-items-center">
+                  <img src={VidahoraCaseSudy} alt="Woodside" />
                 </div>
                 <div className="flex-grow-1 ml-3">
-                  <p className="pp-1">Woodside Case Study</p>
-                  <p className="pp-2 my-2">
-                    Here’s a great example of how AI can be used to store and
-                    utilize staff knowledge. Which resulted in 75% reduction in
-                    reseach time for new employees.
+                  <p className="pp-1">Vidahora Case Study</p>
+                  <p className="pp-3">
+                    <a
+                      href="https://www.ibm.com/case-studies/vidahora-watson-employee-engagement"
+                      target="_blank"
+                      className="case-study"
+                      rel="noopener noreferrer"
+                    >
+                      View Case Study
+                    </a>
                   </p>
-                  <p className="pp-3">View Case Study</p>
                 </div>
+              </div>
+            </Col>
+            <Col xs={12} sm={12} md={12} lg={6} className="mt-4 mt-lg-0">
+              <div className="image-section mt-5">
+                <img src={Enterprise2} alt="support image" />
               </div>
             </Col>
           </Row>
