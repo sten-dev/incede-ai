@@ -41,29 +41,34 @@ class Footer extends React.Component {
                       Home
                     </Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link className="navbar-item" to="/about">
                       About Us
                     </Link>
-                  </li>
-                  <li>
+                  </li> */}
+                  {/* <li>
                     <Link className="navbar-item" to="/case-study">
                       Case Studies
                     </Link>
-                    {/* <Link className="navbar-item" to="/customers">
+                  </li> */}
+                  {/* <Link className="navbar-item" to="/customers">
                       Our Customers
                     </Link> */}
-                  </li>
 
                   <li>
+                    <Link className="navbar-item" to="/why-incede">
+                      Why Incede
+                    </Link>
+                  </li>
+                  {/* <li>
                     <Link className="navbar-item" to="/contact">
                       Contact Us
                     </Link>
-                  </li>
+                  </li> */}
                 </ul>
               </section>
             </Col>
-            <Col md="3" sm="3" xs="12" lg="3">
+            {/* <Col md="3" sm="3" xs="12" lg="3">
               <section className="menu">
                 <ul className="list-unstyled">
                   <li>
@@ -79,14 +84,14 @@ class Footer extends React.Component {
                       Solutions
                     </Link>
                   </li>
-                  {/* <li>
+                  <li>
                     <Link className='navbar-item' to='/industries'>
                       Industries
                     </Link>
-                  </li> */}
+                  </li>
                 </ul>
               </section>
-            </Col>
+            </Col> */}
             <Col md="3" sm="3" xs="12" lg="3">
               <section className="menu">
                 <FooterLocation />
