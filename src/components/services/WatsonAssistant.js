@@ -49,14 +49,15 @@ class WatsonAssistant extends Component {
           </Row>
           <br />
           <br />
+          <h1 className="text-left heading mb-5">
+            Watson Assistant Design Services
+          </h1>
           <Row>
             <Col>
               {/* <p className="content-heading mb-3">
                 Watson Assistant Design Services
               </p> */}
-              <h1 className="text-left heading mb-5">
-                Watson Assistant Design Services
-              </h1>
+
               <div className="content">
                 <p>
                   Key to a successful deployments designing a solution that is
@@ -90,14 +91,15 @@ class WatsonAssistant extends Component {
           </Row>
           <br />
           <br />
+          <h1 className="text-left heading mb-5">
+            Watson Assistant Development Services
+          </h1>
           <Row>
             <Col>
               {/* <p className="content-heading mb-3">
                 Watson Assistant Development Services
               </p> */}
-              <h1 className="text-left heading mb-5">
-                Watson Assistant Development Services
-              </h1>
+
               <div className="content">
                 <p>
                   Incede provides experienced, high-quality end-to-end

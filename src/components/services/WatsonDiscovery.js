@@ -49,14 +49,15 @@ class WatsonDiscovery extends Component {
           </Row>
           <br />
           <br />
+          <h1 className="text-left heading mb-5">
+            Watson Discovery Design Services
+          </h1>
           <Row>
             <Col>
               {/* <p className="content-heading mb-3">
               Watson Discovery Design Services
               </p> */}
-              <h1 className="text-left heading mb-5">
-                Watson Discovery Design Services
-              </h1>
+
               <div className="content">
                 <p>
                   Designing an enterprise search and AI search solutions begins
@@ -92,15 +93,15 @@ class WatsonDiscovery extends Component {
           </Row>
           <br />
           <br />
+          <h1 className="text-left heading mb-5">
+            Watson Discovery Development Services
+          </h1>
           <Row>
             <Col>
               {/* <p className="content-heading mb-3">
               Watson Discovery Development Services
               </p> */}
-              <h1 className="text-left heading mb-5">
-                {" "}
-                Watson Discovery Development Services
-              </h1>
+
               <div className="content">
                 <p>
                   Getting users their highly relevant answers requires savvy
