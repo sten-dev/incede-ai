@@ -78,7 +78,11 @@ class IndustryManufacturing extends Component {
             >
               <div className="woodside p-2 d-flex mt-5 flex-column flex-sm-row">
                 <div className="text-center">
-                  <img src={Woodside} alt="Woodside" />
+                  <img
+                    src={Woodside}
+                    alt="Woodside"
+                    className="case-study-image"
+                  />
                 </div>
                 <div className="flex-grow-1 ml-3">
                   <p className="pp-1">Woodside Case Study</p>
@@ -87,12 +91,20 @@ class IndustryManufacturing extends Component {
                     utilize staff knowledge. Which resulted in 75% reduction in
                     reseach time for new employees.
                   </p>
-                  <p className="pp-3">View Case Study</p>
+                  <p className="pp-3">
+                    <a
+                      href="https://www.ibm.com/watson/stories/woodside/"
+                      target="blank"
+                      className="case-study"
+                    >
+                      View Case Study
+                    </a>
+                  </p>
                 </div>
               </div>
             </Col>
           </Row>
-          <br />
+          {/* <br />
           <br />
           <br />
           <Row>
@@ -101,7 +113,7 @@ class IndustryManufacturing extends Component {
                 <img width="100%" src={Manufacturing} alt="support image" />
               </div>
             </Col>
-          </Row>
+          </Row> */}
         </Container>
       </section>
     );

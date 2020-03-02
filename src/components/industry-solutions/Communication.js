@@ -3,7 +3,7 @@ import { Container, Row, Col } from "reactstrap";
 import "../../styles/industry-solution.scss";
 import SupportField from "../../img/industry-solution/support-field.png";
 import Manufacturing from "../../img/industry-solution/Manufacturing.png";
-import Woodside from "../../img/industry-solution/Woodside.svg";
+import VidahoraCaseSudy from "../../img/industry-solution/vidahora-case-study.png";
 
 class Communication extends Component {
   constructor(props) {
@@ -68,7 +68,9 @@ class Communication extends Component {
                 employees and HR care most about. We integrate internal
                 documents such as the employee handbook and state & local
                 employment law documents. Watson Discovery can even integrate
-                client-
+                client-and employee-specific documents like a client travel
+                policies or statements of work agreement that would apply to the
+                employees on-site at the client.
               </p>
             </Col>
             <Col
@@ -80,21 +82,33 @@ class Communication extends Component {
             >
               <div className="woodside p-2 d-flex mt-5 flex-column flex-sm-row">
                 <div className="text-center">
-                  <img src={Woodside} alt="Woodside" />
+                  <img
+                    src={VidahoraCaseSudy}
+                    alt="Woodside"
+                    className="case-study-image"
+                  />
                 </div>
                 <div className="flex-grow-1 ml-3">
-                  <p className="pp-1">Woodside Case Study</p>
+                  <p className="pp-1">Vidahora Case Study</p>
                   <p className="pp-2 my-2">
                     Here’s a great example of how AI can be used to store and
                     utilize staff knowledge. Which resulted in 75% reduction in
                     reseach time for new employees.
                   </p>
-                  <p className="pp-3">View Case Study</p>
+                  <p className="pp-3">
+                    <a
+                      href="https://www.ibm.com/case-studies/vidahora-watson-employee-engagement"
+                      target="blank"
+                      className="case-study"
+                    >
+                      View Case Study
+                    </a>
+                  </p>
                 </div>
               </div>
             </Col>
           </Row>
-          <br />
+          {/* <br />
           <br />
           <br />
           <Row>
@@ -103,7 +117,7 @@ class Communication extends Component {
                 <img width="100%" src={Manufacturing} alt="support image" />
               </div>
             </Col>
-          </Row>
+          </Row> */}
         </Container>
       </section>
     );
