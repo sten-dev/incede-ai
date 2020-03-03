@@ -220,6 +220,15 @@ small,
   padding: 20px;
   cursor: pointer;
 }
+.scroll-menu-arrow {
+  .arrow-next,
+  .arrow-prev {
+    font-size: 32px;
+  }
+  &.scroll-menu-arrow--disabled {
+    display: none;
+  }
+}
 
 @media screen and (max-width: 970px) {
   .sm-w-100 {

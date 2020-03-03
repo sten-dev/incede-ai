@@ -55,6 +55,9 @@
     letter-spacing: 0;
   }
 }
+.section-tabs-container {
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+}
 @media screen and (max-width: 576px) {
   .solutions-content {
     .heading {
