@@ -37,22 +37,66 @@ section {
       min-height: 330px;
       height: 100%;
     }
+    .title {
+      // font-weight:
+      color: #bfbfbf;
+      text-transform: uppercase;
+      font-weight: 600;
+      display: flex;
+      font-size: 14px;
+      justify-content: center;
+    }
+    .title.active {
+      color: #000 !important;
+    }
     .subTitle {
       color: $light-gray;
     }
     .image-section {
-      height: 200px;
+      height: 120px;
       display: flex;
       justify-content: center;
       align-items: center;
       .gatsby-image-wrapper,
       img {
-        width: 120px !important;
+        width: 75px !important;
       }
     }
   }
 }
+.arrow_box {
+  position: relative;
+}
+.arrow_box:after,
+.arrow_box:before {
+  bottom: -4px;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+}
 
+.arrow_box:before {
+  border-color: transparent;
+  border-bottom-color: #f7f7f7;
+  border-width: 15px;
+  margin-left: -15px;
+}
+.wwd-list {
+  flex-wrap: nowrap !important;
+  overflow-y: hidden;
+  overflow-x: auto;
+  &::-webkit-scrollbar {
+    width: 0px !important;
+    display: none;
+  }
+}
+.small-card-section {
+  padding: 16px 0;
+  height: 100%;
+}
 @media screen and (max-width: 599px) {
   .what-we-do-header-section {
     .title {
@@ -73,15 +117,6 @@ section {
       padding-right: 4px;
     }
   }
-  .xs-wwd-list {
-    flex-wrap: nowrap !important;
-    overflow-y: hidden;
-    overflow-x: auto;
-    &::-webkit-scrollbar {
-      width: 0px !important;
-      display: none;
-    }
-  }
 }
 
 @media screen and (min-width: 600px) and (max-width: 1179px) {
@@ -90,6 +125,9 @@ section {
       font-size: 22px;
       padding-left: 16px;
       padding-right: 16px;
+    }
+    .title {
+      font-size: 48px !important;
     }
   }
 }

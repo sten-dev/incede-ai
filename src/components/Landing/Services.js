@@ -3,25 +3,32 @@ import PropTypes from "prop-types";
 import { graphql, StaticQuery } from "gatsby";
 import "../../styles/what-we-do.scss";
 import { Container, Row, Col } from "reactstrap";
-import ServiceView from "../services/ServiceView";
+import ServicesSmallCardsList from "../services/ServicesSmallCardsList";
+import ServicesSmallCardBody from "../services/ServicesSmallCardBody";
 class Services extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { activeIndex: 0 };
+  }
+  handleChange = index => {
+    this.setState({ activeIndex: index });
+  };
   render() {
     const { data } = this.props;
-    // const { edges: services } = data.allMarkdownRemark;
-    // console.log("services", services);
     const services = [
       {
         data: {
           image: "img/watson-professional-services.png",
+          inactiveImage: "img/watson-professional-services-inactive.png",
           title: "Watson Professional Services",
           subTitle: ""
-          // subTitle: "Smart AI Assistance for Business"
         },
         path: "/services/watson-assistant-services"
       },
       {
         data: {
           image: "img/watson-professional-services.png",
+          inactiveImage: "img/watson-professional-services-inactive.png",
           title: "Watson Discovery Services",
           subTitle: ""
         },
@@ -30,6 +37,7 @@ class Services extends React.Component {
       {
         data: {
           image: "img/watson-professional-services.png",
+          inactiveImage: "img/watson-professional-services-inactive.png",
           title: "Watson API Services",
           subTitle: ""
         },
@@ -37,9 +45,9 @@ class Services extends React.Component {
       }
     ];
     return (
-      <section className="services gap-y">
+      <section className="services">
         <Container>
-          <Row className=" xs-wwd-list">
+          <Row className="wwd-list">
             {services.map((x, i) => {
               // let service = x.node.frontmatter;
               // let path = x.node.fields.slug;
@@ -47,17 +55,37 @@ class Services extends React.Component {
               let path = x.path;
               return (
                 <Col
-                  className="wwd-list-card"
+                  className="wwd-list-card mb-0"
                   key={i}
-                  lg={6}
-                  md={6}
-                  sm={12}
-                  xs={11}
+                  xs={6}
+                  sm={4}
+                  lg={2}
                 >
-                  <ServiceView service={service} path={path} />
+                  <ServicesSmallCardsList
+                    service={service}
+                    path={path}
+                    index={i}
+                    isActive={this.state.activeIndex === i ? true : false}
+                    onItemClick={index => this.handleChange(index)}
+                  />
+                  {/* <ServiceView service={service} path={path} /> */}
                 </Col>
               );
             })}
+          </Row>
+        </Container>
+        <Container
+          fluid
+          style={{ background: "rgba(122, 121, 121, 0.06)" }}
+          className="p-5"
+        >
+          <Row>
+            <Col xs={12}>
+              <ServicesSmallCardBody
+                data={services[this.state.activeIndex].data}
+                path={services[this.state.activeIndex].path}
+              />
+            </Col>
           </Row>
         </Container>
       </section>

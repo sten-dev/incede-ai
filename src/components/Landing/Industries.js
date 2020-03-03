@@ -3,8 +3,16 @@ import PropTypes from "prop-types";
 import { graphql, StaticQuery } from "gatsby";
 import "../../styles/what-we-do.scss";
 import { Container, Row, Col } from "reactstrap";
-import IndustryView from "./industry/IndustryView";
+import IndustrySmallCardsList from "./industry/IndustrySmallCardsList";
+import IndustrySmallCardBody from "./industry/IndustrySmallCardBody";
 class Industries extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { activeIndex: 0 };
+  }
+  handleChange = index => {
+    this.setState({ activeIndex: index });
+  };
   render() {
     const { data } = this.props;
     // const { edges: industries } = data.allMarkdownRemark;
@@ -12,7 +20,8 @@ class Industries extends React.Component {
     const industries = [
       {
         data: {
-          image: "img/sales-performance-management.png",
+          image: "img/retail-consumer-packaged-goods.png",
+          inactiveImage: "img/retail-consumer-packaged-goods-inactive.png",
           title: "Retail / Distribution",
           subTitle: ""
         },
@@ -20,7 +29,8 @@ class Industries extends React.Component {
       },
       {
         data: {
-          image: "img/sales-performance-management.png",
+          image: "img/manufacturing.png",
+          inactiveImage: "img/manufacturing-inactive.png",
           title: "Industrial / Manufacturing",
           subTitle: ""
         },
@@ -29,6 +39,7 @@ class Industries extends React.Component {
       {
         data: {
           image: "img/financial-performance-management.png",
+          inactiveImage: "img/financial-performance-management-inactive.png",
           title: "Banking & Insurance",
           subTitle: ""
         },
@@ -36,7 +47,8 @@ class Industries extends React.Component {
       },
       {
         data: {
-          image: "img/Customer Service.png",
+          image: "img/communications.png",
+          inactiveImage: "img/communications-inactive.png",
           title: "Communications & Services",
           subTitle: ""
         },
@@ -44,25 +56,50 @@ class Industries extends React.Component {
       }
     ];
     return (
-      <section className="industries gap-y">
+      <section className="industries">
         <Container>
-          <Row className=" xs-wwd-list">
+          <Row className="wwd-list">
             {industries.map((x, i) => {
-              // let industry = x.node.frontmatter;
-              // let path = x.node.fields.slug;
               let industry = x.data;
               let path = x.path;
 
               return (
-                <Col key={i} lg={6} md={6} sm={12} xs={11}>
-                  <IndustryView
+                <Col
+                  key={i}
+                  className="wwd-list-card mb-0"
+                  xs={6}
+                  sm={4}
+                  lg={2}
+                >
+                  <IndustrySmallCardsList
+                    industry={industry}
+                    path={path}
+                    index={i}
+                    isActive={this.state.activeIndex === i ? true : false}
+                    onItemClick={index => this.handleChange(index)}
+                  />
+                  {/* <IndustryView
                     className="wwd-list-card"
                     industry={industry}
                     path={path}
-                  />
+                  /> */}
                 </Col>
               );
             })}
+          </Row>
+        </Container>
+        <Container
+          fluid
+          style={{ background: "rgba(122, 121, 121, 0.06)" }}
+          className="p-5"
+        >
+          <Row>
+            <Col xs={12}>
+              <IndustrySmallCardBody
+                data={industries[this.state.activeIndex].data}
+                path={industries[this.state.activeIndex].path}
+              />
+            </Col>
           </Row>
         </Container>
       </section>
