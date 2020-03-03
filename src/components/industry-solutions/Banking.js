@@ -84,7 +84,7 @@ class Banking extends Component {
         <Container fluid style={{ background: "rgba(122, 121, 121, 0.06)" }}>
           <Container>
             <section className="gap-y">
-              <img src={bankingImage} alt="banking" />
+              <img className="sm-w-100" src={bankingImage} alt="banking" />
             </section>
           </Container>
         </Container>
@@ -149,6 +149,7 @@ class Banking extends Component {
             </Col>
             <Col xs={12} sm={12} md={12} lg={12} className="text-center">
               <img
+                className="sm-w-100"
                 src={CaixaBankMain}
                 alt="Caixa Bank"
               />

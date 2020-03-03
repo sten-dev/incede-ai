@@ -137,6 +137,19 @@
 .case-study {
   text-decoration: none !important;
 }
+.scroll-menu-arrow {
+  .arrow-next,
+  .arrow-prev {
+    font-size: 32px;
+  }
+  &.scroll-menu-arrow--disabled {
+    opacity: 0.2;
+    .arrow-next,
+    .arrow-prev {
+      display: none;
+    }
+  }
+}
 /********************************** */
 
 @media screen and (min-width: 1200px) {
