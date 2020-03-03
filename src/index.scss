@@ -243,7 +243,15 @@ small,
     display: none;
   }
 }
-
+.fs-12 {
+  font-size: 12px;
+}
+.fs-14 {
+  font-size: 14px;
+}
+.bold {
+  font-weight: bold;
+}
 @media screen and (max-width: 970px) {
   .sm-w-100 {
     width: 100%;

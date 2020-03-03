@@ -217,7 +217,10 @@ class INavbar extends Component {
                     </NavItem>
 
                     <NavItem id="menu_why_incede" className="btn">
-                      <a>
+                      <Link activeClassName="selected" to="/why-incede">
+                        Why Incede
+                      </Link>
+                      {/* <a>
                         Why Incede{" "}
                         <img
                           className={`${
@@ -229,7 +232,7 @@ class INavbar extends Component {
                           src={dropdown}
                         // onClick={props.onClick}
                         />{" "}
-                      </a>
+                      </a> */}
                     </NavItem>
                     {/* <NavItem id="menu_about" className="btn">
                       <a>
@@ -290,7 +293,7 @@ class INavbar extends Component {
                 </PopoverBody>
               </Popover>
 
-              <Popover
+              {/* <Popover
                 boundariesElement="window"
                 placement="bottom"
                 isOpen={this.state.isWhyIncedeMenuOpen}
@@ -298,11 +301,10 @@ class INavbar extends Component {
                 toggle={this.toggleWhyIncedeMenu}
                 trigger="legacy"
               >
-                {/* <PopoverHeader>Popover Title</PopoverHeader> */}
-                <PopoverBody>
-                  <WhyIncedeMenu />
-                </PopoverBody>
-              </Popover>
+              <PopoverBody>
+                <WhyIncedeMenu />
+              </PopoverBody>
+              </Popover> * /}
               {/* <Popover
               boundariesElement="window"
               placement="bottom"
@@ -368,9 +370,10 @@ class INavbar extends Component {
                 </ModalBody>
               </Modal>
             </nav>
-          )}
+          )
+        }
         {/* </PageTransition> */}
-      </React.Fragment>
+      </React.Fragment >
     );
   }
 }

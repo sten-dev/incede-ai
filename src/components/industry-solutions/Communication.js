@@ -7,6 +7,7 @@ import Manufacturing from "../../img/industry-solution/communications.png";
 import VidahoraCaseSudy from "../../img/industry-solution/vidahora.png";
 import VodafoneCaseStudy from "../../img/industry-solution/vodafone-case-study.png";
 import VideoCaseStudyCard from "../VideoCaseStudyCard";
+import CaseStudyCard from "../CaseStudyCard";
 
 class Communication extends Component {
   constructor(props) {
@@ -31,6 +32,8 @@ class Communication extends Component {
                 customer experience.
               </p>
               <br />
+              <br />
+              <br />
               <p className="content-body">
                 Incede develops the virtual assistant’s dialog by integrating a
                 trained model of intents for targeted services and products and
@@ -39,14 +42,27 @@ class Communication extends Component {
                 securely, efficiently and easy.
               </p>
               <br />
+            </Col>
+            <Col xs={12} sm={12} md={12} lg={6} className="mt-4 mt-lg-0">
               <VideoCaseStudyCard
                 imageUrl={VodafoneCaseStudy}
                 embeddedUrl="https://www.youtube.com/embed/bYqazJ5jy2k?t=1s&modestbranding=1"
                 title="Vodafone"
                 link="https://www.youtube.com/watch?v=bYqazJ5jy2k&t=1s"
-              />
-            </Col>
-            <Col xs={12} sm={12} md={12} lg={6} className="mt-4 mt-lg-0">
+                viewClass="pl-4"
+              >
+                <ul className="fs-12 pl-4 mb-0">
+                  <li>
+                    Remove high-volume, low-value activities from call center
+                  </li>
+                  <li>
+                    Empower human agents to become specialists
+                  </li>
+                  <li>
+                    Achieve “Excellent” NPS Score
+                  </li>
+                </ul>
+              </VideoCaseStudyCard>
               <div className="image-section mt-5">
                 <img className="sm-w-100" src={Enterprise1} alt="support image" />
               </div>
@@ -67,6 +83,9 @@ class Communication extends Component {
                 anywhere.
               </p>
               <br />
+              <br />
+              <br />
+              <br />
               <p className="content-body">
                 Incede develops a dialog that focuses on the key areas that
                 employees and HR care most about. We integrate internal
@@ -77,29 +96,29 @@ class Communication extends Component {
                 employees on-site at the client.
               </p>
               <br />
-              <div className="woodside p-4 d-flex flex-column flex-sm-row">
-                <div className="d-flex justify-content-center align-items-center">
-                  <img src={VidahoraCaseSudy} alt="Woodside" />
-                </div>
-                <div className="flex-grow-1 ml-3">
-                  <p className="pp-1">Vidahora Case Study</p>
-                  <p className="pp-3">
-                    <a
-                      href="https://www.ibm.com/case-studies/vidahora-watson-employee-engagement"
-                      target="_blank"
-                      className="case-study"
-                      rel="noopener noreferrer"
-                    >
-                      View Case Study
-                    </a>
-                  </p>
-                </div>
-              </div>
             </Col>
             <Col xs={12} sm={12} md={12} lg={6} className="mt-4 mt-lg-0">
               <div className="image-section mt-5">
                 <img className="sm-w-100" src={Enterprise2} alt="support image" />
               </div>
+              <CaseStudyCard
+                imageUrl={VidahoraCaseSudy}
+                title="Vidahora Case Study"
+                link="https://www.ibm.com/case-studies/vidahora-watson-employee-engagement"
+                viewClass="pl-4"
+              >
+                <ul className="fs-12 pl-4 mb-0">
+                  <li>
+                    40% average time-saving for HR functions by reducing administration workloads
+                  </li>
+                  <li>
+                    Empowers HR personnel to spend more time on value-added talent development
+                  </li>
+                  <li>
+                    Helps Vidahora’s clients cultivate happier, healthier and more productive workplaces
+                  </li>
+                </ul>
+              </CaseStudyCard>
             </Col>
           </Row>
           <br />

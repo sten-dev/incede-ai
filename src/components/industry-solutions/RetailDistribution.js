@@ -7,6 +7,7 @@ import Woodside from "../../img/industry-solution/Woodside.svg";
 import DelticCaseStudy from "../../img/industry-solution/deltic-group.png";
 import FlowersCaseStudy from "../../img/industry-solution/1800-flowers.png";
 import RetailImage from "../../img/industry-solution/retail-distribution.png";
+import CaseStudyCard from "../CaseStudyCard";
 
 class RetailDistribution extends Component {
   constructor(props) {
@@ -35,24 +36,22 @@ class RetailDistribution extends Component {
               </p>
             </Col>
             <Col xs={12} sm={12} md={12} lg={6} className="mt-4 mt-lg-0">
-              <div className="woodside p-4 d-flex mt-5  flex-column flex-sm-row">
-                <div className="text-center ">
-                  <img src={DelticCaseStudy} alt="Woodside" className="sm-w-100" />
-                </div>
-                <div className="flex-grow-1 ml-3">
-                  <p className="pp-1">Deltic Group Case Study</p>
-                  <p className="pp-3">
-                    <a
-                      href="/docs/deltic-group.pdf"
-                      target="_blank"
-                      className="case-study"
-                      rel="noopener noreferrer"
-                    >
-                      View Case Study
-                    </a>
-                  </p>
-                </div>
-              </div>
+              <CaseStudyCard imageUrl={DelticCaseStudy}
+                title="Deltic Group Case Study"
+                link="/docs/deltic-group.pdf" viewClass="pl-4">
+                <ul className="fs-12 pl-4 mb-0">
+                  <li>
+                    100% reply rate for 350,000 digital enquires will maximize every opportunity to engage
+                    </li>
+                  <li>
+                    10% uplift in pre-booked sales predicted by delivering fast responses on social channels
+                    </li>
+                  <li>
+                    5% increase in group revenues anticipated, driving nationwide business growth
+                    </li>
+                </ul>
+              </CaseStudyCard>
+
             </Col>
           </Row>
           <br />
@@ -73,25 +72,26 @@ class RetailDistribution extends Component {
                 customer.
               </p>
               <br />
-              <div className="woodside p-4 d-flex flex-column flex-sm-row">
-                <div className="text-center">
-                  <img src={FlowersCaseStudy} alt="Woodside" />
-                </div>
-                <div className="flex-grow-1 ml-3">
-                  <p className="pp-1">1-800 Flowers Case Study</p>
+              <CaseStudyCard imageUrl={FlowersCaseStudy}
+                title="1-800 Flowers Case Study"
+                link="https://www.ibm.com/services/ibmix/case-studies/1-800-flowers.html">
+                <ul className="fs-12 pl-4 mb-0">
+                  <li>
+                    help consumers find exactly what they’re looking for
+                    </li>
+                  <li>
+                    cultivates that one-to-one relationship
+  
+                    </li>
+                  <li>
+                    increased the number of return customers
+                    </li>
+                  <li>
+                    increased the company’s revenue over the previous year
+                    </li>
+                </ul>
+              </CaseStudyCard>
 
-                  <p className="pp-3">
-                    <a
-                      href="https://www.ibm.com/services/ibmix/case-studies/1-800-flowers.html"
-                      target="_blank"
-                      className="case-study"
-                      rel="noopener noreferrer"
-                    >
-                      View Case Study
-                    </a>
-                  </p>
-                </div>
-              </div>
             </Col>
             <Col xs={12} sm={12} md={12} lg={6} className="mt-4 mt-lg-0">
               <div className="image-section mt-5">

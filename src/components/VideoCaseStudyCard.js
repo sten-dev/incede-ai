@@ -17,9 +17,12 @@ const VideoCaseStudyCard = props => {
         </div>
         <div className="flex-grow-1 ml-3">
           <p className="pp-1">{props.title}</p>
-          <p className="pp-3">
+          {props.children && (
+            props.children
+          )}
+          <p className={`pp-3 ${props.viewClass ? props.viewClass : ''}`}>
             <a
-              className="case-study pointer"
+              className="case-study pointer fs-14 bold"
               data-toggle="modal"
               data-target="#exampleModal"
               onClick={toggle}

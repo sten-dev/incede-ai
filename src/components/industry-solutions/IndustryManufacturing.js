@@ -4,6 +4,9 @@ import "../../styles/industry-solution.scss";
 import SupportField from "../../img/industry-solution/support-field.png";
 import Manufacturing from "../../img/industry-solution/Manufacturing.png";
 import Woodside from "../../img/industry-solution/Woodside.svg";
+import KPMGImage from "../../img/industries/kpmg.png";
+
+import CaseStudyCard from "../CaseStudyCard";
 
 class IndustryManufacturing extends Component {
   constructor(props) {
@@ -37,9 +40,12 @@ class IndustryManufacturing extends Component {
               </p>
             </Col>
             <Col xs={12} sm={12} md={12} lg={6} className="mt-4 mt-lg-0">
-              <div className="image-section mt-5">
+              {/* <div className="image-section mt-5">
                 <img className="sm-w-100" src={SupportField} alt="support image" />
-              </div>
+              </div> */}
+              <CaseStudyCard imageUrl={KPMGImage}
+                title="KPMG Case Study"
+                link="https://www.ibm.com/watson/stories/kpmg/" />
             </Col>
           </Row>
           <br />
@@ -64,29 +70,21 @@ class IndustryManufacturing extends Component {
               </p>
             </Col>
             <Col xs={12} sm={12} md={12} lg={6} className="mt-4 mt-lg-0">
-              <div className="woodside p-2 d-flex mt-5 flex-column flex-sm-row">
-                <div className="text-center">
-                  <img src={Woodside} alt="Woodside" />
-                </div>
-                <div className="flex-grow-1 ml-3">
-                  <p className="pp-1">Woodside Case Study</p>
-                  <p className="pp-2 my-2">
-                    Here’s a great example of how AI can be used to store and
-                    utilize staff knowledge. Which resulted in 75% reduction in
-                    reseach time for new employees.
-                  </p>
-                  <p className="pp-3">
-                    <a
-                      href="https://www.ibm.com/watson/stories/woodside/"
-                      target="_blank"
-                      className="case-study"
-                      rel="noopener noreferrer"
-                    >
-                      View Case Study
-                    </a>
-                  </p>
-                </div>
-              </div>
+              <CaseStudyCard imageUrl={Woodside}
+                title="Woodside Case Study"
+                link="https://www.ibm.com/watson/stories/woodside/" viewClass="pl-4">
+                <ul className="fs-12 pl-4 mb-0">
+                  <li>
+                    Engineer-time spent on researching has been reduced by 75%
+                    </li>
+                  <li>
+                    Saved $10 million-worth of time and kept employees safe
+                    </li>
+                  <li>
+                    Bridged knowledge transfer from the past wisdom and learnings
+                    </li>
+                </ul>
+              </CaseStudyCard>
             </Col>
           </Row>
           <br />
