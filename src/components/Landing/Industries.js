@@ -91,7 +91,7 @@ class Industries extends React.Component {
         <Container
           fluid
           style={{ background: "rgba(122, 121, 121, 0.06)" }}
-          className="p-5"
+          className="gap-y"
         >
           <Row>
             <Col xs={12}>

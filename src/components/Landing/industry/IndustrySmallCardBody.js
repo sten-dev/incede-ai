@@ -8,7 +8,7 @@ const IndustrySmallCardBody = ({ data, path }) => {
     <React.Fragment>
       <Container>
         <Row>
-          <Col xs={12} sm={12} md={6} lg={6} className="border-right">
+          <Col xs={12} sm={12} md={6} lg={6} className="lg-border-right">
             <h3 className="mt-0">{data.title}</h3>
             <p>
               Conversational AI solutions primarily designed to take over
@@ -19,7 +19,7 @@ const IndustrySmallCardBody = ({ data, path }) => {
             </p>
           </Col>
           <Col xs={12} sm={12} md={6} lg={6}>
-            <h4 className="mt-1">Outcomes</h4>
+            <h4 className="mt-4 mt-md-0">Outcomes</h4>
             <ul>
               <li>
                 <p>Increases response time to customer inquiries</p>

@@ -21,7 +21,11 @@ class Services extends React.Component {
           image: "img/watson-professional-services.png",
           inactiveImage: "img/watson-professional-services-inactive.png",
           title: "Watson Professional Services",
-          subTitle: ""
+          subTitle: "",
+          mainContext:
+            "Watson Assistant is IBM’s AI product that lets you build, train, and deploy conversational interactions into any application, device, or channel. Watson Assistant is revolutionizing the way businesses engage with people in customer service, IT service desk, employee self-service, sales support, commerce and other application areas.",
+          sideContext:
+            "Search for an answer from a knowledge base, know when to ask for clarity and when to direct users to a human.Extends investments by integrating with existing messaging channels, voice channels, service desk and other systems.Deployed in any cloud or on-premises environment."
         },
         path: "/services/watson-assistant-services"
       },
@@ -30,19 +34,23 @@ class Services extends React.Component {
           image: "img/watson-professional-services.png",
           inactiveImage: "img/watson-professional-services-inactive.png",
           title: "Watson Discovery Services",
-          subTitle: ""
+          subTitle: "",
+          mainContext:
+            "Watson Discovery is IBM’s enterprise search and AI search technology that breaks open data silos and retrieves specific answers to your questions while analyzing trends and relationships buried in enterprise data.",
+          sideContext:
+            "Out-of-the-Box integration with conversational AI to find answers to your questions.Understands complex content in business documents such as images and tables.Utilizes both supervised and unsupervised relevancy training to improve salience."
         },
         path: "/services/watson-discovery-services"
-      },
-      {
-        data: {
-          image: "img/watson-professional-services.png",
-          inactiveImage: "img/watson-professional-services-inactive.png",
-          title: "Watson API Services",
-          subTitle: ""
-        },
-        path: "/"
       }
+      // {
+      //   data: {
+      //     image: "img/watson-professional-services.png",
+      //     inactiveImage: "img/watson-professional-services-inactive.png",
+      //     title: "Watson API Services",
+      //     subTitle: ""
+      //   },
+      //   path: "/"
+      // }
     ];
     return (
       <section className="services">
@@ -77,7 +85,7 @@ class Services extends React.Component {
         <Container
           fluid
           style={{ background: "rgba(122, 121, 121, 0.06)" }}
-          className="p-5"
+          className="gap-y"
         >
           <Row>
             <Col xs={12}>

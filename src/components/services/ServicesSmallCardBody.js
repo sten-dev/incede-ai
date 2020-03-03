@@ -8,28 +8,22 @@ const ServicesSmallCardBody = ({ data, path }) => {
     <React.Fragment>
       <Container>
         <Row>
-          <Col xs={12} sm={12} md={6} lg={6} className="border-right">
+          <Col xs={12} sm={12} md={6} lg={6} className="lg-border-right">
             <h3 className="mt-0">{data.title}</h3>
-            <p>
-              Conversational AI solutions primarily designed to take over
-              inquiries coming into the customer service desk. Customer service
-              solutions provide answers to product questions, return and
-              exchange policies, damaged in shipping claims and credit card
-              disputes.
-            </p>
+            <p>{data.mainContext}</p>
           </Col>
           <Col xs={12} sm={12} md={6} lg={6}>
-            <h4 className="mt-1">Outcomes</h4>
+            <h4 className="mt-4 mt-md-0">Outcomes</h4>
             <ul>
-              <li>
-                <p>Increases response time to customer inquiries</p>
-              </li>
-              <li>
-                <p>Increases volume of incoming requests to the service desk</p>
-              </li>
-              <li>
-                <p>Automation of routine tasks and transactions</p>
-              </li>
+              {data.sideContext.split(".").map((ele, i) => {
+                if (ele !== "") {
+                  return (
+                    <li key={i}>
+                      <p>{ele}</p>
+                    </li>
+                  );
+                }
+              })}
             </ul>
           </Col>
         </Row>
