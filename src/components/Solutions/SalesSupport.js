@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from "reactstrap";
 import "../../styles/solutions.scss";
-import solutions4 from "../../img/solutions/solutions-4.png";
+import SalesSupportImage from "../../img/solutions/sales-support.png";
+import ManufacturingImage from "../../img/solutions/manufacturing.png";
 import { Link } from "gatsby";
 
 class SalesSupport extends Component {
@@ -14,73 +15,58 @@ class SalesSupport extends Component {
       <section className="solutions-content gap-y-half" id="3">
         <Container>
           <Row>
-            <Col>
+            <Col xs={12}
+              sm={12}
+              md={6}
+              lg={7}>
               <div className="content">
+                <h1 className="text-primary">
+                  Sales Support
+                </h1>
                 <p>
-                  Support sales people during the sales cycle using Conversation
-                  AI solutions.
+                  It supports the sales team during the sales cycle using AI solutions. It provides answers to product questions, upsell and cross-sell recommendations, retrieve product or service documentation and verify product compatibility and cross-references.
+
                 </p>
-                <p>
-                  Typical sales support solutions provide answers to product
-                  questions, upsell and cross-sell recommendations, retrieve
-                  product or service documentation and verify product
-                  compatibility and cross-references.
-                </p>
+                <br />
+                <p><strong>Outcomes</strong></p>
                 <ul>
-                  <li>
-                    <p>
-                      Allows support engineers and technicians to support
-                      exceptional, high-value opportunities.
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      Provide customer-specific answers based on past and
-                      current histories and activities.
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      Available to support sellers anytime – when their
-                      prospects expect answers.
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      Prompt sellers to gather and provide relevant, required
-                      information about a product or service.
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      Guided automation of tasks such as returns, exchanges or
-                      warranty claims.
-                    </p>
-                  </li>
+                  <li><p>Allows support engineers and technicians to support exceptional, high-value opportunities.</p></li>
+                  <li><p>Provide customer-specific answers based on past and current histories and activities.</p></li>
+                  <li><p>Available to support sellers anytime – when their prospects expect answers.</p></li>
+                  <li><p>Prompt sellers to gather and provide relevant, required information about a product or service.</p></li>
+                  <li><p>Guided automation of tasks such as returns, exchanges or warranty claims.</p></li>
                 </ul>
+                <p><strong>
+                  Learn more in
+                  </strong>
+                </p>
+                <br />
+                <div className="d-flex align-items-center">
+                  <div>
+                    <img className="learn-more-icon" src={ManufacturingImage} alt="manufacturing" />
+                  </div>
+                  <div className="pl-2">
+                    <Link to="/industries/industrial-manufacturing" >
+                      <strong>
+                        Industrial/Manufacturing
+                       </strong>
+                    </Link>
+                  </div>
+                </div>
               </div>
             </Col>
             <Col
               xs={12}
               sm={12}
-              md={4}
+              md={6}
               lg={5}
-              className="mt-4 mt-lg-0 d-flex align-items-center"
+              className="mt-4 mt-lg-0 d-flex"
             >
               <div className="image-section">
-                <img src={solutions4} alt="support image" />
+                <img src={SalesSupportImage} alt="support image" />
               </div>
             </Col>
           </Row>
-          <div>
-            <h4>Learn more..</h4>
-            <Link
-              to="/industries/industrial-manufacturing"
-              className="btn btn-secondary learn-more"
-            >
-              Industrial / Manufacturing
-            </Link>
-          </div>
         </Container>
       </section>
     );

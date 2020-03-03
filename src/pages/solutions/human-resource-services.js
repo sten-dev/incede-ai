@@ -16,12 +16,12 @@ const HumanResourceService = () => {
             title={"Conversational AI Puts the Focus on the People-part of HR"}
           />
           <Container>
-            <SolutionsPreviousNextHeader
+            {/* <SolutionsPreviousNextHeader
               previousLink="/solutions/customer-service"
               previousName="Customer Service"
               nextName="IT Service Desk"
               nextLink="/solutions/it-service-desk"
-            ></SolutionsPreviousNextHeader>
+            ></SolutionsPreviousNextHeader> */}
             <HumanResource />
           </Container>
         </section>

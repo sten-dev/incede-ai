@@ -38,7 +38,7 @@ class IndustryManufacturing extends Component {
             </Col>
             <Col xs={12} sm={12} md={12} lg={6} className="mt-4 mt-lg-0">
               <div className="image-section mt-5">
-                <img src={SupportField} alt="support image" />
+                <img className="sm-w-100" src={SupportField} alt="support image" />
               </div>
             </Col>
           </Row>
@@ -95,7 +95,7 @@ class IndustryManufacturing extends Component {
           <Row>
             <Col>
               <div>
-                <img width="100%" src={Manufacturing} alt="support image" />
+                <img className="w-100 sm-w-100" src={Manufacturing} alt="support image" />
               </div>
             </Col>
           </Row>

@@ -213,7 +213,7 @@ small,
   }
 }
 .menu-item {
-  padding-right: 20px;
+  padding: 16px;
   // margin: 5px 10px;
   user-select: none;
   cursor: pointer;
@@ -233,4 +233,19 @@ small,
 .scroll-menu-arrow {
   padding: 20px;
   cursor: pointer;
+}
+.scroll-menu-arrow {
+  .arrow-next,
+  .arrow-prev {
+    font-size: 32px;
+  }
+  &.scroll-menu-arrow--disabled {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 970px) {
+  .sm-w-100 {
+    width: 100%;
+  }
 }

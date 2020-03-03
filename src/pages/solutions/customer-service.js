@@ -16,10 +16,10 @@ const CustomerService = () => {
             title={"Conversational AI Creates an Engaging Customer Experience"}
           />
           <Container>
-            <SolutionsPreviousNextHeader
+            {/* <SolutionsPreviousNextHeader
               nextName="Human Resource Services"
               nextLink="/solutions/human-resource-services"
-            ></SolutionsPreviousNextHeader>
+            ></SolutionsPreviousNextHeader> */}
             <Customer />
           </Container>
         </section>

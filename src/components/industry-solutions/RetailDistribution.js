@@ -37,7 +37,7 @@ class RetailDistribution extends Component {
             <Col xs={12} sm={12} md={12} lg={6} className="mt-4 mt-lg-0">
               <div className="woodside p-4 d-flex mt-5  flex-column flex-sm-row">
                 <div className="text-center ">
-                  <img src={DelticCaseStudy} alt="Woodside" className="" />
+                  <img src={DelticCaseStudy} alt="Woodside" className="sm-w-100" />
                 </div>
                 <div className="flex-grow-1 ml-3">
                   <p className="pp-1">Deltic Group Case Study</p>
@@ -95,7 +95,7 @@ class RetailDistribution extends Component {
             </Col>
             <Col xs={12} sm={12} md={12} lg={6} className="mt-4 mt-lg-0">
               <div className="image-section mt-5">
-                <img src={RetailImage} alt="support image" />
+                <img className="sm-w-100" src={RetailImage} alt="support image" />
               </div>
             </Col>
           </Row>

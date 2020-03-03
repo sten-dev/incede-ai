@@ -12,13 +12,13 @@ const IndustrialManufacturing = () => {
                 <section className="industry-solution">
                     <IndustryHeader />
                     <Container>
-                        <IndustryPreviousNextHeader
+                        {/* <IndustryPreviousNextHeader
                             previousLink="/industries/retail-distribution"
                             previousName="Retail Distribution"
                             nextName="Banking Insurance"
                             nextLink="/industries/banking-insurance">
 
-                        </IndustryPreviousNextHeader>
+                        </IndustryPreviousNextHeader> */}
                         <IndustryManufacturing />
                     </Container>
                 </section>

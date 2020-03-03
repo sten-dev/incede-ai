@@ -32,7 +32,7 @@ class IndustryHeader extends Component {
       clickWhenDrag: false,
       alignCenter: false,
       dragging: true,
-      hideArrows: true,
+      hideArrows: false,
       hideSingleArrow: true,
       itemsCount: list.length,
       scrollToSelected: false,
@@ -54,7 +54,7 @@ class IndustryHeader extends Component {
       case "Industrial/Manufacturing":
         url = "/industries/industrial-manufacturing";
         break;
-      case "Retail/DistributionBanking & Insurance":
+      case "Banking & Insurance":
         url = "/industries/banking-insurance";
         break;
       case "Communications & Services":

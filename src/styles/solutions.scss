@@ -9,7 +9,7 @@
     letter-spacing: 0;
   }
   .content p {
-    margin: 16px 0 !important;
+    margin: 0 !important;
     font-size: 18px;
     color: #474747;
     line-height: 32px;
@@ -23,7 +23,7 @@
   .image-section {
     width: 100%;
     img {
-      height: 320px;
+      // height: 320px;
       width: 100% !important;
     }
   }
@@ -54,6 +54,12 @@
     line-height: 24px;
     letter-spacing: 0;
   }
+}
+.section-tabs-container {
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+}
+.learn-more-icon {
+  width: 24px;
 }
 @media screen and (max-width: 576px) {
   .solutions-content {

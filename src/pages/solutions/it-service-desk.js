@@ -18,12 +18,12 @@ const ITServiceDesk = () => {
             }
           />
           <Container>
-            <SolutionsPreviousNextHeader
+            {/* <SolutionsPreviousNextHeader
               previousLink="/solutions/human-resource-services"
               previousName="Human Resource Services"
               nextName="Sales Support Solutions"
               nextLink="/solutions/sales-support-solutions"
-            ></SolutionsPreviousNextHeader>
+            ></SolutionsPreviousNextHeader> */}
             <ITService />
           </Container>
         </section>

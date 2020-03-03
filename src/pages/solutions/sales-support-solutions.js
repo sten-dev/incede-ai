@@ -16,10 +16,10 @@ const ITServiceDesk = () => {
             title={"Enabling Sales to Sell and Engineering to Engineer"}
           />
           <Container>
-            <SolutionsPreviousNextHeader
+            {/* <SolutionsPreviousNextHeader
               previousLink="/solutions/it-service-desk"
               previousName="IT Service Desk"
-            ></SolutionsPreviousNextHeader>
+            ></SolutionsPreviousNextHeader> */}
             <SalesSupport />
           </Container>
         </section>
