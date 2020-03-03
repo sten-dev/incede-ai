@@ -5,6 +5,8 @@ import Enterprise1 from "../../img/industry-solution/cognitive-enterprise-1.png"
 import Enterprise2 from "../../img/industry-solution/cognitive-enterprise-2.png";
 import Manufacturing from "../../img/industry-solution/communications.png";
 import VidahoraCaseSudy from "../../img/industry-solution/vidahora.png";
+import VodafoneCaseStudy from "../../img/industry-solution/vodafone-case-study.png";
+import VideoCaseStudyCard from "../VideoCaseStudyCard";
 
 class Communication extends Component {
   constructor(props) {
@@ -36,6 +38,13 @@ class Communication extends Component {
                 information, answers and steps for the customer’s requests –
                 securely, efficiently and easy.
               </p>
+              <br />
+              <VideoCaseStudyCard
+                imageUrl={VodafoneCaseStudy}
+                embeddedUrl="https://www.youtube.com/embed/bYqazJ5jy2k?t=1s&modestbranding=1"
+                title="Vodafone"
+                link="https://www.youtube.com/watch?v=bYqazJ5jy2k&t=1s"
+              />
             </Col>
             <Col xs={12} sm={12} md={12} lg={6} className="mt-4 mt-lg-0">
               <div className="image-section mt-5">
