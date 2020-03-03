@@ -17,7 +17,7 @@ class WhyIncede extends Component {
                 <Layout pageTitle="Why Incede | Incede">
                     <Transition>
                         <section className="industry-solution why-incede-container">
-                            <section className="header-section text-center">
+                            {/* <section className="header-section text-center">
                                 <Container>
                                     <br />
                                     <br />
@@ -31,7 +31,7 @@ class WhyIncede extends Component {
                                     <br />
                                 </Container>
                             </section>
-                            <br />
+                            <br /> */}
                             <Container>
                                 <h1 className="text-left heading">Results in Business Terms </h1>
                                 <Row>
