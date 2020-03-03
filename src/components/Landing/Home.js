@@ -6,7 +6,7 @@ import arrow from "../../img/arrow.svg";
 import { Link } from "gatsby";
 // import HeroImage from "../../img/hero_image.png";
 
-import HeroImage from "../../img/incede-home-page.png"
+import HeroImage from "../../img/incede-home-page.png";
 class Home extends React.Component {
   state = {};
   render() {
@@ -21,8 +21,7 @@ class Home extends React.Component {
                 <article className="gap-y mt-5">
                   {/* <h1 className="text-primary bold">{home.title}</h1> */}
                   <h1 className="text-primary bold">
-                    Incede infuses IBM Watson AI into your business processes
-                    that you can trust
+                    We use AI to solve complex business problems
                   </h1>
                   <h4>
                     Incede personalizes user experiences, streamlines business
