@@ -1,6 +1,6 @@
 import React from "react";
 import { Row, Col, Container } from "reactstrap";
-import SolutionImage from "../../img/solutions/solutions-1.png"
+import SolutionImage from "../../img/solutions/banner-solution.png"
 import ScrollMenu from "react-horizontal-scrolling-menu";
 
 let list = [

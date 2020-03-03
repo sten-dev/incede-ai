@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from "reactstrap";
 import "../../styles/solutions.scss";
-import solutions2 from "../../img/solutions/solutions-2.png";
+import customerService from "../../img/solutions/customer-service.png";
+import bankingImage from "../../img/solutions/banking-icon.png";
+import communicationsImage from "../../img/solutions/communications-icon.png";
 import { Link } from "gatsby";
 class Customer extends Component {
   constructor(props) {
@@ -13,28 +15,27 @@ class Customer extends Component {
       <section className="solutions-content gap-y-half" id="3">
         <Container>
           <Row>
-            <Col>
+            <Col xs={12}
+              sm={12}
+              md={8}
+              lg={7}>
               <div className="content">
+                <h1 className="text-primary">
+                  Customer Service
+                </h1>
                 <p>
-                  Conversational AI solutions primarily designed to take over
-                  inquiries coming into the customer service desk.
+                  These AI solutions are primarily designed to take over inquiries coming into the customer service desk. It provides answers to product questions, return and exchange policies, damaged in shipping claims and credit card disputes.
                 </p>
-                <p>
-                  Typical customer service solutions provide answers to product
-                  questions, return and exchange policies, damaged in shipping
-                  claims and credit card disputes.
-                </p>
+                <p><strong>Outcomes</strong></p>
                 <ul>
                   <li>
                     <p>
-                      Allows human agents to service more complex, high-value
-                      inquiries.
+                      Allows human agents to service more complex, high-value inquiries.
                     </p>
                   </li>
                   <li>
                     <p>
-                      Auto-escalate to human agents to serve highest-value
-                      customers.
+                      Auto-escalate to human agents to serve highest-value customers
                     </p>
                   </li>
                   <li>
@@ -49,6 +50,37 @@ class Customer extends Component {
                     <p>Automation of routine tasks and transactions.</p>
                   </li>
                 </ul>
+                <p><strong>
+                  Learn more in,
+                  </strong>
+                </p>
+                <div className="d-flex align-items-center">
+                  <div>
+                    <img className="learn-more-icon" src={bankingImage} alt="banking" />
+                  </div>
+                  <div className="pl-2">
+                    <Link to="/industries/retail-distribution" >
+                      <strong>
+                        Retail and Distribution
+                       </strong>
+                    </Link>
+                  </div>
+                </div>
+                <br />
+                <div className="d-flex align-items-center">
+                  <div>
+                    <img className="learn-more-icon" src={communicationsImage} alt="communications" />
+                  </div>
+                  <div className="pl-2">
+                    <Link
+                      to="/industries/communications-services"
+                    >
+                      <strong>
+                        Communications and Services
+                       </strong>
+                    </Link>
+                  </div>
+                </div>
               </div>
             </Col>
             <Col
@@ -56,29 +88,13 @@ class Customer extends Component {
               sm={12}
               md={4}
               lg={5}
-              className="mt-4 mt-lg-0 d-flex align-items-center"
+              className="mt-4 mt-lg-0 d-flex"
             >
               <div className="image-section">
-                <img src={solutions2} alt="support image" />
+                <img src={customerService} alt="support image" />
               </div>
             </Col>
           </Row>
-          <div>
-            <h4>Learn more..</h4>
-            <Link
-              to="/industries/retail-distribution"
-              className="btn btn-secondary learn-more"
-            >
-              Retail / Distribution
-            </Link>
-            &nbsp;&nbsp;
-            <Link
-              to="/industries/communications-services"
-              className="btn btn-secondary learn-more"
-            >
-              Communications & Services
-            </Link>
-          </div>
         </Container>
       </section>
     );
