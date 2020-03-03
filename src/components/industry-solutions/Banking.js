@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from "reactstrap";
 import "../../styles/industry-solution.scss";
-import SupportField from "../../img/industry-solution/support-field.png";
-import Manufacturing from "../../img/industry-solution/Manufacturing.png";
 import CrevalCaseStudy from "../../img/industries/creval.png";
 import CaixaBankCaseStudy from "../../img/industries/caixa_bank.png";
 import CaixaBankMain from "../../img/industries/caixa_bank_main.png";
 import bankingImage from "../../img/industries/baking-1.png";
 import CaseStudyCard from "../CaseStudyCard";
+import VideoCaseStudyCard from "../VideoCaseStudyCard";
+import BankOfScotland from "../../img/industry-solution/bank-of-scotland.png";
 
 class Banking extends Component {
   constructor(props) {
@@ -43,12 +43,22 @@ class Banking extends Component {
               sm={12}
               md={12}
               lg={6}
-              className="mt-4 mt-lg-0 image-center"
+              className="mt-4 mt-lg-0 image-center flex-column"
             >
               {/* <div className="image-section">
                 <img src={SupportField} alt="support image" />
               </div> */}
-              <CaseStudyCard imageUrl={CrevalCaseStudy} title="Creval Banking Group" link="/docs/creval-banking.pdf" />
+              <VideoCaseStudyCard
+                imageUrl={BankOfScotland}
+                embeddedUrl="https://www.youtube.com/embed/KQAMo4tFyYQ?modestbranding=1"
+                title="Royal Bank of Scotland"
+                link="https://www.youtube.com/watch?v=KQAMo4tFyYQ"
+              />
+              <CaseStudyCard
+                imageUrl={CrevalCaseStudy}
+                title="Creval Banking Group"
+                link="/docs/creval-banking.pdf"
+              />
               {/* <div className="woodside p-2 d-flex mt-5 flex-column flex-sm-row">
                 <div className="text-center">
                   <img
@@ -118,7 +128,12 @@ class Banking extends Component {
               lg={6}
               className="mt-4 mt-lg-0 image-center"
             >
-              <CaseStudyCard imageUrl={CaixaBankCaseStudy} title="CaixaBank Case Study" link="https://www.ibm.com/case-studies/caixabank" />
+              <CaseStudyCard
+                imageUrl={CaixaBankCaseStudy}
+                title="CaixaBank Case Study"
+                link="https://www.ibm.com/case-studies/caixabank"
+              />
+
               {/* <div className="woodside p-2 d-flex mt-5 flex-column flex-sm-row">
                 <div className="text-center">
                   <img
@@ -148,11 +163,7 @@ class Banking extends Component {
               </div> */}
             </Col>
             <Col xs={12} sm={12} md={12} lg={12} className="text-center">
-              <img
-                className="sm-w-100"
-                src={CaixaBankMain}
-                alt="Caixa Bank"
-              />
+              <img src={CaixaBankMain} alt="Caixa Bank" className="sm-w-100" />
             </Col>
           </Row>
         </Container>
