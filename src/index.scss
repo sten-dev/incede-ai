@@ -198,3 +198,25 @@ small,
     resize: none !important;
   }
 }
+.menu-item {
+  padding-right: 20px;
+  // margin: 5px 10px;
+  user-select: none;
+  cursor: pointer;
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: capitalize;
+  font-weight: 600;
+  font-size: larger;
+}
+.menu-item-wrapper.active {
+  // border: 1px blue solid;
+}
+.menu-item.active {
+  color: rgba(255, 255, 255, 1);
+}
+
+.scroll-menu-arrow {
+  padding: 20px;
+  cursor: pointer;
+}
