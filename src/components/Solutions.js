@@ -57,7 +57,7 @@ class Solutions extends React.Component {
           mainContext:
             "IT Service Desk AI solutions are designed to automate parts of the service desk and to effectively solve IT problems more quickly. IT service desk solutions provide answers to product questions, return and exchange policies, damaged in shipping claims and credit card disputes.",
           sideContext:
-            "Automate onboarding, off-boarding tasks for employees.Provide troubleshooting and suggestions to problems.Validate problem tickets contain relevant, required information.Augment suggestions with AI to recommend most-helpful answers and resources.Auto-escalate issues to human agents to serve highest-urgency problems."
+            "Automate onboarding, off-boarding tasks for employees.Provide troubleshooting and suggestions to problems.Validate problem tickets contain relevant, required information.Auto-escalate issues to human agents to serve highest-urgency problems."
         },
         path: "/solutions/it-service-desk"
       },
