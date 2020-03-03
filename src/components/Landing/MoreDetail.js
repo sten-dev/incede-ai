@@ -4,7 +4,7 @@ import arrow from "../../img/arrow.svg";
 import "../../styles/more_detail.scss";
 import { Link } from "gatsby";
 import TeamImageBG from "../../img/Team_image_bg.png";
-import AiImage from "../../img/incede-home-page-middle.png"
+import AiImage from "../../img/incede-home-page-middle.png";
 class MoreDetail extends React.Component {
   state = {};
   render() {
@@ -14,10 +14,9 @@ class MoreDetail extends React.Component {
         <Container>
           <Row>
             <Col lg={8} md={7} sm={12} xs={12}>
-              <article className="gap-y-half  text-left mt-0 mt-sm-3">
+              <article className="gap-y-half text-left mt-0 mt-sm-3 mt-lg-4 pr-0 pr-lg-5">
                 <h1 className="title">
-                  Harnessing the power of data, Artificial Intelligence and
-                  Machine Learning
+                  Incede harnesses the power of Data, AI and Machine Learning
                 </h1>
                 <h5 className="text-white sub-title">
                   With more than half of the world’s data in natural language,
@@ -28,7 +27,7 @@ class MoreDetail extends React.Component {
                   roadmap of incremental steps to roll-out real solutions that
                   deliver-to that value.
                 </h5>
-                <div className="py-2">
+                {/* <div className="py-2">
                   <Row>
                     <Col lg={4} md={6} sm={6} xs={12}>
                       <button className="btn more-btn btn-outline-info btn-lg w-100">
@@ -36,7 +35,7 @@ class MoreDetail extends React.Component {
                         <img
                           src={arrow}
                           alt="next"
-                        // style={{ width: "12px", }}
+                          // style={{ width: "12px", }}
                         />
                       </button>
                     </Col>
@@ -49,7 +48,7 @@ class MoreDetail extends React.Component {
                         <img
                           src={arrow}
                           alt="next"
-                        // style={{ width: "12px", }}
+                          // style={{ width: "12px", }}
                         />
                       </Link>
                     </Col>
@@ -62,12 +61,12 @@ class MoreDetail extends React.Component {
                         <img
                           src={arrow}
                           alt="next"
-                        // style={{ width: "12px", }}
+                          // style={{ width: "12px", }}
                         />
                       </Link>
                     </Col>
                   </Row>
-                </div>
+                </div> */}
               </article>
             </Col>
             <Col lg={4} md={5} className="d-none d-md-block position-initial">
