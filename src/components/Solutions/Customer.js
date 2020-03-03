@@ -26,6 +26,7 @@ class Customer extends Component {
                 <p>
                   These AI solutions are primarily designed to take over inquiries coming into the customer service desk. It provides answers to product questions, return and exchange policies, damaged in shipping claims and credit card disputes.
                 </p>
+                <br />
                 <p><strong>Outcomes</strong></p>
                 <ul>
                   <li>
@@ -54,6 +55,7 @@ class Customer extends Component {
                   Learn more in,
                   </strong>
                 </p>
+                <br />
                 <div className="d-flex align-items-center">
                   <div>
                     <img className="learn-more-icon" src={bankingImage} alt="banking" />
