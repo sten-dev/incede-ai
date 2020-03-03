@@ -1,8 +1,45 @@
+@import "../bs.scss";
 .why-incede-container {
+  .results-section,
+  .customer-success {
+    background-color: #ffff;
+    .heading {
+      text-transform: uppercase;
+      font-weight: 600 !important;
+    }
+    .sub-title {
+      line-height: 32px !important;
+    }
+  }
+  .certified-expertise,
+  .technology-partners {
+    background-color: $primary;
+    .heading {
+      text-transform: uppercase;
+      font-weight: 600 !important;
+    }
+    .sub-title {
+      line-height: 32px !important;
+    }
+  }
+  .contact-us-section {
+    .header {
+      font-size: 75px !important;
+      font-weight: 600 !important;
+    }
+    .contact-us {
+      font-weight: 700 !important;
+    }
+  }
   .image-section {
     img {
-      width: 280px;
+      width: 100%;
       margin-bottom: 16px;
     }
+  }
+}
+@media screen and (max-width: 991px) {
+  .image-section {
+    display: none !important;
   }
 }

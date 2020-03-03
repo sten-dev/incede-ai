@@ -183,6 +183,20 @@ small,
   background: $primary;
   color: $white;
 }
+.contact-us-mat-input {
+  outline: none !important;
+  border: none !important;
+  border-bottom: 1px solid #0000004f !important;
+  // color: $white !important;
+  border-radius: 0 !important;
+  margin-bottom: 24px !important;
+  &::placeholder {
+    // color: $white !important;
+  }
+  &textarea {
+    resize: none !important;
+  }
+}
 .mat-input {
   background: $primary !important;
   outline: none !important;
