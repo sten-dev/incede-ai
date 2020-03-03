@@ -52,7 +52,7 @@ class Customer extends Component {
                   </li>
                 </ul>
                 <p><strong>
-                  Learn more in,
+                  Learn more in
                   </strong>
                 </p>
                 <br />
