@@ -12,7 +12,7 @@ const WatsonDiscoveryServices = () => {
       <Transition>
         <section className="industry-solution">
           <ServicesHeader header={"Watson Discovery Services"} title={""} />
-          <Container>
+          <Container fluid className="p-0">
             {/* <ServicesPreviousNextHeader
               previousLink="/services/watson-assistant-services"
               previousName="Watson Assistant Services"
