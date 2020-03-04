@@ -240,7 +240,8 @@ small,
     font-size: 32px;
   }
   &.scroll-menu-arrow--disabled {
-    display: none;
+    // display: none;
+    opacity: 0;
   }
 }
 .fs-12 {
