@@ -110,7 +110,7 @@ class SolutionsHeader extends React.Component {
               </article>
             </Col>
             <Col lg={4} md={5} className="d-none d-md-block position-initial">
-              <div className="image-section gap-y-half">
+              <div className="image-section pb-5">
                 <img className="w-100" src={SolutionImage} alt="hero" />
               </div>
             </Col>
