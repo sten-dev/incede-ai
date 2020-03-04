@@ -66,7 +66,7 @@ class ServicesHeader extends Component {
     switch (path) {
       case "/services/watson-assistant-services":
       case "/services/watson-assistant-services/":
-        this.setState({ selected: "Watson Assistant" });
+        this.setState({ selected: "Watson Assistant Services" });
         break;
       case "/services/watson-discovery-services":
       case "/services/watson-discovery-services/":
@@ -77,7 +77,7 @@ class ServicesHeader extends Component {
         this.setState({ selected: "Watson API" });
         break;
       default:
-        this.setState({ selected: "Watson Assistant" });
+        this.setState({ selected: "Watson Assistant Services" });
         break;
     }
   };
