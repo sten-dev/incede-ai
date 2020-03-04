@@ -98,7 +98,7 @@ class Footer extends React.Component {
               </section>
             </Col>
             <Col lg="12" md="12" sm="12" xs="12">
-              <p className="m-0">© Copyright 2020 Incede AI</p>
+              <p className="m-0">© Copyright 2020 incede.ai</p>
             </Col>
           </Row>
         </Container>
