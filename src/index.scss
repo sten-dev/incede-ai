@@ -225,9 +225,7 @@ small,
 }
 .menu-item-wrapper {
   outline: none;
-  &.active {
-    // border: 1px blue solid;
-  }
+  // border: 1px blue solid;
 }
 .menu-item.active {
   color: rgba(255, 255, 255, 1);

@@ -18,9 +18,9 @@ class Services extends React.Component {
     const services = [
       {
         data: {
-          image: "img/watson-professional-services.png",
-          inactiveImage: "img/watson-professional-services-inactive.png",
-          title: "Watson Professional Services",
+          image: "img/watson-assistant.png",
+          inactiveImage: "img/watson-assistant-inactive.png",
+          title: "Watson Assistant Services",
           subTitle: "",
           mainContext:
             "Watson Assistant is IBM’s AI product that lets you build, train, and deploy conversational interactions into any application, device, or channel. Watson Assistant is revolutionizing the way businesses engage with people in customer service, IT service desk, employee self-service, sales support, commerce and other application areas.",
@@ -31,8 +31,8 @@ class Services extends React.Component {
       },
       {
         data: {
-          image: "img/watson-professional-services.png",
-          inactiveImage: "img/watson-professional-services-inactive.png",
+          image: "img/watson-discovery.png",
+          inactiveImage: "img/watson-discovery-inactive.png",
           title: "Watson Discovery Services",
           subTitle: "",
           mainContext:
@@ -44,12 +44,16 @@ class Services extends React.Component {
       }
       // {
       //   data: {
-      //     image: "img/watson-professional-services.png",
-      //     inactiveImage: "img/watson-professional-services-inactive.png",
-      //     title: "Watson API Services",
-      //     subTitle: ""
+      //     image: "img/watson-api.png",
+      //     inactiveImage: "img/watson-api-inactive.png",
+      //     title: "Watson API",
+      //     subTitle: "",
+      //     mainContext:
+      //       "Watson Discovery is IBM’s enterprise search and AI search technology that breaks open data silos and retrieves specific answers to your questions while analyzing trends and relationships buried in enterprise data.",
+      //     sideContext:
+      //       "Out-of-the-Box integration with conversational AI to find answers to your questions.Understands complex content in business documents such as images and tables.Utilizes both supervised and unsupervised relevancy training to improve salience."
       //   },
-      //   path: "/"
+      //   path: "/services/watson-api"
       // }
     ];
     return (
