@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Row, Col, Container } from "reactstrap";
-import SolutionImage from "../../img/solutions/banner-solution.png";
+import ServicesImage from "../../img/services/banner-services.png";
 import ScrollMenu from "react-horizontal-scrolling-menu";
 
 let list = [
@@ -53,7 +53,7 @@ class ServicesHeader extends Component {
         url = "/services/watson-discovery-services";
         break;
       case "Watson API":
-        url = "/services/watson-discovery-services";
+        url = "/services/watson-api";
         break;
       default:
         url = "/services/watson-assistant-services";
@@ -72,8 +72,8 @@ class ServicesHeader extends Component {
       case "/services/watson-discovery-services/":
         this.setState({ selected: "Watson Discovery" });
         break;
-      case "/services/watson-discovery-services":
-      case "/services/watson-discovery-services/":
+      case "/services/watson-api":
+      case "/services/watson-api/":
         this.setState({ selected: "Watson API" });
         break;
       default:
@@ -103,13 +103,13 @@ class ServicesHeader extends Component {
             </Col>
             <Col lg={4} md={5} className="d-none d-md-block position-initial">
               <div className="image-section gap-y-half">
-                <img className="w-100" src={SolutionImage} alt="hero" />
+                <img className="w-100" src={ServicesImage} alt="hero" />
               </div>
             </Col>
           </Row>
         </Container>
 
-        <Container fluid>
+        <Container fluid className="section-tabs-container">
           <Container>
             <ScrollMenu
               alignCenter={this.state.alignCenter}

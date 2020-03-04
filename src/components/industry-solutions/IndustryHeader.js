@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Row, Col, Container } from "reactstrap";
 import ScrollMenu from "react-horizontal-scrolling-menu";
-import SolutionImage from "../../img/solutions/banner-solution.png";
+import IndustryImage from "../../img/industry-solution/banner-industry.png";
 
 let list = [
   { name: "Retail/Distribution" },
@@ -111,27 +111,31 @@ class IndustryHeader extends Component {
             </Col>
             <Col lg={4} md={5} className="d-none d-md-block position-initial">
               <div className="image-section gap-y-half">
-                <img className="w-100" src={SolutionImage} alt="hero" />
+                <img className="w-100" src={IndustryImage} alt="hero" />
               </div>
             </Col>
           </Row>
-          <ScrollMenu
-            alignCenter={this.state.alignCenter}
-            arrowLeft={ArrowLeft}
-            arrowRight={ArrowRight}
-            clickWhenDrag={this.state.clickWhenDrag}
-            data={menu}
-            dragging={this.state.dragging}
-            hideArrows={this.state.hideArrows}
-            hideSingleArrow={this.state.hideSingleArrow}
-            onSelect={this.onSelect}
-            onUpdate={this.onUpdate}
-            ref={el => (this.menu = el)}
-            selected={this.state.selected}
-            transition={this.state.transition}
-            translate={this.state.translate}
-            wheel={this.state.wheel}
-          />
+        </Container>
+        <Container fluid className="section-tabs-container">
+          <Container>
+            <ScrollMenu
+              alignCenter={this.state.alignCenter}
+              arrowLeft={ArrowLeft}
+              arrowRight={ArrowRight}
+              clickWhenDrag={this.state.clickWhenDrag}
+              data={menu}
+              dragging={this.state.dragging}
+              hideArrows={this.state.hideArrows}
+              hideSingleArrow={this.state.hideSingleArrow}
+              onSelect={this.onSelect}
+              onUpdate={this.onUpdate}
+              ref={el => (this.menu = el)}
+              selected={this.state.selected}
+              transition={this.state.transition}
+              translate={this.state.translate}
+              wheel={this.state.wheel}
+            />
+          </Container>
         </Container>
       </section>
     );

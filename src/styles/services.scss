@@ -78,8 +78,29 @@
     font-weight: 300 !important;
     line-height: 1.2 !important;
   }
-  .section-tabs-container {
-    border: 0 !important;
+}
+.custom-services-img {
+  .image-section {
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .gatsby-image-wrapper,
+    img {
+      width: 75px !important;
+    }
+  }
+  .title {
+    // font-weight:
+    color: #bfbfbf;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: flex;
+    font-size: 14px;
+    justify-content: center;
+  }
+  .title.active {
+    color: #000 !important;
   }
 }
 @media screen and (max-width: 576px) {
