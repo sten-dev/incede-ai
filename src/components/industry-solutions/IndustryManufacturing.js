@@ -33,10 +33,10 @@ class IndustryManufacturing extends Component {
               <p className="content-body">
                 Watson Assistant bridges the inexperienced, the unfamiliar and
                 the uncommon for the tech to find answers without delays or a
-                return trip. Incede develops the virtual assistant’s dialog by
-                training a model to the targeted products, machines or locations
-                with details such as model numbers, diagnostic steps and
-                maintenance procedures.
+                return trip. <b>Incede</b> develops the virtual assistant’s
+                dialog by training a model to the targeted products, machines or
+                locations with details such as model numbers, diagnostic steps
+                and maintenance procedures.
               </p>
             </Col>
             <Col xs={12} sm={12} md={12} lg={6} className="mt-4 mt-lg-0">
@@ -47,7 +47,19 @@ class IndustryManufacturing extends Component {
                 imageUrl={KPMGImage}
                 title="KPMG Case Study"
                 link="https://www.ibm.com/watson/stories/kpmg/"
-              />
+              >
+                <ul className="my-3">
+                  <li>
+                    Helps tax advisors determine tax relief eligibility for
+                    clients
+                  </li>
+                  <li>
+                    Quickly examine massive amounts of loan assets and nuanced
+                    tax interpretations
+                  </li>
+                  <li>Provide clients richer, more detailed recommendations</li>
+                </ul>
+              </CaseStudyCard>
             </Col>
           </Row>
           <br />
@@ -66,7 +78,7 @@ class IndustryManufacturing extends Component {
                 specifications to vastly expand the organization’s knowledge
                 base. Using natural language, employees use the simple, natural
                 language interface of Watson Assistant to tap the organization’s
-                now-expanded knowledge base for answers. Incede ingests,
+                now-expanded knowledge base for answers. <b>Incede</b> ingests,
                 categorizes and marks the documents and then iteratively trains
                 and tests the model to ensure document relevancy is obtained.
               </p>
@@ -94,8 +106,7 @@ class IndustryManufacturing extends Component {
             </Col>
           </Row>
           <br />
-          <br />
-          <br />
+          {/* <br />
           <Row>
             <Col>
               <div>
@@ -106,7 +117,7 @@ class IndustryManufacturing extends Component {
                 />
               </div>
             </Col>
-          </Row>
+          </Row> */}
         </Container>
       </section>
     );

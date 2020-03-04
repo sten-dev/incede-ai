@@ -115,7 +115,6 @@ class SolutionsHeader extends React.Component {
               </div>
             </Col>
           </Row>
-          <br />
         </Container>
 
         <Container fluid className="section-tabs-container">

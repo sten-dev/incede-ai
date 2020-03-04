@@ -32,10 +32,10 @@ class Banking extends Component {
               </p>
               <br />
               <p className="content-body">
-                Incede develops the virtual assistant’s dialog by integrating a
-                trained model of targeted intents, associated entities,and
-                triggers that personalizes the experiences while ensuring
-                accuracy and compliance.
+                <b>Incede</b> develops the virtual assistant’s dialog by
+                integrating a trained model of targeted intents, associated
+                entities,and triggers that personalizes the experiences while
+                ensuring accuracy and compliance.
               </p>
             </Col>
             <Col
@@ -111,13 +111,13 @@ class Banking extends Component {
           <br />
           <br />
         </Container>
-        <Container fluid style={{ background: "rgba(122, 121, 121, 0.06)" }}>
+        {/* <Container fluid style={{ background: "rgba(122, 121, 121, 0.06)" }}>
           <Container>
             <section className="gap-y">
               <img className="sm-w-100" src={bankingImage} alt="banking" />
             </section>
           </Container>
-        </Container>
+        </Container> */}
         <Container>
           <Row className="gap-y">
             <Col xs={12} sm={12} md={12} lg={6}>
@@ -139,10 +139,10 @@ class Banking extends Component {
               <br />
 
               <p className="content-body">
-                Using Smart Document Understanding (SDU), Incede customizes the
-                solution to ingest new documents and recognize structure and
-                elements such as title, subtitle, author and complex content
-                such as tables, images and citations.
+                Using Smart Document Understanding (SDU), <b>Incede</b>{" "}
+                customizes the solution to ingest new documents and recognize
+                structure and elements such as title, subtitle, author and
+                complex content such as tables, images and citations.
               </p>
             </Col>
             <Col xs={12} sm={12} md={12} lg={6} className="mt-4 mt-lg-0">
@@ -164,7 +164,7 @@ class Banking extends Component {
                   <li>Enables faster and more responsive customer services</li>
                 </ul>
               </CaseStudyCard>
-              <div>
+              <div className="image-section">
                 <img
                   src={CaixaBankMain}
                   alt="Caixa Bank"

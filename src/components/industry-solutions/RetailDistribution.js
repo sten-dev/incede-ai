@@ -29,9 +29,9 @@ class RetailDistribution extends Component {
               </p>
               <br />
               <p className="content-body">
-                Incede designs the virtual assistant to integrate with leading
-                messenger applications such as Facebook, Slack, Intercom to
-                select targeted message content and convert them into
+                <b>Incede</b> designs the virtual assistant to integrate with
+                leading messenger applications such as Facebook, Slack, Intercom
+                to select targeted message content and convert them into
                 conversations and then transactions.
               </p>
             </Col>
@@ -72,11 +72,12 @@ class RetailDistribution extends Component {
               </p>
               <br />
               <p className="content-body">
-                Incede develops the conversational flow to answer inquiries,
-                process payments and confirm pick-up details with the store and
-                customer.
+                <b>Incede</b> develops the conversational flow to answer
+                inquiries, process payments and confirm pick-up details with the
+                store and customer.
               </p>
-              <br />
+            </Col>
+            <Col xs={12} sm={12} md={12} lg={6} className="mt-4 mt-lg-0">
               <CaseStudyCard
                 imageUrl={FlowersCaseStudy}
                 title="1-800 Flowers Case Study"
@@ -91,15 +92,13 @@ class RetailDistribution extends Component {
                   </li>
                 </ul>
               </CaseStudyCard>
-            </Col>
-            <Col xs={12} sm={12} md={12} lg={6} className="mt-4 mt-lg-0">
-              <div className="image-section mt-5">
+              {/* <div className="image-section mt-5">
                 <img
                   className="sm-w-100"
                   src={RetailImage}
                   alt="support image"
                 />
-              </div>
+              </div> */}
             </Col>
           </Row>
           {/* <br />

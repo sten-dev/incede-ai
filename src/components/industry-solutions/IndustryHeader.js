@@ -102,7 +102,7 @@ class IndustryHeader extends Component {
           <Row>
             <Col lg={8} md={7} sm={12} xs={12}>
               <article className="gap-y-half  text-left mt-0 mt-sm-3">
-                <h1 className="title display-3">Industry</h1>
+                <h1 className="title display-3">Industries</h1>
                 <h5 className="text-white sub-title">
                   Incede industry experience accelerates the deployment of
                   smarter IBM Watson solutions
@@ -115,10 +115,6 @@ class IndustryHeader extends Component {
               </div>
             </Col>
           </Row>
-          <br />
-          <br />
-          <br />
-
           <ScrollMenu
             alignCenter={this.state.alignCenter}
             arrowLeft={ArrowLeft}

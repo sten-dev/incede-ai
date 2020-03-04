@@ -35,20 +35,20 @@ class Communication extends Component {
               <br />
               <br />
               <p className="content-body">
-                Incede develops the virtual assistant’s dialog by integrating a
-                trained model of intents for targeted services and products and
-                establishing the associations of triggers that provide the
-                information, answers and steps for the customer’s requests –
-                securely, efficiently and easy.
+                <b>Incede</b> develops the virtual assistant’s dialog by
+                integrating a trained model of intents for targeted services and
+                products and establishing the associations of triggers that
+                provide the information, answers and steps for the customer’s
+                requests – securely, efficiently and easy.
               </p>
               <br />
             </Col>
             <Col xs={12} sm={12} md={12} lg={6} className="mt-4 mt-lg-0">
               <VideoCaseStudyCard
                 imageUrl={VodafoneCaseStudy}
-                embeddedUrl="https://www.youtube.com/embed/bYqazJ5jy2k?t=1s&modestbranding=1"
+                embeddedUrl="https://www.youtube.com/embed/bYqazJ5jy2k?modestbranding=1"
                 title="Vodafone"
-                link="https://www.youtube.com/watch?v=bYqazJ5jy2k&t=1s"
+                link="https://www.youtube.com/watch?v=bYqazJ5jy2k"
                 viewClass="pl-4"
               >
                 <ul className="my-3">
@@ -87,8 +87,8 @@ class Communication extends Component {
               <br />
               <br />
               <p className="content-body">
-                Incede develops a dialog that focuses on the key areas that
-                employees and HR care most about. We integrate internal
+                <b>Incede</b> develops a dialog that focuses on the key areas
+                that employees and HR care most about. We integrate internal
                 documents such as the employee handbook and state & local
                 employment law documents. Watson Discovery can even integrate
                 client-and employee-specific documents like a client travel
@@ -98,13 +98,6 @@ class Communication extends Component {
               <br />
             </Col>
             <Col xs={12} sm={12} md={12} lg={6} className="mt-4 mt-lg-0">
-              <div className="image-section mt-5">
-                <img
-                  className="sm-w-100"
-                  src={Enterprise2}
-                  alt="support image"
-                />
-              </div>
               <CaseStudyCard
                 imageUrl={VidahoraCaseSudy}
                 title="Vidahora Case Study"
@@ -126,10 +119,17 @@ class Communication extends Component {
                   </li>
                 </ul>
               </CaseStudyCard>
+              <div className="image-section mt-5">
+                <img
+                  className="sm-w-100"
+                  src={Enterprise2}
+                  alt="support image"
+                />
+              </div>
             </Col>
           </Row>
           <br />
-          <br />
+          {/* <br />
           <br />
           <Row>
             <Col>
@@ -141,7 +141,7 @@ class Communication extends Component {
                 />
               </div>
             </Col>
-          </Row>
+          </Row> */}
         </Container>
       </section>
     );
