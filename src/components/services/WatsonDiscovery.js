@@ -31,7 +31,7 @@ class WatsonDiscovery extends Component {
     return (
       <section className="services-content gap-y-half pb-0" id="3">
         <Container>
-          <Row>
+          {/* <Row>
             <Col>
               <div className="content">
                 <h1 className="title text-primary text-uppercase">
@@ -98,7 +98,7 @@ class WatsonDiscovery extends Component {
               </div>
             </Col>
           </Row>
-          <br />
+          <br /> */}
           <Row className="wwd-list custom-services-img">
             {discoverySubItems.map((x, i) => {
               let data = x;

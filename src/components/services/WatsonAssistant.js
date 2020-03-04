@@ -31,7 +31,7 @@ class WatsonAssistant extends Component {
     return (
       <section className="services-content gap-y-half pb-0" id="3">
         <Container>
-          <Row>
+          {/* <Row>
             <Col>
               <div className="content">
                 <h1 className="title text-primary text-uppercase">
@@ -85,7 +85,7 @@ class WatsonAssistant extends Component {
               </div>
             </Col>
           </Row>
-          <br />
+          <br /> */}
           <Row className="wwd-list custom-services-img">
             {assistantSubItems.map((x, i) => {
               let data = x;
