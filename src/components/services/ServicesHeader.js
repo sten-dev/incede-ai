@@ -46,7 +46,7 @@ class ServicesHeader extends Component {
     this.setState({ selected: key });
     let url = "/services/watson-assistant-services";
     switch (key) {
-      case "Watson Assistant":
+      case "Watson Assistant Services":
         url = "/services/watson-assistant-services";
         break;
       case "Watson Discovery":
