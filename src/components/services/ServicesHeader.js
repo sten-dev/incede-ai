@@ -4,7 +4,7 @@ import ServicesImage from "../../img/services/banner-services.png";
 import ScrollMenu from "react-horizontal-scrolling-menu";
 
 let list = [
-  { name: "Watson Assistant" },
+  { name: "Watson Assistant Services" },
   { name: "Watson Discovery" },
   { name: "Watson API" }
 ];
