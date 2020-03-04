@@ -14,7 +14,7 @@ class Main extends Component {
         {/* <AboutUs about={about} /> */}
         <MoreDetail />
         <WhatWeDo />
-        <CaseStudies />
+        {/* <CaseStudies /> */}
         {/* <ContactUs location={location} /> */}
       </React.Fragment>
     );
