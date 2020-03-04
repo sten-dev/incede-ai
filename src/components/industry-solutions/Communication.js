@@ -51,20 +51,20 @@ class Communication extends Component {
                 link="https://www.youtube.com/watch?v=bYqazJ5jy2k&t=1s"
                 viewClass="pl-4"
               >
-                <ul className="fs-12 pl-4 mb-0">
+                <ul className="my-3">
                   <li>
                     Remove high-volume, low-value activities from call center
                   </li>
-                  <li>
-                    Empower human agents to become specialists
-                  </li>
-                  <li>
-                    Achieve “Excellent” NPS Score
-                  </li>
+                  <li>Empower human agents to become specialists</li>
+                  <li>Achieve “Excellent” NPS Score</li>
                 </ul>
               </VideoCaseStudyCard>
               <div className="image-section mt-5">
-                <img className="sm-w-100" src={Enterprise1} alt="support image" />
+                <img
+                  className="sm-w-100"
+                  src={Enterprise1}
+                  alt="support image"
+                />
               </div>
             </Col>
           </Row>
@@ -99,7 +99,11 @@ class Communication extends Component {
             </Col>
             <Col xs={12} sm={12} md={12} lg={6} className="mt-4 mt-lg-0">
               <div className="image-section mt-5">
-                <img className="sm-w-100" src={Enterprise2} alt="support image" />
+                <img
+                  className="sm-w-100"
+                  src={Enterprise2}
+                  alt="support image"
+                />
               </div>
               <CaseStudyCard
                 imageUrl={VidahoraCaseSudy}
@@ -107,15 +111,18 @@ class Communication extends Component {
                 link="https://www.ibm.com/case-studies/vidahora-watson-employee-engagement"
                 viewClass="pl-4"
               >
-                <ul className="fs-12 pl-4 mb-0">
+                <ul className="my-3">
                   <li>
-                    40% average time-saving for HR functions by reducing administration workloads
+                    40% average time-saving for HR functions by reducing
+                    administration workloads
                   </li>
                   <li>
-                    Empowers HR personnel to spend more time on value-added talent development
+                    Empowers HR personnel to spend more time on value-added
+                    talent development
                   </li>
                   <li>
-                    Helps Vidahora’s clients cultivate happier, healthier and more productive workplaces
+                    Helps Vidahora’s clients cultivate happier, healthier and
+                    more productive workplaces
                   </li>
                 </ul>
               </CaseStudyCard>
@@ -127,7 +134,11 @@ class Communication extends Component {
           <Row>
             <Col>
               <div>
-                <img className="w-100 sm-w-100" src={Manufacturing} alt="support image" />
+                <img
+                  className="w-100 sm-w-100"
+                  src={Manufacturing}
+                  alt="support image"
+                />
               </div>
             </Col>
           </Row>

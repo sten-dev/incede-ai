@@ -36,22 +36,27 @@ class RetailDistribution extends Component {
               </p>
             </Col>
             <Col xs={12} sm={12} md={12} lg={6} className="mt-4 mt-lg-0">
-              <CaseStudyCard imageUrl={DelticCaseStudy}
+              <CaseStudyCard
+                imageUrl={DelticCaseStudy}
                 title="Deltic Group Case Study"
-                link="/docs/deltic-group.pdf" viewClass="pl-4">
-                <ul className="fs-12 pl-4 mb-0">
+                link="/docs/deltic-group.pdf"
+                viewClass="pl-4"
+              >
+                <ul className="my-3">
                   <li>
-                    100% reply rate for 350,000 digital enquires will maximize every opportunity to engage
-                    </li>
+                    100% reply rate for 350,000 digital enquires will maximize
+                    every opportunity to engage
+                  </li>
                   <li>
-                    10% uplift in pre-booked sales predicted by delivering fast responses on social channels
-                    </li>
+                    10% uplift in pre-booked sales predicted by delivering fast
+                    responses on social channels
+                  </li>
                   <li>
-                    5% increase in group revenues anticipated, driving nationwide business growth
-                    </li>
+                    5% increase in group revenues anticipated, driving
+                    nationwide business growth
+                  </li>
                 </ul>
               </CaseStudyCard>
-
             </Col>
           </Row>
           <br />
@@ -72,30 +77,28 @@ class RetailDistribution extends Component {
                 customer.
               </p>
               <br />
-              <CaseStudyCard imageUrl={FlowersCaseStudy}
+              <CaseStudyCard
+                imageUrl={FlowersCaseStudy}
                 title="1-800 Flowers Case Study"
-                link="https://www.ibm.com/services/ibmix/case-studies/1-800-flowers.html">
-                <ul className="fs-12 pl-4 mb-0">
-                  <li>
-                    help consumers find exactly what they’re looking for
-                    </li>
-                  <li>
-                    cultivates that one-to-one relationship
-  
-                    </li>
-                  <li>
-                    increased the number of return customers
-                    </li>
+                link="https://www.ibm.com/services/ibmix/case-studies/1-800-flowers.html"
+              >
+                <ul className="my-3">
+                  <li>help consumers find exactly what they’re looking for</li>
+                  <li>cultivates that one-to-one relationship</li>
+                  <li>increased the number of return customers</li>
                   <li>
                     increased the company’s revenue over the previous year
-                    </li>
+                  </li>
                 </ul>
               </CaseStudyCard>
-
             </Col>
             <Col xs={12} sm={12} md={12} lg={6} className="mt-4 mt-lg-0">
               <div className="image-section mt-5">
-                <img className="sm-w-100" src={RetailImage} alt="support image" />
+                <img
+                  className="sm-w-100"
+                  src={RetailImage}
+                  alt="support image"
+                />
               </div>
             </Col>
           </Row>

@@ -59,7 +59,7 @@
   }
   .pp-1 {
     color: #474747;
-    font-size: 18px;
+    font-size: 22px;
     letter-spacing: 0;
     font-weight: 600;
     line-height: 34px;
@@ -140,6 +140,16 @@
 }
 .case-study {
   text-decoration: none !important;
+}
+.industry-header {
+  .title {
+    font-size: 4.5rem !important;
+    font-weight: 300 !important;
+    line-height: 1.2 !important;
+  }
+  .section-tabs-container {
+    border: 0 !important;
+  }
 }
 /********************************** */
 

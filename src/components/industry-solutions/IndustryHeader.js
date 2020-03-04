@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Row, Col, Container } from "reactstrap";
 import ScrollMenu from "react-horizontal-scrolling-menu";
+import SolutionImage from "../../img/solutions/banner-solution.png";
 
 let list = [
   { name: "Retail/Distribution" },
@@ -94,14 +95,24 @@ class IndustryHeader extends Component {
   render() {
     const menu = this.menuItems;
     return (
-      <section className="header-section text-center">
+      <section className="industry-header header-section text-center">
         <Container>
           <br />
           <br />
           <Row>
-            <Col className="text-left">
-              <p className="mb-1 display-3">Industry</p>
-              <p className="my-0 h3">Solutions</p>
+            <Col lg={8} md={7} sm={12} xs={12}>
+              <article className="gap-y-half  text-left mt-0 mt-sm-3">
+                <h1 className="title display-3">Industry</h1>
+                <h5 className="text-white sub-title">
+                  Incede industry experience accelerates the deployment of
+                  smarter IBM Watson solutions
+                </h5>
+              </article>
+            </Col>
+            <Col lg={4} md={5} className="d-none d-md-block position-initial">
+              <div className="image-section gap-y-half">
+                <img className="w-100" src={SolutionImage} alt="hero" />
+              </div>
             </Col>
           </Row>
           <br />

@@ -36,7 +36,7 @@
   }
   .pp-1 {
     color: #474747;
-    font-size: 20px;
+    font-size: 22px;
     letter-spacing: 0;
     font-weight: 600;
     line-height: 34px;
@@ -60,6 +60,16 @@
 }
 .learn-more-icon {
   width: 24px;
+}
+.solutions-header {
+  .title {
+    font-size: 4.5rem !important;
+    font-weight: 300 !important;
+    line-height: 1.2 !important;
+  }
+  .section-tabs-container {
+    border: 0 !important;
+  }
 }
 @media screen and (max-width: 576px) {
   .solutions-content {

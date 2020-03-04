@@ -7,22 +7,28 @@ const VideoCaseStudyCard = props => {
   const toggle = () => setModal(!modal);
   return (
     <React.Fragment>
-      <div className="woodside p-4 d-flex mt-5 flex-column flex-sm-row">
-        <div className="d-flex justify-content-center align-items-center">
-          <img
-            src={props.imageUrl}
-            alt="imageUrl"
-            style={{ width: "166px", height: "auto" }}
-          />
+      <div className="woodside p-4 d-flex mt-5 flex-column">
+        <div className="d-flex flex-grow-1 px-4">
+          <div className="d-flex justify-content-center align-items-center">
+            <img
+              src={props.imageUrl}
+              alt="imageUrl"
+              style={{ width: "120px", height: "46px" }}
+            />
+          </div>
+          <div>
+            <p className="pp-1 pl-3">{props.title}</p>
+          </div>
         </div>
+        <div className="points-text">{props.children && props.children}</div>
         <div className="flex-grow-1 ml-3">
-          <p className="pp-1">{props.title}</p>
-          {props.children && (
-            props.children
-          )}
-          <p className={`pp-3 ${props.viewClass ? props.viewClass : ''}`}>
+          <p
+            className={`pp-3 text-center ${
+              props.viewClass ? props.viewClass : ""
+            }`}
+          >
             <a
-              className="case-study pointer fs-14 bold"
+              className="case-study pointer bold"
               data-toggle="modal"
               data-target="#exampleModal"
               onClick={toggle}

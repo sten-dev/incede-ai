@@ -23,7 +23,11 @@ class Industries extends React.Component {
           image: "img/retail-consumer-packaged-goods.png",
           inactiveImage: "img/retail-consumer-packaged-goods-inactive.png",
           title: "Retail / Distribution",
-          subTitle: ""
+          subTitle: "",
+          mainContext:
+            "Engaging with customers on a more personal level is one way big box, boutique, on-line retailers are growing or, in some cases, surviving. Those that find ways of making complex interactions (such as returns) easier for their customers will see better NPS scores and repeat customers. IBM Watson solutions enable conversational AI for in-store, kiosk and online customers, empowering sales associates with system integration to know more about their customers and their products and enabling customer self-service to find, purchase or return products more easily.",
+          sideContext:
+            "Help consumers find exactly what they’re looking for.Faster responses to social media inquiries.Increase Net Promoter Score (NPS)."
         },
         path: "/industries/retail-distribution"
       },
@@ -32,7 +36,11 @@ class Industries extends React.Component {
           image: "img/manufacturing.png",
           inactiveImage: "img/manufacturing-inactive.png",
           title: "Industrial / Manufacturing",
-          subTitle: ""
+          subTitle: "",
+          mainContext:
+            "IBM Watson solutions are at work in several areas of manufacturing. Conversational AI enables engineering support to spend more time innovating and less time researching, visual recognition solutions ensure quality standards and engaging suppliers and buyers to effectively reduce risk and optimize the supply chain. These types of solutions are helping industrial and manufacturing organizations make incremental, high-value investments in Watson AI today while they planning their broader adoption of AI in their smart factory initiatives.",
+          sideContext:
+            "Boost safety and productivity for new employee onboarding – anytime and anywhere.Reduce engineer-time spent on research.Bridge knowledge transfer from the past wisdom and learnings."
         },
         path: "/industries/industrial-manufacturing"
       },
@@ -41,7 +49,11 @@ class Industries extends React.Component {
           image: "img/financial-performance-management.png",
           inactiveImage: "img/financial-performance-management-inactive.png",
           title: "Banking & Insurance",
-          subTitle: ""
+          subTitle: "",
+          mainContext:
+            "Banking and insurance organizations are in a race to boldly innovate and automate their customer engagement strategies – and are embracing technology such as IBM Watson to execute those strategies. First-release customer service chat bots are getting replaced with personalized conversational AI that considers a customer’s account holdings, their emotion and that learns the customer’s preferences. To attract and retain valued customers, Banks are also deploying IBM Watson to create sophisticated wealth management advisory knowledge bases for their associates and customers. Anticipating post-recession regulatory changes, financial services organizations are looking to IBM Watson to verify compliance and identify where risk modeling is needed.",
+          sideContext:
+            "Cultivate one-to-one relationship with customers and employees.Understand customer sentiment and alter actions accordingly. Enables faster and more responsive customer services."
         },
         path: "/industries/banking-insurance"
       },
@@ -50,7 +62,11 @@ class Industries extends React.Component {
           image: "img/communications.png",
           inactiveImage: "img/communications-inactive.png",
           title: "Communications & Services",
-          subTitle: ""
+          subTitle: "",
+          mainContext:
+            "Communications and services organizations are using thought leadership to gain more insights from data using AI as well as generating additional content using natural language understanding and natural language processing. IBM Watson is boosting their field team’s knowledge of products and their ability to troubleshoot problems. They are enhancing their service offerings with AI and leveraging conversation AI solutions that are integrated with their historical document stores as well as other team and customers interactions.",
+          sideContext:
+            "Increase the number of return customers.Answer questions instantly, reduce call center volumes.Increase productivity of Field Services with access to the organization’s knowledge base."
         },
         path: "/industries/communications-services"
       }

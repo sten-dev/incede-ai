@@ -95,24 +95,17 @@ class SolutionsHeader extends React.Component {
   render() {
     const menu = this.menuItems;
     return (
-      <section className="header-section text-center">
+      <section className="solutions-header header-section text-center">
         <Container>
           <br />
           <br />
           <Row>
             <Col lg={8} md={7} sm={12} xs={12}>
               <article className="gap-y-half  text-left mt-0 mt-sm-3">
-                <h1 className="title">Solutions</h1>
+                <h1 className="title display-3">Solutions</h1>
                 <h5 className="text-white sub-title">
-                  The maturity and sophistication of AI is establishing a new
-                  standard for next-generation services. Enterprise search and
-                  AI with chat solutions are enabling organizations to re-engage
-                  where resource constraints or stressed business processes were
-                  barriers to accessing the organization’s full knowledgebase
-                  and providing the ideal user experience. Natural language
-                  understanding and natural language processing creates a
-                  personalized exchange that encourages asking questions and
-                  finding answers that everyone can trust.
+                  Incede puts IBM Watson to work in solution areas that deliver
+                  real value for the business
                 </h5>
               </article>
             </Col>

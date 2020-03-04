@@ -55,16 +55,13 @@ class Banking extends Component {
                 link="https://www.youtube.com/watch?v=KQAMo4tFyYQ"
                 viewClass="pl-4"
               >
-                <ul className="fs-12 pl-4 mb-0">
+                <ul className="my-3">
+                  <li>Increased Net Promoter Score (NPS) by 20%</li>
+                  <li>Surface the actual questions customers are asking</li>
                   <li>
-                    Increased Net Promoter Score (NPS) by 20%
-                    </li>
-                  <li>
-                    Surface the actual questions customers are asking
-                    </li>
-                  <li>
-                    understand customer sentiment, like unhappiness or frustration, and change its tone and actions accordingly
-                    </li>
+                    understand customer sentiment, like unhappiness or
+                    frustration, and change its tone and actions accordingly
+                  </li>
                 </ul>
               </VideoCaseStudyCard>
               <CaseStudyCard
@@ -73,16 +70,13 @@ class Banking extends Component {
                 link="/docs/creval-banking.pdf"
                 viewClass="pl-4"
               >
-                <ul className="fs-12 pl-4 mb-0">
+                <ul className="my-3">
+                  <li>Increased Net Promoter Score (NPS) by 20%</li>
+                  <li>Surface the actual questions customers are asking</li>
                   <li>
-                    Increased Net Promoter Score (NPS) by 20%
-                    </li>
-                  <li>
-                    Surface the actual questions customers are asking
-                    </li>
-                  <li>
-                    understand customer sentiment, like unhappiness or frustration, and change its tone and actions accordingly
-                    </li>
+                    understand customer sentiment, like unhappiness or
+                    frustration, and change its tone and actions accordingly
+                  </li>
                 </ul>
               </CaseStudyCard>
               {/* <div className="woodside p-2 d-flex mt-5 flex-column flex-sm-row">
@@ -151,33 +145,31 @@ class Banking extends Component {
                 such as tables, images and citations.
               </p>
             </Col>
-            <Col
-              xs={12}
-              sm={12}
-              md={12}
-              lg={6}
-              className="mt-4 mt-lg-0"
-            >
+            <Col xs={12} sm={12} md={12} lg={6} className="mt-4 mt-lg-0">
               <CaseStudyCard
                 imageUrl={CaixaBankCaseStudy}
                 title="CaixaBank Case Study"
                 link="https://www.ibm.com/case-studies/caixabank"
                 viewClass="pl-4"
               >
-                <ul className="fs-12 pl-4 mb-0">
+                <ul className="my-3">
                   <li>
-                    80% of queries answered instantly, reducing call center volumes
-                 </li>
+                    80% of queries answered instantly, reducing call center
+                    volumes
+                  </li>
                   <li>
-                    Accelerates access to product and service information for employees
-                 </li>
-                  <li>
-                    Enables faster and more responsive customer services
-                 </li>
+                    Accelerates access to product and service information for
+                    employees
+                  </li>
+                  <li>Enables faster and more responsive customer services</li>
                 </ul>
               </CaseStudyCard>
               <div>
-                <img src={CaixaBankMain} alt="Caixa Bank" className="sm-w-100" />
+                <img
+                  src={CaixaBankMain}
+                  alt="Caixa Bank"
+                  className="sm-w-100"
+                />
               </div>
 
               {/* <div className="woodside p-2 d-flex mt-5 flex-column flex-sm-row">

@@ -43,9 +43,11 @@ class IndustryManufacturing extends Component {
               {/* <div className="image-section mt-5">
                 <img className="sm-w-100" src={SupportField} alt="support image" />
               </div> */}
-              <CaseStudyCard imageUrl={KPMGImage}
+              <CaseStudyCard
+                imageUrl={KPMGImage}
                 title="KPMG Case Study"
-                link="https://www.ibm.com/watson/stories/kpmg/" />
+                link="https://www.ibm.com/watson/stories/kpmg/"
+              />
             </Col>
           </Row>
           <br />
@@ -70,19 +72,23 @@ class IndustryManufacturing extends Component {
               </p>
             </Col>
             <Col xs={12} sm={12} md={12} lg={6} className="mt-4 mt-lg-0">
-              <CaseStudyCard imageUrl={Woodside}
+              <CaseStudyCard
+                imageUrl={Woodside}
                 title="Woodside Case Study"
-                link="https://www.ibm.com/watson/stories/woodside/" viewClass="pl-4">
-                <ul className="fs-12 pl-4 mb-0">
+                link="https://www.ibm.com/watson/stories/woodside/"
+                viewClass="pl-4"
+              >
+                <ul className="my-3">
                   <li>
                     Engineer-time spent on researching has been reduced by 75%
-                    </li>
+                  </li>
                   <li>
                     Saved $10 million-worth of time and kept employees safe
-                    </li>
+                  </li>
                   <li>
-                    Bridged knowledge transfer from the past wisdom and learnings
-                    </li>
+                    Bridged knowledge transfer from the past wisdom and
+                    learnings
+                  </li>
                 </ul>
               </CaseStudyCard>
             </Col>
@@ -93,7 +99,11 @@ class IndustryManufacturing extends Component {
           <Row>
             <Col>
               <div>
-                <img className="w-100 sm-w-100" src={Manufacturing} alt="support image" />
+                <img
+                  className="w-100 sm-w-100"
+                  src={Manufacturing}
+                  alt="support image"
+                />
               </div>
             </Col>
           </Row>
