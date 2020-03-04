@@ -30,8 +30,8 @@ class Home extends React.Component {
                   </h4>
                   {/* <h4>{home.subTitle}</h4> */}
                   <div className="py-2">
-                    <Link to="/solutions" className="btn btn-secondary btn-lg">
-                      Explore Our Solutions &nbsp;
+                    <Link to="/why-incede" className="btn btn-secondary btn-lg">
+                      Why incede &nbsp;
                       <img src={arrow} alt="next" style={{ width: "12px" }} />
                     </Link>
                   </div>
