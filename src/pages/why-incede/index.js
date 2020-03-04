@@ -15,6 +15,7 @@ import businessTerms from "../../img/why-incede/business-terms.png";
 import certifiedExpertise from "../../img/why-incede/certified-expertise.png";
 import customerSuccess from "../../img/why-incede/customer-success.png";
 import arrow from "../../img/arrow.svg";
+import arrowPrimary from "../../img/arrow-primary.png";
 import technologyPartners from "../../img/why-incede/partners.png";
 import "../../styles/why-incede.scss";
 import { Link } from "gatsby";
@@ -118,26 +119,23 @@ class WhyIncede extends Component {
                           <Container fluid>
                             <Row>
                               <Col md={6} xs={12} className="p-2">
-                                <Link
-                                  to="/solutions/customer-service"
-                                  className="btn btn-secondary"
-                                >
+                                <Link to="/solutions/customer-service" className="btn why-incede-btn primary btn-outline-info btn-lg w-100">
                                   Customer Service &nbsp;
                                   <img
-                                    src={arrow}
+                                    src={arrowPrimary}
                                     alt="next"
-                                    style={{ width: "8px" }}
+                                  // style={{ width: "12px", }}
                                   />
                                 </Link>
                               </Col>
                               <Col md={6} xs={12} className="p-2">
                                 <Link
                                   to="/solutions/human-resource-services"
-                                  className="btn btn-secondary"
+                                  className="btn why-incede-btn primary btn-outline-info btn-lg w-100"
                                 >
                                   Human Resource Services &nbsp;
                                   <img
-                                    src={arrow}
+                                    src={arrowPrimary}
                                     alt="next"
                                     style={{ width: "8px" }}
                                   />
@@ -146,11 +144,11 @@ class WhyIncede extends Component {
                               <Col md={6} xs={12} className="p-2">
                                 <Link
                                   to="/solutions/it-service-desk"
-                                  className="btn btn-secondary"
+                                  className="btn why-incede-btn primary btn-outline-info btn-lg w-100"
                                 >
                                   IT Service Desk &nbsp;
                                   <img
-                                    src={arrow}
+                                    src={arrowPrimary}
                                     alt="next"
                                     style={{ width: "8px" }}
                                   />
@@ -159,11 +157,11 @@ class WhyIncede extends Component {
                               <Col md={6} xs={12} className="p-2">
                                 <Link
                                   to="/solutions/sales-support-solutions"
-                                  className="btn btn-secondary"
+                                  className="btn why-incede-btn primary btn-outline-info btn-lg w-100"
                                 >
                                   Sales Support Solutions &nbsp;
                                   <img
-                                    src={arrow}
+                                    src={arrowPrimary}
                                     alt="next"
                                     style={{ width: "8px" }}
                                   />
@@ -220,7 +218,7 @@ class WhyIncede extends Component {
                               <Col md={6} xs={12} className="p-2">
                                 <Link
                                   to="/services/watson-assistant-services"
-                                  className="btn btn-secondary"
+                                  className="btn why-incede-btn btn-outline-info btn-lg w-100"
                                 >
                                   Watson Assistant Services &nbsp;
                                   <img
@@ -233,7 +231,7 @@ class WhyIncede extends Component {
                               <Col md={6} xs={12} className="p-2">
                                 <Link
                                   to="/services/watson-discovery-services"
-                                  className="btn btn-secondary"
+                                  className="btn why-incede-btn btn-outline-info btn-lg w-100"
                                 >
                                   Watson Discovery Services &nbsp;
                                   <img
@@ -246,7 +244,7 @@ class WhyIncede extends Component {
                               <Col md={6} xs={12} className="p-2">
                                 <Link
                                   to="/services/watson-discovery-services"
-                                  className="btn btn-secondary"
+                                  className="btn why-incede-btn btn-outline-info btn-lg w-100"
                                 >
                                   Watson API Services &nbsp;
                                   <img
@@ -305,11 +303,11 @@ class WhyIncede extends Component {
                               <Col md={6} xs={12} className="p-2">
                                 <Link
                                   to="/industries/retail-distribution"
-                                  className="btn btn-secondary"
+                                  className="btn why-incede-btn primary btn-outline-info btn-lg w-100"
                                 >
                                   Retail/Distribution &nbsp;
                                   <img
-                                    src={arrow}
+                                    src={arrowPrimary}
                                     alt="next"
                                     style={{ width: "8px" }}
                                   />
@@ -318,11 +316,11 @@ class WhyIncede extends Component {
                               <Col md={6} xs={12} className="p-2">
                                 <Link
                                   to="/industries/industrial-manufacturing"
-                                  className="btn btn-secondary"
+                                  className="btn why-incede-btn primary btn-outline-info btn-lg w-100"
                                 >
                                   Industrial/Manufacturing &nbsp;
                                   <img
-                                    src={arrow}
+                                    src={arrowPrimary}
                                     alt="next"
                                     style={{ width: "8px" }}
                                   />
@@ -331,11 +329,11 @@ class WhyIncede extends Component {
                               <Col md={6} xs={12} className="p-2">
                                 <Link
                                   to="/industries/banking-insurance"
-                                  className="btn btn-secondary"
+                                  className="btn why-incede-btn primary btn-outline-info btn-lg w-100"
                                 >
                                   Banking & Insurance &nbsp;
                                   <img
-                                    src={arrow}
+                                    src={arrowPrimary}
                                     alt="next"
                                     style={{ width: "8px" }}
                                   />
@@ -344,11 +342,11 @@ class WhyIncede extends Component {
                               <Col md={6} xs={12} className="p-2">
                                 <Link
                                   to="/industries/communications-services"
-                                  className="btn btn-secondary"
+                                  className="btn why-incede-btn primary btn-outline-info btn-lg w-100"
                                 >
                                   Communication & Services &nbsp;
                                   <img
-                                    src={arrow}
+                                    src={arrowPrimary}
                                     alt="next"
                                     style={{ width: "8px" }}
                                   />
@@ -489,21 +487,21 @@ class WhyIncede extends Component {
                             <br />
                             {this.state.message &&
                               (this.state.hasDetailsSubmitted !== undefined &&
-                              this.state.hasDetailsSubmitted === true ? (
-                                <Col lg={12} md={12} sm={12} xs={12}>
-                                  <br />
-                                  <Alert color="success">
-                                    {this.state.message}
-                                  </Alert>
-                                </Col>
-                              ) : (
-                                <Col lg={12} md={12} sm={12} xs={12}>
-                                  <br />
-                                  <Alert color="danger">
-                                    {this.state.message}
-                                  </Alert>
-                                </Col>
-                              ))}
+                                this.state.hasDetailsSubmitted === true ? (
+                                  <Col lg={12} md={12} sm={12} xs={12}>
+                                    <br />
+                                    <Alert color="success">
+                                      {this.state.message}
+                                    </Alert>
+                                  </Col>
+                                ) : (
+                                  <Col lg={12} md={12} sm={12} xs={12}>
+                                    <br />
+                                    <Alert color="danger">
+                                      {this.state.message}
+                                    </Alert>
+                                  </Col>
+                                ))}
                           </Form>
                         </div>
                       </Col>

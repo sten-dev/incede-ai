@@ -7,7 +7,7 @@ const VideoCaseStudyCard = props => {
   const toggle = () => setModal(!modal);
   return (
     <React.Fragment>
-      <div className="woodside p-4 d-flex mt-5 flex-column">
+      <div className="woodside p-4 d-flex mt-5 flex-column align-items-center">
         <div className="d-flex flex-grow-1 px-4">
           <div className="d-flex justify-content-center align-items-center">
             <img
@@ -23,9 +23,9 @@ const VideoCaseStudyCard = props => {
         <div className="points-text">{props.children && props.children}</div>
         <div className="flex-grow-1 ml-3">
           <p
-            className={`pp-3 text-center ${
+            className={`pp-3 ${
               props.viewClass ? props.viewClass : ""
-            }`}
+              }`}
           >
             <a
               className="case-study pointer bold"
