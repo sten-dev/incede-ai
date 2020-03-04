@@ -13,8 +13,10 @@ import Layout from "../../components/Layout";
 import businessTerms from "../../img/why-incede/business-terms.png";
 import certifiedExpertise from "../../img/why-incede/certified-expertise.png";
 import customerSuccess from "../../img/why-incede/customer-success.png";
+import arrow from "../../img/arrow.svg";
 import technologyPartners from "../../img/why-incede/partners.png";
 import "../../styles/why-incede.scss";
+import { Link } from "gatsby";
 class WhyIncede extends Component {
   constructor(props) {
     super(props);
@@ -87,6 +89,63 @@ class WhyIncede extends Component {
                             expertise solves our customer’s most challenging
                             business problems
                           </p>
+                          <br />
+                          <Container fluid>
+                            <Row>
+                              <Col md={6} xs={12} className="p-2">
+                                <Link
+                                  to="/solutions/customer-service"
+                                  className="btn btn-secondary"
+                                >
+                                  Customer Service &nbsp;
+                                  <img
+                                    src={arrow}
+                                    alt="next"
+                                    style={{ width: "8px" }}
+                                  />
+                                </Link>
+                              </Col>
+                              <Col md={6} xs={12} className="p-2">
+                                <Link
+                                  to="/solutions/human-resource-services"
+                                  className="btn btn-secondary"
+                                >
+                                  Human Resource Services &nbsp;
+                                  <img
+                                    src={arrow}
+                                    alt="next"
+                                    style={{ width: "8px" }}
+                                  />
+                                </Link>
+                              </Col>
+                              <Col md={6} xs={12} className="p-2">
+                                <Link
+                                  to="/solutions/it-service-desk"
+                                  className="btn btn-secondary"
+                                >
+                                  IT Service Desk &nbsp;
+                                  <img
+                                    src={arrow}
+                                    alt="next"
+                                    style={{ width: "8px" }}
+                                  />
+                                </Link>
+                              </Col>
+                              <Col md={6} xs={12} className="p-2">
+                                <Link
+                                  to="/solutions/sales-support-solutions"
+                                  className="btn btn-secondary"
+                                >
+                                  Sales Support Solutions &nbsp;
+                                  <img
+                                    src={arrow}
+                                    alt="next"
+                                    style={{ width: "8px" }}
+                                  />
+                                </Link>
+                              </Col>
+                            </Row>
+                          </Container>
                         </div>
                       </Col>
                       <Col
@@ -130,6 +189,50 @@ class WhyIncede extends Component {
                             solutions, analytics strategies, phase-one projects
                             and full implementations.
                           </p>
+                          <br />
+                          <Container fluid>
+                            <Row>
+                              <Col md={6} xs={12} className="p-2">
+                                <Link
+                                  to="/services/watson-assistant-services"
+                                  className="btn btn-secondary"
+                                >
+                                  Watson Assistant Services &nbsp;
+                                  <img
+                                    src={arrow}
+                                    alt="next"
+                                    style={{ width: "8px" }}
+                                  />
+                                </Link>
+                              </Col>
+                              <Col md={6} xs={12} className="p-2">
+                                <Link
+                                  to="/services/watson-discovery-services"
+                                  className="btn btn-secondary"
+                                >
+                                  Watson Discovery Services &nbsp;
+                                  <img
+                                    src={arrow}
+                                    alt="next"
+                                    style={{ width: "8px" }}
+                                  />
+                                </Link>
+                              </Col>
+                              <Col md={6} xs={12} className="p-2">
+                                <Link
+                                  to="/services/watson-discovery-services"
+                                  className="btn btn-secondary"
+                                >
+                                  Watson API Services &nbsp;
+                                  <img
+                                    src={arrow}
+                                    alt="next"
+                                    style={{ width: "8px" }}
+                                  />
+                                </Link>
+                              </Col>
+                            </Row>
+                          </Container>
                         </div>
                       </Col>
                       <Col
@@ -171,6 +274,63 @@ class WhyIncede extends Component {
                             customers across several industries, large and
                             mid-sized, for- and non-profit.
                           </p>
+                          <br />
+                          <Container fluid>
+                            <Row>
+                              <Col md={6} xs={12} className="p-2">
+                                <Link
+                                  to="/industries/retail-distribution"
+                                  className="btn btn-secondary"
+                                >
+                                  Retail/Distribution &nbsp;
+                                  <img
+                                    src={arrow}
+                                    alt="next"
+                                    style={{ width: "8px" }}
+                                  />
+                                </Link>
+                              </Col>
+                              <Col md={6} xs={12} className="p-2">
+                                <Link
+                                  to="/industries/industrial-manufacturing"
+                                  className="btn btn-secondary"
+                                >
+                                  Industrial/Manufacturing &nbsp;
+                                  <img
+                                    src={arrow}
+                                    alt="next"
+                                    style={{ width: "8px" }}
+                                  />
+                                </Link>
+                              </Col>
+                              <Col md={6} xs={12} className="p-2">
+                                <Link
+                                  to="/industries/banking-insurance"
+                                  className="btn btn-secondary"
+                                >
+                                  Banking & Insurance &nbsp;
+                                  <img
+                                    src={arrow}
+                                    alt="next"
+                                    style={{ width: "8px" }}
+                                  />
+                                </Link>
+                              </Col>
+                              <Col md={6} xs={12} className="p-2">
+                                <Link
+                                  to="/industries/communications-services"
+                                  className="btn btn-secondary"
+                                >
+                                  Communication & Services &nbsp;
+                                  <img
+                                    src={arrow}
+                                    alt="next"
+                                    style={{ width: "8px" }}
+                                  />
+                                </Link>
+                              </Col>
+                            </Row>
+                          </Container>
                         </div>
                       </Col>
                       <Col
