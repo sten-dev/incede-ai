@@ -2,10 +2,15 @@ import React, { Component } from "react";
 import { Container, Row, Col } from "reactstrap";
 import ServicesSmallCardsList from "./ServicesSmallCardsList";
 import TextToSpeech from "./wa-api-services/TextToSpeech";
+import SpeechToText from "./wa-api-services/SpeechToText";
+import NaturalLanguageClassifier from "./wa-api-services/NaturalLanguageClassifier";
+import PersonalityInsights from "./wa-api-services/PersonalityInsights";
+import ToneAnalyzer from "./wa-api-services/ToneAnalyzer";
+import VisualRecognition from "./wa-api-services/VisualRecognition";
+import LanguageTranslator from "./wa-api-services/LanguageTranslator";
 class WatsonApi extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
     this.state = { activeIndex: 0 };
   }
   handleChange = index => {
@@ -51,7 +56,7 @@ class WatsonApi extends Component {
       }
     ];
     return (
-      <section className="services-content gap-y-half" id="3">
+      <section className="services-content gap-y-half pb-0" id="3">
         <Container>
           <Row>
             <Col xs={12}>
@@ -79,16 +84,13 @@ class WatsonApi extends Component {
               </div>
             </Col>
           </Row>
-          <Row className="wwd-list custom-services-img">
+          <div className="wwd-list custom-services-img d-flex flex-nowrap">
             {apiSubItems.map((x, i) => {
               let data = x;
               return (
-                <Col
+                <div
                   key={i}
-                  className="wwd-list-card mb-0"
-                  xs={6}
-                  sm={4}
-                  lg={2}
+                  className="wwd-list-card api-services-cards mb-0"
                 >
                   <ServicesSmallCardsList
                     service={data}
@@ -97,10 +99,10 @@ class WatsonApi extends Component {
                     onItemClick={index => this.handleChange(index)}
                   />
                   {/* <SolutionView solution={solution} path={path} /> */}
-                </Col>
+                </div>
               );
             })}
-          </Row>
+          </div>
         </Container>
         <Container
           fluid
@@ -110,6 +112,12 @@ class WatsonApi extends Component {
           <Row>
             <Col xs={12}>
               {this.state.activeIndex === 0 && <TextToSpeech />}
+              {this.state.activeIndex === 1 && <SpeechToText />}
+              {this.state.activeIndex === 2 && <LanguageTranslator />}
+              {this.state.activeIndex === 3 && <NaturalLanguageClassifier />}
+              {this.state.activeIndex === 4 && <PersonalityInsights />}
+              {this.state.activeIndex === 5 && <ToneAnalyzer />}
+              {this.state.activeIndex === 6 && <VisualRecognition />}
             </Col>
           </Row>
         </Container>
