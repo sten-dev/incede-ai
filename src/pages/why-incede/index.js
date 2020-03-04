@@ -6,7 +6,8 @@ import {
   Form,
   FormGroup,
   Input,
-  Button
+  Button,
+  Alert
 } from "reactstrap";
 import Transition from "../../Transition";
 import Layout from "../../components/Layout";
@@ -17,6 +18,7 @@ import arrow from "../../img/arrow.svg";
 import technologyPartners from "../../img/why-incede/partners.png";
 import "../../styles/why-incede.scss";
 import { Link } from "gatsby";
+import { httpClient } from "../../constants";
 class WhyIncede extends Component {
   constructor(props) {
     super(props);
@@ -24,14 +26,37 @@ class WhyIncede extends Component {
       contactInfo: {
         name: "",
         email: "",
-        subject: "",
-        message: ""
-      }
+        phone: "",
+        company: "",
+        reason: ""
+      },
+      hasDetailsSubmitted: undefined
     };
   }
-  handleSubmit = event => {
+  handleSubmit = async event => {
     event.preventDefault();
     console.log(this.state.contactInfo);
+    // let result = await httpClient(`contact-us`, "POST", {
+    //   ...this.state.contactInfo
+    // });
+    // if (result && result.success) {
+    //   this.setState({
+    //     hasDetailsSubmitted: true,
+    //     contactInfo: {
+    //       name: "",
+    //       email: "",
+    //       phone: "",
+    //       company: "",
+    //       reason: ""
+    //     },
+    //     message: "Thank you for contacting us. We will respond to you ASAP!"
+    //   });
+    // } else {
+    //   this.setState({
+    //     hasDetailsSubmitted: false,
+    //     message: "Error while submitting the details"
+    //   });
+    // }
   };
   handleOnChange = event => {
     let eve = { ...event };
@@ -410,6 +435,7 @@ class WhyIncede extends Component {
                                 type="text"
                                 name="name"
                                 placeholder="Name"
+                                value={this.state.contactInfo.name}
                                 required
                               />
                             </FormGroup>
@@ -419,6 +445,7 @@ class WhyIncede extends Component {
                                 className="contact-us-mat-input"
                                 type="email"
                                 name="email"
+                                value={this.state.contactInfo.email}
                                 placeholder="Email"
                                 required
                               />
@@ -428,8 +455,9 @@ class WhyIncede extends Component {
                                 onChange={this.handleOnChange}
                                 className="contact-us-mat-input"
                                 type="text"
-                                name="subject"
-                                placeholder="Subject"
+                                name="phone"
+                                value={this.state.contactInfo.phone}
+                                placeholder="Phone"
                                 required
                               />
                             </FormGroup>
@@ -437,14 +465,45 @@ class WhyIncede extends Component {
                               <Input
                                 onChange={this.handleOnChange}
                                 className="contact-us-mat-input"
-                                type="textarea"
-                                name="message"
-                                placeholder="Message"
+                                type="text"
+                                name="company"
+                                value={this.state.contactInfo.company}
+                                placeholder="Company"
+                                required
+                              />
+                            </FormGroup>
+                            <FormGroup>
+                              <Input
+                                onChange={this.handleOnChange}
+                                className="contact-us-mat-input"
+                                type="text"
+                                name="reason"
+                                value={this.state.contactInfo.reason}
+                                placeholder="What do you want to talk about"
+                                required
                               />
                             </FormGroup>
                             <Button className="btn btn-primary" type="submit">
                               Submit
                             </Button>
+                            <br />
+                            {this.state.message &&
+                              (this.state.hasDetailsSubmitted !== undefined &&
+                              this.state.hasDetailsSubmitted === true ? (
+                                <Col lg={12} md={12} sm={12} xs={12}>
+                                  <br />
+                                  <Alert color="success">
+                                    {this.state.message}
+                                  </Alert>
+                                </Col>
+                              ) : (
+                                <Col lg={12} md={12} sm={12} xs={12}>
+                                  <br />
+                                  <Alert color="danger">
+                                    {this.state.message}
+                                  </Alert>
+                                </Col>
+                              ))}
                           </Form>
                         </div>
                       </Col>
