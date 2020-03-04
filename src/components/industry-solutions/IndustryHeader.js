@@ -71,15 +71,19 @@ class IndustryHeader extends Component {
     let path = window.location.pathname;
     switch (path) {
       case "/industries/retail-distribution":
+      case "/industries/retail-distribution/":
         this.setState({ selected: "Retail/Distribution" });
         break;
       case "/industries/industrial-manufacturing":
+      case "/industries/industrial-manufacturing/":
         this.setState({ selected: "Industrial/Manufacturing" });
         break;
       case "/industries/banking-insurance":
+      case "/industries/banking-insurance/":
         this.setState({ selected: "Banking & Insurance" });
         break;
       case "/industries/communications-services":
+      case "/industries/communications-services/":
         this.setState({ selected: "Communications & Services" });
         break;
       default:

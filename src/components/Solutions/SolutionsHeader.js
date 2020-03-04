@@ -1,6 +1,6 @@
 import React from "react";
 import { Row, Col, Container } from "reactstrap";
-import SolutionImage from "../../img/solutions/banner-solution.png"
+import SolutionImage from "../../img/solutions/banner-solution.png";
 import ScrollMenu from "react-horizontal-scrolling-menu";
 
 let list = [
@@ -71,15 +71,19 @@ class SolutionsHeader extends React.Component {
     let path = window.location.pathname;
     switch (path) {
       case "/solutions/customer-service":
+      case "/solutions/customer-service/":
         this.setState({ selected: "Customer Service" });
         break;
       case "/solutions/human-resource-services":
+      case "/solutions/human-resource-services/":
         this.setState({ selected: "Human Resource Services" });
         break;
       case "/solutions/it-service-desk":
+      case "/solutions/it-service-desk/":
         this.setState({ selected: "IT Service Desk" });
         break;
       case "/solutions/sales-support-solutions":
+      case "/solutions/sales-support-solutions/":
         this.setState({ selected: "Sales Support" });
         break;
       default:
@@ -98,12 +102,18 @@ class SolutionsHeader extends React.Component {
           <Row>
             <Col lg={8} md={7} sm={12} xs={12}>
               <article className="gap-y-half  text-left mt-0 mt-sm-3">
-                <h1 className="title">
-                  Solutions
-          </h1>
+                <h1 className="title">Solutions</h1>
                 <h5 className="text-white sub-title">
-                  The maturity and sophistication of AI is establishing a new standard for next-generation services.  Enterprise search and AI with chat solutions are enabling organizations to re-engage where resource constraints or stressed business processes were barriers to accessing the organization’s full knowledgebase and providing the ideal user experience.  Natural language understanding and natural language processing creates a personalized exchange that encourages asking questions and finding answers that everyone can trust.
-          </h5>
+                  The maturity and sophistication of AI is establishing a new
+                  standard for next-generation services. Enterprise search and
+                  AI with chat solutions are enabling organizations to re-engage
+                  where resource constraints or stressed business processes were
+                  barriers to accessing the organization’s full knowledgebase
+                  and providing the ideal user experience. Natural language
+                  understanding and natural language processing creates a
+                  personalized exchange that encourages asking questions and
+                  finding answers that everyone can trust.
+                </h5>
               </article>
             </Col>
             <Col lg={4} md={5} className="d-none d-md-block position-initial">
@@ -142,5 +152,3 @@ class SolutionsHeader extends React.Component {
 }
 
 export default SolutionsHeader;
-
-
