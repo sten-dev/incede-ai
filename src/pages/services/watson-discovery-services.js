@@ -13,10 +13,10 @@ const WatsonDiscoveryServices = () => {
         <section className="industry-solution">
           <ServicesHeader header={"Watson Discovery Services"} title={""} />
           <Container>
-            <ServicesPreviousNextHeader
+            {/* <ServicesPreviousNextHeader
               previousLink="/services/watson-assistant-services"
               previousName="Watson Assistant Services"
-            ></ServicesPreviousNextHeader>
+            ></ServicesPreviousNextHeader> */}
             <WatsonDiscovery />
           </Container>
         </section>
