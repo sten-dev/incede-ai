@@ -1,11 +1,11 @@
 import React from "react";
 const CaseStudyCard = props => {
     return (
-        <div className="woodside p-3 d-flex mt-5 flex-column align-items-center">
-            <div className="d-flex flex-grow-1 px-4">
+        <div className="woodside p-3 d-flex mt-5 flex-column">
+            <div className="d-flex flex-grow-1 px-4 align-items-center">
                 <div className="d-flex justify-content-center align-items-center">
                     <img
-                        style={{ width: 120, height: 46 }}
+                        style={{ width: 120 }}
                         src={props.imageUrl}
                         alt="imageUrl"
                     />
@@ -17,7 +17,7 @@ const CaseStudyCard = props => {
             <div className="points-text">{props.children && props.children}</div>
             <div className="flex-grow-1 ml-3">
                 <p
-                    className={`pp-3 ${
+                    className={`pp-3 text-center ${
                         props.viewClass ? props.viewClass : ""
                         }`}
                 >

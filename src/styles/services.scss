@@ -27,6 +27,17 @@
       line-height: 32px;
     }
   }
+  .api-services-content {
+    p {
+      margin: 0 !important;
+      font-size: 18px;
+      color: #474747;
+      line-height: 32px;
+    }
+  }
+  .api-services-cards {
+    width: 200px;
+  }
 
   .color-grey {
     color: $gray;
