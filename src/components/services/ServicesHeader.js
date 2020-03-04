@@ -5,8 +5,8 @@ import ScrollMenu from "react-horizontal-scrolling-menu";
 
 let list = [
   { name: "Watson Assistant Services" },
-  { name: "Watson Discovery" },
-  { name: "Watson API" }
+  { name: "Watson Discovery Services" },
+  { name: "Watson API Services" }
 ];
 const MenuItem = ({ text, selected }) => {
   return <div className={`menu-item ${selected ? "active" : ""}`}>{text}</div>;
@@ -49,10 +49,10 @@ class ServicesHeader extends Component {
       case "Watson Assistant Services":
         url = "/services/watson-assistant-services";
         break;
-      case "Watson Discovery":
+      case "Watson Discovery Services":
         url = "/services/watson-discovery-services";
         break;
-      case "Watson API":
+      case "Watson API Services":
         url = "/services/watson-api";
         break;
       default:
@@ -70,11 +70,11 @@ class ServicesHeader extends Component {
         break;
       case "/services/watson-discovery-services":
       case "/services/watson-discovery-services/":
-        this.setState({ selected: "Watson Discovery" });
+        this.setState({ selected: "Watson Discovery Services" });
         break;
       case "/services/watson-api":
       case "/services/watson-api/":
-        this.setState({ selected: "Watson API" });
+        this.setState({ selected: "Watson API Services" });
         break;
       default:
         this.setState({ selected: "Watson Assistant Services" });
