@@ -37,27 +37,28 @@ class WhyIncede extends Component {
   handleSubmit = async event => {
     event.preventDefault();
     console.log(this.state.contactInfo);
-    // let result = await httpClient(`contact-us`, "POST", {
-    //   ...this.state.contactInfo
-    // });
-    // if (result && result.success) {
-    //   this.setState({
-    //     hasDetailsSubmitted: true,
-    //     contactInfo: {
-    //       name: "",
-    //       email: "",
-    //       phone: "",
-    //       company: "",
-    //       reason: ""
-    //     },
-    //     message: "Thank you for contacting us. We will respond to you ASAP!"
-    //   });
-    // } else {
-    //   this.setState({
-    //     hasDetailsSubmitted: false,
-    //     message: "Error while submitting the details"
-    //   });
-    // }
+    let result = await httpClient(`contact-details`, "POST", {
+      ...this.state.contactInfo,
+      date: ""
+    });
+    if (result && result.success) {
+      this.setState({
+        hasDetailsSubmitted: true,
+        contactInfo: {
+          name: "",
+          email: "",
+          phone: "",
+          company: "",
+          reason: ""
+        },
+        message: "Thank you for contacting us. We will respond to you ASAP!"
+      });
+    } else {
+      this.setState({
+        hasDetailsSubmitted: false,
+        message: "Error while submitting the details"
+      });
+    }
   };
   handleOnChange = event => {
     let eve = { ...event };
@@ -119,12 +120,15 @@ class WhyIncede extends Component {
                           <Container fluid>
                             <Row>
                               <Col md={6} xs={12} className="p-2">
-                                <Link to="/solutions/customer-service" className="btn why-incede-btn primary btn-outline-info btn-lg w-100">
+                                <Link
+                                  to="/solutions/customer-service"
+                                  className="btn why-incede-btn primary btn-outline-info btn-lg w-100"
+                                >
                                   Customer Service &nbsp;
                                   <img
                                     src={arrowPrimary}
                                     alt="next"
-                                  // style={{ width: "12px", }}
+                                    // style={{ width: "12px", }}
                                   />
                                 </Link>
                               </Col>
@@ -487,21 +491,21 @@ class WhyIncede extends Component {
                             <br />
                             {this.state.message &&
                               (this.state.hasDetailsSubmitted !== undefined &&
-                                this.state.hasDetailsSubmitted === true ? (
-                                  <Col lg={12} md={12} sm={12} xs={12}>
-                                    <br />
-                                    <Alert color="success">
-                                      {this.state.message}
-                                    </Alert>
-                                  </Col>
-                                ) : (
-                                  <Col lg={12} md={12} sm={12} xs={12}>
-                                    <br />
-                                    <Alert color="danger">
-                                      {this.state.message}
-                                    </Alert>
-                                  </Col>
-                                ))}
+                              this.state.hasDetailsSubmitted === true ? (
+                                <Col lg={12} md={12} sm={12} xs={12}>
+                                  <br />
+                                  <Alert color="success">
+                                    {this.state.message}
+                                  </Alert>
+                                </Col>
+                              ) : (
+                                <Col lg={12} md={12} sm={12} xs={12}>
+                                  <br />
+                                  <Alert color="danger">
+                                    {this.state.message}
+                                  </Alert>
+                                </Col>
+                              ))}
                           </Form>
                         </div>
                       </Col>
