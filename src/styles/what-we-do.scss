@@ -62,6 +62,14 @@ section {
         width: 75px !important;
       }
     }
+    .what-we-do-header-section {
+      .title {
+        text-transform: capitalize !important;
+        font-weight: 600 !important;
+        display: flex;
+        justify-content: start !important;
+      }
+    }
   }
 }
 .arrow_box {
@@ -118,7 +126,6 @@ section {
     }
   }
 }
-
 @media screen and (min-width: 600px) and (max-width: 1179px) {
   .what-we-do-header-section {
     .tab {
@@ -127,7 +134,7 @@ section {
       padding-right: 16px;
     }
     .title {
-      font-size: 48px !important;
+      font-size: 46px !important;
     }
   }
 }

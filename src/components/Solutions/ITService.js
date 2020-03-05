@@ -17,15 +17,17 @@ class ITService extends Component {
           <Row>
             <Col>
               <div className="content">
-                <h1 className="text-primary">
-                  IT Service Desk
-                </h1>
+                <h1 className="text-primary">IT Service Desk</h1>
                 <p>
-                  Designed to automate parts of the service desk and to effectively solve IT problems more quickly. These solutions provides answers to product questions, return and exchange policies, damaged in shipping claims and credit card disputes.
-
+                  Designed to automate parts of the service desk and to
+                  effectively solve IT problems more quickly. These solutions
+                  provides answers to product questions, return and exchange
+                  policies, damaged in shipping claims and credit card disputes.
                 </p>
                 <br />
-                <p><strong>Outcomes</strong></p>
+                <p>
+                  <strong>Outcomes</strong>
+                </p>
                 <ul>
                   <li>
                     <p>Automate onboarding, offboarding tasks for employees</p>
@@ -35,69 +37,68 @@ class ITService extends Component {
                   </li>
                   <li>
                     <p>
-                      Validate problem tickets contain relevant, required information.
+                      Validate problem tickets contain relevant, required
+                      information.
                     </p>
                   </li>
                   <li>
                     <p>
-                      Augment suggestions with AI to recommend most-helpful answers and resources.
+                      Augment suggestions with AI to recommend most-helpful
+                      answers and resources.
                     </p>
                   </li>
                   <li>
                     <p>
-                      Streamline and integrate channels for incoming requests and outgoing answers.
+                      Streamline and integrate channels for incoming requests
+                      and outgoing answers.
                     </p>
                   </li>
                   <li>
                     <p>
-                      Auto-escalate issues to human agents to serve highest-urgency problems.
+                      Auto-escalate issues to human agents to serve
+                      highest-urgency problems.
                     </p>
                   </li>
                   <li>
                     <p>Automation of routine tasks such as password resets.</p>
                   </li>
                 </ul>
-                <p><strong>
-                  Learn more in
-                  </strong>
+                <p>
+                  <strong>Learn more in</strong>
                 </p>
                 <br />
                 <div className="d-flex align-items-center">
                   <div>
-                    <img className="learn-more-icon" src={bankingImage} alt="banking" />
+                    <img
+                      className="learn-more-icon"
+                      src={communicationsImage}
+                      alt="banking"
+                    />
                   </div>
                   <div className="pl-2">
                     <Link to="/industries/communications-services">
-                      <strong>
-                        Communications and Services
-                       </strong>
+                      <strong>Communications and Services</strong>
                     </Link>
                   </div>
                 </div>
                 <br />
                 <div className="d-flex align-items-center">
                   <div>
-                    <img className="learn-more-icon" src={communicationsImage} alt="communications" />
+                    <img
+                      className="learn-more-icon"
+                      src={bankingImage}
+                      alt="communications"
+                    />
                   </div>
                   <div className="pl-2">
-                    <Link
-                      to="/industries/banking-insurance"
-                    >
-                      <strong>
-                        Banking & Insurance
-                       </strong>
+                    <Link to="/industries/banking-insurance">
+                      <strong>Banking & Insurance</strong>
                     </Link>
                   </div>
                 </div>
               </div>
             </Col>
-            <Col
-              xs={12}
-              sm={12}
-              md={4}
-              lg={5}
-              className="mt-4 mt-lg-0 d-flex"
-            >
+            <Col xs={12} sm={12} md={4} lg={5} className="mt-4 mt-lg-0 d-flex">
               <div className="image-section">
                 <img src={ITServiceDesk} alt="support image" />
               </div>

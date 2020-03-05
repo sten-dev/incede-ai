@@ -3,8 +3,8 @@ import { Container, Row, Col } from "reactstrap";
 import "../../styles/industry-solution.scss";
 import SupportField from "../../img/industry-solution/support-field.png";
 import Manufacturing from "../../img/industry-solution/Manufacturing.png";
-import Woodside from "../../img/industry-solution/Woodside.svg";
-import KPMGImage from "../../img/industries/kpmg.png";
+import Woodside from "../../img/industry-solution/woodside-logo.png";
+import KPMGImage from "../../img/industries/kpmg-logo.png";
 
 import CaseStudyCard from "../CaseStudyCard";
 

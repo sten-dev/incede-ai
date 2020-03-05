@@ -14,7 +14,7 @@ class MoreDetail extends React.Component {
         <Container>
           <Row>
             <Col lg={8} md={7} sm={12} xs={12}>
-              <article className="gap-y-half text-left mt-0 mt-sm-3 mt-lg-4 pr-0 pr-lg-5">
+              <article className="gap-y-half text-left mt-0 mt-sm-3 mt-lg-4">
                 <h1 className="title">
                   Incede harnesses the power of Data, AI and Machine Learning
                 </h1>

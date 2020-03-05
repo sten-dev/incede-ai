@@ -211,7 +211,22 @@ class MenuSection extends Component {
               </React.Fragment>
             )}
 
-            {(!this.state.showSubMenu || this.state.showWhyIncede) && (
+            {/* why-incede-link */}
+            {!this.state.showSubMenu && (
+              <React.Fragment>
+                <div className="menu-items">
+                  <Link to="/why-incede">
+                    <span onClick={this.props.toggle}>Why Incede</span>
+                  </Link>
+                </div>
+                {/* <div className="menu-items">
+                  <Link to="/about">
+                    <span onClick={this.props.toggle}>About Us</span>
+                  </Link>
+                </div> */}
+              </React.Fragment>
+            )}
+            {/* {(!this.state.showSubMenu || this.state.showWhyIncede) && (
               <div className="menu-items">
                 <span onClick={this.showWhyIncede} className="d-inline-flex">
                   {this.state.showWhyIncede && (
@@ -241,14 +256,14 @@ class MenuSection extends Component {
                   )}
                 </span>
               </div>
-            )}
+            )} */}
             {this.state.showSubMenu && this.state.showWhyIncede && (
               <React.Fragment>
                 <WhyIncedeMenu />
               </React.Fragment>
             )}
 
-            {(!this.state.showSubMenu || this.state.showAboutUs) && (
+            {/* {(!this.state.showSubMenu || this.state.showAboutUs) && (
               <div className="menu-items">
                 <span onClick={this.showAboutUs} className="d-inline-flex">
                   {this.state.showAboutUs && (
@@ -278,7 +293,7 @@ class MenuSection extends Component {
                   )}
                 </span>
               </div>
-            )}
+            )} */}
             {this.state.showSubMenu && this.state.showAboutUs && (
               <React.Fragment>
                 <AboutUsMenu />

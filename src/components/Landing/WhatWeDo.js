@@ -22,7 +22,7 @@ class WhatWeDo extends Component {
         <section className="what-we-do gap-t">
           <Container>
             <Row className="what-we-do-header-section m-0">
-              <div className="mr-3">
+              <div>
                 <h1 className="title text-primary">What we do</h1>
               </div>
               <Col className="menu-tabs d-flex align-items-center">

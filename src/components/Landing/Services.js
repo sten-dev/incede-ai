@@ -23,9 +23,9 @@ class Services extends React.Component {
           title: "Watson Assistant Services",
           subTitle: "",
           mainContext:
-            "Watson Assistant is IBM’s AI product that lets you build, train, and deploy conversational interactions into any application, device, or channel. Watson Assistant is revolutionizing the way businesses engage with people in customer service, IT service desk, employee self-service, sales support, commerce and other application areas.",
+            "Incede has deep experience in helping organizations utilize conversational AI for a competitive advantage in their product and services strategies.",
           sideContext:
-            "Search for an answer from a knowledge base, know when to ask for clarity and when to direct users to a human.Extends investments by integrating with existing messaging channels, voice channels, service desk and other systems.Deployed in any cloud or on-premises environment."
+            "A phased approach to develop, train and deploy Watson Assistant quickly and efficiently.Integration expertise to extend dialogs with structured and unstructured content.User interface best practices for channel interactions  ."
         },
         path: "/services/watson-assistant-services"
       },
@@ -36,25 +36,25 @@ class Services extends React.Component {
           title: "Watson Discovery Services",
           subTitle: "",
           mainContext:
-            "Watson Discovery is IBM’s enterprise search and AI search technology that breaks open data silos and retrieves specific answers to your questions while analyzing trends and relationships buried in enterprise data.",
+            "Incede implements enterprise search and AI for organizations to surface relevant insights from stores of data and documents from internal, external and public sources.",
           sideContext:
-            "Out-of-the-Box integration with conversational AI to find answers to your questions.Understands complex content in business documents such as images and tables.Utilizes both supervised and unsupervised relevancy training to improve salience."
+            "Training best practices for document and image enrichment to improve relevancy.Knowhow to implement Watson Discovery in new and existing applications.Advanced integration experience to incorporate other Watson API Services."
         },
         path: "/services/watson-discovery-services"
+      },
+      {
+        data: {
+          image: "img/watson-api.png",
+          inactiveImage: "img/watson-api-inactive.png",
+          title: "Watson API",
+          subTitle: "",
+          mainContext:
+            "Incede utilizes Watson API Services to extend application capabilities and provide multifaceted insights on users, data and interactions.",
+          sideContext:
+            "Experience to know when, why and how to surface user personality traits, emotion and tone.Best practices for integrating text to speech and speech to text in applications, interactions and data.Optimized deep learning models to utilize Industry- and Organizational-specific vocabularies, phrases and terms."
+        },
+        path: "/services/watson-api"
       }
-      // {
-      //   data: {
-      //     image: "img/watson-api.png",
-      //     inactiveImage: "img/watson-api-inactive.png",
-      //     title: "Watson API",
-      //     subTitle: "",
-      //     mainContext:
-      //       "Watson Discovery is IBM’s enterprise search and AI search technology that breaks open data silos and retrieves specific answers to your questions while analyzing trends and relationships buried in enterprise data.",
-      //     sideContext:
-      //       "Out-of-the-Box integration with conversational AI to find answers to your questions.Understands complex content in business documents such as images and tables.Utilizes both supervised and unsupervised relevancy training to improve salience."
-      //   },
-      //   path: "/services/watson-api"
-      // }
     ];
     return (
       <section className="services">
