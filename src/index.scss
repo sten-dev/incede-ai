@@ -148,6 +148,9 @@ small,
 .gap-y-half {
   padding: 54px 0;
 }
+.gap-y-quarter {
+  padding: 18px 0;
+}
 .gap-t {
   padding-top: 78px;
 }
@@ -168,34 +171,29 @@ small,
   width: 100%;
 }
 
-@media screen and (max-width: 599px) {
-  .gap-y {
-    padding: 32px 0;
-  }
-  .gap-t {
-    padding-top: 32px;
-  }
-  .gap-x {
-    padding: 0 24px;
-  }
-}
 .header-section {
   background: $primary;
   color: $white;
 }
+.footer-date-time input,
 .contact-us-mat-input {
   outline: none !important;
   border: none !important;
-  border-bottom: 1px solid #0000004f !important;
-  // color: $white !important;
+  border-bottom: 1px solid white !important;
+  color: $white !important;
+  background-color: transparent !important;
   border-radius: 0 !important;
   margin-bottom: 24px !important;
   &::placeholder {
-    // color: $white !important;
+    color: $white !important;
   }
   &textarea {
     resize: none !important;
   }
+}
+.footer-date-time input:focus,
+.contact-us-mat-input:focus {
+  box-shadow: none !important;
 }
 .mat-input {
   background: $primary !important;
@@ -210,6 +208,17 @@ small,
   }
   &textarea {
     resize: none !important;
+  }
+}
+.footer-date-time {
+  label {
+    color: $white !important;
+  }
+  .rdtPicker {
+    top: auto;
+    bottom: 100%;
+    background: $white;
+    box-shadow: 1px 2px 0px #ddd;
   }
 }
 .menu-item {
@@ -255,8 +264,20 @@ small,
 .bold {
   font-weight: bold;
 }
+
 @media screen and (max-width: 970px) {
   .sm-w-100 {
     width: 100%;
+  }
+}
+@media screen and (max-width: 599px) {
+  .gap-y {
+    padding: 32px 0;
+  }
+  .gap-t {
+    padding-top: 32px;
+  }
+  .gap-x {
+    padding: 0 24px;
   }
 }

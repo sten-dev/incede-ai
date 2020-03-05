@@ -35,10 +35,6 @@
       line-height: 32px;
     }
   }
-  .api-services-cards {
-    width: 200px;
-    height: 100%;
-  }
 
   .color-grey {
     color: $gray;
@@ -83,6 +79,10 @@
     line-height: 24px;
     letter-spacing: 0;
   }
+}
+.api-services-cards {
+  width: 200px;
+  height: 100%;
 }
 .services-header {
   .title {

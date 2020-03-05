@@ -70,7 +70,7 @@ class MoreDetail extends React.Component {
               </article>
             </Col>
             <Col lg={4} md={5} className="d-none d-md-block position-initial">
-              <div className="image-section gap-y">
+              <div className="image-section gap-y-half">
                 <img src={AiImage} alt="hero" />
               </div>
             </Col>
