@@ -18,13 +18,14 @@ class WatsonDiscovery extends Component {
   render() {
     const discoverySubItems = [
       {
-        image: "/img/watson-api/text-to-speech.png",
-        inactiveImage: "/img/watson-api/text-to-speech-inactive.png",
+        image: "/img/watson-assistant/design-services.png",
+        inactiveImage: "/img/watson-assistant/design-services-inactive.png",
         title: "Watson Discovery Design Services"
       },
       {
-        image: "/img/watson-api/text-to-speech.png",
-        inactiveImage: "/img/watson-api/text-to-speech-inactive.png",
+        image: "/img/watson-assistant/development-services.png",
+        inactiveImage:
+          "/img/watson-assistant/development-services-inactive.png",
         title: "Watson Discovery Development Services"
       }
     ];
