@@ -37,6 +37,7 @@
   }
   .api-services-cards {
     width: 200px;
+    height: 100%;
   }
 
   .color-grey {
@@ -112,6 +113,12 @@
   }
   .title.active {
     color: #000 !important;
+  }
+}
+.watson-api-scroll-container {
+  .menu-wrapper--inner {
+    display: flex !important;
+    justify-content: start !important;
   }
 }
 @media screen and (max-width: 576px) {

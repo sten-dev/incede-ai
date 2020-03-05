@@ -8,53 +8,98 @@ import PersonalityInsights from "./wa-api-services/PersonalityInsights";
 import ToneAnalyzer from "./wa-api-services/ToneAnalyzer";
 import VisualRecognition from "./wa-api-services/VisualRecognition";
 import LanguageTranslator from "./wa-api-services/LanguageTranslator";
+import ScrollMenu from "react-horizontal-scrolling-menu";
+
+const apiSubItems = [
+  {
+    image: "/img/watson-api/text-to-speech.png",
+    inactiveImage: "/img/watson-api/text-to-speech-inactive.png",
+    title: "Text to speech"
+  },
+  {
+    image: "/img/watson-api/speech-to-text.png",
+    inactiveImage: "/img/watson-api/speech-to-text-inactive.png",
+    title: "Speech to Text"
+  },
+  {
+    image: "/img/watson-api/language-translator.png",
+    inactiveImage: "/img/watson-api/language-translator-inactive.png",
+    title: "Language Translator"
+  },
+  {
+    image: "/img/watson-api/natural-language-classifier.png",
+    inactiveImage: "/img/watson-api/natural-language-classifier-inactive.png",
+    title: "Natural Language Classifier"
+  },
+  {
+    image: "/img/watson-api/personality-insights.png",
+    inactiveImage: "/img/watson-api/personality-insights-inactive.png",
+    title: "Personality Insights"
+  },
+  {
+    image: "/img/watson-api/tone-analyzer.png",
+    inactiveImage: "/img/watson-api/tone-analyzer-inactive.png",
+    title: "Tone Analyzer"
+  },
+  {
+    image: "/img/watson-api/visual-recognition.png",
+    inactiveImage: "/img/watson-api/visual-recognition-inactive.png",
+    title: "Visual Recognition"
+  }
+];
+
+export const Menu = (apiSubItems, activeIndex) =>
+  apiSubItems.map((x, i) => {
+    let data = x;
+    return (
+      <div className="wwd-list-card api-services-cards mb-0" key={i}>
+        <ServicesSmallCardsList
+          service={data}
+          index={i}
+          isActive={activeIndex === i ? true : false}
+          onItemClick={() => {}}
+        />
+      </div>
+    );
+  });
+
+const Arrow = ({ text, className }) => {
+  return <div className={className}>{text}</div>;
+};
+
+export const ArrowLeft = Arrow({ text: "<", className: "arrow-prev" });
+export const ArrowRight = Arrow({ text: ">", className: "arrow-next" });
 class WatsonApi extends Component {
   constructor(props) {
     super(props);
-    this.state = { activeIndex: 0 };
+    this.state = {
+      activeIndex: 0,
+      clickWhenDrag: false,
+      alignCenter: false,
+      dragging: true,
+      hideArrows: false,
+      hideSingleArrow: true,
+      itemsCount: apiSubItems.length,
+      scrollToSelected: false,
+      selected: 0,
+      translate: 0,
+      transition: 0.3,
+      wheel: false,
+      menuItems: Menu(apiSubItems.slice(0, apiSubItems.length), 0)
+    };
   }
+
+  onSelect = key => {
+    this.setState({
+      activeIndex: Number(key),
+      menuItems: Menu(apiSubItems.slice(0, apiSubItems.length), Number(key))
+    });
+  };
   handleChange = index => {
     this.setState({ activeIndex: index });
   };
   render() {
-    const apiSubItems = [
-      {
-        image: "/img/watson-api/text-to-speech.png",
-        inactiveImage: "/img/watson-api/text-to-speech-inactive.png",
-        title: "Text to speech"
-      },
-      {
-        image: "/img/watson-api/text-to-speech.png",
-        inactiveImage: "/img/watson-api/text-to-speech-inactive.png",
-        title: "Speech to Text"
-      },
-      {
-        image: "/img/watson-api/speech-to-text.png",
-        inactiveImage: "/img/watson-api/speech-to-text-inactive.png",
-        title: "Language Translator"
-      },
-      {
-        image: "/img/watson-api/natural-language-classifier.png",
-        inactiveImage:
-          "/img/watson-api/natural-language-classifier-inactive.png",
-        title: "Natural Language Classifier"
-      },
-      {
-        image: "/img/watson-api/personality-insights.png",
-        inactiveImage: "/img/watson-api/personality-insights-inactive.png",
-        title: "Personality Insights"
-      },
-      {
-        image: "/img/watson-api/tone-analyzer.png",
-        inactiveImage: "/img/watson-api/tone-analyzer-inactive.png",
-        title: "Tone Analyzer"
-      },
-      {
-        image: "/img/watson-api/visual-recognition.png",
-        inactiveImage: "/img/watson-api/visual-recognition-inactive.png",
-        title: "Visual Recognition"
-      }
-    ];
+    let menu = this.state.menuItems;
     return (
       <section className="services-content gap-y-half pb-0" id="3">
         <Container>
@@ -84,24 +129,39 @@ class WatsonApi extends Component {
               </div>
             </Col>
           </Row>
-          <div className="wwd-list custom-services-img d-flex flex-nowrap">
+          {/* <div className="wwd-list custom-services-img d-flex flex-nowrap">
             {apiSubItems.map((x, i) => {
               let data = x;
               return (
-                <div
-                  key={i}
-                  className="wwd-list-card api-services-cards mb-0"
-                >
+                <div key={i} className="wwd-list-card api-services-cards mb-0">
                   <ServicesSmallCardsList
                     service={data}
                     index={i}
                     isActive={this.state.activeIndex === i ? true : false}
                     onItemClick={index => this.handleChange(index)}
                   />
-                  {/* <SolutionView solution={solution} path={path} /> */}
                 </div>
               );
             })}
+          </div> */}
+          <div className="section-tabs-container watson-api-scroll-container custom-services-img">
+            <ScrollMenu
+              alignCenter={this.state.alignCenter}
+              arrowLeft={ArrowLeft}
+              arrowRight={ArrowRight}
+              clickWhenDrag={this.state.clickWhenDrag}
+              data={menu}
+              dragging={this.state.dragging}
+              hideArrows={this.state.hideArrows}
+              hideSingleArrow={this.state.hideSingleArrow}
+              onSelect={this.onSelect}
+              onUpdate={this.onUpdate}
+              ref={el => (this.menu = el)}
+              selected={this.state.selected}
+              transition={this.state.transition}
+              translate={this.state.translate}
+              wheel={this.state.wheel}
+            />
           </div>
         </Container>
         <Container
