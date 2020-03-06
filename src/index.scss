@@ -284,6 +284,12 @@ small,
     height: 100%;
   }
 }
+.solutions-header-image {
+  img {
+    height: 300px;
+    width: auto !important;
+  }
+}
 
 @media screen and (max-width: 970px) {
   .sm-w-100 {

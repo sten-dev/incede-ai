@@ -107,7 +107,7 @@ class WatsonApi extends Component {
             <Col xs={12}>
               <div className="content">
                 <h1 className="title text-primary text-uppercase">
-                  <b>Watson API</b>
+                  <b>Watson API Services</b>
                 </h1>
                 <p>
                   <b className="text-grey">

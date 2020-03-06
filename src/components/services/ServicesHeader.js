@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { Row, Col, Container } from "reactstrap";
-import ServicesImage from "../../img/services/banner-services-new.png";
+import ServicesImage from "../../img/services/banner-services.png";
 import ScrollMenu from "react-horizontal-scrolling-menu";
 
 let list = [
   { name: "Watson Assistant Services" },
   { name: "Watson Discovery Services" },
-  { name: "Watson API" }
+  { name: "Watson API Services" }
 ];
 const MenuItem = ({ text, selected }) => {
   return <div className={`menu-item ${selected ? "active" : ""}`}>{text}</div>;
@@ -52,7 +52,7 @@ class ServicesHeader extends Component {
       case "Watson Discovery Services":
         url = "/services/watson-discovery-services";
         break;
-      case "Watson API":
+      case "Watson API Services":
         url = "/services/watson-api";
         break;
       default:
@@ -74,7 +74,7 @@ class ServicesHeader extends Component {
         break;
       case "/services/watson-api":
       case "/services/watson-api/":
-        this.setState({ selected: "Watson API" });
+        this.setState({ selected: "Watson API Services" });
         break;
       default:
         this.setState({ selected: "Watson Assistant Services" });
@@ -86,9 +86,9 @@ class ServicesHeader extends Component {
     return (
       <section className="services-header header-section text-center">
         <Container>
-          <Row>
+          <Row className="gap-y-quarter">
             <Col lg={8} md={7} sm={12} xs={12}>
-              <article className="gap-y-half  text-left mt-0 mt-sm-3">
+              <article className="text-left">
                 <h1 className="title display-3">Services</h1>
                 <h5 className="text-white sub-title">
                   Incede resources are experts in helping organizations
@@ -100,7 +100,7 @@ class ServicesHeader extends Component {
               </article>
             </Col>
             <Col lg={4} md={5} className="d-none d-md-block position-initial">
-              <div className="image-section gap-y-half">
+              <div className="image-section">
                 <img src={ServicesImage} alt="hero" />
               </div>
             </Col>

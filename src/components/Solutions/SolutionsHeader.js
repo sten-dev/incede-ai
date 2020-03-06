@@ -97,11 +97,9 @@ class SolutionsHeader extends React.Component {
     return (
       <section className="solutions-header header-section text-center">
         <Container>
-          <br />
-          <br />
-          <Row>
+          <Row className="gap-y-quarter">
             <Col lg={8} md={7} sm={12} xs={12}>
-              <article className="gap-y-half  text-left mt-0 mt-sm-3">
+              <article className="text-left">
                 <h1 className="title display-3">Solutions</h1>
                 <h5 className="text-white sub-title">
                   Incede puts IBM Watson to work in solution areas that deliver
@@ -110,8 +108,8 @@ class SolutionsHeader extends React.Component {
               </article>
             </Col>
             <Col lg={4} md={5} className="d-none d-md-block position-initial">
-              <div className="image-section pb-5">
-                <img className="w-100" src={SolutionImage} alt="hero" />
+              <div className="image-section solutions-header-image">
+                <img src={SolutionImage} alt="hero" />
               </div>
             </Col>
           </Row>
