@@ -264,7 +264,9 @@ small,
 .bold {
   font-weight: bold;
 }
-
+.case-study-img {
+  width: 120px;
+}
 .cookie-bar-container {
   background-color: #f2f2f2;
   z-index: 9;
@@ -297,6 +299,9 @@ small,
   }
   .gap-x {
     padding: 0 24px;
+  }
+  .case-study-img {
+    width: 100%;
   }
   .cookie-bar-container {
     .body p {

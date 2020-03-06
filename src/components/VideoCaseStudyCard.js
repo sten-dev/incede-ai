@@ -8,25 +8,23 @@ const VideoCaseStudyCard = props => {
   return (
     <React.Fragment>
       <div className="woodside p-4 d-flex mt-5 flex-column align-items-center">
-        <div className="d-flex flex-grow-1 px-4">
+        <div className="d-flex flex-column flex-sm-row px-4 align-items-initial align-items-sm-center">
           <div className="d-flex justify-content-center align-items-center">
             <img
               src={props.imageUrl}
               alt="imageUrl"
-              style={{ width: "120px", height: "46px" }}
+              className="case-study-img"
             />
           </div>
-          <div>
-            <p className="pp-1 pl-3">{props.title}</p>
+          <div className="pt-3 pt-sm-0">
+            <p className="pp-1 pl-sm-3 pl-0 text-center text-sm-left">
+              {props.title}
+            </p>
           </div>
         </div>
         <div className="points-text">{props.children && props.children}</div>
         <div className="flex-grow-1 ml-3">
-          <p
-            className={`pp-3 ${
-              props.viewClass ? props.viewClass : ""
-              }`}
-          >
+          <p className={`pp-3 ${props.viewClass ? props.viewClass : ""}`}>
             <a
               className="case-study pointer bold"
               data-toggle="modal"
