@@ -265,6 +265,24 @@ small,
   font-weight: bold;
 }
 
+.cookie-bar-container {
+  background-color: #f2f2f2;
+  z-index: 9;
+  position: fixed;
+  bottom: 0;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 3s;
+  animation-name: animatebottom;
+  animation-duration: 2s;
+  .body p {
+    font-size: 16px;
+  }
+  .close-icon {
+    width: 16px;
+    height: 100%;
+  }
+}
+
 @media screen and (max-width: 970px) {
   .sm-w-100 {
     width: 100%;
@@ -279,5 +297,30 @@ small,
   }
   .gap-x {
     padding: 0 24px;
+  }
+  .cookie-bar-container {
+    .body p {
+      font-size: 14px;
+    }
+  }
+}
+@-webkit-keyframes animatebottom {
+  from {
+    bottom: -50px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0px;
+    opacity: 1;
+  }
+}
+@keyframes animatebottom {
+  from {
+    bottom: -50px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 1;
   }
 }
