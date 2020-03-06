@@ -21,7 +21,7 @@ class ServiceMenu extends React.Component {
           </Link>
         </li>
         <li>
-          <Link to="/services/watson-api">Watson API Services</Link>
+          <Link to="/services/watson-api">Watson API</Link>
         </li>
       </ul>
     );

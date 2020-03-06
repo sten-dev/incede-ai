@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { Row, Col, Container } from "reactstrap";
-import ServicesImage from "../../img/services/banner-services.png";
+import ServicesImage from "../../img/services/banner-services-new.png";
 import ScrollMenu from "react-horizontal-scrolling-menu";
 
 let list = [
   { name: "Watson Assistant Services" },
   { name: "Watson Discovery Services" },
-  { name: "Watson API Services" }
+  { name: "Watson API" }
 ];
 const MenuItem = ({ text, selected }) => {
   return <div className={`menu-item ${selected ? "active" : ""}`}>{text}</div>;
@@ -52,7 +52,7 @@ class ServicesHeader extends Component {
       case "Watson Discovery Services":
         url = "/services/watson-discovery-services";
         break;
-      case "Watson API Services":
+      case "Watson API":
         url = "/services/watson-api";
         break;
       default:
@@ -74,7 +74,7 @@ class ServicesHeader extends Component {
         break;
       case "/services/watson-api":
       case "/services/watson-api/":
-        this.setState({ selected: "Watson API Services" });
+        this.setState({ selected: "Watson API" });
         break;
       default:
         this.setState({ selected: "Watson Assistant Services" });
@@ -86,8 +86,6 @@ class ServicesHeader extends Component {
     return (
       <section className="services-header header-section text-center">
         <Container>
-          <br />
-          <br />
           <Row>
             <Col lg={8} md={7} sm={12} xs={12}>
               <article className="gap-y-half  text-left mt-0 mt-sm-3">
@@ -103,7 +101,7 @@ class ServicesHeader extends Component {
             </Col>
             <Col lg={4} md={5} className="d-none d-md-block position-initial">
               <div className="image-section gap-y-half">
-                <img className="w-100" src={ServicesImage} alt="hero" />
+                <img src={ServicesImage} alt="hero" />
               </div>
             </Col>
           </Row>

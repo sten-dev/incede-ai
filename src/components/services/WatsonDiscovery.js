@@ -6,32 +6,167 @@ import picture2 from "../../img/services/watson-discovery-2.png";
 import picture3 from "../../img/services/watson-discovery-3.png";
 import picture4 from "../../img/services/watson-discovery-4.png";
 import ServicesSmallCardsList from "./ServicesSmallCardsList";
+import ScrollMenu from "react-horizontal-scrolling-menu";
+import { Link, animateScroll as scroll } from "react-scroll";
 
+const discoverySubItems = [
+  {
+    image: "/img/watson-assistant/design-services.png",
+    inactiveImage: "/img/watson-assistant/design-services-inactive.png",
+    title: "Watson Discovery Design Services"
+  },
+  {
+    image: "/img/watson-assistant/development-services.png",
+    inactiveImage: "/img/watson-assistant/development-services-inactive.png",
+    title: "Watson Discovery Development Services"
+  },
+  {
+    image: "/img/watson-assistant/development-services.png",
+    inactiveImage: "/img/watson-assistant/development-services-inactive.png",
+    title: "Enrich Development Services"
+  },
+  {
+    image: "/img/watson-assistant/development-services.png",
+    inactiveImage: "/img/watson-assistant/development-services-inactive.png",
+    title: "Smart Document Development Services"
+  },
+  {
+    image: "/img/watson-assistant/development-services.png",
+    inactiveImage: "/img/watson-assistant/development-services-inactive.png",
+    title: "Query Relevancy Development Services"
+  }
+];
+
+export const Menu = (discoverySubItems, activeIndex) =>
+  discoverySubItems.map((x, i) => {
+    let data = x;
+    return (
+      <div className="wwd-list-card api-services-cards mb-0" key={i}>
+        <ServicesSmallCardsList
+          service={data}
+          index={i}
+          isActive={activeIndex === i ? true : false}
+          onItemClick={() => {}}
+        />
+      </div>
+    );
+  });
+
+const Arrow = ({ text, className }) => {
+  return <div className={className}>{text}</div>;
+};
+
+export const ArrowLeft = Arrow({ text: "<", className: "arrow-prev" });
+export const ArrowRight = Arrow({ text: ">", className: "arrow-next" });
 class WatsonDiscovery extends Component {
   constructor(props) {
     super(props);
-    this.state = { activeIndex: 0 };
+    this.state = {
+      activeIndex: 0,
+      clickWhenDrag: false,
+      alignCenter: false,
+      dragging: true,
+      hideArrows: false,
+      hideSingleArrow: true,
+      itemsCount: discoverySubItems.length,
+      scrollToSelected: false,
+      selected: 0,
+      translate: 0,
+      transition: 0.3,
+      wheel: false,
+      menuItems: Menu(discoverySubItems.slice(0, discoverySubItems.length), 0),
+      linkId: ""
+    };
   }
   handleChange = index => {
     this.setState({ activeIndex: index });
   };
-  render() {
-    const discoverySubItems = [
-      {
-        image: "/img/watson-assistant/design-services.png",
-        inactiveImage: "/img/watson-assistant/design-services-inactive.png",
-        title: "Watson Discovery Design Services"
-      },
-      {
-        image: "/img/watson-assistant/development-services.png",
-        inactiveImage:
-          "/img/watson-assistant/development-services-inactive.png",
-        title: "Watson Discovery Development Services"
+  onSelect = key => {
+    if (key === "0" || key === "1") {
+      let activeIndex = Number(key);
+      let menuItems = Menu(
+        discoverySubItems.slice(0, discoverySubItems.length),
+        Number(key)
+      );
+      this.setState({
+        activeIndex: activeIndex,
+        menuItems: menuItems
+      });
+    } else {
+      let activeIndex = 1;
+      let menuItems = Menu(
+        discoverySubItems.slice(0, discoverySubItems.length),
+        Number(key)
+      );
+      let linkId = "enrich-development";
+      switch (Number(key)) {
+        case 2:
+          linkId = "enrich-development";
+          break;
+        case 3:
+          linkId = "smart-document";
+          break;
+        case 4:
+          linkId = "query-relevancy";
+          break;
+        default:
+          linkId = "enrich-development";
+          break;
       }
-    ];
+
+      this.setState(
+        {
+          activeIndex: activeIndex,
+          menuItems: menuItems,
+          linkId
+        },
+        () => {
+          setTimeout(() => {
+            document.getElementById("custom-react-link-discovery").click();
+            scroll.scrollMore(-100);
+          }, 500);
+        }
+      );
+    }
+  };
+  render() {
+    let menu = this.state.menuItems;
     return (
       <section className="services-content gap-y-half pb-0" id="3">
         <Container>
+          <Row>
+            <Col xs={12}>
+              <div className="content">
+                <h1 className="title text-primary text-uppercase">
+                  <b>Watson Discovery Services</b>
+                  <Link
+                    id="custom-react-link-discovery"
+                    to={this.state.linkId}
+                    className="d-none"
+                  />
+                </h1>
+              </div>
+            </Col>
+          </Row>
+          <div className="section-tabs-container watson-api-scroll-container custom-services-img">
+            <ScrollMenu
+              alignCenter={this.state.alignCenter}
+              arrowLeft={ArrowLeft}
+              arrowRight={ArrowRight}
+              clickWhenDrag={this.state.clickWhenDrag}
+              data={menu}
+              dragging={this.state.dragging}
+              hideArrows={this.state.hideArrows}
+              hideSingleArrow={this.state.hideSingleArrow}
+              onSelect={this.onSelect}
+              onUpdate={this.onUpdate}
+              ref={el => (this.menu = el)}
+              selected={this.state.selected}
+              transition={this.state.transition}
+              translate={this.state.translate}
+              wheel={this.state.wheel}
+            />
+          </div>
           {/* <Row>
             <Col>
               <div className="content">
@@ -100,27 +235,6 @@ class WatsonDiscovery extends Component {
             </Col>
           </Row>
           <br /> */}
-          <Row className="wwd-list custom-services-img">
-            {discoverySubItems.map((x, i) => {
-              let data = x;
-              return (
-                <Col
-                  key={i}
-                  className="wwd-list-card mb-0"
-                  xs={6}
-                  sm={4}
-                  lg={2}
-                >
-                  <ServicesSmallCardsList
-                    service={data}
-                    index={i}
-                    isActive={this.state.activeIndex === i ? true : false}
-                    onItemClick={index => this.handleChange(index)}
-                  />
-                </Col>
-              );
-            })}
-          </Row>
         </Container>
         <Container
           fluid
@@ -284,7 +398,7 @@ class WatsonDiscovery extends Component {
                         </p>
                       </div>
                     </Col>
-                    <Col xs={12}>
+                    <Col xs={12} id="enrich-development">
                       <h4 className="mb-0">
                         <b className="color-grey">
                           Enrichment Development Services
@@ -318,7 +432,7 @@ class WatsonDiscovery extends Component {
                         </p>
                       </div>
                     </Col>
-                    <Col xs={12}>
+                    <Col xs={12} id="smart-document">
                       <h4 className="mb-0">
                         <b className="color-grey">
                           Smart Document Development Services
@@ -335,7 +449,7 @@ class WatsonDiscovery extends Component {
                         </p>
                       </div>
                     </Col>
-                    <Col xs={12}>
+                    <Col xs={12} id="query-relevancy">
                       <h4 className="mb-0">
                         <b className="color-grey">
                           Query Relevancy Development Services
