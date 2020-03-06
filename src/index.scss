@@ -273,11 +273,11 @@ small,
   position: fixed;
   bottom: 0;
   -webkit-animation-name: animatebottom;
-  -webkit-animation-duration: 3s;
+  -webkit-animation-duration: 5s;
   animation-name: animatebottom;
-  animation-duration: 2s;
+  animation-duration: 5s;
   .body p {
-    font-size: 16px;
+    font-size: 18px;
   }
   .close-icon {
     width: 16px;
@@ -288,6 +288,14 @@ small,
   img {
     height: 300px;
     width: auto !important;
+  }
+}
+.custom-table {
+  th,
+  td {
+    border: 1px solid;
+    padding: 0.5rem !important;
+    vertical-align: baseline !important;
   }
 }
 

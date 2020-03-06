@@ -131,7 +131,7 @@ class Footer extends React.Component {
                 </Row>
               </Container>
             </Col>
-            <Col sm={12} md={6}>
+            <Col sm={12} md={6} id="contact-us-form">
               <Container fluid>
                 <Row>
                   <Col xs={12}>

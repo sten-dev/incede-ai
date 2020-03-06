@@ -106,9 +106,11 @@ class LayoutBody extends Component {
         <ChatMain page={this.props.page} />
         <div>{this.props.children}</div>
         {this.props.page !== "dashboard" && <Footer />}
-        {this.state.isCookieSaved === false && (
-          <CookieBar addCookie={() => this.handleAddCookie()} />
-        )}
+        {this.props.page !== "dashboard" &&
+          this.props.page !== "cookie/policy" &&
+          this.state.isCookieSaved === false && (
+            <CookieBar addCookie={() => this.handleAddCookie()} />
+          )}
         {this.state.isScrollHidden !== true && (
           <section
             className="scroll-to-bottom-container"
