@@ -67,6 +67,8 @@ class LayoutBody extends Component {
       let obj = this.window.localStorage.getItem("incedeCookie");
       if (obj) {
         this.setState({ isCookieSaved: true });
+      } else {
+        this.setState({ isCookieSaved: false });
       }
     }
   };
