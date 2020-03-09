@@ -10,7 +10,7 @@ class LayoutBody extends Component {
     super(props);
     this.state = {
       isScrollHidden: false,
-      isCookieSaved: false
+      isCookieSaved: true
     };
   }
   componentDidMount = async () => {
