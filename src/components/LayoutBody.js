@@ -15,9 +15,9 @@ class LayoutBody extends Component {
   }
   componentDidMount = async () => {
     this.window = window;
-    this.handleSession();
-    document.addEventListener("scroll", this.trackScrolling);
-    this.trackScrolling();
+    await this.handleSession();
+    await document.addEventListener("scroll", this.trackScrolling);
+    await this.trackScrolling();
     await this.findCookie();
   };
 

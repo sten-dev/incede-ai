@@ -206,6 +206,15 @@ class CookiesPage extends Component {
                                   <ul>
                                     <li>
                                       <a
+                                        href="https://www.ibm.com/privacy/details/us/en/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                      >
+                                        IBM Privacy Statement
+                                      </a>
+                                    </li>
+                                    <li>
+                                      <a
                                         href="https://www.gatsbyjs.com/privacy-policy/"
                                         target="_blank"
                                         rel="noopener noreferrer"
