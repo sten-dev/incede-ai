@@ -21,18 +21,18 @@ const assistantSubItems = [
     title: "Watson Assistant Development Services"
   },
   {
-    image: "/img/watson-assistant/development-services.png",
-    inactiveImage: "/img/watson-assistant/development-services-inactive.png",
+    image: "/img/watson-assistant/channel-development.png",
+    inactiveImage: "/img/watson-assistant/channel-development-inactive.png",
     title: "Channel Development Services"
   },
   {
-    image: "/img/watson-assistant/development-services.png",
-    inactiveImage: "/img/watson-assistant/development-services-inactive.png",
+    image: "/img/watson-assistant/integration-development.png",
+    inactiveImage: "/img/watson-assistant/integration-development-inactive.png",
     title: "Integration Development Services"
   },
   {
-    image: "/img/watson-assistant/development-services.png",
-    inactiveImage: "/img/watson-assistant/development-services-inactive.png",
+    image: "/img/watson-assistant/solution-training.png",
+    inactiveImage: "/img/watson-assistant/solution-training-inactive.png",
     title: "Solution Training Services"
   }
 ];

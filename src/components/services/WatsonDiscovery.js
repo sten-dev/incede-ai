@@ -21,18 +21,21 @@ const discoverySubItems = [
     title: "Watson Discovery Development Services"
   },
   {
-    image: "/img/watson-assistant/development-services.png",
-    inactiveImage: "/img/watson-assistant/development-services-inactive.png",
+    image: "/img/watson-discovery/enrich-development-service.png",
+    inactiveImage:
+      "/img/watson-discovery/enrich-development-service-inactive.png",
     title: "Enrich Development Services"
   },
   {
-    image: "/img/watson-assistant/development-services.png",
-    inactiveImage: "/img/watson-assistant/development-services-inactive.png",
+    image: "/img/watson-discovery/smart-document-development.png",
+    inactiveImage:
+      "/img/watson-discovery/smart-document-development-inactive.png",
     title: "Smart Document Development Services"
   },
   {
-    image: "/img/watson-assistant/development-services.png",
-    inactiveImage: "/img/watson-assistant/development-services-inactive.png",
+    image: "/img/watson-discovery/query-relevancy-development.png",
+    inactiveImage:
+      "/img/watson-discovery/query-relevancy-development-inactive.png",
     title: "Query Relevancy Development Services"
   }
 ];
