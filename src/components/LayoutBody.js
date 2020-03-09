@@ -107,6 +107,7 @@ class LayoutBody extends Component {
         <div>{this.props.children}</div>
         {this.props.page !== "dashboard" && <Footer />}
         {this.props.page !== "dashboard" &&
+          this.props.page !== "login" &&
           this.props.page !== "cookie/policy" &&
           this.state.isCookieSaved === false && (
             <CookieBar addCookie={() => this.handleAddCookie()} />
