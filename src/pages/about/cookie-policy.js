@@ -19,7 +19,7 @@ class CookiesPage extends Component {
                 <Col xs={12}>
                   <div>
                     <h1 className="text-primary">
-                      <b>Cookies and similar technology</b>
+                      <b>Cookies and Similar Technology</b>
                     </h1>
                   </div>
                 </Col>

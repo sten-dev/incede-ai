@@ -117,11 +117,6 @@ class Footer extends React.Component {
                             Why Incede
                           </Link>
                         </li>
-                        <li>
-                          <Link className="navbar-item" to="/about/cookie-policy">
-                            Cookie Policy
-                          </Link>
-                        </li>
                       </ul>
                     </section>
                   </Col>
@@ -131,7 +126,8 @@ class Footer extends React.Component {
                     </section>
                   </Col>
 
-                  <Col lg="12" md="12" sm="12" xs="12" className="pt-2">
+
+                  <Col lg="12" md="12" sm="12" xs="12">
                     <p className="m-0">© Copyright 2020 incede.ai</p>
                   </Col>
                 </Row>

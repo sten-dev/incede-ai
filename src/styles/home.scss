@@ -26,7 +26,8 @@ section {
     &.landing-home {
       .image-section {
         img {
-          height: 380px;
+          height: 320px !important;
+          width: auto !important;
         }
       }
     }
