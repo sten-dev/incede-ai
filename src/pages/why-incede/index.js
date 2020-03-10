@@ -23,6 +23,7 @@ import ResultsInBusinessTerms from "./why-incede-sub-items/ResultsInBusinessTerm
 import CertifiedExpertise from "./why-incede-sub-items/CertifiedExpertise";
 import CustomerSuccess from "./why-incede-sub-items/CustomerSuccess";
 import TechnologyPartners from "./why-incede-sub-items/TechnologyPartners";
+import LeaderShipTeam from "./why-incede-sub-items/LeaderShipTeam";
 
 const subItems = [
   {
@@ -44,6 +45,11 @@ const subItems = [
     image: "/img/why-incede/incede-technology-partners.png",
     inactiveImage: "/img/why-incede/incede-technology-partners-inactive.png",
     title: "Technology Partners"
+  },
+  {
+    image: "/img/human-resources-service.png",
+    inactiveImage: "/img/human-resources-service-inactive.png",
+    title: "Leadership Team"
   }
 ];
 
@@ -56,7 +62,7 @@ export const Menu = (subItems, activeIndex) =>
           service={data}
           index={i}
           isActive={activeIndex === i ? true : false}
-          onItemClick={() => {}}
+          onItemClick={() => { }}
         />
       </div>
     );
@@ -135,6 +141,7 @@ class WhyIncede extends Component {
                   {this.state.activeIndex === 1 && <CertifiedExpertise />}
                   {this.state.activeIndex === 2 && <CustomerSuccess />}
                   {this.state.activeIndex === 3 && <TechnologyPartners />}
+                  {this.state.activeIndex === 4 && <LeaderShipTeam />}
                 </Col>
               </Row>
             </Container>
