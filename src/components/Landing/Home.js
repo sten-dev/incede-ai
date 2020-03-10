@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
 import "../../styles/home.scss";
-import PreviewCompatibleImage from "../PreviewCompatibleImage";
+// import PreviewCompatibleImage from "../PreviewCompatibleImage";
 import arrow from "../../img/arrow.svg";
 import { Link } from "gatsby";
 // import HeroImage from "../../img/hero_image.png";
