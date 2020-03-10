@@ -56,6 +56,7 @@ class BotSection extends Component {
     this.wASessionId = localStorage.getItem("wASessionId");
     this.waCreatedTime = localStorage.getItem("waCreatedTime");
     this.initializeSocketIo();
+    this.initializeDemoSocket();
   }
 
   handleMessageChange = event => {
@@ -603,7 +604,8 @@ class BotSection extends Component {
     if (this.state.isDemo && demoProperty === "Customer Service") {
       if (!this.demoSocket) {
         this.resetLocalStorage(true);
-        this.initializeDemoSocket();
+        this.demoSocket.connect();
+        // this.initializeDemoSocket();
       } else if (!data.wASessionId) {
         this.demoSocket.connect();
       }
