@@ -20,8 +20,8 @@ class CookieBar extends Component {
                     <p>
                       Welcome to Incede.ai! In order to provide a more relevant experience for you, we utilize cookies. For more information, please review our{" "}
                       <Link to="/about/cookie-policy">Cookies Policy</Link>
-                      {/* and{" "}
-                      <Link to="/about/privacy-policy">Privacy Policy</Link>. */}
+                      and{" "}
+                      <Link to="/about/privacy-policy">Privacy Policy</Link>.
                     </p>
                   </div>
                 </Col>
