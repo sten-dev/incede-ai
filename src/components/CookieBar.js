@@ -18,9 +18,10 @@ class CookieBar extends Component {
                   <div className="body">
 
                     <p>
-                      Welcome to <strong>locussolutions.com!</strong> In order to provide a more relevant experience for you, we use cookies to enable some website functionality. Cookies help us see which articles most interest you; allow you to easily share articles on social media; permit us to deliver content, jobs and ads tailored to your interests and locations; and provide many other site benefits. For more information, please review our{" "}
-                      <Link to="/about/cookie-policy">Cookies Policy</Link> and{" "}
-                      <Link to="/about/privacy-policy">Privacy Policy</Link>.
+                      Welcome to Incede.ai! In order to provide a more relevant experience for you, we utilize cookies. For more information, please review our{" "}
+                      <Link to="/about/cookie-policy">Cookies Policy</Link>
+                      {/* and{" "}
+                      <Link to="/about/privacy-policy">Privacy Policy</Link>. */}
                     </p>
                   </div>
                 </Col>
