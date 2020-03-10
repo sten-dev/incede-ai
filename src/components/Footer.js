@@ -117,6 +117,11 @@ class Footer extends React.Component {
                             Why Incede
                           </Link>
                         </li>
+                        <li>
+                          <Link className="navbar-item" to="/about/cookie-policy">
+                            Cookie Policy
+                          </Link>
+                        </li>
                       </ul>
                     </section>
                   </Col>
@@ -125,6 +130,7 @@ class Footer extends React.Component {
                       <FooterLocation />
                     </section>
                   </Col>
+
                   <Col lg="12" md="12" sm="12" xs="12" className="pt-2">
                     <p className="m-0">© Copyright 2020 incede.ai</p>
                   </Col>
@@ -224,19 +230,19 @@ class Footer extends React.Component {
                         <br />
                         {this.state.message &&
                           (this.state.hasDetailsSubmitted !== undefined &&
-                          this.state.hasDetailsSubmitted === true ? (
-                            <Col lg={12} md={12} sm={12} xs={12}>
-                              <br />
-                              <Alert color="success">
-                                {this.state.message}
-                              </Alert>
-                            </Col>
-                          ) : (
-                            <Col lg={12} md={12} sm={12} xs={12}>
-                              <br />
-                              <Alert color="danger">{this.state.message}</Alert>
-                            </Col>
-                          ))}
+                            this.state.hasDetailsSubmitted === true ? (
+                              <Col lg={12} md={12} sm={12} xs={12}>
+                                <br />
+                                <Alert color="success">
+                                  {this.state.message}
+                                </Alert>
+                              </Col>
+                            ) : (
+                              <Col lg={12} md={12} sm={12} xs={12}>
+                                <br />
+                                <Alert color="danger">{this.state.message}</Alert>
+                              </Col>
+                            ))}
                       </Form>
                     </div>
                   </Col>

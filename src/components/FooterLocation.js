@@ -13,7 +13,7 @@ class FooterLocation extends React.Component {
           </h6>
         </li>
 
-        <li>
+        <li className="mb-0">
           <p>
             {location.phone}, {location.email}
           </p>
