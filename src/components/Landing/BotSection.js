@@ -439,7 +439,8 @@ class BotSection extends Component {
 
   resetDemo = () => {
     this.resetLocalStorage();
-    this.demoSocket = undefined;
+    // this.demoSocket = undefined;
+    this.demoSocket.close();
     this.sendCustomMessage("", true);
     this.setState({
       messages: [
