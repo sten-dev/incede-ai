@@ -375,8 +375,25 @@ class BotSection extends Component {
             x.suggestions[0].output.generic &&
             x.suggestions[0].output.generic.length > 0
           ) {
-            shouldUpdate = false;
-            this.pushWAMessage({ data: x.suggestions[0].output.generic });
+            messages.push({
+              user: "WA",
+              message: "Did you mean?",
+              type: "options",
+              options: x.suggestions.map(x => {
+                return {
+                  label: x.label,
+                  value: {
+                    input: {
+                      text: x.label
+                    }
+                  }
+                }
+              }),
+              intent: response.intent
+            });
+            // .filter(x => x.label.toLowerCase().indexOf("none of these") === -1)
+            // shouldUpdate = false;
+            // this.pushWAMessage({ data: x.suggestions[0].output.generic });
           }
         } else if (x.text || x.title || (x.options && x.options.length > 0)) {
           messages.push({
@@ -764,6 +781,9 @@ class BotSection extends Component {
                         <div className="options-container">
                           <Row>
                             {x.options.map((option, index) => {
+                              let optionsLength = x.options.length;
+                              let isCol3 = optionsLength % 3 === 0;
+                              console.log("options length", x.options.length, isCol3)
                               return (
                                 <React.Fragment key={`option${index}`}>
                                   {option.value.input.text.startsWith("<a") &&
@@ -771,8 +791,8 @@ class BotSection extends Component {
                                     -1 ? (
                                       <Col
                                         key={`option${index}`}
-                                        lg={6}
-                                        md={6}
+                                        lg={isCol3 ? 4 : 6}
+                                        md={isCol3 ? 4 : 6}
                                         sm={6}
                                         xs={12}
                                       >
@@ -792,8 +812,8 @@ class BotSection extends Component {
                                     ) : (
                                       <Col
                                         key={`option${index}`}
-                                        lg={6}
-                                        md={6}
+                                        lg={isCol3 ? 4 : 6}
+                                        md={isCol3 ? 4 : 6}
                                         sm={6}
                                         xs={12}
                                         onClick={() =>
