@@ -15,7 +15,7 @@ class Customer extends Component {
       <section className="solutions-content gap-y-half" id="3">
         <Container>
           <Row>
-            <Col xs={12} sm={12} md={8} lg={7}>
+            <Col xs={12} sm={12} md={6} lg={6}>
               <div className="content">
                 <h1 className="text-primary">Customer Service</h1>
                 <p>
@@ -88,7 +88,7 @@ class Customer extends Component {
                 </div>
               </div>
             </Col>
-            <Col xs={12} sm={12} md={4} lg={5} className="mt-4 mt-lg-0 d-flex">
+            <Col xs={12} sm={12} md={6} lg={6} className="mt-4 mt-lg-0 d-flex">
               <div className="image-section">
                 <img src={customerService} alt="support image" />
               </div>

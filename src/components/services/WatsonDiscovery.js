@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from "reactstrap";
 import "../../styles/services.scss";
-import picture1 from "../../img/services/watson-discovery-1.png";
-import picture2 from "../../img/services/watson-discovery-2.png";
-import picture3 from "../../img/services/watson-discovery-3.png";
+// import picture1 from "../../img/services/watson-discovery-1.png";
+// import picture2 from "../../img/services/watson-discovery-2.png";
+import picture3 from "../../img/services/wd-design-services.png";
+// import picture3 from "../../img/services/watson-discovery-3.png";
 import picture4 from "../../img/services/watson-discovery-4.png";
 import ServicesSmallCardsList from "./ServicesSmallCardsList";
 import ScrollMenu from "react-horizontal-scrolling-menu";

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from "reactstrap";
 import "../../styles/solutions.scss";
-import ITServiceDesk from "../../img/solutions/customer-service.png";
+import ITServiceDesk from "../../img/solutions/it-services.png";
 import { Link } from "gatsby";
 import bankingImage from "../../img/solutions/banking-icon.png";
 import communicationsImage from "../../img/solutions/communications-icon.png";
@@ -98,7 +98,7 @@ class ITService extends Component {
                 </div>
               </div>
             </Col>
-            <Col xs={12} sm={12} md={4} lg={5} className="mt-4 mt-lg-0 d-flex">
+            <Col xs={12} sm={12} md={6} lg={6} className="mt-4 mt-lg-0 d-flex">
               <div className="image-section">
                 <img src={ITServiceDesk} alt="support image" />
               </div>
