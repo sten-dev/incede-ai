@@ -297,7 +297,15 @@ small,
     vertical-align: baseline !important;
   }
 }
-
+.cookie-policy {
+  p {
+    margin-bottom: 12px !important;
+    // line-height: 2rem !important;
+  }
+  .title {
+    margin-top: 0 !important;
+  }
+}
 @media screen and (max-width: 970px) {
   .sm-w-100 {
     width: 100%;
