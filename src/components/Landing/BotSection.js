@@ -783,7 +783,6 @@ class BotSection extends Component {
                             {x.options.map((option, index) => {
                               let optionsLength = x.options.length;
                               let isCol3 = optionsLength % 3 === 0;
-                              console.log("options length", x.options.length, isCol3)
                               return (
                                 <React.Fragment key={`option${index}`}>
                                   {option.value.input.text.startsWith("<a") &&
