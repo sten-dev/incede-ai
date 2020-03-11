@@ -8,13 +8,14 @@ const ResultsInBusinessTerms = props => {
   return (
     <React.Fragment>
       <Container>
-        <Row className="results-section">
+        <Row>
           <Col
             xs={12}
             sm={12}
             md={12}
             lg={7}
             className="d-flex align-items-center"
+            id="business-terms"
           >
             <div>
               <h1 className="text-left heading">Results in Business Terms</h1>

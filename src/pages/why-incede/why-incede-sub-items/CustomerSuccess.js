@@ -8,8 +8,15 @@ const CustomerSuccess = () => {
   return (
     <React.Fragment>
       <Container>
-        <Row className="customer-success">
-          <Col xs={12} sm={12} md={12} lg={7} className="d-flex ">
+        <Row>
+          <Col
+            xs={12}
+            sm={12}
+            md={12}
+            lg={7}
+            className="d-flex"
+            id="customer-success"
+          >
             <div>
               <h1 className="text-left heading">Customer Successes</h1>
               <h4 className="my-4">

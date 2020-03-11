@@ -15,7 +15,6 @@ import ServicesSmallCardsList from "../../components/services/ServicesSmallCards
 import arrow from "../../img/arrow.svg";
 import arrowPrimary from "../../img/arrow-primary.png";
 import "../../styles/why-incede.scss";
-import { Link } from "gatsby";
 
 import MoreDetail from "../../components/Landing/MoreDetail";
 import ScrollMenu from "react-horizontal-scrolling-menu";
@@ -24,6 +23,7 @@ import CertifiedExpertise from "./why-incede-sub-items/CertifiedExpertise";
 import CustomerSuccess from "./why-incede-sub-items/CustomerSuccess";
 import TechnologyPartners from "./why-incede-sub-items/TechnologyPartners";
 import LeaderShipTeam from "./why-incede-sub-items/LeaderShipTeam";
+import { Link, animateScroll as scroll } from "react-scroll";
 
 const subItems = [
   {
@@ -62,7 +62,7 @@ export const Menu = (subItems, activeIndex) =>
           service={data}
           index={i}
           isActive={activeIndex === i ? true : false}
-          onItemClick={() => { }}
+          onItemClick={() => {}}
         />
       </div>
     );
@@ -91,15 +91,88 @@ class WhyIncede extends Component {
       translate: 0,
       transition: 0.3,
       wheel: false,
-      menuItems: Menu(subItems.slice(0, subItems.length), 0)
+      menuItems: Menu(subItems.slice(0, subItems.length), 0),
+      linkId: ""
     };
   }
 
+  componentDidMount = () => {
+    if (window.location.hash.length > 0) {
+      let hash = window.location.hash.split("#")[1];
+      let activeIndex = 0;
+      switch (hash) {
+        case "business-terms":
+          activeIndex = 0;
+          break;
+        case "certified-expertise":
+          activeIndex = 1;
+          break;
+        case "customer-success":
+          activeIndex = 2;
+          break;
+        case "technology-partners":
+          activeIndex = 3;
+          break;
+        case "leadership-team":
+          activeIndex = 4;
+          break;
+        default:
+          activeIndex = 0;
+          hash = "business-terms";
+          break;
+      }
+      this.setState(
+        {
+          activeIndex,
+          menuItems: Menu(subItems.slice(0, subItems.length), activeIndex),
+          linkId: hash
+        },
+        () => {
+          setTimeout(() => {
+            document.getElementById("custom-react-link-why-incede").click();
+            scroll.scrollMore(-80);
+          }, 100);
+        }
+      );
+    }
+  };
+
   onSelect = key => {
-    this.setState({
-      activeIndex: Number(key),
-      menuItems: Menu(subItems.slice(0, subItems.length), Number(key))
-    });
+    let linkId;
+    switch (Number(key)) {
+      case 0:
+        linkId = "business-terms";
+        break;
+      case 1:
+        linkId = "certified-expertise";
+        break;
+      case 2:
+        linkId = "customer-success";
+        break;
+      case 3:
+        linkId = "technology-partners";
+        break;
+      case 4:
+        linkId = "leadership-team";
+        break;
+      default:
+        linkId = "business-terms";
+        break;
+    }
+    this.setState(
+      {
+        activeIndex: Number(key),
+        menuItems: Menu(subItems.slice(0, subItems.length), Number(key)),
+        linkId
+      },
+      () => {
+        setTimeout(() => {
+          document.getElementById("custom-react-link-why-incede").click();
+          window.location.hash = linkId;
+          scroll.scrollMore(-120);
+        });
+      }
+    );
   };
 
   render() {
@@ -109,6 +182,11 @@ class WhyIncede extends Component {
         <Layout pageTitle="Why Incede | Incede">
           <Transition>
             <MoreDetail />
+            <Link
+              id="custom-react-link-why-incede"
+              to={this.state.linkId}
+              className="d-none"
+            />
             <Container>
               <div className="section-tabs-container watson-api-scroll-container custom-services-img">
                 <ScrollMenu

@@ -6,8 +6,15 @@ const TechnologyPartners = () => {
   return (
     <React.Fragment>
       <Container>
-        <Row className="technology-partners">
-          <Col xs={12} sm={12} md={12} lg={7} className="d-flex ">
+        <Row>
+          <Col
+            xs={12}
+            sm={12}
+            md={12}
+            lg={7}
+            className="d-flex"
+            id="technology-partners"
+          >
             <div>
               <h1 className="text-left heading">Incede Technology Partners</h1>
               <h4 className="my-4">

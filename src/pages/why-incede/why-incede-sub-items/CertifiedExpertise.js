@@ -8,13 +8,14 @@ const CertifiedExpertise = () => {
   return (
     <React.Fragment>
       <Container>
-        <Row className="certified-expertise">
+        <Row>
           <Col
             xs={12}
             sm={12}
             md={12}
             lg={7}
             className="d-flex align-items-center"
+            id="certified-expertise"
           >
             <div>
               <h1 className="text-left heading">Certified Expertise</h1>
