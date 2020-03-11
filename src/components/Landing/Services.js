@@ -16,7 +16,7 @@ class Services extends React.Component {
     this.setState({ activeIndex: index }, () => {
       setTimeout(() => {
         document.getElementById("custom-react-link-services").click();
-        scroll.scrollMore(-120);
+        scroll.scrollMore(-150);
       });
     });
   };
@@ -64,7 +64,7 @@ class Services extends React.Component {
       }
     ];
     return (
-      <section className="services">
+      <section className="services" id="services-id">
         <Link
           id="custom-react-link-services"
           to={this.state.linkId}

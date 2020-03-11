@@ -15,7 +15,7 @@ class Industries extends React.Component {
     this.setState({ activeIndex: index }, () => {
       setTimeout(() => {
         document.getElementById("custom-react-link-industries").click();
-        scroll.scrollMore(-120);
+        scroll.scrollMore(-150);
       });
     });
   };
@@ -78,7 +78,7 @@ class Industries extends React.Component {
       }
     ];
     return (
-      <section className="industries">
+      <section className="industries" id="industries-id">
         <Link
           id="custom-react-link-industries"
           to={this.state.linkId}

@@ -8,14 +8,7 @@ const SolutionsSmallCardBody = ({ data, path }) => {
     <React.Fragment>
       <Container>
         <Row>
-          <Col
-            xs={12}
-            sm={12}
-            md={6}
-            lg={6}
-            className="lg-border-right"
-            id="solutions-id"
-          >
+          <Col xs={12} sm={12} md={6} lg={6} className="lg-border-right">
             <h3 className="mt-0">{data.title}</h3>
             <p>{data.mainContext}</p>
           </Col>
