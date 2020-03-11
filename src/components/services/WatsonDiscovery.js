@@ -124,10 +124,23 @@ class WatsonDiscovery extends Component {
           linkId: hash
         },
         () => {
-          setTimeout(() => {
-            document.getElementById("custom-react-link-discovery").click();
-            scroll.scrollMore(-100);
-          }, 500);
+          setTimeout(
+            () => {
+              document.getElementById("custom-react-link-discovery").click();
+              if (
+                hash === "watson-discovery-design" ||
+                hash === "watson-discovery-development"
+              ) {
+                scroll.scrollMore(-350);
+              } else {
+                scroll.scrollMore(-100);
+              }
+            },
+            hash === "watson-discovery-design" ||
+              hash === "watson-discovery-development"
+              ? 500
+              : 1000
+          );
         }
       );
     }
@@ -165,7 +178,7 @@ class WatsonDiscovery extends Component {
           setTimeout(() => {
             document.getElementById("custom-react-link-discovery").click();
             window.location.hash = linkId;
-            scroll.scrollMore(-100);
+            scroll.scrollMore(-350);
           });
         }
       );
@@ -202,7 +215,7 @@ class WatsonDiscovery extends Component {
             document.getElementById("custom-react-link-discovery").click();
             window.location.hash = linkId;
             scroll.scrollMore(-100);
-          }, 500);
+          }, 1000);
         }
       );
     }

@@ -134,8 +134,8 @@ class WatsonApi extends Component {
         () => {
           setTimeout(() => {
             document.getElementById("custom-react-link-watson-api").click();
-            scroll.scrollMore(-80);
-          }, 100);
+            scroll.scrollMore(-340);
+          }, 500);
         }
       );
     }
@@ -179,7 +179,7 @@ class WatsonApi extends Component {
         setTimeout(() => {
           document.getElementById("custom-react-link-watson-api").click();
           window.location.hash = linkId;
-          scroll.scrollMore(-120);
+          scroll.scrollMore(-350);
         });
       }
     );

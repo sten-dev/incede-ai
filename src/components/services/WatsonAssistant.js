@@ -122,10 +122,23 @@ class WatsonAssistant extends Component {
           linkId: hash
         },
         () => {
-          setTimeout(() => {
-            document.getElementById("custom-react-link").click();
-            scroll.scrollMore(-100);
-          }, 500);
+          setTimeout(
+            () => {
+              document.getElementById("custom-react-link").click();
+              if (
+                hash === "watson-assistant-design" ||
+                hash === "watson-assistant-development"
+              ) {
+                scroll.scrollMore(-350);
+              } else {
+                scroll.scrollMore(-100);
+              }
+            },
+            hash === "watson-assistant-design" ||
+              hash === "watson-assistant-development"
+              ? 500
+              : 1000
+          );
         }
       );
     }
@@ -163,7 +176,7 @@ class WatsonAssistant extends Component {
           setTimeout(() => {
             document.getElementById("custom-react-link").click();
             window.location.hash = linkId;
-            scroll.scrollMore(-100);
+            scroll.scrollMore(-350);
           });
         }
       );
@@ -200,7 +213,7 @@ class WatsonAssistant extends Component {
             document.getElementById("custom-react-link").click();
             window.location.hash = linkId;
             scroll.scrollMore(-100);
-          }, 500);
+          }, 1000);
         }
       );
     }
