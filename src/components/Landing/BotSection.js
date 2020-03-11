@@ -1,6 +1,14 @@
 import React, { Component } from "react";
 import "../../styles/bot.scss";
-import { Container, Row, Col, Button, Spinner, Card, CardImg } from "reactstrap";
+import {
+  Container,
+  Row,
+  Col,
+  Button,
+  Spinner,
+  Card,
+  CardImg
+} from "reactstrap";
 import logo from "../../img/logo_white.svg";
 import { ChatPill } from "./bot/ChatPill";
 import { ChatPillAsk } from "./bot/ChatPillAsk";
@@ -50,14 +58,14 @@ class BotSection extends Component {
       }
     };
   }
-  componentDidMount() {
+  componentDidMount = async () => {
     this.roomName = localStorage.getItem("roomName");
     this.roomId = localStorage.getItem("roomId");
     this.wASessionId = localStorage.getItem("wASessionId");
     this.waCreatedTime = localStorage.getItem("waCreatedTime");
-    this.initializeSocketIo();
-    this.initializeDemoSocket();
-  }
+    await this.initializeSocketIo();
+    await this.initializeDemoSocket();
+  };
 
   handleMessageChange = event => {
     let eve = { ...event };
@@ -104,7 +112,7 @@ class BotSection extends Component {
       reconnectionDelayMax: 5000,
       reconnectionAttempts: 5
     });
-    this.socket.on("connect", function () {
+    this.socket.on("connect", function() {
       console.debug("connected to server");
     });
     let messages = [
@@ -117,7 +125,7 @@ class BotSection extends Component {
     ];
     let time = new Date().getTime();
 
-    this.checkWASession();
+    await this.checkWASession();
 
     if (this.roomId) {
       this.setState({
@@ -131,7 +139,7 @@ class BotSection extends Component {
         let data = chatsResp.data
           .reverse()
           .filter(x => IGNORE_MSG.indexOf(x.TEXT) === -1);
-        let chatRepeatIndex = -1;
+        let chatRepeatIndex = 0;
         data.forEach((x, i) => {
           switch (x.TYPE) {
             case "text":
@@ -146,8 +154,8 @@ class BotSection extends Component {
                     x.USER === "WATSON"
                       ? "WA"
                       : x.USER === "AGENT"
-                        ? "AG"
-                        : "ME",
+                      ? "AG"
+                      : "ME",
                   message: x.TEXT,
                   type: x.TYPE === "options" ? "options" : "text",
                   options: x.TYPE === "options" ? JSON.parse(x.OPTIONS) : [],
@@ -387,7 +395,7 @@ class BotSection extends Component {
                       text: x.label
                     }
                   }
-                }
+                };
               }),
               intent: response.intent
             });
@@ -494,12 +502,11 @@ class BotSection extends Component {
     let type = "chat";
     let isDemoUpdate = false;
     let comment = option.value.input.text;
-    if (
-      option.value.input.text.toLowerCase() === "launch demo"
-    ) {
+    if (option.value.input.text.toLowerCase() === "launch demo") {
       if (
         message.intent &&
-        message.intent.toLowerCase() === "customer_service") {
+        message.intent.toLowerCase() === "customer_service"
+      ) {
         type = "demo";
         this.wASessionId = undefined;
         this.roomId = undefined;
@@ -507,9 +514,10 @@ class BotSection extends Component {
         comment = "";
         this.roomName = "session-" + new Date().getTime();
         localStorage.setItem("demoProperty", "Customer Service");
-      }
-      else if (message.intent &&
-        message.intent.toLowerCase() === "pizza_ordering") {
+      } else if (
+        message.intent &&
+        message.intent.toLowerCase() === "pizza_ordering"
+      ) {
         type = "demo";
         this.wASessionId = undefined;
         this.roomId = undefined;
@@ -517,9 +525,7 @@ class BotSection extends Component {
         comment = "";
         this.roomName = "session-" + new Date().getTime();
         localStorage.setItem("demoProperty", "Pizza Ordering");
-      }
-      else if (message.intent &&
-        message.intent.toLowerCase() === "banking") {
+      } else if (message.intent && message.intent.toLowerCase() === "banking") {
         type = "demo";
         this.wASessionId = undefined;
         this.roomId = undefined;
@@ -534,11 +540,11 @@ class BotSection extends Component {
     }
     this.setState(
       {
-        isDemo: (type === "demo" && isDemoUpdate ? true : this.state.isDemo)
+        isDemo: type === "demo" && isDemoUpdate ? true : this.state.isDemo
       },
       () => {
         let isAdd = true;
-        if ((type === "demo" && isDemoUpdate)) {
+        if (type === "demo" && isDemoUpdate) {
           isAdd = false;
         }
         // if (message.message && message.message.toLowerCase() == "contact us" && comment.toLowerCase() === "cancel") {
@@ -552,7 +558,8 @@ class BotSection extends Component {
           roomName: this.roomName,
           roomId: this.roomId,
           type: type,
-          demoProperty: type === "demo" ? localStorage.getItem("demoProperty") : undefined,
+          demoProperty:
+            type === "demo" ? localStorage.getItem("demoProperty") : undefined,
           intent: message.intent
         };
 
@@ -568,7 +575,7 @@ class BotSection extends Component {
       reconnectionDelayMax: 5000,
       reconnectionAttempts: 5
     });
-    this.demoSocket.on("connect", function () {
+    this.demoSocket.on("connect", function() {
       console.debug("demo socket connected to server");
     });
     this.demoSocket.on("chat message", message => {
@@ -656,7 +663,7 @@ class BotSection extends Component {
   };
 
   scrollToBottom = () => {
-    setTimeout(function () {
+    setTimeout(function() {
       var objDiv = document.getElementById("messages_container");
       if (objDiv) {
         objDiv.scrollTop = objDiv.scrollHeight;
@@ -679,7 +686,12 @@ class BotSection extends Component {
         return (
           <div className="chat-location">
             <Card>
-              <CardImg top width="100%" src={data.source} alt="Card image cap" />
+              <CardImg
+                top
+                width="100%"
+                src={data.source}
+                alt="Card image cap"
+              />
             </Card>
           </div>
         );
@@ -699,18 +711,18 @@ class BotSection extends Component {
                 isLastWAUser={index === this.state.lastWAUserIndex}
               />
             ) : (
-                <React.Fragment>
-                  <ChatPill
-                    isLastWAUser={
-                      index === this.state.lastWAUserIndex &&
-                      !this.state.isLoading
-                    }
-                    right={data.user === "ME"}
-                    user={data.user}
-                    text=""
-                  />
-                </React.Fragment>
-              )}
+              <React.Fragment>
+                <ChatPill
+                  isLastWAUser={
+                    index === this.state.lastWAUserIndex &&
+                    !this.state.isLoading
+                  }
+                  right={data.user === "ME"}
+                  user={data.user}
+                  text=""
+                />
+              </React.Fragment>
+            )}
           </React.Fragment>
         );
       default:
@@ -786,48 +798,48 @@ class BotSection extends Component {
                               return (
                                 <React.Fragment key={`option${index}`}>
                                   {option.value.input.text.startsWith("<a") &&
-                                    option.value.input.text.indexOf("href") >
+                                  option.value.input.text.indexOf("href") >
                                     -1 ? (
-                                      <Col
-                                        key={`option${index}`}
-                                        lg={isCol3 ? 4 : 6}
-                                        md={isCol3 ? 4 : 6}
-                                        sm={6}
-                                        xs={12}
+                                    <Col
+                                      key={`option${index}`}
+                                      lg={isCol3 ? 4 : 6}
+                                      md={isCol3 ? 4 : 6}
+                                      sm={6}
+                                      xs={12}
+                                    >
+                                      <div
+                                        className={`wa-option ${option.label
+                                          .replace(/ /g, "-")
+                                          .toLowerCase()}`}
                                       >
-                                        <div
-                                          className={`wa-option ${option.label
-                                            .replace(/ /g, "-")
-                                            .toLowerCase()}`}
-                                        >
-                                          <p
-                                            className="link"
-                                            dangerouslySetInnerHTML={{
-                                              __html: option.value.input.text
-                                            }}
-                                          ></p>
-                                        </div>
-                                      </Col>
-                                    ) : (
-                                      <Col
-                                        key={`option${index}`}
-                                        lg={isCol3 ? 4 : 6}
-                                        md={isCol3 ? 4 : 6}
-                                        sm={6}
-                                        xs={12}
-                                        onClick={() =>
-                                          this.handleOnOptionClick(x, index)
-                                        }
+                                        <p
+                                          className="link"
+                                          dangerouslySetInnerHTML={{
+                                            __html: option.value.input.text
+                                          }}
+                                        ></p>
+                                      </div>
+                                    </Col>
+                                  ) : (
+                                    <Col
+                                      key={`option${index}`}
+                                      lg={isCol3 ? 4 : 6}
+                                      md={isCol3 ? 4 : 6}
+                                      sm={6}
+                                      xs={12}
+                                      onClick={() =>
+                                        this.handleOnOptionClick(x, index)
+                                      }
+                                    >
+                                      <div
+                                        className={`wa-option ${option.label
+                                          .replace(/ /g, "-")
+                                          .toLowerCase()}`}
                                       >
-                                        <div
-                                          className={`wa-option ${option.label
-                                            .replace(/ /g, "-")
-                                            .toLowerCase()}`}
-                                        >
-                                          <p>{option.label}</p>
-                                        </div>
-                                      </Col>
-                                    )}
+                                        <p>{option.label}</p>
+                                      </div>
+                                    </Col>
+                                  )}
                                 </React.Fragment>
                               );
                             })}
@@ -854,19 +866,19 @@ class BotSection extends Component {
                     Exit Demo
                   </Button>
                 ) : (
-                    <React.Fragment>
-                      {this.state.messages.length > 0 && (
-                        <Button
-                          onClick={() => {
-                            this.setState({ modal: { isOpen: true } });
-                          }}
-                          className="exit-demo-btn xs mr-1 d-block d-sm-none"
-                        >
-                          Reset
+                  <React.Fragment>
+                    {this.state.messages.length > 0 && (
+                      <Button
+                        onClick={() => {
+                          this.setState({ modal: { isOpen: true } });
+                        }}
+                        className="exit-demo-btn xs mr-1 d-block d-sm-none"
+                      >
+                        Reset
                       </Button>
-                      )}
-                    </React.Fragment>
-                  )}
+                    )}
+                  </React.Fragment>
+                )}
               </div>
               {/* <ChatPillAsk
                 handleKeyDown={this.handleKeyDown}
@@ -911,19 +923,19 @@ class BotSection extends Component {
                 Exit Demo
               </Button>
             ) : (
-                <React.Fragment>
-                  {this.state.messages.length > 0 && (
-                    <Button
-                      onClick={() => {
-                        this.setState({ modal: { isOpen: true } });
-                      }}
-                      className="reset-btn mr-1 d-none d-sm-block"
-                    >
-                      Reset
+              <React.Fragment>
+                {this.state.messages.length > 0 && (
+                  <Button
+                    onClick={() => {
+                      this.setState({ modal: { isOpen: true } });
+                    }}
+                    className="reset-btn mr-1 d-none d-sm-block"
+                  >
+                    Reset
                   </Button>
-                  )}
-                </React.Fragment>
-              )}
+                )}
+              </React.Fragment>
+            )}
             <ChatPillAsk
               handleKeyDown={this.handleKeyDown}
               value={this.state.msg}
