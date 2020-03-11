@@ -50,7 +50,6 @@ class BotSection extends Component {
       ],
       msg: "",
       isDemo: false,
-      lastWAUserIndex: -1,
       shouldConnectApi: true,
       isLoading: true,
       modal: {
@@ -134,20 +133,14 @@ class BotSection extends Component {
       let chatsResp = await httpClient("chats", "POST", {
         roomId: this.roomId
       });
-      let lastWAUserIndex = -1;
       if (chatsResp.success === true) {
         let data = chatsResp.data
           .reverse()
           .filter(x => IGNORE_MSG.indexOf(x.TEXT) === -1);
-        let chatRepeatIndex = 0;
         data.forEach((x, i) => {
           switch (x.TYPE) {
             case "text":
             case "options":
-              chatRepeatIndex++;
-              if (x.USER === "WATSON" || x.USER === "AGENT") {
-                lastWAUserIndex = chatRepeatIndex;
-              }
               if (x.TEXT) {
                 messages.push({
                   user:
@@ -164,10 +157,6 @@ class BotSection extends Component {
               }
               break;
             case "location":
-              chatRepeatIndex++;
-              if (x.USER === "WATSON" || x.USER === "AGENT") {
-                lastWAUserIndex = chatRepeatIndex;
-              }
               messages.push({
                 user: "WA",
                 message: "",
@@ -176,10 +165,6 @@ class BotSection extends Component {
               });
               break;
             case "callback":
-              chatRepeatIndex++;
-              if (x.USER === "WATSON" || x.USER === "AGENT") {
-                lastWAUserIndex = chatRepeatIndex;
-              }
               messages.push({ user: "ME", message: "", type: "callback_form" });
               break;
           }
@@ -187,7 +172,6 @@ class BotSection extends Component {
         this.setState(
           {
             messages: messages,
-            lastWAUserIndex,
             isLoading: false
           },
           () => {
@@ -247,11 +231,9 @@ class BotSection extends Component {
             options: []
           });
 
-          let lastWAUserIndex = messages.length - 1;
           this.setState(
             {
               messages: messages,
-              lastWAUserIndex,
               isLoading: false
             },
             () => {
@@ -280,11 +262,9 @@ class BotSection extends Component {
                 options: [],
                 intent: undefined
               });
-              let lastWAUserIndex = messages.length - 1;
               this.setState(
                 {
                   messages,
-                  lastWAUserIndex,
                   isLoading: false
                 },
                 this.scrollToBottom
@@ -317,15 +297,13 @@ class BotSection extends Component {
         this.isAgentPending = false;
         let data = response.data;
         let messages = this.state.messages;
-        let lastWAUserIndex = this.state.lastWAUserIndex;
         if (data) {
           messages.push({
             user: "AG",
             message: response.data
           });
-          lastWAUserIndex = messages.length - 1;
           this.setState(
-            { messages: messages, lastWAUserIndex, isLoading: false },
+            { messages: messages, isLoading: false },
             this.scrollToBottom
           );
         }
@@ -352,7 +330,6 @@ class BotSection extends Component {
     let shouldUpdate = true;
     if (data && Array.isArray(data)) {
       let messages = [...this.state.messages];
-      let lastWAUserIndex = this.state.lastWAUserIndex;
       let isSearchResponse = data.findIndex(x => x.response_type === "search");
       if (isSearchResponse && isSearchResponse === data.length - 1) {
         data = data.reverse();
@@ -366,14 +343,12 @@ class BotSection extends Component {
               data: x.results,
               type: "search-result"
             });
-            lastWAUserIndex = messages.length - 1;
           } else {
             messages.push({
               user: "WA",
               message: "I didn't understand. Please try again",
               type: "text"
             });
-            lastWAUserIndex = messages.length - 1;
           }
         } else if (x.response_type === "suggestion") {
           if (
@@ -414,7 +389,6 @@ class BotSection extends Component {
           if (x.text && x.text === MEETING_MSG) {
             messages.push({ user: "ME", message: "", type: "callback_form" });
           }
-          lastWAUserIndex = messages.length - 1;
         } else if (x.response_type === "image") {
           messages.push({
             user: "WA",
@@ -430,7 +404,6 @@ class BotSection extends Component {
         this.setState(
           {
             messages,
-            lastWAUserIndex,
             isLoading: false
           },
           this.scrollToBottom
@@ -582,7 +555,6 @@ class BotSection extends Component {
       let data = message;
       let session_id = localStorage.getItem("demoWASessionId");
       let messages = [...this.state.messages];
-      let lastWAUserIndex = this.state.lastWAUserIndex;
       if (data.success === undefined) {
         if (!session_id || session_id === data.session_id) {
           localStorage.setItem("demoWASessionId", data.session_id);
@@ -595,7 +567,6 @@ class BotSection extends Component {
                   type: x.options ? "options" : "text",
                   options: x.options || []
                 });
-                lastWAUserIndex = messages.length - 1;
               }
             });
           }
@@ -607,7 +578,6 @@ class BotSection extends Component {
               user: data.type === "user" ? "US" : "WA",
               message: data.message
             });
-            lastWAUserIndex = messages.length - 1;
           }
         }
       }
@@ -615,7 +585,6 @@ class BotSection extends Component {
         {
           messages,
           msg: "",
-          lastWAUserIndex,
           isLoading: false
         },
         this.scrollToBottom
@@ -676,12 +645,10 @@ class BotSection extends Component {
     }
   };
 
-  getChatUiByType = (data, index) => {
+  getChatUiByType = (data, index, lastWAIndex) => {
     switch (data.type) {
       case "location":
-        return (
-          <ChatLocation isLastWAUser={index === this.state.lastWAUserIndex} />
-        );
+        return <ChatLocation isLastWAUser={index === lastWAIndex} />;
       case "image":
         return (
           <div className="chat-location">
@@ -708,15 +675,12 @@ class BotSection extends Component {
             {data.data && data.data.length > 0 ? (
               <DiscoverySearchResults
                 data={data}
-                isLastWAUser={index === this.state.lastWAUserIndex}
+                isLastWAUser={index === lastWAIndex}
               />
             ) : (
               <React.Fragment>
                 <ChatPill
-                  isLastWAUser={
-                    index === this.state.lastWAUserIndex &&
-                    !this.state.isLoading
-                  }
+                  isLastWAUser={index === lastWAIndex && !this.state.isLoading}
                   right={data.user === "ME"}
                   user={data.user}
                   text=""
@@ -730,9 +694,7 @@ class BotSection extends Component {
           <React.Fragment>
             {data.message && (
               <ChatPill
-                isLastWAUser={
-                  index === this.state.lastWAUserIndex && !this.state.isLoading
-                }
+                isLastWAUser={index === lastWAIndex && !this.state.isLoading}
                 right={data.user === "ME"}
                 user={data.user}
                 text={data.message}
@@ -751,6 +713,19 @@ class BotSection extends Component {
   };
 
   render() {
+    let messages = [...this.state.messages];
+
+    let lastWAIndex = messages
+      .slice()
+      .reverse()
+      .findIndex(
+        x =>
+          ["WA", "AG"].indexOf(x.user) > -1 && x.message && x.message.length > 0
+      );
+    if (lastWAIndex > -1) {
+      lastWAIndex = messages.length - lastWAIndex - 1;
+    }
+    console.log("lastWAIndex", lastWAIndex);
     return (
       <section className="bot">
         <div onClick={this.props.toggle} className="bot-menu-btn right">
@@ -787,7 +762,7 @@ class BotSection extends Component {
               >
                 {this.state.messages.map((x, i) => (
                   <div key={i}>
-                    {this.getChatUiByType(x, i)}
+                    {this.getChatUiByType(x, i, lastWAIndex)}
                     {i === this.state.messages.length - 1 &&
                       x.type === "options" && (
                         <div className="options-container">
