@@ -82,6 +82,57 @@ class WatsonDiscovery extends Component {
       linkId: ""
     };
   }
+  componentDidMount = () => {
+    if (window.location.hash.length > 0) {
+      let hash = window.location.hash.split("#")[1];
+      let activeIndex = 0;
+      let itemIndex = 0;
+      switch (hash) {
+        case "watson-discovery-design":
+          activeIndex = 0;
+          itemIndex = 0;
+          break;
+        case "watson-discovery-development":
+          activeIndex = 1;
+          itemIndex = 1;
+          break;
+        case "enrich-development":
+          activeIndex = 1;
+          itemIndex = 2;
+          break;
+        case "smart-document":
+          activeIndex = 1;
+          itemIndex = 3;
+          break;
+        case "query-relevancy":
+          activeIndex = 1;
+          itemIndex = 4;
+          break;
+        default:
+          activeIndex = 0;
+          itemIndex = 0;
+          hash = "watson-discovery-design";
+          break;
+      }
+      this.setState(
+        {
+          activeIndex,
+          menuItems: Menu(
+            discoverySubItems.slice(0, discoverySubItems.length),
+            itemIndex
+          ),
+          linkId: hash
+        },
+        () => {
+          setTimeout(() => {
+            document.getElementById("custom-react-link-discovery").click();
+            scroll.scrollMore(-100);
+          }, 500);
+        }
+      );
+    }
+  };
+
   handleChange = index => {
     this.setState({ activeIndex: index });
   };
@@ -92,17 +143,39 @@ class WatsonDiscovery extends Component {
         discoverySubItems.slice(0, discoverySubItems.length),
         Number(key)
       );
-      this.setState({
-        activeIndex: activeIndex,
-        menuItems: menuItems
-      });
+      let linkId;
+      switch (Number(key)) {
+        case 0:
+          linkId = "watson-discovery-design";
+          break;
+        case 1:
+          linkId = "watson-discovery-development";
+          break;
+        default:
+          linkId = "watson-discovery-design";
+          break;
+      }
+      this.setState(
+        {
+          activeIndex: activeIndex,
+          menuItems: menuItems,
+          linkId
+        },
+        () => {
+          setTimeout(() => {
+            document.getElementById("custom-react-link-discovery").click();
+            window.location.hash = linkId;
+            scroll.scrollMore(-100);
+          });
+        }
+      );
     } else {
       let activeIndex = 1;
       let menuItems = Menu(
         discoverySubItems.slice(0, discoverySubItems.length),
         Number(key)
       );
-      let linkId = "enrich-development";
+      let linkId;
       switch (Number(key)) {
         case 2:
           linkId = "enrich-development";
@@ -127,6 +200,7 @@ class WatsonDiscovery extends Component {
         () => {
           setTimeout(() => {
             document.getElementById("custom-react-link-discovery").click();
+            window.location.hash = linkId;
             scroll.scrollMore(-100);
           }, 500);
         }
@@ -250,7 +324,7 @@ class WatsonDiscovery extends Component {
               {this.state.activeIndex === 0 && (
                 <Container>
                   <Row>
-                    <Col>
+                    <Col id="watson-discovery-design">
                       <h4 className="text-uppercase">
                         <b className="color-grey">
                           Watson Discovery Design Services
@@ -326,7 +400,7 @@ class WatsonDiscovery extends Component {
               {this.state.activeIndex === 1 && (
                 <Container>
                   <Row>
-                    <Col>
+                    <Col id="watson-discovery-development">
                       <h4 className="text-uppercase">
                         <b className="color-grey">
                           Watson Discovery Development Services

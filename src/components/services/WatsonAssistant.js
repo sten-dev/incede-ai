@@ -80,6 +80,57 @@ class WatsonAssistant extends Component {
       linkId: ""
     };
   }
+  componentDidMount = () => {
+    if (window.location.hash.length > 0) {
+      let hash = window.location.hash.split("#")[1];
+      let activeIndex = 0;
+      let itemIndex = 0;
+      switch (hash) {
+        case "watson-assistant-design":
+          activeIndex = 0;
+          itemIndex = 0;
+          break;
+        case "watson-assistant-development":
+          activeIndex = 1;
+          itemIndex = 1;
+          break;
+        case "channel-development":
+          activeIndex = 1;
+          itemIndex = 2;
+          break;
+        case "integration-development":
+          activeIndex = 1;
+          itemIndex = 3;
+          break;
+        case "solution-training":
+          activeIndex = 1;
+          itemIndex = 4;
+          break;
+        default:
+          activeIndex = 0;
+          itemIndex = 0;
+          hash = "watson-assistant-design";
+          break;
+      }
+      this.setState(
+        {
+          activeIndex,
+          menuItems: Menu(
+            assistantSubItems.slice(0, assistantSubItems.length),
+            itemIndex
+          ),
+          linkId: hash
+        },
+        () => {
+          setTimeout(() => {
+            document.getElementById("custom-react-link").click();
+            scroll.scrollMore(-100);
+          }, 500);
+        }
+      );
+    }
+  };
+
   handleChange = index => {
     this.setState({ activeIndex: index });
   };
@@ -90,17 +141,39 @@ class WatsonAssistant extends Component {
         assistantSubItems.slice(0, assistantSubItems.length),
         Number(key)
       );
-      this.setState({
-        activeIndex: activeIndex,
-        menuItems: menuItems
-      });
+      let linkId;
+      switch (Number(key)) {
+        case 0:
+          linkId = "watson-assistant-design";
+          break;
+        case 1:
+          linkId = "watson-assistant-development";
+          break;
+        default:
+          linkId = "watson-assistant-design";
+          break;
+      }
+      this.setState(
+        {
+          activeIndex: activeIndex,
+          menuItems: menuItems,
+          linkId
+        },
+        () => {
+          setTimeout(() => {
+            document.getElementById("custom-react-link").click();
+            window.location.hash = linkId;
+            scroll.scrollMore(-100);
+          });
+        }
+      );
     } else {
       let activeIndex = 1;
       let menuItems = Menu(
         assistantSubItems.slice(0, assistantSubItems.length),
         Number(key)
       );
-      let linkId = "channel-development";
+      let linkId;
       switch (Number(key)) {
         case 2:
           linkId = "channel-development";
@@ -125,6 +198,7 @@ class WatsonAssistant extends Component {
         () => {
           setTimeout(() => {
             document.getElementById("custom-react-link").click();
+            window.location.hash = linkId;
             scroll.scrollMore(-100);
           }, 500);
         }
@@ -235,7 +309,7 @@ class WatsonAssistant extends Component {
               {this.state.activeIndex === 0 && (
                 <Container>
                   <Row>
-                    <Col>
+                    <Col id="watson-assistant-design">
                       <h4 className="text-uppercase">
                         <b className="color-grey">
                           Watson Assistant Design Services
@@ -308,7 +382,7 @@ class WatsonAssistant extends Component {
               {this.state.activeIndex === 1 && (
                 <Container>
                   <Row>
-                    <Col>
+                    <Col id="watson-assistant-development">
                       <h4 className="text-uppercase">
                         <b className="color-grey">
                           Watson Assistant Development Services
