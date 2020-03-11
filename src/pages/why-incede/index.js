@@ -130,8 +130,8 @@ class WhyIncede extends Component {
         () => {
           setTimeout(() => {
             document.getElementById("custom-react-link-why-incede").click();
-            scroll.scrollMore(-80);
-          }, 100);
+            scroll.scrollMore(-300);
+          }, 500);
         }
       );
     }
@@ -169,7 +169,7 @@ class WhyIncede extends Component {
         setTimeout(() => {
           document.getElementById("custom-react-link-why-incede").click();
           window.location.hash = linkId;
-          scroll.scrollMore(-120);
+          scroll.scrollMore(-350);
         });
       }
     );
