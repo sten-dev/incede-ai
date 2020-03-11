@@ -9,6 +9,7 @@ import ToneAnalyzer from "./wa-api-services/ToneAnalyzer";
 import VisualRecognition from "./wa-api-services/VisualRecognition";
 import LanguageTranslator from "./wa-api-services/LanguageTranslator";
 import ScrollMenu from "react-horizontal-scrolling-menu";
+import { Link, animateScroll as scroll } from "react-scroll";
 
 const apiSubItems = [
   {
@@ -85,15 +86,103 @@ class WatsonApi extends Component {
       translate: 0,
       transition: 0.3,
       wheel: false,
-      menuItems: Menu(apiSubItems.slice(0, apiSubItems.length), 0)
+      menuItems: Menu(apiSubItems.slice(0, apiSubItems.length), 0),
+      linkId: ""
     };
   }
 
+  componentDidMount = () => {
+    if (window.location.hash.length > 0) {
+      let hash = window.location.hash.split("#")[1];
+      let activeIndex = 0;
+      switch (hash) {
+        case "text-to-speech":
+          activeIndex = 0;
+          break;
+        case "speech-to-text":
+          activeIndex = 1;
+          break;
+        case "language-translator":
+          activeIndex = 2;
+          break;
+        case "natural-language":
+          activeIndex = 3;
+          break;
+        case "personality-insights":
+          activeIndex = 4;
+          break;
+        case "tone-analyzer":
+          activeIndex = 5;
+          break;
+        case "visual-recognition":
+          activeIndex = 6;
+          break;
+        default:
+          activeIndex = 0;
+          hash = "text-to-speech";
+          break;
+      }
+      this.setState(
+        {
+          activeIndex,
+          menuItems: Menu(
+            apiSubItems.slice(0, apiSubItems.length),
+            activeIndex
+          ),
+          linkId: hash
+        },
+        () => {
+          setTimeout(() => {
+            document.getElementById("custom-react-link-watson-api").click();
+            scroll.scrollMore(-80);
+          }, 100);
+        }
+      );
+    }
+  };
+
   onSelect = key => {
-    this.setState({
-      activeIndex: Number(key),
-      menuItems: Menu(apiSubItems.slice(0, apiSubItems.length), Number(key))
-    });
+    let linkId;
+    switch (Number(key)) {
+      case 0:
+        linkId = "text-to-speech";
+        break;
+      case 1:
+        linkId = "speech-to-text";
+        break;
+      case 2:
+        linkId = "language-translator";
+        break;
+      case 3:
+        linkId = "natural-language";
+        break;
+      case 4:
+        linkId = "personality-insights";
+        break;
+      case 5:
+        linkId = "tone-analyzer";
+        break;
+      case 6:
+        linkId = "visual-recognition";
+        break;
+      default:
+        linkId = "text-to-speech";
+        break;
+    }
+    this.setState(
+      {
+        activeIndex: Number(key),
+        menuItems: Menu(apiSubItems.slice(0, apiSubItems.length), Number(key)),
+        linkId
+      },
+      () => {
+        setTimeout(() => {
+          document.getElementById("custom-react-link-watson-api").click();
+          window.location.hash = linkId;
+          scroll.scrollMore(-120);
+        });
+      }
+    );
   };
   handleChange = index => {
     this.setState({ activeIndex: index });
@@ -109,6 +198,11 @@ class WatsonApi extends Component {
                 <h1 className="title text-primary text-uppercase">
                   <b>Watson API Services</b>
                 </h1>
+                <Link
+                  id="custom-react-link-watson-api"
+                  to={this.state.linkId}
+                  className="d-none"
+                />
                 <p>
                   <b className="text-grey">
                     When competitive advantage requires custom AI applications,
