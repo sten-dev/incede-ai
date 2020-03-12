@@ -226,6 +226,7 @@ section {
   a {
     font-weight: bold !important;
     text-decoration: underline;
+    font-style: italic;
   }
   &.is-last-wa-user {
     img {
@@ -237,6 +238,7 @@ section {
 h5.list-group-item-heading {
   a {
     font-weight: 400 !important;
+    font-style: normal !important;
   }
 }
 .options-container {
