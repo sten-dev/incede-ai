@@ -5,20 +5,14 @@ import "../../styles/what-we-do.scss";
 import { Container, Row, Col } from "reactstrap";
 import ServicesSmallCardsList from "../services/ServicesSmallCardsList";
 import ServicesSmallCardBody from "../services/ServicesSmallCardBody";
-import { Link, animateScroll as scroll } from "react-scroll";
 
 class Services extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { activeIndex: 0, linkId: "services-id" };
+    this.state = { activeIndex: 0 };
   }
   handleChange = index => {
-    this.setState({ activeIndex: index }, () => {
-      setTimeout(() => {
-        document.getElementById("custom-react-link-services").click();
-        scroll.scrollMore(-150);
-      });
-    });
+    this.setState({ activeIndex: index });
   };
   render() {
     const { data } = this.props;
@@ -64,12 +58,7 @@ class Services extends React.Component {
       }
     ];
     return (
-      <section className="services" id="services-id">
-        <Link
-          id="custom-react-link-services"
-          to={this.state.linkId}
-          className="d-none"
-        />
+      <section className="services">
         <Container>
           <Row className="wwd-list">
             {services.map((x, i) => {

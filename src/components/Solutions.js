@@ -6,20 +6,14 @@ import { Container, Row, Col } from "reactstrap";
 // import SolutionView from "./Solutions/SolutionView";
 import SolutionsSmallCardsList from "./Solutions/SolutionsSmallCardsList";
 import SolutionsSmallCardBody from "./Solutions/SolutionsSmallCardBody";
-import { Link, animateScroll as scroll } from "react-scroll";
 
 class Solutions extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { activeIndex: 0, linkId: "solutions-id" };
+    this.state = { activeIndex: 0 };
   }
   handleChange = index => {
-    this.setState({ activeIndex: index }, () => {
-      setTimeout(() => {
-        document.getElementById("custom-react-link-solutions").click();
-        scroll.scrollMore(-150);
-      });
-    });
+    this.setState({ activeIndex: index });
   };
   render() {
     const { data } = this.props;
@@ -83,12 +77,7 @@ class Solutions extends React.Component {
     ];
 
     return (
-      <section className="solutions" id="solutions-id">
-        <Link
-          id="custom-react-link-solutions"
-          to={this.state.linkId}
-          className="d-none"
-        />
+      <section className="solutions">
         <Container>
           <Row className="wwd-list">
             {solutions.map((x, i) => {
