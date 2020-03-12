@@ -21,7 +21,7 @@ class ITService extends Component {
                 <p>
                   Designed to automate parts of the service desk and to
                   effectively solve IT problems more quickly. These solutions
-                  provides answers to product questions, return and exchange
+                  provide answers to product questions, return and exchange
                   policies, damaged in shipping claims and credit card disputes.
                 </p>
                 <br />
@@ -30,20 +30,20 @@ class ITService extends Component {
                 </p>
                 <ul>
                   <li>
-                    <p>Automate onboarding, offboarding tasks for employees</p>
+                    <p>Automate onboarding, offboarding tasks for employees.</p>
                   </li>
                   <li>
                     <p>Provide troubleshooting and suggestions to problems.</p>
                   </li>
                   <li>
                     <p>
-                      Validate problem tickets contain relevant, required
+                      Validate problem tickets containing relevant, required
                       information.
                     </p>
                   </li>
                   <li>
                     <p>
-                      Augment suggestions with AI to recommend most-helpful
+                      Augment suggestions with AI to recommend the most helpful
                       answers and resources.
                     </p>
                   </li>

@@ -129,12 +129,11 @@ class WatsonApi extends Component {
             apiSubItems.slice(0, apiSubItems.length),
             activeIndex
           ),
-          linkId: hash
+          linkId: "watson-api-id"
         },
         () => {
           setTimeout(() => {
             document.getElementById("custom-react-link-watson-api").click();
-            scroll.scrollMore(-340);
           }, 500);
         }
       );
@@ -173,13 +172,12 @@ class WatsonApi extends Component {
       {
         activeIndex: Number(key),
         menuItems: Menu(apiSubItems.slice(0, apiSubItems.length), Number(key)),
-        linkId
+        linkId: "watson-api-id"
       },
       () => {
         setTimeout(() => {
           document.getElementById("custom-react-link-watson-api").click();
-          window.location.hash = linkId;
-          scroll.scrollMore(-350);
+          window.history.pushState("", "", `/services/watson-api#${linkId}`);
         });
       }
     );
@@ -194,7 +192,7 @@ class WatsonApi extends Component {
         <Container>
           <Row>
             <Col xs={12}>
-              <div className="content">
+              <div className="content pb-5">
                 <h1 className="title text-primary text-uppercase">
                   <b>Watson API Services</b>
                 </h1>
@@ -202,6 +200,7 @@ class WatsonApi extends Component {
                   id="custom-react-link-watson-api"
                   to={this.state.linkId}
                   className="d-none"
+                  smooth={true}
                 />
                 <p>
                   <b className="text-grey">
@@ -220,6 +219,7 @@ class WatsonApi extends Component {
                   specifics about their photo – in their preferred language,
                   including voice.
                 </p>
+                <p id="watson-api-id" className="pt-2"></p>
               </div>
             </Col>
           </Row>

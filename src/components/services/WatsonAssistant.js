@@ -119,26 +119,18 @@ class WatsonAssistant extends Component {
             assistantSubItems.slice(0, assistantSubItems.length),
             itemIndex
           ),
-          linkId: hash
+          linkId:
+            hash === "watson-assistant-design" ||
+            hash === "watson-assistant-development"
+              ? "watson-assistant-id"
+              : window.innerWidth >= 576
+              ? hash + "-sm"
+              : hash + "-xs"
         },
         () => {
-          setTimeout(
-            () => {
-              document.getElementById("custom-react-link").click();
-              if (
-                hash === "watson-assistant-design" ||
-                hash === "watson-assistant-development"
-              ) {
-                scroll.scrollMore(-350);
-              } else {
-                scroll.scrollMore(-100);
-              }
-            },
-            hash === "watson-assistant-design" ||
-              hash === "watson-assistant-development"
-              ? 500
-              : 1000
-          );
+          setTimeout(() => {
+            document.getElementById("custom-react-link").click();
+          }, 1000);
         }
       );
     }
@@ -170,13 +162,16 @@ class WatsonAssistant extends Component {
         {
           activeIndex: activeIndex,
           menuItems: menuItems,
-          linkId
+          linkId: "watson-assistant-id"
         },
         () => {
           setTimeout(() => {
             document.getElementById("custom-react-link").click();
-            window.location.hash = linkId;
-            scroll.scrollMore(-350);
+            window.history.pushState(
+              "",
+              "",
+              `/services/watson-assistant-services#${linkId}`
+            );
           });
         }
       );
@@ -206,13 +201,16 @@ class WatsonAssistant extends Component {
         {
           activeIndex: activeIndex,
           menuItems: menuItems,
-          linkId
+          linkId: window.innerWidth >= 576 ? linkId + "-sm" : linkId + "-xs"
         },
         () => {
           setTimeout(() => {
             document.getElementById("custom-react-link").click();
-            window.location.hash = linkId;
-            scroll.scrollMore(-100);
+            window.history.pushState(
+              "",
+              "",
+              `/services/watson-assistant-services#${linkId}`
+            );
           }, 1000);
         }
       );
@@ -226,12 +224,14 @@ class WatsonAssistant extends Component {
           <Row>
             <Col xs={12}>
               <div className="content">
+                <p id="watson-assistant-id" className="pt-2"></p>
                 <h1 className="title text-primary text-uppercase">
                   <b>Watson Assistant Services</b>
                   <Link
                     id="custom-react-link"
                     to={this.state.linkId}
                     className="d-none"
+                    smooth={true}
                   />
                 </h1>
               </div>
@@ -322,7 +322,7 @@ class WatsonAssistant extends Component {
               {this.state.activeIndex === 0 && (
                 <Container>
                   <Row>
-                    <Col id="watson-assistant-design">
+                    <Col>
                       <h4 className="text-uppercase">
                         <b className="color-grey">
                           Watson Assistant Design Services
@@ -331,13 +331,13 @@ class WatsonAssistant extends Component {
 
                       <div className="content">
                         <p>
-                          Key to a successful deployments designing a solution
-                          that is tailored to your needs while delivering the
-                          user experience you intend.Incede develops a phased
-                          Conversational AI Design for a solution that meets
-                          your UX, technology and strategic priorities while
-                          reducing risk and delivering the necessary business
-                          value.
+                          The key to successful deployments is designing a
+                          solution that is tailored to your needs while
+                          delivering the user experience you intend. Incede
+                          develops a phased Conversational AI Design for a
+                          solution that meets your UX, technology and strategic
+                          priorities while reducing risk and delivering the
+                          necessary business value.
                         </p>
                         <p>
                           We assess points of contact between the users and the
@@ -395,7 +395,7 @@ class WatsonAssistant extends Component {
               {this.state.activeIndex === 1 && (
                 <Container>
                   <Row>
-                    <Col id="watson-assistant-development">
+                    <Col>
                       <h4 className="text-uppercase">
                         <b className="color-grey">
                           Watson Assistant Development Services
@@ -404,7 +404,7 @@ class WatsonAssistant extends Component {
 
                       <div className="content">
                         <p>
-                          Incede provides experienced, high-quality end-to-end
+                          Incede provides experienced, high-quality, end-to-end
                           development capabilities required to create and deploy
                           conversational AI solutions.
                         </p>
@@ -429,13 +429,13 @@ class WatsonAssistant extends Component {
                           </li>
                           <li>
                             <p>
-                              Optimized relevancy training to improves user’s
+                              Optimized relevancy training to improves users
                               trust in answers.
                             </p>
                           </li>
                           <li>
                             <p>
-                              Best practices based development for greater
+                              Best-practices based development for greater
                               sustainability.
                             </p>
                           </li>
@@ -466,13 +466,13 @@ class WatsonAssistant extends Component {
                   <br />
                   <br />
                   <Row>
-                    <Col xs={12}>
+                    <Col xs={12} className="py-2">
                       <h4 className="mb-0">
                         <b className="color-grey">
                           User Interface Development Services
                         </b>
                       </h4>
-                      <div className="content">
+                      <div className="content py-3 p-sm-0">
                         <p>
                           It accommodates user interactions via text and voice
                           and integrates capabilities such as translations and
@@ -480,29 +480,37 @@ class WatsonAssistant extends Component {
                         </p>
                       </div>
                     </Col>
-                    <Col xs={12}>
+                    <Col xs={12} className="py-2">
                       <h4 className="mb-0">
                         <b className="color-grey">
                           Context Development Services
                         </b>
                       </h4>
-                      <div className="content">
+                      <div className="content py-3 p-sm-0">
+                        <p
+                          id="integration-development-sm"
+                          className="d-none d-sm-block"
+                        ></p>
                         <p>
                           These are the implementation of the solution’s ability
                           to successfully match user inquiries with planned
-                          intents. For those intents, develop the supporting
-                          conversational dialogs of responses, triggers and
-                          decision trees
+                          intents. For those intents, this service will develop
+                          supporting conversational dialogs of responses,
+                          triggers and decision trees.
                         </p>
+                        <p
+                          id="integration-development-xs"
+                          className="d-sm-none pt-3"
+                        ></p>
                       </div>
                     </Col>
-                    <Col xs={12} id="integration-development">
+                    <Col xs={12} className="py-2">
                       <h4 className="mb-0">
                         <b className="color-grey">
                           Integration Development Services
                         </b>
                       </h4>
-                      <div className="content">
+                      <div className="content py-3 p-sm-0">
                         <p>
                           They expand available context through back-end systems
                           for security, data or enterprise AI search of
@@ -510,28 +518,36 @@ class WatsonAssistant extends Component {
                         </p>
                       </div>
                     </Col>
-                    <Col xs={12}>
+                    <Col xs={12} className="py-2">
                       <h4 className="mb-0">
                         <b className="color-grey">
                           Pre-Processing Development Services
                         </b>
                       </h4>
-                      <div className="content">
+                      <div className="content py-3 p-sm-0">
+                        <p
+                          id="channel-development-sm"
+                          className="d-none d-sm-block"
+                        ></p>
                         <p>
                           Minimizes false negatives and false positives with a
                           pre-processing pipeline to handle common errors with
                           dependency parsing, lemmatization and parts of speech
                           checking.
                         </p>
+                        <p
+                          id="channel-development-xs"
+                          className="d-sm-none pt-3"
+                        ></p>
                       </div>
                     </Col>
-                    <Col xs={12} id="channel-development">
+                    <Col xs={12} className="py-2">
                       <h4 className="mb-0">
                         <b className="color-grey">
                           Channel Development Services
                         </b>
                       </h4>
-                      <div className="content">
+                      <div className="content py-3 p-sm-0">
                         <p>
                           Integrate multi-channel deployments on mobile and web
                           with integrations to Facebook, Slack, Alexa, Google
@@ -540,25 +556,33 @@ class WatsonAssistant extends Component {
                         </p>
                       </div>
                     </Col>
-                    <Col xs={12}>
+                    <Col xs={12} className="py-2">
                       <h4 className="mb-0">
                         <b className="color-grey">
                           Exception Handling Services
                         </b>
                       </h4>
-                      <div className="content">
+                      <div className="content py-3 p-sm-0">
+                        <p
+                          id="solution-training-sm"
+                          className="d-none d-sm-block"
+                        ></p>
                         <p>
                           Identifies and models outliners and escalations to
                           ensure the routing of requests that are not understood
                           or poorly understood.
                         </p>
+                        <p
+                          id="solution-training-xs"
+                          className="d-sm-none pt-3"
+                        ></p>
                       </div>
                     </Col>
-                    <Col xs={12} id="solution-training">
+                    <Col xs={12} className="py-2">
                       <h4 className="mb-0">
                         <b className="color-grey">Solution Training Services</b>
                       </h4>
-                      <div className="content">
+                      <div className="content py-3 p-sm-0">
                         <p>
                           Applies initial and re-training of the solution to
                           parse, identify languages and various categories such
@@ -567,11 +591,11 @@ class WatsonAssistant extends Component {
                         </p>
                       </div>
                     </Col>
-                    <Col xs={12}>
+                    <Col xs={12} className="py-2">
                       <h4 className="mb-0">
                         <b className="color-grey">Deployment Services</b>
                       </h4>
-                      <div className="content">
+                      <div className="content py-3 p-sm-0">
                         <p>
                           Deploy solutions on either cloud or on-premise and
                           utilize microservices and REST-based architectures for
@@ -579,13 +603,13 @@ class WatsonAssistant extends Component {
                         </p>
                       </div>
                     </Col>
-                    <Col xs={12}>
+                    <Col xs={12} className="py-2">
                       <h4 className="mb-0">
                         <b className="color-grey">
                           Post-Production Support Services
                         </b>
                       </h4>
-                      <div className="content">
+                      <div className="content py-3 p-sm-0">
                         <p>
                           These are ongoing support and monitoring for live
                           services, including ongoing optimization of the

@@ -5,20 +5,14 @@ import "../../styles/what-we-do.scss";
 import { Container, Row, Col } from "reactstrap";
 import ServicesSmallCardsList from "../services/ServicesSmallCardsList";
 import ServicesSmallCardBody from "../services/ServicesSmallCardBody";
-import { Link, animateScroll as scroll } from "react-scroll";
 
 class Services extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { activeIndex: 0, linkId: "services-id" };
+    this.state = { activeIndex: 0 };
   }
   handleChange = index => {
-    this.setState({ activeIndex: index }, () => {
-      setTimeout(() => {
-        document.getElementById("custom-react-link-services").click();
-        scroll.scrollMore(-150);
-      });
-    });
+    this.setState({ activeIndex: index });
   };
   render() {
     const { data } = this.props;
@@ -30,7 +24,7 @@ class Services extends React.Component {
           title: "Watson Assistant Services",
           subTitle: "",
           mainContext:
-            "Incede has deep experience in helping organizations utilize conversational AI for a competitive advantage in their product and services strategies.",
+            "Incede has extensive experience in helping organizations utilize conversational AI for a competitive advantage in their product and services strategies.",
           sideContext:
             "A phased approach to develop, train and deploy Watson Assistant quickly and efficiently.Integration expertise to extend dialogs with structured and unstructured content.User interface best practices for channel interactions  ."
         },
@@ -58,18 +52,13 @@ class Services extends React.Component {
           mainContext:
             "Incede utilizes Watson API Services to extend application capabilities and provide multifaceted insights on users, data and interactions.",
           sideContext:
-            "Experience to know when, why and how to surface user personality traits, emotion and tone.Best practices for integrating text to speech and speech to text in applications, interactions and data.Optimized deep learning models to utilize Industry- and Organizational-specific vocabularies, phrases and terms."
+            "Experience to know when, why and how to surface user personality traits, emotion and tone.Best practices for integrating text to speech and speech to text in applications, interactions and data.Optimized deep learning models to utilize industry and organizational specific vocabularies, phrases and terms."
         },
         path: "/services/watson-api"
       }
     ];
     return (
-      <section className="services" id="services-id">
-        <Link
-          id="custom-react-link-services"
-          to={this.state.linkId}
-          className="d-none"
-        />
+      <section className="services">
         <Container>
           <Row className="wwd-list">
             {services.map((x, i) => {

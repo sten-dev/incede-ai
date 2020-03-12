@@ -121,26 +121,18 @@ class WatsonDiscovery extends Component {
             discoverySubItems.slice(0, discoverySubItems.length),
             itemIndex
           ),
-          linkId: hash
+          linkId:
+            hash === "watson-assistant-design" ||
+            hash === "watson-assistant-development"
+              ? "watson-discovery-id"
+              : window.innerWidth >= 576
+              ? hash + "-sm"
+              : hash + "-xs"
         },
         () => {
-          setTimeout(
-            () => {
-              document.getElementById("custom-react-link-discovery").click();
-              if (
-                hash === "watson-discovery-design" ||
-                hash === "watson-discovery-development"
-              ) {
-                scroll.scrollMore(-350);
-              } else {
-                scroll.scrollMore(-100);
-              }
-            },
-            hash === "watson-discovery-design" ||
-              hash === "watson-discovery-development"
-              ? 500
-              : 1000
-          );
+          setTimeout(() => {
+            document.getElementById("custom-react-link-discovery").click();
+          }, 1000);
         }
       );
     }
@@ -172,13 +164,16 @@ class WatsonDiscovery extends Component {
         {
           activeIndex: activeIndex,
           menuItems: menuItems,
-          linkId
+          linkId: "watson-discovery-id"
         },
         () => {
           setTimeout(() => {
             document.getElementById("custom-react-link-discovery").click();
-            window.location.hash = linkId;
-            scroll.scrollMore(-350);
+            window.history.pushState(
+              "",
+              "",
+              `/services/watson-discovery-services#${linkId}`
+            );
           });
         }
       );
@@ -208,13 +203,16 @@ class WatsonDiscovery extends Component {
         {
           activeIndex: activeIndex,
           menuItems: menuItems,
-          linkId
+          linkId: window.innerWidth >= 576 ? linkId + "-sm" : linkId + "-xs"
         },
         () => {
           setTimeout(() => {
             document.getElementById("custom-react-link-discovery").click();
-            window.location.hash = linkId;
-            scroll.scrollMore(-100);
+            window.history.pushState(
+              "",
+              "",
+              `/services/watson-discovery-services#${linkId}`
+            );
           }, 1000);
         }
       );
@@ -228,12 +226,14 @@ class WatsonDiscovery extends Component {
           <Row>
             <Col xs={12}>
               <div className="content">
+                <p id="watson-discovery-id" className="pt-2"></p>
                 <h1 className="title text-primary text-uppercase">
                   <b>Watson Discovery Services</b>
                   <Link
                     id="custom-react-link-discovery"
                     to={this.state.linkId}
                     className="d-none"
+                    smooth={true}
                   />
                 </h1>
               </div>
@@ -337,7 +337,7 @@ class WatsonDiscovery extends Component {
               {this.state.activeIndex === 0 && (
                 <Container>
                   <Row>
-                    <Col id="watson-discovery-design">
+                    <Col>
                       <h4 className="text-uppercase">
                         <b className="color-grey">
                           Watson Discovery Design Services
@@ -413,7 +413,7 @@ class WatsonDiscovery extends Component {
               {this.state.activeIndex === 1 && (
                 <Container>
                   <Row>
-                    <Col id="watson-discovery-development">
+                    <Col>
                       <h4 className="text-uppercase">
                         <b className="color-grey">
                           Watson Discovery Development Services
@@ -472,13 +472,17 @@ class WatsonDiscovery extends Component {
                   <br />
                   <br />
                   <Row>
-                    <Col xs={12}>
+                    <Col xs={12} className="py-2">
                       <h4 className="mb-0">
                         <b className="color-grey">
                           Ingest and Normalize Development Services
                         </b>
                       </h4>
-                      <div className="content">
+                      <div className="content py-3 p-sm-0">
+                        <p
+                          id="enrich-development-sm"
+                          className="d-none d-sm-block"
+                        ></p>
                         <p>
                           Brings in the structured and unstructured data from
                           internal, external and/or public sources such as Box,
@@ -487,15 +491,19 @@ class WatsonDiscovery extends Component {
                           documents such as pdf, MS Word, MS PowerPoint, MS
                           Excel, HTML and even scanned images are included.
                         </p>
+                        <p
+                          id="enrich-development-xs"
+                          className="d-sm-none pt-3"
+                        ></p>
                       </div>
                     </Col>
-                    <Col xs={12} id="enrich-development">
+                    <Col xs={12} className="py-2">
                       <h4 className="mb-0">
                         <b className="color-grey">
                           Enrichment Development Services
                         </b>
                       </h4>
-                      <div className="content">
+                      <div className="content py-3 p-sm-0">
                         <p>
                           Applies the understanding of what data is being
                           brought into the enterprise search and search AI
@@ -506,13 +514,17 @@ class WatsonDiscovery extends Component {
                         </p>
                       </div>
                     </Col>
-                    <Col xs={12}>
+                    <Col xs={12} className="py-2">
                       <h4 className="mb-0">
                         <b className="color-grey">
                           Advanced Enrichment Development Services
                         </b>
                       </h4>
-                      <div className="content">
+                      <div className="content py-3 p-sm-0">
+                        <p
+                          id="smart-document-sm"
+                          className="d-none d-sm-block"
+                        ></p>
                         <p>
                           Applies custom or specialized natural language
                           enrichments using IBM Watson Knowledge Studio to
@@ -521,15 +533,23 @@ class WatsonDiscovery extends Component {
                           for complex content such as images and tables to
                           improve the relevancy of answers.
                         </p>
+                        <p
+                          id="smart-document-xs"
+                          className="d-sm-none pt-3"
+                        ></p>
                       </div>
                     </Col>
-                    <Col xs={12} id="smart-document">
+                    <Col xs={12} className="py-2">
                       <h4 className="mb-0">
                         <b className="color-grey">
                           Smart Document Development Services
                         </b>
                       </h4>
-                      <div className="content">
+                      <div className="content py-3 p-sm-0">
+                        <p
+                          id="query-relevancy-sm"
+                          className="d-none d-sm-block"
+                        ></p>
                         <p>
                           It is the process of teaching the solution, using
                           Smart Document Understand (SDU), how to understand the
@@ -538,15 +558,19 @@ class WatsonDiscovery extends Component {
                           training to ensure the system is ingesting other
                           documents in the collections.
                         </p>
+                        <p
+                          id="query-relevancy-xs"
+                          className="d-sm-none pt-3"
+                        ></p>
                       </div>
                     </Col>
-                    <Col xs={12} id="query-relevancy">
+                    <Col xs={12} className="py-2">
                       <h4 className="mb-0">
                         <b className="color-grey">
                           Query Relevancy Development Services
                         </b>
                       </h4>
-                      <div className="content">
+                      <div className="content py-3 p-sm-0">
                         <p>
                           Ranks relevancy and improves results through relevancy
                           training. Passages and user questions are analyzed for

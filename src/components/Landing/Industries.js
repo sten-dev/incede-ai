@@ -5,19 +5,13 @@ import "../../styles/what-we-do.scss";
 import { Container, Row, Col } from "reactstrap";
 import IndustrySmallCardsList from "./industry/IndustrySmallCardsList";
 import IndustrySmallCardBody from "./industry/IndustrySmallCardBody";
-import { Link, animateScroll as scroll } from "react-scroll";
 class Industries extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { activeIndex: 0, linkId: "industries-id" };
+    this.state = { activeIndex: 0 };
   }
   handleChange = index => {
-    this.setState({ activeIndex: index }, () => {
-      setTimeout(() => {
-        document.getElementById("custom-react-link-industries").click();
-        scroll.scrollMore(-150);
-      });
-    });
+    this.setState({ activeIndex: index });
   };
   render() {
     const { data } = this.props;
@@ -78,12 +72,7 @@ class Industries extends React.Component {
       }
     ];
     return (
-      <section className="industries" id="industries-id">
-        <Link
-          id="custom-react-link-industries"
-          to={this.state.linkId}
-          className="d-none"
-        />
+      <section className="industries">
         <Container>
           <Row className="wwd-list">
             {industries.map((x, i) => {

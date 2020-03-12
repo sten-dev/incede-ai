@@ -15,13 +15,12 @@ const LeaderShipTeam = props => {
             md={12}
             lg={8}
             className="d-flex align-items-center"
-            id="leadership-team"
           >
             <div>
               <h1 className="text-left heading">Trusted Leadership</h1>
               <h4 className="my-4">
                 A team of experienced thought leaders who inspire innovation and
-                commitment to customer success.
+                commitment to customer success
               </h4>
               <p className="sub-title">
                 Incede.ai is built ground-up by Locus Solutions, Inc.

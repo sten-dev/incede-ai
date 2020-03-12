@@ -125,12 +125,11 @@ class WhyIncede extends Component {
         {
           activeIndex,
           menuItems: Menu(subItems.slice(0, subItems.length), activeIndex),
-          linkId: hash
+          linkId: "business-terms"
         },
         () => {
           setTimeout(() => {
             document.getElementById("custom-react-link-why-incede").click();
-            scroll.scrollMore(-300);
           }, 500);
         }
       );
@@ -159,17 +158,17 @@ class WhyIncede extends Component {
         linkId = "business-terms";
         break;
     }
+    // linkId = "business-terms";
     this.setState(
       {
         activeIndex: Number(key),
         menuItems: Menu(subItems.slice(0, subItems.length), Number(key)),
-        linkId
+        linkId: "business-terms"
       },
       () => {
         setTimeout(() => {
+          window.history.pushState("", "", `/why-incede#${linkId}`);
           document.getElementById("custom-react-link-why-incede").click();
-          window.location.hash = linkId;
-          scroll.scrollMore(-350);
         });
       }
     );
@@ -186,7 +185,9 @@ class WhyIncede extends Component {
               id="custom-react-link-why-incede"
               to={this.state.linkId}
               className="d-none"
+              smooth={true}
             />
+
             <Container>
               <div className="section-tabs-container watson-api-scroll-container custom-services-img">
                 <ScrollMenu

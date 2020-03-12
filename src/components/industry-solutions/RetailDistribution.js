@@ -67,7 +67,7 @@ class RetailDistribution extends Component {
               <p className="content-body">
                 Brick and mortar stores are utilizing Watson Assistant to enable
                 customers to inquire, order and pay for products – anytime and
-                anywhere. The stores purpose is doubled from the traditional
+                anywhere. The store's purpose is doubled from the traditional
                 street business to a mobile customer’s distribution outlet.
               </p>
               <br />
