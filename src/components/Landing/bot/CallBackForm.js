@@ -61,9 +61,9 @@ class CallBackForm extends Component {
       this.setState({
         hasDetailsSubmitted: true,
         message:
-          "Your details have been submitted successfully. Our agent will contact you soon."
+          `Thank you <strong>${this.state.contactDetails.name}</strong>. Your request for meeting at <strong>${moment(this.state.contactDetails.date).format("DD MMM YYYY, HH:mm A")}</strong> with an Incede expert has been successfully submitted and we look forward to speaking with you`
       }, () => {
-        this.props.sendCustomMessage("show_interested_options", false)
+        this.props.sendCustomMessage("what does incede do", false)
       });
     } else {
       this.setState({
@@ -75,7 +75,7 @@ class CallBackForm extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="d-flex justify-content-end">
+        <div className={`d-flex ${this.state.hasDetailsSubmitted ? '' : 'justify-content-end'}`}>
           {this.state.hasDetailsSubmitted ? (
             <React.Fragment>
               <ChatPill

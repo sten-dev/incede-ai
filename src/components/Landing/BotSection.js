@@ -111,7 +111,7 @@ class BotSection extends Component {
       reconnectionDelayMax: 5000,
       reconnectionAttempts: 5
     });
-    this.socket.on("connect", function() {
+    this.socket.on("connect", function () {
       console.debug("connected to server");
     });
     let messages = [
@@ -147,8 +147,8 @@ class BotSection extends Component {
                     x.USER === "WATSON"
                       ? "WA"
                       : x.USER === "AGENT"
-                      ? "AG"
-                      : "ME",
+                        ? "AG"
+                        : "ME",
                   message: x.TEXT,
                   type: x.TYPE === "options" ? "options" : "text",
                   options: x.TYPE === "options" ? JSON.parse(x.OPTIONS) : [],
@@ -308,6 +308,13 @@ class BotSection extends Component {
           );
         }
       } else {
+        if (response && response.shouldAddToMessages && response.comment && response.comment.trim().length > 0) {
+          let messages = [...this.state.messages];
+          messages.push({ user: "ME", message: response.comment.trim(), type: "text" });
+          this.setState({
+            messages: messages
+          })
+        }
         console.warn(eventName, response);
       }
     });
@@ -340,7 +347,7 @@ class BotSection extends Component {
             messages.push({
               user: "WA",
               message: x.header,
-              data: x.results,
+              data: x.results.filter(x => x.title !== "Cookie Policy | Incede"),
               type: "search-result"
             });
           } else {
@@ -429,7 +436,7 @@ class BotSection extends Component {
         isDemo: false
       },
       () => {
-        this.sendCustomMessage("exit_demo", false);
+        this.sendCustomMessage("user_demo_exit_done", false);
       }
     );
     // }, 500);
@@ -548,7 +555,7 @@ class BotSection extends Component {
       reconnectionDelayMax: 5000,
       reconnectionAttempts: 5
     });
-    this.demoSocket.on("connect", function() {
+    this.demoSocket.on("connect", function () {
       console.debug("demo socket connected to server");
     });
     this.demoSocket.on("chat message", message => {
@@ -612,15 +619,17 @@ class BotSection extends Component {
     } else {
       data.demoProperty = demoProperty;
       data.type = this.state.isDemo === true ? "demo" : "chat";
+
+      data.shouldAddToMessages = shouldAddToMessages;
       if (!data.intent) {
         let lastMessage = this.state.messages[this.state.messages.length - 1];
         data.intent = lastMessage.message;
       }
       this.socket.emit(SOCKET_PATHS.CONNECT, data);
     }
-    if (shouldAddToMessages) {
-      messages.push({ user: "ME", message: message, type: "text" });
-    }
+    // if (shouldAddToMessages) {
+    //   messages.push({ user: "ME", message: message, type: "text" });
+    // }
     this.setState(
       {
         messages,
@@ -632,7 +641,7 @@ class BotSection extends Component {
   };
 
   scrollToBottom = () => {
-    setTimeout(function() {
+    setTimeout(function () {
       var objDiv = document.getElementById("messages_container");
       if (objDiv) {
         objDiv.scrollTop = objDiv.scrollHeight;
@@ -678,15 +687,15 @@ class BotSection extends Component {
                 isLastWAUser={index === lastWAIndex}
               />
             ) : (
-              <React.Fragment>
-                <ChatPill
-                  isLastWAUser={index === lastWAIndex && !this.state.isLoading}
-                  right={data.user === "ME"}
-                  user={data.user}
-                  text=""
-                />
-              </React.Fragment>
-            )}
+                <React.Fragment>
+                  <ChatPill
+                    isLastWAUser={index === lastWAIndex && !this.state.isLoading}
+                    right={data.user === "ME"}
+                    user={data.user}
+                    text=""
+                  />
+                </React.Fragment>
+              )}
           </React.Fragment>
         );
       default:
@@ -773,48 +782,48 @@ class BotSection extends Component {
                               return (
                                 <React.Fragment key={`option${index}`}>
                                   {option.value.input.text.startsWith("<a") &&
-                                  option.value.input.text.indexOf("href") >
+                                    option.value.input.text.indexOf("href") >
                                     -1 ? (
-                                    <Col
-                                      key={`option${index}`}
-                                      lg={isCol3 ? 4 : 6}
-                                      md={isCol3 ? 4 : 6}
-                                      sm={6}
-                                      xs={12}
-                                    >
-                                      <div
-                                        className={`wa-option ${option.label
-                                          .replace(/ /g, "-")
-                                          .toLowerCase()}`}
+                                      <Col
+                                        key={`option${index}`}
+                                        lg={isCol3 ? 4 : 6}
+                                        md={isCol3 ? 4 : 6}
+                                        sm={6}
+                                        xs={12}
                                       >
-                                        <p
-                                          className="link"
-                                          dangerouslySetInnerHTML={{
-                                            __html: option.value.input.text
-                                          }}
-                                        ></p>
-                                      </div>
-                                    </Col>
-                                  ) : (
-                                    <Col
-                                      key={`option${index}`}
-                                      lg={isCol3 ? 4 : 6}
-                                      md={isCol3 ? 4 : 6}
-                                      sm={6}
-                                      xs={12}
-                                      onClick={() =>
-                                        this.handleOnOptionClick(x, index)
-                                      }
-                                    >
-                                      <div
-                                        className={`wa-option ${option.label
-                                          .replace(/ /g, "-")
-                                          .toLowerCase()}`}
+                                        <div
+                                          className={`wa-option ${option.label
+                                            .replace(/ /g, "-")
+                                            .toLowerCase()}`}
+                                        >
+                                          <p
+                                            className="link"
+                                            dangerouslySetInnerHTML={{
+                                              __html: option.value.input.text
+                                            }}
+                                          ></p>
+                                        </div>
+                                      </Col>
+                                    ) : (
+                                      <Col
+                                        key={`option${index}`}
+                                        lg={isCol3 ? 4 : 6}
+                                        md={isCol3 ? 4 : 6}
+                                        sm={6}
+                                        xs={12}
+                                        onClick={() =>
+                                          this.handleOnOptionClick(x, index)
+                                        }
                                       >
-                                        <p>{option.label}</p>
-                                      </div>
-                                    </Col>
-                                  )}
+                                        <div
+                                          className={`wa-option ${option.label
+                                            .replace(/ /g, "-")
+                                            .toLowerCase()}`}
+                                        >
+                                          <p>{option.label}</p>
+                                        </div>
+                                      </Col>
+                                    )}
                                 </React.Fragment>
                               );
                             })}
@@ -841,19 +850,19 @@ class BotSection extends Component {
                     Exit Demo
                   </Button>
                 ) : (
-                  <React.Fragment>
-                    {this.state.messages.length > 0 && (
-                      <Button
-                        onClick={() => {
-                          this.setState({ modal: { isOpen: true } });
-                        }}
-                        className="exit-demo-btn xs mr-1 d-block d-sm-none"
-                      >
-                        Reset
+                    <React.Fragment>
+                      {this.state.messages.length > 0 && (
+                        <Button
+                          onClick={() => {
+                            this.setState({ modal: { isOpen: true } });
+                          }}
+                          className="exit-demo-btn xs mr-1 d-block d-sm-none"
+                        >
+                          Reset
                       </Button>
-                    )}
-                  </React.Fragment>
-                )}
+                      )}
+                    </React.Fragment>
+                  )}
               </div>
               {/* <ChatPillAsk
                 handleKeyDown={this.handleKeyDown}
@@ -898,19 +907,19 @@ class BotSection extends Component {
                 Exit Demo
               </Button>
             ) : (
-              <React.Fragment>
-                {this.state.messages.length > 0 && (
-                  <Button
-                    onClick={() => {
-                      this.setState({ modal: { isOpen: true } });
-                    }}
-                    className="reset-btn mr-1 d-none d-sm-block"
-                  >
-                    Reset
+                <React.Fragment>
+                  {this.state.messages.length > 0 && (
+                    <Button
+                      onClick={() => {
+                        this.setState({ modal: { isOpen: true } });
+                      }}
+                      className="reset-btn mr-1 d-none d-sm-block"
+                    >
+                      Reset
                   </Button>
-                )}
-              </React.Fragment>
-            )}
+                  )}
+                </React.Fragment>
+              )}
             <ChatPillAsk
               handleKeyDown={this.handleKeyDown}
               value={this.state.msg}
