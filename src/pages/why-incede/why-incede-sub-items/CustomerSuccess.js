@@ -9,14 +9,7 @@ const CustomerSuccess = () => {
     <React.Fragment>
       <Container>
         <Row>
-          <Col
-            xs={12}
-            sm={12}
-            md={12}
-            lg={7}
-            className="d-flex"
-            id="customer-success"
-          >
+          <Col xs={12} sm={12} md={12} lg={7} className="d-flex">
             <div>
               <h1 className="text-left heading">Customer Successes</h1>
               <h4 className="my-4">

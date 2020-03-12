@@ -15,7 +15,6 @@ const ResultsInBusinessTerms = props => {
             md={12}
             lg={7}
             className="d-flex align-items-center"
-            id="business-terms"
           >
             <div>
               <h1 className="text-left heading">Results in Business Terms</h1>

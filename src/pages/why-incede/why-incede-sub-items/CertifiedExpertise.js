@@ -15,7 +15,6 @@ const CertifiedExpertise = () => {
             md={12}
             lg={7}
             className="d-flex align-items-center"
-            id="certified-expertise"
           >
             <div>
               <h1 className="text-left heading">Certified Expertise</h1>

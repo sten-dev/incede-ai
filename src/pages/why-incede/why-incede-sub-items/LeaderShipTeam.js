@@ -15,7 +15,6 @@ const LeaderShipTeam = props => {
             md={12}
             lg={8}
             className="d-flex align-items-center"
-            id="leadership-team"
           >
             <div>
               <h1 className="text-left heading">Trusted Leadership</h1>

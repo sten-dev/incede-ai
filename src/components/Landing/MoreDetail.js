@@ -27,6 +27,7 @@ class MoreDetail extends React.Component {
                   roadmap of incremental steps to roll-out real solutions that
                   deliver-to that value.
                 </h5>
+                <p id="business-terms" className="pt-2"></p>
                 {/* <div className="py-2">
                   <Row>
                     <Col lg={4} md={6} sm={6} xs={12}>
