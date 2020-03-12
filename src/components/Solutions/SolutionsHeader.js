@@ -103,7 +103,7 @@ class SolutionsHeader extends React.Component {
                 <h1 className="title display-3">Solutions</h1>
                 <h5 className="text-white sub-title">
                   Incede puts IBM Watson to work in solution areas that deliver
-                  real value for the business
+                  real value for the business.
                 </h5>
               </article>
             </Col>

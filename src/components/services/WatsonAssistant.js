@@ -331,13 +331,13 @@ class WatsonAssistant extends Component {
 
                       <div className="content">
                         <p>
-                          Key to a successful deployments designing a solution
-                          that is tailored to your needs while delivering the
-                          user experience you intend.Incede develops a phased
-                          Conversational AI Design for a solution that meets
-                          your UX, technology and strategic priorities while
-                          reducing risk and delivering the necessary business
-                          value.
+                          The key to successful deployments is designing a
+                          solution that is tailored to your needs while
+                          delivering the user experience you intend. Incede
+                          develops a phased Conversational AI Design for a
+                          solution that meets your UX, technology and strategic
+                          priorities while reducing risk and delivering the
+                          necessary business value.
                         </p>
                         <p>
                           We assess points of contact between the users and the
@@ -404,7 +404,7 @@ class WatsonAssistant extends Component {
 
                       <div className="content">
                         <p>
-                          Incede provides experienced, high-quality end-to-end
+                          Incede provides experienced, high-quality, end-to-end
                           development capabilities required to create and deploy
                           conversational AI solutions.
                         </p>
@@ -429,13 +429,13 @@ class WatsonAssistant extends Component {
                           </li>
                           <li>
                             <p>
-                              Optimized relevancy training to improves user’s
+                              Optimized relevancy training to improves users
                               trust in answers.
                             </p>
                           </li>
                           <li>
                             <p>
-                              Best practices based development for greater
+                              Best-practices based development for greater
                               sustainability.
                             </p>
                           </li>
@@ -494,9 +494,9 @@ class WatsonAssistant extends Component {
                         <p>
                           These are the implementation of the solution’s ability
                           to successfully match user inquiries with planned
-                          intents. For those intents, develop the supporting
-                          conversational dialogs of responses, triggers and
-                          decision trees
+                          intents. For those intents, this service will develop
+                          supporting conversational dialogs of responses,
+                          triggers and decision trees.
                         </p>
                         <p
                           id="integration-development-xs"

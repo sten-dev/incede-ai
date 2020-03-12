@@ -15,9 +15,9 @@ const TextToSpeech = props => {
             </p>
             <br />
             <p>
-              Incede understands speech synthesis how to use annotations such as
-              speed, pauses and transformations to adapt speech to meet the
-              user’s expectations and needs.
+              Incede understands speech synthesis and how to use annotations
+              such as speed, pauses and transformations to adapt speech to meet
+              the user’s expectations and needs.
             </p>
           </Col>
         </Row>

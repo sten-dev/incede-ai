@@ -20,12 +20,12 @@ class MoreDetail extends React.Component {
                 </h1>
                 <h5 className="text-white sub-title">
                   With more than half of the world’s data in natural language,
-                  we solve business problems and create competitive advantage by
-                  leveraging the power of Watson AI and machine learning. We
+                  we solve business problems and create a competitive advantage
+                  by leveraging the power of Watson AI and machine learning. We
                   collaborate with you to understand areas where AI or
                   automation will deliver value to the business and define a
                   roadmap of incremental steps to roll-out real solutions that
-                  deliver-to that value.
+                  deliver to that value.
                 </h5>
                 <p id="business-terms" className="pt-2"></p>
                 {/* <div className="py-2">

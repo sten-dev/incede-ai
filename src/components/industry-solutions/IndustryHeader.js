@@ -103,7 +103,7 @@ class IndustryHeader extends Component {
                 <h1 className="title display-3">Industries</h1>
                 <h5 className="text-white sub-title">
                   Incede industry experience accelerates the deployment of
-                  smarter IBM Watson solutions
+                  smarter IBM Watson solutions.
                 </h5>
               </article>
             </Col>

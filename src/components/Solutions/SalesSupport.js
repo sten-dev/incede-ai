@@ -21,8 +21,8 @@ class SalesSupport extends Component {
                 <p>
                   It supports the sales team during the sales cycle using AI
                   solutions. It provides answers to product questions, upsell
-                  and cross-sell recommendations, retrieve product or service
-                  documentation and verify product compatibility and
+                  and cross-sell recommendations, retrieves product or service
+                  documentation and verifies product compatibility and
                   cross-references.
                 </p>
                 <br />

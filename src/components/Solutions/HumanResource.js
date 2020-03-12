@@ -37,7 +37,7 @@ class HumanResource extends Component {
                   </li>
                   <li>
                     <p>
-                      Provides positional- and employee-specific answers to
+                      Provides positional and employee-specific answers to
                       inquiries.
                     </p>
                   </li>
@@ -49,7 +49,7 @@ class HumanResource extends Component {
                   </li>
                   <li>
                     <p>
-                      Re-engage employees to ask questions, become informed.
+                      Re-engage employees to ask questions and become informed.
                     </p>
                   </li>
                   <li>

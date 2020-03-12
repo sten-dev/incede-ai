@@ -20,7 +20,7 @@ const LeaderShipTeam = props => {
               <h1 className="text-left heading">Trusted Leadership</h1>
               <h4 className="my-4">
                 A team of experienced thought leaders who inspire innovation and
-                commitment to customer success.
+                commitment to customer success
               </h4>
               <p className="sub-title">
                 Incede.ai is built ground-up by Locus Solutions, Inc.
