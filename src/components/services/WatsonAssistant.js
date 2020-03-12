@@ -474,8 +474,8 @@ class WatsonAssistant extends Component {
                       </h4>
                       <div className="content py-3 p-sm-0">
                         <p>
-                          It accommodates user interactions via text and voice
-                          and integrates capabilities such as translations and
+                          Accommodates user interactions via text and voice and
+                          integrates capabilities such as translations and
                           channels.
                         </p>
                       </div>
@@ -512,9 +512,9 @@ class WatsonAssistant extends Component {
                       </h4>
                       <div className="content py-3 p-sm-0">
                         <p>
-                          They expand available context through back-end systems
-                          for security, data or enterprise AI search of
-                          knowledge bases using Watson Discovery.
+                          Expands available context through back-end systems for
+                          security, data or enterprise AI search of knowledge
+                          bases using Watson Discovery.
                         </p>
                       </div>
                     </Col>
