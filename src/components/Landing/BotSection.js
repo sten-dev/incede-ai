@@ -627,6 +627,11 @@ class BotSection extends Component {
       }
       this.socket.emit(SOCKET_PATHS.CONNECT, data);
     }
+
+    if (shouldAddToMessages && data && data.demoProperty === "Customer Service") {
+      messages.push({ user: "ME", message: message, type: "text" });
+    }
+
     // if (shouldAddToMessages) {
     //   messages.push({ user: "ME", message: message, type: "text" });
     // }
