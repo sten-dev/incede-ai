@@ -308,6 +308,13 @@ class BotSection extends Component {
           );
         }
       } else {
+        if (response && response.shouldAddToMessages && response.comment && response.comment.trim().length > 0) {
+          let messages = [...this.state.messages];
+          messages.push({ user: "ME", message: response.comment.trim(), type: "text" });
+          this.setState({
+            messages: messages
+          })
+        }
         console.warn(eventName, response);
       }
     });
@@ -612,15 +619,17 @@ class BotSection extends Component {
     } else {
       data.demoProperty = demoProperty;
       data.type = this.state.isDemo === true ? "demo" : "chat";
+
+      data.shouldAddToMessages = shouldAddToMessages;
       if (!data.intent) {
         let lastMessage = this.state.messages[this.state.messages.length - 1];
         data.intent = lastMessage.message;
       }
       this.socket.emit(SOCKET_PATHS.CONNECT, data);
     }
-    if (shouldAddToMessages) {
-      messages.push({ user: "ME", message: message, type: "text" });
-    }
+    // if (shouldAddToMessages) {
+    //   messages.push({ user: "ME", message: message, type: "text" });
+    // }
     this.setState(
       {
         messages,
