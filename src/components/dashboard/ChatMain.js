@@ -42,16 +42,18 @@ class ChatMain extends Component {
     this.initializeSocketIo();
   };
   getDemoChats = async () => {
+    this.setState({ isLoading: true });
     let result = await getDemoChats();
     console.log("demo chats", result);
     if (result.success) {
       this.setState({
-        demoChats: result.data
+        demoChats: result.data,
+        sLoading: false
       });
     }
   };
   initializeSocketIo = () => {
-    this.setState({ isLoading: true });
+    // this.setState({ isLoading: true });
     let scope = this;
     this.socket = socketIO.connect(API_URL, {
       reconnection: true,
@@ -179,9 +181,9 @@ class ChatMain extends Component {
 
   // for demo only ... need to remove
   getBG = name => {
-    if (name.includes("David")) return "red-chat text-white demo";
-    if (name.includes("Suraj")) return "green-chat text-white demo";
-    if (name.includes("Tim")) return "yellow-chat text-white demo";
+    if (name.includes("session-1583828603926")) return "red-chat text-white demo";
+    if (name.includes("session-1583840790252")) return "green-chat text-white demo";
+    if (name.includes("session-1583840080456")) return "yellow-chat text-white demo";
     return "";
   };
 
