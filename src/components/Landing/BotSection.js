@@ -347,7 +347,7 @@ class BotSection extends Component {
             messages.push({
               user: "WA",
               message: x.header,
-              data: x.results,
+              data: x.results.filter(x => x.title !== "Cookie Policy | Incede"),
               type: "search-result"
             });
           } else {
