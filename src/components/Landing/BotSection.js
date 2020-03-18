@@ -616,6 +616,7 @@ class BotSection extends Component {
         params: { session_id: demoWASessionId },
         user: "user"
       });
+      data.demoProperty = demoProperty;
     } else {
       data.demoProperty = demoProperty;
       data.type = this.state.isDemo === true ? "demo" : "chat";
@@ -864,7 +865,7 @@ class BotSection extends Component {
                           className="exit-demo-btn xs mr-1 d-block d-sm-none"
                         >
                           Reset
-                      </Button>
+                        </Button>
                       )}
                     </React.Fragment>
                   )}
@@ -921,7 +922,7 @@ class BotSection extends Component {
                       className="reset-btn mr-1 d-none d-sm-block"
                     >
                       Reset
-                  </Button>
+                    </Button>
                   )}
                 </React.Fragment>
               )}
