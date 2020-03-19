@@ -66,6 +66,11 @@ class BotSection extends Component {
     await this.initializeDemoSocket();
   };
 
+  componentWillUnmount() {
+    this.demoSocket.close();
+    this.socket.close();
+  }
+
   handleMessageChange = event => {
     let eve = { ...event };
     this.setState({
@@ -488,31 +493,26 @@ class BotSection extends Component {
         message.intent.toLowerCase() === "customer_service"
       ) {
         type = "demo";
-        this.wASessionId = undefined;
-        this.roomId = undefined;
-        isDemoUpdate = true;
-        comment = "";
-        this.roomName = "session-" + new Date().getTime();
         localStorage.setItem("demoProperty", "Customer Service");
       } else if (
         message.intent &&
         message.intent.toLowerCase() === "pizza_ordering"
       ) {
         type = "demo";
-        this.wASessionId = undefined;
-        this.roomId = undefined;
-        isDemoUpdate = true;
-        comment = "";
-        this.roomName = "session-" + new Date().getTime();
         localStorage.setItem("demoProperty", "Pizza Ordering");
       } else if (message.intent && message.intent.toLowerCase() === "banking") {
         type = "demo";
+        localStorage.setItem("demoProperty", "Banking");
+      } else if (message.intent && message.intent.toLowerCase() === "covid-19") {
+        type = "demo";
+        localStorage.setItem("demoProperty", "Covid-19");
+      }
+      if (type === "demo") {
         this.wASessionId = undefined;
         this.roomId = undefined;
         isDemoUpdate = true;
         comment = "";
         this.roomName = "session-" + new Date().getTime();
-        localStorage.setItem("demoProperty", "Banking");
       }
     }
     if (message.intent === "demo_done" && comment.toLowerCase() === "yes") {
@@ -740,7 +740,6 @@ class BotSection extends Component {
     if (lastWAIndex > -1) {
       lastWAIndex = messages.length - lastWAIndex - 1;
     }
-    console.log("lastWAIndex", lastWAIndex);
     return (
       <section className="bot">
         <div onClick={this.props.toggle} className="bot-menu-btn right">
