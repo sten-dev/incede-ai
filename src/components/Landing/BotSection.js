@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import "../../styles/bot.scss";
+import React, { Component } from 'react';
+import '../../styles/bot.scss';
 import {
   Container,
   Row,
@@ -8,11 +8,11 @@ import {
   Spinner,
   Card,
   CardImg
-} from "reactstrap";
-import logo from "../../img/logo_white.svg";
-import { ChatPill } from "./bot/ChatPill";
-import { ChatPillAsk } from "./bot/ChatPillAsk";
-import socketIO from "socket.io-client";
+} from 'reactstrap';
+import logo from '../../img/logo_white.svg';
+import { ChatPill } from './bot/ChatPill';
+import { ChatPillAsk } from './bot/ChatPillAsk';
+import socketIO from 'socket.io-client';
 import {
   API_URL,
   SOCKET_PATHS,
@@ -20,13 +20,16 @@ import {
   DEMO_SOCKET_URL,
   IGNORE_MSG,
   MEETING_MSG
-} from "../../constants";
-import chat from "../../img/chat.svg";
-import ChatLocation from "../ChatLocation";
-import CallBackForm from "./bot/CallBackForm";
-import DiscoverySearchResults from "./bot/DiscoverySearchResults";
-import { Loading } from "../ReuseableComponents";
-import ConfirmModal from "../ConfirmModal";
+} from '../../constants';
+import chat from '../../img/chat.svg';
+import ChatLocation from '../ChatLocation';
+import CallBackForm from './bot/CallBackForm';
+import DiscoverySearchResults from './bot/DiscoverySearchResults';
+import { Loading } from '../ReuseableComponents';
+import ConfirmModal from '../ConfirmModal';
+import { getSpeechToTextConfig } from '../../../Service';
+import recognizeMicrophone from 'watson-speech/speech-to-text/recognize-microphone';
+import samples from './samples.json';
 class BotSection extends Component {
   roomName = undefined;
   roomId;
@@ -42,28 +45,280 @@ class BotSection extends Component {
     this.state = {
       messages: [
         {
-          user: "WA",
+          user: 'WA',
           message:
             "Welcome! I am your virtual assistant to help you learn more about Incede's services, locations and experitse with IBM Watson AI",
-          type: "text"
+          type: 'text'
         }
       ],
-      msg: "",
+      msg: '',
       isDemo: false,
       shouldConnectApi: true,
       isLoading: true,
+      STT: {
+        accessToken: undefined,
+        serviceUrl: undefined
+      },
+      model: 'en-US_BroadbandModel',
+      keywords: this.getKeywords('en-US_BroadbandModel'),
+      speakerLabels: false,
+      rawMessages: [],
+      formattedMessages: [],
+      audioSource: null,
+      settingsAtStreamStart: {
+        model: '',
+        keywords: [],
+        speakerLabels: false
+      },
       modal: {
         isOpen: false
       }
     };
   }
   componentDidMount = async () => {
-    this.roomName = localStorage.getItem("roomName");
-    this.roomId = localStorage.getItem("roomId");
-    this.wASessionId = localStorage.getItem("wASessionId");
-    this.waCreatedTime = localStorage.getItem("waCreatedTime");
+    this.roomName = localStorage.getItem('roomName');
+    this.roomId = localStorage.getItem('roomId');
+    this.wASessionId = localStorage.getItem('wASessionId');
+    this.waCreatedTime = localStorage.getItem('waCreatedTime');
+    await this.getSpeechToTextConfig();
+    this.setState({
+      tokenInterval: setInterval(this.getSpeechToTextConfig, 50 * 60 * 1000)
+    });
     await this.initializeSocketIo();
     await this.initializeDemoSocket();
+  };
+
+  getSpeechToTextConfig = async () => {
+    let res = await getSpeechToTextConfig();
+    if (res && res.success) {
+      this.setState({
+        STT: {
+          accessToken: res.data.accessToken,
+          serviceUrl: res.data.serviceUrl
+        }
+      });
+    }
+  };
+
+  getKeywords = model => {
+    // a few models have more than two sample files, but the demo can only handle
+    // two samples at the moment
+    // so this just takes the keywords from the first two samples
+    const files = samples[model];
+    return (
+      (files &&
+        files.length >= 2 &&
+        `${files[0].keywords}, ${files[1].keywords}`) ||
+      ''
+    );
+  };
+
+  handleMicClick = () => {
+    if (this.state.audioSource === 'mic') {
+      this.stopTranscription();
+      return;
+    }
+    this.reset();
+    this.setState({ audioSource: 'mic' });
+
+    // The recognizeMicrophone() method is a helper method provided by the watson-speech package
+    // It sets up the microphone, converts and downsamples the audio, and then transcribes it
+    // over a WebSocket connection
+    // It also provides a number of optional features, some of which are enabled by default:
+    //  * enables object mode by default (options.objectMode)
+    //  * formats results (Capitals, periods, etc.) (options.format)
+    //  * outputs the text to a DOM element - not used in this demo because it doesn't play nice
+    // with react (options.outputElement)
+    //  * a few other things for backwards compatibility and sane defaults
+    // In addition to this, it passes other service-level options along to the RecognizeStream that
+    // manages the actual WebSocket connection.
+    this.handleStream(recognizeMicrophone(this.getRecognizeOptions()));
+  };
+
+  getRecognizeOptions = extra => {
+    const keywords = this.getKeywordsArrUnique();
+    return Object.assign(
+      {
+        // formats phone numbers, currency, etc. (server-side)
+        accessToken: this.state.STT.accessToken,
+        token: this.state.token,
+        smart_formatting: true,
+        format: true, // adds capitals, periods, and a few other things (client-side)
+        model: this.state.model,
+        objectMode: true,
+        interimResults: true,
+        // note: in normal usage, you'd probably set this a bit higher
+        // word_alternatives_threshold: 0.01,
+        // keywords,
+        // keywords_threshold: keywords.length ? 0.01 : undefined, // note: in normal usage, you'd probably set this a bit higher
+        timestamps: true, // set timestamps for each word - automatically turned on by speaker_labels
+        // includes the speaker_labels in separate objects unless resultsBySpeaker is enabled
+        speakerLabels: this.state.speakerLabels,
+        // combines speaker_labels and results together into single objects,
+        // making for easier transcript outputting
+        resultsBySpeaker: this.state.speakerLabels,
+        // allow interim results through before the speaker has been determined
+        speakerlessInterim: this.state.speakerLabels,
+        url: this.state.STT.serviceUrl
+      },
+      extra
+    );
+  };
+
+  stopTranscription = () => {
+    if (this.stream) {
+      this.stream.stop();
+      // this.stream.removeAllListeners();
+      // this.stream.recognizeStream.removeAllListeners();
+    }
+    this.setState({ audioSource: null });
+  };
+
+  // cleans up the keywords string and produces a unique list of keywords
+  getKeywordsArrUnique = () => {
+    return this.state.keywords
+      .split(',')
+      .map(k => k.trim())
+      .filter((value, index, self) => self.indexOf(value) === index);
+  };
+
+  handleFormattedMessage = msg => {
+    const { formattedMessages } = this.state;
+    let r = msg;
+    if (r.results && r.results.length && r.results[0].final) {
+      console.log('msg', r);
+      this.setState({
+        msg: r.results[0].alternatives[0].transcript
+      });
+    }
+    this.setState({ formattedMessages: formattedMessages.concat(msg) });
+  };
+  getFinalResults = () => {
+    console.log('this.state.formattedMessages', this.state.formattedMessages);
+    return this.state.formattedMessages.filter(
+      r => r.results && r.results.length && r.results[0].final
+    );
+  };
+
+  // getCurrentInterimResult = () => {
+  //   const r = this.state.formattedMessages[
+  //     this.state.formattedMessages.length - 1
+  //   ];
+
+  //   // When resultsBySpeaker is enabled, each msg.results array may contain multiple results.
+  //   // However, all results in a given message will be either final or interim, so just checking
+  //   // the first one still works here.
+  //   if (!r || !r.results || !r.results.length || r.results[0].final) {
+  //     return null;
+  //   }
+  //   return r;
+  // };
+
+  getFinalAndLatestInterimResult = () => {
+    const final = this.getFinalResults();
+    console.log('final', final);
+    // const interim = this.getCurrentInterimResult();
+    // if (interim) {
+    //   final.push(interim);
+    // }
+    return final;
+  };
+
+  handleError = (err, extra) => {
+    console.error(err, extra);
+    if (err.name === 'UNRECOGNIZED_FORMAT') {
+      err =
+        'Unable to determine content type from file name or header; mp3, wav, flac, ogg, opus, and webm are supported. Please choose a different file.';
+    } else if (
+      err.name === 'NotSupportedError' &&
+      this.state.audioSource === 'mic'
+    ) {
+      err = 'This browser does not support microphone input.';
+    } else if (err.message === "('UpsamplingNotAllowed', 8000, 16000)") {
+      err =
+        'Please select a narrowband voice model to transcribe 8KHz audio files.';
+    } else if (err.message === 'Invalid constraint') {
+      // iPod Touch does this on iOS 11 - there is a microphone, but Safari claims there isn't
+      err = 'Unable to access microphone';
+    }
+    this.setState({ error: err.message || err });
+  };
+
+  // captureSettings = () => {
+  //   const { model, speakerLabels } = this.state;
+  //   this.setState({
+  //     settingsAtStreamStart: {
+  //       model,
+  //       keywords: this.getKeywordsArrUnique(),
+  //       speakerLabels
+  //     }
+  //   });
+  // };
+
+  handleStream = stream => {
+    console.log(stream);
+    // cleanup old stream if appropriate
+    if (this.stream) {
+      this.stream.stop();
+      this.stream.removeAllListeners();
+      this.stream.recognizeStream.removeAllListeners();
+    }
+    this.stream = stream;
+    // this.captureSettings();
+
+    // grab the formatted messages and also handle errors and such
+    stream
+      .on('data', this.handleFormattedMessage)
+      .on('end', this.handleTranscriptEnd)
+      .on('error', this.handleError);
+
+    // when errors occur, the end event may not propagate through the helper streams.
+    // However, the recognizeStream should always fire a end and close events
+    stream.recognizeStream.on('end', () => {
+      if (this.state.error) {
+        this.handleTranscriptEnd();
+      }
+    });
+
+    // grab raw messages from the debugging events for display on the JSON tab
+    // stream.recognizeStream
+    //   .on('message', (frame, json) =>
+    //     this.handleRawMessage({ sent: false, frame, json })
+    //   )
+    //   .on('send-json', json => this.handleRawMessage({ sent: true, json }))
+    //   .once('send-data', () =>
+    //     this.handleRawMessage({
+    //       sent: true,
+    //       binary: true,
+    //       data: true // discard the binary data to avoid waisting memory
+    //     })
+    //   )
+    //   .on('close', (code, message) =>
+    //     this.handleRawMessage({ close: true, code, message })
+    //   );
+
+    // ['open','close','finish','end','error', 'pipe'].forEach(e => {
+    //     stream.recognizeStream.on(e, console.log.bind(console, 'rs event: ', e));
+    //     stream.on(e, console.log.bind(console, 'stream event: ', e));
+    // });
+  };
+
+  handleTranscriptEnd = () => {
+    // note: this function will be called twice on a clean end,
+    // but may only be called once in the event of an error
+    this.setState({ audioSource: null });
+  };
+
+  reset = () => {
+    if (this.state.audioSource) {
+      this.stopTranscription();
+    }
+    this.setState({ rawMessages: [], formattedMessages: [], error: null });
+  };
+
+  handleRawMessage = msg => {
+    const { rawMessages } = this.state;
+    this.setState({ rawMessages: rawMessages.concat(msg) });
   };
 
   componentWillUnmount() {
@@ -79,7 +334,7 @@ class BotSection extends Component {
   };
 
   checkWASession = () => {
-    this.waCreatedTime = localStorage.getItem("waCreatedTime");
+    this.waCreatedTime = localStorage.getItem('waCreatedTime');
     let isInWaSession = true;
     if (!this.waCreatedTime) {
       isInWaSession = false;
@@ -97,13 +352,13 @@ class BotSection extends Component {
       this.wASessionId = undefined;
     } else {
       if (this.state.isDemo) {
-        this.roomName = localStorage.getItem("demoRoomName");
-        this.roomId = localStorage.getItem("demoRoomId");
-        this.wASessionId = localStorage.getItem("demoWASessionId");
+        this.roomName = localStorage.getItem('demoRoomName');
+        this.roomId = localStorage.getItem('demoRoomId');
+        this.wASessionId = localStorage.getItem('demoWASessionId');
       } else {
-        this.roomName = localStorage.getItem("roomName");
-        this.roomId = localStorage.getItem("roomId");
-        this.wASessionId = localStorage.getItem("wASessionId");
+        this.roomName = localStorage.getItem('roomName');
+        this.roomId = localStorage.getItem('roomId');
+        this.wASessionId = localStorage.getItem('wASessionId');
       }
     }
   };
@@ -116,15 +371,15 @@ class BotSection extends Component {
       reconnectionDelayMax: 5000,
       reconnectionAttempts: 5
     });
-    this.socket.on("connect", function () {
-      console.debug("connected to server");
+    this.socket.on('connect', function() {
+      console.debug('connected to server');
     });
     let messages = [
       {
-        user: "WA",
+        user: 'WA',
         message:
           "Welcome! I am your virtual assistant to help you learn more about Incede's services, locations and experitse with IBM Watson AI",
-        type: "text"
+        type: 'text'
       }
     ];
     let time = new Date().getTime();
@@ -135,7 +390,7 @@ class BotSection extends Component {
       this.setState({
         isLoading: true
       });
-      let chatsResp = await httpClient("chats", "POST", {
+      let chatsResp = await httpClient('chats', 'POST', {
         roomId: this.roomId
       });
       if (chatsResp.success === true) {
@@ -144,33 +399,33 @@ class BotSection extends Component {
           .filter(x => IGNORE_MSG.indexOf(x.TEXT) === -1);
         data.forEach((x, i) => {
           switch (x.TYPE) {
-            case "text":
-            case "options":
+            case 'text':
+            case 'options':
               if (x.TEXT) {
                 messages.push({
                   user:
-                    x.USER === "WATSON"
-                      ? "WA"
-                      : x.USER === "AGENT"
-                        ? "AG"
-                        : "ME",
+                    x.USER === 'WATSON'
+                      ? 'WA'
+                      : x.USER === 'AGENT'
+                      ? 'AG'
+                      : 'ME',
                   message: x.TEXT,
-                  type: x.TYPE === "options" ? "options" : "text",
-                  options: x.TYPE === "options" ? JSON.parse(x.OPTIONS) : [],
+                  type: x.TYPE === 'options' ? 'options' : 'text',
+                  options: x.TYPE === 'options' ? JSON.parse(x.OPTIONS) : [],
                   intent: x.intent
                 });
               }
               break;
-            case "location":
+            case 'location':
               messages.push({
-                user: "WA",
-                message: "",
-                type: "location",
+                user: 'WA',
+                message: '',
+                type: 'location',
                 options: []
               });
               break;
-            case "callback":
-              messages.push({ user: "ME", message: "", type: "callback_form" });
+            case 'callback':
+              messages.push({ user: 'ME', message: '', type: 'callback_form' });
               break;
           }
         });
@@ -188,23 +443,23 @@ class BotSection extends Component {
     }
 
     this.socket.emit(SOCKET_PATHS.CONNECT, {
-      payload: "",
-      roomName: this.roomName ? this.roomName : "session-" + time,
+      payload: '',
+      roomName: this.roomName ? this.roomName : 'session-' + time,
       roomId: this.roomId ? this.roomId : undefined,
       wASessionId: this.wASessionId ? this.wASessionId : undefined
     });
 
     this.socket.on(SOCKET_PATHS.BOT_RESPONSE, (eventName, response) => {
-      if (eventName === "SERVER_CONNECT") {
-        console.info("Bot connected, waiting for bot to wake up");
+      if (eventName === 'SERVER_CONNECT') {
+        console.info('Bot connected, waiting for bot to wake up');
         return;
       }
-      if (response.newRoom === true && eventName === "WATSON") {
+      if (response.newRoom === true && eventName === 'WATSON') {
         if (response.sessionId) {
-          if (response.type === "demo") {
-            localStorage.setItem("demoWASessionId", response.sessionId);
-            localStorage.setItem("demoRoomId", response.roomId);
-            localStorage.setItem("demoRoomName", response.roomName);
+          if (response.type === 'demo') {
+            localStorage.setItem('demoWASessionId', response.sessionId);
+            localStorage.setItem('demoRoomId', response.roomId);
+            localStorage.setItem('demoRoomName', response.roomName);
             this.setState({
               isDemo: true
             });
@@ -212,10 +467,10 @@ class BotSection extends Component {
             this.setState({
               isDemo: false
             });
-            localStorage.setItem("waCreatedTime", new Date().getTime());
-            localStorage.setItem("wASessionId", response.sessionId);
-            localStorage.setItem("roomId", response.roomId);
-            localStorage.setItem("roomName", response.roomName);
+            localStorage.setItem('waCreatedTime', new Date().getTime());
+            localStorage.setItem('wASessionId', response.sessionId);
+            localStorage.setItem('roomId', response.roomId);
+            localStorage.setItem('roomName', response.roomName);
           }
           this.roomName = response.roomName;
           this.roomId = response.roomId;
@@ -225,14 +480,14 @@ class BotSection extends Component {
         }
       }
 
-      if (eventName === "WATSON") {
+      if (eventName === 'WATSON') {
         this.isAgentPending = false;
-        if (response.intent === "location") {
+        if (response.intent === 'location') {
           let messages = [...this.state.messages];
           messages.push({
-            user: "WA",
-            message: "",
-            type: "location",
+            user: 'WA',
+            message: '',
+            type: 'location',
             options: []
           });
 
@@ -248,22 +503,22 @@ class BotSection extends Component {
               this.pushWAMessage(response);
             }
           );
-        } else if (response.intent === "agent") {
+        } else if (response.intent === 'agent') {
           this.isAgentPending = true;
           this.pushWAMessage(response);
           setTimeout(() => {
             if (this.isAgentPending) {
               this.setState({ isLoading: false });
-              this.sendCustomMessage("agent_not_available", false);
+              this.sendCustomMessage('agent_not_available', false);
             }
           }, this.agentTimeOut);
           setTimeout(() => {
             if (this.isAgentPending) {
               let messages = [...this.state.messages];
               messages.push({
-                user: "WA",
-                message: "Our agents are assisting others. Please hold on.",
-                type: "text",
+                user: 'WA',
+                message: 'Our agents are assisting others. Please hold on.',
+                type: 'text',
                 options: [],
                 intent: undefined
               });
@@ -277,20 +532,20 @@ class BotSection extends Component {
             }
           }, this.agentTimeOut / 3);
         } else if (
-          response.type === "demo" &&
-          response.intent === "exit_demo"
+          response.type === 'demo' &&
+          response.intent === 'exit_demo'
         ) {
           this.resetLocalStorage(true);
-          this.roomId = localStorage.getItem("roomId");
-          this.roomName = localStorage.getItem("roomName");
-          this.wASessionId = localStorage.getItem("wASessionId");
+          this.roomId = localStorage.getItem('roomId');
+          this.roomName = localStorage.getItem('roomName');
+          this.wASessionId = localStorage.getItem('wASessionId');
           this.setState({
             isDemo: false
           });
           let data = {
-            comment: "completed demo",
+            comment: 'completed demo',
             wASessionId: this.wASessionId,
-            user: "user",
+            user: 'user',
             roomName: this.roomName,
             roomId: this.roomId
           };
@@ -298,13 +553,13 @@ class BotSection extends Component {
         } else {
           this.pushWAMessage(response);
         }
-      } else if (eventName === "AGENT") {
+      } else if (eventName === 'AGENT') {
         this.isAgentPending = false;
         let data = response.data;
         let messages = this.state.messages;
         if (data) {
           messages.push({
-            user: "AG",
+            user: 'AG',
             message: response.data
           });
           this.setState(
@@ -313,12 +568,21 @@ class BotSection extends Component {
           );
         }
       } else {
-        if (response && response.shouldAddToMessages && response.comment && response.comment.trim().length > 0) {
+        if (
+          response &&
+          response.shouldAddToMessages &&
+          response.comment &&
+          response.comment.trim().length > 0
+        ) {
           let messages = [...this.state.messages];
-          messages.push({ user: "ME", message: response.comment.trim(), type: "text" });
+          messages.push({
+            user: 'ME',
+            message: response.comment.trim(),
+            type: 'text'
+          });
           this.setState({
             messages: messages
-          })
+          });
         }
         console.warn(eventName, response);
       }
@@ -326,15 +590,15 @@ class BotSection extends Component {
   };
 
   resetLocalStorage = isDemo => {
-    localStorage.removeItem("demoProperty");
-    localStorage.removeItem("demoWASessionId");
-    localStorage.removeItem("demoRoomId");
-    localStorage.removeItem("demoRoomName");
+    localStorage.removeItem('demoProperty');
+    localStorage.removeItem('demoWASessionId');
+    localStorage.removeItem('demoRoomId');
+    localStorage.removeItem('demoRoomName');
     if (isDemo !== true) {
-      localStorage.removeItem("waCreatedTime");
-      localStorage.removeItem("wASessionId");
-      localStorage.removeItem("roomId");
-      localStorage.removeItem("roomName");
+      localStorage.removeItem('waCreatedTime');
+      localStorage.removeItem('wASessionId');
+      localStorage.removeItem('roomId');
+      localStorage.removeItem('roomName');
     }
   };
   pushWAMessage = response => {
@@ -342,27 +606,27 @@ class BotSection extends Component {
     let shouldUpdate = true;
     if (data && Array.isArray(data)) {
       let messages = [...this.state.messages];
-      let isSearchResponse = data.findIndex(x => x.response_type === "search");
+      let isSearchResponse = data.findIndex(x => x.response_type === 'search');
       if (isSearchResponse && isSearchResponse === data.length - 1) {
         data = data.reverse();
       }
       data.forEach(x => {
-        if (x.response_type === "search") {
+        if (x.response_type === 'search') {
           if (x.results && x.results.length > 0) {
             messages.push({
-              user: "WA",
+              user: 'WA',
               message: x.header,
-              data: x.results.filter(x => x.title !== "Cookie Policy | Incede"),
-              type: "search-result"
+              data: x.results.filter(x => x.title !== 'Cookie Policy | Incede'),
+              type: 'search-result'
             });
           } else {
             messages.push({
-              user: "WA",
+              user: 'WA',
               message: "I didn't understand. Please try again",
-              type: "text"
+              type: 'text'
             });
           }
-        } else if (x.response_type === "suggestion") {
+        } else if (x.response_type === 'suggestion') {
           if (
             x.suggestions &&
             x.suggestions.length > 0 &&
@@ -371,9 +635,9 @@ class BotSection extends Component {
             x.suggestions[0].output.generic.length > 0
           ) {
             messages.push({
-              user: "WA",
-              message: "Did you mean?",
-              type: "options",
+              user: 'WA',
+              message: 'Did you mean?',
+              type: 'options',
               options: x.suggestions.map(x => {
                 return {
                   label: x.label,
@@ -392,19 +656,19 @@ class BotSection extends Component {
           }
         } else if (x.text || x.title || (x.options && x.options.length > 0)) {
           messages.push({
-            user: "WA",
+            user: 'WA',
             message: x.options ? x.title : x.text,
-            type: x.options ? "options" : "text",
+            type: x.options ? 'options' : 'text',
             options: x.options || [],
             intent: response.intent
           });
           if (x.text && x.text === MEETING_MSG) {
-            messages.push({ user: "ME", message: "", type: "callback_form" });
+            messages.push({ user: 'ME', message: '', type: 'callback_form' });
           }
-        } else if (x.response_type === "image") {
+        } else if (x.response_type === 'image') {
           messages.push({
-            user: "WA",
-            message: "",
+            user: 'WA',
+            message: '',
             type: x.response_type,
             options: [],
             intent: response.intent,
@@ -441,7 +705,7 @@ class BotSection extends Component {
         isDemo: false
       },
       () => {
-        this.sendCustomMessage("user_demo_exit_done", false);
+        this.sendCustomMessage('user_demo_exit_done', false);
       }
     );
     // }, 500);
@@ -451,14 +715,14 @@ class BotSection extends Component {
     this.resetLocalStorage();
     // this.demoSocket = undefined;
     this.demoSocket.close();
-    this.sendCustomMessage("", true);
+    this.sendCustomMessage('', true);
     this.setState({
       messages: [
         {
-          user: "WA",
+          user: 'WA',
           message:
             "Welcome! I am your virtual assistant to help you learn more about Incede's services, locations and experitse with IBM Watson AI",
-          type: "text"
+          type: 'text'
         }
       ]
     });
@@ -471,11 +735,11 @@ class BotSection extends Component {
       wASessionId: this.wASessionId,
       roomName: this.roomName
         ? this.roomName
-        : "session-" + new Date().getTime(),
+        : 'session-' + new Date().getTime(),
       roomId: this.roomId,
-      type: this.state.isDemo ? "demo" : "chat",
+      type: this.state.isDemo ? 'demo' : 'chat',
       demoProperty: this.state.isDemo
-        ? localStorage.getItem("demoProperty")
+        ? localStorage.getItem('demoProperty')
         : undefined
     };
 
@@ -484,47 +748,50 @@ class BotSection extends Component {
 
   handleOnOptionClick = (message, optionIndex) => {
     let option = message.options[optionIndex];
-    let type = "chat";
+    let type = 'chat';
     let isDemoUpdate = false;
     let comment = option.value.input.text;
-    if (option.value.input.text.toLowerCase() === "launch demo") {
+    if (option.value.input.text.toLowerCase() === 'launch demo') {
       if (
         message.intent &&
-        message.intent.toLowerCase() === "customer_service"
+        message.intent.toLowerCase() === 'customer_service'
       ) {
-        type = "demo";
-        localStorage.setItem("demoProperty", "Customer Service");
+        type = 'demo';
+        localStorage.setItem('demoProperty', 'Customer Service');
       } else if (
         message.intent &&
-        message.intent.toLowerCase() === "pizza_ordering"
+        message.intent.toLowerCase() === 'pizza_ordering'
       ) {
-        type = "demo";
-        localStorage.setItem("demoProperty", "Pizza Ordering");
-      } else if (message.intent && message.intent.toLowerCase() === "banking") {
-        type = "demo";
-        localStorage.setItem("demoProperty", "Banking");
-      } else if (message.intent && message.intent.toLowerCase() === "covid-19") {
-        type = "demo";
-        localStorage.setItem("demoProperty", "Covid-19");
+        type = 'demo';
+        localStorage.setItem('demoProperty', 'Pizza Ordering');
+      } else if (message.intent && message.intent.toLowerCase() === 'banking') {
+        type = 'demo';
+        localStorage.setItem('demoProperty', 'Banking');
+      } else if (
+        message.intent &&
+        message.intent.toLowerCase() === 'covid-19'
+      ) {
+        type = 'demo';
+        localStorage.setItem('demoProperty', 'Covid-19');
       }
-      if (type === "demo") {
+      if (type === 'demo') {
         this.wASessionId = undefined;
         this.roomId = undefined;
         isDemoUpdate = true;
-        comment = "";
-        this.roomName = "session-" + new Date().getTime();
+        comment = '';
+        this.roomName = 'session-' + new Date().getTime();
       }
     }
-    if (message.intent === "demo_done" && comment.toLowerCase() === "yes") {
-      comment = "talk to agent";
+    if (message.intent === 'demo_done' && comment.toLowerCase() === 'yes') {
+      comment = 'talk to agent';
     }
     this.setState(
       {
-        isDemo: type === "demo" && isDemoUpdate ? true : this.state.isDemo
+        isDemo: type === 'demo' && isDemoUpdate ? true : this.state.isDemo
       },
       () => {
         let isAdd = true;
-        if (type === "demo" && isDemoUpdate) {
+        if (type === 'demo' && isDemoUpdate) {
           isAdd = false;
         }
         // if (message.message && message.message.toLowerCase() == "contact us" && comment.toLowerCase() === "cancel") {
@@ -534,12 +801,12 @@ class BotSection extends Component {
         let data = {
           comment: comment,
           wASessionId: this.wASessionId,
-          user: "user",
+          user: 'user',
           roomName: this.roomName,
           roomId: this.roomId,
           type: type,
           demoProperty:
-            type === "demo" ? localStorage.getItem("demoProperty") : undefined,
+            type === 'demo' ? localStorage.getItem('demoProperty') : undefined,
           intent: message.intent
         };
 
@@ -555,23 +822,23 @@ class BotSection extends Component {
       reconnectionDelayMax: 5000,
       reconnectionAttempts: 5
     });
-    this.demoSocket.on("connect", function () {
-      console.debug("demo socket connected to server");
+    this.demoSocket.on('connect', function() {
+      console.debug('demo socket connected to server');
     });
-    this.demoSocket.on("chat message", message => {
+    this.demoSocket.on('chat message', message => {
       let data = message;
-      let session_id = localStorage.getItem("demoWASessionId");
+      let session_id = localStorage.getItem('demoWASessionId');
       let messages = [...this.state.messages];
       if (data.success === undefined) {
         if (!session_id || session_id === data.session_id) {
-          localStorage.setItem("demoWASessionId", data.session_id);
+          localStorage.setItem('demoWASessionId', data.session_id);
           if (data && data.context && data.context.skills) {
             data.output.generic.forEach(x => {
               if (x.text || x.title) {
                 messages.push({
-                  user: "WA",
+                  user: 'WA',
                   message: x.options ? x.title : x.text,
-                  type: x.options ? "options" : "text",
+                  type: x.options ? 'options' : 'text',
                   options: x.options || []
                 });
               }
@@ -580,9 +847,9 @@ class BotSection extends Component {
         }
       } else {
         if (!session_id || session_id === data.session_id) {
-          if (data.message && (!data.type || data.type != "user")) {
+          if (data.message && (!data.type || data.type != 'user')) {
             messages.push({
-              user: data.type === "user" ? "US" : "WA",
+              user: data.type === 'user' ? 'US' : 'WA',
               message: data.message
             });
           }
@@ -591,7 +858,7 @@ class BotSection extends Component {
       this.setState(
         {
           messages,
-          msg: "",
+          msg: '',
           isLoading: false
         },
         this.scrollToBottom
@@ -601,8 +868,8 @@ class BotSection extends Component {
 
   sendMessage = (data, message, shouldAddToMessages) => {
     let messages = [...this.state.messages];
-    let demoProperty = localStorage.getItem("demoProperty");
-    if (this.state.isDemo && demoProperty === "Customer Service") {
+    let demoProperty = localStorage.getItem('demoProperty');
+    if (this.state.isDemo && demoProperty === 'Customer Service') {
       if (!this.demoSocket) {
         this.resetLocalStorage(true);
         this.demoSocket.connect();
@@ -610,16 +877,16 @@ class BotSection extends Component {
       } else if (!data.wASessionId) {
         this.demoSocket.connect();
       }
-      let demoWASessionId = localStorage.getItem("demoWASessionId");
-      this.demoSocket.emit("chat message", {
+      let demoWASessionId = localStorage.getItem('demoWASessionId');
+      this.demoSocket.emit('chat message', {
         payload: data.comment,
         params: { session_id: demoWASessionId },
-        user: "user"
+        user: 'user'
       });
       data.demoProperty = demoProperty;
     } else {
       data.demoProperty = demoProperty;
-      data.type = this.state.isDemo === true ? "demo" : "chat";
+      data.type = this.state.isDemo === true ? 'demo' : 'chat';
 
       data.shouldAddToMessages = shouldAddToMessages;
       if (!data.intent) {
@@ -629,8 +896,12 @@ class BotSection extends Component {
       this.socket.emit(SOCKET_PATHS.CONNECT, data);
     }
 
-    if (shouldAddToMessages && data && data.demoProperty === "Customer Service") {
-      messages.push({ user: "ME", message: message, type: "text" });
+    if (
+      shouldAddToMessages &&
+      data &&
+      data.demoProperty === 'Customer Service'
+    ) {
+      messages.push({ user: 'ME', message: message, type: 'text' });
     }
 
     // if (shouldAddToMessages) {
@@ -639,7 +910,7 @@ class BotSection extends Component {
     this.setState(
       {
         messages,
-        msg: "",
+        msg: '',
         isLoading: true
       },
       this.scrollToBottom
@@ -647,44 +918,44 @@ class BotSection extends Component {
   };
 
   scrollToBottom = () => {
-    setTimeout(function () {
-      var objDiv = document.getElementById("messages_container");
+    setTimeout(function() {
+      var objDiv = document.getElementById('messages_container');
       if (objDiv) {
         objDiv.scrollTop = objDiv.scrollHeight;
       }
     }, 500);
   };
   handleKeyDown = event => {
-    if (event.key === "Enter") {
+    if (event.key === 'Enter') {
       this.send();
     }
   };
 
   getChatUiByType = (data, index, lastWAIndex) => {
     switch (data.type) {
-      case "location":
+      case 'location':
         return <ChatLocation isLastWAUser={index === lastWAIndex} />;
-      case "image":
+      case 'image':
         return (
-          <div className="chat-location">
+          <div className='chat-location'>
             <Card>
               <CardImg
                 top
-                width="100%"
+                width='100%'
                 src={data.source}
-                alt="Card image cap"
+                alt='Card image cap'
               />
             </Card>
           </div>
         );
-      case "callback_form":
+      case 'callback_form':
         return (
           <CallBackForm
             roomId={this.roomId}
             sendCustomMessage={this.sendCustomMessage}
           />
         );
-      case "search-result":
+      case 'search-result':
         return (
           <React.Fragment>
             {data.data && data.data.length > 0 ? (
@@ -693,15 +964,15 @@ class BotSection extends Component {
                 isLastWAUser={index === lastWAIndex}
               />
             ) : (
-                <React.Fragment>
-                  <ChatPill
-                    isLastWAUser={index === lastWAIndex && !this.state.isLoading}
-                    right={data.user === "ME"}
-                    user={data.user}
-                    text=""
-                  />
-                </React.Fragment>
-              )}
+              <React.Fragment>
+                <ChatPill
+                  isLastWAUser={index === lastWAIndex && !this.state.isLoading}
+                  right={data.user === 'ME'}
+                  user={data.user}
+                  text=''
+                />
+              </React.Fragment>
+            )}
           </React.Fragment>
         );
       default:
@@ -710,7 +981,7 @@ class BotSection extends Component {
             {data.message && (
               <ChatPill
                 isLastWAUser={index === lastWAIndex && !this.state.isLoading}
-                right={data.user === "ME"}
+                right={data.user === 'ME'}
                 user={data.user}
                 text={data.message}
               />
@@ -735,31 +1006,31 @@ class BotSection extends Component {
       .reverse()
       .findIndex(
         x =>
-          ["WA", "AG"].indexOf(x.user) > -1 && x.message && x.message.length > 0
+          ['WA', 'AG'].indexOf(x.user) > -1 && x.message && x.message.length > 0
       );
     if (lastWAIndex > -1) {
       lastWAIndex = messages.length - lastWAIndex - 1;
     }
     return (
-      <section className="bot">
-        <div onClick={this.props.toggle} className="bot-menu-btn right">
-          <img src={chat} alt="chat" />
-          <div className="d-none d-md-block">Explore our site</div>
+      <section className='bot'>
+        <div onClick={this.props.toggle} className='bot-menu-btn right'>
+          <img src={chat} alt='chat' />
+          <div className='d-none d-md-block'>Explore our site</div>
         </div>
         <Container>
-          <Row className="chat-header">
-            <Col className="d-flex flex-column">
-              <div className="d-flex justify-content-center flex-grow-1">
+          <Row className='chat-header'>
+            <Col className='d-flex flex-column'>
+              <div className='d-flex justify-content-center flex-grow-1'>
                 <img
                   src={logo}
-                  alt="incede.ai"
-                  style={{ width: "10em", height: "5em" }}
+                  alt='incede.ai'
+                  style={{ width: '10em', height: '5em' }}
                 />
               </div>
-              <div className="d-flex justify-content-center flex-grow-1">
-                <p className="lead text-white d-none d-md-block">
+              <div className='d-flex justify-content-center flex-grow-1'>
+                <p className='lead text-white d-none d-md-block'>
                   Experts in developing AI Infused Business Applications. (
-                  <small className="power-by">
+                  <small className='power-by'>
                     Powered by Watson Assistant
                   </small>
                   )
@@ -769,66 +1040,60 @@ class BotSection extends Component {
             </Col>
           </Row>
           <Row>
-            <Col className="bot-container ">
+            <Col className='bot-container '>
               <section
-                id="messages_container"
-                className="chat d-flex flex-column flex-grow-1"
-              >
+                id='messages_container'
+                className='chat d-flex flex-column flex-grow-1'>
                 {this.state.messages.map((x, i) => (
                   <div key={i}>
                     {this.getChatUiByType(x, i, lastWAIndex)}
                     {i === this.state.messages.length - 1 &&
-                      x.type === "options" && (
-                        <div className="options-container">
+                      x.type === 'options' && (
+                        <div className='options-container'>
                           <Row>
                             {x.options.map((option, index) => {
                               let optionsLength = x.options.length;
                               let isCol3 = optionsLength % 3 === 0;
                               return (
                                 <React.Fragment key={`option${index}`}>
-                                  {option.value.input.text.startsWith("<a") &&
-                                    option.value.input.text.indexOf("href") >
+                                  {option.value.input.text.startsWith('<a') &&
+                                  option.value.input.text.indexOf('href') >
                                     -1 ? (
-                                      <Col
-                                        key={`option${index}`}
-                                        lg={isCol3 ? 4 : 6}
-                                        md={isCol3 ? 4 : 6}
-                                        sm={6}
-                                        xs={12}
-                                      >
-                                        <div
-                                          className={`wa-option ${option.label
-                                            .replace(/ /g, "-")
-                                            .toLowerCase()}`}
-                                        >
-                                          <p
-                                            className="link"
-                                            dangerouslySetInnerHTML={{
-                                              __html: option.value.input.text
-                                            }}
-                                          ></p>
-                                        </div>
-                                      </Col>
-                                    ) : (
-                                      <Col
-                                        key={`option${index}`}
-                                        lg={isCol3 ? 4 : 6}
-                                        md={isCol3 ? 4 : 6}
-                                        sm={6}
-                                        xs={12}
-                                        onClick={() =>
-                                          this.handleOnOptionClick(x, index)
-                                        }
-                                      >
-                                        <div
-                                          className={`wa-option ${option.label
-                                            .replace(/ /g, "-")
-                                            .toLowerCase()}`}
-                                        >
-                                          <p>{option.label}</p>
-                                        </div>
-                                      </Col>
-                                    )}
+                                    <Col
+                                      key={`option${index}`}
+                                      lg={isCol3 ? 4 : 6}
+                                      md={isCol3 ? 4 : 6}
+                                      sm={6}
+                                      xs={12}>
+                                      <div
+                                        className={`wa-option ${option.label
+                                          .replace(/ /g, '-')
+                                          .toLowerCase()}`}>
+                                        <p
+                                          className='link'
+                                          dangerouslySetInnerHTML={{
+                                            __html: option.value.input.text
+                                          }}></p>
+                                      </div>
+                                    </Col>
+                                  ) : (
+                                    <Col
+                                      key={`option${index}`}
+                                      lg={isCol3 ? 4 : 6}
+                                      md={isCol3 ? 4 : 6}
+                                      sm={6}
+                                      xs={12}
+                                      onClick={() =>
+                                        this.handleOnOptionClick(x, index)
+                                      }>
+                                      <div
+                                        className={`wa-option ${option.label
+                                          .replace(/ /g, '-')
+                                          .toLowerCase()}`}>
+                                        <p>{option.label}</p>
+                                      </div>
+                                    </Col>
+                                  )}
                                 </React.Fragment>
                               );
                             })}
@@ -838,36 +1103,34 @@ class BotSection extends Component {
                   </div>
                 ))}
                 {(this.state.isLoading || this.state.messages.length === 0) && (
-                  <ChatPill isLastWAUser={true} right={false} user={"WA"}>
-                    <Spinner size="sm" type="grow" color="primary" />
-                    <Spinner size="sm" type="grow" color="primary" />
-                    <Spinner size="sm" type="grow" color="primary" />
-                    <Spinner size="sm" type="grow" color="primary" />
+                  <ChatPill isLastWAUser={true} right={false} user={'WA'}>
+                    <Spinner size='sm' type='grow' color='primary' />
+                    <Spinner size='sm' type='grow' color='primary' />
+                    <Spinner size='sm' type='grow' color='primary' />
+                    <Spinner size='sm' type='grow' color='primary' />
                   </ChatPill>
                 )}
               </section>
-              <div className="d-flex justify-content-end">
+              <div className='d-flex justify-content-end'>
                 {this.state.isDemo ? (
                   <Button
                     onClick={this.exitWADemo}
-                    className="exit-demo-btn  xs mr-1 d-block d-sm-none"
-                  >
+                    className='exit-demo-btn  xs mr-1 d-block d-sm-none'>
                     Exit Demo
                   </Button>
                 ) : (
-                    <React.Fragment>
-                      {this.state.messages.length > 0 && (
-                        <Button
-                          onClick={() => {
-                            this.setState({ modal: { isOpen: true } });
-                          }}
-                          className="exit-demo-btn xs mr-1 d-block d-sm-none"
-                        >
-                          Reset
-                        </Button>
-                      )}
-                    </React.Fragment>
-                  )}
+                  <React.Fragment>
+                    {this.state.messages.length > 0 && (
+                      <Button
+                        onClick={() => {
+                          this.setState({ modal: { isOpen: true } });
+                        }}
+                        className='exit-demo-btn xs mr-1 d-block d-sm-none'>
+                        Reset
+                      </Button>
+                    )}
+                  </React.Fragment>
+                )}
               </div>
               {/* <ChatPillAsk
                 handleKeyDown={this.handleKeyDown}
@@ -902,42 +1165,40 @@ class BotSection extends Component {
             )}
           </div> */}
           <div
-            className={`chat-section d-flex justify-content-end align-items-center ask-container`}
-          >
+            className={`chat-section d-flex justify-content-end align-items-center ask-container`}>
             {this.state.isDemo ? (
               <Button
                 onClick={this.exitWADemo}
-                className="exit-demo-btn mr-1 d-none d-sm-block"
-              >
+                className='exit-demo-btn mr-1 d-none d-sm-block'>
                 Exit Demo
               </Button>
             ) : (
-                <React.Fragment>
-                  {this.state.messages.length > 0 && (
-                    <Button
-                      onClick={() => {
-                        this.setState({ modal: { isOpen: true } });
-                      }}
-                      className="reset-btn mr-1 d-none d-sm-block"
-                    >
-                      Reset
-                    </Button>
-                  )}
-                </React.Fragment>
-              )}
+              <React.Fragment>
+                {this.state.messages.length > 0 && (
+                  <Button
+                    onClick={() => {
+                      this.setState({ modal: { isOpen: true } });
+                    }}
+                    className='reset-btn mr-1 d-none d-sm-block'>
+                    Reset
+                  </Button>
+                )}
+              </React.Fragment>
+            )}
             <ChatPillAsk
               handleKeyDown={this.handleKeyDown}
               value={this.state.msg}
               onChange={this.handleMessageChange}
-              placeholder="Type here"
+              placeholder='Type here'
               onClick={this.send}
+              audioSource={this.state.audioSource}
+              handleMicClick={this.handleMicClick}
             />
           </div>
           <ConfirmModal
             isOpen={this.state.modal.isOpen}
             handelCloseOpen={ans => this.handelModalCloseOpen(ans)}
-            title="Are you sure?"
-          >
+            title='Are you sure?'>
             Do you want to reset chat history?
           </ConfirmModal>
         </Container>
