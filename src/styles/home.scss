@@ -21,15 +21,15 @@ section {
   margin-bottom: 16px;
 }
 
-@media screen and (min-width: 1200px) {
-  section {
-    &.landing-home {
-      .image-section {
-        img {
-          height: 320px !important;
-          width: auto !important;
-        }
-      }
-    }
-  }
-}
+// @media screen and (min-width: 1200px) {
+//   section {
+//     &.landing-home {
+//       .image-section {
+//         img {
+//           // height: 320px !important;
+//           // width: auto !important;
+//         }
+//       }
+//     }
+//   }
+// }

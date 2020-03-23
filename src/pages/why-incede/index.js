@@ -47,8 +47,8 @@ const subItems = [
     title: "Technology Partners"
   },
   {
-    image: "/img/human-resources-service.png",
-    inactiveImage: "/img/human-resources-service-inactive.png",
+    image: "/img/leadership.png",
+    inactiveImage: "/img/leadership-inactive.png",
     title: "Leadership Team"
   }
 ];
@@ -62,7 +62,7 @@ export const Menu = (subItems, activeIndex) =>
           service={data}
           index={i}
           isActive={activeIndex === i ? true : false}
-          onItemClick={() => {}}
+          onItemClick={() => { }}
         />
       </div>
     );
