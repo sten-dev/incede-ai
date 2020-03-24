@@ -27,6 +27,7 @@ import FooterLocation from './FooterLocation';
 import { httpClient, LINKEDIN, storeLinkedinUser } from '../constants';
 import { userDetailFromLinkedin } from '../../Service';
 class Footer extends React.Component {
+  window;
   constructor(props) {
     super(props);
     this.state = {
@@ -38,11 +39,14 @@ class Footer extends React.Component {
         reason: '',
         date: ''
       },
-      width: window.innerWidth,
+      // width: window.innerWidth,
       dateTime: { isOpen: false },
       hasDetailsSubmitted: undefined
     };
   }
+  componentDidMount = () => {
+    this.window = window;
+  };
 
   handleSubmit = async event => {
     event.preventDefault();
@@ -125,7 +129,8 @@ class Footer extends React.Component {
   };
 
   render() {
-    // const width = window.innerWidth;
+    const width = this.window && this.window.innerWidth;
+
     return (
       <footer className='footer gap-y-half'>
         <Container>
@@ -300,8 +305,7 @@ class Footer extends React.Component {
                                   alt='linledin'
                                   className='linkedin-logo'
                                 />
-                                {this.state.width <= 992 &&
-                                this.state.width >= 768
+                                {width && width <= 992 && width >= 768
                                   ? 'linkedin'
                                   : 'signin with linkedin'}
                               </Button>

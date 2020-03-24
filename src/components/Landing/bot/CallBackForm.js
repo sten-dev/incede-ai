@@ -22,6 +22,7 @@ import * as IMAGE from '../../../../imgaesDataFile.json';
 
 // var DateTime = require("react-datetime");
 class CallBackForm extends Component {
+  window;
   constructor(props) {
     super(props);
     this.state = {
@@ -33,12 +34,16 @@ class CallBackForm extends Component {
         reason: '',
         date: ''
       },
-      width: window.innerWidth,
+      // width: window.innerWidth,
       dateTime: { isOpen: false },
       message: '',
       hasDetailsSubmitted: false
     };
   }
+
+  componentDidMount = () => {
+    this.window = window;
+  };
 
   handleOnChange = event => {
     let eve = { ...event };
@@ -128,7 +133,7 @@ class CallBackForm extends Component {
 
   render() {
     // const width = window.innerWidth;
-
+    const width = this.window && this.window.innerWidth;
     return (
       <React.Fragment>
         <div
@@ -255,7 +260,7 @@ class CallBackForm extends Component {
                                   alt='linledin'
                                   className='linkedin-logo'
                                 />
-                                {this.state.width <= 576
+                                {width && width <= 576
                                   ? 'linkedin'
                                   : 'signin with linkedin'}
                               </Button>

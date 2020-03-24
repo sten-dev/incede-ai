@@ -103,7 +103,8 @@ export const canPlayAudioFormat = mimeType => {
 
 export const LINKEDIN = {
   clientId: '81uni85sqi901i',
-  redirectUrl: 'http://localhost:8000',
+  redirectUrl: 'https://incede-dev.netlify.com',
+  // redirectUrl: 'http://localhost:8000',
   grant_type: 'authorization_code'
 };
 
