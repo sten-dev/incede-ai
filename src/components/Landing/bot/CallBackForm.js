@@ -289,7 +289,7 @@ class CallBackForm extends Component {
                                   />
                                   {width && width <= 576
                                     ? 'linkedin'
-                                    : 'signin with linkedin'}
+                                    : 'Login with linkedin'}
                                 </Button>
                               )}
                             </LinkedInSignIn>
