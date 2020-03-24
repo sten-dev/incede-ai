@@ -168,7 +168,7 @@ class BotSection extends Component {
 
   //   const audio = this.audioElementRef.current;
   //   audio.setAttribute('type', 'audio/ogg;codecs=opus');
-  //   audio.setAttribute('src', `/api/v1/synthesize?${params.toString()}`);
+  // audio.setAttribute('src', `${API_URL}synthesize?${params.toString()}`);
 
   //   this.setState({ loading: true, hasAudio: false });
   // };
