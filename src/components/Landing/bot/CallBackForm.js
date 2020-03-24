@@ -11,7 +11,12 @@ import {
   Col,
   Alert
 } from 'reactstrap';
-import { httpClient, storeLinkedinUser, LINKEDIN } from '../../../constants';
+import {
+  httpClient,
+  storeLinkedinUser,
+  LINKEDIN,
+  getLinkedinUser
+} from '../../../constants';
 import { ChatPill } from './ChatPill';
 import * as DateTime from 'react-datetime';
 import 'react-datetime/css/react-datetime.css';
@@ -22,6 +27,7 @@ import * as IMAGE from '../../../../imgaesDataFile.json';
 
 // var DateTime = require("react-datetime");
 class CallBackForm extends Component {
+  window;
   constructor(props) {
     super(props);
     this.state = {
@@ -33,12 +39,36 @@ class CallBackForm extends Component {
         reason: '',
         date: ''
       },
-      width: window.innerWidth,
+      showLinkedin: true,
+      // width: window.innerWidth,
       dateTime: { isOpen: false },
       message: '',
       hasDetailsSubmitted: false
     };
   }
+
+  componentDidMount = () => {
+    this.window = window;
+    this.getLinkedUser();
+  };
+
+  getLinkedUser = () => {
+    let data = getLinkedinUser();
+    if (data != null) {
+      console.warn('data', data);
+      let firstName = data.firstName != null ? data.firstName : '';
+      let lastName = data.lastName != null ? data.lastName : '';
+
+      this.setState({
+        showLinkedin: false,
+        contactDetails: {
+          ...this.state.contactDetails,
+          name: firstName + ' ' + lastName,
+          email: data.email
+        }
+      });
+    }
+  };
 
   handleOnChange = event => {
     let eve = { ...event };
@@ -70,6 +100,7 @@ class CallBackForm extends Component {
       let lastName = data.lastName != null ? data.lastName : '';
 
       this.setState({
+        showLinkedin: false,
         contactDetails: {
           ...this.state.contactDetails,
           name: firstName + ' ' + lastName,
@@ -128,7 +159,7 @@ class CallBackForm extends Component {
 
   render() {
     // const width = window.innerWidth;
-
+    const width = this.window && this.window.innerWidth;
     return (
       <React.Fragment>
         <div
@@ -240,27 +271,29 @@ class CallBackForm extends Component {
                             Submit
                           </Button>
                           &nbsp; &nbsp;
-                          <LinkedInSignIn
-                            clientId={LINKEDIN.clientId}
-                            redirectUrl={LINKEDIN.redirectUrl}
-                            onSuccess={this.handleSuccess}
-                            onError={this.handleFailure}
-                            scopes={['r_liteprofile', 'r_emailaddress']}>
-                            {onclick => (
-                              <Button
-                                onClick={onclick}
-                                className='linkedin-btn'>
-                                <img
-                                  src={IMAGE.linkedin}
-                                  alt='linledin'
-                                  className='linkedin-logo'
-                                />
-                                {this.state.width <= 576
-                                  ? 'linkedin'
-                                  : 'signin with linkedin'}
-                              </Button>
-                            )}
-                          </LinkedInSignIn>
+                          {this.state.showLinkedin && (
+                            <LinkedInSignIn
+                              clientId={LINKEDIN.clientId}
+                              redirectUrl={LINKEDIN.redirectUrl}
+                              onSuccess={this.handleSuccess}
+                              onError={this.handleFailure}
+                              scopes={['r_liteprofile', 'r_emailaddress']}>
+                              {onclick => (
+                                <Button
+                                  onClick={onclick}
+                                  className='linkedin-btn'>
+                                  <img
+                                    src={IMAGE.linkedin}
+                                    alt='linledin'
+                                    className='linkedin-logo'
+                                  />
+                                  {width && width <= 576
+                                    ? 'linkedin'
+                                    : 'signin with linkedin'}
+                                </Button>
+                              )}
+                            </LinkedInSignIn>
+                          )}
                         </div>
                       </Col>
                       {this.state.message && (
