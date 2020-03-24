@@ -24,7 +24,12 @@ import {
 } from 'reactstrap';
 
 import FooterLocation from './FooterLocation';
-import { httpClient, LINKEDIN, storeLinkedinUser } from '../constants';
+import {
+  httpClient,
+  LINKEDIN,
+  storeLinkedinUser,
+  getLinkedinUser
+} from '../constants';
 import { userDetailFromLinkedin } from '../../Service';
 class Footer extends React.Component {
   window;
@@ -39,6 +44,7 @@ class Footer extends React.Component {
         reason: '',
         date: ''
       },
+      showLinkedin: true,
       // width: window.innerWidth,
       dateTime: { isOpen: false },
       hasDetailsSubmitted: undefined
@@ -46,6 +52,25 @@ class Footer extends React.Component {
   }
   componentDidMount = () => {
     this.window = window;
+    this.getLinkedUser();
+  };
+
+  getLinkedUser = () => {
+    let data = getLinkedinUser();
+    if (data != null) {
+      console.warn('data', data);
+      let firstName = data.firstName != null ? data.firstName : '';
+      let lastName = data.lastName != null ? data.lastName : '';
+
+      this.setState({
+        showLinkedin: false,
+        contactInfo: {
+          ...this.state.contactInfo,
+          name: firstName + ' ' + lastName,
+          email: data.email
+        }
+      });
+    }
   };
 
   handleSubmit = async event => {
@@ -107,6 +132,7 @@ class Footer extends React.Component {
       let lastName = data.lastName != null ? data.lastName : '';
 
       this.setState({
+        showLinkedin: false,
         contactInfo: {
           ...this.state.contactInfo,
           name: firstName + ' ' + lastName,
@@ -290,27 +316,29 @@ class Footer extends React.Component {
                             Submit
                           </Button>
                           &nbsp; &nbsp;
-                          <LinkedInSignIn
-                            clientId={LINKEDIN.clientId}
-                            redirectUrl={LINKEDIN.redirectUrl}
-                            onSuccess={this.handleSuccess}
-                            onError={this.handleFailure}
-                            scopes={['r_liteprofile', 'r_emailaddress']}>
-                            {onclick => (
-                              <Button
-                                onClick={onclick}
-                                className='linkedin-btn'>
-                                <img
-                                  src={IMAGE.linkedin}
-                                  alt='linledin'
-                                  className='linkedin-logo'
-                                />
-                                {width && width <= 992 && width >= 768
-                                  ? 'linkedin'
-                                  : 'signin with linkedin'}
-                              </Button>
-                            )}
-                          </LinkedInSignIn>
+                          {this.state.showLinkedin && (
+                            <LinkedInSignIn
+                              clientId={LINKEDIN.clientId}
+                              redirectUrl={LINKEDIN.redirectUrl}
+                              onSuccess={this.handleSuccess}
+                              onError={this.handleFailure}
+                              scopes={['r_liteprofile', 'r_emailaddress']}>
+                              {onclick => (
+                                <Button
+                                  onClick={onclick}
+                                  className='linkedin-btn'>
+                                  <img
+                                    src={IMAGE.linkedin}
+                                    alt='linledin'
+                                    className='linkedin-logo'
+                                  />
+                                  {width && width <= 992 && width >= 768
+                                    ? 'linkedin'
+                                    : 'Login with linkedin'}
+                                </Button>
+                              )}
+                            </LinkedInSignIn>
+                          )}
                         </div>
                         <br />
                         {this.state.message &&
