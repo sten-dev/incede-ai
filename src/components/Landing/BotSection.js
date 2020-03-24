@@ -188,6 +188,14 @@ class BotSection extends Component {
   handleFormattedMessage = msg => {
     const { formattedMessages } = this.state;
     let r = msg;
+
+    if (r.results && r.results.length) {
+      console.log('msg', r);
+      this.setState({
+        msg: r.results[0].alternatives[0].transcript
+      });
+    }
+
     if (r.results && r.results.length && r.results[0].final) {
       console.log('msg', r);
       this.setState({
