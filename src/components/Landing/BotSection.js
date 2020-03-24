@@ -80,14 +80,17 @@ class BotSection extends Component {
     this.roomId = localStorage.getItem('roomId');
     this.wASessionId = localStorage.getItem('wASessionId');
     this.waCreatedTime = localStorage.getItem('waCreatedTime');
+
     await this.getSpeechToTextConfig();
     this.setState({
       tokenInterval: setInterval(this.getSpeechToTextConfig, 50 * 60 * 1000)
     });
+
     await this.initializeSocketIo();
     await this.initializeDemoSocket();
   };
 
+  /****************************************************Speech to text******************************************************** */
   getSpeechToTextConfig = async () => {
     let res = await getSpeechToTextConfig();
     if (res && res.success) {
@@ -320,6 +323,7 @@ class BotSection extends Component {
     const { rawMessages } = this.state;
     this.setState({ rawMessages: rawMessages.concat(msg) });
   };
+  /**************************************************************************************** */
 
   componentWillUnmount() {
     this.demoSocket.close();
