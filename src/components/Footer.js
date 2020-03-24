@@ -38,6 +38,7 @@ class Footer extends React.Component {
         reason: '',
         date: ''
       },
+      width: window.innerWidth,
       dateTime: { isOpen: false },
       hasDetailsSubmitted: undefined
     };
@@ -124,7 +125,7 @@ class Footer extends React.Component {
   };
 
   render() {
-    const width = window.innerWidth;
+    // const width = window.innerWidth;
     return (
       <footer className='footer gap-y-half'>
         <Container>
@@ -299,7 +300,8 @@ class Footer extends React.Component {
                                   alt='linledin'
                                   className='linkedin-logo'
                                 />
-                                {width <= 992 && width >= 768
+                                {this.state.width <= 992 &&
+                                this.state.width >= 768
                                   ? 'linkedin'
                                   : 'signin with linkedin'}
                               </Button>

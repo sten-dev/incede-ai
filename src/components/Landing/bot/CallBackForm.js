@@ -33,6 +33,7 @@ class CallBackForm extends Component {
         reason: '',
         date: ''
       },
+      width: window.innerWidth,
       dateTime: { isOpen: false },
       message: '',
       hasDetailsSubmitted: false
@@ -126,7 +127,7 @@ class CallBackForm extends Component {
   };
 
   render() {
-    const width = window.innerWidth;
+    // const width = window.innerWidth;
 
     return (
       <React.Fragment>
@@ -254,7 +255,7 @@ class CallBackForm extends Component {
                                   alt='linledin'
                                   className='linkedin-logo'
                                 />
-                                {width <= 576
+                                {this.state.width <= 576
                                   ? 'linkedin'
                                   : 'signin with linkedin'}
                               </Button>
