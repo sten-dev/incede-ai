@@ -31,7 +31,7 @@ class CustomDemos extends Component {
     render() {
         return (
             <React.Fragment>
-                <Layout pageTitle="Why Incede | Incede">
+                <Layout pageTitle="Custom Demo | Incede" page="custom-demo">
                     <Transition>
                         {/* <Loading /> */}
                         {this.state.isLoading && <Loading />}
