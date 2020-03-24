@@ -5,7 +5,7 @@
 export const API_URL = 'https://custom-demo-api-funny-dog.mybluemix.net/';
 
 // local
-// export const API_URL = "http://localhost:8080/";
+// export const API_URL = 'http://localhost:8080/';
 
 export const WEB_URL = 'https://incede.ai/';
 
@@ -99,4 +99,21 @@ export const canPlayAudioFormat = mimeType => {
     );
   }
   return false;
+};
+
+export const LINKEDIN = {
+  clientId: '81uni85sqi901i',
+  redirectUrl: 'http://localhost:8000',
+  grant_type: 'authorization_code'
+};
+
+export const storeLinkedinUser = data => {
+  localStorage.setItem('linkedin_user', JSON.stringify(data));
+};
+export const getLinkedinUser = () => {
+  let data = localStorage.getItem('linkedin_user');
+  if (data != null) {
+    return JSON.parse(data);
+  }
+  return null;
 };

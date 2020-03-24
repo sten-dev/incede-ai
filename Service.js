@@ -27,6 +27,10 @@ export const loginAgent = async obj => {
   let response = await httpClient('auth-agents', 'POST', obj);
   return response;
 };
+export const userDetailFromLinkedin = async obj => {
+  let response = await httpClient('linkedin-user-details', 'POST', obj);
+  return response;
+};
 export const getSpeechToTextConfig = async () => {
   let response = await httpClient('speech-to-text-config', 'GET');
   return response;
