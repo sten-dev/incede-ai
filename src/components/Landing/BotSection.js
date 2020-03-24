@@ -19,7 +19,8 @@ import {
   httpClient,
   DEMO_SOCKET_URL,
   IGNORE_MSG,
-  MEETING_MSG
+  MEETING_MSG,
+  canPlayAudioFormat
 } from '../../constants';
 import chat from '../../img/chat.svg';
 import ChatLocation from '../ChatLocation';
@@ -30,6 +31,31 @@ import ConfirmModal from '../ConfirmModal';
 import { getSpeechToTextConfig } from '../../../Service';
 import recognizeMicrophone from 'watson-speech/speech-to-text/recognize-microphone';
 import samples from './samples.json';
+import voices from '../../../voices';
+
+const VOICE = voices[1];
+
+const getSearchParams = () => {
+  if (typeof URLSearchParams === 'function') {
+    return new URLSearchParams();
+  }
+
+  // Simple polyfill for URLSearchparams
+  const SearchParams = function SearchParams() {};
+
+  SearchParams.prototype.set = function set(key, value) {
+    this[key] = value;
+  };
+
+  SearchParams.prototype.toString = function toString() {
+    return Object.keys(this)
+      .map(v => `${encodeURI(v)}=${encodeURI(this[v])}`)
+      .join('&');
+  };
+
+  return new SearchParams();
+};
+
 class BotSection extends Component {
   roomName = undefined;
   roomId;
@@ -51,6 +77,17 @@ class BotSection extends Component {
           type: 'text'
         }
       ],
+
+      TTS: {
+        voice: VOICE,
+        error: null,
+        text: VOICE.demo.text, // default text
+        // ssml: VOICE.demo.ssml, // SSML text
+        // ssml_voice: VOICE.demo.ssml_voice, // Voice SSML text, only some voices support this
+        // ssmlLabel: 'SSML',
+        loading: false
+      },
+
       msg: '',
       isDemo: false,
       shouldConnectApi: true,
@@ -74,8 +111,18 @@ class BotSection extends Component {
         isOpen: false
       }
     };
+    this.audioElementRef = React.createRef();
   }
   componentDidMount = async () => {
+    // text to speech
+    if (this.audioElementRef.current) {
+      this.audioElementRef.current.addEventListener('play', this.onAudioLoaded);
+      this.audioElementRef.current.addEventListener(
+        'error',
+        this.handleAudioError
+      );
+    }
+
     this.roomName = localStorage.getItem('roomName');
     this.roomId = localStorage.getItem('roomId');
     this.wASessionId = localStorage.getItem('wASessionId');
@@ -89,6 +136,63 @@ class BotSection extends Component {
     await this.initializeSocketIo();
     await this.initializeDemoSocket();
   };
+
+  /********************************************Text to Speech ************************************************************* */
+
+  // downloadDisabled = () => {
+  //   return !this.downloadAllowed();
+  // };
+
+  // speakDisabled = () => {
+  //   return this.downloadDisabled();
+  // };
+
+  // downloadAllowed = () => {
+  //   const { text } = this.state;
+  //   return text != null && String(text).trim() != '';
+  // };
+
+  // onAudioLoaded = () => {
+  //   this.setState({ loading: false, hasAudio: true });
+  // };
+
+  // handleAudioError = error => {
+  //   console.error(error);
+  //   this.setState({ error: { error: 'Could not play audio' }, loading: false });
+  //   setTimeout(() => this.setState({ error: null }), 5000);
+  // };
+
+  // onSpeak = event => {
+  //   event.target.blur();
+  //   const params = this.setupParamsFromState(true);
+
+  //   const audio = this.audioElementRef.current;
+  //   audio.setAttribute('type', 'audio/ogg;codecs=opus');
+  //   audio.setAttribute('src', `/api/v1/synthesize?${params.toString()}`);
+
+  //   this.setState({ loading: true, hasAudio: false });
+  // };
+
+  // setupParamsFromState = doDownload => {
+  //   const { text, voice } = this.state;
+
+  //   const params = getSearchParams();
+
+  //   params.set('text', text);
+  //   params.set('voice', voice.name);
+
+  //   params.set('download', doDownload);
+
+  //   if (canPlayAudioFormat('audio/mp3')) {
+  //     params.set('accept', 'audio/mp3');
+  //   } else if (canPlayAudioFormat('audio/ogg;codec=opus')) {
+  //     params.set('accept', 'audio/ogg;codec=opus');
+  //   } else if (canPlayAudioFormat('audio/wav')) {
+  //     params.set('accept', 'audio/wav');
+  //   }
+  //   console.log(JSON.stringify(params));
+  //   return params;
+  // };
 
   /****************************************************Speech to text******************************************************** */
   getSpeechToTextConfig = async () => {
@@ -334,6 +438,18 @@ class BotSection extends Component {
   /**************************************************************************************** */
 
   componentWillUnmount() {
+    // text to speech
+    if (this.audioElementRef.current) {
+      this.audioElementRef.current.removeEventListener(
+        'play',
+        this.onAudioLoaded
+      );
+      this.audioElementRef.current.removeEventListener(
+        'error',
+        this.handleAudioError
+      );
+    }
+
     this.demoSocket.close();
     this.socket.close();
   }

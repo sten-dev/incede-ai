@@ -84,3 +84,19 @@ export const httpClient = async (
     throw error;
   }
 };
+
+/**
+ * Validates that the mimetype is: audio/wav, audio/mpeg;codecs=mp3 or audio/ogg;codecs=opus
+ * @param  {String} mimeType The audio mimetype
+ * @return {bool} Returns true if the mimetype can be played.
+ */
+export const canPlayAudioFormat = mimeType => {
+  const audio = document.createElement('audio');
+  if (audio) {
+    return (
+      typeof audio.canPlayType === 'function' &&
+      audio.canPlayType(mimeType) !== ''
+    );
+  }
+  return false;
+};
