@@ -50,6 +50,7 @@ const Layout = ({ children, page, pageTitle }) => {
           content={`${withPrefix("/")}img/og-image.jpg`}
         />
         <script src="https://dde-us-south.analytics.ibm.com/daas/CognosApi.js"></script>
+        <script src="https://web-chat.global.assistant.watson.cloud.ibm.com/loadWatsonAssistantChat.js"></script>
       </Helmet>
       <LayoutBody page={page}>
         {children}

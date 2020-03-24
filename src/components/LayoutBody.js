@@ -104,14 +104,12 @@ class LayoutBody extends Component {
         <INavbar page={this.props.page} />
         <ChatMain page={this.props.page} />
         <div>{this.props.children}</div>
-        {this.props.page !== "dashboard" && <Footer />}
-        {this.props.page !== "dashboard" &&
-          this.props.page !== "login" &&
-          this.props.page !== "cookie/policy" &&
+        {["dashboard", "custom-demo-view"].indexOf(this.props.page) === -1 && <Footer />}
+        {["dashboard", "login", "cookie/policy", "custom-demo-view"].indexOf(this.props.page) === -1 &&
           this.state.isCookieSaved === false && (
             <CookieBar addCookie={() => this.handleAddCookie()} />
           )}
-        {this.state.isScrollHidden !== true && (
+        {this.state.isScrollHidden !== true && ["custom-demo-view"].indexOf(this.props.page) === -1 && (
           <section
             className="scroll-to-bottom-container"
             onClick={this.scrollMore}

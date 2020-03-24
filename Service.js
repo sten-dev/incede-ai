@@ -35,3 +35,12 @@ export const getSpeechToTextConfig = async () => {
   let response = await httpClient('speech-to-text-config', 'GET');
   return response;
 };
+
+export const getDemosLists = async () => {
+  let response = await httpClient('skills', 'GET');
+  return response;
+};
+export const getDemoById = async (id) => {
+  let res = await httpClient(`skills/${id}`, "GET");
+  return res;
+};
