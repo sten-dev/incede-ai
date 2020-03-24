@@ -169,18 +169,6 @@ class Footer extends React.Component {
                       <Col>
                         <img src={logo} alt='incede.ai' />
                       </Col>
-                      <Col className='text-right'>
-                        {/* <section className="social">
-                      <img src={facebook} alt="Facebook" />
-                    </a>
-                    <a title="twitter" href="https://twitter.com">
-                      <img className="fas fa-lg" src={twitter} alt="Twitter" />
-                    </a>
-                    <a title="instagram" href="https://instagram.com">
-                      <img src={instagram} alt="Instagram" />
-                    </a>
-                  </section> */}
-                      </Col>
                     </Row>
                   </Col>
                   <Col md='12' sm='6' xs='12' className='py-2'>
@@ -204,9 +192,22 @@ class Footer extends React.Component {
                       <FooterLocation />
                     </section>
                   </Col>
-
                   <Col lg='12' md='12' sm='12' xs='12'>
                     <p className='m-0'>© Copyright 2020 incede.ai</p>
+                  </Col>
+                  <Col lg='12' md='12' sm='12' xs='12'>
+                    <br />
+                    <section className="social">
+                      <a className="pl-0" title="twitter" href="https://facebook.com">
+                        <img src={facebook} alt="Facebook" />
+                      </a>
+                      <a title="twitter" href="https://twitter.com">
+                        <img className="fas fa-lg" src={twitter} alt="Twitter" />
+                      </a>
+                      <a title="instagram" href="https://instagram.com">
+                        <img src={instagram} alt="Instagram" />
+                      </a>
+                    </section>
                   </Col>
                 </Row>
               </Container>
@@ -334,7 +335,7 @@ class Footer extends React.Component {
                                   />
                                   {width && width <= 992 && width >= 768
                                     ? 'linkedin'
-                                    : 'Login with linkedin'}
+                                    : 'Login with LinkedIn'}
                                 </Button>
                               )}
                             </LinkedInSignIn>
@@ -343,19 +344,19 @@ class Footer extends React.Component {
                         <br />
                         {this.state.message &&
                           (this.state.hasDetailsSubmitted !== undefined &&
-                          this.state.hasDetailsSubmitted === true ? (
-                            <Col lg={12} md={12} sm={12} xs={12}>
-                              <br />
-                              <Alert color='success'>
-                                {this.state.message}
-                              </Alert>
-                            </Col>
-                          ) : (
-                            <Col lg={12} md={12} sm={12} xs={12}>
-                              <br />
-                              <Alert color='danger'>{this.state.message}</Alert>
-                            </Col>
-                          ))}
+                            this.state.hasDetailsSubmitted === true ? (
+                              <Col lg={12} md={12} sm={12} xs={12}>
+                                <br />
+                                <Alert color='success'>
+                                  {this.state.message}
+                                </Alert>
+                              </Col>
+                            ) : (
+                              <Col lg={12} md={12} sm={12} xs={12}>
+                                <br />
+                                <Alert color='danger'>{this.state.message}</Alert>
+                              </Col>
+                            ))}
                       </Form>
                     </div>
                   </Col>
@@ -364,7 +365,7 @@ class Footer extends React.Component {
             </Col>
           </Row>
         </Container>
-      </footer>
+      </footer >
     );
   }
 }
