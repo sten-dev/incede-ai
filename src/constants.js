@@ -1,15 +1,15 @@
-//dev
-// export const API_URL = 'https://incede-api-tired-leopard.mybluemix.net/';
+//prod
+export const API_URL = 'https://incede-api-tired-leopard.mybluemix.net/';
 
-// new dev
+// dev
 // export const API_URL = 'https://custom-demo-api-funny-dog.mybluemix.net/';
 
 // local
-export const API_URL = 'http://localhost:8080/';
+// export const API_URL = 'http://localhost:8080/';
 
 export const LINKEDIN = {
   clientId: '78p9i60dhfuau3',// 78p9i60dhfuau3 - Prod 81uni85sqi901i -dev
-  redirectUrl: 'https://incede-dev.netlify.com',
+  redirectUrl: 'https://incede.ai',
   // redirectUrl: 'http://localhost:8000',
   grant_type: 'authorization_code'
 };
