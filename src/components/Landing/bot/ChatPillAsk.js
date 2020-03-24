@@ -7,7 +7,7 @@ export const ChatPillAsk = props => {
   return (
     <section className={`chat-pill ask d-flex`}>
       <img
-        style={{ width: '40px', paddingLeft: '10px' }}
+        style={{ width: '40px', paddingLeft: '10px', height: '59px' }}
         alt='send'
         src={props.audioSource === 'mic' ? microphoneActive : microphone}
         onClick={props.handleMicClick}
