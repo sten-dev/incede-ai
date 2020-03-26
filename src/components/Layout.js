@@ -49,8 +49,27 @@ const Layout = ({ children, page, pageTitle }) => {
           property="og:image"
           content={`${withPrefix("/")}img/og-image.jpg`}
         />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161931343-1"></script>
+        <script>{
+          (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+              'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+              j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+          })
+            (window, document, 'script', 'dataLayer', 'GTM-KVWHF6H')
+        }</script>
+        {/* <noscript>
+          <React.Fragment>
+            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KVWHF6H"
+              height="0" width="0" style="display:none;visibility:hidden" ></iframe>
+          </React.Fragment>
+        </noscript> */}
         <script src="https://dde-us-south.analytics.ibm.com/daas/CognosApi.js"></script>
         <script src="https://web-chat.global.assistant.watson.cloud.ibm.com/loadWatsonAssistantChat.js"></script>
+        {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
       </Helmet>
       <LayoutBody page={page}>
         {children}
