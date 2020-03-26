@@ -2,12 +2,17 @@ import React, { Component } from 'react';
 import CampaignsCard from './CampaignsCard';
 import { getCampaigns } from '../../../Service';
 import { Row, Col, Container } from 'reactstrap';
+import ManageCampaignDialog from './ManageCampaignDialog';
 class CampaignsMain extends Component {
     constructor(props) {
         super(props);
         this.state = {
             isLoading: false,
-            campaignsList: []
+            campaignsList: [],
+            manageCampaignDialog: {
+                isOpen: false,
+                data: undefined
+            }
         }
     }
     componentDidMount() {
@@ -22,15 +27,26 @@ class CampaignsMain extends Component {
         }
         this.setState({ isLoading: false });
     }
+    handleAddCampaignDialog = () => {
+        this.setState({
+            manageCampaignDialog: {
+                data: undefined,
+                isOpen: true
+            }
+        });
+    };
     render() {
         return (
             <React.Fragment>
                 <section className="wtd-list">
                     <section className="header-section gap-y text-center">
                         <Container>
-                            <div className="text-left">
-                                <h1>Campaigns</h1>
-                            </div>
+                            <Row className="justify-content-between align-items-center">
+                                <div className="text-left">
+                                    <h1 className="m-0">Campaigns</h1>
+                                </div>
+                                <button onClick={this.handleAddCampaignDialog} className="btn btn-outline-light btn-sm">Add</button>
+                            </Row>
                             <Row>
                                 {this.state.campaignsList.map((campaign, index) => (
                                     <Col key={index} xs="12" sm="6" md="6" lg="4" className="mt-16 ">
@@ -44,6 +60,14 @@ class CampaignsMain extends Component {
                         </Container>
                     </section>
                 </section>
+                {this.state.manageCampaignDialog.isOpen && (
+                    <ManageCampaignDialog
+                        data={this.state.manageCampaignDialog.data}
+                        onClose={data => {
+                            this.onAddDemoModalClose(data);
+                        }}
+                    />
+                )}
             </React.Fragment>
         );
     }

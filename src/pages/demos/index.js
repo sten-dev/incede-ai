@@ -151,12 +151,12 @@ class CustomDemos extends Component {
                   );
                 })
               ) : (
-                <React.Fragment>
-                  <Col xs={12} className='text-center'>
-                    <h5>No Demos available !</h5>
-                  </Col>
-                </React.Fragment>
-              )}
+                  <React.Fragment>
+                    <Col xs={12} className='text-center'>
+                      <h5>No Demos available !</h5>
+                    </Col>
+                  </React.Fragment>
+                )}
               <Col className='mb-3' xs={12} sm={6} md={3} title='Add Demo'>
                 <Card className='h-100' onClick={this.handleAddDemo}>
                   <CardBody className='demo-add-card pointer text-center'>
@@ -182,7 +182,7 @@ class CustomDemos extends Component {
             <ConfirmModal
               isOpen={this.state.modal.isOpen}
               handelCloseOpen={ans => this.handelModalCloseOpen(ans)}
-              title='Leaving the session'>
+              title='Are you sure'>
               Do you want to delete?
             </ConfirmModal>
           </Transition>

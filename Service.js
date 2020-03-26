@@ -50,8 +50,13 @@ export const getWorkspaceStatus = async workspaceId => {
   return res;
 };
 
-export const getCampaigns = async workspaceId => {
-  let res = await httpClient(`skills/workspace/${workspaceId}/status`, 'GET');
+export const getCampaigns = async () => {
+  let res = await httpClient(`campaigns`, 'GET');
+  return res;
+};
+
+export const addCampaign = async campaign => {
+  let res = await httpClient(`campaigns`, 'PUT', campaign);
   return res;
 };
 
