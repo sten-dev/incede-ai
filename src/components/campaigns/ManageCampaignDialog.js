@@ -13,38 +13,37 @@ import {
     FormFeedback
 } from 'reactstrap';
 import { Formik } from 'formik';
-import RichTextEditor from "react-rte";
+import RichTextEditor from 'react-rte';
 import { addCampaign } from '../../../Service';
 import Loading from '../common/Loading';
 import { withToastContext } from '../common/ToastProvider';
 
 const toolbarConfig = {
     display: [
-        "INLINE_STYLE_BUTTONS",
-        "BLOCK_TYPE_BUTTONS",
-        "BLOCK_TYPE_DROPDOWN"
+        'INLINE_STYLE_BUTTONS',
+        'BLOCK_TYPE_BUTTONS',
+        'BLOCK_TYPE_DROPDOWN'
         // "LINK_BUTTONS",
     ],
     INLINE_STYLE_BUTTONS: [
-        { label: "Bold", style: "BOLD", className: "custom-css-class" },
-        { label: "Italic", style: "ITALIC" },
-        { label: "Underline", style: "UNDERLINE" }
+        { label: 'Bold', style: 'BOLD', className: 'custom-css-class' },
+        { label: 'Italic', style: 'ITALIC' },
+        { label: 'Underline', style: 'UNDERLINE' }
     ],
     BLOCK_TYPE_DROPDOWN: [
-        { label: "Normal", style: "unstyled" },
-        { label: "Heading XLarge", style: "header-one" },
-        { label: "Heading Large", style: "header-two" },
-        { label: "Heading Medium", style: "header-three" },
-        { label: "Heading Small", style: "header-five" },
-        { label: "Heading Tiny", style: "header-six" }
+        { label: 'Normal', style: 'unstyled' },
+        { label: 'Heading XLarge', style: 'header-one' },
+        { label: 'Heading Large', style: 'header-two' },
+        { label: 'Heading Medium', style: 'header-three' },
+        { label: 'Heading Small', style: 'header-five' },
+        { label: 'Heading Tiny', style: 'header-six' }
     ],
     BLOCK_TYPE_BUTTONS: [
-        { label: "UL", style: "unordered-list-item" },
-        { label: "OL", style: "ordered-list-item" },
-        { label: "Block Quote", style: "blockquote" }
+        { label: 'UL', style: 'unordered-list-item' },
+        { label: 'OL', style: 'ordered-list-item' },
+        { label: 'Block Quote', style: 'blockquote' }
     ]
 };
-
 
 class ManageCampaignDialog extends React.Component {
     constructor(props) {
@@ -53,9 +52,9 @@ class ManageCampaignDialog extends React.Component {
             isLoading: false,
             isOpen: true,
             campaign: {
-                TITLE: "",
-                SUB_TITLE: "",
-                MAIN_CONTENT: RichTextEditor.createEmptyValue(),
+                TITLE: '',
+                SUB_TITLE: '',
+                MAIN_CONTENT: RichTextEditor.createEmptyValue()
             }
         };
     }
@@ -68,7 +67,6 @@ class ManageCampaignDialog extends React.Component {
         });
     };
 
-
     render() {
         return (
             <React.Fragment>
@@ -79,7 +77,7 @@ class ManageCampaignDialog extends React.Component {
                     className='add-campaign-dialog modal-dialog-slideout'>
                     <ModalHeader toggle={() => this.handleClose()}>
                         Add Campaign
-                    </ModalHeader>
+          </ModalHeader>
                     <ModalBody>
                         <Formik
                             enableReinitialize
@@ -100,7 +98,7 @@ class ManageCampaignDialog extends React.Component {
                             onSubmit={async (values, { setSubmitting }) => {
                                 this.setState({ isLoading: true });
                                 let obj = { ...values };
-                                obj.MAIN_CONTENT = obj.MAIN_CONTENT.toString("html")
+                                obj.MAIN_CONTENT = obj.MAIN_CONTENT.toString('html');
                                 let res = await addCampaign(obj);
                                 this.setState({ isLoading: false });
                                 if (res && res.success) {
@@ -108,7 +106,7 @@ class ManageCampaignDialog extends React.Component {
                                         `Campaign added successfully`,
                                         'success'
                                     );
-                                    this.props.onClose(res.data);
+                                    this.props.onClose(res.data[0]);
                                 } else {
                                     this.props.toast.show(
                                         res.message
@@ -171,11 +169,9 @@ class ManageCampaignDialog extends React.Component {
                                                             }
                                                             valid={values.SUB_TITLE ? true : false}
                                                         />
-                                                        {errors.SUB_TITLE &&
-                                                            touched &&
-                                                            touched.SUB_TITLE && (
-                                                                <FormFeedback>{errors.SUB_TITLE}</FormFeedback>
-                                                            )}
+                                                        {errors.SUB_TITLE && touched && touched.SUB_TITLE && (
+                                                            <FormFeedback>{errors.SUB_TITLE}</FormFeedback>
+                                                        )}
                                                     </FormGroup>
                                                 </Col>
 
@@ -183,15 +179,15 @@ class ManageCampaignDialog extends React.Component {
                                                     <FormGroup>
                                                         <Label for='content'>Content</Label>
                                                         <RichTextEditor
-                                                            className="rich-text-editor"
+                                                            className='rich-text-editor'
                                                             toolbarConfig={toolbarConfig}
                                                             value={values.MAIN_CONTENT}
-                                                            onChange={(content) => {
-                                                                setFieldValue("MAIN_CONTENT", content)
+                                                            onChange={content => {
+                                                                setFieldValue('MAIN_CONTENT', content);
                                                             }}
                                                         />
                                                         {errors.MAIN_CONTENT && touched.MAIN_CONTENT && (
-                                                            <FormFeedback variant="caption" color="error">
+                                                            <FormFeedback variant='caption' color='error'>
                                                                 &nbsp; &nbsp; {errors.MAIN_CONTENT}
                                                             </FormFeedback>
                                                         )}
@@ -206,11 +202,11 @@ class ManageCampaignDialog extends React.Component {
                                                             color='secondary'
                                                             type='button'>
                                                             Cancel
-                                                        </Button>{' '}
-                                                        &nbsp;&nbsp;
-                                                        <Button color='primary' type='submit'>
+                          </Button>{' '}
+                          &nbsp;&nbsp;
+                          <Button color='primary' type='submit'>
                                                             Create
-                                                        </Button>
+                          </Button>
                                                     </div>
                                                 </Col>
                                             </Row>
@@ -220,7 +216,7 @@ class ManageCampaignDialog extends React.Component {
                         </Formik>
                     </ModalBody>
                 </Modal>
-            </React.Fragment >
+            </React.Fragment>
         );
     }
 }

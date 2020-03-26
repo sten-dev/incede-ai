@@ -320,6 +320,9 @@ small,
   .modal-header {
     height: 69px;
     // display: block;
+    .modal-title {
+      margin: 0 !important;
+    }
     h4 {
       float: left;
     }
