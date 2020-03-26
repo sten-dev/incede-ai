@@ -81,7 +81,7 @@ class CampaignsMain extends Component {
                   </Col>
                 ))}
 
-                {this.state.campaignsList.length > 0 && (
+                {this.state.campaignsList.length === 0 && (
                   <Col>
                     <div className='text-center'>No results found</div>
                   </Col>
