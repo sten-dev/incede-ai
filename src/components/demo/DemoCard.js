@@ -9,7 +9,7 @@ class DemoCard extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <Card>
+        <Card className="demo-card">
           <CardBody>
             <CardTitle className='mb-0'> {this.props.data.NAME} </CardTitle>
             <p className='m-0 text-black-50'>{this.props.data.DESCRIPTION}</p>

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Layout from '../../components/Layout';
 import Transition from '../../Transition';
-import { Row, Col, Card, CardBody } from 'reactstrap';
+import { Row, Col, Card, CardBody, Container } from 'reactstrap';
 import DemoCard from '../../components/demo/DemoCard';
-import { getDemosLists, deleteDemo, addDemo } from '../../../Service';
+import { getDemosLists, deleteDemo } from '../../../Service';
 import Loading from '../../components/common/Loading';
 import '../../styles/custom-demo.scss';
 import ConfirmModal from '../../components/ConfirmModal';
@@ -127,49 +127,60 @@ class CustomDemos extends Component {
           <Transition>
             {/* <Loading /> */}
             {this.state.isLoading && <Loading />}
-            <Row className='p-3 m-0'>
-              <Col lg={12} md={12} sm={12} xs={12}>
-                <h4 className='m-0'>Incede.ai Demos</h4>
-                <br />
-              </Col>
-              {this.state.demosList && this.state.demosList.length > 0 ? (
-                this.state.demosList.map((x, index) => {
-                  return (
-                    <Col
-                      key={`${index}`}
-                      className='mb-3'
-                      xs={12}
-                      sm={6}
-                      md={3}>
-                      <DemoCard
-                        data={x}
-                        index={index}
-                        onMapClick={() => this.handleMapClick(true, x)}
-                        onDelete={(id, index) => this.onDeleteDemo(id, index)}
-                      />
+            <section className='case-study'>
+              <section className='header-section gap-y'>
+                <Container fluid>
+                  <Row>
+                    <Col>
+                      <h1>Incede.ai</h1>
                     </Col>
-                  );
-                })
-              ) : (
+                  </Row>
+                </Container>
+              </section>
+            </section>
+            <section>
+
+              <Row className='m-0 gap-y-half'>
+                {this.state.demosList && this.state.demosList.length > 0 && (
+                  this.state.demosList.map((x, index) => {
+                    return (
+                      <Col
+                        key={`${index}`}
+                        className='mb-3'
+                        xs={12}
+                        sm={6}
+                        md={4}>
+                        <DemoCard
+                          data={x}
+                          index={index}
+                          onMapClick={() => this.handleMapClick(true, x)}
+                          onDelete={(id, index) => this.onDeleteDemo(id, index)}
+                        />
+                      </Col>
+                    );
+                  })
+                )}
+                <Col className='mb-3' xs={12} sm={6} md={4} title='Add Demo'>
+                  <Card className='h-100 demo-card' onClick={this.handleAddDemo}>
+                    <CardBody className='demo-add-card pointer text-center'>
+                      <svg className='add-demo-icon' viewBox='0 0 24 24'>
+                        <path
+                          fill='currentColor'
+                          d='M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z'
+                        />
+                      </svg>
+                    </CardBody>
+                  </Card>
+                </Col>
+                {this.state.demosList.length === 0 && (
                   <React.Fragment>
                     <Col xs={12} className='text-center'>
                       <h5>No Demos available !</h5>
                     </Col>
                   </React.Fragment>
                 )}
-              <Col className='mb-3' xs={12} sm={6} md={3} title='Add Demo'>
-                <Card className='h-100' onClick={this.handleAddDemo}>
-                  <CardBody className='demo-add-card pointer text-center'>
-                    <svg className='add-demo-icon' viewBox='0 0 24 24'>
-                      <path
-                        fill='currentColor'
-                        d='M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z'
-                      />
-                    </svg>
-                  </CardBody>
-                </Card>
-              </Col>
-            </Row>
+              </Row>
+            </section>
 
             {this.state.manageDemo.isOpen && (
               <ManageDemoModal
