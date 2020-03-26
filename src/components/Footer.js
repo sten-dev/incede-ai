@@ -14,7 +14,6 @@ import * as DateTime from 'react-datetime';
 import 'react-datetime/css/react-datetime.css';
 import moment from 'moment';
 import LinkedInSignIn from 'react-linkedin-login-popup';
-import * as IMAGE from '../../imgaesDataFile.json';
 
 import {
   Row,
@@ -81,12 +80,12 @@ class Footer extends React.Component {
   handleSubmit = async event => {
     event.preventDefault();
     console.log(this.state.contactInfo);
-    let result = {
-      success: true
-    };
-    // let result = await httpClient(`contact-details`, "POST", {
-    //   ...this.state.contactInfo
-    // });
+    // let result = {
+    //   success: true
+    // };
+    let result = await httpClient(`contact-details`, 'POST', {
+      ...this.state.contactInfo
+    });
     if (result && result.success) {
       this.setState({
         hasDetailsSubmitted: true,
@@ -278,7 +277,7 @@ class Footer extends React.Component {
                             className='contact-us-mat-input'
                             type='text'
                             name='name'
-                            placeholder='Name'
+                            placeholder='Name *'
                             value={this.state.contactInfo.name}
                             required
                           />
@@ -290,7 +289,18 @@ class Footer extends React.Component {
                             type='email'
                             name='email'
                             value={this.state.contactInfo.email}
-                            placeholder='Email'
+                            placeholder='Email *'
+                            required
+                          />
+                        </FormGroup>
+                        <FormGroup>
+                          <Input
+                            onChange={this.handleOnChange}
+                            className='contact-us-mat-input'
+                            type='text'
+                            name='company'
+                            value={this.state.contactInfo.company}
+                            placeholder='Company *'
                             required
                           />
                         </FormGroup>
@@ -302,18 +312,7 @@ class Footer extends React.Component {
                             name='phone'
                             value={this.state.contactInfo.phone}
                             placeholder='Phone'
-                            required
-                          />
-                        </FormGroup>
-                        <FormGroup>
-                          <Input
-                            onChange={this.handleOnChange}
-                            className='contact-us-mat-input'
-                            type='text'
-                            name='company'
-                            value={this.state.contactInfo.company}
-                            placeholder='Company'
-                            required
+                            // required
                           />
                         </FormGroup>
                         <FormGroup>
@@ -324,7 +323,7 @@ class Footer extends React.Component {
                             name='reason'
                             value={this.state.contactInfo.reason}
                             placeholder='What do you want to talk about'
-                            required
+                            // required
                           />
                         </FormGroup>
                         <FormGroup className='footer-date-time'>
@@ -365,7 +364,7 @@ class Footer extends React.Component {
                                   onClick={onclick}
                                   className='linkedin-btn'>
                                   <img
-                                    src={IMAGE.linkedin}
+                                    src={linkedInPNG}
                                     alt='linledin'
                                     className='linkedin-logo'
                                   />
