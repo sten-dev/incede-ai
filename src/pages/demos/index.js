@@ -132,16 +132,16 @@ class CustomDemos extends Component {
                 <Container fluid>
                   <Row>
                     <Col>
-                      <h1>Incede.ai</h1>
+                      <h1>Incede.ai Demos</h1>
                     </Col>
                   </Row>
                 </Container>
               </section>
             </section>
             <section>
-
               <Row className='m-0 gap-y-half'>
-                {this.state.demosList && this.state.demosList.length > 0 && (
+                {this.state.demosList &&
+                  this.state.demosList.length > 0 &&
                   this.state.demosList.map((x, index) => {
                     return (
                       <Col
@@ -158,10 +158,11 @@ class CustomDemos extends Component {
                         />
                       </Col>
                     );
-                  })
-                )}
+                  })}
                 <Col className='mb-3' xs={12} sm={6} md={4} title='Add Demo'>
-                  <Card className='h-100 demo-card' onClick={this.handleAddDemo}>
+                  <Card
+                    className='h-100 demo-card'
+                    onClick={this.handleAddDemo}>
                     <CardBody className='demo-add-card pointer text-center'>
                       <svg className='add-demo-icon' viewBox='0 0 24 24'>
                         <path
