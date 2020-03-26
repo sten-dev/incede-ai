@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Layout from '../../components/Layout';
 import Transition from '../../Transition';
 import { Row, Col } from 'reactstrap';
-import { getDemoById } from '../../../Service';
+import { getDemoById, getWorkspaceStatus } from '../../../Service';
 import Loading from '../../components/common/Loading';
 
 const TIME_OUT = 5 * 1000;
@@ -27,6 +27,11 @@ class CustomDemoPage extends Component {
   };
 
   loadWAAssistant = () => {
+    if (this.window.loadWatsonAssistantChat == null) {
+      console.log('Error while loading assistant. Please disable ad-block');
+      return;
+    }
+
     this.window
       .loadWatsonAssistantChat({
         integrationID: this.state.demoDetails.INTEGRATION_ID, // The ID of this integration.
