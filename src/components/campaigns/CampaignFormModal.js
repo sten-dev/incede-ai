@@ -138,7 +138,7 @@ class CampaignFormModal extends Component {
                           </Button>{' '}
                           &nbsp;&nbsp;
                           <Button color='primary' type='submit'>
-                            Create
+                            Submit
                           </Button>
                         </div>
                       </Col>
