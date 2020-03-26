@@ -61,7 +61,7 @@ export const addCampaign = async campaign => {
 };
 
 export const getCampaignById = async campaignId => {
-  let res = await httpClient(`campaigns/${campaignId}`, 'GET');
+  let res = await httpClient(`campaigns`, 'GET', { ID: campaignId });
   return res;
 }
 
