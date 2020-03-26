@@ -19,6 +19,9 @@ class LayoutBody extends Component {
     await document.addEventListener("scroll", this.trackScrolling);
     await this.trackScrolling();
     await this.findCookie();
+    setTimeout(() => {
+      this.addGoogleAnalytics()
+    }, 2000);
   };
 
   parseJwt = () => {
@@ -97,6 +100,17 @@ class LayoutBody extends Component {
   scrollMore = () => {
     scroll.scrollMore(250);
   };
+
+  addGoogleAnalytics = () => {
+    console.log("analytics call")
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      window.dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-161931343-1');
+    window.ga('send', 'pageview')
+  }
 
   render() {
     return (
