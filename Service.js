@@ -49,3 +49,30 @@ export const getWorkspaceStatus = async workspaceId => {
   let res = await httpClient(`skills/workspace/${workspaceId}/status`, 'GET');
   return res;
 };
+
+export const addDemo = async data => {
+  try {
+    let res = await httpClient(`skill`, 'PUT', data);
+    return res;
+  } catch (err) {
+    return err;
+  }
+};
+
+export const deleteDemo = async id => {
+  try {
+    let res = await httpClient(`skills/${id}`, 'DELETE');
+    return res;
+  } catch (err) {
+    return err;
+  }
+};
+
+export const getUnassignedDemos = async () => {
+  try {
+    let res = await httpClient(`unassigned-skills`, 'GET');
+    return res;
+  } catch (err) {
+    return err;
+  }
+};

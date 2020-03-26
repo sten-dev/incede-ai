@@ -5,7 +5,7 @@ html {
 body {
   margin-top: 84px !important;
   background-color: white;
-  font-family: "Open Sans", sans-serif !important;
+  font-family: 'Open Sans', sans-serif !important;
   // font-family: "Noto Sans", sans-serif;
   // font-weight: 400;
   line-height: 1.7 !important ;
@@ -109,7 +109,7 @@ small,
   }
 }
 
-@import "bs.scss";
+@import 'bs.scss';
 
 /**Scroll Bar*/
 
@@ -307,6 +307,57 @@ small,
     margin-top: 0 !important;
   }
 }
+
+//MODAL-DIALOG-RIGHT
+.modal-dialog-slideout {
+  min-height: 100%;
+  margin: 0 0 0 auto !important;
+  background: #fff;
+
+  .modal-content {
+    border: 0;
+  }
+  .modal-header {
+    height: 69px;
+    // display: block;
+    h4 {
+      float: left;
+    }
+  }
+  .modal-footer {
+    height: 69px;
+    display: block;
+  }
+}
+
+.modal.fade {
+  .modal-dialog.modal-dialog-slideout {
+    -webkit-transform: translate(100%, 0) scale(1);
+    transform: translate(100%, 0) scale(1);
+  }
+}
+.modal.fade.show {
+  .modal-dialog.modal-dialog-slideout {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+    display: flex;
+    align-items: stretch;
+    -webkit-box-align: stretch;
+    height: 100%;
+    .modal-body {
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+  }
+}
+
+.custom-anchor-button {
+  color: $secondary;
+}
+.custom-anchor-button:hover {
+  color: #fff !important;
+}
+
 @media screen and (max-width: 970px) {
   .sm-w-100 {
     width: 100%;
