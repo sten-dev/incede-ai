@@ -3,6 +3,7 @@ import CampaignsCard from './CampaignsCard';
 import { getCampaigns } from '../../../Service';
 import { Row, Col, Container } from 'reactstrap';
 import ManageCampaignDialog from './ManageCampaignDialog';
+import Loading from '../common/Loading';
 class CampaignsMain extends Component {
     constructor(props) {
         super(props);
@@ -16,7 +17,7 @@ class CampaignsMain extends Component {
         }
     }
     componentDidMount() {
-        // this.getCampaignsList()
+        this.getCampaignsList()
     }
     getCampaignsList = async () => {
         this.setState({ isLoading: true });
@@ -35,17 +36,33 @@ class CampaignsMain extends Component {
             }
         });
     };
+
+    handleCloseCampaignDialog = (data) => {
+        let campaigns = [...this.state.campaignsList];
+        if (data) {
+            campaigns.push(data);
+        }
+        this.setState({
+            campaignsList: campaigns,
+            manageCampaignDialog: {
+                data: undefined,
+                isOpen: false
+            }
+        });
+    };
+
     render() {
         return (
             <React.Fragment>
+                {this.state.isLoading && <Loading />}
                 <section className="wtd-list">
-                    <section className="header-section gap-y text-center">
+                    <section className="header-section gap-y">
                         <Container>
                             <Row className="justify-content-between align-items-center">
-                                <div className="text-left">
-                                    <h1 className="m-0">Campaigns</h1>
+                                <div className="pl-3">
+                                    <h1 className="mt-0">Campaigns</h1>
                                 </div>
-                                <button onClick={this.handleAddCampaignDialog} className="btn btn-outline-light btn-sm">Add</button>
+                                <button onClick={this.handleAddCampaignDialog} className="btn btn-outline-light">Add</button>
                             </Row>
                             <Row>
                                 {this.state.campaignsList.map((campaign, index) => (
@@ -64,7 +81,7 @@ class CampaignsMain extends Component {
                     <ManageCampaignDialog
                         data={this.state.manageCampaignDialog.data}
                         onClose={data => {
-                            this.onAddDemoModalClose(data);
+                            this.handleCloseCampaignDialog(data);
                         }}
                     />
                 )}
