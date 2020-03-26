@@ -40,7 +40,12 @@ export const getDemosLists = async () => {
   let response = await httpClient('skills', 'GET');
   return response;
 };
-export const getDemoById = async (id) => {
-  let res = await httpClient(`skills/${id}`, "GET");
+export const getDemoById = async id => {
+  let res = await httpClient(`skills/${id}`, 'GET');
+  return res;
+};
+
+export const getWorkspaceStatus = async workspaceId => {
+  let res = await httpClient(`skills/workspace/${workspaceId}/status`, 'GET');
   return res;
 };
