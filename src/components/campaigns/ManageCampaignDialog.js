@@ -16,6 +16,7 @@ import { Formik } from 'formik';
 import RichTextEditor from "react-rte";
 import { addCampaign } from '../../../Service';
 import Loading from '../common/Loading';
+import { withToastContext } from '../common/ToastProvider';
 
 const toolbarConfig = {
     display: [
@@ -103,18 +104,18 @@ class ManageCampaignDialog extends React.Component {
                                 let res = await addCampaign(obj);
                                 this.setState({ isLoading: false });
                                 if (res && res.success) {
-                                    // this.props.toast.show(
-                                    //   `Campaign added successfully`,
-                                    //   'success'
-                                    // );
+                                    this.props.toast.show(
+                                        `Campaign added successfully`,
+                                        'success'
+                                    );
                                     this.props.onClose(res.data);
                                 } else {
-                                    // this.props.toast.show(
-                                    //   res.message
-                                    //     ? res.message
-                                    //     : `Error while adding campaign`,
-                                    //   'error'
-                                    // );
+                                    this.props.toast.show(
+                                        res.message
+                                            ? res.message
+                                            : `Error while adding campaign`,
+                                        'error'
+                                    );
                                 }
                                 setSubmitting(false);
                             }}>
@@ -224,5 +225,5 @@ class ManageCampaignDialog extends React.Component {
     }
 }
 
-export default ManageCampaignDialog;
-// export default withToastContext(ManageCampaignDialog);
+// export default ManageCampaignDialog;
+export default withToastContext(ManageCampaignDialog);
