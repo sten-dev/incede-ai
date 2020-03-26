@@ -16,14 +16,14 @@ const CampaignsCard = (props) => {
     return (
         <React.Fragment>
             <Card>
-                <div className="card-img">
+                {/* <div className="card-img">
                     <PreviewCompatibleImage
                         imageInfo={{
                             image: campaign.IMAGE_URL,
                             alt: `campaign`
                         }}
                     />
-                </div>
+                </div> */}
                 <CardBody style={{ color: "black" }}>
                     <CardTitle>{campaign.TITLE}</CardTitle>
                     <CardText>

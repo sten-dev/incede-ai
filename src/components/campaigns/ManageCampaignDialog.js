@@ -75,8 +75,8 @@ class ManageCampaignDialog extends React.Component {
                 <Modal
                     isOpen={this.state.isOpen}
                     toggle={() => this.handleClose()}
-                    className=' modal-dialog-slideout'>
-                    <ModalHeader className="m-0" toggle={() => this.handleClose()}>
+                    className='add-campaign-dialog modal-dialog-slideout'>
+                    <ModalHeader toggle={() => this.handleClose()}>
                         Add Campaign
                     </ModalHeader>
                     <ModalBody>
