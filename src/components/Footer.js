@@ -14,7 +14,6 @@ import * as DateTime from 'react-datetime';
 import 'react-datetime/css/react-datetime.css';
 import moment from 'moment';
 import LinkedInSignIn from 'react-linkedin-login-popup';
-import * as IMAGE from '../../imgaesDataFile.json';
 
 import {
   Row,
@@ -365,7 +364,7 @@ class Footer extends React.Component {
                                   onClick={onclick}
                                   className='linkedin-btn'>
                                   <img
-                                    src={IMAGE.linkedin}
+                                    src={linkedInPNG}
                                     alt='linledin'
                                     className='linkedin-logo'
                                   />
