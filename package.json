@@ -5,6 +5,7 @@
   "author": "Incede",
   "dependencies": {
     "bootstrap": "^4.4.1",
+    "formik": "^2.1.4",
     "gatsby": "^2.18.17",
     "gatsby-image": "^2.2.37",
     "gatsby-plugin-netlify": "^2.1.30",
@@ -39,7 +40,8 @@
     "react-sidebar": "^3.0.2",
     "reactstrap": "8.2.0",
     "socket.io-client": "^2.3.0",
-    "watson-speech": "^0.38.0"
+    "watson-speech": "^0.38.0",
+    "xlsx": "^0.15.6"
   },
   "keywords": [
     "Incede"

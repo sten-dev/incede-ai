@@ -58,4 +58,31 @@ export const getCampaigns = async workspaceId => {
 export const getCampaignById = async campaignId => {
   let res = await httpClient(`campaigns/${campaignId}`, 'GET');
   return res;
+}
+
+export const addDemo = async data => {
+  try {
+    let res = await httpClient(`skill`, 'PUT', data);
+    return res;
+  } catch (err) {
+    return err;
+  }
+};
+
+export const deleteDemo = async id => {
+  try {
+    let res = await httpClient(`skills/${id}`, 'DELETE');
+    return res;
+  } catch (err) {
+    return err;
+  }
+};
+
+export const getUnassignedDemos = async () => {
+  try {
+    let res = await httpClient(`unassigned-skills`, 'GET');
+    return res;
+  } catch (err) {
+    return err;
+  }
 };
