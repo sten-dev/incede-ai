@@ -1,10 +1,10 @@
 //prod
-export const API_URL = 'https://incede-api-tired-leopard.mybluemix.net/';
-export const LINKEDIN = {
-  clientId: '78p9i60dhfuau3',// 78p9i60dhfuau3 - Prod 81uni85sqi901i -dev
-  redirectUrl: 'https://incede.ai',
-  grant_type: 'authorization_code'
-};
+// export const API_URL = 'https://incede-api-tired-leopard.mybluemix.net/';
+// export const LINKEDIN = {
+//   clientId: '78p9i60dhfuau3',// 78p9i60dhfuau3 - Prod 81uni85sqi901i -dev
+//   redirectUrl: 'https://incede.ai',
+//   grant_type: 'authorization_code'
+// };
 
 // dev
 // export const API_URL = 'https://custom-demo-api-funny-dog.mybluemix.net/';
@@ -15,12 +15,12 @@ export const LINKEDIN = {
 // };
 
 // local
-// export const API_URL = 'http://localhost:8080/';
-// export const LINKEDIN = {
-//   clientId: '81uni85sqi901i',// 78p9i60dhfuau3 - Prod 81uni85sqi901i -dev
-//   redirectUrl: 'http://localhost:8000',
-//   grant_type: 'authorization_code'
-// };
+export const API_URL = 'http://localhost:8080/';
+export const LINKEDIN = {
+  clientId: '81uni85sqi901i',// 78p9i60dhfuau3 - Prod 81uni85sqi901i -dev
+  redirectUrl: 'http://localhost:8000',
+  grant_type: 'authorization_code'
+};
 
 export const WEB_URL = 'https://incede.ai/';
 
