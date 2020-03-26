@@ -54,7 +54,7 @@ class LayoutBody extends Component {
   };
 
   handleSession = () => {
-    if (window.location.pathname.startsWith("/dashboard") && this.isTokenExpired()) {
+    if (["/dashboard", "/demos"].find(x => window.location.pathname.startsWith(x)) !== undefined && this.isTokenExpired()) {
       window.location.href = "/login";
     }
   };
