@@ -140,11 +140,11 @@ class CallBackForm extends Component {
           hasDetailsSubmitted: true,
           message: `Thank you <strong>${
             this.state.contactDetails.name
-            }</strong>. Your request for meeting at <strong>${moment(
-              this.state.contactDetails.date
-            ).format(
-              'DD MMM YYYY, HH:mm A'
-            )}</strong> with an Incede expert has been successfully submitted and we look forward to speaking with you`
+          }</strong>. Your request for meeting at <strong>${moment(
+            this.state.contactDetails.date
+          ).format(
+            'DD MMM YYYY, HH:mm A'
+          )}</strong> with an Incede expert has been successfully submitted and we look forward to speaking with you`
         },
         () => {
           this.props.sendCustomMessage('what does incede do', false);
@@ -165,7 +165,7 @@ class CallBackForm extends Component {
         <div
           className={`d-flex ${
             this.state.hasDetailsSubmitted ? '' : 'justify-content-end'
-            }`}>
+          }`}>
           {this.state.hasDetailsSubmitted ? (
             <React.Fragment>
               <ChatPill
@@ -176,138 +176,138 @@ class CallBackForm extends Component {
               />
             </React.Fragment>
           ) : (
-              <div className='call-back-form'>
-                <Card>
-                  <CardBody>
-                    <Form onSubmit={this.handleSubmit}>
-                      <h4 className='m-0 text-center'>Meeting Request Form</h4>
-                      <br />
-                      <Row>
-                        <Col lg={6} md={6} sm={12} xs={12}>
-                          <FormGroup>
-                            <Label>Name</Label>
-                            <Input
-                              onChange={this.handleOnChange}
-                              type='text'
-                              name='name'
-                              placeholder='Name'
-                              value={this.state.contactDetails.name}
-                              required
-                            />
-                          </FormGroup>
-                        </Col>
-                        <Col lg={6} md={6} sm={12} xs={12}>
-                          <FormGroup>
-                            <Label>Email</Label>
-                            <Input
-                              onChange={this.handleOnChange}
-                              type='email'
-                              name='email'
-                              placeholder='Email'
-                              value={this.state.contactDetails.email}
-                              required
-                            />
-                          </FormGroup>
-                        </Col>
-                        <Col lg={6} md={6} sm={12} xs={12}>
-                          <FormGroup>
-                            <Label>Phone</Label>
-                            <Input
-                              onChange={this.handleOnChange}
-                              type='text'
-                              name='phone'
-                              placeholder='Phone'
-                              required
-                            />
-                          </FormGroup>
-                        </Col>
-                        <Col lg={6} md={6} sm={12} xs={12}>
-                          <FormGroup>
-                            <Label>Company</Label>
-                            <Input
-                              onChange={this.handleOnChange}
-                              type='text'
-                              name='company'
-                              placeholder='Company'
-                              required
-                            />
-                          </FormGroup>
-                        </Col>
-                        <Col lg={12} md={12} sm={12} xs={12}>
-                          <FormGroup>
-                            <Label>What do you want to talk about</Label>
-                            <Input
-                              onChange={this.handleOnChange}
-                              type='text'
-                              name='reason'
-                              placeholder='What do you want to talk about'
-                              required
-                            />
-                          </FormGroup>
-                        </Col>
-                        <Col lg={12} md={12} sm={12} xs={12}>
-                          <FormGroup className='convenient-time'>
-                            <Label>Convenient Time</Label>
-                            <DateTime
-                              isValidDate={current =>
-                                moment(current)
-                                  .add(1, 'days')
-                                  .toDate() > new Date()
-                              }
-                              onChange={value => {
-                                this.setState({
-                                  contactDetails: {
-                                    ...this.state.contactDetails,
-                                    date: value.toDate()
-                                  }
-                                });
-                              }}
-                            />
-                          </FormGroup>
-                        </Col>
-                        <Col lg={12} md={12} sm={12} xs={12}>
-                          <div className='d-flex'>
-                            <Button className='btn btn-primary' type='submit'>
-                              Submit
+            <div className='call-back-form'>
+              <Card>
+                <CardBody>
+                  <Form onSubmit={this.handleSubmit}>
+                    <h4 className='m-0 text-center'>Meeting Request Form</h4>
+                    <br />
+                    <Row>
+                      <Col lg={6} md={6} sm={12} xs={12}>
+                        <FormGroup>
+                          <Label>Name *</Label>
+                          <Input
+                            onChange={this.handleOnChange}
+                            type='text'
+                            name='name'
+                            placeholder='Name'
+                            value={this.state.contactDetails.name}
+                            required
+                          />
+                        </FormGroup>
+                      </Col>
+                      <Col lg={6} md={6} sm={12} xs={12}>
+                        <FormGroup>
+                          <Label>Email *</Label>
+                          <Input
+                            onChange={this.handleOnChange}
+                            type='email'
+                            name='email'
+                            placeholder='Email'
+                            value={this.state.contactDetails.email}
+                            required
+                          />
+                        </FormGroup>
+                      </Col>
+                      <Col lg={6} md={6} sm={12} xs={12}>
+                        <FormGroup>
+                          <Label>Company *</Label>
+                          <Input
+                            onChange={this.handleOnChange}
+                            type='text'
+                            name='company'
+                            placeholder='Company'
+                            required
+                          />
+                        </FormGroup>
+                      </Col>
+                      <Col lg={6} md={6} sm={12} xs={12}>
+                        <FormGroup>
+                          <Label>Phone</Label>
+                          <Input
+                            onChange={this.handleOnChange}
+                            type='text'
+                            name='phone'
+                            placeholder='Phone'
+                            // required
+                          />
+                        </FormGroup>
+                      </Col>
+                      <Col lg={12} md={12} sm={12} xs={12}>
+                        <FormGroup>
+                          <Label>What do you want to talk about</Label>
+                          <Input
+                            onChange={this.handleOnChange}
+                            type='text'
+                            name='reason'
+                            placeholder='What do you want to talk about'
+                            // required
+                          />
+                        </FormGroup>
+                      </Col>
+                      <Col lg={12} md={12} sm={12} xs={12}>
+                        <FormGroup className='convenient-time'>
+                          <Label>Convenient Time</Label>
+                          <DateTime
+                            isValidDate={current =>
+                              moment(current)
+                                .add(1, 'days')
+                                .toDate() > new Date()
+                            }
+                            onChange={value => {
+                              this.setState({
+                                contactDetails: {
+                                  ...this.state.contactDetails,
+                                  date: value.toDate()
+                                }
+                              });
+                            }}
+                          />
+                        </FormGroup>
+                      </Col>
+                      <Col lg={12} md={12} sm={12} xs={12}>
+                        <div className='d-flex'>
+                          <Button className='btn btn-primary' type='submit'>
+                            Submit
                           </Button>
                           &nbsp; &nbsp;
                           {this.state.showLinkedin && (
-                              <LinkedInSignIn
-                                clientId={LINKEDIN.clientId}
-                                redirectUrl={LINKEDIN.redirectUrl}
-                                onSuccess={this.handleSuccess}
-                                onError={this.handleFailure}
-                                scopes={['r_liteprofile', 'r_emailaddress']}>
-                                {onclick => (
-                                  <Button
-                                    onClick={onclick}
-                                    className='linkedin-btn'>
-                                    <img
-                                      src={IMAGE.linkedin}
-                                      alt='linledin'
-                                      className='linkedin-logo'
-                                    />
-                                    {width && width <= 576
-                                      ? 'linkedin'
-                                      : 'Login with LinkedIn'}
-                                  </Button>
-                                )}
-                              </LinkedInSignIn>
-                            )}
-                          </div>
+                            <LinkedInSignIn
+                              clientId={LINKEDIN.clientId}
+                              redirectUrl={LINKEDIN.redirectUrl}
+                              onSuccess={this.handleSuccess}
+                              onError={this.handleFailure}
+                              scopes={['r_liteprofile', 'r_emailaddress']}>
+                              {onclick => (
+                                <Button
+                                  onClick={onclick}
+                                  className='linkedin-btn'>
+                                  <img
+                                    src={IMAGE.linkedin}
+                                    alt='linledin'
+                                    className='linkedin-logo'
+                                  />
+                                  {width && width <= 576
+                                    ? 'linkedin'
+                                    : 'Login with LinkedIn'}
+                                </Button>
+                              )}
+                            </LinkedInSignIn>
+                          )}
+                        </div>
+                      </Col>
+                      {this.state.message && (
+                        <Col lg={12} md={12} sm={12} xs={12}>
+                          <br />
+                          <Alert color='danger'>{this.state.message}</Alert>
                         </Col>
-                        {this.state.message && (
-                          <Col lg={12} md={12} sm={12} xs={12}>
-                            <br />
-                            <Alert color='danger'>{this.state.message}</Alert>
-                          </Col>
-                        )}
-                      </Row>
-                    </Form>
-                  </CardBody>
-                </Card>
-              </div>
-            )}
+                      )}
+                    </Row>
+                  </Form>
+                </CardBody>
+              </Card>
+            </div>
+          )}
         </div>
       </React.Fragment>
     );
