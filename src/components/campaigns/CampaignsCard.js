@@ -27,11 +27,11 @@ const CampaignsCard = props => {
                 </div> */}
         <CardBody style={{ color: 'black' }}>
           <CardTitle>{campaign.TITLE}</CardTitle>
-          <CardText>
+          {/* <CardText>
             {campaign.SUB_TITLE.length > 150
               ? campaign.SUB_TITLE.substr(0, 150) + '..'
               : campaign.SUB_TITLE}
-          </CardText>
+          </CardText> */}
           <br />
           <div className='text-right'>
             <Link

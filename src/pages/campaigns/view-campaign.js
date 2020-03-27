@@ -62,8 +62,8 @@ class ViewCampaign extends Component {
           <Transition>
             {this.state.isLoading && <Loading />}
             {this.state.campaignDetails && (
-              <section className='case-study'>
-                <section className='header-section gap-y'>
+              <section>
+                {/* <section className='header-section gap-y'>
                   <Container>
                     <Row>
                       <Col>
@@ -72,7 +72,7 @@ class ViewCampaign extends Component {
                       </Col>
                     </Row>
                   </Container>
-                </section>
+                </section> */}
                 <Container>
                   <Row>
                     <Col lg={12} md={12} sm={12} xs={12}>

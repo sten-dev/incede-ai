@@ -53,7 +53,7 @@ class ManageCampaignDialog extends React.Component {
             isOpen: true,
             campaign: {
                 TITLE: '',
-                SUB_TITLE: '',
+                // SUB_TITLE: '',
                 MAIN_CONTENT: "",
                 FILE: ""
             }
@@ -88,9 +88,9 @@ class ManageCampaignDialog extends React.Component {
                                 if (!values.TITLE) {
                                     errors.TITLE = 'Required';
                                 }
-                                if (!values.SUB_TITLE) {
-                                    errors.SUB_TITLE = 'Required';
-                                }
+                                // if (!values.SUB_TITLE) {
+                                //     errors.SUB_TITLE = 'Required';
+                                // }
                                 if (!values.MAIN_CONTENT) {
                                     errors.MAIN_CONTENT = 'Please select file';
                                 }
@@ -152,7 +152,7 @@ class ManageCampaignDialog extends React.Component {
                                                         )}
                                                     </FormGroup>
                                                 </Col>
-                                                <Col xs={12}>
+                                                {/* <Col xs={12}>
                                                     <FormGroup>
                                                         <Label for='sub_title'>Sub Title</Label>
                                                         <Input
@@ -174,7 +174,7 @@ class ManageCampaignDialog extends React.Component {
                                                             <FormFeedback>{errors.SUB_TITLE}</FormFeedback>
                                                         )}
                                                     </FormGroup>
-                                                </Col>
+                                                </Col> */}
 
                                                 <Col xs={12}>
                                                     <FormGroup>
