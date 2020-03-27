@@ -13,7 +13,7 @@ import {
     FormFeedback
 } from 'reactstrap';
 import { Formik } from 'formik';
-import RichTextEditor from 'react-rte';
+// import RichTextEditor from 'react-rte';
 import { addCampaign } from '../../../Service';
 import Loading from '../common/Loading';
 import { withToastContext } from '../common/ToastProvider';
@@ -54,7 +54,8 @@ class ManageCampaignDialog extends React.Component {
             campaign: {
                 TITLE: '',
                 SUB_TITLE: '',
-                MAIN_CONTENT: RichTextEditor.createEmptyValue()
+                MAIN_CONTENT: "",
+                FILE: ""
             }
         };
     }
@@ -91,7 +92,7 @@ class ManageCampaignDialog extends React.Component {
                                     errors.SUB_TITLE = 'Required';
                                 }
                                 if (!values.MAIN_CONTENT) {
-                                    errors.MAIN_CONTENT = 'Required';
+                                    errors.MAIN_CONTENT = 'Please select file';
                                 }
                                 return errors;
                             }}
@@ -177,6 +178,58 @@ class ManageCampaignDialog extends React.Component {
 
                                                 <Col xs={12}>
                                                     <FormGroup>
+                                                        <Label for='file'>File</Label>
+                                                        <Input
+                                                            name='file'
+                                                            id='file'
+                                                            type="file"
+                                                            placeholder='File'
+                                                            onChange={(event) => {
+                                                                let extension = undefined;
+                                                                let files = undefined
+                                                                if (event.target.files && event.target.files.length > 0) {
+                                                                    files = event.target.files
+                                                                    extension = files[0].name.split(".").pop()
+                                                                }
+
+                                                                if (["html", "htm"].indexOf(extension) > -1) {
+                                                                    var reader = new FileReader();
+                                                                    reader.readAsText(event.target.files[0], "UTF-8");
+                                                                    reader.onload = function (evt) {
+                                                                        setFieldValue("FILE", "")
+                                                                        setFieldValue('MAIN_CONTENT', evt.target.result);
+                                                                    }
+                                                                    reader.onerror = function (evt) {
+                                                                        this.props.toast.show("Error while reading the file", "error");
+                                                                        setFieldValue('MAIN_CONTENT', "");
+                                                                        setFieldValue('FILE', "");
+                                                                        document.getElementById("file").value = "";
+                                                                    }
+                                                                } else {
+                                                                    document.getElementById("file").value = "";
+                                                                    setFieldValue('MAIN_CONTENT', "");
+                                                                    setFieldValue('FILE', "");
+                                                                    this.props.toast.show("Please select html file", "error");
+                                                                }
+                                                            }}
+                                                            // value={values.FILE}
+                                                            invalid={
+                                                                errors && touched.MAIN_CONTENT
+                                                                    ? errors.MAIN_CONTENT
+                                                                        ? true
+                                                                        : false
+                                                                    : undefined
+                                                            }
+                                                            valid={values.MAIN_CONTENT ? true : false}
+                                                        />
+                                                        {errors && errors.MAIN_CONTENT && (
+                                                            <FormFeedback>{errors.MAIN_CONTENT}</FormFeedback>
+                                                        )}
+                                                    </FormGroup>
+                                                </Col>
+
+                                                {/* <Col xs={12}>
+                                                    <FormGroup>
                                                         <Label for='content'>Content</Label>
                                                         <RichTextEditor
                                                             className='rich-text-editor'
@@ -192,7 +245,7 @@ class ManageCampaignDialog extends React.Component {
                                                             </FormFeedback>
                                                         )}
                                                     </FormGroup>
-                                                </Col>
+                                                </Col> */}
 
                                                 <Col xs={12}>
                                                     <div className='d-flex justify-content-end'>
