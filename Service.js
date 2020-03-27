@@ -74,6 +74,15 @@ export const addDemo = async data => {
   }
 };
 
+export const addDemoByJSON = async data => {
+  try {
+    let res = await httpClient(`skills`, 'POST', data);
+    return res;
+  } catch (err) {
+    return err;
+  }
+};
+
 export const deleteDemo = async id => {
   try {
     let res = await httpClient(`skills/${id}`, 'DELETE');

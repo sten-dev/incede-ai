@@ -19,6 +19,7 @@ import { withToastContext } from '../../components/common/ToastProvider';
 import {
   getUnassignedDemos,
   addDemo,
+  addDemoByJSON,
   checkIfLoadableInIFrame
 } from '../../../Service';
 import Loading from '../../components/common/Loading';
@@ -81,9 +82,9 @@ class ManageDemoModal extends React.Component {
   removeExtraChars = name => {
     return name
       ? name
-          .replace(/\n/g, '')
-          .replace(/\r/g, '')
-          .replace(/\t/g, '')
+        .replace(/\n/g, '')
+        .replace(/\r/g, '')
+        .replace(/\t/g, '')
       : '';
   };
 
@@ -106,6 +107,61 @@ class ManageDemoModal extends React.Component {
       // });
     }
   };
+
+  addCustomDemo = async (values, data, isJson) => {
+    let res;
+    this.setState({ isLoading: true })
+    let isLoadable = await this.checkIfLoadableInIFrame(
+      values.url
+    );
+
+    if (isLoadable === false) {
+      this.setState(
+        {
+          isLoading: false,
+          iFrameError: 'This website is not loadable in Iframe.'
+        },
+        () => console.log(this.state.iFrameError)
+      );
+      return;
+    }
+
+    let selectedDemo = this.state.demosList.find(
+      x => x.ID.toString() === values.id
+    );
+    let skillObj = {
+      ...values,
+      skills: data,
+      id: selectedDemo.ID,
+      assistant_Id: selectedDemo.ASSISTANT_ID,
+      workspaceId: selectedDemo.WORKSPACEID
+    };
+    if (isJson) {
+      res = await addDemoByJSON(skillObj);
+    } else {
+      res = await addDemo(skillObj);
+    }
+    this.setState({ isLoading: false });
+    if (res && res.success) {
+      this.props.toast.show(
+        `Demo ${values._id ? 'updated' : 'created'} successfully`,
+        'success'
+      );
+      this.props.onClose(res.data);
+    } else {
+      this.props.toast.show(
+        res.message
+          ? res.message
+          : `Error while ${
+          values._id ? 'updating' : 'creating'
+          } demo`,
+        'error'
+      );
+    }
+    this.setState({
+      isLoading: false
+    })
+  }
 
   render() {
     return (
@@ -155,144 +211,112 @@ class ManageDemoModal extends React.Component {
                 return errors;
               }}
               onSubmit={async (values, { setSubmitting }) => {
-                this.setState({ isLoading: true });
                 let obj = { ...values };
-                let res;
                 let selectedFile = obj.file[0];
-                console.log('file', selectedFile);
-                let reader = new FileReader();
-                reader.onload = async e => {
-                  let data = new Uint8Array(e.target.result);
-
-                  let workbook = xlsx.read(data, { type: 'array' });
-
-                  let first_sheet_name = workbook.SheetNames[0];
-
-                  let worksheet = workbook.Sheets[first_sheet_name];
-
-                  let jsonSheet = xlsx.utils.sheet_to_json(worksheet, {
-                    raw: true
-                  });
-                  console.log(jsonSheet);
-
-                  let assistantData = jsonSheet.reduce(
-                    (acc, ele) => {
-                      let obj = {
-                        intent: ele['Intent Name']
-                          ? this.getIntentName(ele['Intent Name'])
-                          : '',
-                        examples: ele['Examples']
-                          ? this.removeExtraChars(ele['Examples'])
-                              .split(',')
-                              .map(x => x.trim())
-                          : [ele['Intent Name'] ? ele['Intent Name'] : ''],
-                        user_input: ele['User Input']
-                          ? this.removeExtraChars(ele['User Input'].toString())
-                          : undefined
-                      };
-                      if (ele['Response Type']) {
-                        if (ele['Response Type'].toLowerCase() === 'options') {
-                          obj.response_type = 'options';
-                          obj.options = ele['Response Options']
-                            .split(',')
-                            .map(x => {
-                              let text = x.trim();
-                              return {
-                                label: this.removeExtraChars(text),
-                                value: {
-                                  input: {
-                                    text: this.removeExtraChars(text)
-                                  }
-                                }
-                              };
-                            });
-                          obj.title = this.removeExtraChars(ele['Response']);
-                        } else {
-                          obj.answer = [this.removeExtraChars(ele['Response'])];
-                          obj.response_type = 'text';
-                        }
-                      } else {
-                        obj.answer = this.removeExtraChars(ele['Response']);
-                        obj.response_type = 'text';
+                let fileExtension = selectedFile.name.split(".").pop();
+                if (["xlsx", "xls", "json"].indexOf(fileExtension)) {
+                  if (fileExtension === "json") {
+                    this.setState({ isLoading: true });
+                    var reader = new FileReader();
+                    reader.onload = async event => {
+                      var obj = JSON.parse(event.target.result);
+                      if (obj.dialog_nodes) {
+                        obj.dialogNodes = obj.dialog_nodes;
+                        delete obj.dialog_nodes;
                       }
-
-                      if (!ele['Intent Name']) {
-                        obj.isChild = true;
-                        obj.parent_node =
-                          acc.parentNodes[acc.parentNodes.length - 1];
-                      }
-                      if (ele['Jump To']) {
-                        obj.jump_to = this.getIntentName(ele['Jump To']);
-                      }
-
-                      acc.data.push(obj);
-                      if (obj.intent) {
-                        acc.parentNodes.push(obj.intent);
-                      }
-                      return acc;
-                    },
-                    {
-                      intents: {},
-                      data: [],
-                      parentNodes: []
+                      await this.addCustomDemo(values, obj, true)
+                      setSubmitting(false);
                     }
-                  );
-
-                  // check if website is loadable
-
-                  let isLoadable = await this.checkIfLoadableInIFrame(
-                    values.url
-                  );
-
-                  if (isLoadable === false) {
-                    this.setState(
-                      {
-                        isLoading: false,
-                        iFrameError: 'This website is not loadable in Iframe.'
-                      },
-                      () => console.log(this.state.iFrameError)
-                    );
-                    return;
-                  }
-
-                  // if (this.props.data) {
-                  //   //  res = await updateDemo(obj);
-                  // } else {
-                  //   //  res = await addDemo(obj);
-                  // }
-
-                  let selectedDemo = this.state.demosList.find(
-                    x => x.ID.toString() === values.id
-                  );
-                  let skillObj = {
-                    ...values,
-                    skills: assistantData.data,
-                    id: selectedDemo.ID,
-                    assistant_Id: selectedDemo.ASSISTANT_ID,
-                    workspaceId: selectedDemo.WORKSPACEID
-                  };
-                  res = await addDemo(skillObj);
-                  this.setState({ isLoading: false });
-                  if (res && res.success) {
-                    this.props.toast.show(
-                      `Demo ${values._id ? 'updated' : 'created'} successfully`,
-                      'success'
-                    );
-                    this.props.onClose(res.data);
+                    reader.readAsText(selectedFile);
                   } else {
-                    this.props.toast.show(
-                      res.message
-                        ? res.message
-                        : `Error while ${
-                            values._id ? 'updating' : 'creating'
-                          } demo`,
-                      'error'
-                    );
-                  }
-                  setSubmitting(false);
-                };
+                    this.setState({ isLoading: true });
+                    console.log('file', selectedFile);
+                    let reader = new FileReader();
+                    reader.onload = async e => {
+                      let data = new Uint8Array(e.target.result);
 
-                reader.readAsArrayBuffer(selectedFile);
+                      let workbook = xlsx.read(data, { type: 'array' });
+
+                      let first_sheet_name = workbook.SheetNames[0];
+
+                      let worksheet = workbook.Sheets[first_sheet_name];
+
+                      let jsonSheet = xlsx.utils.sheet_to_json(worksheet, {
+                        raw: true
+                      });
+                      console.log(jsonSheet);
+
+                      let assistantData = jsonSheet.reduce(
+                        (acc, ele) => {
+                          let obj = {
+                            intent: ele['Intent Name']
+                              ? this.getIntentName(ele['Intent Name'])
+                              : '',
+                            examples: ele['Examples']
+                              ? this.removeExtraChars(ele['Examples'])
+                                .split(',')
+                                .map(x => x.trim())
+                              : [ele['Intent Name'] ? ele['Intent Name'] : ''],
+                            user_input: ele['User Input']
+                              ? this.removeExtraChars(ele['User Input'].toString())
+                              : undefined
+                          };
+                          if (ele['Response Type']) {
+                            if (ele['Response Type'].toLowerCase() === 'options') {
+                              obj.response_type = 'options';
+                              obj.options = ele['Response Options']
+                                .split(',')
+                                .map(x => {
+                                  let text = x.trim();
+                                  return {
+                                    label: this.removeExtraChars(text),
+                                    value: {
+                                      input: {
+                                        text: this.removeExtraChars(text)
+                                      }
+                                    }
+                                  };
+                                });
+                              obj.title = this.removeExtraChars(ele['Response']);
+                            } else {
+                              obj.answer = [this.removeExtraChars(ele['Response'])];
+                              obj.response_type = 'text';
+                            }
+                          } else {
+                            obj.answer = this.removeExtraChars(ele['Response']);
+                            obj.response_type = 'text';
+                          }
+
+                          if (!ele['Intent Name']) {
+                            obj.isChild = true;
+                            obj.parent_node =
+                              acc.parentNodes[acc.parentNodes.length - 1];
+                          }
+                          if (ele['Jump To']) {
+                            obj.jump_to = this.getIntentName(ele['Jump To']);
+                          }
+
+                          acc.data.push(obj);
+                          if (obj.intent) {
+                            acc.parentNodes.push(obj.intent);
+                          }
+                          return acc;
+                        },
+                        {
+                          intents: {},
+                          data: [],
+                          parentNodes: []
+                        }
+                      );
+
+                      // check if website is loadable
+
+                      await this.addCustomDemo(values, assistantData.data, false)
+                      setSubmitting(false);
+                    };
+                    reader.readAsArrayBuffer(selectedFile);
+                  }
+                }
               }}>
               {({
                 values,
@@ -302,87 +326,87 @@ class ManageDemoModal extends React.Component {
                 setFieldValue,
                 handleSubmit /* and other goodies */
               }) => (
-                <form onSubmit={handleSubmit}>
-                  <Container fluid className='p-0'>
-                    <Row>
-                      <Col xs={12}>
-                        <FormGroup>
-                          <Label for='name'>Demo Name</Label>
-                          <Input
-                            name='name'
-                            id='name'
-                            placeholder='Enter the name of the demo'
-                            onChange={handleChange}
-                            value={values.name}
-                            invalid={
-                              errors && touched && touched.name
-                                ? errors.name
-                                  ? true
-                                  : false
-                                : undefined
-                            }
-                            valid={values.name ? true : false}
-                          />
-                          {errors.name && touched && touched.name && (
-                            <FormFeedback>{errors.name}</FormFeedback>
-                          )}
-                        </FormGroup>
-                      </Col>
-
-                      <Col xs={12}>
-                        <FormGroup>
-                          <Label for='name'>Description</Label>
-                          <Input
-                            name='description'
-                            id='description'
-                            placeholder='Enter the description of the demo'
-                            onChange={handleChange}
-                            value={values.description}
-                            invalid={
-                              errors && touched && touched.description
-                                ? errors.description
-                                  ? true
-                                  : false
-                                : undefined
-                            }
-                            valid={values.description ? true : false}
-                          />
-                          {errors.description &&
-                            touched &&
-                            touched.description && (
-                              <FormFeedback>{errors.description}</FormFeedback>
+                  <form onSubmit={handleSubmit}>
+                    <Container fluid className='p-0'>
+                      <Row>
+                        <Col xs={12}>
+                          <FormGroup>
+                            <Label for='name'>Demo Name</Label>
+                            <Input
+                              name='name'
+                              id='name'
+                              placeholder='Enter the name of the demo'
+                              onChange={handleChange}
+                              value={values.name}
+                              invalid={
+                                errors && touched && touched.name
+                                  ? errors.name
+                                    ? true
+                                    : false
+                                  : undefined
+                              }
+                              valid={values.name ? true : false}
+                            />
+                            {errors.name && touched && touched.name && (
+                              <FormFeedback>{errors.name}</FormFeedback>
                             )}
-                        </FormGroup>
-                      </Col>
+                          </FormGroup>
+                        </Col>
 
-                      <Col xs={12}>
-                        <FormGroup>
-                          <Label for='demo'>Select Demo</Label>
-                          <Input
-                            onChange={handleChange}
-                            type='select'
-                            name='id'
-                            id='demo'
-                            value={values.id}
-                            invalid={
-                              errors && touched && touched.id
-                                ? errors.id
-                                  ? true
-                                  : false
-                                : undefined
-                            }
-                            valid={values.id ? true : false}>
-                            {!values.id && <option value=''></option>}
-                            {this.state.demosList.map(x => (
-                              <option value={x.ID} key={x.ID}>
-                                {x.SKILL_NAME}
-                              </option>
-                            ))}
-                          </Input>
-                        </FormGroup>
-                      </Col>
+                        <Col xs={12}>
+                          <FormGroup>
+                            <Label for='name'>Description</Label>
+                            <Input
+                              name='description'
+                              id='description'
+                              placeholder='Enter the description of the demo'
+                              onChange={handleChange}
+                              value={values.description}
+                              invalid={
+                                errors && touched && touched.description
+                                  ? errors.description
+                                    ? true
+                                    : false
+                                  : undefined
+                              }
+                              valid={values.description ? true : false}
+                            />
+                            {errors.description &&
+                              touched &&
+                              touched.description && (
+                                <FormFeedback>{errors.description}</FormFeedback>
+                              )}
+                          </FormGroup>
+                        </Col>
 
-                      {/* <Col xs={12}>
+                        <Col xs={12}>
+                          <FormGroup>
+                            <Label for='demo'>Select Demo</Label>
+                            <Input
+                              onChange={handleChange}
+                              type='select'
+                              name='id'
+                              id='demo'
+                              value={values.id}
+                              invalid={
+                                errors && touched && touched.id
+                                  ? errors.id
+                                    ? true
+                                    : false
+                                  : undefined
+                              }
+                              valid={values.id ? true : false}>
+                              {!values.id && <option value=''></option>}
+                              {this.state.demosList.map(x => (
+                                <option value={x.ID} key={x.ID}>
+                                  {x.SKILL_NAME}
+                                </option>
+                              ))}
+                            </Input>
+                          </FormGroup>
+                        </Col>
+
+                        {/* <Col xs={12}>
                         <FormGroup>
                           <Label for="assistant_id">Assistant ID</Label>
                           <Input
@@ -434,76 +458,76 @@ class ManageDemoModal extends React.Component {
                             )}
                         </FormGroup>
                       </Col> */}
-                      <Col xs={12}>
-                        <FormGroup>
-                          <Label for='url'>Website URL</Label>
-                          <Input
-                            name='url'
-                            id='url'
-                            placeholder='Enter URL'
-                            onChange={handleChange}
-                            value={values.url}
-                            invalid={
-                              this.state.iFrameError
-                                ? true
-                                : errors && touched && touched.url
-                                ? errors.url
+                        <Col xs={12}>
+                          <FormGroup>
+                            <Label for='url'>Website URL</Label>
+                            <Input
+                              name='url'
+                              id='url'
+                              placeholder='Enter URL'
+                              onChange={handleChange}
+                              value={values.url}
+                              invalid={
+                                this.state.iFrameError
                                   ? true
-                                  : false
-                                : undefined
-                            }
-                            valid={values.url ? true : false}
-                          />
-                          {errors.url && touched && touched.url && (
-                            <FormFeedback>{errors.url}</FormFeedback>
-                          )}
-                          {this.state.iFrameError && (
-                            <FormFeedback>
-                              {this.state.iFrameError}
-                            </FormFeedback>
-                          )}
-                        </FormGroup>
-                      </Col>
-                      <Col xs={12}>
-                        <FormGroup>
-                          <Label for='file'>File</Label>
-                          <Input
-                            type='file'
-                            name='file'
-                            id='file'
-                            accept='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-                            onChange={event => {
-                              setFieldValue('file', event.target.files);
-                            }}
-                            invalid={
-                              errors ? (errors.file ? true : false) : undefined
-                            }
-                            valid={values.file ? true : false}
-                          />
-                          {errors.file && (
-                            <FormFeedback>{errors.file}</FormFeedback>
-                          )}
-                        </FormGroup>
-                      </Col>
-                      <Col xs={12}>
-                        <div className='d-flex justify-content-end'>
-                          <Button
-                            outline
-                            onClick={() => this.props.onClose()}
-                            color='secondary'
-                            type='button'>
-                            Cancel
+                                  : errors && touched && touched.url
+                                    ? errors.url
+                                      ? true
+                                      : false
+                                    : undefined
+                              }
+                              valid={values.url ? true : false}
+                            />
+                            {errors.url && touched && touched.url && (
+                              <FormFeedback>{errors.url}</FormFeedback>
+                            )}
+                            {this.state.iFrameError && (
+                              <FormFeedback>
+                                {this.state.iFrameError}
+                              </FormFeedback>
+                            )}
+                          </FormGroup>
+                        </Col>
+                        <Col xs={12}>
+                          <FormGroup>
+                            <Label for='file'>File</Label>
+                            <Input
+                              type='file'
+                              name='file'
+                              id='file'
+                              // accept='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+                              onChange={event => {
+                                setFieldValue('file', event.target.files);
+                              }}
+                              invalid={
+                                errors ? (errors.file ? true : false) : undefined
+                              }
+                              valid={values.file ? true : false}
+                            />
+                            {errors.file && (
+                              <FormFeedback>{errors.file}</FormFeedback>
+                            )}
+                          </FormGroup>
+                        </Col>
+                        <Col xs={12}>
+                          <div className='d-flex justify-content-end'>
+                            <Button
+                              outline
+                              onClick={() => this.props.onClose()}
+                              color='secondary'
+                              type='button'>
+                              Cancel
                           </Button>{' '}
                           &nbsp;&nbsp;
                           <Button color='primary' type='submit'>
-                            Create
+                              Create
                           </Button>
-                        </div>
-                      </Col>
-                    </Row>
-                  </Container>
-                </form>
-              )}
+                          </div>
+                        </Col>
+                      </Row>
+                    </Container>
+                  </form>
+                )}
             </Formik>
           </ModalBody>
         </Modal>
