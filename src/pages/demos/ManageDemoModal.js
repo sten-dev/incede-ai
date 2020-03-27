@@ -214,7 +214,7 @@ class ManageDemoModal extends React.Component {
                 let obj = { ...values };
                 let selectedFile = obj.file[0];
                 let fileExtension = selectedFile.name.split(".").pop();
-                if (["xlsx", "xls", "json"].indexOf(fileExtension)) {
+                if (["xlsx", "xls", "json"].indexOf(fileExtension) > -1) {
                   if (fileExtension === "json") {
                     this.setState({ isLoading: true });
                     var reader = new FileReader();
