@@ -63,7 +63,7 @@ export const addCampaign = async campaign => {
 export const getCampaignById = async campaignId => {
   let res = await httpClient(`campaigns`, 'GET', { ID: campaignId });
   return res;
-}
+};
 
 export const addDemo = async data => {
   try {
@@ -86,6 +86,14 @@ export const deleteDemo = async id => {
 export const getUnassignedDemos = async () => {
   try {
     let res = await httpClient(`unassigned-skills`, 'GET');
+    return res;
+  } catch (err) {
+    return err;
+  }
+};
+export const checkIfLoadableInIFrame = async url => {
+  try {
+    let res = await httpClient(`is-loadable-in-ifram`, 'POST', { url });
     return res;
   } catch (err) {
     return err;

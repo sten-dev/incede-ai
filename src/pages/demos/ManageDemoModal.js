@@ -15,8 +15,12 @@ import {
 } from 'reactstrap';
 import { Formik, FormikErrors } from 'formik';
 import * as xlsx from 'xlsx';
-import { withToastContext } from "../../components/common/ToastProvider";
-import { getUnassignedDemos, addDemo } from '../../../Service';
+import { withToastContext } from '../../components/common/ToastProvider';
+import {
+  getUnassignedDemos,
+  addDemo,
+  checkIfLoadableInIFrame
+} from '../../../Service';
 import Loading from '../../components/common/Loading';
 
 class ManageDemoModal extends React.Component {
@@ -42,7 +46,6 @@ class ManageDemoModal extends React.Component {
   }
 
   getUnAssignedDemos = async () => {
-
     this.setState({ isLoading: true });
     let res = await getUnassignedDemos();
     if (res && res.success) {
@@ -78,10 +81,30 @@ class ManageDemoModal extends React.Component {
   removeExtraChars = name => {
     return name
       ? name
-        .replace(/\n/g, '')
-        .replace(/\r/g, '')
-        .replace(/\t/g, '')
+          .replace(/\n/g, '')
+          .replace(/\r/g, '')
+          .replace(/\t/g, '')
       : '';
+  };
+
+  checkIfLoadableInIFrame = async url => {
+    // this.setState({
+    //   isLoading: true
+    // });
+    let res = await checkIfLoadableInIFrame(url);
+    if (res && res.success) {
+      return true;
+      // this.setState({
+      //   isIFrameLoadble: true,
+      //   isLoading: false
+      // });
+    } else {
+      return false;
+      // this.setState({
+      //   isIFrameLoadble: false,
+      //   isLoading: false
+      // });
+    }
   };
 
   render() {
@@ -160,8 +183,8 @@ class ManageDemoModal extends React.Component {
                           : '',
                         examples: ele['Examples']
                           ? this.removeExtraChars(ele['Examples'])
-                            .split(',')
-                            .map(x => x.trim())
+                              .split(',')
+                              .map(x => x.trim())
                           : [ele['Intent Name'] ? ele['Intent Name'] : ''],
                         user_input: ele['User Input']
                           ? this.removeExtraChars(ele['User Input'].toString())
@@ -215,6 +238,23 @@ class ManageDemoModal extends React.Component {
                     }
                   );
 
+                  // check if website is loadable
+
+                  let isLoadable = await this.checkIfLoadableInIFrame(
+                    values.url
+                  );
+
+                  if (isLoadable === false) {
+                    this.setState(
+                      {
+                        isLoading: false,
+                        iFrameError: 'This website is not loadable in Iframe.'
+                      },
+                      () => console.log(this.state.iFrameError)
+                    );
+                    return;
+                  }
+
                   // if (this.props.data) {
                   //   //  res = await updateDemo(obj);
                   // } else {
@@ -244,8 +284,8 @@ class ManageDemoModal extends React.Component {
                       res.message
                         ? res.message
                         : `Error while ${
-                        values._id ? 'updating' : 'creating'
-                        } demo`,
+                            values._id ? 'updating' : 'creating'
+                          } demo`,
                       'error'
                     );
                   }
@@ -262,87 +302,87 @@ class ManageDemoModal extends React.Component {
                 setFieldValue,
                 handleSubmit /* and other goodies */
               }) => (
-                  <form onSubmit={handleSubmit}>
-                    <Container fluid className='p-0'>
-                      <Row>
-                        <Col xs={12}>
-                          <FormGroup>
-                            <Label for='name'>Demo Name</Label>
-                            <Input
-                              name='name'
-                              id='name'
-                              placeholder='Enter the name of the demo'
-                              onChange={handleChange}
-                              value={values.name}
-                              invalid={
-                                errors && touched && touched.name
-                                  ? errors.name
-                                    ? true
-                                    : false
-                                  : undefined
-                              }
-                              valid={values.name ? true : false}
-                            />
-                            {errors.name && touched && touched.name && (
-                              <FormFeedback>{errors.name}</FormFeedback>
+                <form onSubmit={handleSubmit}>
+                  <Container fluid className='p-0'>
+                    <Row>
+                      <Col xs={12}>
+                        <FormGroup>
+                          <Label for='name'>Demo Name</Label>
+                          <Input
+                            name='name'
+                            id='name'
+                            placeholder='Enter the name of the demo'
+                            onChange={handleChange}
+                            value={values.name}
+                            invalid={
+                              errors && touched && touched.name
+                                ? errors.name
+                                  ? true
+                                  : false
+                                : undefined
+                            }
+                            valid={values.name ? true : false}
+                          />
+                          {errors.name && touched && touched.name && (
+                            <FormFeedback>{errors.name}</FormFeedback>
+                          )}
+                        </FormGroup>
+                      </Col>
+
+                      <Col xs={12}>
+                        <FormGroup>
+                          <Label for='name'>Description</Label>
+                          <Input
+                            name='description'
+                            id='description'
+                            placeholder='Enter the description of the demo'
+                            onChange={handleChange}
+                            value={values.description}
+                            invalid={
+                              errors && touched && touched.description
+                                ? errors.description
+                                  ? true
+                                  : false
+                                : undefined
+                            }
+                            valid={values.description ? true : false}
+                          />
+                          {errors.description &&
+                            touched &&
+                            touched.description && (
+                              <FormFeedback>{errors.description}</FormFeedback>
                             )}
-                          </FormGroup>
-                        </Col>
+                        </FormGroup>
+                      </Col>
 
-                        <Col xs={12}>
-                          <FormGroup>
-                            <Label for='name'>Description</Label>
-                            <Input
-                              name='description'
-                              id='description'
-                              placeholder='Enter the description of the demo'
-                              onChange={handleChange}
-                              value={values.description}
-                              invalid={
-                                errors && touched && touched.description
-                                  ? errors.description
-                                    ? true
-                                    : false
-                                  : undefined
-                              }
-                              valid={values.description ? true : false}
-                            />
-                            {errors.description &&
-                              touched &&
-                              touched.description && (
-                                <FormFeedback>{errors.description}</FormFeedback>
-                              )}
-                          </FormGroup>
-                        </Col>
+                      <Col xs={12}>
+                        <FormGroup>
+                          <Label for='demo'>Select Demo</Label>
+                          <Input
+                            onChange={handleChange}
+                            type='select'
+                            name='id'
+                            id='demo'
+                            value={values.id}
+                            invalid={
+                              errors && touched && touched.id
+                                ? errors.id
+                                  ? true
+                                  : false
+                                : undefined
+                            }
+                            valid={values.id ? true : false}>
+                            {!values.id && <option value=''></option>}
+                            {this.state.demosList.map(x => (
+                              <option value={x.ID} key={x.ID}>
+                                {x.SKILL_NAME}
+                              </option>
+                            ))}
+                          </Input>
+                        </FormGroup>
+                      </Col>
 
-                        <Col xs={12}>
-                          <FormGroup>
-                            <Label for='demo'>Select Demo</Label>
-                            <Input
-                              onChange={handleChange}
-                              type='select'
-                              name='id'
-                              id='demo'
-                              value={values.id}
-                              invalid={
-                                errors && touched && touched.id
-                                  ? errors.id
-                                    ? true
-                                    : false
-                                  : undefined
-                              }
-                              valid={values.id ? true : false}>
-                              {!values.id && <option value=''></option>}
-                              {this.state.demosList.map(x => (
-                                <option value={x.ID} key={x.ID}>
-                                  {x.SKILL_NAME}
-                                </option>
-                              ))}
-                            </Input>
-                          </FormGroup>
-                        </Col>
-
-                        {/* <Col xs={12}>
+                      {/* <Col xs={12}>
                         <FormGroup>
                           <Label for="assistant_id">Assistant ID</Label>
                           <Input
@@ -394,69 +434,76 @@ class ManageDemoModal extends React.Component {
                             )}
                         </FormGroup>
                       </Col> */}
-                        <Col xs={12}>
-                          <FormGroup>
-                            <Label for='url'>Website URL</Label>
-                            <Input
-                              name='url'
-                              id='url'
-                              placeholder='Enter URL'
-                              onChange={handleChange}
-                              value={values.url}
-                              invalid={
-                                errors && touched && touched.url
-                                  ? errors.url
-                                    ? true
-                                    : false
-                                  : undefined
-                              }
-                              valid={values.url ? true : false}
-                            />
-                            {errors.url && touched && touched.url && (
-                              <FormFeedback>{errors.url}</FormFeedback>
-                            )}
-                          </FormGroup>
-                        </Col>
-                        <Col xs={12}>
-                          <FormGroup>
-                            <Label for='file'>File</Label>
-                            <Input
-                              type='file'
-                              name='file'
-                              id='file'
-                              accept='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-                              onChange={event => {
-                                setFieldValue('file', event.target.files);
-                              }}
-                              invalid={
-                                errors ? (errors.file ? true : false) : undefined
-                              }
-                              valid={values.file ? true : false}
-                            />
-                            {errors.file && (
-                              <FormFeedback>{errors.file}</FormFeedback>
-                            )}
-                          </FormGroup>
-                        </Col>
-                        <Col xs={12}>
-                          <div className='d-flex justify-content-end'>
-                            <Button
-                              outline
-                              onClick={() => this.props.onClose()}
-                              color='secondary'
-                              type='button'>
-                              Cancel
+                      <Col xs={12}>
+                        <FormGroup>
+                          <Label for='url'>Website URL</Label>
+                          <Input
+                            name='url'
+                            id='url'
+                            placeholder='Enter URL'
+                            onChange={handleChange}
+                            value={values.url}
+                            invalid={
+                              this.state.iFrameError
+                                ? true
+                                : errors && touched && touched.url
+                                ? errors.url
+                                  ? true
+                                  : false
+                                : undefined
+                            }
+                            valid={values.url ? true : false}
+                          />
+                          {errors.url && touched && touched.url && (
+                            <FormFeedback>{errors.url}</FormFeedback>
+                          )}
+                          {this.state.iFrameError && (
+                            <FormFeedback>
+                              {this.state.iFrameError}
+                            </FormFeedback>
+                          )}
+                        </FormGroup>
+                      </Col>
+                      <Col xs={12}>
+                        <FormGroup>
+                          <Label for='file'>File</Label>
+                          <Input
+                            type='file'
+                            name='file'
+                            id='file'
+                            accept='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+                            onChange={event => {
+                              setFieldValue('file', event.target.files);
+                            }}
+                            invalid={
+                              errors ? (errors.file ? true : false) : undefined
+                            }
+                            valid={values.file ? true : false}
+                          />
+                          {errors.file && (
+                            <FormFeedback>{errors.file}</FormFeedback>
+                          )}
+                        </FormGroup>
+                      </Col>
+                      <Col xs={12}>
+                        <div className='d-flex justify-content-end'>
+                          <Button
+                            outline
+                            onClick={() => this.props.onClose()}
+                            color='secondary'
+                            type='button'>
+                            Cancel
                           </Button>{' '}
                           &nbsp;&nbsp;
                           <Button color='primary' type='submit'>
-                              Create
+                            Create
                           </Button>
-                          </div>
-                        </Col>
-                      </Row>
-                    </Container>
-                  </form>
-                )}
+                        </div>
+                      </Col>
+                    </Row>
+                  </Container>
+                </form>
+              )}
             </Formik>
           </ModalBody>
         </Modal>
