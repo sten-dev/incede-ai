@@ -344,7 +344,9 @@ class Footer extends React.Component {
                               this.setState({
                                 contactInfo: {
                                   ...this.state.contactInfo,
-                                  date: value.toDate()
+                                  date: isNaN(new Date(value).getTime())
+                                    ? ''
+                                    : new Date(value)
                                 }
                               });
                             }}
