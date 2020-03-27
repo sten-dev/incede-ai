@@ -261,7 +261,9 @@ class CallBackForm extends Component {
                               this.setState({
                                 contactDetails: {
                                   ...this.state.contactDetails,
-                                  date: value.toDate()
+                                  date: isNaN(new Date(value).getTime())
+                                    ? ''
+                                    : new Date(value)
                                 }
                               });
                             }}

@@ -84,9 +84,12 @@ class Footer extends React.Component {
     // let result = {
     //   success: true
     // };
+
     let result = await httpClient(`contact-details`, 'POST', {
       ...this.state.contactInfo
     });
+
+    console.log('contactInfo', this.state.contactInfo);
     if (result && result.success) {
       this.setState({
         hasDetailsSubmitted: true,
@@ -341,10 +344,9 @@ class Footer extends React.Component {
                               this.setState({
                                 contactInfo: {
                                   ...this.state.contactInfo,
-                                  date:
-                                    typeof value !== 'string'
-                                      ? ''
-                                      : value.toDate()
+                                  date: isNaN(new Date(value).getTime())
+                                    ? ''
+                                    : new Date(value)
                                 }
                               });
                             }}
