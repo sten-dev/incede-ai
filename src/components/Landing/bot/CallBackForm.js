@@ -24,6 +24,7 @@ import moment from 'moment';
 import LinkedInSignIn from 'react-linkedin-login-popup';
 import { userDetailFromLinkedin } from '../../../../Service';
 import linkedInPNG from '../../../img/social/linkedIn.png';
+import { withToastContext } from '../../common/ToastProvider';
 
 // var DateTime = require("react-datetime");
 class CallBackForm extends Component {
@@ -91,6 +92,8 @@ class CallBackForm extends Component {
     };
     let res = await userDetailFromLinkedin(obj);
     if (res && res.success) {
+      this.props.toast.show('Successfully logged in with LinkedIn', 'success');
+
       let data = res.data;
       // todo store in localstorage
       storeLinkedinUser(data);
@@ -314,4 +317,4 @@ class CallBackForm extends Component {
   }
 }
 
-export default CallBackForm;
+export default withToastContext(CallBackForm);

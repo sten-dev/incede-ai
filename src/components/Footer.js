@@ -35,6 +35,7 @@ import {
   getLinkedinUser
 } from '../constants';
 import { userDetailFromLinkedin } from '../../Service';
+import { withToastContext } from './common/ToastProvider';
 class Footer extends React.Component {
   window;
   constructor(props) {
@@ -129,6 +130,8 @@ class Footer extends React.Component {
     if (res && res.success) {
       let data = res.data;
       // todo store in localstorage
+      this.props.toast.show('Successfully logged in with LinkedIn', 'success');
+
       storeLinkedinUser(data);
 
       console.warn('data', data);
@@ -405,4 +408,4 @@ class Footer extends React.Component {
   }
 }
 
-export default Footer;
+export default withToastContext(Footer);
