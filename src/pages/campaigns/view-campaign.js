@@ -84,7 +84,7 @@ class ViewCampaign extends Component {
                         />
                       </main>
                     </Col>
-                    <Col lg={12} md={12} sm={12} xs={12}>
+                    {/* <Col lg={12} md={12} sm={12} xs={12}>
                       <Button
                         color='primary'
                         onClick={this.handleOpenDownloadDialog}>
@@ -93,7 +93,7 @@ class ViewCampaign extends Component {
                       <br />
                       <br />
                       <br />
-                    </Col>
+                    </Col> */}
                   </Row>
                 </Container>
               </section>
