@@ -186,7 +186,7 @@ class ApplicationsDevelopment extends Component {
                         <Col xs={12}>
                             <div className="content pb-5">
                                 <h1 className="title mb-0 text-primary text-uppercase">
-                                    <b>Applications Development</b>
+                                    <b>Watson Applications Development</b>
                                 </h1>
                                 <Link
                                     id="custom-react-link-applications-development"
