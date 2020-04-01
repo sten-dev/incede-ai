@@ -184,16 +184,17 @@ class ApplicationsDevelopment extends Component {
                 <Container>
                     <Row>
                         <Col xs={12}>
-                            <div className="content pb-5">
+                            <div className="content">
+                                <p id="applications-development" className="pt-2"></p>
                                 <h1 className="title mb-0 text-primary text-uppercase">
                                     <b>Watson Applications Development</b>
+                                    <Link
+                                        id="custom-react-link-applications-development"
+                                        to={this.state.linkId}
+                                        className="d-none"
+                                        smooth={true}
+                                    />
                                 </h1>
-                                <Link
-                                    id="custom-react-link-applications-development"
-                                    to={this.state.linkId}
-                                    className="d-none"
-                                    smooth={true}
-                                />
                                 {/* <p>
                                     <b className="text-grey">
                                         When competitive advantage requires custom AI applications,
@@ -211,7 +212,6 @@ class ApplicationsDevelopment extends Component {
                                     specifics about their photo – in their preferred language,
                                     including voice.
                                  </p> */}
-                                <p id="applications-development" className="pt-2"></p>
                             </div>
                         </Col>
                     </Row>

@@ -10,18 +10,23 @@ const LanguageTranslator = props => {
             <h2 className="m-0">Language Translator</h2>
             <br />
             <p>
-              Language translator offers domain-specific translations of text
-              from one language to another to communicate with users in their
-              own language
+              With the increasing importance of being multilingual, Watson Language Translator is a service to help you expand your content and reach new markets. The service allows users to translate text from one language to another. Anyone can embed this functionality to translate applications, websites, documents, chats, and more! The service comes pre-trained for immediate use out of the box; however, you can train the service to allow domain specific customizations. Language translator supports 40+ languages and provides the capability to build industry or region-specific custom models via a forced glossary or parallel corpus
             </p>
             <br />
+            <strong>
+              Advanced Machine Learning
+            </strong>
             <p>
-              Incede provides the Watson Language Translator knowhow to
-              implement translation models that leverage glossary pairing,
-              phrase matching and corpus level customizations on converted
-              documents, web pages, social media or conversational AI
-              applications.
+              Language translation service leverages Neural machine translation. By default all language pairs leverage neural machine translation. This new technology uses deep learning to improve translation speed and accuracy.
             </p>
+            <br />
+            <strong>
+              Document Translator
+            </strong>
+            <p>
+              Translate documents from one language to another while preserving file formatting and type. Supported file types include: MS Office, Open Office, PDF, HTML, JSON, TXT & and XML
+            </p>
+
           </Col>
         </Row>
       </Container>
