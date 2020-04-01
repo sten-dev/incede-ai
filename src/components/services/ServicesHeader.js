@@ -6,7 +6,8 @@ import ScrollMenu from "react-horizontal-scrolling-menu";
 let list = [
   { name: "Watson Assistant Services" },
   { name: "Watson Discovery Services" },
-  { name: "Watson API Services" }
+  { name: "Watson API Services" },
+  { name: "Watson Applications Development" }
 ];
 const MenuItem = ({ text, selected }) => {
   return <div className={`menu-item ${selected ? "active" : ""}`}>{text}</div>;
@@ -42,7 +43,6 @@ class ServicesHeader extends Component {
     this.menuItems = Menu(list.slice(0, list.length), this.state.selected);
   }
   onSelect = key => {
-    console.log(`onSelect: ${key}`);
     this.setState({ selected: key });
     let url = "/services/watson-assistant-services";
     switch (key) {
@@ -54,6 +54,9 @@ class ServicesHeader extends Component {
         break;
       case "Watson API Services":
         url = "/services/watson-api";
+        break;
+      case "Watson Applications Development":
+        url = "/services/watson-applications-development";
         break;
       default:
         url = "/services/watson-assistant-services";
@@ -75,6 +78,10 @@ class ServicesHeader extends Component {
       case "/services/watson-api":
       case "/services/watson-api/":
         this.setState({ selected: "Watson API Services" });
+        break;
+      case "/services/watson-applications-development":
+      case "/services/watson-applications-development/":
+        this.setState({ selected: "Watson Applications Development" });
         break;
       default:
         this.setState({ selected: "Watson Assistant Services" });
