@@ -2,20 +2,48 @@ import React, { Component } from "react";
 import { Container, Row, Col } from "reactstrap";
 import CaseStudyCard from "../../CaseStudyCard";
 import AutoGlassImage from "../../../img/services/auto-glass-body-repair.png";
+import waVisualGeneral from "../../../img/wa-api/wa-visual-general.png"
+import waVisualInsurance from "../../../img/wa-api/wa-visual-insurance.png"
 const VisualRecognition = props => {
   return (
     <React.Fragment>
       <Container>
         <Row className="api-services-content">
-          <Col lg={12} md={12} sm={12} id="visual-recognition">
-            <h2 className="m-0">Visual Recognition</h2>
-            <br />
-            <p>
-              The IBM Watson Visual Recognition service is a powerful AI tool that identifies image Quickly and allows you to accurately tag, classify and search visual content using machine learning. The service comes with the following pretrained models; but can also be customized to recognize custom classes.
+          <Col lg={12} md={12} sm={12} xs={12} id="visual-recognition">
+            <Row className="align-items-center">
+              <Col lg={7} md={12} sm={12} xs={12}>
+                <h2 className="m-0">Visual Recognition</h2>
+                <br />
+                <p>
+                  The IBM Watson Visual Recognition service is a powerful AI tool that identifies image Quickly and allows you to accurately tag, classify and search visual content using machine learning. The service comes with the following pretrained models; but can also be customized to recognize custom classes.
             </p>
+                <br />
+                <p>Incede experts create and train custom, highly accurate models that understand your image content.</p>
+              </Col>
+              <Col lg={5} md={12} sm={12} xs={12}>
+                <CaseStudyCard
+                  imageUrl={AutoGlassImage}
+                  title="Auto Glass Case Study"
+                  link="https://www.ibm.com/case-studies/autoglass-bodyrepair"
+                  viewClass="pl-4"
+                >
+                  <ul className="my-3">
+                    <li>Generating repair quotes 70% faster</li>
+                    <li>Allows employees to focus on more complex claims</li>
+                    <li>AI analysis to determine repair costs</li>
+                  </ul>
+                </CaseStudyCard>
+              </Col>
+            </Row>
+          </Col>
+
+          <Col lg={12} md={12} sm={12}>
             <ul className="mt-2">
               <li>
-                <strong>General:</strong> A trained model that lets you use an active and large data set to gain insights from your own pictures. Understand objects, actions, scenes, and colors within an image.
+                <strong>General:</strong>A trained model that lets you use an active and large data set to gain insights from your own pictures. Understand objects, actions, scenes, and colors within an image.
+                <div class="image-section my-3">
+                  <img src={waVisualGeneral} alt="support image" />
+                </div>
               </li>
               <li>
                 <strong>Food:</strong> Similar to the general model, but this model uses a specific food data set. You can use the model to find any type of food, and one of the main applications is in the catering and restaurant industry, especially if you want to create a specific menu.
@@ -41,22 +69,14 @@ const VisualRecognition = props => {
             </li>
               <li>
                 <strong>Insurance:</strong> Rapidly process claims by using images to classify claims into different categories
-            </li>
+                <div class="image-section my-3">
+                  <img src={waVisualInsurance} alt="support image" />
+                </div>
+              </li>
             </ul>
           </Col>
           {/* <Col lg={6} md={6} sm={12}>
-            <CaseStudyCard
-              imageUrl={AutoGlassImage}
-              title="Auto Glass Case Study"
-              link="https://www.ibm.com/case-studies/autoglass-bodyrepair"
-              viewClass="pl-4"
-            >
-              <ul className="my-3">
-                <li>Generating repair quotes 70% faster</li>
-                <li>Allows employees to focus on more complex claims</li>
-                <li>AI analysis to determine repair costs</li>
-              </ul>
-            </CaseStudyCard>
+            
           </Col> */}
         </Row>
       </Container>

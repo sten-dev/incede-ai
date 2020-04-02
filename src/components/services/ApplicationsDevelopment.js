@@ -148,7 +148,7 @@ class ApplicationsDevelopment extends Component {
             () => {
                 setTimeout(() => {
                     document.getElementById("custom-react-link-applications-development").click();
-                    window.history.pushState("", "", `/services/watson-applications-development#${linkId}`);
+                    window.history.pushState("", "", `/services/applications-development#${linkId}`);
                 });
             }
         );
@@ -164,7 +164,6 @@ class ApplicationsDevelopment extends Component {
                     <Row>
                         <Col xs={12}>
                             <div className="content">
-                                <p id="applications-development" className="pt-2"></p>
                                 <h1 className="title mb-0 text-primary text-uppercase">
                                     <b>Watson Applications Development</b>
                                     <Link
@@ -174,23 +173,13 @@ class ApplicationsDevelopment extends Component {
                                         smooth={true}
                                     />
                                 </h1>
-                                {/* <p>
-                                    <b className="text-grey">
-                                        When competitive advantage requires custom AI applications,
-                                        Incede has the expertise.
-                                     </b>
-                                </p>
                                 <p>
-                                    Incede infuses Watson AI capabilities into applications for a
-                                    deeper user experience and richer insights for
-                                    decision-makers. For example, Incede solutions could integrate
-                                    a conversational AI solution where a user provides a question
-                                    in any number of natural languages, including speech, and
-                                    shares a photo that is then evaluated and answered with the
-                                    context of the user’s order history, sentiment, inquiry and
-                                    specifics about their photo – in their preferred language,
-                                    including voice.
-                                 </p> */}
+                                    When competitive advantage requires custom applications, Incede has the expertise
+                                </p>
+                                <p id="applications-development" className="pt-1"></p>
+                                <p>
+                                    Incede specializes in mobile and web app development. We can help in developing innovative cloud-based applications that are user-centric and outcome oriented across industries.
+                                 </p>
                             </div>
                         </Col>
                     </Row>

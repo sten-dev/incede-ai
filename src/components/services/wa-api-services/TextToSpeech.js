@@ -13,14 +13,18 @@ const TextToSpeech = props => {
               Convert written text into natural-sounding audio in a variety of languages and voices. With Watson Text to Speech, you can generate human-like audio from written text. Improve the customer experience and engagement by interacting with users in multiple languages and tones. Increase content accessibility for users with different abilities, provide audio options to avoid distracted driving, or automate customer service interactions to increase efficiencies.
             </p>
             <br />
+            <p>
+              Incede understands speech synthesis and how to use annotations such as speed, pauses and transformations to adapt speech to meet the user’s expectations and needs.
+            </p>
+            <br />
             <strong>Advanced Machine Learning</strong>
             <p>
               Text to Speech service offers voices that rely on two types of technology: neural voice technology and concatenative synthesis. Both technologies synthesize speech from input text, but they use different approaches to produce audio with different characteristics. Neural (V3) voices are enhanced versions of the service's original concatenative voices.
             </p>
             <br />
-            <strong>Create Custom Voices Beta</strong>
+            <strong>Create Custom Voices </strong>
             <p>
-              Create a uniquely branded voice adapted to a target speaker of your choosing from as little as an hour of recordings. Premium feature only.
+              Create a uniquely branded voice adapted to a target speaker of your choosing from as little as an hour of recordings.
             </p>
             <br />
             <strong>

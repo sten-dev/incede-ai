@@ -1,23 +1,38 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from "reactstrap";
-
+import toneAnalyzerPng from "../../../img/wa-api/tone-analyzer.png"
 const ToneAnalyzer = props => {
   return (
     <React.Fragment>
       <Container>
         <Row className="api-services-content">
-          <Col lg={12} md={12} sm={12} id="tone-analyzer">
-            <h2 className="m-0">Tone Analyzer</h2>
-            <br />
-            <p>
-              The Watson Tone Analyzer service outputs various tones—such as joy, sadness, anger, and agreeableness—in daily communications. These tones can impact the effectiveness of communication in different contexts. Tone Analyzer leverages cognitive linguistic analysis to identify a variety of tones at both the sentence and document level. This insight can then be used to refine and improve communications. It detects three types of tones, including emotion (e.g., anger, disgust, fear, joy, and sadness), social propensities (e.g., openness, conscientiousness, extroversion, agreeableness, and emotional range), and language styles (e.g., analytical, confident and tentative) from the text.
+          <Col lg={12} md={12} sm={12} xs={12}>
+            <Row className="align-items-center">
+              <Col lg={7} md={12} sm={12} xs={12}>
+                <h2 className="m-0">Tone Analyzer</h2>
+                <br />
+                <p>
+                  The Watson Tone Analyzer service outputs various tones—such as joy, sadness, anger, and agreeableness—in daily communications. These tones can impact the effectiveness of communication in different contexts. Tone Analyzer leverages cognitive linguistic analysis to identify a variety of tones at both the sentence and document level. This insight can then be used to refine and improve communications. It detects three types of tones, including emotion (e.g., anger, disgust, fear, joy, and sadness), social propensities (e.g., openness, conscientiousness, extroversion, agreeableness, and emotional range), and language styles (e.g., analytical, confident and tentative) from the text.
             </p>
+                <br />
+                <p>
+                  Incede uses the Watson Tone Analyzer service to integrate your text sources and provide the tone results.
+            </p>
+              </Col>
+              <Col lg={5} md={12} sm={12} xs={12}>
+                <div class="image-section">
+                  <img src={toneAnalyzerPng} alt="support image" />
+                </div>
+              </Col>
+            </Row>
+          </Col>
+
+          <Col lg={12} md={12} sm={12} id="tone-analyzer">
             <br />
             <strong>
               Enhance customer service
            </strong>
             <p>
-
               Monitor customer service and support conversations so you can respond to your customers appropriately and at scale. See if customers are satisfied or frustrated, and if agents are polite and sympathetic. Use the Tone Analyzer for Customer Engagement endpoint to monitor customer support conversations. Escalate customer conversations when they turn sour, or find opportunities to improve customer service scripts, dialogs and customer journeys. Tones detected with this endpoint include frustrated, sad, satisfied, excited, polite, impolite and sympathetic.
            </p>
             <br />
