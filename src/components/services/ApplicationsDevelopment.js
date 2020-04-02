@@ -16,35 +16,21 @@ import WebApplications from "./applications-development/WebApplications";
 
 const subItems = [
     {
-        image: "/img/watson-api/text-to-speech.png",
-        inactiveImage: "/img/watson-api/text-to-speech-inactive.png",
+        image: "/img/watson-application-development/ux.svg",
+        inactiveImage: "/img/watson-application-development/ux-inactive.svg",
         title: "UI/UX Design Services"
     },
     {
-        image: "/img/watson-api/speech-to-text.png",
-        inactiveImage: "/img/watson-api/speech-to-text-inactive.png",
+        image: "/img/watson-application-development/mobile-applications.svg",
+        inactiveImage: "/img/watson-application-development/mobile-applications-inactive.svg",
         title: "Mobile Applications"
     },
     {
-        image: "/img/watson-api/language-translator.png",
-        inactiveImage: "/img/watson-api/language-translator-inactive.png",
+        image: "/img/watson-application-development/web-applications.svg",
+        inactiveImage: "/img/watson-application-development/web-applications-inactive.svg",
         title: "Web Applications"
     },
-    // {
-    //     image: "/img/watson-api/natural-language-classifier.png",
-    //     inactiveImage: "/img/watson-api/natural-language-classifier-inactive.png",
-    //     title: "E-Commerce Development"
-    // },
-    // {
-    //     image: "/img/watson-api/personality-insights.png",
-    //     inactiveImage: "/img/watson-api/personality-insights-inactive.png",
-    //     title: "Mobile Backend Development"
-    // },
-    // {
-    //     image: "/img/watson-api/tone-analyzer.png",
-    //     inactiveImage: "/img/watson-api/tone-analyzer-inactive.png",
-    //     title: "Enterprise Application Development"
-    // }
+
 ];
 
 export const Menu = (subItems, activeIndex) =>
