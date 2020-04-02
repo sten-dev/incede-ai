@@ -7,8 +7,9 @@ const SpeechToText = props => {
     <React.Fragment>
       <Container>
         <Row className="api-services-content">
-          <Col lg={6} md={6} sm={12} id="speech-to-text">
+          <Col lg={7} md={6} sm={12} id="speech-to-text">
             <h2 className="m-0">Speech to Text</h2>
+            <br />
             <p>
               Speech to text uses customizable speech recognition to generate text transcripts in real-time or batch.
             </p>
@@ -18,7 +19,7 @@ const SpeechToText = props => {
               Incede develops and trains language models to understand and recognize domain specifics, jargons, dialects and expressions in audio and voice natural language.
             </p>
           </Col>
-          <Col lg={6} md={6} sm={12}>
+          <Col lg={5} md={6} sm={12}>
             <CaseStudyCard
               imageUrl={LingmoImage}
               title="Lingmo Case Study"

@@ -26,11 +26,11 @@ const MobileApplications = props => {
 
                         <br />
                         <p>
-                            Incede can help you with various types of Mobile application development. Some of the most common applications we have built include App Prototyping & Strategy, Cloud Mobility Solutions, m-Commerce, Integration with existing enterprise services & data, Cross-platform Application Development and Chat Bots.
+                            Incede develops mobile apps for iPhone, iPad and Android Devices. Our team of enthusiastic analysts and developers work closely with you to understand your ideas and emotions behind the app and suggest a suitable platform and technology, we normally prefer to use native technologies; however, based on requirements, we might suggest and provide cross platform solutions which are lean and scalable.
                         </p>
                         <br />
                         <p>
-                            Incede develops mobile apps for iPhone, iPad and Android Devices. Our team of enthusiastic analysts and developers work closely with you to understand your ideas and emotions behind the app and suggest a suitable platform and technology, we normally prefer to use native technologies; however, based on requirements, we might suggest and provide cross platform solutions which are lean and scalable.
+                            Incede can help you with various types of Mobile application development. Some of the most common applications we have built include App Prototyping & Strategy, Cloud Mobility Solutions, m-Commerce, Integration with existing enterprise services & data, Cross-platform Application Development and Chat Bots.
                         </p>
                     </Col>
                 </Row>

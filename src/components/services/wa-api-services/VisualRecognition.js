@@ -2,15 +2,15 @@ import React, { Component } from "react";
 import { Container, Row, Col } from "reactstrap";
 import CaseStudyCard from "../../CaseStudyCard";
 import AutoGlassImage from "../../../img/services/auto-glass-body-repair.png";
-import waVisualGeneral from "../../../img/wa-api/wa-visual-general.png"
-import waVisualInsurance from "../../../img/wa-api/wa-visual-insurance.png"
+// import waVisualGeneral from "../../../img/wa-api/wa-visual-general.png"
+// import waVisualInsurance from "../../../img/wa-api/wa-visual-insurance.png"
 const VisualRecognition = props => {
   return (
     <React.Fragment>
       <Container>
         <Row className="api-services-content">
           <Col lg={12} md={12} sm={12} xs={12} id="visual-recognition">
-            <Row className="align-items-center">
+            <Row>
               <Col lg={7} md={12} sm={12} xs={12}>
                 <h2 className="m-0">Visual Recognition</h2>
                 <br />
@@ -38,7 +38,12 @@ const VisualRecognition = props => {
           </Col>
 
           <Col lg={12} md={12} sm={12}>
-            <ul className="mt-2">
+            <br />
+            <p>
+              The Visual Recognition services comes with out-of-box trained general model that understand objects, actions, scenes, and colors within an image. The service is also pre-trained to understand food data set, analyze any inappropriate content and extract text from a picture.
+            </p>
+            <br />
+            {/* <ul className="mt-2">
               <li>
                 <strong>General:</strong>A trained model that lets you use an active and large data set to gain insights from your own pictures. Understand objects, actions, scenes, and colors within an image.
                 <div class="image-section my-3">
@@ -57,10 +62,25 @@ const VisualRecognition = props => {
               <li>
                 <strong>Custom:</strong> Lets you create a custom model with your own pictures and train it to get better results.
               </li>
-            </ul>
+            </ul> */}
 
             <p>The Visual Recognition service can be used for diverse applications and industries, such as:</p>
-            <ul className="mt-2">
+            <br />
+            <strong>Manufacturing:</strong>
+            <p>
+              Use images from a manufacturing setting to make sure products are being positioned correctly on an assembly line
+            </p>
+            <br />
+            <strong>Visual auditing:</strong>
+            <p>
+              Look for visual compliance or deterioration in a fleet of trucks, planes, or windmills out in the field, train custom models to understand what defects look like
+            </p>
+            <br />
+            <strong>Insurance:</strong>
+            <p>
+              Rapidly process claims by using images to classify claims into different categories
+            </p>
+            {/* <ul className="mt-2">
               <li>
                 <strong>Manufacturing:</strong> Use images from a manufacturing setting to make sure products are being positioned correctly on an assembly line
             </li>
@@ -73,7 +93,7 @@ const VisualRecognition = props => {
                   <img src={waVisualInsurance} alt="support image" />
                 </div>
               </li>
-            </ul>
+            </ul> */}
           </Col>
           {/* <Col lg={6} md={6} sm={12}>
             

@@ -15,6 +15,10 @@ const UIUXDesignServices = props => {
                                 <p>
                                     A critical part of application design is the way in which an application will be used and the reactions it will generate from users. The User Interface (UI) and User Experience (UX) is important in all application development, but especially in small, highly personal, hand-held devices that are depended upon often and typically used on the go.
                         </p>
+                                <br />
+                                <p>
+                                    When the UI and UX is right, your app will deliver a smoothly flowing, intuitive, productive, highly positive experience that will make users want to use it again and again.
+                        </p>
                             </Col>
                             <Col lg={5} md={12} sm={12} xs={12}>
                                 <div class="image-section">
@@ -24,10 +28,7 @@ const UIUXDesignServices = props => {
                         </Row>
                     </Col>
                     <Col lg={12} md={12} sm={12}>
-                        <br />
-                        <p>
-                            When the UI and UX is right, your app will deliver a smoothly flowing, intuitive, productive, highly positive experience that will make users want to use it again and again.
-                        </p>
+
                         <br />
                         <p>
                             Incede's UI/UX designers define success as transforming application functionalities into a richly satisfying experience for users. Our designers create User Interfaces that are beautiful, easy to use, and easy to understand in any scale–from elegant, single-purpose microsites to powerful mobile or desktop-class applications.

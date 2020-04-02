@@ -7,12 +7,12 @@ const ToneAnalyzer = props => {
       <Container>
         <Row className="api-services-content">
           <Col lg={12} md={12} sm={12} xs={12}>
-            <Row className="align-items-center">
+            <Row>
               <Col lg={7} md={12} sm={12} xs={12}>
                 <h2 className="m-0">Tone Analyzer</h2>
                 <br />
                 <p>
-                  The Watson Tone Analyzer service outputs various tones—such as joy, sadness, anger, and agreeableness—in daily communications. These tones can impact the effectiveness of communication in different contexts. Tone Analyzer leverages cognitive linguistic analysis to identify a variety of tones at both the sentence and document level. This insight can then be used to refine and improve communications. It detects three types of tones, including emotion (e.g., anger, disgust, fear, joy, and sadness), social propensities (e.g., openness, conscientiousness, extroversion, agreeableness, and emotional range), and language styles (e.g., analytical, confident and tentative) from the text.
+                  The Watson Tone Analyzer service outputs various tones—such as joy, sadness, anger, and agreeableness—in daily communications. These tones can impact the effectiveness of communication in different contexts. Tone Analyzer leverages cognitive linguistic analysis to identify a variety of tones at both the sentence and document level.
             </p>
                 <br />
                 <p>

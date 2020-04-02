@@ -1,21 +1,32 @@
 import React, { Component } from "react";
 import { Row, Container, Col } from "reactstrap";
-
+import toneAnalyzerPng from "../../../img/wa-api/tone-analyzer.png"
 const LanguageTranslator = props => {
   return (
     <React.Fragment>
       <Container>
         <Row className="api-services-content">
-          <Col lg={12} md={12} sm={12} id="language-translator">
-            <h2 className="m-0">Language Translator</h2>
-            <br />
-            <p>
-              With the increasing importance of being multilingual, Watson Language Translator is a service to help you expand your content and reach new markets. The service allows users to translate text from one language to another. Anyone can embed this functionality to translate applications, websites, documents, chats, and more! The service comes pre-trained for immediate use out of the box; however, you can train the service to allow domain specific customizations. Language translator supports 40+ languages and provides the capability to build industry or region-specific custom models via a forced glossary or parallel corpus
+          <Col lg={12} md={12} sm={12} xs={12} id="language-translator">
+            <Row >
+              <Col lg={7} md={12} sm={12} xs={12}>
+                <h2 className="m-0">Language Translator</h2>
+                <br />
+                <p>
+                  With the increasing importance of being multilingual, Watson Language Translator is a service to help you expand your content and reach new markets. The service allows users to translate text from one language to another. Anyone can embed this functionality to translate applications, websites, documents, chats, and more!
             </p>
-            <br />
-            <p>
-              Incede provides the Watson Language Translator knowhow to implement translation models that leverage glossary pairing, phrase matching and corpus level customizations on converted documents, web pages, social media or conversational AI applications.
+                <br />
+                <p>
+                  Incede provides the Watson Language Translator knowhow to implement translation models that leverage glossary pairing, phrase matching and corpus level customizations on converted documents, web pages, social media or conversational AI applications.
             </p>
+              </Col>
+              <Col lg={5} md={12} sm={12} xs={12}>
+                <div class="image-section">
+                  <img src={toneAnalyzerPng} alt="support image" />
+                </div>
+              </Col>
+            </Row>
+          </Col>
+          <Col lg={12} md={12} sm={12} >
             <br />
             <strong>
               Advanced Machine Learning

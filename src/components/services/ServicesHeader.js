@@ -98,7 +98,7 @@ class ServicesHeader extends Component {
               <article className="text-left">
                 <h1 className="title display-3">Services</h1>
                 <h5 className="text-white sub-title">
-                  Incede's partners are experts in helping organizations
+                  Incede's resources are experts in helping organizations
                   understand and incorporate IBM’s Watson technology. We provide
                   end-to-end capabilities in developing conversational
                   interfaces and cognitive enterprise search applications with

@@ -165,20 +165,17 @@ class ApplicationsDevelopment extends Component {
                         <Col xs={12}>
                             <div className="content">
                                 <h1 className="title mb-0 text-primary text-uppercase">
-                                    <b>Watson Applications Development</b>
+                                    <b>Applications Development</b>
                                     <Link
                                         id="custom-react-link-applications-development"
                                         to={this.state.linkId}
                                         className="d-none"
                                         smooth={true}
                                     />
+                                    <p id="applications-development" className="pt-1"></p>
                                 </h1>
                                 <p>
-                                    When competitive advantage requires custom applications, Incede has the expertise
-                                </p>
-                                <p id="applications-development" className="pt-1"></p>
-                                <p>
-                                    Incede specializes in mobile and web app development. We can help in developing innovative cloud-based applications that are user-centric and outcome oriented across industries.
+                                    When competitive advantage requires custom applications, Incede has the expertise and specializes in mobile and web app development. We can help in developing innovative cloud-based applications that are user-centric and outcome oriented across industries.
                                  </p>
                             </div>
                         </Col>

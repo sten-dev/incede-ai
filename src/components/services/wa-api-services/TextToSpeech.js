@@ -1,21 +1,33 @@
 import React, { Component } from "react";
 import { Row, Col, Container } from "reactstrap";
+import toneAnalyzerPng from "../../../img/wa-api/tone-analyzer.png"
 
 const TextToSpeech = props => {
   return (
     <React.Fragment>
       <Container>
         <Row className="api-services-content">
-          <Col lg={12} md={12} sm={12} id="text-to-speech">
-            <h2 className="m-0">Text to Speech</h2>
-            <br />
-            <p>
-              Convert written text into natural-sounding audio in a variety of languages and voices. With Watson Text to Speech, you can generate human-like audio from written text. Improve the customer experience and engagement by interacting with users in multiple languages and tones. Increase content accessibility for users with different abilities, provide audio options to avoid distracted driving, or automate customer service interactions to increase efficiencies.
+          <Col lg={12} md={12} sm={12} xs={12} id="text-to-speech">
+            <Row>
+              <Col lg={7} md={12} sm={12} xs={12}>
+                <h2 className="m-0">Text to Speech</h2>
+                <br />
+                <p>
+                  Convert written text into natural-sounding audio in a variety of languages and voices. With Watson Text to Speech, you can generate human-like audio from written text. Improve the customer experience and engagement by interacting with users in multiple languages and tones. Increase content accessibility for users with different abilities, provide audio options to avoid distracted driving, or automate customer service interactions to increase efficiencies.
             </p>
-            <br />
-            <p>
-              Incede understands speech synthesis and how to use annotations such as speed, pauses and transformations to adapt speech to meet the user’s expectations and needs.
+                <br />
+                <p>
+                  Incede understands speech synthesis and how to use annotations such as speed, pauses and transformations to adapt speech to meet the user’s expectations and needs.
             </p>
+              </Col>
+              <Col lg={5} md={12} sm={12} xs={12}>
+                <div class="image-section">
+                  <img src={toneAnalyzerPng} alt="support image" />
+                </div>
+              </Col>
+            </Row>
+          </Col>
+          <Col lg={12} md={12} sm={12} >
             <br />
             <strong>Advanced Machine Learning</strong>
             <p>

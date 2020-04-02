@@ -12,7 +12,7 @@ const WebApplications = props => {
                                 <h2 className="m-0">Web Applications</h2>
                                 <br />
                                 <p>
-                                    Successful web applications have a front-end that excites users and functions properly on all devices. But what makes a web application that is durable for the long term? A user-friendly and reliable backend that clients can use to manage and scale. We design and develop websites on all major open source platforms and also create web services to provide online tools and backend for mobile applications. Our team of web experts are proficient in all the major open source technologies and would utilize the technology that is appropriate for the problem at hand.  We possess exceptionally strong expertise in website development using the latest technologies, including HTML5, CSS3, and JavaScript, along with technologies such as .Net and PHP. Also, we have expertise in a variety of frameworks, including AngularJS, Bootstrap and jQueryMobile.
+                                    Successful web applications have a front-end that excites users and functions properly on all devices. We design and develop websites on all major open source platforms and also create web services to provide online tools and backend for mobile applications. We are experts in latest technologies, including HTML5, CSS3, JavaScript frameworks like Angular, React, and NodeJS along with technologies such as .Net and Java.
                         </p>
                             </Col>
                             <Col lg={5} md={12} sm={12} xs={12}>
@@ -25,7 +25,7 @@ const WebApplications = props => {
                     <Col lg={12} md={12} sm={12} xs={12}>
                         <br />
                         <p>
-                            At Incede, we are a team of professional developers and designers employing Agile and Scrum to build growth-driven web applications. Our web development forte includes developing Single-page applications, Progressive Web Applications, enterprise portals, e-commerce portals, custom web applications, large-scale websites, web tools and SaaS solutions that fulfills your end-users as well as business needs. Web applications we can help you with:
+                            At Incede, we are a team of professional developers and designers employing Agile and Scrum to build growth-driven web applications. Our web development forte includes developing Single-page applications, Progressive Web Applications, enterprise portals, e-commerce portals, custom web applications, large-scale websites, web tools and SaaS solutions that fulfills your end-users as well as business needs.
                         </p>
                         <br />
                         <strong>E-Commerce Development</strong>
