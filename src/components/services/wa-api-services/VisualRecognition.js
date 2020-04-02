@@ -22,6 +22,7 @@ const VisualRecognition = props => {
               </Col>
               <Col lg={5} md={12} sm={12} xs={12}>
                 <CaseStudyCard
+                  noMarginTop={true}
                   imageUrl={AutoGlassImage}
                   title="Auto Glass Case Study"
                   link="https://www.ibm.com/case-studies/autoglass-bodyrepair"

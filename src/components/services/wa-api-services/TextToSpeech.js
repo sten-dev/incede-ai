@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Row, Col, Container } from "reactstrap";
-import toneAnalyzerPng from "../../../img/wa-api/tone-analyzer.png"
+import textToSpeech from "../../../img/wa-api/text-to-speech.png"
 
 const TextToSpeech = props => {
   return (
@@ -22,7 +22,7 @@ const TextToSpeech = props => {
               </Col>
               <Col lg={5} md={12} sm={12} xs={12}>
                 <div class="image-section">
-                  <img src={toneAnalyzerPng} alt="support image" />
+                  <img src={textToSpeech} alt="support image" />
                 </div>
               </Col>
             </Row>

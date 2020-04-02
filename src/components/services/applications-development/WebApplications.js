@@ -1,18 +1,22 @@
 import React, { Component } from "react";
 import { Row, Container, Col } from "reactstrap";
-import webImage from "../../../img/services/wd-design-services.png";
+import webImage from "../../../img/services/development-applications/web-bg.png";
 const WebApplications = props => {
     return (
         <React.Fragment>
             <Container>
                 <Row className="api-services-content">
                     <Col lg={12} md={12} sm={12} xs={12}>
-                        <Row className="align-items-center">
+                        <Row>
                             <Col lg={7} md={12} sm={12} xs={12}>
                                 <h2 className="m-0">Web Applications</h2>
                                 <br />
                                 <p>
                                     Successful web applications have a front-end that excites users and functions properly on all devices. We design and develop websites on all major open source platforms and also create web services to provide online tools and backend for mobile applications. We are experts in latest technologies, including HTML5, CSS3, JavaScript frameworks like Angular, React, and NodeJS along with technologies such as .Net and Java.
+                        </p>
+                                <br />
+                                <p>
+                                    At Incede, we are a team of professional developers and designers employing Agile and Scrum to build growth-driven web applications. Our web development forte includes developing Single-page applications, Progressive Web Applications, enterprise portals, e-commerce portals, custom web applications, large-scale websites, web tools and SaaS solutions that fulfills your end-users as well as business needs.
                         </p>
                             </Col>
                             <Col lg={5} md={12} sm={12} xs={12}>
