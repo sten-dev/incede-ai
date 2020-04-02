@@ -1,15 +1,8 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from "reactstrap";
 import ServicesSmallCardsList from "./ServicesSmallCardsList";
-import TextToSpeech from "./wa-api-services/TextToSpeech";
-import SpeechToText from "./wa-api-services/SpeechToText";
-import NaturalLanguageClassifier from "./wa-api-services/NaturalLanguageClassifier";
-import PersonalityInsights from "./wa-api-services/PersonalityInsights";
-import ToneAnalyzer from "./wa-api-services/ToneAnalyzer";
-import VisualRecognition from "./wa-api-services/VisualRecognition";
-import LanguageTranslator from "./wa-api-services/LanguageTranslator";
 import ScrollMenu from "react-horizontal-scrolling-menu";
-import { Link, animateScroll as scroll } from "react-scroll";
+import { Link } from "react-scroll";
 import UIUXDesignServices from "./applications-development/ui-ux-design-service";
 import MobileApplications from "./applications-development/MobileApplications";
 import WebApplications from "./applications-development/WebApplications";
