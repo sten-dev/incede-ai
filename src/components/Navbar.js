@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "gatsby";
-import logo from "../img/logo.svg";
+import logo from "../img/logo.jpg";
 import menu from "../img/menu.svg";
 import "../styles/navbar.scss";
 // import PageTransition from "gatsby-plugin-page-transitions";
@@ -132,7 +132,7 @@ class INavbar extends Component {
           <Navbar color="white" expand="lg" light>
             <NavbarBrand>
               <Link to="/">
-                <img src={logo} alt="incede" />
+                <img className="incede-logo" src={logo} alt="incede" />
               </Link>
             </NavbarBrand>
             <NavbarToggler onClick={this.toggle}>

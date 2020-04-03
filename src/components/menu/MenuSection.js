@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../../styles/menu.scss";
 import { Row, Container, Col } from "reactstrap";
-import logo from "../../img/logo_white.svg";
+import logo from "../../img/logo_white.png";
 import arrow from "../../img/arrow.svg";
 import close from "../../img/close.svg";
 import { Link } from "gatsby";
@@ -74,7 +74,7 @@ class MenuSection extends Component {
                 <img
                   src={logo}
                   alt="incede.ai"
-                  style={{ width: "10em", height: "5em" }}
+                  style={{ width: "220px" }}
                 />
               </div>
               <div className="align-self-center menu-close">

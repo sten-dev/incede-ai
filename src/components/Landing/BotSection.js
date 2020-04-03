@@ -9,7 +9,7 @@ import {
   Card,
   CardImg
 } from 'reactstrap';
-import logo from '../../img/logo_white.svg';
+import logo from '../../img/logo_white.png';
 import { ChatPill } from './bot/ChatPill';
 import { ChatPillAsk } from './bot/ChatPillAsk';
 import socketIO from 'socket.io-client';
@@ -1154,7 +1154,7 @@ class BotSection extends Component {
                 <img
                   src={logo}
                   alt='incede.ai'
-                  style={{ width: '10em', height: '5em' }}
+                  style={{ width: '200px' }}
                 />
               </div>
               <div className='d-flex justify-content-center flex-grow-1'>

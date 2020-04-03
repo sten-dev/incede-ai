@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import '../styles/footer.scss';
-import logo from '../img/logo_white.svg';
+import logo from '../img/logo_white.png';
 import facebook from '../img/social/facebook.svg';
 import instagram from '../img/social/instagram.svg';
 import twitter from '../img/social/twitter.svg';
@@ -318,7 +318,7 @@ class Footer extends React.Component {
                             name='phone'
                             value={this.state.contactInfo.phone}
                             placeholder='Phone'
-                            // required
+                          // required
                           />
                         </FormGroup>
                         <FormGroup>
@@ -329,7 +329,7 @@ class Footer extends React.Component {
                             name='reason'
                             value={this.state.contactInfo.reason}
                             placeholder='What do you want to talk about'
-                            // required
+                          // required
                           />
                         </FormGroup>
                         <FormGroup className='footer-date-time'>
@@ -384,19 +384,19 @@ class Footer extends React.Component {
                         <br />
                         {this.state.message &&
                           (this.state.hasDetailsSubmitted !== undefined &&
-                          this.state.hasDetailsSubmitted === true ? (
-                            <Col lg={12} md={12} sm={12} xs={12}>
-                              <br />
-                              <Alert color='success'>
-                                {this.state.message}
-                              </Alert>
-                            </Col>
-                          ) : (
-                            <Col lg={12} md={12} sm={12} xs={12}>
-                              <br />
-                              <Alert color='danger'>{this.state.message}</Alert>
-                            </Col>
-                          ))}
+                            this.state.hasDetailsSubmitted === true ? (
+                              <Col lg={12} md={12} sm={12} xs={12}>
+                                <br />
+                                <Alert color='success'>
+                                  {this.state.message}
+                                </Alert>
+                              </Col>
+                            ) : (
+                              <Col lg={12} md={12} sm={12} xs={12}>
+                                <br />
+                                <Alert color='danger'>{this.state.message}</Alert>
+                              </Col>
+                            ))}
                       </Form>
                     </div>
                   </Col>
