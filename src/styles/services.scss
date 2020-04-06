@@ -51,6 +51,10 @@
       // height: 320px;
       width: 100% !important;
     }
+    .channel-development-img {
+      width: auto !important;
+      height: 100% !important;
+    }
   }
   .image-center {
     display: flex;
@@ -80,6 +84,7 @@
     letter-spacing: 0;
   }
 }
+
 .api-services-cards {
   width: 190px;
   height: 100%;
@@ -121,6 +126,7 @@
     justify-content: start !important;
   }
 }
+
 @media screen and (max-width: 576px) {
   .services-content {
     .heading {

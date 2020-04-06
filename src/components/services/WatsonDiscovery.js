@@ -523,7 +523,7 @@ class WatsonDiscovery extends Component {
                         ></p> */}
                       </div>
                     </Col>
-                    {/* <Col xs={12} className="py-2">
+                    <Col xs={12} className="py-2">
                       <h4 className="mb-0">
                         <b className="color-grey">
                           Query Relevancy Development Services
@@ -537,7 +537,7 @@ class WatsonDiscovery extends Component {
                           training.
                         </p>
                       </div>
-                    </Col> */}
+                    </Col>
                   </Row>
                 </Container>
               )}

@@ -10,7 +10,7 @@ import picture4 from "../../img/services/watson-assistant-4.png";
 import ServicesSmallCardsList from "./ServicesSmallCardsList";
 import ScrollMenu from "react-horizontal-scrolling-menu";
 import { Link, animateScroll as scroll } from "react-scroll";
-import channelDevelopment from "../../img/services/channel-development.png"
+import channelDevelopment from "../../img/services/channel-development-new.png"
 
 
 const assistantSubItems = [
@@ -634,8 +634,8 @@ class WatsonAssistant extends Component {
                       lg={5}
                       className="mt-4 mt-lg-0 d-flex align-items-center"
                     >
-                      <div className="image-section">
-                        <img src={channelDevelopment} alt="support image" />
+                      <div className="image-section  d-flex justify-content-center">
+                        <img src={channelDevelopment} className="channel-development-img" alt="support image" />
                       </div>
                     </Col>
                   </Row>
