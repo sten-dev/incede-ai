@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Row, Container, Col } from "reactstrap";
-import toneAnalyzerPng from "../../../img/wa-api/language-translator.png"
+import toneAnalyzerPng from "../../../img/wa-api/language-translator.jpg"
 const LanguageTranslator = props => {
   return (
     <React.Fragment>
