@@ -1,10 +1,8 @@
 import React from 'react';
 import { Row, Col, Container } from 'reactstrap';
 import leadershipImg from '../../../img/why-incede/leadership.png';
-import { Link } from 'gatsby';
-import arrowPrimary from '../../../img/arrow-primary.png';
 
-const LeaderShipTeam = props => {
+const LeaderShipTeam = () => {
   return (
     <React.Fragment>
       <Container>

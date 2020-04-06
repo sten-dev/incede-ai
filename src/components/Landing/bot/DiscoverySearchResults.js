@@ -28,7 +28,7 @@ class DiscoverySearchResults extends Component {
                                     {this.props.data.data.slice(0, 3).map(discoveryResult => (
                                         <ListGroupItem >
                                             <ListGroupItemHeading className="m-0 pointer">
-                                                <a href={discoveryResult.url} target="_blank">
+                                                <a rel="noopener noreferrer" href={discoveryResult.url} target="_blank">
                                                     {discoveryResult.title}
                                                 </a>
                                             </ListGroupItemHeading>

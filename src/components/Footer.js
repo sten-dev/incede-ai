@@ -2,14 +2,8 @@ import React from 'react';
 import { Link } from 'gatsby';
 import '../styles/footer.scss';
 import logo from '../img/logo_white.png';
-import facebook from '../img/social/facebook.svg';
-import instagram from '../img/social/instagram.svg';
-import twitter from '../img/social/twitter.svg';
 import twitterPNG from '../img/social/twitter.png';
-import linkedIn from '../img/social/linkedin.svg';
 import linkedInPNG from '../img/social/linkedIn.png';
-import youtube from '../img/social/youtube.svg';
-import youtubePNG from '../img/social/youtube.png';
 import * as DateTime from 'react-datetime';
 import 'react-datetime/css/react-datetime.css';
 import moment from 'moment';
@@ -23,8 +17,7 @@ import {
   FormGroup,
   Input,
   Button,
-  Alert,
-  Label
+  Alert
 } from 'reactstrap';
 
 import FooterLocation from './FooterLocation';

@@ -19,14 +19,12 @@ import {
   httpClient,
   DEMO_SOCKET_URL,
   IGNORE_MSG,
-  MEETING_MSG,
-  canPlayAudioFormat
+  MEETING_MSG
 } from '../../constants';
 import chat from '../../img/chat.svg';
 import ChatLocation from '../ChatLocation';
 import CallBackForm from './bot/CallBackForm';
 import DiscoverySearchResults from './bot/DiscoverySearchResults';
-import { Loading } from '../ReuseableComponents';
 import ConfirmModal from '../ConfirmModal';
 import { getSpeechToTextConfig } from '../../../Service';
 import recognizeMicrophone from 'watson-speech/speech-to-text/recognize-microphone';
@@ -35,26 +33,6 @@ import voices from '../../../voices';
 
 const VOICE = voices[1];
 
-const getSearchParams = () => {
-  if (typeof URLSearchParams === 'function') {
-    return new URLSearchParams();
-  }
-
-  // Simple polyfill for URLSearchparams
-  const SearchParams = function SearchParams() { };
-
-  SearchParams.prototype.set = function set(key, value) {
-    this[key] = value;
-  };
-
-  SearchParams.prototype.toString = function toString() {
-    return Object.keys(this)
-      .map(v => `${encodeURI(v)}=${encodeURI(this[v])}`)
-      .join('&');
-  };
-
-  return new SearchParams();
-};
 
 class BotSection extends Component {
   roomName = undefined;
@@ -243,7 +221,6 @@ class BotSection extends Component {
   };
 
   getRecognizeOptions = extra => {
-    const keywords = this.getKeywordsArrUnique();
     return Object.assign(
       {
         // formats phone numbers, currency, etc. (server-side)
@@ -525,7 +502,7 @@ class BotSection extends Component {
         let data = chatsResp.data
           .reverse()
           .filter(x => IGNORE_MSG.indexOf(x.TEXT) === -1);
-        data.forEach((x, i) => {
+        data.forEach((x) => {
           switch (x.TYPE) {
             case 'text':
             case 'options':

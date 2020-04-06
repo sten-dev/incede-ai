@@ -14,24 +14,14 @@ import {
   NavItem,
   Popover,
   PopoverBody,
-  Container,
-  Row,
-  Col,
   Modal,
-  ModalBody,
-  ListGroup,
-  ListGroupItem
+  ModalBody
 } from "reactstrap";
-import SolutionsMenu from "./menu/SolutionsMenu";
-import ServicesMenu from "./menu/ServicesMenu";
-import IndustriesMenu from "./menu/IndustriesMenu";
 import dropdown from "../img/dropdown.svg";
 import MenuSection from "./menu/MenuSection";
 import ServiceMenu from "./menu/static/ServiceMenu";
 import SolutionMenu from "./menu/static/SolutionMenu";
 import IndustryMenu from "./menu/static/IndustryMenu";
-import WhyIncedeMenu from "./menu/static/WhyIncedeMenu";
-import AboutUsMenu from "./menu/static/AboutUsMenu";
 
 class INavbar extends Component {
   window;
@@ -57,7 +47,7 @@ class INavbar extends Component {
     window.removeEventListener("scroll", this.handleScroll);
   };
 
-  handleScroll = event => {
+  handleScroll = () => {
     var header = document.getElementById("header");
 
     if (window.pageYOffset !== 0) {
