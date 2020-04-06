@@ -7,6 +7,8 @@ import picture2 from "../../img/services/wa-design-services.png";
 // import picture3 from "../../img/services/watson-assistant-3.png";
 import picture3 from "../../img/services/wa-development-services.png";
 import picture4 from "../../img/services/watson-assistant-4.png";
+import solutionsTraining from "../../img/services/solutions-training-new.png";
+import integrationDevelopment from "../../img/services/integration-development.png";
 import ServicesSmallCardsList from "./ServicesSmallCardsList";
 import ScrollMenu from "react-horizontal-scrolling-menu";
 import { Link, animateScroll as scroll } from "react-scroll";
@@ -689,7 +691,7 @@ class WatsonAssistant extends Component {
                       className="mt-4 mt-lg-0 d-flex align-items-center"
                     >
                       <div className="image-section">
-                        <img src={picture2} alt="support image" />
+                        <img src={integrationDevelopment} alt="support image" />
                       </div>
                     </Col>
                   </Row>
@@ -744,7 +746,7 @@ class WatsonAssistant extends Component {
                       className="mt-4 mt-lg-0 d-flex align-items-center"
                     >
                       <div className="image-section">
-                        <img src={picture2} alt="support image" />
+                        <img src={solutionsTraining} alt="support image" />
                       </div>
                     </Col>
                   </Row>

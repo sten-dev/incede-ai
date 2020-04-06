@@ -7,7 +7,7 @@ import ApplicationsDevelopment from "../../components/services/ApplicationsDevel
 
 const WatsonApplicationsDevelopmentMain = () => {
     return (
-        <Layout pageTitle="Watson Application Development | Incede">
+        <Layout pageTitle="Application Development | Incede">
             <Transition>
                 <section className="industry-solution">
                     <ServicesHeader />

@@ -20,7 +20,7 @@ const LeaderShipTeam = () => {
                 commitment to customer success
               </h4>
               <p className='sub-title'>
-                Incede.ai is a division of Locus Solutions, Inc. specializing in
+                Incede.ai is a division of <a href="http://locussolutions.com/" target="_blank">Locus Solutions</a>, Inc. specializing in
                 IBM Watson technology. For nearly 15 years, Locus Solutions has
                 been an IBM Reseller Partner and worked with hundreds of
                 customers. Incede.ai extends and propels the success of Locus

@@ -4,6 +4,8 @@ import "../../styles/services.scss";
 // import picture1 from "../../img/services/watson-discovery-1.png";
 // import picture2 from "../../img/services/watson-discovery-2.png";
 import picture3 from "../../img/services/wd-design-services.png";
+import enrichmentImage from "../../img/services/enrichment-development-services.png";
+import smartDocument from "../../img/services/smart-document.png";
 // import picture3 from "../../img/services/watson-discovery-3.png";
 import picture4 from "../../img/services/watson-discovery-4.png";
 import ServicesSmallCardsList from "./ServicesSmallCardsList";
@@ -567,7 +569,7 @@ class WatsonDiscovery extends Component {
                       className="mt-4 mt-lg-0 d-flex align-items-center"
                     >
                       <div className="image-section">
-                        <img src={picture3} alt="support image" />
+                        <img className="w-auto-h-100" src={enrichmentImage} alt="support image" />
                       </div>
                     </Col>
                     <Col xs={12}>
@@ -620,7 +622,7 @@ class WatsonDiscovery extends Component {
                       className="mt-4 mt-lg-0 d-flex align-items-center"
                     >
                       <div className="image-section">
-                        <img src={picture3} alt="support image" />
+                        <img className="w-auto-h-100" src={smartDocument} alt="support image" />
                       </div>
                     </Col>
                     <Col xs={12}>
