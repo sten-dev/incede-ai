@@ -100,18 +100,24 @@ const Layout = ({ children, page, pageTitle }) => {
         />
         {/* <link  href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700&display=swap" rel="stylesheet"/> */}
 
-        <meta property='og:type' content='business.business' />
-        <meta property='og:title' content={title} />
-        <meta property='og:url' content='/' />
-        <meta
-          property='og:image'
-          content={`${withPrefix('/')}img/og-image.jpg`}
-        />
+        <meta property="og:title" content={title} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="/" />
+        <meta property="og:image" content={`${withPrefix('/')}img/og-image.jpg`} />
+        <meta property="og:image:alt" content={title} />
+        <meta property="og:description"
+          content={description} />
+        <meta name="keywords" content="" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description"
+          content={description} />
+        <meta name="twitter:image" content={`${withPrefix('/')}img/og-image.jpg`} />
+        <meta name="twitter:card" content="summary_large_image" />
         <script
           async
           src='https://www.googletagmanager.com/gtag/js?id=UA-161931343-1'></script>
         <script>
-          {(function(w, d, s, l, i) {
+          {(function (w, d, s, l, i) {
             if (w == null) return;
             w[l] = w[l] || [];
             w[l].push({
