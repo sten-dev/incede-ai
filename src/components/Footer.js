@@ -370,7 +370,7 @@ class Footer extends React.Component {
                                   className='linkedin-btn'>
                                   <img
                                     src={linkedInPNG}
-                                    alt='linledin'
+                                    alt='linkedin'
                                     className='linkedin-logo'
                                   />
                                   {width && width <= 992 && width >= 768
