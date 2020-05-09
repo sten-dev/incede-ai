@@ -738,7 +738,7 @@ class BotSection extends Component {
           } else {
             messages.push({
               user: 'WA',
-              message: "I didn't understand. Please try again",
+              message: x.header || "I didn't understand. Please try again",
               type: 'text'
             });
           }
