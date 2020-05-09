@@ -664,6 +664,7 @@ class BotSection extends Component {
             roomName: this.roomName,
             roomId: this.roomId
           };
+          data.selectedLanguage = this.state.selectedLanguage;
           this.socket.emit(SOCKET_PATHS.CONNECT, data);
         } else {
           this.pushWAMessage(response);
@@ -871,6 +872,7 @@ class BotSection extends Component {
           messages
         }, () => {
           data.comment = ""
+          data.selectedLanguage = this.state.selectedLanguage
           this.sendMessage(data, msg, shouldAddToMessages);
         })
       } else {
@@ -1052,11 +1054,13 @@ class BotSection extends Component {
         }
         if (this.state.isDemo && data.demoProperty === "COVID-19b") {
           if (this.state.isPinValid) {
+            data.selectedLanguage = this.state.selectedLanguage;
             this.socket.emit(SOCKET_PATHS.CONNECT, data);
           } else {
             messages.push({ user: 'WA', message: "Please enter pin to continue", type: 'text' });
           }
         } else {
+          data.selectedLanguage = this.state.selectedLanguage;
           this.socket.emit(SOCKET_PATHS.CONNECT, data);
         }
       }
