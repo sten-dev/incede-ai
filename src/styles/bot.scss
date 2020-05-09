@@ -1,4 +1,4 @@
-@import '../bs';
+@import "../bs";
 
 section {
   &.bot {
@@ -296,6 +296,19 @@ h5.list-group-item-heading {
 // }
 .power-by {
   font-size: 14px !important;
+}
+.languages-container {
+  list-style: none;
+  padding-left: 0;
+  min-width: 150px;
+  li {
+    padding: 8px 16px;
+    cursor: pointer;
+    &.selected,
+    &:hover {
+      background: #ddd;
+    }
+  }
 }
 @media screen and (min-width: 768px) and (max-width: 992px) {
   .bot-container {

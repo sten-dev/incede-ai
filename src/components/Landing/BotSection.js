@@ -8,6 +8,10 @@ import {
   Spinner,
   Card,
   CardImg
+  ,
+  UncontrolledPopover
+  ,
+  PopoverBody
 } from 'reactstrap';
 import logo from '../../img/logo_white.png';
 import { ChatPill } from './bot/ChatPill';
@@ -19,7 +23,8 @@ import {
   httpClient,
   DEMO_SOCKET_URL,
   IGNORE_MSG,
-  MEETING_MSG
+  MEETING_MSG,
+  SUPPORTED_LANGUAGES
 } from '../../constants';
 import chat from '../../img/chat.svg';
 import ChatLocation from '../ChatLocation';
@@ -44,6 +49,7 @@ class BotSection extends Component {
   waCreatedTime;
   currentIntent;
   demoSocket = undefined;
+  validPin = "2201"
   constructor(props) {
     super(props);
     this.state = {
@@ -87,7 +93,11 @@ class BotSection extends Component {
       },
       modal: {
         isOpen: false
-      }
+      },
+      selectedLanguage: "en",
+      isLanguagePopUpOpen: false,
+      selectedDemo: "",
+      isPinValid: false
     };
     this.audioElementRef = React.createRef();
   }
@@ -795,7 +805,7 @@ class BotSection extends Component {
   send = () => {
     if (this.state.msg && this.state.msg.length > 0) {
       this.sendCustomMessage(this.state.msg, true);
-      this.setState({ isLoading: true });
+      this.setState({ isLoading: this.state.selectedDemo === "COVID-19b" && this.state.isPinValid === false ? false : true });
     }
   };
 
@@ -807,7 +817,10 @@ class BotSection extends Component {
     // setTimeout(() => {
     this.setState(
       {
-        isDemo: false
+        isDemo: false,
+        selectedLanguage: "en",
+        isPinValid: false,
+        selectedDemo: ""
       },
       () => {
         this.sendCustomMessage('user_demo_exit_done', false);
@@ -845,10 +858,34 @@ class BotSection extends Component {
       type: this.state.isDemo ? 'demo' : 'chat',
       demoProperty: this.state.isDemo
         ? localStorage.getItem('demoProperty')
-        : undefined
+        : undefined,
+      selectedLanguage: this.state.selectedLanguage
     };
 
-    this.sendMessage(data, msg, shouldAddToMessages);
+    if (this.state.isDemo && this.state.selectedDemo === "COVID-19b" && this.state.isPinValid === false) {
+      if (msg && msg.trim() === this.validPin) {
+        let messages = [...this.state.messages];
+        messages.push({ user: 'ME', message: msg, type: 'text' });
+        this.setState({
+          isPinValid: true,
+          messages
+        }, () => {
+          data.comment = ""
+          this.sendMessage(data, msg, shouldAddToMessages);
+        })
+      } else {
+        let messages = [...this.state.messages];
+        messages.push({ user: 'ME', message: msg, type: 'text' });
+        messages.push({ user: 'WA', message: "Please enter valid pin to continue", type: 'text' });
+        this.setState({
+          messages,
+          msg: "",
+          isLoading: false,
+        }, this.scrollToBottom)
+      }
+    } else {
+      this.sendMessage(data, msg, shouldAddToMessages);
+    }
   };
 
   handleOnOptionClick = (message, optionIndex) => {
@@ -856,28 +893,41 @@ class BotSection extends Component {
     let type = 'chat';
     let isDemoUpdate = false;
     let comment = option.value.input.text;
+    let demoType = ""
     if (option.value.input.text.toLowerCase() === 'launch demo') {
       if (
         message.intent &&
         message.intent.toLowerCase() === 'customer_service'
       ) {
         type = 'demo';
+        demoType = "Customer Service";
         localStorage.setItem('demoProperty', 'Customer Service');
       } else if (
         message.intent &&
         message.intent.toLowerCase() === 'pizza_ordering'
       ) {
         type = 'demo';
+        demoType = "Pizza Ordering";
         localStorage.setItem('demoProperty', 'Pizza Ordering');
       } else if (message.intent && message.intent.toLowerCase() === 'banking') {
         type = 'demo';
+        demoType = "Banking";
         localStorage.setItem('demoProperty', 'Banking');
       } else if (
         message.intent &&
         message.intent.toLowerCase() === 'covid-19'
       ) {
         type = 'demo';
+        demoType = "Covid-19";
         localStorage.setItem('demoProperty', 'Covid-19');
+      } else if (
+        message.intent &&
+        message.intent.toLowerCase() === 'covid-19-language'
+      ) {
+        type = 'demo';
+        demoType = "COVID-19b";
+        localStorage.setItem('demoProperty', 'COVID-19b');
+        localStorage.setItem('selectedLanguage', this.state.selectedLanguage);
       }
       if (type === 'demo') {
         this.wASessionId = undefined;
@@ -892,7 +942,8 @@ class BotSection extends Component {
     }
     this.setState(
       {
-        isDemo: type === 'demo' && isDemoUpdate ? true : this.state.isDemo
+        isDemo: type === 'demo' && isDemoUpdate ? true : this.state.isDemo,
+        selectedDemo: type === 'demo' && isDemoUpdate ? demoType : this.state.selectedDemo,
       },
       () => {
         let isAdd = true;
@@ -999,7 +1050,15 @@ class BotSection extends Component {
           let lastMessage = this.state.messages[this.state.messages.length - 1];
           data.intent = lastMessage.message;
         }
-        this.socket.emit(SOCKET_PATHS.CONNECT, data);
+        if (this.state.isDemo && data.demoProperty === "COVID-19b") {
+          if (this.state.isPinValid) {
+            this.socket.emit(SOCKET_PATHS.CONNECT, data);
+          } else {
+            messages.push({ user: 'WA', message: "Please enter pin to continue", type: 'text' });
+          }
+        } else {
+          this.socket.emit(SOCKET_PATHS.CONNECT, data);
+        }
       }
       if (
         shouldAddToMessages &&
@@ -1016,7 +1075,7 @@ class BotSection extends Component {
         {
           messages,
           msg: '',
-          isLoading: true
+          isLoading: data.demoProperty === "COVID-19b" && this.state.isPinValid === false ? false : true
         },
         this.scrollToBottom
       );
@@ -1104,6 +1163,19 @@ class BotSection extends Component {
     }
     this.setState({ modal: { isOpen: false } });
   };
+
+  toggleLanguagePopUp = () => {
+    this.setState({
+      isLanguagePopUpOpen: !this.state.isLanguagePopUpOpen
+    })
+  }
+
+  changeLanguage = (language) => {
+    this.setState({
+      selectedLanguage: language,
+      isLanguagePopUpOpen: false
+    })
+  }
 
   render() {
     let messages = [...this.state.messages];
@@ -1274,11 +1346,37 @@ class BotSection extends Component {
           <div
             className={`chat-section d-flex justify-content-end align-items-center ask-container`}>
             {this.state.isDemo ? (
-              <Button
-                onClick={this.exitWADemo}
-                className='exit-demo-btn mr-1 d-none d-sm-block'>
-                Exit Demo
+              <React.Fragment>
+                <Button
+                  onClick={this.exitWADemo}
+                  className='exit-demo-btn mr-1 d-none d-sm-block'>
+                  Exit Demo
               </Button>
+                {this.state.selectedDemo === "COVID-19b" && this.state.isPinValid && (
+                  <React.Fragment>
+                    <Button id="languages_popup"
+                      className='exit-demo-btn mr-1 d-none d-sm-block'>
+                      {/* <img src={globeImg} alt="globe" />  */}
+                      <svg style={{ width: 24, height: 24, marginTop: -2, marginRight: 3 }} viewBox="0 0 24 24">
+                        <path fill="#fff" d="M16.36,14C16.44,13.34 16.5,12.68 16.5,12C16.5,11.32 16.44,10.66 16.36,10H19.74C19.9,10.64 20,11.31 20,12C20,12.69 19.9,13.36 19.74,14M14.59,19.56C15.19,18.45 15.65,17.25 15.97,16H18.92C17.96,17.65 16.43,18.93 14.59,19.56M14.34,14H9.66C9.56,13.34 9.5,12.68 9.5,12C9.5,11.32 9.56,10.65 9.66,10H14.34C14.43,10.65 14.5,11.32 14.5,12C14.5,12.68 14.43,13.34 14.34,14M12,19.96C11.17,18.76 10.5,17.43 10.09,16H13.91C13.5,17.43 12.83,18.76 12,19.96M8,8H5.08C6.03,6.34 7.57,5.06 9.4,4.44C8.8,5.55 8.35,6.75 8,8M5.08,16H8C8.35,17.25 8.8,18.45 9.4,19.56C7.57,18.93 6.03,17.65 5.08,16M4.26,14C4.1,13.36 4,12.69 4,12C4,11.31 4.1,10.64 4.26,10H7.64C7.56,10.66 7.5,11.32 7.5,12C7.5,12.68 7.56,13.34 7.64,14M12,4.03C12.83,5.23 13.5,6.57 13.91,8H10.09C10.5,6.57 11.17,5.23 12,4.03M18.92,8H15.97C15.65,6.75 15.19,5.55 14.59,4.44C16.43,5.07 17.96,6.34 18.92,8M12,2C6.47,2 2,6.5 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+                      </svg>
+                      {SUPPORTED_LANGUAGES[this.state.selectedLanguage]}
+                      <svg style={{ width: 24, height: 24 }} viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+                      </svg>
+                    </Button>
+                    <UncontrolledPopover className="pop-up-container" trigger="click" toggle={this.toggleLanguagePopUp} isOpen={this.state.isLanguagePopUpOpen} placement="top" target="languages_popup">
+                      <PopoverBody className="p-0">
+                        <ul className="languages-container">
+                          {Object.keys(SUPPORTED_LANGUAGES).map(x => (
+                            <li key={x} onClick={() => this.changeLanguage(x)} className={`${this.state.selectedLanguage === x ? 'selected' : ''}`}>{SUPPORTED_LANGUAGES[x]}</li>
+                          ))}
+                        </ul>
+                      </PopoverBody>
+                    </UncontrolledPopover>
+                  </React.Fragment>
+                )}
+              </React.Fragment>
             ) : (
                 <React.Fragment>
                   {this.state.messages.length > 0 && (
