@@ -9,7 +9,7 @@ export const LINKEDIN = {
 // dev
 // export const API_URL = 'https://custom-demo-api-funny-dog.mybluemix.net/';
 // export const LINKEDIN = {
-//   clientId: '81uni85sqi901i',// 78p9i60dhfuau3 - Prod 81uni85sqi901i -dev
+//   clientId: '78p9i60dhfuau3',// 78p9i60dhfuau3 - Prod 81uni85sqi901i -dev
 //   redirectUrl: 'https://incede-ai.netlify.com',
 //   grant_type: 'authorization_code'
 // };
@@ -65,6 +65,13 @@ export const COGNOS_SOURCE = {
     schema: 'INCEDE'
   }
 };
+
+export const SUPPORTED_LANGUAGES = {
+  "en": "English (en)",
+  "es": "Spanish (es)",
+  "fr": "French (fr)",
+  "de": "German (de)"
+}
 
 export const httpClient = async (
   url,
