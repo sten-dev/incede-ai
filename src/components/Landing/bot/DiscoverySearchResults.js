@@ -47,9 +47,11 @@ class DiscoverySearchResults extends Component {
                                                             </span>
                                                         </React.Fragment>
                                                     )}
-                                                <div className="d-flex justify-content-end mt-2">
-                                                    <button onClick={() => this.props.handleDiscoveryViewContent(this.props.index, discoveryIndex)} className="btn btn-outline-primary btn-sm">{discoveryResult.isExpanded ? 'View Less' : 'View More'} </button>
-                                                </div>
+                                                {this.props.selectedDemo === "COVID-19b" && (
+                                                    <div className="d-flex justify-content-end mt-2">
+                                                        <button onClick={() => this.props.handleDiscoveryViewContent(this.props.index, discoveryIndex)} className="btn btn-outline-primary btn-sm">{discoveryResult.isExpanded ? 'View Less' : 'View More'} </button>
+                                                    </div>
+                                                )}
                                             </ListGroupItemText>
                                         </ListGroupItem>
                                     ))}
