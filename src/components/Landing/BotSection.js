@@ -1101,6 +1101,14 @@ class BotSection extends Component {
     }
   };
 
+  handleDiscoveryViewContent = (messageIndex, discoveryIndex) => {
+    let messages = [...this.state.messages];
+    messages[messageIndex].data[discoveryIndex].isExpanded = !messages[messageIndex].data[discoveryIndex].isExpanded;
+    this.setState({
+      messages,
+    })
+  }
+
   getChatUiByType = (data, index, lastWAIndex) => {
     switch (data.type) {
       case 'location':
@@ -1131,7 +1139,10 @@ class BotSection extends Component {
             {data.data && data.data.length > 0 ? (
               <DiscoverySearchResults
                 data={data}
+                index={index}
+                selectedDemo={this.state.selectedDemo}
                 isLastWAUser={index === lastWAIndex}
+                handleDiscoveryViewContent={this.handleDiscoveryViewContent}
               />
             ) : (
                 <React.Fragment>
