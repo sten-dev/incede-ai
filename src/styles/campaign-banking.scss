@@ -37,8 +37,8 @@
   .body2 {
     .left {
       border-right: 1px solid #cccccc;
-      margin-left: 56px;
-      margin-right: 32px;
+      padding-left: 56px;
+      padding-right: 32px;
       .asset {
         color: $primary;
         font-size: 32px;
@@ -74,8 +74,8 @@
       }
     }
     .right {
-      margin-left: 32px;
-      margin-right: 32px;
+      padding-left: 32px;
+      padding-right: 32px;
       .reg-header {
         align-items: center;
         margin-top: -20px;
