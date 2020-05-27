@@ -438,13 +438,14 @@ const CampaignBanking = () => {
                   </Col>
                   <Col md='4' sm='6' xs='12' className='py-2'>
                     <section className='menu'>
+                      {/* <FooterLocation /> */}
+                      <h4 className="mt-0 text-white">Contact Us</h4>
                       <p>United States, Headquaters</p>
                       <br />
-                      <p>408-898-4606, info@locussolutions,com</p>
+                      <p>408-898-4606, info@incede.ai</p>
                       <br />
                       <p>
-                        5201 Great American Parkway, Suite #320, Santa Clara, CA
-                        95054
+                        5201 Great America Parkway, Suite #320, Santa Clara, CA 95054
                       </p>
                     </section>
                   </Col>

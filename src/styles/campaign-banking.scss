@@ -1,6 +1,9 @@
 @import "../bs";
 
 .campaign-banking {
+  .incede-logo {
+    margin-left: -24px;
+  }
   .container-width {
     max-width: 85vw;
     // margin-left: auto;
@@ -47,7 +50,7 @@
         letter-spacing: 0.93px;
       }
       .img {
-        width: 100%;
+        width: 160px;
         border-radius: 6px;
       }
       .subtitle {
@@ -72,7 +75,7 @@
       padding-right: 32px;
       .reg-header {
         align-items: center;
-        margin-top: -20px;
+        // margin-top: -20px;
         .title {
           color: #474747;
           font-weight: bold;
