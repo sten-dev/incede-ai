@@ -437,9 +437,12 @@ class BotSection extends Component {
         this.handleAudioError
       );
     }
-
-    this.demoSocket.close();
-    this.socket.close();
+    if (this.demoSocket) {
+      this.demoSocket.close();
+    }
+    if (this.socket) {
+      this.socket.close();
+    }
   }
 
   handleMessageChange = event => {

@@ -35,6 +35,10 @@ import purplePolygon from '../../img/webinar/polygon_watermark_purple.svg';
 
 
 const CampaignBanking = () => {
+
+  document.body.style.overflow = "auto";
+  document.body.style.position = "initial";
+
   const [register, setRegister] = React.useState({
     FIRST_NAME: '',
     LAST_NAME: '',
@@ -358,7 +362,7 @@ const CampaignBanking = () => {
       </div> */}
 
       <footer className='footer gap-y-half'>
-        <Container>
+        <Container className='container-width'>
           <Row className='d-flex flex-column-reverse flex-md-row'>
             <Col sm={12} md={12}>
               <Container fluid>
