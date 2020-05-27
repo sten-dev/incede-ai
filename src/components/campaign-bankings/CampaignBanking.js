@@ -23,6 +23,7 @@ import {
 import { Link } from 'gatsby';
 import logo from '../../img/logo_white.png';
 import campaignBakingImg from '../../img/campaign-banking/campaignBanking.png';
+import AssetDetails_Image from '../../img/campaign-banking/AssetDetails_Image.png';
 import arrow from '../../img/arrow.svg';
 import Loading from '../common/Loading';
 import { registerForWebinar } from '../../../Service';
@@ -148,8 +149,8 @@ const CampaignBanking = () => {
               <br />
               <div>
                 <img
-                  src={campaignBakingImg}
-                  alt='campaignBanking'
+                  src={AssetDetails_Image}
+                  alt='AssetDetails_Image'
                   className='img'
                 />
               </div>
