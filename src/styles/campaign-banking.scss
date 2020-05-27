@@ -1,4 +1,4 @@
-@import '../bs';
+@import "../bs";
 
 .campaign-banking {
   .container-width {
@@ -56,13 +56,7 @@
         display: flex;
         color: #474747;
         .polygon {
-          -webkit-clip-path: polygon(
-            50% 0%,
-            100% 38%,
-            82% 100%,
-            18% 100%,
-            0% 38%
-          );
+          -webkit-clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
           clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
           width: 36px;
           height: 12px;
@@ -159,5 +153,9 @@
     .custom-link {
       font-size: 20px;
     }
+  }
+  .bottom-polygon {
+    bottom: 0;
+    right: 0;
   }
 }

@@ -30,6 +30,9 @@ import { registerForWebinar } from '../../../Service';
 import FooterLocation from '../FooterLocation';
 import twitterPNG from '../../img/social/twitter.png';
 import linkedInPNG from '../../img/social/linkedIn.png';
+import whitePolygon from '../../img/webinar/polygon_watermark_white.svg';
+import purplePolygon from '../../img/webinar/polygon_watermark_purple.svg';
+
 
 const CampaignBanking = () => {
   const [register, setRegister] = React.useState({
@@ -77,6 +80,9 @@ const CampaignBanking = () => {
       </nav>
 
       <div className='body1'>
+        <div className="position-relative">
+          <img src={whitePolygon} alt="polygon" className="position-absolute" />
+        </div>
         <br />
         <br />
         <Container className='container-width'>
@@ -120,7 +126,7 @@ const CampaignBanking = () => {
 
       <div className='body2'>
         <Container className='custom-container container-width'>
-          <Row>
+          <Row className="position-relative">
             <Col className='gap-y left' sm='12' md='12' lg='6'>
               <div className='asset'>ASSET DETAILS</div>
               <br />
@@ -198,106 +204,107 @@ const CampaignBanking = () => {
                   </Link>
                 </div>
               ) : (
-                <div>
-                  <Row className='reg-header'>
-                    <Col>
-                      <div className='title'>Register Now</div>
-                    </Col>
-                    <Col>
-                      <div className='subtitle'>*Required fields</div>
-                    </Col>
-                  </Row>
-                  <br />
-                  <br />
-                  <div className='register'>
-                    <Form onSubmit={handleSubmit}>
-                      <FormGroup>
-                        <Input
-                          onChange={handleOnChange}
-                          className='contact-us-mat-input'
-                          type='text'
-                          name='FIRST_NAME'
-                          placeholder='First Name *'
-                          value={register.FIRST_NAME}
-                          required
-                        />
-                      </FormGroup>
-                      <br />
-                      <FormGroup>
-                        <Input
-                          onChange={handleOnChange}
-                          className='contact-us-mat-input'
-                          type='text'
-                          name='LAST_NAME'
-                          placeholder='Last Name *'
-                          value={register.LAST_NAME}
-                          required
-                        />
-                      </FormGroup>
-                      <br />
-                      <FormGroup>
-                        <Input
-                          onChange={handleOnChange}
-                          className='contact-us-mat-input'
-                          type='text'
-                          name='COMPANY'
-                          value={register.COMPANY}
-                          placeholder='Company *'
-                          required
-                        />
-                      </FormGroup>
-                      <br />
-                      <FormGroup>
-                        <Input
-                          onChange={handleOnChange}
-                          className='contact-us-mat-input'
-                          type='text'
-                          name='JOB_TITLE'
-                          value={register.JOB_TITLE}
-                          placeholder='Job Title *'
-                          required
-                        />
-                      </FormGroup>
-                      <br />
-                      <FormGroup>
-                        <Input
-                          onChange={handleOnChange}
-                          className='contact-us-mat-input'
-                          type='email'
-                          name='EMAIL'
-                          value={register.EMAIL}
-                          placeholder='Email Address *'
-                          required
-                        />
-                      </FormGroup>
-                      <br />
-                      <FormGroup>
-                        <Input
-                          onChange={handleOnChange}
-                          className='contact-us-mat-input'
-                          type='text'
-                          name='PHONE'
-                          value={register.PHONE}
-                          placeholder='Phone Number'
+                  <div>
+                    <Row className='reg-header'>
+                      <Col>
+                        <div className='title'>Register Now</div>
+                      </Col>
+                      <Col>
+                        <div className='subtitle'>*Required fields</div>
+                      </Col>
+                    </Row>
+                    <br />
+                    <br />
+                    <div className='register'>
+                      <Form onSubmit={handleSubmit}>
+                        <FormGroup>
+                          <Input
+                            onChange={handleOnChange}
+                            className='contact-us-mat-input'
+                            type='text'
+                            name='FIRST_NAME'
+                            placeholder='First Name *'
+                            value={register.FIRST_NAME}
+                            required
+                          />
+                        </FormGroup>
+                        <br />
+                        <FormGroup>
+                          <Input
+                            onChange={handleOnChange}
+                            className='contact-us-mat-input'
+                            type='text'
+                            name='LAST_NAME'
+                            placeholder='Last Name *'
+                            value={register.LAST_NAME}
+                            required
+                          />
+                        </FormGroup>
+                        <br />
+                        <FormGroup>
+                          <Input
+                            onChange={handleOnChange}
+                            className='contact-us-mat-input'
+                            type='text'
+                            name='COMPANY'
+                            value={register.COMPANY}
+                            placeholder='Company *'
+                            required
+                          />
+                        </FormGroup>
+                        <br />
+                        <FormGroup>
+                          <Input
+                            onChange={handleOnChange}
+                            className='contact-us-mat-input'
+                            type='text'
+                            name='JOB_TITLE'
+                            value={register.JOB_TITLE}
+                            placeholder='Job Title *'
+                            required
+                          />
+                        </FormGroup>
+                        <br />
+                        <FormGroup>
+                          <Input
+                            onChange={handleOnChange}
+                            className='contact-us-mat-input'
+                            type='email'
+                            name='EMAIL'
+                            value={register.EMAIL}
+                            placeholder='Email Address *'
+                            required
+                          />
+                        </FormGroup>
+                        <br />
+                        <FormGroup>
+                          <Input
+                            onChange={handleOnChange}
+                            className='contact-us-mat-input'
+                            type='text'
+                            name='PHONE'
+                            value={register.PHONE}
+                            placeholder='Phone Number'
                           // required
-                        />
-                      </FormGroup>
-                      <br />
-                      <div className='d-flex'>
-                        <Button className='btn btn-primary' type='submit'>
-                          Submit
+                          />
+                        </FormGroup>
+                        <br />
+                        <div className='d-flex'>
+                          <Button className='btn btn-primary' type='submit'>
+                            Submit
                         </Button>
+                        </div>
+                        <br />
+                        <div className='term-con'>
+                          Terms and conditions text will be displayed here in a
+                          few lines so that the user can read it.
                       </div>
-                      <br />
-                      <div className='term-con'>
-                        Terms and conditions text will be displayed here in a
-                        few lines so that the user can read it.
-                      </div>
-                    </Form>
+                      </Form>
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
             </Col>
+            <img src={purplePolygon} alt="polygon" className="position-absolute bottom-polygon" />
           </Row>
         </Container>
         <br />
