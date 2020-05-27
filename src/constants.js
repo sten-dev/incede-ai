@@ -1,10 +1,10 @@
 //prod
-export const API_URL = 'https://incede-api-tired-leopard.mybluemix.net/';
-export const LINKEDIN = {
-  clientId: '78p9i60dhfuau3',// 78p9i60dhfuau3 - Prod 81uni85sqi901i -dev
-  redirectUrl: 'https://incede.ai',
-  grant_type: 'authorization_code'
-};
+// export const API_URL = 'https://incede-api-tired-leopard.mybluemix.net/';
+// export const LINKEDIN = {
+//   clientId: '78p9i60dhfuau3',// 78p9i60dhfuau3 - Prod 81uni85sqi901i -dev
+//   redirectUrl: 'https://incede.ai',
+//   grant_type: 'authorization_code'
+// };
 
 // dev
 // export const API_URL = 'https://custom-demo-api-funny-dog.mybluemix.net/';
@@ -15,12 +15,12 @@ export const LINKEDIN = {
 // };
 
 // local
-// export const API_URL = 'http://localhost:8080/';
-// export const LINKEDIN = {
-//   clientId: '81uni85sqi901i',// 78p9i60dhfuau3 - Prod 81uni85sqi901i -dev
-//   redirectUrl: 'http://localhost:8000',
-//   grant_type: 'authorization_code'
-// };
+export const API_URL = 'http://localhost:8080/';
+export const LINKEDIN = {
+  clientId: '81uni85sqi901i', // 78p9i60dhfuau3 - Prod 81uni85sqi901i -dev
+  redirectUrl: 'http://localhost:8000',
+  grant_type: 'authorization_code',
+};
 
 export const WEB_URL = 'https://incede.ai/';
 
@@ -33,19 +33,19 @@ export const SOCKET_PATHS = {
   NEW_ROOMS: 'NEW_ROOMS',
   CONNECT_ALL_ROOMS: 'CONNECT_ALL_ROOMS', // all active rooms
   GET_ALL_ROOMS: 'GET_ALL_ROOMS',
-  NEW_ALL_ROOMS: 'NEW_ALL_ROOMS'
+  NEW_ALL_ROOMS: 'NEW_ALL_ROOMS',
 };
 
 export const IF_USER_IS = {
   user: 'USER',
   watson: 'WATSON',
-  agent: 'AGENT'
+  agent: 'AGENT',
 };
 
 export const USER_ABB = {
   [IF_USER_IS.agent]: 'AG',
   [IF_USER_IS.user]: 'US',
-  [IF_USER_IS.watson]: 'WA'
+  [IF_USER_IS.watson]: 'WA',
 };
 
 export const IGNORE_MSG = ['welcome_back', 'agent_not_available'];
@@ -62,16 +62,16 @@ export const COGNOS_SOURCE = {
     jdbcUrl:
       'jdbc:db2://dashdb-txn-flex-yp-dal10-720.services.dal.bluemix.net:50000/BLUDB',
     driverClassName: 'com.ibm.db2.jcc.DB2Driver',
-    schema: 'INCEDE'
-  }
+    schema: 'INCEDE',
+  },
 };
 
 export const SUPPORTED_LANGUAGES = {
-  "en": "English (en)",
-  "es": "Spanish (es)",
-  "fr": "French (fr)",
-  "de": "German (de)"
-}
+  en: 'English (en)',
+  es: 'Spanish (es)',
+  fr: 'French (fr)',
+  de: 'German (de)',
+};
 
 export const httpClient = async (
   url,
@@ -83,7 +83,7 @@ export const httpClient = async (
     type = type.toUpperCase();
     if (type.toLowerCase() === 'get' && obj) {
       var params = Object.keys(obj)
-        .map(function (key) {
+        .map(function(key) {
           return key + '=' + obj[key];
         })
         .join('&');
@@ -95,8 +95,8 @@ export const httpClient = async (
       method: type.toUpperCase(),
       body: JSON.stringify(obj),
       headers: {
-        'Content-Type': contentType
-      }
+        'Content-Type': contentType,
+      },
     });
     return await res.json();
   } catch (error) {
@@ -112,7 +112,7 @@ export const httpClient = async (
  * @param  {String} mimeType The audio mimetype
  * @return {bool} Returns true if the mimetype can be played.
  */
-export const canPlayAudioFormat = mimeType => {
+export const canPlayAudioFormat = (mimeType) => {
   const audio = document.createElement('audio');
   if (audio) {
     return (
@@ -123,7 +123,7 @@ export const canPlayAudioFormat = mimeType => {
   return false;
 };
 
-export const storeLinkedinUser = data => {
+export const storeLinkedinUser = (data) => {
   localStorage.setItem('linkedin_user', JSON.stringify(data));
 };
 export const getLinkedinUser = () => {

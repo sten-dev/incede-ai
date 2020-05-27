@@ -1,5 +1,10 @@
 import { httpClient } from './src/constants';
 
+export const registerForWebinar = async obj => {
+  let response = await httpClient('webinars/register', 'PUT', obj);
+  // console.warn("response", response);
+  return response;
+};
 export const getRoomChats = async obj => {
   let response = await httpClient('chats', 'POST', obj);
   // console.warn("response", response);
