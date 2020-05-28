@@ -1,11 +1,11 @@
-@import "../bs";
+@import '../bs';
 
 .campaign-banking {
   .incede-logo {
     margin-left: -24px;
   }
   .container-width {
-    max-width: 85vw;
+    // max-width: 85vw;
     // margin-left: auto;
     // margin-right: auto;
   }
@@ -29,6 +29,7 @@
     .subtitle {
       font-size: 20px;
       line-height: 27px !important;
+      margin-bottom: 16px;
     }
     .img {
       width: 100%;
@@ -58,8 +59,15 @@
         font-size: 20px;
         display: flex;
         color: #474747;
+
         .polygon {
-          -webkit-clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+          -webkit-clip-path: polygon(
+            50% 0%,
+            100% 38%,
+            82% 100%,
+            18% 100%,
+            0% 38%
+          );
           clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
           width: 36px;
           height: 12px;
@@ -160,5 +168,27 @@
   .bottom-polygon {
     bottom: 0;
     right: 0;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .container-width {
+    max-width: 85vw !important;
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .campaign-banking {
+    .body1 {
+      .title {
+        font-size: 32px !important;
+        line-height: initial !important;
+      }
+    }
+    .about {
+      .title {
+        font-size: 32px !important;
+      }
+    }
   }
 }
