@@ -33,11 +33,9 @@ import linkedInPNG from '../../img/social/linkedIn.png';
 import whitePolygon from '../../img/webinar/polygon_watermark_white.svg';
 import purplePolygon from '../../img/webinar/polygon_watermark_purple.svg';
 
-
 const CampaignBanking = () => {
-
-  document.body.style.overflow = "auto";
-  document.body.style.position = "initial";
+  document.body.style.overflow = 'auto';
+  document.body.style.position = 'initial';
 
   const [register, setRegister] = React.useState({
     FIRST_NAME: '',
@@ -84,21 +82,17 @@ const CampaignBanking = () => {
       </nav>
 
       <div className='body1'>
-        <div className="position-relative">
-          <img src={whitePolygon} alt="polygon" className="position-absolute" />
+        <div className='position-relative'>
+          <img src={whitePolygon} alt='polygon' className='position-absolute' />
         </div>
         <br />
         <br />
         <Container className='container-width'>
           <Row className='gap-y '>
             <Col sm='12' md='12' lg='6'>
-              <div className='title'>
-                Title Text can be of 1-3 lines which will be displayed here
-              </div>
+              <div className='title'>Employee Self-Service</div>
               <div className='subtitle'>
-                This is the subtitle text that will be displayed in a few lines
-                so people will know what the page is about and why are they
-                here.
+                People Do More in the new era of banking
               </div>
 
               {/* <h1>
@@ -130,30 +124,31 @@ const CampaignBanking = () => {
 
       <div className='body2'>
         <Container className='custom-container container-width'>
-          <Row className="position-relative">
+          <Row className='position-relative'>
             <Col className='gap-y left' sm='12' md='12' lg='6'>
-              <div className='asset'>ASSET DETAILS</div>
+              <div className='asset'>
+                Success on Day 1, 37, 112, 423, 914, 1178...
+              </div>
               <br />
               <br />
               <div className='subtitle'>
                 <div className='polygon' />
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-                sem risus, ornare quis finibus a, sagittis et ex. Aenean a
-                imperdiet velit. Fusce ultricies erat ac aliquam.
+                When employees feel they are learning and growing in your
+                organization, you’ll be less likely to lose upwards of 60% of
+                your entire workforce within four years – Urban Bound
               </div>
               <br />
               <div className='subtitle'>
                 <div className='polygon' />
-                Sed convallis urna magna, nec pharetra est tincidunt ut. Aliquam
-                magna mi, ullamcorper in leo eu, lacinia venenatis turpis.
-                Curabitur tincidunt congue ligula sit amet commodo.
+                Branch networks make 47% of banks' operating costs and 54% of
+                that branch expenditure goes to staffing – Diebold and Forrester
               </div>
               <br />
               <div className='subtitle'>
                 <div className='polygon' />
-                Curabitur orci libero, eleifend sed libero in, euismod consequat
-                eros. Nulla pellentesque dignissim felis, vel vestibulum eros
-                accumsan eu. Nulla facilisi.
+                Nearly 33% of new hires look for a new job within their first
+                six months and it typically takes eight months for a newly hired
+                employee to reach full productivity – Harvard Business Review
               </div>
               <br />
               <br />
@@ -208,107 +203,114 @@ const CampaignBanking = () => {
                   </Link>
                 </div>
               ) : (
-                  <div>
-                    <Row className='reg-header'>
-                      <Col>
-                        <div className='title'>Register Now</div>
-                      </Col>
-                      <Col>
-                        <div className='subtitle'>*Required fields</div>
-                      </Col>
-                    </Row>
-                    <br />
-                    <br />
-                    <div className='register'>
-                      <Form onSubmit={handleSubmit}>
-                        <FormGroup>
-                          <Input
-                            onChange={handleOnChange}
-                            className='contact-us-mat-input'
-                            type='text'
-                            name='FIRST_NAME'
-                            placeholder='First Name *'
-                            value={register.FIRST_NAME}
-                            required
-                          />
-                        </FormGroup>
-                        <br />
-                        <FormGroup>
-                          <Input
-                            onChange={handleOnChange}
-                            className='contact-us-mat-input'
-                            type='text'
-                            name='LAST_NAME'
-                            placeholder='Last Name *'
-                            value={register.LAST_NAME}
-                            required
-                          />
-                        </FormGroup>
-                        <br />
-                        <FormGroup>
-                          <Input
-                            onChange={handleOnChange}
-                            className='contact-us-mat-input'
-                            type='text'
-                            name='COMPANY'
-                            value={register.COMPANY}
-                            placeholder='Company *'
-                            required
-                          />
-                        </FormGroup>
-                        <br />
-                        <FormGroup>
-                          <Input
-                            onChange={handleOnChange}
-                            className='contact-us-mat-input'
-                            type='text'
-                            name='JOB_TITLE'
-                            value={register.JOB_TITLE}
-                            placeholder='Job Title *'
-                            required
-                          />
-                        </FormGroup>
-                        <br />
-                        <FormGroup>
-                          <Input
-                            onChange={handleOnChange}
-                            className='contact-us-mat-input'
-                            type='email'
-                            name='EMAIL'
-                            value={register.EMAIL}
-                            placeholder='Email Address *'
-                            required
-                          />
-                        </FormGroup>
-                        <br />
-                        <FormGroup>
-                          <Input
-                            onChange={handleOnChange}
-                            className='contact-us-mat-input'
-                            type='text'
-                            name='PHONE'
-                            value={register.PHONE}
-                            placeholder='Phone Number'
+                <div>
+                  <Row className='reg-header'>
+                    <Col>
+                      <div className='title'>Register Now</div>
+                    </Col>
+                    <Col>
+                      <div className='subtitle'>*Required fields</div>
+                    </Col>
+                  </Row>
+                  <br />
+                  <br />
+                  <div className='register'>
+                    <Form onSubmit={handleSubmit}>
+                      <FormGroup>
+                        <Input
+                          onChange={handleOnChange}
+                          className='contact-us-mat-input'
+                          type='text'
+                          name='FIRST_NAME'
+                          placeholder='First Name *'
+                          value={register.FIRST_NAME}
+                          required
+                        />
+                      </FormGroup>
+                      <br />
+                      <FormGroup>
+                        <Input
+                          onChange={handleOnChange}
+                          className='contact-us-mat-input'
+                          type='text'
+                          name='LAST_NAME'
+                          placeholder='Last Name *'
+                          value={register.LAST_NAME}
+                          required
+                        />
+                      </FormGroup>
+                      <br />
+                      <FormGroup>
+                        <Input
+                          onChange={handleOnChange}
+                          className='contact-us-mat-input'
+                          type='text'
+                          name='COMPANY'
+                          value={register.COMPANY}
+                          placeholder='Company *'
+                          required
+                        />
+                      </FormGroup>
+                      <br />
+                      <FormGroup>
+                        <Input
+                          onChange={handleOnChange}
+                          className='contact-us-mat-input'
+                          type='text'
+                          name='JOB_TITLE'
+                          value={register.JOB_TITLE}
+                          placeholder='Job Title *'
+                          required
+                        />
+                      </FormGroup>
+                      <br />
+                      <FormGroup>
+                        <Input
+                          onChange={handleOnChange}
+                          className='contact-us-mat-input'
+                          type='email'
+                          name='EMAIL'
+                          value={register.EMAIL}
+                          placeholder='Email Address *'
+                          required
+                        />
+                      </FormGroup>
+                      <br />
+                      <FormGroup>
+                        <Input
+                          onChange={handleOnChange}
+                          className='contact-us-mat-input'
+                          type='text'
+                          name='PHONE'
+                          value={register.PHONE}
+                          placeholder='Phone Number'
                           // required
-                          />
-                        </FormGroup>
-                        <br />
-                        <div className='d-flex'>
-                          <Button className='btn btn-primary' type='submit'>
-                            Submit
+                        />
+                      </FormGroup>
+                      <br />
+                      <div className='d-flex'>
+                        <Button className='btn btn-primary' type='submit'>
+                          Submit
                         </Button>
-                        </div>
-                        <br />
-                        <div className='term-con'>
-                          Terms and conditions text will be displayed here in a
-                          few lines so that the user can read it.
                       </div>
-                      </Form>
-                    </div>
+                      <br />
+                      <div className='term-con'>
+                        I accept that by completing this form, I will be
+                        subscribed to receive Incede.ai emails with insights and
+                        information on upcoming events. I understand that I will
+                        always have the option to unsubscribe from
+                        communications.
+                      </div>
+                    </Form>
                   </div>
-                )}
+                </div>
+              )}
             </Col>
-            <img src={purplePolygon} alt="polygon" className="position-absolute bottom-polygon" />
+            <img
+              src={purplePolygon}
+              alt='polygon'
+              className='position-absolute bottom-polygon'
+            />
           </Row>
         </Container>
         <br />
@@ -333,7 +335,7 @@ const CampaignBanking = () => {
               </div>
               <br />
               <div className='py-2'>
-                <Link to='/register' className='btn btn-secondary btn-lg'>
+                <Link to='/' className='btn btn-secondary btn-lg'>
                   Explore More &nbsp;
                   <img src={arrow} alt='next' style={{ width: '12px' }} />
                 </Link>
@@ -443,13 +445,14 @@ const CampaignBanking = () => {
                   <Col md='4' sm='6' xs='12' className='py-2'>
                     <section className='menu'>
                       {/* <FooterLocation /> */}
-                      <h4 className="mt-0 text-white">Contact Us</h4>
+                      <h4 className='mt-0 text-white'>Contact Us</h4>
                       <p>United States, Headquaters</p>
                       <br />
                       <p>408-898-4606, info@incede.ai</p>
                       <br />
                       <p>
-                        5201 Great America Parkway, Suite #320, Santa Clara, CA 95054
+                        5201 Great America Parkway, Suite #320, Santa Clara, CA
+                        95054
                       </p>
                     </section>
                   </Col>
