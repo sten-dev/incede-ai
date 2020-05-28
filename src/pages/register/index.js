@@ -1,7 +1,7 @@
 import React from 'react';
-import Layout from '../../components/Layout';
 import Transition from '../../Transition';
 import CampaignBanking from '../../components/campaign-bankings/CampaignBanking';
+import MetaData from '../../components/MetaData';
 
 export default class CampaignBankingPage extends React.Component {
   window
@@ -15,6 +15,7 @@ export default class CampaignBankingPage extends React.Component {
       <>
         {/* <Layout pageTitle='Campaign Bankings | Incede'> */}
         <Transition>
+          <MetaData pageTitle="Employee Self Service" />
           <CampaignBanking />
         </Transition>
         {/* </Layout> */}
