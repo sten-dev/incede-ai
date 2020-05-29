@@ -32,11 +32,18 @@
       margin-bottom: 16px;
     }
     .img {
-      width: 100%;
+      width: 85%;
       border-radius: 8px;
       //   padding: 2px;
       //   background-color: #fff;
     }
+  }
+  .pdf-preview {
+    margin: 16px;
+  }
+  .pdf-container {
+    display: flex;
+    flex-wrap: wrap;
   }
   .body2 {
     .left {
@@ -59,6 +66,13 @@
         font-size: 20px;
         display: flex;
         color: #474747;
+        // .pentagon {
+        //   width: 24px;
+        //   height: 24px;
+        //   margin-right: 16px;
+        //   // margin-top: 7px;
+        //   margin-left: -32px;
+        // }
 
         .polygon {
           -webkit-clip-path: polygon(
@@ -106,7 +120,7 @@
           }
         }
         .term-con {
-          font-size: 16px;
+          font-size: 14px;
           line-height: 22px;
           color: #474747;
         }
