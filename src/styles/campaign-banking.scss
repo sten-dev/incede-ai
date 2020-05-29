@@ -40,10 +40,22 @@
   }
   .pdf-preview {
     margin: 16px;
+    img {
+      border: 1px solid grey;
+    }
   }
   .pdf-container {
     display: flex;
     flex-wrap: wrap;
+  }
+  .pdf-ripple {
+    background: red;
+    width: 100%;
+    color: #fff;
+    height: 24px;
+    font-weight: bolder;
+
+    text-align: center;
   }
   .body2 {
     .left {
@@ -58,7 +70,7 @@
         letter-spacing: 0.93px;
       }
       .img {
-        width: 160px;
+        width: 310px;
         border-radius: 6px;
       }
       .subtitle {

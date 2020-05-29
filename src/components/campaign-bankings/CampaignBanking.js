@@ -33,6 +33,20 @@ import linkedInPNG from '../../img/social/linkedIn.png';
 import whitePolygon from '../../img/webinar/polygon_watermark_white.svg';
 import purplePolygon from '../../img/webinar/polygon_watermark_purple.svg';
 
+// preview
+import Forbes from '../../img/campaign-banking/pdf/preview/Forbes.png';
+import HRB from '../../img/campaign-banking/pdf/preview/HRB.png';
+import IBM from '../../img/campaign-banking/pdf/preview/IBM.png';
+import IW from '../../img/campaign-banking/pdf/preview/IW.png';
+import JD from '../../img/campaign-banking/pdf/preview/JD.png';
+
+// pdf
+import pdf1File from '../../img/campaign-banking/pdf/forbes.pdf';
+import pdf2File from '../../img/campaign-banking/pdf/hbr.pdf';
+import pdf3File from '../../img/campaign-banking/pdf/ibm.pdf';
+import pdf4File from '../../img/campaign-banking/pdf/iw.pdf';
+import pdf5File from '../../img/campaign-banking/pdf/jd.pdf';
+
 const CampaignBanking = () => {
   const [register, setRegister] = React.useState({
     FIRST_NAME: '',
@@ -175,7 +189,70 @@ const CampaignBanking = () => {
                   <br />
                   {/* <br />
                   <h5>Learn More from the Incede Resource Center</h5> */}
-                  <Link
+                  <div className='pdf-container'>
+                    <div className='pdf-preview'>
+                      <a target='__blank' href={pdf1File} alt='pdf1File'>
+                        <img
+                          width='191'
+                          height='207'
+                          // name='plugin'
+                          src={Forbes}
+                          // type='application/pdf'
+                        />
+                        <div className='pdf-ripple'>PDF</div>
+                      </a>
+                    </div>
+                    <div className='pdf-preview'>
+                      <a target='__blank' href={pdf2File} alt='pdf2File'>
+                        <img
+                          width='191'
+                          height='207'
+                          // name='plugin'
+                          src={HRB}
+                          // type='application/pdf'
+                        />
+                      </a>
+                      <div className='pdf-ripple'>PDF</div>
+                    </div>
+                    <div className='pdf-preview'>
+                      <a target='__blank' href={pdf3File} alt='pdf3File'>
+                        <img
+                          width='191'
+                          height='207'
+                          // name='plugin'
+                          src={IBM}
+                          // type='application/pdf'
+                        />
+                      </a>
+                      <div className='pdf-ripple'>PDF</div>
+                    </div>
+                    <div className='pdf-preview'>
+                      <a target='__blank' href={pdf4File} alt='pdf4File'>
+                        <img
+                          width='191'
+                          height='207'
+                          // name='plugin'
+                          src={IW}
+                          // type='application/pdf'
+                        />
+                      </a>
+                      <div className='pdf-ripple'>PDF</div>
+                    </div>
+                    <div className='pdf-preview'>
+                      <a target='__blank' href={pdf5File} alt='pdf5File'>
+                        <img
+                          width='191'
+                          height='207'
+                          // name='plugin'
+                          src={JD}
+                          // type='application/pdf'
+                        />
+                      </a>
+                      <div className='pdf-ripple'>PDF</div>
+                    </div>
+                  </div>
+
+                  {/* <Link
                     className='custom-link'
                     to='https://livesend.ibm.com/i/OupOR4eFruvC3Pts2V0J74hJMIewHldbS4d5JbDi1pkNiFnuasQeGqcorwPLUSSIGNf5lfoWwVGk1PfMri3rDnKIp29___KQEzTsnRAaQtErYja3PLUSSIGNVl8EQUALSIGN'>
                     Forbes - How AI Can Help Your Employees
@@ -203,7 +280,7 @@ const CampaignBanking = () => {
                     className='custom-link'
                     to='https://livesend.ibm.com/i/OupOR4eFruvC3Pts2V0J74hJMIewHldbS4d5JbDi1pmfzyQxSfxaEf9r2AGLlc09jDgPLUSSIGNgIBXWROk8iWdkNSHOyEzbYNZjSaP2DWouJAC4CMEQUALSIGN'>
                     J.D. Power - 2020 Customer Satisfaction with Retail Banking
-                  </Link>
+                  </Link> */}
                 </div>
               ) : (
                 <div>
