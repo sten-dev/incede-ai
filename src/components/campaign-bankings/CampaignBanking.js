@@ -82,8 +82,8 @@ const CampaignBanking = () => {
         <div className='position-relative'>
           <img src={whitePolygon} alt='polygon' className='position-absolute' />
         </div>
-        <br />
-        <br />
+        {/* <br />
+        <br /> */}
         <Container className='container-width'>
           <Row className='gap-y '>
             <Col sm='12' md='12' lg='6'>
@@ -102,7 +102,7 @@ const CampaignBanking = () => {
                 here.
               </h4> */}
             </Col>
-            <Col sm='12' md='12' lg='6'>
+            <Col className='text-right' sm='12' md='12' lg='6'>
               <img
                 src={campaignBakingImg}
                 alt='campaignBanking'
@@ -137,6 +137,12 @@ const CampaignBanking = () => {
               <br />
               <div className='subtitle'>
                 <div className='polygon' />
+                {/* <svg className='pentagon' viewBox='0 0 24 24'>
+                  <path
+                    fill='currentColor'
+                    d='M12,2.5L2,9.8L5.8,21.5H18.2L22,9.8L12,2.5Z'
+                  />
+                </svg> */}
                 Branch networks make 47% of banks' operating costs and 54% of
                 that branch expenditure goes to staffing – Diebold and Forrester
               </div>
