@@ -142,30 +142,43 @@ const CampaignBanking = () => {
               </div>
               <br />
               <br />
-              <div className='subtitle'>
-                <div className='polygon' />
-                When employees feel they are learning and growing in your
-                organization, you’ll be less likely to lose upwards of 60% of
-                your entire workforce within four years – Urban Bound
-              </div>
-              <br />
-              <div className='subtitle'>
-                <div className='polygon' />
-                {/* <svg className='pentagon' viewBox='0 0 24 24'>
-                  <path
-                    fill='currentColor'
-                    d='M12,2.5L2,9.8L5.8,21.5H18.2L22,9.8L12,2.5Z'
-                  />
-                </svg> */}
-                Branch networks make 47% of banks' operating costs and 54% of
-                that branch expenditure goes to staffing – Diebold and Forrester
-              </div>
-              <br />
-              <div className='subtitle'>
-                <div className='polygon' />
-                Nearly 33% of new hires look for a new job within their first
-                six months and it typically takes eight months for a newly hired
-                employee to reach full productivity – Harvard Business Review
+              <div className='custom-list'>
+                <div className='subtitle'>
+                  <div className='polygon'>
+                    {' '}
+                    <div />
+                  </div>
+                  <div>
+                    When employees feel they are learning and growing in your
+                    organization, you’ll be less likely to lose upwards of 60%
+                    of your entire workforce within four years – Urban Bound
+                  </div>
+                </div>
+                <br />
+                <div className='subtitle'>
+                  <div className='polygon'>
+                    {' '}
+                    <div />
+                  </div>
+                  <div>
+                    Branch networks make 47% of banks' operating costs and 54%
+                    of that branch expenditure goes to staffing – Diebold and
+                    Forrester
+                  </div>
+                </div>
+                <br />
+                <div className='subtitle'>
+                  <div className='polygon'>
+                    {' '}
+                    <div />
+                  </div>
+                  <div>
+                    Nearly 33% of new hires look for a new job within their
+                    first six months and it typically takes eight months for a
+                    newly hired employee to reach full productivity – Harvard
+                    Business Review
+                  </div>
+                </div>
               </div>
               <br />
               <br />
