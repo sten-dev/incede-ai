@@ -83,7 +83,7 @@
 
         .polygon {
           margin-right: 16px;
-          margin-top: 4px;
+          margin-top: 6px;
           div {
             -webkit-clip-path: polygon(
               50% 0%,
@@ -93,8 +93,8 @@
               0% 38%
             );
             clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
-            width: 16px;
-            height: 16px;
+            width: 14px;
+            height: 14px;
             background-color: #474747;
           }
         }
