@@ -27,7 +27,7 @@ class DemoCard extends React.Component {
               &nbsp;&nbsp;
               <a
                 className='btn btn-sm btn-outline-secondary text-decoration-none custom-anchor-button'
-                href={`/demos/custom-demo?demoId=${this.props.data.ID}`}
+                href={`/demos/custom-demo/?demoId=${this.props.data.ID}`}
                 target='_blank'
                 rel='noopener noreferrer'>
                 Launch Demo

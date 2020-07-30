@@ -7,13 +7,11 @@ import {
   Button,
   Spinner,
   Card,
-  CardImg
-  ,
-  UncontrolledPopover
-  ,
+  CardImg,
+  UncontrolledPopover,
   PopoverBody
 } from 'reactstrap';
-import logo from '../../img/logo_white.png';
+import logo from '../../img/bot_logo.png';
 import { ChatPill } from './bot/ChatPill';
 import { ChatPillAsk } from './bot/ChatPillAsk';
 import socketIO from 'socket.io-client';

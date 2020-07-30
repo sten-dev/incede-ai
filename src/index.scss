@@ -5,7 +5,7 @@ html {
 body {
   margin-top: 84px !important;
   background-color: white;
-  font-family: 'Open Sans', sans-serif !important;
+  font-family: "Open Sans", sans-serif !important;
   // font-family: "Noto Sans", sans-serif;
   // font-weight: 400;
   line-height: 1.7 !important ;
@@ -101,7 +101,7 @@ small,
     padding: 0 !important;
   }
   .incede-logo {
-    height: 72px;
+    height: 48px;
   }
 }
 
@@ -120,7 +120,7 @@ small,
   }
 }
 
-@import 'bs.scss';
+@import "bs.scss";
 
 /**Scroll Bar*/
 
