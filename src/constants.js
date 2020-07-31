@@ -1,8 +1,8 @@
 //prod
 export const API_URL = 'https://incede-api-tired-leopard.mybluemix.net/';
 export const LINKEDIN = {
-  clientId: '78p9i60dhfuau3',// 78p9i60dhfuau3 - Prod 81uni85sqi901i -dev
-  redirectUrl: 'https://www.incede.ai',
+  clientId: '81uni85sqi901i',// 78p9i60dhfuau3 - Prod 81uni85sqi901i -dev
+  redirectUrl: 'https://incede.ai',
   grant_type: 'authorization_code'
 };
 
