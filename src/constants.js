@@ -1,18 +1,18 @@
 //prod
-// export const API_URL = 'https://incede-api-tired-leopard.mybluemix.net/';
-// export const LINKEDIN = {
-//   clientId: '78p9i60dhfuau3',// 78p9i60dhfuau3 - Prod 81uni85sqi901i -dev
-//   redirectUrl: 'https://incede.ai',
-//   grant_type: 'authorization_code'
-// };
+export const API_URL = 'https://incede-api-tired-leopard.mybluemix.net/';
+export const LINKEDIN = {
+  clientId: '78p9i60dhfuau3',// 78p9i60dhfuau3 - Prod 81uni85sqi901i -dev
+  redirectUrl: 'https://www.incede.ai',
+  grant_type: 'authorization_code'
+};
 
 // dev
-export const API_URL = 'https://custom-demo-api-funny-dog.mybluemix.net/';
-export const LINKEDIN = {
-  clientId: '78p9i60dhfuau3', // 78p9i60dhfuau3 - Prod 81uni85sqi901i -dev
-  redirectUrl: 'https://incede-ai.netlify.com',
-  grant_type: 'authorization_code',
-};
+// export const API_URL = 'http://13.234.37.204:8089/';
+// export const LINKEDIN = {
+//   clientId: '78p9i60dhfuau3', // 78p9i60dhfuau3 - Prod 81uni85sqi901i -dev
+//   redirectUrl: 'https://incede-ai.netlify.com',
+//   grant_type: 'authorization_code',
+// };
 
 // local
 // export const API_URL = 'http://localhost:8080/';
@@ -83,7 +83,7 @@ export const httpClient = async (
     type = type.toUpperCase();
     if (type.toLowerCase() === 'get' && obj) {
       var params = Object.keys(obj)
-        .map(function(key) {
+        .map(function (key) {
           return key + '=' + obj[key];
         })
         .join('&');
