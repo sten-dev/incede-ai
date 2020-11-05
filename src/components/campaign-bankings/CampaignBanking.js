@@ -210,7 +210,7 @@ const CampaignBanking = () => {
                           height='207'
                           // name='plugin'
                           src={Forbes}
-                          // type='application/pdf'
+                        // type='application/pdf'
                         />
                         <div className='pdf-ripple'>PDF</div>
                       </a>
@@ -222,7 +222,7 @@ const CampaignBanking = () => {
                           height='207'
                           // name='plugin'
                           src={HRB}
-                          // type='application/pdf'
+                        // type='application/pdf'
                         />
                       </a>
                       <div className='pdf-ripple'>PDF</div>
@@ -234,7 +234,7 @@ const CampaignBanking = () => {
                           height='207'
                           // name='plugin'
                           src={IBM}
-                          // type='application/pdf'
+                        // type='application/pdf'
                         />
                       </a>
                       <div className='pdf-ripple'>PDF</div>
@@ -246,7 +246,7 @@ const CampaignBanking = () => {
                           height='207'
                           // name='plugin'
                           src={IW}
-                          // type='application/pdf'
+                        // type='application/pdf'
                         />
                       </a>
                       <div className='pdf-ripple'>PDF</div>
@@ -258,7 +258,7 @@ const CampaignBanking = () => {
                           height='207'
                           // name='plugin'
                           src={JD}
-                          // type='application/pdf'
+                        // type='application/pdf'
                         />
                       </a>
                       <div className='pdf-ripple'>PDF</div>
@@ -296,108 +296,108 @@ const CampaignBanking = () => {
                   </Link> */}
                 </div>
               ) : (
-                <div>
-                  <Row className='reg-header'>
-                    <Col>
-                      <div className='title'>Register Now</div>
-                    </Col>
-                    <Col>
-                      <div className='subtitle'>*Required fields</div>
-                    </Col>
-                  </Row>
-                  <br />
-                  <br />
-                  <div className='register'>
-                    <Form onSubmit={handleSubmit}>
-                      <FormGroup>
-                        <Input
-                          onChange={handleOnChange}
-                          className='contact-us-mat-input'
-                          type='text'
-                          name='FIRST_NAME'
-                          placeholder='First Name *'
-                          value={register.FIRST_NAME}
-                          required
-                        />
-                      </FormGroup>
-                      <br />
-                      <FormGroup>
-                        <Input
-                          onChange={handleOnChange}
-                          className='contact-us-mat-input'
-                          type='text'
-                          name='LAST_NAME'
-                          placeholder='Last Name *'
-                          value={register.LAST_NAME}
-                          required
-                        />
-                      </FormGroup>
-                      <br />
-                      <FormGroup>
-                        <Input
-                          onChange={handleOnChange}
-                          className='contact-us-mat-input'
-                          type='text'
-                          name='COMPANY'
-                          value={register.COMPANY}
-                          placeholder='Company *'
-                          required
-                        />
-                      </FormGroup>
-                      <br />
-                      <FormGroup>
-                        <Input
-                          onChange={handleOnChange}
-                          className='contact-us-mat-input'
-                          type='text'
-                          name='JOB_TITLE'
-                          value={register.JOB_TITLE}
-                          placeholder='Job Title *'
-                          required
-                        />
-                      </FormGroup>
-                      <br />
-                      <FormGroup>
-                        <Input
-                          onChange={handleOnChange}
-                          className='contact-us-mat-input'
-                          type='email'
-                          name='EMAIL'
-                          value={register.EMAIL}
-                          placeholder='Email Address *'
-                          required
-                        />
-                      </FormGroup>
-                      <br />
-                      <FormGroup>
-                        <Input
-                          onChange={handleOnChange}
-                          className='contact-us-mat-input'
-                          type='text'
-                          name='PHONE'
-                          value={register.PHONE}
-                          placeholder='Phone Number'
+                  <div>
+                    <Row className='reg-header'>
+                      <Col>
+                        <div className='title'>Register Now</div>
+                      </Col>
+                      <Col>
+                        <div className='subtitle'>*Required fields</div>
+                      </Col>
+                    </Row>
+                    <br />
+                    <br />
+                    <div className='register'>
+                      <Form onSubmit={handleSubmit}>
+                        <FormGroup>
+                          <Input
+                            onChange={handleOnChange}
+                            className='contact-us-mat-input'
+                            type='text'
+                            name='FIRST_NAME'
+                            placeholder='First Name *'
+                            value={register.FIRST_NAME}
+                            required
+                          />
+                        </FormGroup>
+                        <br />
+                        <FormGroup>
+                          <Input
+                            onChange={handleOnChange}
+                            className='contact-us-mat-input'
+                            type='text'
+                            name='LAST_NAME'
+                            placeholder='Last Name *'
+                            value={register.LAST_NAME}
+                            required
+                          />
+                        </FormGroup>
+                        <br />
+                        <FormGroup>
+                          <Input
+                            onChange={handleOnChange}
+                            className='contact-us-mat-input'
+                            type='text'
+                            name='COMPANY'
+                            value={register.COMPANY}
+                            placeholder='Company *'
+                            required
+                          />
+                        </FormGroup>
+                        <br />
+                        <FormGroup>
+                          <Input
+                            onChange={handleOnChange}
+                            className='contact-us-mat-input'
+                            type='text'
+                            name='JOB_TITLE'
+                            value={register.JOB_TITLE}
+                            placeholder='Job Title *'
+                            required
+                          />
+                        </FormGroup>
+                        <br />
+                        <FormGroup>
+                          <Input
+                            onChange={handleOnChange}
+                            className='contact-us-mat-input'
+                            type='email'
+                            name='EMAIL'
+                            value={register.EMAIL}
+                            placeholder='Email Address *'
+                            required
+                          />
+                        </FormGroup>
+                        <br />
+                        <FormGroup>
+                          <Input
+                            onChange={handleOnChange}
+                            className='contact-us-mat-input'
+                            type='text'
+                            name='PHONE'
+                            value={register.PHONE}
+                            placeholder='Phone Number'
                           // required
-                        />
-                      </FormGroup>
-                      <br />
-                      <div className='d-flex'>
-                        <Button className='btn btn-primary' type='submit'>
-                          Submit
+                          />
+                        </FormGroup>
+                        <br />
+                        <div className='d-flex'>
+                          <Button className='btn btn-primary' type='submit'>
+                            Submit
                         </Button>
+                        </div>
+                        <br />
+                        <div className='term-con'>
+                          I accept that by completing this form, I will be
+                          subscribed to receive Incede.ai emails with insights and
+                          information on upcoming events. I understand that I will
+                          always have the option to unsubscribe from
+                          communications.
                       </div>
-                      <br />
-                      <div className='term-con'>
-                        I accept that by completing this form, I will be
-                        subscribed to receive Incede.ai emails with insights and
-                        information on upcoming events. I understand that I will
-                        always have the option to unsubscribe from
-                        communications.
-                      </div>
-                    </Form>
+                      </Form>
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
             </Col>
             <img
               src={purplePolygon}
@@ -484,7 +484,7 @@ const CampaignBanking = () => {
                           <a
                             title='twitter'
                             target='_blank'
-                            href='https://twitter.com/incede_ai'>
+                            href='https://twitter.com/incedeAI'>
                             <img
                               className='fas fa-lg'
                               src={twitterPNG}

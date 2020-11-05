@@ -211,7 +211,7 @@ class Footer extends React.Component {
                       <a
                         title='twitter'
                         target='_blank'
-                        href='https://twitter.com/incede_ai'>
+                        href='https://twitter.com/incedeAI'>
                         <img
                           className='fas fa-lg'
                           src={twitterPNG}

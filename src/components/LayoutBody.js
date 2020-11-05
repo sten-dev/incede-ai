@@ -103,7 +103,7 @@ class LayoutBody extends Component {
   };
 
   addGoogleAnalytics = () => {
-    console.log("analytics call")
+    // console.log("analytics call");
     window.dataLayer = window.dataLayer || [];
     function gtag() {
       window.dataLayer.push(arguments);
