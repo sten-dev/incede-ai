@@ -20,7 +20,7 @@ import {
   Modal,
   ModalBody,
   ListGroup,
-  ListGroupItem
+  ListGroupItem,
 } from "reactstrap";
 import SolutionsMenu from "./menu/SolutionsMenu";
 import ServicesMenu from "./menu/ServicesMenu";
@@ -32,6 +32,7 @@ import SolutionMenu from "./menu/static/SolutionMenu";
 import IndustryMenu from "./menu/static/IndustryMenu";
 import WhyIncedeMenu from "./menu/static/WhyIncedeMenu";
 import AboutUsMenu from "./menu/static/AboutUsMenu";
+import ResourceMenu from "./menu/static/ResourceMenu";
 
 class INavbar extends Component {
   window;
@@ -43,8 +44,9 @@ class INavbar extends Component {
       isServicesMenuOpen: false,
       isSolutionsMenuOpen: false,
       isIndustriesMenuOpen: false,
+      isResourcesMenuOpen: false,
       isWhyIncedeMenuOpen: false,
-      isAboutMenuOpen: false
+      isAboutMenuOpen: false,
     };
   }
 
@@ -57,7 +59,7 @@ class INavbar extends Component {
     window.removeEventListener("scroll", this.handleScroll);
   };
 
-  handleScroll = event => {
+  handleScroll = (event) => {
     var header = document.getElementById("header");
 
     if (window.pageYOffset !== 0) {
@@ -90,37 +92,42 @@ class INavbar extends Component {
 
   toggle = () => {
     this.setState({
-      isOpen: !this.state.isOpen
+      isOpen: !this.state.isOpen,
     });
   };
   toggleWhatWeDoMenu = () => {
     this.setState({
-      isWWDPopoverOpen: !this.state.isWWDPopoverOpen
+      isWWDPopoverOpen: !this.state.isWWDPopoverOpen,
     });
   };
   toggleServicesMenu = () => {
     this.setState({
-      isServicesMenuOpen: !this.state.isServicesMenuOpen
+      isServicesMenuOpen: !this.state.isServicesMenuOpen,
     });
   };
   toggleSolutionsMenu = () => {
     this.setState({
-      isSolutionsMenuOpen: !this.state.isSolutionsMenuOpen
+      isSolutionsMenuOpen: !this.state.isSolutionsMenuOpen,
     });
   };
   toggleIndustriesMenu = () => {
     this.setState({
-      isIndustriesMenuOpen: !this.state.isIndustriesMenuOpen
+      isIndustriesMenuOpen: !this.state.isIndustriesMenuOpen,
+    });
+  };
+  toggleResourcesMenu = () => {
+    this.setState({
+      isResourcesMenuOpen: !this.state.isResourcesMenuOpen,
     });
   };
   toggleWhyIncedeMenu = () => {
     this.setState({
-      isWhyIncedeMenuOpen: !this.state.isWhyIncedeMenuOpen
+      isWhyIncedeMenuOpen: !this.state.isWhyIncedeMenuOpen,
     });
   };
   toggleAboutUsMenu = () => {
     this.setState({
-      isAboutMenuOpen: !this.state.isAboutMenuOpen
+      isAboutMenuOpen: !this.state.isAboutMenuOpen,
     });
   };
   render() {
@@ -143,7 +150,7 @@ class INavbar extends Component {
                 <NavItem className="btn">
                   <Link activeClassName="selected" to="/">
                     Home
-                    </Link>
+                  </Link>
                 </NavItem>
 
                 <NavItem id="menu_services" className="btn">
@@ -151,13 +158,11 @@ class INavbar extends Component {
                     Services{" "}
                     <img
                       className={`${
-                        this.state.isServicesMenuOpen
-                          ? "active-what-we-do"
-                          : ""
-                        }`}
+                        this.state.isServicesMenuOpen ? "active-what-we-do" : ""
+                      }`}
                       alt="send"
                       src={dropdown}
-                    // onClick={props.onClick}
+                      // onClick={props.onClick}
                     />{" "}
                   </a>
                 </NavItem>
@@ -169,10 +174,10 @@ class INavbar extends Component {
                         this.state.isSolutionsMenuOpen
                           ? "active-what-we-do"
                           : ""
-                        }`}
+                      }`}
                       alt="send"
                       src={dropdown}
-                    // onClick={props.onClick}
+                      // onClick={props.onClick}
                     />{" "}
                   </a>
                 </NavItem>
@@ -184,10 +189,25 @@ class INavbar extends Component {
                         this.state.isIndustriesMenuOpen
                           ? "active-what-we-do"
                           : ""
-                        }`}
+                      }`}
                       alt="send"
                       src={dropdown}
-                    // onClick={props.onClick}
+                      // onClick={props.onClick}
+                    />{" "}
+                  </a>
+                </NavItem>
+                <NavItem id="menu_resources" className="btn">
+                  <a>
+                    Resources{" "}
+                    <img
+                      className={`${
+                        this.state.isResourcesMenuOpen
+                          ? "active-what-we-do"
+                          : ""
+                      }`}
+                      alt="send"
+                      src={dropdown}
+                      // onClick={props.onClick}
                     />{" "}
                   </a>
                 </NavItem>
@@ -195,7 +215,7 @@ class INavbar extends Component {
                 <NavItem id="menu_why_incede" className="btn">
                   <Link activeClassName="selected" to="/why-incede">
                     Why Incede
-                      </Link>
+                  </Link>
                   {/* <a>
                         Why Incede{" "}
                         <img
@@ -266,6 +286,19 @@ class INavbar extends Component {
             {/* <PopoverHeader>Popover Title</PopoverHeader> */}
             <PopoverBody>
               <IndustryMenu />
+            </PopoverBody>
+          </Popover>
+          <Popover
+            boundariesElement="window"
+            placement="bottom"
+            isOpen={this.state.isResourcesMenuOpen}
+            target="menu_resources"
+            toggle={this.toggleResourcesMenu}
+            trigger="legacy"
+          >
+            {/* <PopoverHeader>Popover Title</PopoverHeader> */}
+            <PopoverBody>
+              <ResourceMenu />
             </PopoverBody>
           </Popover>
 
@@ -347,7 +380,7 @@ class INavbar extends Component {
           </Modal>
         </nav>
         {/* </PageTransition> */}
-      </React.Fragment >
+      </React.Fragment>
     );
   }
 }
