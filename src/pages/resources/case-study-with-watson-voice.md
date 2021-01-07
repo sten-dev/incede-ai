@@ -1,6 +1,6 @@
 ---
 templateKey: resources-events
-eventDate: 2021-01-20T06:00:45.358Z
+eventDate: 2021-01-21T06:00:45.358Z
 date: 'January 14, 2021 11:00 AM'
 typeOfServices: Watson Assistant Service
 title: Case study with Watson Voice
