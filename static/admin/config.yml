@@ -146,3 +146,56 @@ collections:
                   { label: Image, name: image, widget: image },
                 ],
             }
+  - name: "resources-library"
+    label: "Resources Library"
+    folder: "src/pages/resources"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "resources-library",
+        }
+      - { label: "Title", name: "title", widget: "string" }
+      - {
+          label: "Video URL",
+          name: "videoUrl",
+          widget: "string",
+          required: false,
+        }
+      - { label: "Image", name: "image", widget: "image", required: false }
+  - name: "resources-events"
+    label: "Resources Events"
+    folder: "src/pages/resources"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "resources-events",
+        }
+      - { label: "Title", name: "title", widget: "string" }
+      - {
+          label: "Video Type",
+          name: "videoType",
+          widget: "select",
+          options: ["Webinar"],
+        }
+      # default: ["Webinar"],
+      - {
+          label: "Type of Services",
+          name: "typeOfServices",
+          widget: "select",
+          options: ["Watson Assistant Service", "Watson Discovery Service"],
+        }
+      - {
+          label: "Video URL",
+          name: "videoUrl",
+          widget: "string",
+          required: false,
+        }
+      - { label: "Image", name: "image", widget: "image", required: false }

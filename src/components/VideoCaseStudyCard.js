@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Modal, ModalHeader, ModalBody } from "reactstrap";
-const VideoCaseStudyCard = props => {
+const VideoCaseStudyCard = (props) => {
   const { buttonLabel, className } = props;
 
   const [modal, setModal] = useState(false);
