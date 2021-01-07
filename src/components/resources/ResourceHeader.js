@@ -3,7 +3,11 @@ import { Row, Col, Container } from "reactstrap";
 import ScrollMenu from "react-horizontal-scrolling-menu";
 import ResourceImage from "../../img/industry-solution/banner-industry.png";
 
-let list = [{ name: "Resource Library" }, { name: "Events" }];
+let list = [
+  { name: "Resource Library" },
+  { name: "Events" },
+  { name: "Case Studies" },
+];
 
 const MenuItem = ({ text, selected }) => {
   return <div className={`menu-item ${selected ? "active" : ""}`}>{text}</div>;
@@ -52,6 +56,9 @@ export class ResourceHeader extends Component {
       case "Events":
         url = "/resources/events";
         break;
+      case "Case Studies":
+        url = "/resources/case-studies";
+        break;
       default:
         url = "/resources/resource-library";
         break;
@@ -69,6 +76,10 @@ export class ResourceHeader extends Component {
       case "/resources/events":
       case "/resources/events/":
         this.setState({ selected: "Events" });
+        break;
+      case "/resources/case-studies":
+      case "/resources/case-studies/":
+        this.setState({ selected: "Case Studies" });
         break;
       default:
         this.setState({ selected: "Resource Library" });
