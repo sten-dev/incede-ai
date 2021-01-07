@@ -5,7 +5,7 @@ import {
   CardText,
   CardBody,
   CardTitle,
-  CardSubtitle
+  CardSubtitle,
 } from "reactstrap";
 import { Link } from "gatsby";
 import PreviewCompatibleImage from "../PreviewCompatibleImage";
@@ -17,7 +17,7 @@ class CaseStudyCard extends Component {
     this.state = {};
   }
   render() {
-    const { title, description, image, slug } = this.props;
+    const { title, description, image, slug, type } = this.props;
     let desLen = description.length;
     return (
       <React.Fragment>
@@ -26,12 +26,12 @@ class CaseStudyCard extends Component {
             <PreviewCompatibleImage
               imageInfo={{
                 image: image,
-                alt: `case study`
+                alt: `case study`,
               }}
             />
           </div>
           <CardBody style={{ color: "black" }}>
-            <CardTitle>{title}</CardTitle>
+            <CardTitle className={type ? "cardTitle" : ""}>{title}</CardTitle>
 
             <CardText>
               {desLen > 150 ? description.substr(0, 150) + ".." : description}

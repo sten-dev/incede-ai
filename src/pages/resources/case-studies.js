@@ -2,7 +2,7 @@ import React from "react";
 import Container from "reactstrap/lib/Container";
 import Layout from "../../components/Layout";
 import ResourceHeader from "../../components/resources/ResourceHeader";
-import ResourceCaseStudies from "../../components/resources/CaseStudies";
+import ResourcesCaseStudies from "../../components/resources/CaseStudies";
 import Transition from "../../Transition";
 
 const CaseStudies = () => {
@@ -12,7 +12,7 @@ const CaseStudies = () => {
         <section className="industry-solution">
           <ResourceHeader />
           <Container>
-            <ResourceCaseStudies />
+            <ResourcesCaseStudies />
           </Container>
         </section>
       </Transition>

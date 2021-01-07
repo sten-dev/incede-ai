@@ -247,3 +247,19 @@ collections:
           required: false,
         }
       - { label: "Image", name: "image", widget: "image", required: false }
+  - name: "resources-case-studies"
+    label: "Resources Case Studies"
+    folder: "src/pages/resources/"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {
+          label: "Template Key",
+          name: "templateKey",
+          widget: "hidden",
+          default: "resources-case-studies",
+        }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Sub Title", name: "subTitle", widget: "text" }
+      - { label: "Image", name: "image", widget: image }
+      - { label: "Body", name: "body", widget: "markdown" }

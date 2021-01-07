@@ -14,7 +14,7 @@ export const CaseStudyTemplate = ({
   image,
   helmet,
   content,
-  contentComponent
+  contentComponent,
 }) => {
   // console.log("case study", image)
   const PageContent = contentComponent || Content;
@@ -50,7 +50,7 @@ export const CaseStudyTemplate = ({
 CaseStudyTemplate.propTypes = {
   title: PropTypes.string,
   subTitle: PropTypes.string,
-  helmet: PropTypes.object
+  helmet: PropTypes.object,
 };
 
 const CaseStudy = ({ data }) => {
@@ -77,8 +77,8 @@ const CaseStudy = ({ data }) => {
 
 CaseStudy.propTypes = {
   data: PropTypes.shape({
-    markdownRemark: PropTypes.object
-  })
+    markdownRemark: PropTypes.object,
+  }),
 };
 
 export default CaseStudy;
