@@ -8,7 +8,7 @@
     letter-spacing: 0;
   }
 }
-.card-title {
+.resource-card-title {
   color: $primary;
   text-align: center;
   font-size: 17px;
@@ -60,4 +60,12 @@
   position: absolute;
   top: 44%;
   left: 40%;
+}
+
+@media screen and (max-width: 576px) {
+  .resources-library-content {
+    .heading {
+      font-size: 20px !important;
+    }
+  }
 }
