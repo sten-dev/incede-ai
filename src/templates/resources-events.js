@@ -65,7 +65,7 @@ export const ResourcesEventsTemplate = ({
             {videoUrl}
           </div> */}
           {/* <CardBody>
-            <p className="card-title">{title}</p>
+            <p className="resource-card-title">{title}</p>
           </CardBody> */}
           <CardBody>
             <p className="event-date">

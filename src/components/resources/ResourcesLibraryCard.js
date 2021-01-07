@@ -79,7 +79,7 @@ const ResourcesLibraryCard = ({
 
         {type === "library" && (
           <CardBody>
-            <p className="card-title">
+            <p className="resource-card-title">
               {/* <a className="pointer" onClick={toggle}> */}
               {title}
               {/* </a> */}

@@ -37,7 +37,7 @@ export const ResourcesLibraryTemplate = ({
             alt=""
           />
           <CardBody>
-            <p className="card-title">{title}</p>
+            <p className="resource-card-title">{title}</p>
           </CardBody>
         </Card>
       </React.Fragment>
