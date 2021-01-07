@@ -13,36 +13,36 @@ const Events = ({ data }) => {
   // const [type, setType] = useState("Webinar");
   const [events, setEvents] = useState(resourcesEvents);
   const [state, setState] = useState({
-    videoType: "All",
-    typeOfServices: "All",
+    eventType: "All",
+    serviceType: "All",
   });
 
   const handleEventsTypeChange = (e) => {
     setState({
       ...state,
-      videoType: e.target.value,
+      eventType: e.target.value,
     });
 
     console.log("state", state);
     let filteredEvents;
-    if (e.target.value === "All" && state.typeOfServices === "All") {
+    if (e.target.value === "All" && state.serviceType === "All") {
       filteredEvents = resourcesEvents;
       // setEvents(events)
-    } else if (e.target.value === "All" && state.typeOfServices !== "All") {
+    } else if (e.target.value === "All" && state.serviceType !== "All") {
       filteredEvents = resourcesEvents?.filter(
-        (i) => i.node.frontmatter.typeOfServices === state.typeOfServices
+        (i) => i.node.frontmatter.serviceType === state.serviceType
       );
       // setEvents(filteredEvents);
-    } else if (e.target.value !== "All" && state.typeOfServices == "All") {
+    } else if (e.target.value !== "All" && state.serviceType == "All") {
       filteredEvents = resourcesEvents?.filter(
-        (i) => i.node.frontmatter.videoType === e.target.value
+        (i) => i.node.frontmatter.eventType === e.target.value
       );
     } else {
       let filterEvents = resourcesEvents?.filter(
-        (i) => i.node.frontmatter.videoType === e.target.value
+        (i) => i.node.frontmatter.eventType === e.target.value
       );
       filteredEvents = filterEvents?.filter(
-        (i) => i.node.frontmatter.typeOfServices === state.typeOfServices
+        (i) => i.node.frontmatter.serviceType === state.serviceType
       );
     }
     setEvents(filteredEvents);
@@ -51,29 +51,29 @@ const Events = ({ data }) => {
   const handleTypeOfServicesChange = (e) => {
     setState({
       ...state,
-      typeOfServices: e.target.value,
+      serviceType: e.target.value,
     });
 
     console.log("state", state);
     let filteredEvents;
-    if (state.videoType === "All" && e.target.value === "All") {
+    if (state.eventType === "All" && e.target.value === "All") {
       filteredEvents = resourcesEvents;
       // setEvents(events)
-    } else if (state.videoType === "All" && e.target.value !== "All") {
+    } else if (state.eventType === "All" && e.target.value !== "All") {
       filteredEvents = resourcesEvents?.filter(
-        (i) => i.node.frontmatter.typeOfServices === e.target.value
+        (i) => i.node.frontmatter.serviceType === e.target.value
       );
       // setEvents(filteredEvents);
-    } else if (state.videoType !== "All" && e.target.value == "All") {
+    } else if (state.eventType !== "All" && e.target.value == "All") {
       filteredEvents = resourcesEvents?.filter(
-        (i) => i.node.frontmatter.videoType === state.videoType
+        (i) => i.node.frontmatter.eventType === state.eventType
       );
     } else {
       let filterEvents = resourcesEvents?.filter(
-        (i) => i.node.frontmatter.videoType === state.videoType
+        (i) => i.node.frontmatter.eventType === state.eventType
       );
       filteredEvents = filterEvents?.filter(
-        (i) => i.node.frontmatter.typeOfServices === e.target.value
+        (i) => i.node.frontmatter.serviceType === e.target.value
       );
     }
     setEvents(filteredEvents);
@@ -87,38 +87,28 @@ const Events = ({ data }) => {
           <Col xs={12} sm={12} md={3} lg={3}>
             {/* <div className="bg-grey"> */}
             <div className="form-group">
-              <label>Video Type</label>
+              <label>Event Type</label>
               <select
                 className="form-control"
                 onChange={handleEventsTypeChange}
-                value={state.eventsType}
-                name="eventsType"
+                value={state.eventType}
+                name="eventType"
               >
                 <option value={"All"}>All</option>
                 <option value={"Webinar"}>Webinar</option>
               </select>
             </div>
             <div className="form-group">
-              <label>Type of Services</label>
+              <label>Service Type</label>
               <select
                 className="form-control"
                 onChange={handleTypeOfServicesChange}
-                value={state.typeOfServices}
-                name="typeOfServices"
+                value={state.serviceType}
+                name="serviceType"
               >
                 <option value={"All"}>All</option>
-                <option
-                  key={"Watson Assistant Service"}
-                  value={"Watson Assistant Service"}
-                >
-                  Watson Assistant Service
-                </option>
-                <option
-                  key={"Watson Discovery Service"}
-                  value={"Watson Discovery Service"}
-                >
-                  Watson Discovery Service
-                </option>
+                <option value={"Watson Assistant"}>Watson Assistant</option>
+                <option value={"Watson Discovery"}>Watson Discovery</option>
               </select>
             </div>
           </Col>
@@ -168,8 +158,8 @@ export default () => (
                 title
                 templateKey
                 videoUrl
-                videoType
-                typeOfServices
+                eventType
+                serviceType
                 image {
                   childImageSharp {
                     fluid(maxWidth: 500, quality: 100) {

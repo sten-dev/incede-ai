@@ -8,8 +8,8 @@ const ResourcesEventsReview = ({ entry }) => {
       <ResourcesEventsTemplate
         title={entry.getIn(["data", "title"])}
         videoUrl={entry.getIn(["data", "videoUrl"])}
-        videoType={entry.getIn(["data", "videoType"])}
-        typeOfServices={entry.getIn(["data", "typeOfServices"])}
+        eventType={entry.getIn(["data", "eventType"])}
+        serviceType={entry.getIn(["data", "serviceType"])}
         image={entry.getIn(["data", "image"])}
       />
     </React.Fragment>

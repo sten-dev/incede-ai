@@ -13,9 +13,9 @@ import "../styles/resources.scss";
 export const ResourcesEventsTemplate = ({
   title,
   videoUrl,
-  videoType,
+  eventType,
   image,
-  typeOfServices,
+  serviceType,
 }) => {
   let videoId = videoUrl?.split("v=")[1];
   let ampersandPosition = videoId?.indexOf("&");
@@ -36,11 +36,11 @@ export const ResourcesEventsTemplate = ({
             }}
           >
             <CardTitle style={{ marginBottom: 0, marginTop: 8, fontSize: 20 }}>
-              {videoType}
+              {eventType}
             </CardTitle>
           </div> */}
           <div className="events-type-content">
-            <p className="events-type">{videoType}</p>
+            <p className="events-type">{eventType}</p>
           </div>
           <CardImg
             top
@@ -73,8 +73,8 @@ export const ResourcesEventsTemplate = ({
 ResourcesEventsTemplate.propTypes = {
   title: PropTypes.string,
   videoUrl: PropTypes.string,
-  videoType: PropTypes.string,
-  typeOfServices: PropTypes.string,
+  eventType: PropTypes.string,
+  serviceType: PropTypes.string,
 };
 
 const ResourcesEventsPost = ({ data }) => {
@@ -85,8 +85,8 @@ const ResourcesEventsPost = ({ data }) => {
       <ResourcesEventsTemplate
         title={post.frontmatter.title}
         videoUrl={post.frontmatter.videoUrl}
-        videoType={post.frontmatter.videoType}
-        typeOfServices={post.frontmatter.typeOfServices}
+        eventType={post.frontmatter.eventType}
+        serviceType={post.frontmatter.serviceType}
         image={post.frontmatter.image}
       />
     </Layout>

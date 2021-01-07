@@ -180,17 +180,17 @@ collections:
         }
       - { label: "Title", name: "title", widget: "string" }
       - {
-          label: "Video Type",
-          name: "videoType",
+          label: "Event Type",
+          name: "eventType",
           widget: "select",
           options: ["Webinar"],
         }
       # default: ["Webinar"],
       - {
-          label: "Type of Services",
-          name: "typeOfServices",
+          label: "Service Type",
+          name: "serviceType",
           widget: "select",
-          options: ["Watson Assistant Service", "Watson Discovery Service"],
+          options: ["Watson Assistant", "Watson Discovery"],
         }
       - {
           label: "Video URL",
