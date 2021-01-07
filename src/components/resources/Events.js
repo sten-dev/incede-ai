@@ -13,38 +13,70 @@ const Events = ({ data }) => {
   // const [type, setType] = useState("Webinar");
   const [events, setEvents] = useState(resourcesEvents);
   const [state, setState] = useState({
-    eventsType: "All",
+    videoType: "All",
     typeOfServices: "All",
   });
 
-  const handleChange = (e) => {
+  const handleEventsTypeChange = (e) => {
     setState({
       ...state,
-      [e.target.name]: e.target.value,
+      videoType: e.target.value,
     });
 
-    // let filteredEvents;
-    // if (state.eventsType === "All" && state.typeOfServices === "All") {
-    //   filteredEvents = events;
-    //   // setEvents(events)
-    // } else if (state.eventsType === "All" && state.typeOfServices !== "All") {
-    //   filteredEvents = events?.filter(
-    //     (e) => e.node.frontmatter.typeOfServices === state.typeOfServices
-    //   );
-    //   // setEvents(filteredEvents);
-    // } else if (state.eventsType !== "All" && state.typeOfServices == "All") {
-    //   filteredEvents = events?.filter(
-    //     (e) => e.node.frontmatter.eventsType === state.eventsType
-    //   );
-    // } else {
-    //   let filterEvents = events?.filter(
-    //     (e) => e.node.frontmatter.eventsType === state.eventsType
-    //   );
-    //   filteredEvents = filterEvents?.filter(
-    //     (e) => e.node.frontmatter.typeOfServices === state.typeOfServices
-    //   );
-    // }
-    // setEvents(filteredEvents);
+    console.log("state", state);
+    let filteredEvents;
+    if (e.target.value === "All" && state.typeOfServices === "All") {
+      filteredEvents = resourcesEvents;
+      // setEvents(events)
+    } else if (e.target.value === "All" && state.typeOfServices !== "All") {
+      filteredEvents = resourcesEvents?.filter(
+        (i) => i.node.frontmatter.typeOfServices === state.typeOfServices
+      );
+      // setEvents(filteredEvents);
+    } else if (e.target.value !== "All" && state.typeOfServices == "All") {
+      filteredEvents = resourcesEvents?.filter(
+        (i) => i.node.frontmatter.videoType === e.target.value
+      );
+    } else {
+      let filterEvents = resourcesEvents?.filter(
+        (i) => i.node.frontmatter.videoType === e.target.value
+      );
+      filteredEvents = filterEvents?.filter(
+        (i) => i.node.frontmatter.typeOfServices === state.typeOfServices
+      );
+    }
+    setEvents(filteredEvents);
+  };
+
+  const handleTypeOfServicesChange = (e) => {
+    setState({
+      ...state,
+      typeOfServices: e.target.value,
+    });
+
+    console.log("state", state);
+    let filteredEvents;
+    if (state.videoType === "All" && e.target.value === "All") {
+      filteredEvents = resourcesEvents;
+      // setEvents(events)
+    } else if (state.videoType === "All" && e.target.value !== "All") {
+      filteredEvents = resourcesEvents?.filter(
+        (i) => i.node.frontmatter.typeOfServices === e.target.value
+      );
+      // setEvents(filteredEvents);
+    } else if (state.videoType !== "All" && e.target.value == "All") {
+      filteredEvents = resourcesEvents?.filter(
+        (i) => i.node.frontmatter.videoType === state.videoType
+      );
+    } else {
+      let filterEvents = resourcesEvents?.filter(
+        (i) => i.node.frontmatter.videoType === state.videoType
+      );
+      filteredEvents = filterEvents?.filter(
+        (i) => i.node.frontmatter.typeOfServices === e.target.value
+      );
+    }
+    setEvents(filteredEvents);
   };
 
   return (
@@ -58,7 +90,7 @@ const Events = ({ data }) => {
               <label>Video Type</label>
               <select
                 className="form-control"
-                onChange={handleChange}
+                onChange={handleEventsTypeChange}
                 value={state.eventsType}
                 name="eventsType"
               >
@@ -70,7 +102,7 @@ const Events = ({ data }) => {
               <label>Type of Services</label>
               <select
                 className="form-control"
-                onChange={handleChange}
+                onChange={handleTypeOfServicesChange}
                 value={state.typeOfServices}
                 name="typeOfServices"
               >
@@ -137,7 +169,7 @@ export default () => (
                 templateKey
                 videoUrl
                 videoType
-
+                typeOfServices
                 image {
                   childImageSharp {
                     fluid(maxWidth: 500, quality: 100) {
