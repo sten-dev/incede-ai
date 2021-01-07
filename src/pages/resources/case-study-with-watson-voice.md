@@ -1,7 +1,8 @@
 ---
 templateKey: resources-events
-typeOfServices: Watson Assistant Service
 title: Case study with Watson Voice
+date: 'January 11, 2021 11:00 AM'
+typeOfServices: Watson Assistant Service
 eventType: Webinar
 serviceType: Watson Assistant
 videoUrl: 'https://www.youtube.com/watch?v=LeJc_wzTJJQ'
