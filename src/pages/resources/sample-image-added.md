@@ -1,7 +1,7 @@
 ---
 templateKey: resources-events
 title: Sample Image Added
-date: 'January 12, 2021 12:00 PM'
+date: 'January 14, 2021 12:00 PM'
 typeOfServices: Watson Discovery Service
 eventType: Webinar
 serviceType: Watson Discovery
