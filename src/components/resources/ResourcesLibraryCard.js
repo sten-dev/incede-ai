@@ -8,7 +8,7 @@ import ModalBody from "reactstrap/lib/ModalBody";
 import ModalHeader from "reactstrap/lib/ModalHeader";
 import PreviewCompatibleImage from "../PreviewCompatibleImage";
 
-const ResourcesLibraryCard = ({ title, image, videoUrl, videoType, type }) => {
+const ResourcesLibraryCard = ({ title, image, videoUrl, eventType, type }) => {
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
 
@@ -23,7 +23,7 @@ const ResourcesLibraryCard = ({ title, image, videoUrl, videoType, type }) => {
       <Card>
         {type === "events" && (
           <div className="events-type-content">
-            <p className="events-type">{videoType}</p>
+            <p className="events-type">{eventType}</p>
           </div>
         )}
         {type === "library" && (

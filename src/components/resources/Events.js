@@ -121,7 +121,7 @@ const Events = ({ data }) => {
                       title={rE.node.frontmatter.title}
                       videoUrl={rE.node.frontmatter.videoUrl}
                       image={rE.node.frontmatter.image}
-                      videoType={rE.node.frontmatter.videoType}
+                      eventType={rE.node.frontmatter.eventType}
                       type="events"
                     />
                   </Col>
