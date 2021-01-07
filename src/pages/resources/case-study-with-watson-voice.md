@@ -1,10 +1,11 @@
 ---
 templateKey: resources-events
-eventDate: 2021-01-21T06:00:45.358Z
+eventDate: 'January 22, 2021 11:30 AM'
 date: 'January 14, 2021 11:00 AM'
 typeOfServices: Watson Assistant Service
 title: Case study with Watson Voice
 eventType: Webinar
+timeZone: UTC
 serviceType: Watson Assistant
 videoUrl: 'https://www.youtube.com/watch?v=LeJc_wzTJJQ'
 videoType: Webinar
