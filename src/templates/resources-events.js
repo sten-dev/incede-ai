@@ -18,6 +18,7 @@ export const ResourcesEventsTemplate = ({
   image,
   serviceType,
   eventDate,
+  timeZone,
 }) => {
   let videoId = videoUrl?.split("v=")[1];
   let ampersandPosition = videoId?.indexOf("&");
@@ -68,7 +69,11 @@ export const ResourcesEventsTemplate = ({
           </CardBody> */}
           <CardBody>
             <p className="event-date">
-              {moment.utc(eventDate).format("LL LT Z")}
+              {moment(eventDate).format("LL") +
+                " | " +
+                moment(eventDate).format("LT") +
+                " " +
+                timeZone}
             </p>
           </CardBody>
         </Card>
@@ -83,6 +88,7 @@ ResourcesEventsTemplate.propTypes = {
   eventType: PropTypes.string,
   serviceType: PropTypes.string,
   eventDate: PropTypes.any,
+  timeZone: PropTypes.string,
 };
 
 const ResourcesEventsPost = ({ data }) => {
@@ -97,6 +103,7 @@ const ResourcesEventsPost = ({ data }) => {
         serviceType={post.frontmatter.serviceType}
         image={post.frontmatter.image}
         eventDate={post.frontmatter.eventDate}
+        timeZone={post.frontmatter.timeZone}
       />
     </Layout>
   );

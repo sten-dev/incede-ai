@@ -16,6 +16,7 @@ const ResourcesLibraryCard = ({
   eventType,
   type,
   eventDate,
+  timeZone,
 }) => {
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
@@ -45,7 +46,7 @@ const ResourcesLibraryCard = ({
             <CardImg
               top
               width="100%"
-              height={type === "events" ? "250px" : "300px"}
+              height={type === "events" ? "220px" : "300px"}
               src={`https://img.youtube.com/vi/${videoId}/0.jpg`}
             />
           ) : (
@@ -53,7 +54,7 @@ const ResourcesLibraryCard = ({
               imageInfo={{
                 image: image,
                 alt: "resources",
-                style: { height: type === "events" ? 250 : 300 },
+                style: { height: type === "events" ? 220 : 300 },
               }}
             />
           )}
@@ -88,7 +89,11 @@ const ResourcesLibraryCard = ({
         {type === "events" && (
           <CardBody>
             <p className="event-date">
-              {moment.utc(eventDate).format("LL LT Z")}
+              {moment(eventDate).format("LL") +
+                " | " +
+                moment(eventDate).format("LT") +
+                " " +
+                timeZone}
             </p>
           </CardBody>
         )}

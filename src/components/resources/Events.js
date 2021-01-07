@@ -123,6 +123,7 @@ const Events = ({ data }) => {
                       image={rE.node.frontmatter.image}
                       eventType={rE.node.frontmatter.eventType}
                       eventDate={rE.node.frontmatter.eventDate}
+                      timeZone={rE.node.frontmatter.timeZone}
                       type="events"
                     />
                   </Col>
@@ -162,6 +163,7 @@ export default () => (
                 eventType
                 serviceType
                 eventDate
+                timeZone
                 image {
                   childImageSharp {
                     fluid(maxWidth: 500, quality: 100) {
