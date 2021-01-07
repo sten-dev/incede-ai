@@ -185,7 +185,15 @@ collections:
           widget: "select",
           options: ["Webinar"],
         }
-      # default: ["Webinar"],
+      - {
+          label: "Event Date",
+          name: "eventDate",
+          widget: "datetime",
+          date_format: "DD/MM/YYYY",
+          time_format: "HH:mm Z",
+          # format: "LLL",
+          picker_utc: true,
+        }
       - {
           label: "Service Type",
           name: "serviceType",

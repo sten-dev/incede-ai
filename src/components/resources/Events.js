@@ -122,6 +122,7 @@ const Events = ({ data }) => {
                       videoUrl={rE.node.frontmatter.videoUrl}
                       image={rE.node.frontmatter.image}
                       eventType={rE.node.frontmatter.eventType}
+                      eventDate={rE.node.frontmatter.eventDate}
                       type="events"
                     />
                   </Col>
@@ -160,6 +161,7 @@ export default () => (
                 videoUrl
                 eventType
                 serviceType
+                eventDate
                 image {
                   childImageSharp {
                     fluid(maxWidth: 500, quality: 100) {

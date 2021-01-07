@@ -9,6 +9,7 @@ import CardBody from "reactstrap/lib/CardBody";
 import CardTitle from "reactstrap/lib/CardTitle";
 import CardImg from "reactstrap/lib/CardImg";
 import "../styles/resources.scss";
+import moment from "moment";
 
 export const ResourcesEventsTemplate = ({
   title,
@@ -16,6 +17,7 @@ export const ResourcesEventsTemplate = ({
   eventType,
   image,
   serviceType,
+  eventDate,
 }) => {
   let videoId = videoUrl?.split("v=")[1];
   let ampersandPosition = videoId?.indexOf("&");
@@ -64,6 +66,11 @@ export const ResourcesEventsTemplate = ({
           {/* <CardBody>
             <p className="card-title">{title}</p>
           </CardBody> */}
+          <CardBody>
+            <p className="event-date">
+              {moment.utc(eventDate).format("LL LT Z")}
+            </p>
+          </CardBody>
         </Card>
       </React.Fragment>
     </Transition>
@@ -75,6 +82,7 @@ ResourcesEventsTemplate.propTypes = {
   videoUrl: PropTypes.string,
   eventType: PropTypes.string,
   serviceType: PropTypes.string,
+  eventDate: PropTypes.any,
 };
 
 const ResourcesEventsPost = ({ data }) => {
@@ -88,6 +96,7 @@ const ResourcesEventsPost = ({ data }) => {
         eventType={post.frontmatter.eventType}
         serviceType={post.frontmatter.serviceType}
         image={post.frontmatter.image}
+        eventDate={post.frontmatter.eventDate}
       />
     </Layout>
   );

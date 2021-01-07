@@ -11,6 +11,7 @@ const ResourcesEventsReview = ({ entry }) => {
         eventType={entry.getIn(["data", "eventType"])}
         serviceType={entry.getIn(["data", "serviceType"])}
         image={entry.getIn(["data", "image"])}
+        eventDate={entry.getIn(["data", "eventDate"])}
       />
     </React.Fragment>
   );

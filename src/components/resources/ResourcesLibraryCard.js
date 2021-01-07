@@ -7,8 +7,16 @@ import Modal from "reactstrap/lib/Modal";
 import ModalBody from "reactstrap/lib/ModalBody";
 import ModalHeader from "reactstrap/lib/ModalHeader";
 import PreviewCompatibleImage from "../PreviewCompatibleImage";
+import moment from "moment";
 
-const ResourcesLibraryCard = ({ title, image, videoUrl, eventType, type }) => {
+const ResourcesLibraryCard = ({
+  title,
+  image,
+  videoUrl,
+  eventType,
+  type,
+  eventDate,
+}) => {
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
 
@@ -74,6 +82,13 @@ const ResourcesLibraryCard = ({ title, image, videoUrl, eventType, type }) => {
               {/* <a className="pointer" onClick={toggle}> */}
               {title}
               {/* </a> */}
+            </p>
+          </CardBody>
+        )}
+        {type === "events" && (
+          <CardBody>
+            <p className="event-date">
+              {moment.utc(eventDate).format("LL LT Z")}
             </p>
           </CardBody>
         )}
