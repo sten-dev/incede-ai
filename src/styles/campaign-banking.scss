@@ -1,4 +1,4 @@
-@import '../bs';
+@import "../bs";
 
 .campaign-banking {
   .incede-logo {
@@ -20,6 +20,7 @@
   .body1 {
     background-color: $primary;
     color: $white;
+    margin-top: -20px;
     .title {
       font-size: 50px !important;
       font-weight: bold !important;
@@ -131,6 +132,28 @@
           font-size: 14px;
           line-height: 22px;
           color: #474747;
+        }
+        .form-label {
+          font-size: 18px;
+          font-weight: 500;
+          line-height: 1.5;
+        }
+        .form-checkbox {
+          margin-left: 32px;
+        }
+        .display-flex {
+          display: flex;
+          align-items: baseline;
+        }
+        .others-text {
+          margin-left: 10px;
+        }
+        .error-message {
+          margin-left: inherit;
+          color: maroon;
+        }
+        .mb-5 {
+          margin-bottom: 5px !important;
         }
       }
     }
