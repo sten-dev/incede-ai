@@ -10,6 +10,7 @@ import IndustryMenu from "./static/IndustryMenu";
 import SolutionMenu from "./static/SolutionMenu";
 import WhyIncedeMenu from "./static/WhyIncedeMenu";
 import AboutUsMenu from "./static/AboutUsMenu";
+import ResourceMenu from "./static/ResourceMenu";
 
 class MenuSection extends Component {
   constructor(props) {
@@ -19,38 +20,45 @@ class MenuSection extends Component {
       showService: false,
       showSolution: false,
       showIndustry: false,
+      showResource: false,
       showWhyIncede: false,
-      showAboutUs: false
+      showAboutUs: false,
     };
   }
   showService = () => {
     this.setState({
       showSubMenu: !this.state.showSubMenu,
-      showService: !this.state.showService
+      showService: !this.state.showService,
     });
   };
   showSolution = () => {
     this.setState({
       showSubMenu: !this.state.showSubMenu,
-      showSolution: !this.state.showSolution
+      showSolution: !this.state.showSolution,
     });
   };
   showIndustry = () => {
     this.setState({
       showSubMenu: !this.state.showSubMenu,
-      showIndustry: !this.state.showIndustry
+      showIndustry: !this.state.showIndustry,
+    });
+  };
+  showResource = () => {
+    this.setState({
+      showSubMenu: !this.state.showSubMenu,
+      showResource: !this.state.showResource,
     });
   };
   showWhyIncede = () => {
     this.setState({
       showSubMenu: !this.state.showSubMenu,
-      showWhyIncede: !this.state.showWhyIncede
+      showWhyIncede: !this.state.showWhyIncede,
     });
   };
   showAboutUs = () => {
     this.setState({
       showSubMenu: !this.state.showSubMenu,
-      showAboutUs: !this.state.showAboutUs
+      showAboutUs: !this.state.showAboutUs,
     });
   };
   render() {
@@ -62,7 +70,7 @@ class MenuSection extends Component {
             padding: " 0.5rem 1rem",
             height: "100vh",
             overflow: "auto",
-            color: "#fff"
+            color: "#fff",
           }}
         >
           <div className="m-0 flex-column ">
@@ -108,7 +116,7 @@ class MenuSection extends Component {
                         style={{
                           width: "11px",
                           marginTop: "4px",
-                          transform: "scaleX(-1)"
+                          transform: "scaleX(-1)",
                         }}
                       />
                       &nbsp;&nbsp;
@@ -145,7 +153,7 @@ class MenuSection extends Component {
                         style={{
                           width: "11px",
                           marginTop: "4px",
-                          transform: "scaleX(-1)"
+                          transform: "scaleX(-1)",
                         }}
                       />
                       &nbsp;&nbsp;
@@ -182,7 +190,7 @@ class MenuSection extends Component {
                         style={{
                           width: "11px",
                           marginTop: "4px",
-                          transform: "scaleX(-1)"
+                          transform: "scaleX(-1)",
                         }}
                       />
                       &nbsp;&nbsp;
@@ -205,6 +213,43 @@ class MenuSection extends Component {
             {this.state.showSubMenu && this.state.showIndustry && (
               <React.Fragment>
                 <IndustryMenu />
+              </React.Fragment>
+            )}
+
+            {(!this.state.showSubMenu || this.state.showResource) && (
+              <div className="menu-items">
+                <span onClick={this.showResource} className="d-inline-flex">
+                  {this.state.showResource && (
+                    <React.Fragment>
+                      <img
+                        src={arrow}
+                        alt="next"
+                        style={{
+                          width: "11px",
+                          marginTop: "4px",
+                          transform: "scaleX(-1)",
+                        }}
+                      />
+                      &nbsp;&nbsp;
+                    </React.Fragment>
+                  )}
+                  Resources
+                  {!this.state.showResource && (
+                    <React.Fragment>
+                      &nbsp;&nbsp;
+                      <img
+                        src={arrow}
+                        alt="next"
+                        style={{ width: "11px", marginTop: "4px" }}
+                      />
+                    </React.Fragment>
+                  )}
+                </span>
+              </div>
+            )}
+            {this.state.showSubMenu && this.state.showResource && (
+              <React.Fragment>
+                <ResourceMenu />
               </React.Fragment>
             )}
 

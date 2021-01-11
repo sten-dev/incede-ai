@@ -14,7 +14,7 @@ export const SolutionsPostTemplate = ({
   content,
   contentComponent,
   helmet,
-  slug
+  slug,
 }) => {
   const PageContent = contentComponent || Content;
   return (
@@ -53,7 +53,7 @@ export const SolutionsPostTemplate = ({
 SolutionsPostTemplate.propTypes = {
   title: PropTypes.string,
   subTitle: PropTypes.string,
-  helmet: PropTypes.object
+  helmet: PropTypes.object,
 };
 
 const SolutionsPost = ({ data }) => {
@@ -74,7 +74,7 @@ const SolutionsPost = ({ data }) => {
         title={post.frontmatter.title}
         slug={post.fields.slug
           .split("/")
-          .filter(x => x)
+          .filter((x) => x)
           .pop()}
       />
     </Layout>
@@ -83,8 +83,8 @@ const SolutionsPost = ({ data }) => {
 
 SolutionsPost.propTypes = {
   data: PropTypes.shape({
-    markdownRemark: PropTypes.object
-  })
+    markdownRemark: PropTypes.object,
+  }),
 };
 
 export default SolutionsPost;
