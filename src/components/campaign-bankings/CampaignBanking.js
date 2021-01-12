@@ -57,9 +57,9 @@ const CampaignBanking = () => {
     EMAIL: "",
     PHONE: "",
     TYPE: "banking",
-    INDUSTRIES: [],
+    INDUSTRIES_INTERESTED_IN: [],
     MOST_USEFUL: [],
-    SOLUTIONS: [],
+    SOLUTIONS_INTERESTED_IN: [],
     INDUSTRIES_OTHERS_TEXT: "",
   });
 
@@ -71,16 +71,18 @@ const CampaignBanking = () => {
     setRegister({ ...register, [event.target.name]: event.target.value });
   };
   const handleCheckboxChange = (event) => {
-    if (event.target.name === "INDUSTRIES") {
-      let INDUSTRIES = [...register.INDUSTRIES];
-      if (INDUSTRIES.includes(event.target.value)) {
-        let index = INDUSTRIES.findIndex((i) => i === event.target.value);
-        INDUSTRIES.splice(index, 1);
+    if (event.target.name === "INDUSTRIES_INTERESTED_IN") {
+      let INDUSTRIES_INTERESTED_IN = [...register.INDUSTRIES_INTERESTED_IN];
+      if (INDUSTRIES_INTERESTED_IN.includes(event.target.value)) {
+        let index = INDUSTRIES_INTERESTED_IN.findIndex(
+          (i) => i === event.target.value
+        );
+        INDUSTRIES_INTERESTED_IN.splice(index, 1);
       } else {
-        INDUSTRIES.push(event.target.value);
+        INDUSTRIES_INTERESTED_IN.push(event.target.value);
       }
-      console.log("industries", INDUSTRIES);
-      setRegister({ ...register, INDUSTRIES });
+      console.log("INDUSTRIES_INTERESTED_IN", INDUSTRIES_INTERESTED_IN);
+      setRegister({ ...register, INDUSTRIES_INTERESTED_IN });
     } else if (event.target.name === "MOST_USEFUL") {
       let MOST_USEFUL = [...register.MOST_USEFUL];
       if (MOST_USEFUL.includes(event.target.value)) {
@@ -92,15 +94,17 @@ const CampaignBanking = () => {
       console.log("most-useful", MOST_USEFUL);
       setRegister({ ...register, MOST_USEFUL });
     } else {
-      let SOLUTIONS = [...register.SOLUTIONS];
-      if (SOLUTIONS.includes(event.target.value)) {
-        let index = SOLUTIONS.findIndex((s) => s === event.target.value);
-        SOLUTIONS.splice(index, 1);
+      let SOLUTIONS_INTERESTED_IN = [...register.SOLUTIONS_INTERESTED_IN];
+      if (SOLUTIONS_INTERESTED_IN.includes(event.target.value)) {
+        let index = SOLUTIONS_INTERESTED_IN.findIndex(
+          (s) => s === event.target.value
+        );
+        SOLUTIONS_INTERESTED_IN.splice(index, 1);
       } else {
-        SOLUTIONS.push(event.target.value);
+        SOLUTIONS_INTERESTED_IN.push(event.target.value);
       }
-      console.log("solutions", SOLUTIONS);
-      setRegister({ ...register, SOLUTIONS });
+      console.log("SOLUTIONS_INTERESTED_IN", SOLUTIONS_INTERESTED_IN);
+      setRegister({ ...register, SOLUTIONS_INTERESTED_IN });
     }
   };
   const handleSubmit = async (event) => {
@@ -108,16 +112,18 @@ const CampaignBanking = () => {
     event.preventDefault();
 
     let result;
-    if (register.INDUSTRIES?.includes("Others")) {
+    if (register.INDUSTRIES_INTERESTED_IN?.includes("Others")) {
       if (register.INDUSTRIES_OTHERS_TEXT === "") {
         setShowErrorMessage(true);
         setTimeout(() => {
           setShowErrorMessage(false);
         }, 5000);
       } else {
-        let index = register.INDUSTRIES.findIndex((i) => i === "Others");
-        register.INDUSTRIES.splice(index, 1);
-        register.INDUSTRIES.push(register.INDUSTRIES_OTHERS_TEXT);
+        let index = register.INDUSTRIES_INTERESTED_IN.findIndex(
+          (i) => i === "Others"
+        );
+        register.INDUSTRIES_INTERESTED_IN.splice(index, 1);
+        register.INDUSTRIES_INTERESTED_IN.push(register.INDUSTRIES_OTHERS_TEXT);
         setLoading(true);
         result = await registerForWebinar(register);
       }
@@ -448,7 +454,7 @@ const CampaignBanking = () => {
                             <Input
                               onChange={handleCheckboxChange}
                               type="checkbox"
-                              name="INDUSTRIES"
+                              name="INDUSTRIES_INTERESTED_IN"
                               value="Retail/Distribution"
                             />{" "}
                             Retail/Distribution
@@ -459,7 +465,7 @@ const CampaignBanking = () => {
                             <Input
                               onChange={handleCheckboxChange}
                               type="checkbox"
-                              name="INDUSTRIES"
+                              name="INDUSTRIES_INTERESTED_IN"
                               value="Industrial/Manufacturing"
                             />{" "}
                             Industrial/Manufacturing
@@ -470,7 +476,7 @@ const CampaignBanking = () => {
                             <Input
                               onChange={handleCheckboxChange}
                               type="checkbox"
-                              name="INDUSTRIES"
+                              name="INDUSTRIES_INTERESTED_IN"
                               value="Banking"
                             />{" "}
                             Banking
@@ -481,7 +487,7 @@ const CampaignBanking = () => {
                             <Input
                               onChange={handleCheckboxChange}
                               type="checkbox"
-                              name="INDUSTRIES"
+                              name="INDUSTRIES_INTERESTED_IN"
                               value="Insurance"
                             />{" "}
                             Insurance
@@ -492,7 +498,7 @@ const CampaignBanking = () => {
                             <Input
                               onChange={handleCheckboxChange}
                               type="checkbox"
-                              name="INDUSTRIES"
+                              name="INDUSTRIES_INTERESTED_IN"
                               value="Communications"
                             />{" "}
                             Communications
@@ -503,7 +509,7 @@ const CampaignBanking = () => {
                             <Input
                               onChange={handleCheckboxChange}
                               type="checkbox"
-                              name="INDUSTRIES"
+                              name="INDUSTRIES_INTERESTED_IN"
                               value="Services"
                             />{" "}
                             Services
@@ -514,7 +520,7 @@ const CampaignBanking = () => {
                             <Input
                               onChange={handleCheckboxChange}
                               type="checkbox"
-                              name="INDUSTRIES"
+                              name="INDUSTRIES_INTERESTED_IN"
                               value="Others"
                             />{" "}
                             Others:
@@ -609,7 +615,7 @@ const CampaignBanking = () => {
                             <Input
                               onChange={handleCheckboxChange}
                               type="checkbox"
-                              name="SOLUTIONS"
+                              name="SOLUTIONS_INTERESTED_IN"
                               value="Watson Assistant"
                             />{" "}
                             Watson Assistant
@@ -620,7 +626,7 @@ const CampaignBanking = () => {
                             <Input
                               onChange={handleCheckboxChange}
                               type="checkbox"
-                              name="SOLUTIONS"
+                              name="SOLUTIONS_INTERESTED_IN"
                               value="Watson Discovery"
                             />{" "}
                             Watson Discovery
@@ -631,7 +637,7 @@ const CampaignBanking = () => {
                             <Input
                               onChange={handleCheckboxChange}
                               type="checkbox"
-                              name="SOLUTIONS"
+                              name="SOLUTIONS_INTERESTED_IN"
                               value="Watson API"
                             />{" "}
                             Watson API
@@ -642,7 +648,7 @@ const CampaignBanking = () => {
                             <Input
                               onChange={handleCheckboxChange}
                               type="checkbox"
-                              name="SOLUTIONS"
+                              name="SOLUTIONS_INTERESTED_IN"
                               value="Customer Service"
                             />{" "}
                             Customer Service
@@ -653,7 +659,7 @@ const CampaignBanking = () => {
                             <Input
                               onChange={handleCheckboxChange}
                               type="checkbox"
-                              name="SOLUTIONS"
+                              name="SOLUTIONS_INTERESTED_IN"
                               value="Human Resources"
                             />{" "}
                             Human Resources
@@ -664,7 +670,7 @@ const CampaignBanking = () => {
                             <Input
                               onChange={handleCheckboxChange}
                               type="checkbox"
-                              name="SOLUTIONS"
+                              name="SOLUTIONS_INTERESTED_IN"
                               value="IT service desk"
                             />{" "}
                             IT service desk
@@ -675,7 +681,7 @@ const CampaignBanking = () => {
                             <Input
                               onChange={handleCheckboxChange}
                               type="checkbox"
-                              name="SOLUTIONS"
+                              name="SOLUTIONS_INTERESTED_IN"
                               value="Sales Support Solutions"
                             />{" "}
                             Sales Support Solutions
