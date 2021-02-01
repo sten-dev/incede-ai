@@ -121,7 +121,7 @@ class BotSection extends Component {
     });
 
     await this.initializeSocketIo();
-    await this.initializeDemoSocket();
+    // await this.initializeDemoSocket();
   };
 
   /********************************************Text to Speech ************************************************************* */
@@ -1030,7 +1030,7 @@ class BotSection extends Component {
     let messages = [...this.state.messages];
     if (!this.state.isLoading) {
       let demoProperty = localStorage.getItem('demoProperty');
-      if (this.state.isDemo && demoProperty === 'Customer Service') {
+      if (this.state.isDemo && demoProperty === 'Customer Service Demo') {
         if (!this.demoSocket) {
           this.resetLocalStorage(true);
           this.demoSocket.connect();
