@@ -1069,7 +1069,7 @@ class BotSection extends Component {
       if (
         shouldAddToMessages &&
         data &&
-        data.demoProperty === 'Customer Service'
+        data.demoProperty === 'Customer Service Demo'
       ) {
         messages.push({ user: 'ME', message: message, type: 'text' });
       }
