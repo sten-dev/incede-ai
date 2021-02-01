@@ -278,7 +278,7 @@ class INavbar extends Component {
               <IndustryMenu />
             </PopoverBody>
           </Popover>
-          <Popover
+          {/* <Popover
             boundariesElement="window"
             placement="bottom"
             isOpen={this.state.isResourcesMenuOpen}
@@ -286,11 +286,10 @@ class INavbar extends Component {
             toggle={this.toggleResourcesMenu}
             trigger="legacy"
           >
-            {/* <PopoverHeader>Popover Title</PopoverHeader> */}
             <PopoverBody>
               <ResourceMenu />
             </PopoverBody>
-          </Popover>
+          </Popover> */}
 
           {/* <Popover
                 boundariesElement="window"
