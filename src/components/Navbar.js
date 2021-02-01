@@ -164,8 +164,8 @@ class INavbar extends Component {
                     Solutions{" "}
                     <img
                       className={`${this.state.isSolutionsMenuOpen
-                          ? "active-what-we-do"
-                          : ""
+                        ? "active-what-we-do"
+                        : ""
                         }`}
                       alt="send"
                       src={dropdown}
@@ -178,8 +178,8 @@ class INavbar extends Component {
                     Industries{" "}
                     <img
                       className={`${this.state.isIndustriesMenuOpen
-                          ? "active-what-we-do"
-                          : ""
+                        ? "active-what-we-do"
+                        : ""
                         }`}
                       alt="send"
                       src={dropdown}
@@ -187,7 +187,7 @@ class INavbar extends Component {
                     />{" "}
                   </a>
                 </NavItem>
-                <NavItem id="menu_resources" className="btn">
+                {/* <NavItem id="menu_resources" className="btn">
                   <a>
                     Resources{" "}
                     <img
@@ -200,7 +200,7 @@ class INavbar extends Component {
                     // onClick={props.onClick}
                     />{" "}
                   </a>
-                </NavItem>
+                </NavItem> */}
 
                 <NavItem id="menu_why_incede" className="btn">
                   <Link activeClassName="selected" to="/why-incede">
