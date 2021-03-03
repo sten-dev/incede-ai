@@ -5,11 +5,11 @@ import { ResourcesLibraryTemplate } from "../../templates/resources-library";
 const ResourcesLibraryReview = ({ entry }) => {
   return (
     <React.Fragment>
-      <ResourcesLibraryTemplate
+      {/* <ResourcesLibraryTemplate
         title={entry.getIn(["data", "title"])}
         videoUrl={entry.getIn(["data", "videoUrl"])}
         image={entry.getIn(["data", "image"])}
-      />
+      /> */}
     </React.Fragment>
   );
 };

@@ -19,12 +19,12 @@ const ResourceLibrary = ({ data }) => {
             <Row>
               {resourcesLibrary.map((rL) => (
                 <Col xs={12} sm={6} md={6} lg={4} className="mt-16">
-                  <ResourcesLibraryCard
+                  {/* <ResourcesLibraryCard
                     title={rL.node.frontmatter.title}
                     videoUrl={rL.node.frontmatter.videoUrl}
                     image={rL.node.frontmatter.image}
                     type="library"
-                  />
+                  /> */}
                 </Col>
               ))}
             </Row>
@@ -63,7 +63,6 @@ export default () => (
               frontmatter {
                 title
                 templateKey
-                videoUrl
                 image {
                   childImageSharp {
                     fluid(maxWidth: 500, quality: 100) {

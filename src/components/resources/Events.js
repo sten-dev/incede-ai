@@ -118,7 +118,7 @@ const Events = ({ data }) => {
                 <Row>
                   {events.map((rE) => (
                     <Col xs={12} sm={6} md={6} lg={4} className="mt-16">
-                      <ResourcesLibraryCard
+                      {/* <ResourcesLibraryCard
                         title={rE.node.frontmatter.title}
                         videoUrl={rE.node.frontmatter.videoUrl}
                         image={rE.node.frontmatter.image}
@@ -126,7 +126,7 @@ const Events = ({ data }) => {
                         eventDate={rE.node.frontmatter.eventDate}
                         timeZone={rE.node.frontmatter.timeZone}
                         type="events"
-                      />
+                      /> */}
                     </Col>
                   ))}
                 </Row>
@@ -167,7 +167,6 @@ export default () => (
               frontmatter {
                 title
                 templateKey
-                videoUrl
                 eventType
                 serviceType
                 eventDate
