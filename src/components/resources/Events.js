@@ -167,7 +167,6 @@ export default () => (
               frontmatter {
                 title
                 templateKey
-                eventType
                 serviceType
                 eventDate
                 timeZone
