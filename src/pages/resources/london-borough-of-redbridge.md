@@ -178,10 +178,8 @@ Roman’s Pizza is also impressed with the capabilities of the underlying Watson
 
 Roman’s Pizza (external link) is a restaurant chain that is well known for its two-for-one pizza promotions. Originally founded in 1993 as Little Caesar’s, the business rebranded to the Roman’s Pizza name in 2002. It is currently headquartered in Johannesburg, South Africa and maintains over 230 restaurant locations, spread throughout the country.
 
-
-
 **AboutIncede.ai**
 
 *[Incede.ai](https://www.incede.ai)* is the AI division of *[Locus Solutions, Inc](http://www.locussolutions.com)*. harnessing the power of Data, AI and Machine Learning
 
-With more than half of the world’s data in natural language, Incede.ai solves business problems and create a competitive advantage by leveraging the power of *[Watson AI](https://www.ibm.com/watson)* and machine learning. As thought leaders, we collaborate with stakeholders to deploy AI solutions that deliver real value.
+With more than half of the world’s data in natural language, Incede.ai solves business problems and create a competitive advantage by leveraging the power of Watson AI and machine learning. As thought leaders, we collaborate with stakeholders to deploy AI solutions that deliver real value.
