@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { ResourcesEventsTemplate } from "../../templates/resources-events";
+// import { ResourcesEventsTemplate } from "../../templates/resources-events";
 
 const ResourcesEventsReview = ({ entry }) => {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { ResourcesLibraryTemplate } from "../../templates/resources-library";
+// import { ResourcesLibraryTemplate } from "../../templates/resources-library";
 
 const ResourcesLibraryReview = ({ entry }) => {
   return (
