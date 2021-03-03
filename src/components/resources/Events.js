@@ -114,29 +114,21 @@ const Events = ({ data }) => {
           </Col>
           <Col xs={12} sm={12} md={9} lg={9}>
             <div className="bg-grey">
-              {events.length > 0 ? (
-                <Row>
-                  {events.map((rE) => (
-                    <Col xs={12} sm={6} md={6} lg={4} className="mt-16">
-                      {/* <ResourcesLibraryCard
-                        title={rE.node.frontmatter.title}
-                        videoUrl={rE.node.frontmatter.videoUrl}
-                        image={rE.node.frontmatter.image}
-                        eventType={rE.node.frontmatter.eventType}
-                        eventDate={rE.node.frontmatter.eventDate}
-                        timeZone={rE.node.frontmatter.timeZone}
-                        type="events"
-                      /> */}
-                    </Col>
-                  ))}
-                </Row>
-              ) : (
-                  <Row>
-                    <Col xs={12}>
-                      <h2 className="text-center">No data found</h2>
-                    </Col>
-                  </Row>
-                )}
+              <Row>
+                {events.map((rE) => (
+                  <Col xs={12} sm={6} md={6} lg={4} className="mt-16">
+                    <ResourcesLibraryCard
+                      title={rE.node.frontmatter.title}
+                      videoUrl={rE.node.frontmatter.videoUrl}
+                      image={rE.node.frontmatter.image}
+                      eventType={rE.node.frontmatter.eventType}
+                      eventDate={rE.node.frontmatter.eventDate}
+                      timeZone={rE.node.frontmatter.timeZone}
+                      type="events"
+                    />
+                  </Col>
+                ))}
+              </Row>
             </div>
           </Col>
         </Row>
@@ -153,36 +145,40 @@ Events.propTypes = {
   }),
 };
 
-export default () => (
-  <StaticQuery
-    query={graphql`
-      query EventsQuery {
-        allMarkdownRemark(
-          filter: { frontmatter: { templateKey: { eq: "resources-events" } } }
-        ) {
-          edges {
-            node {
-              excerpt(pruneLength: 400)
-              id
-              frontmatter {
-                title
-                templateKey
-                serviceType
-                eventDate
-                timeZone
-                image {
-                  childImageSharp {
-                    fluid(maxWidth: 500, quality: 100) {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    `}
-    render={(data) => <Events data={data} />}
-  />
-);
+export default Events;
+
+// export default () => (
+//   <StaticQuery
+//     query={graphql`
+//       query EventsQuery {
+//         allMarkdownRemark(
+//           filter: { frontmatter: { templateKey: { eq: "resources-events" } } }
+//         ) {
+//           edges {
+//             node {
+//               excerpt(pruneLength: 400)
+//               id
+//               frontmatter {
+//                 title
+//                 templateKey
+//                 videoUrl
+//                 eventType
+//                 serviceType
+//                 eventDate
+//                 timeZone
+//                 image {
+//                   childImageSharp {
+//                     fluid(maxWidth: 500, quality: 100) {
+//                       ...GatsbyImageSharpFluid
+//                     }
+//                   }
+//                 }
+//               }
+//             }
+//           }
+//         }
+//       }
+//     `}
+//     render={(data) => <Events data={data} />}
+//   />
+// );

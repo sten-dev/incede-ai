@@ -49,33 +49,35 @@ ResourceLibrary.propTypes = {
   }),
 };
 
-export default () => (
-  <StaticQuery
-    query={graphql`
-      query ResourceLibraryQuery {
-        allMarkdownRemark(
-          filter: { frontmatter: { templateKey: { eq: "resources-library" } } }
-        ) {
-          edges {
-            node {
-              excerpt(pruneLength: 400)
-              id
-              frontmatter {
-                title
-                templateKey
-                image {
-                  childImageSharp {
-                    fluid(maxWidth: 500, quality: 100) {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    `}
-    render={(data) => <ResourceLibrary data={data} />}
-  />
-);
+export default ResourceLibrary;
+
+// export default () => (
+//   <StaticQuery
+//     query={graphql`
+//       query ResourceLibraryQuery {
+//         allMarkdownRemark(
+//           filter: { frontmatter: { templateKey: { eq: "resources-library" } } }
+//         ) {
+//           edges {
+//             node {
+//               excerpt(pruneLength: 400)
+//               id
+//               frontmatter {
+//                 title
+//                 templateKey
+//                 image {
+//                   childImageSharp {
+//                     fluid(maxWidth: 500, quality: 100) {
+//                       ...GatsbyImageSharpFluid
+//                     }
+//                   }
+//                 }
+//               }
+//             }
+//           }
+//         }
+//       }
+//     `}
+//     render={(data) => <ResourceLibrary data={data} />}
+//   />
+// );
