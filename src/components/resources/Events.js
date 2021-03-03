@@ -114,21 +114,29 @@ const Events = ({ data }) => {
           </Col>
           <Col xs={12} sm={12} md={9} lg={9}>
             <div className="bg-grey">
-              <Row>
-                {events.map((rE) => (
-                  <Col xs={12} sm={6} md={6} lg={4} className="mt-16">
-                    <ResourcesLibraryCard
-                      title={rE.node.frontmatter.title}
-                      videoUrl={rE.node.frontmatter.videoUrl}
-                      image={rE.node.frontmatter.image}
-                      eventType={rE.node.frontmatter.eventType}
-                      eventDate={rE.node.frontmatter.eventDate}
-                      timeZone={rE.node.frontmatter.timeZone}
-                      type="events"
-                    />
-                  </Col>
-                ))}
-              </Row>
+              {events.length > 0 ? (
+                <Row>
+                  {events.map((rE) => (
+                    <Col xs={12} sm={6} md={6} lg={4} className="mt-16">
+                      <ResourcesLibraryCard
+                        title={rE.node.frontmatter.title}
+                        videoUrl={rE.node.frontmatter.videoUrl}
+                        image={rE.node.frontmatter.image}
+                        eventType={rE.node.frontmatter.eventType}
+                        eventDate={rE.node.frontmatter.eventDate}
+                        timeZone={rE.node.frontmatter.timeZone}
+                        type="events"
+                      />
+                    </Col>
+                  ))}
+                </Row>
+              ) : (
+                  <Row>
+                    <Col xs={12}>
+                      <h2 className="text-center">No data found</h2>
+                    </Col>
+                  </Row>
+                )}
             </div>
           </Col>
         </Row>

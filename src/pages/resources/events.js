@@ -12,7 +12,7 @@ const Events = () => {
         <section className="industry-solution">
           <ResourceHeader />
           <Container>
-            <Event />
+            {/* <Event /> */}
           </Container>
         </section>
       </Transition>

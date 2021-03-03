@@ -15,18 +15,26 @@ const ResourceLibrary = ({ data }) => {
       <Container>
         <h1 className="text-left heading mb-5">Resource Library</h1>
         <div className="bg-grey">
-          <Row>
-            {resourcesLibrary.map((rL) => (
-              <Col xs={12} sm={6} md={6} lg={4} className="mt-16">
-                <ResourcesLibraryCard
-                  title={rL.node.frontmatter.title}
-                  videoUrl={rL.node.frontmatter.videoUrl}
-                  image={rL.node.frontmatter.image}
-                  type="library"
-                />
-              </Col>
-            ))}
-          </Row>
+          {resourcesLibrary.length > 0 ? (
+            <Row>
+              {resourcesLibrary.map((rL) => (
+                <Col xs={12} sm={6} md={6} lg={4} className="mt-16">
+                  <ResourcesLibraryCard
+                    title={rL.node.frontmatter.title}
+                    videoUrl={rL.node.frontmatter.videoUrl}
+                    image={rL.node.frontmatter.image}
+                    type="library"
+                  />
+                </Col>
+              ))}
+            </Row>
+          ) : (
+              <Row>
+                <Col xs={12}>
+                  <h2 className="text-center">No data found</h2>
+                </Col>
+              </Row>
+            )}
         </div>
       </Container>
     </section>

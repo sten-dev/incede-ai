@@ -16,19 +16,27 @@ const ResourcesCaseStudies = ({ data }) => {
       <Container>
         <h1 className="text-left heading mb-5">Case Studies</h1>
         <div className="bg-grey">
-          <Row>
-            {caseStudies.map((caseStudy) => (
-              <Col xs="12" sm="6" md="6" lg="4" className="mt-16 ">
-                <CaseStudyCard
-                  title={caseStudy.node.frontmatter.title}
-                  description={caseStudy.node.frontmatter.subTitle}
-                  image={caseStudy.node.frontmatter.image}
-                  slug={caseStudy.node.fields.slug}
-                  type={true}
-                />
-              </Col>
-            ))}
-          </Row>
+          {caseStudies.length > 0 ? (
+            <Row>
+              {caseStudies.map((caseStudy) => (
+                <Col xs="12" sm="6" md="6" lg="4" className="mt-16 ">
+                  <CaseStudyCard
+                    title={caseStudy.node.frontmatter.title}
+                    description={caseStudy.node.frontmatter.subTitle}
+                    image={caseStudy.node.frontmatter.image}
+                    slug={caseStudy.node.fields.slug}
+                    type={true}
+                  />
+                </Col>
+              ))}
+            </Row>
+          ) : (
+              <Row>
+                <Col xs={12}>
+                  <h2 className="text-center">No data found</h2>
+                </Col>
+              </Row>
+            )}
         </div>
       </Container>
     </section>

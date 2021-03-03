@@ -4,8 +4,8 @@ import ScrollMenu from "react-horizontal-scrolling-menu";
 import ResourceImage from "../../img/industry-solution/banner-industry.png";
 
 let list = [
-  { name: "Resource Library" },
-  { name: "Events" },
+  // { name: "Resource Library" },
+  // { name: "Events" },
   { name: "Case Studies" },
 ];
 
@@ -113,7 +113,7 @@ export class ResourceHeader extends Component {
           </Row>
         </Container>
 
-        <Container fluid className="section-tabs-container">
+        {/* <Container fluid className="section-tabs-container">
           <Container>
             <ScrollMenu
               alignCenter={this.state.alignCenter}
@@ -133,7 +133,7 @@ export class ResourceHeader extends Component {
               wheel={this.state.wheel}
             />
           </Container>
-        </Container>
+        </Container> */}
       </section>
     );
   }

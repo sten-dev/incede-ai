@@ -11,12 +11,12 @@ export default class ResourceMenu extends Component {
   render() {
     return (
       <ul className="menu-links">
-        <li>
+        {/* <li>
           <Link to="/resources/resource-library">Resource Library</Link>
         </li>
         <li>
           <Link to="/resources/events">Events</Link>
-        </li>
+        </li> */}
         <li>
           <Link to="/resources/case-studies">Case Studies</Link>
         </li>

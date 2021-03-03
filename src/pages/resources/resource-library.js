@@ -12,7 +12,7 @@ const ResourceLibrary = () => {
         <section className="industry-solution">
           <ResourceHeader />
           <Container>
-            <ResourcesLibrary />
+            {/* <ResourcesLibrary /> */}
           </Container>
         </section>
       </Transition>

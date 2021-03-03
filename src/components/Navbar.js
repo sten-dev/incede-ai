@@ -187,20 +187,20 @@ class INavbar extends Component {
                     />{" "}
                   </a>
                 </NavItem>
-                {/* <NavItem id="menu_resources" className="btn">
+                <NavItem id="menu_resources" className="btn">
                   <a>
                     Resources{" "}
                     <img
                       className={`${this.state.isResourcesMenuOpen
-                          ? "active-what-we-do"
-                          : ""
+                        ? "active-what-we-do"
+                        : ""
                         }`}
                       alt="send"
                       src={dropdown}
                     // onClick={props.onClick}
                     />{" "}
                   </a>
-                </NavItem> */}
+                </NavItem>
 
                 <NavItem id="menu_why_incede" className="btn">
                   <Link activeClassName="selected" to="/why-incede">
@@ -278,7 +278,7 @@ class INavbar extends Component {
               <IndustryMenu />
             </PopoverBody>
           </Popover>
-          {/* <Popover
+          <Popover
             boundariesElement="window"
             placement="bottom"
             isOpen={this.state.isResourcesMenuOpen}
@@ -289,7 +289,7 @@ class INavbar extends Component {
             <PopoverBody>
               <ResourceMenu />
             </PopoverBody>
-          </Popover> */}
+          </Popover>
 
           {/* <Popover
                 boundariesElement="window"
