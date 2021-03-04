@@ -10,35 +10,25 @@ The bank, Credito Valtellinese, turned to its internal service unit, Creval Sist
 
 *“The insights we’ve gained through cognitive technology have been central to our efforts to become a more customer-centric bank.” - Matteo Pizzicoli, Head of Organization and Enterprise Architecture, Creval Sistemi e Servizi*
 
-
-
 **Business challenge**
 
 Credito Valtellinese is staking its future on a strategic transformation based on a simple but powerful theme: growth through customer-centric banking.
-
-
 
 **Transformation**
 
 CSS built a comprehensive marketing automation and campaign management solution that the bank is using to deliver precisely targeted promotion to the segments most likely to convert.
 
-
-
 **Results**
 
-**10% increase**in outbound marketing campaign conversion rates
+**10% increase** in outbound marketing campaign conversion rates
 
-**2% boost**in incremental revenue through increased revenue per customer
+**2% boost** in incremental revenue through increased revenue per customer
 
-**Increased agility and efficiency**by making the marketing department more self-sufficient in performing analytics
-
-
+**Increased agility and efficiency** by making the marketing department more self-sufficient in performing analytics
 
 **Solution components**
 
 Watson Discovery
-
-
 
 **Business challenge story**
 
@@ -49,8 +39,6 @@ To reposition itself for growth, Credito Valtellinese launched a strategic initi
 Credito Valtellinese needed to build the analytical foundation for understanding its customers’ behaviors and needs with a new level of depth and granularity. The easily accessible structured data-the low-hanging fruit-provided relatively little value. The information with the most significant insight value was scattered within the bank’s unstructured customer data sources, which had been impossible to extract and exploit.
 
 Lastly, it was essential that whatever new solution and process came out of the project would enable the marketing department to be virtually self-sufficient in the area of analytics. Dissolving the marketing department’s reliance on IT would drastically shorten what had been an unacceptable lag time, one that had made it extremely challenging to seize short-term market opportunities.
-
-
 
 **Transformation**
 
@@ -74,18 +62,12 @@ Prior to the project, the marketing department was fully dependent on the bank�
 
 The solution employs both structured and unstructured data from internal sources within the bank, principally the company’s core banking systems and customer account activity databases.
 
-
-
 **About Creval Sistemi e Servizi**
 
 Based in Sondrio, Italy, Credito Valtellinese is a retail bank with over 500 local branches, approximately 4,000 employees and assets of USD 28.6 billion as of 2015. The bank’s customer base mainly comprises households, small midsize businesses, artisans, professionals and nonprofit organizations. Creval Sistemi e Servizi (CSS), a fully owned subsidiary, provides a range of services in areas such as IT, banking process optimization, back-office operations and real estate to the bank and the broader market.
 
+**About Incede.ai**
 
+[Incede.ai](https://www.incede.ai) is the AI division of [Locus Solutions, Inc.](http://www.locussolutions.com); harnessing the power of Data, AI and Machine Learning
 
-**AboutIncede.ai**
-
-[Incede.ai](https://www.incede.ai)is the AI division of[Locus Solutions, Inc.](http://www.locussolutions.com); harnessing the power of Data, AI and Machine Learning
-
-
-
-With more than half of the world’s data in natural language, Incede.ai solves business problems and creates a competitive advantage by leveraging the power of[Watson AI](https://www.ibm.com/watson)and machine learning.As thought leaders, we collaborate with stakeholders to deploy AI solutions that deliver real value.
+With more than half of the world’s data in natural language, Incede.ai solves business problems and creates a competitive advantage by leveraging the power of [Watson AI](https://www.ibm.com/watson) and machine learning.As thought leaders, we collaborate with stakeholders to deploy AI solutions that deliver real value.
