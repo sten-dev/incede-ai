@@ -92,6 +92,6 @@ Designed by Kio Artificial Intelligence S.L., a Spanish company specializing in 
 
 **About Incede.ai**
 
-[Incede.ai](https://www.incede.ai)is the AI division of[Locus Solutions, Inc](http://www.locussolutions.com).; harnessing the power of Data, AI and Machine Learning
+[Incede.ai](https://www.incede.ai) is the AI division of [Locus Solutions, Inc](http://www.locussolutions.com).; harnessing the power of Data, AI and Machine Learning
 
 With more than half of the world’s data in natural language, Incede.ai solves business problems and creates a competitive advantage by leveraging the power of [Watson AI](https://www.ibm.com/watson) and machine learning.As thought leaders, we collaborate with stakeholders to deploy AI solutions that deliver real value.
