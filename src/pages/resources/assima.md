@@ -20,11 +20,11 @@ Assima helps create smarter employees, arming them with an intelligent applicati
 
 **Results**
 
-**500%**reduction in time-to-market by moving to IBM Cloud
+**500%** reduction in time-to-market by moving to IBM Cloud
 
-**Zero**interruptions in service strengthen customer satisfaction and retention
+**Zero** interruptions in service strengthen customer satisfaction and retention
 
-**40%**increase in engagement from new and existing clients since adoption of AI began
+**40%** increase in engagement from new and existing clients since adoption of AI began
 
 **Solution components**
 
@@ -56,7 +56,7 @@ He continues: “Assima has always been known for its innovative, intelligent te
 
 Eleni Iatridis, Chief Learning Officer at Assima, picks up the story: “The Watson Build Challenge was a chance to compete for access to IBM support and tools, and to gain recognition for our cognitive solutions by building an AI-enhanced prototype. The concept we presented was an extension to our existing application overlay solution. Powered with Watson AI services, it goes beyond giving role-based information to provide users with intelligent responses and recommendations as they work, to improve and accelerate their decision-making. From 400 entries, our submission was judged the second best in Europe, an exciting achievement.”
 
-Today, Assima is further developing its cognitive solutions and has harnessed[IBM Watson Assistant](https://www.ibm.com/watson/services/conversation/)to enable its solutions to communicate with users via a chatbot in natural language. Assima is also leveraging data from[the Weather Company](https://www.ibm.com/weather)®, an IBM Business, to facilitate weather-based recommendations. Soon, Assima plans to incorporate Personality Insights and Tone Analyzer.
+Today, Assima is further developing its cognitive solutions and has harnessed [IBM Watson Assistant](https://www.ibm.com/watson/services/conversation/) to enable its solutions to communicate with users via a chatbot in natural language. Assima is also leveraging data from [the Weather Company](https://www.ibm.com/weather)®, an IBM Business, to facilitate weather-based recommendations. Soon, Assima plans to incorporate Personality Insights and Tone Analyzer.
 
 “With help from IBM, we are adding chatbot capabilities and increasing personalization, to help enhance user performance even further,” explains Eleni Iatridis. “The use cases are numerous. For example, if an employee is struggling with the next step in a process, our digital agent intervenes with the relevant help documents and even performs tasks automatically for them.
 
@@ -82,10 +82,8 @@ Eleni Iatridis concludes: “IBM Watson solutions are helping us deliver ‘augm
 
 Established in 2002, Assima provides technology and services that help to improve user performance and increase business efficiency. It supports its global blue-chip clients with operations in 11 countries in Europe, North America and Africa, and through strategic partnerships with consulting companies.
 
-**AboutIncede.ai**
+**About Incede.ai**
 
-[Incede.ai](https://www.incede.ai)is the AI division of[Locus Solutions, Inc.](http://www.locussolutions.com); harnessing the power of Data, AI and Machine Learning
+[Incede.ai](https://www.incede.ai) is the AI division of [Locus Solutions, Inc.](http://www.locussolutions.com); harnessing the power of Data, AI and Machine Learning
 
-With more than half of the world’s data in natural language, Incede.ai solves business problems and creates a competitive advantage by leveraging the power of[Watson AI](https://www.ibm.com/watson)and machine learning.As thought leaders, we collaborate with stakeholders to deploy AI solutions that deliver real value.
-
-<!--EndFragment-->
+With more than half of the world’s data in natural language, Incede.ai solves business problems and creates a competitive advantage by leveraging the power of [Watson AI](https://www.ibm.com/watson) and machine learning.As thought leaders, we collaborate with stakeholders to deploy AI solutions that deliver real value.
