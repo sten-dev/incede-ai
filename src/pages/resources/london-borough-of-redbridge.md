@@ -18,11 +18,11 @@ The borough launched an AI-powered chatbot that could answer straightforward que
 
 **Results**
 
-**25% lower call volumes**while keeping residents better informed about schedule changes
+**25% lower call volumes** while keeping residents better informed about schedule changes
 
-**Drives efficiency**in waste clearing efforts by keeping enforcement staff better informed
+**Drives efficiency** in waste clearing efforts by keeping enforcement staff better informed
 
-**~95% satisfaction rate**among users of the chatbot during the Christmas period
+**~95% satisfaction rate** among users of the chatbot during the Christmas period
 
 **Solution components**
 
