@@ -196,7 +196,7 @@ class Footer extends React.Component {
                     </section>
                   </Col>
                   <Col lg='12' md='12' sm='12' xs='12'>
-                    <p className='m-0'>© Copyright 2020 incede.ai</p>
+                    <p className='m-0'>© Copyright {(new Date()).getFullYear()} incede.ai</p>
                   </Col>
                   <Col lg='12' md='12' sm='12' xs='12'>
                     <br />
