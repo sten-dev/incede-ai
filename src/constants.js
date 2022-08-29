@@ -1,3 +1,4 @@
+// Installed through  - npm ci
 //prod
 export const API_URL = 'https://incede-api-tired-leopard.mybluemix.net/';
 export const LINKEDIN = {
@@ -7,7 +8,7 @@ export const LINKEDIN = {
 };
 
 // dev
-// export const API_URL = 'http://13.234.37.204:8089/';
+// export const API_URL = 'http://13.232.74.188:8086/';
 // export const LINKEDIN = {
 //   clientId: '78p9i60dhfuau3', // 78p9i60dhfuau3 - Prod 81uni85sqi901i -dev
 //   redirectUrl: 'https://incede-ai.netlify.com',
