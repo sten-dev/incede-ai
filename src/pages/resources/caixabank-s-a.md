@@ -1,6 +1,13 @@
 ---
 templateKey: resources-case-studies
 title: 'CaixaBank, S.A.'
+technology:
+  - watson-assistant
+  - watson-discovery
+industry:
+  - finance
+  - insurance
+  - real-estate
 subTitle: >-
   Putting valuable information at employees’ fingertips with an AI-driven
   virtual assistant
