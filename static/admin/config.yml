@@ -1,5 +1,6 @@
 backend:
   name: git-gateway
+ # repo: https://github.com/sten-dev/incede-dev-test
   branch: master
   commit_messages:
     create: "Create {{collection}} “{{slug}}”"
@@ -25,6 +26,7 @@ collections:
           default: "resources-case-studies",
         }
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "Filter", name: "filterText", widget: "string" }
       - { label: "Sub Title", name: "subTitle", widget: "text" }
       - { label: "Image", name: "image", widget: image }
       - { label: "Body", name: "body", widget: "markdown" }
