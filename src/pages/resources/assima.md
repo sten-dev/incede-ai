@@ -1,6 +1,10 @@
 ---
 templateKey: resources-case-studies
 title: Assima
+technology:
+  - watson-assistant
+industry:
+  - services
 subTitle: >-
   Creating the smarter employee: unlocking new levels of productivity with
   cloud-delivered AI
