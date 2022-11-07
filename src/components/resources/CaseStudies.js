@@ -1,6 +1,5 @@
 import React from "react";
 import Col from "reactstrap/lib/Col";
-import Select from "react-select";
 import Container from "reactstrap/lib/Container";
 import Row from "reactstrap/lib/Row";
 import "../../styles/resources.scss";
@@ -12,61 +11,72 @@ class ResourcesCaseStudies extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      technology: null,
-      industry: null,
+      technology: "all",
+      industry: "all",
       filteredCaseStudies: this.props.data.allMarkdownRemark.edges,
       totalCaseStudies: this.props.data.allMarkdownRemark.edges,
     };
   }
   handleIndustryChange = (event) => {
-    console.log(event);
-    this.setState((prevState) => ({
-      ...prevState,
-      industry: event,
-    }),this.filterCaseStudies);
+    let eve = { ...event };
+    this.setState(
+      (prevState) => ({
+        ...prevState,
+        industry: eve.target.value,
+      }),
+      this.filterCaseStudies
+    );
   };
   handleTechnologyChange = (event) => {
-    console.log(event);
-    this.setState((prevState) => ({
-      ...prevState,
-      technology: event,
-    }),this.filterCaseStudies);
+    let eve = { ...event };
+    this.setState(
+      (prevState) => ({
+        ...prevState,
+        technology: eve.target.value,
+      }),
+      this.filterCaseStudies
+    );
   };
   filterCaseStudies = () => {
     let allCaseStudies = this.state.totalCaseStudies;
     let filteredCaseStudies = allCaseStudies.filter((item) => {
-      let caseStudy = item.node.frontmatter
+      let caseStudy = item.node.frontmatter;
       let isFiltered = false;
-      if (!this.state.industry && !this.state.technology) {
+      if (this.state.industry == "all" && this.state.technology == "all") {
         isFiltered = true;
       } else {
-        if (this.state.industry && this.state.industry.value) {
+        if (this.state.industry && this.state.industry != "all") {
           if (
             caseStudy.industry &&
             caseStudy.industry.length > 0 &&
-            caseStudy.industry.indexOf(this.state.industry.value) > -1
+            caseStudy.industry.indexOf(this.state.industry) > -1
           ) {
             isFiltered = true;
           }
         }
-        if (this.state.technology && this.state.technology.value) {
+        if (this.state.technology && this.state.technology != "all") {
           if (
             caseStudy.technology &&
             caseStudy.technology.length > 0 &&
-            caseStudy.technology.indexOf(this.state.technology.value) > -1
+            caseStudy.technology.indexOf(this.state.technology) > -1
           ) {
             isFiltered = true;
+          } else if (isFiltered) {
+            isFiltered = false;
           }
         }
       }
       return isFiltered;
     });
-    this.setState((prevState) => ({
-      ...prevState,
-      filteredCaseStudies: filteredCaseStudies,
-    }),()=>{
-      console.log(this.state)
-    });
+    this.setState(
+      (prevState) => ({
+        ...prevState,
+        filteredCaseStudies: filteredCaseStudies,
+      }),
+      () => {
+        console.log(this.state);
+      }
+    );
   };
   render() {
     console.log("case studies", this.props);
@@ -103,7 +113,23 @@ class ResourcesCaseStudies extends React.Component {
           <h1 className="text-left heading mb-5">Case Studies</h1>
           <Row className="mb-4">
             <Col xs="12" sm="6" md="6" lg="6" className="mt-16 ">
-              <Select
+              <div className="form-group">
+                <label>Industry</label>
+                <select
+                  className="form-control"
+                  onChange={this.handleIndustryChange}
+                  value={this.state.industry}
+                  name="industry"
+                >
+                  <option value={"all"}>All</option>
+                  {industryOptions.map((industry) => (
+                    <option key={industry.value} value={industry.value}>
+                      {industry.label}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              {/* <Select
                 isClearable={true}
                 placeholder="Industry"
                 closeMenuOnSelect={true}
@@ -111,10 +137,26 @@ class ResourcesCaseStudies extends React.Component {
                 options={industryOptions}
                 onChange={this.handleIndustryChange}
                 value={this.state.industry}
-              />
+              /> */}
             </Col>
             <Col xs="12" sm="6" md="6" lg="6" className="mt-16 ">
-              <Select
+              <div className="form-group">
+                <label>Technology</label>
+                <select
+                  className="form-control"
+                  onChange={this.handleTechnologyChange}
+                  value={this.state.technology}
+                  name="technology"
+                >
+                  <option value={"all"}>All</option>
+                  {technologyOptions.map((technology) => (
+                    <option key={technology.value} value={technology.value}>
+                      {technology.label}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              {/* <Select
                 isClearable={true}
                 placeholder="Technology"
                 closeMenuOnSelect={true}
@@ -122,7 +164,7 @@ class ResourcesCaseStudies extends React.Component {
                 options={technologyOptions}
                 onChange={this.handleTechnologyChange}
                 value={this.state.technology}
-              />
+              /> */}
             </Col>
           </Row>
           <div className="bg-grey">
