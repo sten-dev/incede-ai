@@ -7,7 +7,7 @@ technology:
 industry:
   - finance
   - insurance
-  - eeal-estate
+  - real-estate
 subTitle: >-
   No bot - this smart, social virtual assistant connects with customers like a
   local
