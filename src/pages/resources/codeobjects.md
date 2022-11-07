@@ -1,6 +1,13 @@
 ---
 templateKey: resources-case-studies
 title: CodeObjects
+technology:
+  - watson-assistant
+  - watson-discovery
+  - text-to-speech
+  - speech-to-text
+industry:
+  - services
 subTitle: >-
   Creating a frictionless experience for insurance customers, even during
   disasters
