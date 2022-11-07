@@ -1,6 +1,11 @@
 ---
 templateKey: resources-case-studies
 title: LegalMation
+technology:
+  - nlu
+  - knowledge-studio
+industry:
+  - services
 subTitle: >-
   Helping legal teams draft high-quality litigation work in minutes and drive
   down costs by 80 percent
