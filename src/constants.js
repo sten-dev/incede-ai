@@ -8,7 +8,7 @@ export const LINKEDIN = {
 };
 
 // dev
-// export const API_URL = 'http://13.232.74.188:8086/';
+// export const API_URL = 'https://incede-dev-api-fluent-squirrel-up.mybluemix.net/';
 // export const LINKEDIN = {
 //   clientId: '78p9i60dhfuau3', // 78p9i60dhfuau3 - Prod 81uni85sqi901i -dev
 //   redirectUrl: 'https://incede-ai.netlify.com',
