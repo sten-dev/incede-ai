@@ -1,6 +1,10 @@
 ---
 templateKey: resources-case-studies
 title: BASF
+technology:
+  - watson-assistant
+industry:
+  - manufacturing
 subTitle: Supporting smarter supply chain operations with cognitive cloud technology
 image: /img/basf_image_for_digital.webp
 ---
