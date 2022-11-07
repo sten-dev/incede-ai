@@ -117,6 +117,8 @@ export default () => (
                 templateKey
                 title
                 description
+                technology
+                industry
                 image {
                   childImageSharp {
                     fluid(maxWidth: 400, quality: 100) {

@@ -1,5 +1,6 @@
 import React from "react";
 import Col from "reactstrap/lib/Col";
+import Select from "react-select";
 import Container from "reactstrap/lib/Container";
 import Row from "reactstrap/lib/Row";
 import "../../styles/resources.scss";
@@ -7,41 +8,151 @@ import PropTypes from "prop-types";
 import { graphql, StaticQuery } from "gatsby";
 import CaseStudyCard from "../../components/case-study/CaseStudyCard";
 
-const ResourcesCaseStudies = ({ data }) => {
-  const { edges: caseStudies } = data.allMarkdownRemark;
-  console.log("case-studies", caseStudies);
+class ResourcesCaseStudies extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      technology: null,
+      industry: null,
+      filteredCaseStudies: this.props.data.allMarkdownRemark.edges,
+      totalCaseStudies: this.props.data.allMarkdownRemark.edges,
+    };
+  }
+  handleIndustryChange = (event) => {
+    console.log(event);
+    this.setState((prevState) => ({
+      ...prevState,
+      industry: event,
+    }),this.filterCaseStudies);
+  };
+  handleTechnologyChange = (event) => {
+    console.log(event);
+    this.setState((prevState) => ({
+      ...prevState,
+      technology: event,
+    }),this.filterCaseStudies);
+  };
+  filterCaseStudies = () => {
+    let allCaseStudies = this.state.totalCaseStudies;
+    let filteredCaseStudies = allCaseStudies.filter((item) => {
+      let caseStudy = item.node.frontmatter
+      let isFiltered = false;
+      if (!this.state.industry && !this.state.technology) {
+        isFiltered = true;
+      } else {
+        if (this.state.industry && this.state.industry.value) {
+          if (
+            caseStudy.industry &&
+            caseStudy.industry.length > 0 &&
+            caseStudy.industry.indexOf(this.state.industry.value) > -1
+          ) {
+            isFiltered = true;
+          }
+        }
+        if (this.state.technology && this.state.technology.value) {
+          if (
+            caseStudy.technology &&
+            caseStudy.technology.length > 0 &&
+            caseStudy.technology.indexOf(this.state.technology.value) > -1
+          ) {
+            isFiltered = true;
+          }
+        }
+      }
+      return isFiltered;
+    });
+    this.setState((prevState) => ({
+      ...prevState,
+      filteredCaseStudies: filteredCaseStudies,
+    }),()=>{
+      console.log(this.state)
+    });
+  };
+  render() {
+    console.log("case studies", this.props);
+    const { edges: caseStudies } = this.props.data.allMarkdownRemark;
+    console.log("case-studies", this.state.filteredCaseStudies);
+    const technologyOptions = [
+      { label: "Watson Assistant", value: "watson-assistant" },
+      { label: "Watson Discovery", value: "watson-discovery" },
+      { label: "Watson Text to Speech", value: "text-to-speech" },
+      { label: "Watson Speech to Text", value: "speech-to-text" },
+      { label: "Watson Knowledge Studio", value: "knowledge-studio" },
+      { label: "Watson Personality Insights", value: "personality-insights" },
+      { label: "Watson Natural Language Classifier (NLC)", value: "nlc" },
+      { label: "Watson Natural Language Understanding (NLU)", value: "nlu" },
+      { label: "Watson Tone Analyzer", value: "tone-analyzer" },
+      { label: "Watson Visual Recognition", value: "visual-recognition" },
+    ];
+    const industryOptions = [
+      { label: "Finance", value: "finance" },
+      { label: "Insurance", value: "insurance" },
+      { label: "Services", value: "services" },
+      { label: "Real Estate", value: "real-estate" },
+      { label: "Manufacturing", value: "manufacturing" },
+      { label: "Transportation", value: "transportation" },
+      { label: "Communications", value: "communications" },
+      { label: "Public Administration", value: "public-administration" },
+      { label: "Retail Trade", value: "retail-trade" },
+      { label: "Education", value: "education" },
+    ];
 
-  return (
-    <section className="resources-library-content gap-y-half" id="1">
-      <Container>
-        <h1 className="text-left heading mb-5">Case Studies</h1>
-        <div className="bg-grey">
-          {caseStudies.length > 0 ? (
-            <Row>
-              {caseStudies.map((caseStudy) => (
-                <Col xs="12" sm="6" md="6" lg="4" className="mt-16 ">
-                  <CaseStudyCard
-                    title={caseStudy.node.frontmatter.title}
-                    description={caseStudy.node.frontmatter.subTitle}
-                    image={caseStudy.node.frontmatter.image}
-                    slug={caseStudy.node.fields.slug}
-                    type={true}
-                  />
-                </Col>
-              ))}
-            </Row>
-          ) : (
+    return (
+      <section className="resources-library-content gap-y-half" id="1">
+        <Container>
+          <h1 className="text-left heading mb-5">Case Studies</h1>
+          <Row className="mb-4">
+            <Col xs="12" sm="6" md="6" lg="6" className="mt-16 ">
+              <Select
+                isClearable={true}
+                placeholder="Industry"
+                closeMenuOnSelect={true}
+                isMulti={false}
+                options={industryOptions}
+                onChange={this.handleIndustryChange}
+                value={this.state.industry}
+              />
+            </Col>
+            <Col xs="12" sm="6" md="6" lg="6" className="mt-16 ">
+              <Select
+                isClearable={true}
+                placeholder="Technology"
+                closeMenuOnSelect={true}
+                isMulti={false}
+                options={technologyOptions}
+                onChange={this.handleTechnologyChange}
+                value={this.state.technology}
+              />
+            </Col>
+          </Row>
+          <div className="bg-grey">
+            {this.state.filteredCaseStudies.length > 0 ? (
+              <Row>
+                {this.state.filteredCaseStudies.map((caseStudy) => (
+                  <Col xs="12" sm="6" md="6" lg="4" className="mt-16 ">
+                    <CaseStudyCard
+                      title={caseStudy.node.frontmatter.title}
+                      description={caseStudy.node.frontmatter.subTitle}
+                      image={caseStudy.node.frontmatter.image}
+                      slug={caseStudy.node.fields.slug}
+                      type={true}
+                    />
+                  </Col>
+                ))}
+              </Row>
+            ) : (
               <Row>
                 <Col xs={12}>
                   <h2 className="text-center">No data found</h2>
                 </Col>
               </Row>
             )}
-        </div>
-      </Container>
-    </section>
-  );
-};
+          </div>
+        </Container>
+      </section>
+    );
+  }
+}
 
 ResourcesCaseStudies.propTypes = {
   data: PropTypes.shape({
@@ -71,6 +182,8 @@ export default () => (
                 title
                 templateKey
                 subTitle
+                technology
+                industry
                 image {
                   childImageSharp {
                     fluid(maxWidth: 500, quality: 100) {
