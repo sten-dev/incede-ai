@@ -1,6 +1,7 @@
 ---
 templateKey: resources-case-studies
 title: Allianz Taiwan Life Insurance Co. Ltd.
+filterText: Allianz Taiwan
 subTitle: >-
   No bot - this smart, social virtual assistant connects with customers like a
   local
