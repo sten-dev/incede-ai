@@ -1,6 +1,11 @@
 ---
 templateKey: resources-case-studies
 title: Korean Air Lines Co. Ltd.
+technology:
+  - watson-discovery
+industry:
+  - transportation
+  - communications
 subTitle: >-
   Cognitive data discovery gives aircraft technicians a powerful diagnostic and
   decision tool
