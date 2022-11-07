@@ -61,6 +61,13 @@ class ResourcesCaseStudies extends React.Component {
             caseStudy.technology.indexOf(this.state.technology) > -1
           ) {
             isFiltered = true;
+            if (
+              caseStudy.industry &&
+              caseStudy.industry.length > 0 &&
+              caseStudy.industry.indexOf(this.state.industry) ==-1
+            ) {
+              isFiltered = false;
+            }
           } else if (isFiltered) {
             isFiltered = false;
           }
