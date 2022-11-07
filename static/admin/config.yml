@@ -26,7 +26,7 @@ collections:
           default: "resources-case-studies",
         }
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Technology", name: "technology", widget: "select", "multiple":true , "options":[{label: "Watson Assistant", name: "watson-assistant", widget: string},{label: "Watson Discovery", name: "watson-discovery", widget: string}]}
+      - { label: "Technology", name: "technology", widget: "select", "multiple":true , "options":[{label: "Watson Assistant", "value": "watson-assistant", widget: string},{label: "Watson Discovery", "value": "watson-discovery", widget: string}]}
       - { label: "Sub Title", name: "subTitle", widget: "text" }
       - { label: "Image", name: "image", widget: image }
       - { label: "Body", name: "body", widget: "markdown" }
