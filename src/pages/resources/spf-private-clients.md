@@ -1,6 +1,13 @@
 ---
 templateKey: resources-case-studies
 title: SPF Private Clients
+technology:
+  - watson-assistant
+  - tone-analyzer
+industry:
+  - finance
+  - insurance
+  - real-estate
 subTitle: >-
   Finding diamonds in the rough: harnessing AI solutions to identify the best
   mortgage leads
