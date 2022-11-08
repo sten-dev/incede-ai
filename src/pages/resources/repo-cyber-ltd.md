@@ -1,6 +1,11 @@
 ---
 templateKey: resources-case-studies
 title: Repo Cyber Ltd
+technology:
+  - knowledge-studio
+  - visual-recognition
+industry:
+  - services
 subTitle: All it takes is a text to anonymously report a crime
 image: /img/repo-cyber-logo.webp
 ---
