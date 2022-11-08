@@ -1,6 +1,11 @@
 ---
 templateKey: resources-case-studies
 title: Oovvuu
+technology:
+  - watson-assistant
+industry:
+  - transportation
+  - communications
 subTitle: Boosting digital publishing revenue up to 35 times with IBM Watson
 image: /img/original-698613296.webp
 ---
