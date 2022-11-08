@@ -1,6 +1,10 @@
 ---
 templateKey: resources-case-studies
 title: ThKeeper
+technology:
+  - watson-discovery
+industry:
+  - services
 subTitle: >-
   Helping companies do business with customers they can trust through AI
   technology
