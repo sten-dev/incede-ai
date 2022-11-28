@@ -6,13 +6,13 @@ import "../../styles/resources.scss";
 import PropTypes from "prop-types";
 import { graphql, StaticQuery } from "gatsby";
 import CaseStudyCard from "../../components/case-study/CaseStudyCard";
-
+import Select from "react-select"
 class ResourcesCaseStudies extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      technology: "all",
-      industry: "all",
+      technology: { label: "All", value: "all" },
+      industry: { label: "All", value: "all" },
       filteredCaseStudies: this.props.data.allMarkdownRemark.edges,
       totalCaseStudies: this.props.data.allMarkdownRemark.edges,
     };
@@ -22,7 +22,7 @@ class ResourcesCaseStudies extends React.Component {
     this.setState(
       (prevState) => ({
         ...prevState,
-        industry: eve.target.value,
+        industry: event,
       }),
       this.filterCaseStudies
     );
@@ -32,7 +32,7 @@ class ResourcesCaseStudies extends React.Component {
     this.setState(
       (prevState) => ({
         ...prevState,
-        technology: eve.target.value,
+        technology: event,
       }),
       this.filterCaseStudies
     );
@@ -42,29 +42,29 @@ class ResourcesCaseStudies extends React.Component {
     let filteredCaseStudies = allCaseStudies.filter((item) => {
       let caseStudy = item.node.frontmatter;
       let isFiltered = false;
-      if (this.state.industry == "all" && this.state.technology == "all") {
+      if (this.state.industry && this.state.industry.value == "all" && this.state.technology && this.state.technology.value == "all") {
         isFiltered = true;
       } else {
-        if (this.state.industry && this.state.industry != "all") {
+        if (this.state.industry && this.state.industry.value != "all") {
           if (
             caseStudy.industry &&
             caseStudy.industry.length > 0 &&
-            caseStudy.industry.indexOf(this.state.industry) > -1
+            caseStudy.industry.indexOf(this.state.industry.value) > -1
           ) {
             isFiltered = true;
           }
         }
-        if (this.state.technology && this.state.technology != "all") {
+        if (this.state.technology && this.state.technology.value != "all") {
           if (
             caseStudy.technology &&
             caseStudy.technology.length > 0 &&
-            caseStudy.technology.indexOf(this.state.technology) > -1
+            caseStudy.technology.indexOf(this.state.technology.value) > -1
           ) {
             isFiltered = true;
             if (
               caseStudy.industry &&
-              caseStudy.industry.length > 0 &&
-              caseStudy.industry.indexOf(this.state.industry) ==-1 && this.state.industry != "all"
+              caseStudy.industry.length > 0 && this.state.industry &&
+              caseStudy.industry.indexOf(this.state.industry.value) ==-1 && this.state.industry.value != "all"
             ) {
               isFiltered = false;
             }
@@ -90,6 +90,7 @@ class ResourcesCaseStudies extends React.Component {
     const { edges: caseStudies } = this.props.data.allMarkdownRemark;
     console.log("case-studies", this.state.filteredCaseStudies);
     const technologyOptions = [
+      { label: "All", value: "all" },
       { label: "Watson Assistant", value: "watson-assistant" },
       { label: "Watson Discovery", value: "watson-discovery" },
       { label: "Watson Text to Speech", value: "text-to-speech" },
@@ -102,6 +103,7 @@ class ResourcesCaseStudies extends React.Component {
       { label: "Watson Visual Recognition", value: "visual-recognition" },
     ];
     const industryOptions = [
+      { label: "All", value: "all" },
       { label: "Finance", value: "finance" },
       { label: "Insurance", value: "insurance" },
       { label: "Services", value: "services" },
@@ -120,7 +122,8 @@ class ResourcesCaseStudies extends React.Component {
           <h1 className="text-left heading mb-5">Case Studies</h1>
           <Row className="mb-4">
             <Col xs="12" sm="6" md="6" lg="6" className="mt-16 ">
-              <div className="form-group">
+            <label>Industry</label>
+              {/* <div className="form-group">
                 <label>Industry</label>
                 <select
                   className="form-control"
@@ -135,19 +138,19 @@ class ResourcesCaseStudies extends React.Component {
                     </option>
                   ))}
                 </select>
-              </div>
-              {/* <Select
-                isClearable={true}
+              </div> */}
+              <Select
+                isClearable={false}
                 placeholder="Industry"
                 closeMenuOnSelect={true}
                 isMulti={false}
                 options={industryOptions}
                 onChange={this.handleIndustryChange}
                 value={this.state.industry}
-              /> */}
+              />
             </Col>
             <Col xs="12" sm="6" md="6" lg="6" className="mt-16 ">
-              <div className="form-group">
+              {/* <div className="form-group">
                 <label>Technology</label>
                 <select
                   className="form-control"
@@ -162,16 +165,17 @@ class ResourcesCaseStudies extends React.Component {
                     </option>
                   ))}
                 </select>
-              </div>
-              {/* <Select
-                isClearable={true}
+              </div> */}
+              <label>Technology</label>
+              <Select
+                isClearable={false}
                 placeholder="Technology"
                 closeMenuOnSelect={true}
                 isMulti={false}
                 options={technologyOptions}
                 onChange={this.handleTechnologyChange}
                 value={this.state.technology}
-              /> */}
+              />
             </Col>
           </Row>
           <div className="bg-grey">
