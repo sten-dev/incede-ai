@@ -4,7 +4,7 @@ title: Industry Social Media
 subTitle: >-
   Unlock valuable insight from the vast information available on social
   platforms.
-image: /img/big-data-services.png
+image: /img/cloud-professional-services.png
 ---
 ## Where can I get some?
 
