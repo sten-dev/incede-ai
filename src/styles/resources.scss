@@ -61,6 +61,24 @@
   top: 44%;
   left: 40%;
 }
+.case-study-filter-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: rgb(122, 130, 145);
+  background-color: rgb(223, 223, 227);
+  display: inline-block;
+  border: 0px;
+  border-radius: 3px 3px 0px 0px;
+  padding: 3px 8px 2px;
+  margin: 0px;
+  color: #493999;
+}
+.case-study-filter-drop-down{
+  >div:nth-child(1){
+    border-radius: 0 4px 4px 4px;
+  }
+}
 
 @media screen and (max-width: 576px) {
   .resources-library-content {

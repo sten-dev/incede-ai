@@ -122,7 +122,7 @@ class ResourcesCaseStudies extends React.Component {
           <h1 className="text-left heading mb-5">Case Studies</h1>
           <Row className="mb-4">
             <Col xs="12" sm="6" md="6" lg="6" className="mt-16 ">
-            <label>Industry</label>
+            <label className="case-study-filter-label">Industry</label>
               {/* <div className="form-group">
                 <label>Industry</label>
                 <select
@@ -140,6 +140,7 @@ class ResourcesCaseStudies extends React.Component {
                 </select>
               </div> */}
               <Select
+                className="case-study-filter-drop-down"
                 isClearable={false}
                 placeholder="Industry"
                 closeMenuOnSelect={true}
@@ -166,8 +167,9 @@ class ResourcesCaseStudies extends React.Component {
                   ))}
                 </select>
               </div> */}
-              <label>Technology</label>
+              <label className="case-study-filter-label">Technology</label>
               <Select
+                className="case-study-filter-drop-down"
                 isClearable={false}
                 placeholder="Technology"
                 closeMenuOnSelect={true}
