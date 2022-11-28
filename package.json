@@ -8,7 +8,7 @@
     "@babel/preset-env": "^7.18.10",
     "bootstrap": "^4.4.1",
     "formik": "^2.1.4",
-    "gatsby": "^2.18.17",
+    "gatsby": "^5.2.0",
     "gatsby-image": "^2.2.37",
     "gatsby-plugin-netlify": "^2.1.30",
     "gatsby-plugin-netlify-cms": "^4.1.33",
