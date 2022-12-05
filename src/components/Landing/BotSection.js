@@ -934,6 +934,13 @@ class BotSection extends Component {
         demoType = "COVID-19b";
         localStorage.setItem('demoProperty', 'COVID-19b');
         localStorage.setItem('selectedLanguage', this.state.selectedLanguage);
+      }else if (
+        message.intent &&
+        message.intent.toLowerCase() === 'custom_training_model'
+      ) {
+        type = 'demo';
+        demoType = "Custom Training Model";
+        localStorage.setItem('demoProperty', 'Custom Training Model');
       }
       if (type === 'demo') {
         this.wASessionId = undefined;

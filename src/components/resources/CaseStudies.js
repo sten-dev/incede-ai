@@ -167,11 +167,11 @@ class ResourcesCaseStudies extends React.Component {
                   ))}
                 </select>
               </div> */}
-              <label className="case-study-filter-label">Technology</label>
+              <label className="case-study-filter-label">Solution Type</label>
               <Select
                 className="case-study-filter-drop-down"
                 isClearable={false}
-                placeholder="Technology"
+                placeholder="Solution Type"
                 closeMenuOnSelect={true}
                 isMulti={false}
                 options={technologyOptions}
