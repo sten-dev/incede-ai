@@ -13,7 +13,7 @@ export const ChatPillAsk = props => {
         onClick={props.handleMicClick}
       />
       <input
-        type='text'
+        type={props.selectedDemo && props.selectedDemo == "Custom Training Model"?'password':'text'}
         className='chat-textfield flex-grow-1'
         placeholder={props.placeholder}
         onChange={props.onChange}

@@ -722,11 +722,21 @@ class BotSection extends Component {
   pushWAMessage = response => {
     let data = response.data;
     let shouldUpdate = true;
+    let isCustomDemo = false;
+    if(response && response.intent == "pin_match" && this.state.isDemo){
+      isCustomDemo = true;
+    }
     if (data && Array.isArray(data)) {
       let messages = [...this.state.messages];
       let isSearchResponse = data.findIndex(x => x.response_type === 'search');
       if (isSearchResponse && isSearchResponse === data.length - 1) {
         data = data.reverse();
+      }
+      if(isCustomDemo){
+        let isExitDemo = data[data.length-1].text.toLowerCase().indexOf("demo done")> -1;
+        if(isExitDemo){
+          data.pop();
+        }
       }
       data.forEach(x => {
         if (x.response_type === 'search') {
@@ -800,7 +810,12 @@ class BotSection extends Component {
             messages,
             isLoading: false
           },
-          this.scrollToBottom
+          ()=>{
+            this.scrollToBottom();
+            if(isCustomDemo){
+              this.exitWADemo();
+            }
+          }
         );
     }
   };
@@ -1459,6 +1474,7 @@ class BotSection extends Component {
               onChange={this.handleMessageChange}
               placeholder='Type here'
               onClick={this.send}
+              selectedDemo={this.state.selectedDemo}
               audioSource={this.state.audioSource}
               handleMicClick={this.handleMicClick}
             />
