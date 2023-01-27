@@ -147,7 +147,7 @@ class INavbar extends Component {
                   </Link>
                 </NavItem>
 
-                <NavItem id="menu_services" className="btn">
+                {/* <NavItem id="menu_services" className="btn">
                   <a>
                     Services{" "}
                     <img
@@ -158,22 +158,23 @@ class INavbar extends Component {
                     // onClick={props.onClick}
                     />{" "}
                   </a>
-                </NavItem>
+                </NavItem> */}
                 <NavItem id="menu_solutions" className="btn">
                   <a>
                     Solutions{" "}
                     <img
-                      className={`${this.state.isSolutionsMenuOpen
-                        ? "active-what-we-do"
-                        : ""
-                        }`}
+                      className={`${
+                        this.state.isSolutionsMenuOpen
+                          ? "active-what-we-do"
+                          : ""
+                      }`}
                       alt="send"
                       src={dropdown}
-                    // onClick={props.onClick}
+                      // onClick={props.onClick}
                     />{" "}
                   </a>
                 </NavItem>
-                <NavItem id="menu_industries" className="btn">
+                {/* <NavItem id="menu_industries" className="btn">
                   <a>
                     Industries{" "}
                     <img
@@ -186,18 +187,19 @@ class INavbar extends Component {
                     // onClick={props.onClick}
                     />{" "}
                   </a>
-                </NavItem>
+                </NavItem> */}
                 <NavItem id="menu_resources" className="btn">
                   <a>
                     Resources{" "}
                     <img
-                      className={`${this.state.isResourcesMenuOpen
-                        ? "active-what-we-do"
-                        : ""
-                        }`}
+                      className={`${
+                        this.state.isResourcesMenuOpen
+                          ? "active-what-we-do"
+                          : ""
+                      }`}
                       alt="send"
                       src={dropdown}
-                    // onClick={props.onClick}
+                      // onClick={props.onClick}
                     />{" "}
                   </a>
                 </NavItem>

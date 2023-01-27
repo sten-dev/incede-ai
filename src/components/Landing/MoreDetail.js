@@ -66,11 +66,11 @@ class MoreDetail extends React.Component {
                 </div> */}
               </article>
             </Col>
-            <Col lg={4} md={5} className="d-none d-md-block position-initial">
+            {/* <Col lg={4} md={5} className="d-none d-md-block position-initial">
               <div className="image-section gap-y-half">
                 <img src={AiImage} alt="hero" />
               </div>
-            </Col>
+            </Col> */}
           </Row>
         </Container>
       </section>
