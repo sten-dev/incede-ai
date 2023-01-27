@@ -11,6 +11,29 @@ class SolutionMenu extends Component {
     return (
       <ul className="menu-links">
         <li>
+          <Link to="/solutions/reseller-distributor-service">
+            Resellers & Distributors AI Knowledge Base Self-Service
+          </Link>
+        </li>
+        <li>
+          <Link to="/solutions/customer-service">Consumer AI Self-Service</Link>
+        </li>
+        <li>
+          <Link to="/solutions/human-resource-services">
+            Employee AI Self-Service
+          </Link>
+        </li>
+        <li>
+          <Link to="/solutions/mass-tort-service">
+            Mass Tort & Class Action Fees Management
+          </Link>
+        </li>
+        <li>
+          <Link to="/solutions/planning-analytics-service">
+            Planning Analytics Managed Service
+          </Link>
+        </li>
+        {/* <li>
           <Link to="/solutions/customer-service">Customer Service</Link>
         </li>
         <li>
@@ -25,7 +48,7 @@ class SolutionMenu extends Component {
           <Link to="/solutions/sales-support-solutions">
             Sales Support Solutions
           </Link>
-        </li>
+        </li> */}
       </ul>
     );
   }

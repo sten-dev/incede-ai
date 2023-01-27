@@ -8,11 +8,11 @@ import Customer from "../../components/Solutions/Customer";
 
 const CustomerService = () => {
   return (
-    <Layout pageTitle="Customer Service | Incede">
+    <Layout pageTitle="Consumer AI Self-Service | Incede">
       <Transition>
         <section className="industry-solution">
           <SolutionsHeader
-            header={"Customer Service"}
+            header={"Consumer AI Self-Service"}
             title={"Conversational AI Creates an Engaging Customer Experience"}
           />
           <Container>
