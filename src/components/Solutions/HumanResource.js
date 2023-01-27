@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from "reactstrap";
 import "../../styles/solutions.scss";
-import communicationServices from "../../img/solutions/hr-services.png";
+import SalesSupportImage from "../../img/solutions/sales-services.png";
+// import communicationServices from "../../img/solutions/hr-services.png";
 import communicationsImage from "../../img/solutions/communications-icon.png";
 import Sidebar from "react-sidebar";
 import { Link } from "gatsby";
@@ -126,7 +127,7 @@ class HumanResource extends Component {
             </Col>
             <Col xs={12} sm={12} md={6} lg={6} className="mt-4 mt-lg-0 d-flex">
               <div className="image-section">
-                <img src={communicationServices} alt="support image" />
+                <img src={SalesSupportImage} alt="support image" />
               </div>
             </Col>
           </Row>

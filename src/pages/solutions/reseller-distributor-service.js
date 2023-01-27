@@ -3,9 +3,10 @@ import { Container, Row, Col } from "reactstrap";
 import Layout from "../../components/Layout";
 import Transition from "../../Transition";
 import SolutionsHeader from "../../components/Solutions/SolutionsHeader";
-import resellerImg from "../../img/solutions/reseller.jpg";
+// import resellerImg from "../../img/solutions/reseller.jpg";
 import BotSection from "../../components/Landing/BotSection";
 import Sidebar from "react-sidebar";
+import SalesSupportImage from "../../img/solutions/sales-services.png";
 class ResellersDistributors extends React.Component {
   constructor(props) {
     super(props);
@@ -46,18 +47,18 @@ class ResellersDistributors extends React.Component {
 
   render() {
     return (
-      <Layout pageTitle="Resellers & Distributors AI Knowledge Base Self-Service | Incede">
+      <Layout pageTitle="Resellers & Distributors | Incede">
         <Transition>
           <section className="industry-solution">
             <SolutionsHeader
-              header={"Resellers & Distributors AI Knowledge Base Self-Service"}
+              header={"Resellers & Distributors"}
               title={""}
             />
             <Container>
               <section className="solutions-content gap-y-half" id="3">
                 <Container>
                   <Row>
-                    <Col xs={12} sm={12} md={6} lg={8}>
+                    <Col xs={12} sm={12} md={6} lg={6}>
                       <div className="content">
                         <h1 className="text-primary">
                           Resellers & Distributors AI Knowledge Base
@@ -136,11 +137,11 @@ class ResellersDistributors extends React.Component {
                       xs={12}
                       sm={12}
                       md={6}
-                      lg={4}
+                      lg={6}
                       className="mt-4 mt-lg-0 d-flex"
                     >
                       <div className="image-section">
-                        <img src={resellerImg} alt="support image" />
+                        <img src={SalesSupportImage} alt="support image" />
                       </div>
                     </Col>
                   </Row>

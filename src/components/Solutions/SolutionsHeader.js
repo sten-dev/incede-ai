@@ -8,7 +8,7 @@ let list = [
   { name: "Consumer AI Self-Service" },
   { name: "Employee AI Self-Service" },
   { name: "Mass Tort & Class Action Fees Management" },
-  { name: "Planning Analytics Managed Service" },
+  // { name: "Planning Analytics Managed Service" },
   // { name: "Customer Service" },
   // { name: "Human Resource Services" },
   // { name: "IT Service Desk" },

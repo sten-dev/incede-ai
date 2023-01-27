@@ -6,7 +6,8 @@ import arrow from "../../img/arrow.svg";
 import { Link } from "gatsby";
 // import HeroImage from "../../img/hero_image.png";
 
-import HeroImage from "../../img/incede-home-page-latest.png";
+// import HeroImage from "../../img/incede-home-page-latest.png";
+import HeroImage from "../../img/incede-ai-illustration.png";
 // import HeroImage from "../../img/incede-home-page.png";
 class Home extends React.Component {
   state = {};

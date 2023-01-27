@@ -57,7 +57,7 @@ class MassTortClassActionFees extends React.Component {
               <section className="solutions-content gap-y-half" id="3">
                 <Container>
                   <Row>
-                    <Col xs={12} sm={12} md={6} lg={8}>
+                    <Col xs={12} sm={12} md={6} lg={6}>
                       <div className="content">
                         <h1 className="text-primary">
                           Mass Tort & Class Action Fees Management
@@ -124,7 +124,7 @@ class MassTortClassActionFees extends React.Component {
                       xs={12}
                       sm={12}
                       md={6}
-                      lg={4}
+                      lg={6}
                       className="mt-4 mt-lg-0 d-flex"
                     >
                       <div className="image-section">

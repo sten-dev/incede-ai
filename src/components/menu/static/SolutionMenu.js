@@ -28,11 +28,11 @@ class SolutionMenu extends Component {
             Mass Tort & Class Action Fees Management
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link to="/solutions/planning-analytics-service">
             Planning Analytics Managed Service
           </Link>
-        </li>
+        </li> */}
         {/* <li>
           <Link to="/solutions/customer-service">Customer Service</Link>
         </li>
