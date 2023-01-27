@@ -106,8 +106,8 @@ class Customer extends Component {
                     </Link>
                   </div>
                 </div> */}
-                <br />
-                <div className="d-flex align-items-center">
+                {/* <br /> */}
+                {/* <div className="d-flex align-items-center">
                   <div>
                     <img
                       className="learn-more-icon"
@@ -120,8 +120,8 @@ class Customer extends Component {
                       <strong>Communications and Services</strong>
                     </Link>
                   </div>
-                </div>
-                <div className="text-center mt-3">
+                </div> */}
+                <div className="text-center">
                   <button
                     onClick={() =>
                       this.openWAChatWithCustomMessage("Schedule a meeting")
