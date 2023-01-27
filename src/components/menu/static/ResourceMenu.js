@@ -18,6 +18,9 @@ export default class ResourceMenu extends Component {
           <Link to="/resources/events">Events</Link>
         </li> */}
         <li>
+          <Link to="/resources/featured-demos">Featured Demos</Link>
+        </li>
+        <li>
           <Link to="/resources/case-studies">Case Studies</Link>
         </li>
       </ul>

@@ -96,7 +96,8 @@ class BotSection extends Component {
       isLanguagePopUpOpen: false,
       isXSLanguagePopUpOpen: false,
       selectedDemo: "",
-      isPinValid: false
+      isPinValid: false,
+      isFirstCall:true
     };
     this.audioElementRef = React.createRef();
   }
@@ -109,11 +110,13 @@ class BotSection extends Component {
         this.handleAudioError
       );
     }
+    if(!this.props.defaultTextToWA){
+      this.roomName = localStorage.getItem('roomName');
+      this.roomId = localStorage.getItem('roomId');
+      this.wASessionId = localStorage.getItem('wASessionId');
+      this.waCreatedTime = localStorage.getItem('waCreatedTime');
+    }
 
-    this.roomName = localStorage.getItem('roomName');
-    this.roomId = localStorage.getItem('roomId');
-    this.wASessionId = localStorage.getItem('wASessionId');
-    this.waCreatedTime = localStorage.getItem('waCreatedTime');
 
     await this.getSpeechToTextConfig();
     this.setState({
@@ -473,9 +476,11 @@ class BotSection extends Component {
         this.roomId = localStorage.getItem('demoRoomId');
         this.wASessionId = localStorage.getItem('demoWASessionId');
       } else {
-        this.roomName = localStorage.getItem('roomName');
-        this.roomId = localStorage.getItem('roomId');
-        this.wASessionId = localStorage.getItem('wASessionId');
+        if(!this.props.defaultTextToWA){
+          this.roomName = localStorage.getItem('roomName');
+          this.roomId = localStorage.getItem('roomId');
+          this.wASessionId = localStorage.getItem('wASessionId');
+        }
       }
     }
   };
@@ -501,61 +506,63 @@ class BotSection extends Component {
     ];
     let time = new Date().getTime();
 
-    await this.checkWASession();
-
-    if (this.roomId) {
-      this.setState({
-        isLoading: true
-      });
-      let chatsResp = await httpClient('chats', 'POST', {
-        roomId: this.roomId
-      });
-      if (chatsResp.success === true) {
-        let data = chatsResp.data
-          .reverse()
-          .filter(x => IGNORE_MSG.indexOf(x.TEXT) === -1);
-        data.forEach((x) => {
-          switch (x.TYPE) {
-            case 'text':
-            case 'options':
-              if (x.TEXT) {
-                messages.push({
-                  user:
-                    x.USER === 'WATSON'
-                      ? 'WA'
-                      : x.USER === 'AGENT'
-                        ? 'AG'
-                        : 'ME',
-                  message: x.TEXT,
-                  type: x.TYPE === 'options' ? 'options' : 'text',
-                  options: x.TYPE === 'options' ? JSON.parse(x.OPTIONS) : [],
-                  intent: x.intent
-                });
-              }
-              break;
-            case 'location':
-              messages.push({
-                user: 'WA',
-                message: '',
-                type: 'location',
-                options: []
-              });
-              break;
-            case 'callback':
-              messages.push({ user: 'ME', message: '', type: 'callback_form' });
-              break;
-          }
+    if(!this.props.defaultTextToWA){
+      await this.checkWASession();
+  
+      if (this.roomId) {
+        this.setState({
+          isLoading: true
         });
-        this.setState(
-          {
-            messages: messages,
-            isLoading: false
-          },
-          () => {
-            this.scrollToBottom();
-            // this.sendCustomMessage("welcome_back", false);
-          }
-        );
+        let chatsResp = await httpClient('chats', 'POST', {
+          roomId: this.roomId
+        });
+        if (chatsResp.success === true) {
+          let data = chatsResp.data
+            .reverse()
+            .filter(x => IGNORE_MSG.indexOf(x.TEXT) === -1);
+          data.forEach((x) => {
+            switch (x.TYPE) {
+              case 'text':
+              case 'options':
+                if (x.TEXT) {
+                  messages.push({
+                    user:
+                      x.USER === 'WATSON'
+                        ? 'WA'
+                        : x.USER === 'AGENT'
+                          ? 'AG'
+                          : 'ME',
+                    message: x.TEXT,
+                    type: x.TYPE === 'options' ? 'options' : 'text',
+                    options: x.TYPE === 'options' ? JSON.parse(x.OPTIONS) : [],
+                    intent: x.intent
+                  });
+                }
+                break;
+              case 'location':
+                messages.push({
+                  user: 'WA',
+                  message: '',
+                  type: 'location',
+                  options: []
+                });
+                break;
+              case 'callback':
+                messages.push({ user: 'ME', message: '', type: 'callback_form' });
+                break;
+            }
+          });
+          this.setState(
+            {
+              messages: messages,
+              isLoading: false
+            },
+            () => {
+              this.scrollToBottom();
+              // this.sendCustomMessage("welcome_back", false);
+            }
+          );
+        }
       }
     }
 
@@ -584,10 +591,12 @@ class BotSection extends Component {
             this.setState({
               isDemo: false
             });
-            localStorage.setItem('waCreatedTime', new Date().getTime());
-            localStorage.setItem('wASessionId', response.sessionId);
-            localStorage.setItem('roomId', response.roomId);
-            localStorage.setItem('roomName', response.roomName);
+            if(!this.props.defaultTextToWA){
+              localStorage.setItem('waCreatedTime', new Date().getTime());
+              localStorage.setItem('wASessionId', response.sessionId);
+              localStorage.setItem('roomId', response.roomId);
+              localStorage.setItem('roomName', response.roomName);
+            }
           }
           this.roomName = response.roomName;
           this.roomId = response.roomId;
@@ -811,6 +820,14 @@ class BotSection extends Component {
             isLoading: false
           },
           ()=>{
+            if(this.state.isFirstCall && this.props.defaultTextToWA){
+              this.setState({
+                msg:this.props.defaultTextToWA,
+                isFirstCall:false   
+              },()=>{
+                this.send();
+              })
+            }
             this.scrollToBottom();
             if(isCustomDemo){
               this.exitWADemo();
