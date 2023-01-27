@@ -95,7 +95,7 @@ class HumanResource extends Component {
                     </p>
                   </li>
                 </ul>
-                <p>
+                {/* <p>
                   <strong>Learn more in</strong>
                 </p>
                 <br />
@@ -112,7 +112,7 @@ class HumanResource extends Component {
                       <strong>Communications and Services</strong>
                     </Link>
                   </div>
-                </div>
+                </div> */}
                 <div className="text-center mt-3">
                   <button
                     onClick={() =>

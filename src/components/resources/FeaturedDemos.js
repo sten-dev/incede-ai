@@ -64,45 +64,49 @@ class FeatureDemos extends Component {
             <h1 className="text-left heading mb-5">Feature Demos</h1>
             <Row className="mb-4">
               <Col xs={12} sm={12} md={12} lg={12}>
-                <p>
-                  Interact with several IBM Watson Assistant demos for Customer
-                  Care and Employee Care and{" "}
-                  <span
-                    className="wa-feature-demo-link"
-                    onClick={() =>
-                      this.openWAChatWithCustomMessage("Watson are demos that you provide")
-                    }
-                  >
-                    {" "}
-                    Demo{" "}
-                  </span>
-                </p>
-                <p>
-                  Access Incede's knowledge base of success stories using IBM
-                  Watson Assistant and it's native integration with IBM Watson
-                  Discovery
-                  <span
-                    className="wa-feature-demo-link"
-                    onClick={() =>
-                      this.openWAChatWithCustomMessage("what are the Success Stories")
-                    }
-                  >
-                    &nbsp;Success Stories
-                  </span>
-                </p>
-                <p>
-                  Prefer to see a deeper demonstration of IBM Watson's
-                  industry-leading conversational AI capabilities, request a
-                  <span
-                    className="wa-feature-demo-link"
-                    onClick={() =>
-                      this.openWAChatWithCustomMessage("Schedule a meeting")
-                    }
-                  >
-                    &nbsp;Demo&nbsp;
-                  </span>
-                  Today!
-                </p>
+                  <p className="mb-4">
+                    Interact with several IBM Watson Assistant demos for
+                    Customer Care and Employee Care and{" "}
+                    <span
+                      className="wa-feature-demo-link"
+                      onClick={() =>
+                        this.openWAChatWithCustomMessage(
+                          "Watson are demos that you provide"
+                        )
+                      }
+                    >
+                      {" "}
+                      Demo{" "}
+                    </span>
+                  </p>
+                  <p className="mb-4">
+                    Access Incede's knowledge base of success stories using IBM
+                    Watson Assistant and it's native integration with IBM Watson
+                    Discovery
+                    <span
+                      className="wa-feature-demo-link"
+                      onClick={() =>
+                        this.openWAChatWithCustomMessage(
+                          "what are the Success Stories"
+                        )
+                      }
+                    >
+                      &nbsp;Success Stories
+                    </span>
+                  </p>
+                  <p>
+                    Prefer to see a deeper demonstration of IBM Watson's
+                    industry-leading conversational AI capabilities, request a
+                    <span
+                      className="wa-feature-demo-link"
+                      onClick={() =>
+                        this.openWAChatWithCustomMessage("Schedule a meeting")
+                      }
+                    >
+                      &nbsp;Demo&nbsp;
+                    </span>
+                    Today!
+                  </p>
               </Col>
             </Row>
           </Container>

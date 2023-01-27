@@ -88,7 +88,7 @@ class Customer extends Component {
                     <p>Automation of routine tasks and transactions.</p>
                   </li>
                 </ul>
-                <p>
+                {/* <p>
                   <strong>Learn more in</strong>
                 </p>
                 <br />
@@ -105,7 +105,7 @@ class Customer extends Component {
                       <strong>Retail and Distribution</strong>
                     </Link>
                   </div>
-                </div>
+                </div> */}
                 <br />
                 <div className="d-flex align-items-center">
                   <div>

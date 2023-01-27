@@ -58,6 +58,7 @@ class MassTortClassActionFees extends React.Component {
                 <Container>
                   <Row>
                     <Col xs={12} sm={12} md={6} lg={6}>
+                      <p className="mb-4 complex-heading">{`Complex Cases -> Multiple Firms -> One System`}</p>
                       <div className="content">
                         <h1 className="text-primary">
                           Mass Tort & Class Action Fees Management
