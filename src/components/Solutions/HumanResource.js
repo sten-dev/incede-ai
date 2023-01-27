@@ -3,13 +3,46 @@ import { Container, Row, Col } from "reactstrap";
 import "../../styles/solutions.scss";
 import communicationServices from "../../img/solutions/hr-services.png";
 import communicationsImage from "../../img/solutions/communications-icon.png";
-
+import Sidebar from "react-sidebar";
 import { Link } from "gatsby";
+import BotSection from "../Landing/BotSection";
 class HumanResource extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      modal: false,
+      isFirst: true,
+      defaultText: "",
+    };
   }
+  toggle = (defaultText = "") => {
+    if (!this.state.modal) {
+      document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+    } else {
+      document.body.style.overflow = "auto";
+      document.body.style.position = "initial";
+    }
+    if (!defaultText) {
+      localStorage.setItem("isLastOpen", !this.state.modal);
+    }
+    this.setState({
+      modal: !this.state.modal,
+      isFirst: false,
+      defaultText: defaultText || "",
+    });
+  };
+
+  openWAChatWithCustomMessage = (message) => {
+    this.setState(
+      {
+        modal: false,
+      },
+      () => {
+        this.toggle(message);
+      }
+    );
+  };
   render() {
     return (
       <section className="solutions-content gap-y-half" id="3">
@@ -79,6 +112,16 @@ class HumanResource extends Component {
                     </Link>
                   </div>
                 </div>
+                <div className="text-center mt-3">
+                  <button
+                    onClick={() =>
+                      this.openWAChatWithCustomMessage("Schedule a meeting")
+                    }
+                    className="btn btn-secondary"
+                  >
+                    Request a Demo Today! 
+                  </button>
+                </div>
               </div>
             </Col>
             <Col xs={12} sm={12} md={6} lg={6} className="mt-4 mt-lg-0 d-flex">
@@ -88,6 +131,30 @@ class HumanResource extends Component {
             </Col>
           </Row>
         </Container>
+        {this.state.modal && (
+          <Sidebar
+            sidebar={
+              !this.state.isFirst ? (
+                <BotSection
+                  toggle={this.toggle}
+                  defaultTextToWA={this.state.defaultText}
+                />
+              ) : (
+                <React.Fragment></React.Fragment>
+              )
+            }
+            open={this.state.modal}
+            onSetOpen={this.toggle}
+            styles={{
+              sidebar: { width: "100%", overflowX: "hidden" },
+              content: { position: "initial" },
+              root: { position: "initial" },
+            }}
+            rootClassName="side-bar"
+          >
+            {" "}
+          </Sidebar>
+        )}
       </section>
     );
   }
