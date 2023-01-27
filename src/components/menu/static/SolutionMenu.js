@@ -19,7 +19,7 @@ class SolutionMenu extends Component {
           <Link to="/solutions/customer-service">Consumer AI Self-Service</Link>
         </li>
         <li>
-          <Link to="/solutions/human-resource-services">
+          <Link to="/solutions/employee-ai-self-service">
             Employee AI Self-Service
           </Link>
         </li>

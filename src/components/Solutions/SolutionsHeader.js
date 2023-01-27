@@ -60,7 +60,7 @@ class SolutionsHeader extends React.Component {
         url = "/solutions/customer-service";
         break;
       case "Employee AI Self-Service":
-        url = "/solutions/human-resource-services";
+        url = "/solutions/employee-ai-self-service";
         break;
       case "Mass Tort & Class Action Fees Management":
         url = "/solutions/mass-tort-service";
@@ -102,6 +102,8 @@ class SolutionsHeader extends React.Component {
         break;
       case "/solutions/human-resource-services":
       case "/solutions/human-resource-services/":
+      case "/solutions/employee-ai-self-service":
+      case "/solutions/employee-ai-self-service/":
         this.setState({ selected: "Employee AI Self-Service" });
         break;
       case "/solutions/mass-tort-service":

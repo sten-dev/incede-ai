@@ -17,7 +17,7 @@ class Customer extends Component {
           <Row>
             <Col xs={12} sm={12} md={6} lg={6}>
               <div className="content">
-                <h1 className="text-primary">Customer Service</h1>
+                <h1 className="text-primary">Customer AI Self Service</h1>
                 <p>
                   It provides solutions primarily designed to take over
                   inquiries coming into the customer service desk. It provides

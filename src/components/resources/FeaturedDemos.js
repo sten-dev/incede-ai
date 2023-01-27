@@ -12,14 +12,8 @@ class FeatureDemos extends Component {
     this.state = {
       modal: false,
       isFirst: true,
-      window: undefined,
       defaultText: "",
     };
-  }
-  componentDidMount() {
-    this.setState({
-      window: window,
-    });
   }
 
   resetLocalStorage = () => {
@@ -90,7 +84,7 @@ class FeatureDemos extends Component {
                   <span
                     className="wa-feature-demo-link"
                     onClick={() =>
-                      this.openWAChatWithCustomMessage("what are the Success Stories you provide")
+                      this.openWAChatWithCustomMessage("what are the Success Stories")
                     }
                   >
                     &nbsp;Success Stories

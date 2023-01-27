@@ -239,7 +239,7 @@ class INavbar extends Component {
             </Collapse>
           </Navbar>
 
-          <Popover
+          {/* <Popover
             boundariesElement="window"
             placement="bottom"
             isOpen={this.state.isServicesMenuOpen}
@@ -248,11 +248,10 @@ class INavbar extends Component {
             trigger="legacy"
             className="popover-main"
           >
-            {/* <PopoverHeader>Popover Title</PopoverHeader> */}
             <PopoverBody>
               <ServiceMenu />
             </PopoverBody>
-          </Popover>
+          </Popover> */}
 
           <Popover
             boundariesElement="window"
@@ -267,7 +266,7 @@ class INavbar extends Component {
               <SolutionMenu />
             </PopoverBody>
           </Popover>
-          <Popover
+          {/* <Popover
             boundariesElement="window"
             placement="bottom"
             isOpen={this.state.isIndustriesMenuOpen}
@@ -275,11 +274,10 @@ class INavbar extends Component {
             toggle={this.toggleIndustriesMenu}
             trigger="legacy"
           >
-            {/* <PopoverHeader>Popover Title</PopoverHeader> */}
             <PopoverBody>
               <IndustryMenu />
             </PopoverBody>
-          </Popover>
+          </Popover> */}
           <Popover
             boundariesElement="window"
             placement="bottom"
