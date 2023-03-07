@@ -76,9 +76,7 @@ class FeatureDemos extends Component {
                   Employee Care
                 </p>
                 <p className="mb-4">
-                  Access Incede's knowledge base of success stories using IBM
-                  Watson Assistant and it's native integration with IBM Watson
-                  Discovery
+                  Access Incede's 
                   <span
                     className="wa-feature-demo-link"
                     onClick={() =>
@@ -87,8 +85,11 @@ class FeatureDemos extends Component {
                       )
                     }
                   >
-                    &nbsp;Success Stories
+                    &nbsp;knowledge base of success stories&nbsp;
                   </span>
+                   using IBM
+                  Watson Assistant and it's native integration with IBM Watson
+                  Discovery Success Stories
                 </p>
                 <p>
                   Prefer to see a deeper demonstration of IBM Watson's
