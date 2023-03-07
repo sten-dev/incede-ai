@@ -65,16 +65,15 @@ class FeatureDemos extends Component {
             <Row className="mb-4">
               <Col xs={12} sm={12} md={12} lg={12}>
                 <p className="mb-4">
-                  Interact with several IBM Watson demos for Customer Care and
-                  Employee Care” with the{" "}
-                  <span
+                  Interact with several <span
                     className="wa-feature-demo-link"
                     onClick={() =>
                       this.openWAChatWithCustomMessage("IBM Watson demos")
                     }
                   >
                     IBM Watson demos
-                  </span>
+                  </span> for Customer Care and
+                  Employee Care
                 </p>
                 <p className="mb-4">
                   Access Incede's knowledge base of success stories using IBM

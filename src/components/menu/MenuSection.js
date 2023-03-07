@@ -105,7 +105,7 @@ class MenuSection extends Component {
                 </div> */}
               </React.Fragment>
             )}
-            {(!this.state.showSubMenu || this.state.showService) && (
+            {/* {(!this.state.showSubMenu || this.state.showService) && (
               <div className="menu-items">
                 <span onClick={this.showService} className="d-inline-flex">
                   {this.state.showService && (
@@ -140,7 +140,7 @@ class MenuSection extends Component {
               <React.Fragment>
                 <ServiceMenu />
               </React.Fragment>
-            )}
+            )} */}
 
             {(!this.state.showSubMenu || this.state.showSolution) && (
               <div className="menu-items">
@@ -179,7 +179,7 @@ class MenuSection extends Component {
               </React.Fragment>
             )}
 
-            {(!this.state.showSubMenu || this.state.showIndustry) && (
+            {/* {(!this.state.showSubMenu || this.state.showIndustry) && (
               <div className="menu-items">
                 <span onClick={this.showIndustry} className="d-inline-flex">
                   {this.state.showIndustry && (
@@ -214,7 +214,7 @@ class MenuSection extends Component {
               <React.Fragment>
                 <IndustryMenu />
               </React.Fragment>
-            )}
+            )} */}
 
             {(!this.state.showSubMenu || this.state.showResource) && (
               <div className="menu-items">
