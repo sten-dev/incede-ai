@@ -14,7 +14,7 @@ class SolutionsImageBySlug extends Component {
         return (
           <img className="service-img-slug" src={solutions1} alt="service-1" />
         );
-      case "customer-service":
+      case "ai-for-customer-care":
         return (
           <img className="service-img-slug" src={solutions2} alt="service-2" />
         );

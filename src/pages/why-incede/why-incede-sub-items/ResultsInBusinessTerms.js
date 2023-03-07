@@ -33,10 +33,10 @@ const ResultsInBusinessTerms = props => {
                 <Row>
                   <Col md={6} xs={12} className="p-2">
                     <Link
-                      to="/solutions/customer-service"
+                      to="/solutions/ai-for-customer-care"
                       className="btn why-incede-btn primary btn-outline-info btn-lg w-100"
                     >
-                      Customer Service &nbsp;
+                      AI for Customer Care &nbsp;
                       <img src={arrowPrimary} alt="next" />
                     </Link>
                   </Col>

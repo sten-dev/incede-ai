@@ -10,31 +10,31 @@ class SolutionMenu extends Component {
   render() {
     return (
       <ul className="menu-links">
-        <li>
+        {/* <li>
           <Link to="/solutions/reseller-distributor-service">
             Resellers & Distributors AI Knowledge Base Self-Service
           </Link>
+        </li> */}
+        <li>
+          <Link to="/solutions/ai-for-customer-care">AI for Customer Care</Link>
         </li>
         <li>
-          <Link to="/solutions/customer-service">Consumer AI Self-Service</Link>
-        </li>
-        <li>
-          <Link to="/solutions/employee-ai-self-service">
-            Employee AI Self-Service
+          <Link to="/solutions/ai-for-employee-care">
+          AI for Employee Care
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link to="/solutions/mass-tort-service">
             Mass Tort & Class Action Fees Management
           </Link>
-        </li>
+        </li> */}
         {/* <li>
           <Link to="/solutions/planning-analytics-service">
             Planning Analytics Managed Service
           </Link>
         </li> */}
         {/* <li>
-          <Link to="/solutions/customer-service">Customer Service</Link>
+          <Link to="/solutions/ai-for-customer-care">Customer Service</Link>
         </li>
         <li>
           <Link to="/solutions/human-resource-services">

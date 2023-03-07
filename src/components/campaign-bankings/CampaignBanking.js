@@ -755,7 +755,7 @@ const CampaignBanking = () => {
         <Container className='container-width'>
           <Row>
             <Col>
-              <h4>📞 408-898-4606 &nbsp;&nbsp; ✉️ info@incede.in</h4>
+              <h4>📞 408-850-4900 &nbsp;&nbsp; ✉️ info@incede.in</h4>
             </Col>
             <Col>
               <h4 className='text-right'>© Copyright 2020 incede.ai</h4>
@@ -851,7 +851,7 @@ const CampaignBanking = () => {
                       <h4 className="mt-0 text-white">Contact Us</h4>
                       <p>United States, Headquaters</p>
                       <br />
-                      <p>408-898-4606, info@incede.ai</p>
+                      <p>408-850-4900, info@incede.ai</p>
                       <br />
                       <p>
                         5201 Great America Parkway, Suite #320, Santa Clara, CA

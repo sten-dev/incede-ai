@@ -4,10 +4,10 @@ import SolutionImage from "../../img/solutions/banner-solution.png";
 import ScrollMenu from "react-horizontal-scrolling-menu";
 
 let list = [
-  { name: "Resellers & Distributors AI Knowledge Base Self-Service" },
-  { name: "Consumer AI Self-Service" },
-  { name: "Employee AI Self-Service" },
-  { name: "Mass Tort & Class Action Fees Management" },
+  // { name: "Resellers & Distributors AI Knowledge Base Self-Service" },
+  { name: "AI for Customer Care" },
+  { name: "AI for Employee Care" },
+  // { name: "Mass Tort & Class Action Fees Management" },
   // { name: "Planning Analytics Managed Service" },
   // { name: "Customer Service" },
   // { name: "Human Resource Services" },
@@ -56,11 +56,11 @@ class SolutionsHeader extends React.Component {
       case "Resellers & Distributors AI Knowledge Base Self-Service":
         url = "/solutions/reseller-distributor-service";
         break;
-      case "Consumer AI Self-Service":
-        url = "/solutions/customer-service";
+      case "AI for Customer Care":
+        url = "/solutions/ai-for-customer-care";
         break;
-      case "Employee AI Self-Service":
-        url = "/solutions/employee-ai-self-service";
+      case "AI for Employee Care":
+        url = "/solutions/ai-for-employee-care";
         break;
       case "Mass Tort & Class Action Fees Management":
         url = "/solutions/mass-tort-service";
@@ -69,7 +69,7 @@ class SolutionsHeader extends React.Component {
         url = "/solutions/planning-analytics-service";
         break;
       // case "Customer Service":
-      //   url = "/solutions/customer-service";
+      //   url = "/solutions/ai-for-customer-care";
       //   break;
       // case "Human Resource Services":
       //   url = "/solutions/human-resource-services";
@@ -96,15 +96,15 @@ class SolutionsHeader extends React.Component {
           selected: "Resellers & Distributors AI Knowledge Base Self-Service",
         });
         break;
-      case "/solutions/customer-service":
-      case "/solutions/customer-service/":
-        this.setState({ selected: "Consumer AI Self-Service" });
+      case "/solutions/ai-for-customer-care":
+      case "/solutions/ai-for-customer-care/":
+        this.setState({ selected: "AI for Customer Care" });
         break;
       case "/solutions/human-resource-services":
       case "/solutions/human-resource-services/":
-      case "/solutions/employee-ai-self-service":
-      case "/solutions/employee-ai-self-service/":
-        this.setState({ selected: "Employee AI Self-Service" });
+      case "/solutions/ai-for-employee-care":
+      case "/solutions/ai-for-employee-care/":
+        this.setState({ selected: "AI for Employee Care" });
         break;
       case "/solutions/mass-tort-service":
       case "/solutions/mass-tort-service/":
@@ -114,8 +114,8 @@ class SolutionsHeader extends React.Component {
       case "/solutions/planning-analytics-service/":
         this.setState({ selected: "Planning Analytics Managed Service" });
         break;
-      // case "/solutions/customer-service":
-      // case "/solutions/customer-service/":
+      // case "/solutions/ai-for-customer-care":
+      // case "/solutions/ai-for-customer-care/":
       //   this.setState({ selected: "Customer Service" });
       //   break;
       // case "/solutions/human-resource-services":

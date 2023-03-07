@@ -25,7 +25,8 @@ const apiSubItems = [
   {
     image: "/img/watson-api/tone-analyzer.png",
     inactiveImage: "/img/watson-api/tone-analyzer-inactive.png",
-    title: "Tone Analyzer"
+    title: "Tone Analyzer",
+    hide:true,
   },
   {
     image: "/img/watson-api/language-translator.png",
@@ -35,7 +36,8 @@ const apiSubItems = [
   {
     image: "/img/watson-api/visual-recognition.png",
     inactiveImage: "/img/watson-api/visual-recognition-inactive.png",
-    title: "Visual Recognition"
+    title: "Visual Recognition",
+    hide:true,
   },
   // {
   //   image: "/img/watson-api/natural-language-classifier.png",
@@ -52,6 +54,9 @@ const apiSubItems = [
 export const Menu = (apiSubItems, activeIndex) =>
   apiSubItems.map((x, i) => {
     let data = x;
+    if(x.hide){
+      return <React.Fragment></React.Fragment>
+    }
     return (
       <div className="wwd-list-card api-services-cards mb-0" key={i}>
         <ServicesSmallCardsList

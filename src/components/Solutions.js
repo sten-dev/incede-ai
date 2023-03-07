@@ -31,7 +31,7 @@ class Solutions extends React.Component {
           sideContext:
             "Increases response time to customer inquiries.Increases volume of incoming requests to the service desk.Automation of routine tasks and transactions."
         },
-        path: "/solutions/customer-service"
+        path: "/solutions/ai-for-customer-care"
       },
 
       {

@@ -26,11 +26,11 @@ import LeaderShipTeam from "./why-incede-sub-items/LeaderShipTeam";
 import { Link, animateScroll as scroll } from "react-scroll";
 
 const subItems = [
-  {
-    image: "/img/why-incede/business-terms.png",
-    inactiveImage: "/img/why-incede/business-terms-inactive.png",
-    title: "Results in Business Terms"
-  },
+  // {
+  //   image: "/img/why-incede/business-terms.png",
+  //   inactiveImage: "/img/why-incede/business-terms-inactive.png",
+  //   title: "Results in Business Terms"
+  // },
   {
     image: "/img/why-incede/certified-expertise.png",
     inactiveImage: "/img/why-incede/certified-expertise-inactive.png",
@@ -216,11 +216,11 @@ class WhyIncede extends Component {
             >
               <Row>
                 <Col xs={12}>
-                  {this.state.activeIndex === 0 && <ResultsInBusinessTerms />}
-                  {this.state.activeIndex === 1 && <CertifiedExpertise />}
-                  {this.state.activeIndex === 2 && <CustomerSuccess />}
-                  {this.state.activeIndex === 3 && <TechnologyPartners />}
-                  {this.state.activeIndex === 4 && <LeaderShipTeam />}
+                  {/* {this.state.activeIndex === 0 && <ResultsInBusinessTerms />} */}
+                  {this.state.activeIndex === 0 && <CertifiedExpertise />}
+                  {this.state.activeIndex === 1 && <CustomerSuccess />}
+                  {this.state.activeIndex === 2 && <TechnologyPartners />}
+                  {this.state.activeIndex === 3 && <LeaderShipTeam />}
                 </Col>
               </Row>
             </Container>

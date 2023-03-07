@@ -15,7 +15,7 @@ about:
 location:
   address: '5201 Great America Parkway, Suite #320, Santa Clara, CA 95054'
   email: info@incede.ai
-  phone: 408-898-4606
+  phone: 408-850-4900
   subTitle: Corporate Headquaters
   title: United States
 ---

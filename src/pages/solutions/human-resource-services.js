@@ -8,16 +8,16 @@ import HumanResource from "../../components/Solutions/HumanResource";
 
 const HumanResourceService = () => {
   return (
-    <Layout pageTitle="Employee AI Self-Service | Incede">
+    <Layout pageTitle="AI for Employee Care | Incede">
       <Transition>
         <section className="industry-solution">
           <SolutionsHeader
-            header={"Employee AI Self-Service"}
+            header={"AI for Employee Care"}
             title={"Conversational AI Puts the Focus on the People-part of HR"}
           />
           <Container>
             {/* <SolutionsPreviousNextHeader
-              previousLink="/solutions/customer-service"
+              previousLink="/solutions/ai-for-customer-care"
               previousName="Customer Service"
               nextName="IT Service Desk"
               nextLink="/solutions/it-service-desk"

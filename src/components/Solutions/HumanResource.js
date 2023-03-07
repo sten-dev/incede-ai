@@ -51,7 +51,7 @@ class HumanResource extends Component {
           <Row>
             <Col>
               <div className="content">
-                <h1 className="text-primary">Employee AI Self-Service</h1>
+                <h1 className="text-primary">AI for Employee Care</h1>
                 <p>
                   Designed to automate routine questions and queries coming into
                   HR. These solutions provide answers to vacation time,
