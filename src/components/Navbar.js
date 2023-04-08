@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "gatsby";
-import logo from "../img/logo.jpg";
+import logo from "../img/logo.png";
 import menu from "../img/menu.svg";
 import "../styles/navbar.scss";
 // import PageTransition from "gatsby-plugin-page-transitions";
