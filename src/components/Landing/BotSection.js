@@ -54,7 +54,7 @@ class BotSection extends Component {
         {
           user: "WA",
           message:
-            "Welcome! I am your virtual assistant to help you learn more about Incede's services, locations and experitse with IBM Watson AI",
+            "Welcome! I am your virtual assistant to help you learn more about Incede's services, locations and expertise with IBM Watson AI",
           type: "text",
         },
       ],
@@ -498,7 +498,7 @@ class BotSection extends Component {
       {
         user: "WA",
         message:
-          "Welcome! I am your virtual assistant to help you learn more about Incede's services, locations and experitse with IBM Watson AI",
+          "Welcome! I am your virtual assistant to help you learn more about Incede's services, locations and expertise with IBM Watson AI",
         type: "text",
       },
     ];
@@ -893,7 +893,7 @@ class BotSection extends Component {
         {
           user: "WA",
           message:
-            "Welcome! I am your virtual assistant to help you learn more about Incede's services, locations and experitse with IBM Watson AI",
+            "Welcome! I am your virtual assistant to help you learn more about Incede's services, locations and expertise with IBM Watson AI",
           type: "text",
         },
       ],
