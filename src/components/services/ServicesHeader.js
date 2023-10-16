@@ -13,9 +13,9 @@ const MenuItem = ({ text, selected, className }) => {
   return <div className={`menu-item ${className?className:""} ${selected ? "active" : ""}`}>{text}</div>;
 };
 export const Menu = (list, selected) =>
-  list.map(el => {
+  list.map((el,index) => {
     // const { name } = el;
-    return <MenuItem text={el?.name} key={name} selected={selected} className={el?.className} />;
+    return <MenuItem text={el?.name} key={index} selected={selected} className={el?.className} />;
   });
 const Arrow = ({ text, className }) => {
   return <div className={className}>{text}</div>;
