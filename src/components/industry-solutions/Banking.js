@@ -23,11 +23,11 @@ class Banking extends Component {
             <Col xs={12} sm={12} md={12} lg={6}>
               <p className="content-heading mb-3">Conversational Banking </p>
               <p className="content-body">
-                Watson Assistant enables customers to ask questions or request
+                watsonx Assistant enables customers to ask questions or request
                 services using natural language – anytime, anywhere and on any
                 device. While customers perform important requests such as
                 transferring funds between accounts, applying for a mortgage or
-                inquiring about the bank’s commercial loan policies, Watson is
+                inquiring about the bank’s commercial loan policies, watsonx is
                 secure, fast and simple.
               </p>
               <br />
@@ -125,7 +125,7 @@ class Banking extends Component {
                 Automating Call Center Services{" "}
               </p>
               <p className="content-body">
-                Integrating Watson Discovery with Watson Assistant allows
+                Integrating Watson Discovery with watsonx Assistant allows
                 employees to ask questions about products, services or
                 regulations – instantly and without burdening the call center.
                 The virtual assistant’s dialog is enhanced by marking,

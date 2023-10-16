@@ -12,7 +12,7 @@ class ServiceMenu extends React.Component {
       <ul className="menu-links">
         <li>
           <Link to="/services/watson-assistant-services">
-            Watson Assistant Services
+            watsonx Assistant Services
           </Link>
         </li>
         <li>

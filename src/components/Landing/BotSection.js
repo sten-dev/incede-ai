@@ -47,6 +47,7 @@ class BotSection extends Component {
   currentIntent;
   demoSocket = undefined;
   validPin = "2201";
+  welcomeMessage = "Welcome! I am your virtual assistant to help you learn more about Incede's services, locations and expertise with IBM watsonx AI";
   constructor(props) {
     super(props);
     this.state = {
@@ -54,7 +55,7 @@ class BotSection extends Component {
         {
           user: "WA",
           message:
-            "Welcome! I am your virtual assistant to help you learn more about Incede's services, locations and expertise with IBM Watson AI",
+            this.welcomeMessage,
           type: "text",
         },
       ],
@@ -498,7 +499,7 @@ class BotSection extends Component {
       {
         user: "WA",
         message:
-          "Welcome! I am your virtual assistant to help you learn more about Incede's services, locations and expertise with IBM Watson AI",
+          this.welcomeMessage,
         type: "text",
       },
     ];
@@ -893,7 +894,7 @@ class BotSection extends Component {
         {
           user: "WA",
           message:
-            "Welcome! I am your virtual assistant to help you learn more about Incede's services, locations and expertise with IBM Watson AI",
+            this.welcomeMessage,
           type: "text",
         },
       ],
@@ -1311,7 +1312,7 @@ class BotSection extends Component {
                 <p className="lead text-white d-none d-md-block">
                   Experts in developing AI Infused Business Applications. (
                   <small className="power-by">
-                    Powered by Watson Assistant
+                    Powered by watsonx Assistant
                   </small>
                   )
                 </p>

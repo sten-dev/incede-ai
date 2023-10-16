@@ -4,7 +4,7 @@ import ServicesImage from "../../img/services/banner-services.png";
 import ScrollMenu from "react-horizontal-scrolling-menu";
 
 let list = [
-  { name: "Watson Assistant Services" },
+  { name: "watsonx Assistant Services" },
   { name: "Watson Discovery Services" },
   { name: "Watson API Services" },
   { name: "Applications Development" }
@@ -46,7 +46,7 @@ class ServicesHeader extends Component {
     this.setState({ selected: key });
     let url = "/services/watson-assistant-services";
     switch (key) {
-      case "Watson Assistant Services":
+      case "watsonx Assistant Services":
         url = "/services/watson-assistant-services";
         break;
       case "Watson Discovery Services":
@@ -69,7 +69,7 @@ class ServicesHeader extends Component {
     switch (path) {
       case "/services/watson-assistant-services":
       case "/services/watson-assistant-services/":
-        this.setState({ selected: "Watson Assistant Services" });
+        this.setState({ selected: "watsonx Assistant Services" });
         break;
       case "/services/watson-discovery-services":
       case "/services/watson-discovery-services/":
@@ -84,7 +84,7 @@ class ServicesHeader extends Component {
         this.setState({ selected: "Applications Development" });
         break;
       default:
-        this.setState({ selected: "Watson Assistant Services" });
+        this.setState({ selected: "watsonx Assistant Services" });
         break;
     }
   };
@@ -99,10 +99,10 @@ class ServicesHeader extends Component {
                 <h1 className="title display-3">Services</h1>
                 <h5 className="text-white sub-title">
                   Incede's resources are experts in helping organizations
-                  understand and incorporate IBM’s Watson technology. We provide
+                  understand and incorporate IBM’s watsonx technology. We provide
                   end-to-end capabilities in developing conversational
                   interfaces and cognitive enterprise search applications with
-                  Watson.
+                  watsonx.
                 </h5>
               </article>
             </Col>

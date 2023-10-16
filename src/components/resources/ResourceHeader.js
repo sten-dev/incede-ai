@@ -98,10 +98,10 @@ export class ResourceHeader extends Component {
                 <h1 className="title display-3">Resources</h1>
                 <h5 className="text-white sub-title">
                   Incede's resources are experts in helping organizations
-                  understand and incorporate IBM's Watson technology. We provide
+                  understand and incorporate IBM's watsonx technology. We provide
                   end-to-end capabilities in developing conversational
                   interfaces and cognitive enterprise search applications with
-                  Watson.
+                  watsonx.
                 </h5>
               </article>
             </Col>

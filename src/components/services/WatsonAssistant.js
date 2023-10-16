@@ -19,12 +19,12 @@ const assistantSubItems = [
   {
     image: "/img/watson-assistant/design-services.png",
     inactiveImage: "/img/watson-assistant/design-services-inactive.png",
-    title: "Watson Assistant Design Services"
+    title: "watsonx Assistant Design Services"
   },
   {
     image: "/img/watson-assistant/development-services.png",
     inactiveImage: "/img/watson-assistant/development-services-inactive.png",
-    title: "Watson Assistant Development Services"
+    title: "watsonx Assistant Development Services"
   },
   {
     image: "/img/watson-assistant/channel-development.png",
@@ -191,8 +191,8 @@ class WatsonAssistant extends Component {
             <Col xs={12}>
               <div className="content">
                 <p id="watson-assistant-id" className="pt-2"></p>
-                <h1 className="title text-primary text-uppercase">
-                  <b>Watson Assistant Services</b>
+                <h1 className="title text-primary">
+                  <b>watsonx ASSISTANT SERVICES</b>
                   <Link
                     id="custom-react-link"
                     to={this.state.linkId}
@@ -291,7 +291,7 @@ class WatsonAssistant extends Component {
                     <Col>
                       <h4 className="text-uppercase">
                         <b className="color-grey">
-                          Watson Assistant Design Services
+                          watsonx Assistant Design Services
                         </b>
                       </h4>
 
@@ -364,7 +364,7 @@ class WatsonAssistant extends Component {
                     <Col>
                       <h4 className="text-uppercase">
                         <b className="color-grey">
-                          Watson Assistant Development Services
+                          watsonx Assistant Development Services
                         </b>
                       </h4>
 

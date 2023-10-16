@@ -214,7 +214,7 @@ class WatsonApi extends Component {
                   </b>
                 </p>
                 <p>
-                  Incede infuses Watson AI capabilities into applications for a
+                  Incede infuses watsonx AI capabilities into applications for a
                   deeper user experience and richer insights for
                   decision-makers. For example, Incede solutions could integrate
                   a conversational AI solution where a user provides a question

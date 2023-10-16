@@ -71,7 +71,7 @@ class FeatureDemos extends Component {
                       this.openWAChatWithCustomMessage("IBM Watson demos")
                     }
                   >
-                    IBM Watson demos
+                    IBM watsonx demos
                   </span> for Customer Care and
                   Employee Care
                 </p>
@@ -88,11 +88,11 @@ class FeatureDemos extends Component {
                     &nbsp;knowledge base of success stories&nbsp;
                   </span>
                    using IBM
-                  Watson Assistant and it's native integration with IBM Watson
+                  watsonx Assistant and it's native integration with IBM Watson
                   Discovery Success Stories
                 </p>
                 <p>
-                  Prefer to see a deeper demonstration of IBM Watson's
+                  Prefer to see a deeper demonstration of IBM watsonx's
                   industry-leading conversational AI capabilities, request a
                   <span
                     className="wa-feature-demo-link"

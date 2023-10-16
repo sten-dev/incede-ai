@@ -25,7 +25,7 @@ class Communication extends Component {
             <Col xs={12} sm={12} md={12} lg={6}>
               <p className="content-heading mb-3">Customer Self-Service</p>
               <p className="content-body">
-                Watson Assistant allows telcos the ability to automate the high
+                watsonx Assistant allows telcos the ability to automate the high
                 volume, low value transactions that customers regularly request
                 such as service changes, payment processing and account
                 inquiries, while providing a simple, efficient and thorough
@@ -77,7 +77,7 @@ class Communication extends Component {
               <p className="content-body">
                 Services organizations who engage with their employees have
                 employees who are engaged with their clients. Combining the
-                capabilities of Watson Discovery and Watson Assistant allows
+                capabilities of Watson Discovery and watsonx Assistant allows
                 employees to find answers about their vacation balances, expense
                 reimbursements, job postings and HR policies anytime and from
                 anywhere.

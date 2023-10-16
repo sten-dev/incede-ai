@@ -217,7 +217,7 @@ section {
   text-align: center;
   top: 25%;
   cursor: pointer;
-  z-index: 99;
+  z-index: 120;
   &.left {
     clip-path: polygon(0 0, 100% 25%, 100% 75%, 0% 100%);
   }

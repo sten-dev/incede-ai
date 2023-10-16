@@ -31,7 +31,7 @@ class IndustryManufacturing extends Component {
               </p>
               <br />
               <p className="content-body">
-                Watson Assistant bridges the inexperienced, the unfamiliar and
+                watsonx Assistant bridges the inexperienced, the unfamiliar and
                 the uncommon for the tech to find answers without delays or a
                 return trip. <b>Incede</b> develops the virtual assistant’s
                 dialog by training a model to the targeted products, machines or
@@ -77,7 +77,7 @@ class IndustryManufacturing extends Component {
                 quality control reports and even complex engineering
                 specifications to vastly expand the organization’s knowledge
                 base. Using natural language, employees use the simple, natural
-                language interface of Watson Assistant to tap the organization’s
+                language interface of watsonx Assistant to tap the organization’s
                 now-expanded knowledge base for answers. <b>Incede</b> ingests,
                 categorizes and marks the documents and then iteratively trains
                 and tests the model to ensure document relevancy is obtained.

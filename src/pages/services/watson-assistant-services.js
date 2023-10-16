@@ -8,10 +8,10 @@ import WatsonAssistant from "../../components/services/WatsonAssistant";
 
 const WatsonAssistantServices = () => {
   return (
-    <Layout pageTitle="Watson Assistant Services | Incede">
+    <Layout pageTitle="watsonx Assistant Services | Incede">
       <Transition>
         <section className="industry-solution">
-          <ServicesHeader header={"Watson Assistant Services"} title={""} />
+          <ServicesHeader header={"watsonx Assistant Services"} title={""} />
           <Container fluid className="p-0">
             {/* <ServicesPreviousNextHeader
               nextName="Watson Discovery Services"

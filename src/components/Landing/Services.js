@@ -21,7 +21,7 @@ class Services extends React.Component {
         data: {
           image: "img/watson-assistant.png",
           inactiveImage: "img/watson-assistant-inactive.png",
-          title: "Watson Assistant Services",
+          title: "watsonx Assistant Services",
           subTitle: "",
           mainContext:
             "Incede has extensive experience in helping organizations utilize conversational AI for a competitive advantage in their product and services strategies.",

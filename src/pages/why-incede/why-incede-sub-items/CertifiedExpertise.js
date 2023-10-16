@@ -19,7 +19,7 @@ const CertifiedExpertise = () => {
             <div>
               <h1 className="text-left heading">Certified Expertise</h1>
               <h4 className="my-4">
-                We are experts in IBM Watson AI with tools to accelerate results
+                We are experts in IBM watsonx AI with tools to accelerate results
               </h4>
               <p className="sub-title ">
                 With decades of experience, we are visionary thinkers and
@@ -37,7 +37,7 @@ const CertifiedExpertise = () => {
                       to="/services/watson-assistant-services"
                       className="btn why-incede-btn primary btn-outline-info btn-lg w-100"
                     >
-                      Watson Assistant Services &nbsp;
+                      watsonx Assistant Services &nbsp;
                       <img
                         src={arrowPrimary}
                         alt="next"

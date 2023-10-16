@@ -28,7 +28,7 @@ class Home extends React.Component {
                   <h4>
                     Incede personalizes user experiences, streamlines business
                     processes and workflow, sparks innovation by deploying IBM
-                    Watson AI solutions
+                    watsonx AI solutions
                   </h4>
                   {/* <h4>{home.subTitle}</h4> */}
                   <div className="py-2">

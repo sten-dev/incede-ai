@@ -42,7 +42,7 @@ const SpeechToText = props => {
             <br />
             <strong>Powerful speech recognition</strong>
             <p>
-              Customized speech-to-text capabilities, driven by machine learning, let customers ask their questions in natural language – fast-tracking them to the answer. You can also blend texting and voice simultaneously for instant information exchange by connecting Watson Speech to Text with Watson Assistant over the phone.
+              Customized speech-to-text capabilities, driven by machine learning, let customers ask their questions in natural language – fast-tracking them to the answer. You can also blend texting and voice simultaneously for instant information exchange by connecting Watson Speech to Text with watsonx Assistant over the phone.
             </p>
             <br />
             <strong>Advanced Machine Learning</strong>

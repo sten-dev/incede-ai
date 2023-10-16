@@ -19,7 +19,7 @@ class RetailDistribution extends Component {
             <Col xs={12} sm={12} md={12} lg={6}>
               <p className="content-heading mb-3">Messages-to-Conversations</p>
               <p className="content-body">
-                Social media is a vital channel for retailers and Watson AI
+                Social media is a vital channel for retailers and watsonx AI
                 enables them to keep up with the message inflow and find ways of
                 converting messengers into customers.
               </p>
@@ -61,7 +61,7 @@ class RetailDistribution extends Component {
             <Col xs={12} sm={12} md={12} lg={6}>
               <p className="content-heading mb-3">Customer Order & Pick-up</p>
               <p className="content-body">
-                Brick and mortar stores are utilizing Watson Assistant to enable
+                Brick and mortar stores are utilizing watsonx Assistant to enable
                 customers to inquire, order and pay for products – anytime and
                 anywhere. The store's purpose is doubled from the traditional
                 street business to a mobile customer’s distribution outlet.

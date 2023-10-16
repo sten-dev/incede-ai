@@ -86,7 +86,7 @@ class Customer extends Component {
                   </p>
                   <ul>
                     <li>
-                      With AI-powered solutions like Watson Assistant,
+                      With AI-powered solutions like watsonx Assistant,
                       organizations can provide customers with personalized and
                       engaging experiences, improving customer satisfaction and
                       loyalty.
