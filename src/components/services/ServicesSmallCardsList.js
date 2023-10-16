@@ -17,7 +17,7 @@ const ServicesSmallCard = ({ service, index, isActive, onItemClick }) => {
             }}
           />
         </div>
-        <div className={`title ${isActive ? "active" : ""}`}>
+        <div className={`title ${service?.className?service?.className:""} ${isActive ? "active" : ""}`}>
           <span className={`text-center`}>{service.title}</span>
         </div>
       </div>

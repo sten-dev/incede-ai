@@ -162,7 +162,7 @@ section {
   > div:nth-child(1) {
     position: fixed !important;
     overflow: hidden !important;
-    z-index: 100 !important;
+    z-index: 120 !important;
   }
 }
 /**Scroll Bar*/
@@ -217,7 +217,7 @@ section {
   text-align: center;
   top: 25%;
   cursor: pointer;
-  z-index: 120;
+  z-index: 90;
   &.left {
     clip-path: polygon(0 0, 100% 25%, 100% 75%, 0% 100%);
   }

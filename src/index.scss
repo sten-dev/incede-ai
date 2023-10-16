@@ -250,7 +250,9 @@ small,
 .menu-item.active {
   color: rgba(255, 255, 255, 1);
 }
-
+.text-initial{
+  text-transform: initial !important;
+}
 .scroll-menu-arrow {
   padding: 20px;
   cursor: pointer;

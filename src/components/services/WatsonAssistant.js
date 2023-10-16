@@ -19,12 +19,14 @@ const assistantSubItems = [
   {
     image: "/img/watson-assistant/design-services.png",
     inactiveImage: "/img/watson-assistant/design-services-inactive.png",
-    title: "watsonx Assistant Design Services"
+    title: "watsonx ASSISTANT DESIGN SERVICES",
+    className:"text-initial"
   },
   {
     image: "/img/watson-assistant/development-services.png",
     inactiveImage: "/img/watson-assistant/development-services-inactive.png",
-    title: "watsonx Assistant Development Services"
+    title: "watsonx ASSISTANT DEVELOPMENT SERVICES",
+    className:"text-initial"
   },
   {
     image: "/img/watson-assistant/channel-development.png",
@@ -289,9 +291,9 @@ class WatsonAssistant extends Component {
                 <Container>
                   <Row>
                     <Col>
-                      <h4 className="text-uppercase">
+                      <h4>
                         <b className="color-grey">
-                          watsonx Assistant Design Services
+                          watsonx ASSISTANT DESIGN SERVICES
                         </b>
                       </h4>
 
@@ -362,9 +364,9 @@ class WatsonAssistant extends Component {
                 <Container>
                   <Row>
                     <Col>
-                      <h4 className="text-uppercase">
+                      <h4>
                         <b className="color-grey">
-                          watsonx Assistant Development Services
+                          watsonx ASSISTANT DEVELOPMENT SERVICES
                         </b>
                       </h4>
 

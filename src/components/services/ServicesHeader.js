@@ -4,18 +4,18 @@ import ServicesImage from "../../img/services/banner-services.png";
 import ScrollMenu from "react-horizontal-scrolling-menu";
 
 let list = [
-  { name: "watsonx Assistant Services" },
-  { name: "Watson Discovery Services" },
-  { name: "Watson API Services" },
-  { name: "Applications Development" }
+  { name: "watsonx Assistant Services", className:"text-initial" },
+  { name: "Watson Discovery Services"},
+  { name: "Watson API Services"},
+  { name: "Applications Development"}
 ];
-const MenuItem = ({ text, selected }) => {
-  return <div className={`menu-item ${selected ? "active" : ""}`}>{text}</div>;
+const MenuItem = ({ text, selected, className }) => {
+  return <div className={`menu-item ${className?className:""} ${selected ? "active" : ""}`}>{text}</div>;
 };
 export const Menu = (list, selected) =>
   list.map(el => {
-    const { name } = el;
-    return <MenuItem text={name} key={name} selected={selected} />;
+    // const { name } = el;
+    return <MenuItem text={el?.name} key={name} selected={selected} className={el?.className} />;
   });
 const Arrow = ({ text, className }) => {
   return <div className={className}>{text}</div>;
