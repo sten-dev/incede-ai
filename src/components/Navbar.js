@@ -222,6 +222,11 @@ class INavbar extends Component {
                         />{" "}
                       </a> */}
                 </NavItem>
+                <NavItem id="menu_customers" className="btn">
+                  <Link activeClassName="selected" to="/customers">
+                    Customers
+                  </Link>
+                </NavItem>
                 {/* <NavItem id="menu_about" className="btn">
                       <a>
                         About Us{" "}

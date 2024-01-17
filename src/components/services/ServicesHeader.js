@@ -35,7 +35,7 @@ class ServicesHeader extends Component {
       hideSingleArrow: true,
       itemsCount: list.length,
       scrollToSelected: false,
-      selected: "Retail/Distribution",
+      selected: "0",
       translate: 0,
       transition: 0.3,
       wheel: false
@@ -44,18 +44,19 @@ class ServicesHeader extends Component {
   }
   onSelect = key => {
     this.setState({ selected: key });
+    console.log(`onSelect: ${key}`);
     let url = "/services/watson-assistant-services";
-    switch (key) {
-      case "watsonx Assistant Services":
+    switch (Number(key)) {
+      case 0:
         url = "/services/watson-assistant-services";
         break;
-      case "Watson Discovery Services":
+      case 1:
         url = "/services/watson-discovery-services";
         break;
-      case "Watson API Services":
+      case 2:
         url = "/services/watson-api";
         break;
-      case "Applications Development":
+      case 3:
         url = "/services/applications-development";
         break;
       default:
@@ -69,22 +70,22 @@ class ServicesHeader extends Component {
     switch (path) {
       case "/services/watson-assistant-services":
       case "/services/watson-assistant-services/":
-        this.setState({ selected: "watsonx Assistant Services" });
+        this.setState({ selected: "0" });
         break;
       case "/services/watson-discovery-services":
       case "/services/watson-discovery-services/":
-        this.setState({ selected: "Watson Discovery Services" });
+        this.setState({ selected: "1" });
         break;
       case "/services/watson-api":
       case "/services/watson-api/":
-        this.setState({ selected: "Watson API Services" });
+        this.setState({ selected: "2" });
         break;
       case "/services/applications-development":
       case "/services/applications-development/":
-        this.setState({ selected: "Applications Development" });
+        this.setState({ selected: "3" });
         break;
       default:
-        this.setState({ selected: "watsonx Assistant Services" });
+        this.setState({ selected: "0" });
         break;
     }
   };

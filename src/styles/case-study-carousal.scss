@@ -1,0 +1,28 @@
+@import "../bs";
+
+.case-study{
+    background: #fff;
+    .carousel {
+        .slide {
+          background: transparent !important;
+          background: transparent !important;
+          text-align: left;
+        }
+        .dot{
+            background: #eee !important;
+            opacity: 1 !important;
+        }
+        .dot.selected{
+            background: $primary !important;
+        }
+      }
+      .case-study-item{
+        img{
+            height: 90px;
+            width: auto;
+        }
+        .underline{
+            text-decoration: underline;
+        }
+      }
+}
