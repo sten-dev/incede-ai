@@ -20,6 +20,8 @@
         img{
             height: 90px;
             width: auto;
+            max-width: 150px;
+            object-fit: contain;
         }
         .underline{
             text-decoration: underline;

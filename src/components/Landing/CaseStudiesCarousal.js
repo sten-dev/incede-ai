@@ -84,7 +84,7 @@ class CaseStudiesCarousalComponent extends Component {
                     <Container className="case-study-item">
                       <Row className="gap-y-half">
                         <Col xs={12}>
-                          <div className="d-flex justify-content-between align-items-center">
+                          <div className="d-flex justify-content-between align-items-center flex-column flex-sm-row">
                             {caseStudyItem?.img && (
                               <img
                                 src={caseStudyItem.img}
