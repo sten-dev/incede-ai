@@ -7,7 +7,8 @@ let list = [
   { name: "watsonx Assistant Services", className:"text-initial" },
   { name: "Watson Discovery Services"},
   { name: "Watson API Services"},
-  { name: "Applications Development"}
+  { name: "Applications Development"},
+  { name: "Analytics Services"},
 ];
 const MenuItem = ({ text, selected, className }) => {
   return <div className={`menu-item ${className?className:""} ${selected ? "active" : ""}`}>{text}</div>;
@@ -59,6 +60,9 @@ class ServicesHeader extends Component {
       case 3:
         url = "/services/applications-development";
         break;
+      case 4:
+        url = "/services/analytics-services";
+        break;
       default:
         url = "/services/watson-assistant-services";
         break;
@@ -83,6 +87,10 @@ class ServicesHeader extends Component {
       case "/services/applications-development":
       case "/services/applications-development/":
         this.setState({ selected: "3" });
+        break;
+      case "/services/analytics-services":
+      case "/services/analytics-services/":
+        this.setState({ selected: "4" });
         break;
       default:
         this.setState({ selected: "0" });
@@ -133,6 +141,7 @@ class ServicesHeader extends Component {
               transition={this.state.transition}
               translate={this.state.translate}
               wheel={this.state.wheel}
+              scrollToSelected={true}
             />
           </Container>
         </Container>

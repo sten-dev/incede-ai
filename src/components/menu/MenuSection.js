@@ -253,6 +253,16 @@ class MenuSection extends Component {
               </React.Fragment>
             )}
 
+            {!this.state.showSubMenu && (
+              <React.Fragment>
+                <div className="menu-items">
+                  <Link to="/customers">
+                    <span onClick={this.props.toggle}>Customers</span>
+                  </Link>
+                </div>
+              </React.Fragment>
+            )}
+
             {/* why-incede-link */}
             {!this.state.showSubMenu && (
               <React.Fragment>

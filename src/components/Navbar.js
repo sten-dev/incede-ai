@@ -203,7 +203,11 @@ class INavbar extends Component {
                     />{" "}
                   </a>
                 </NavItem>
-
+                <NavItem id="menu_customers" className="btn">
+                  <Link activeClassName="selected" to="/customers">
+                    Customers
+                  </Link>
+                </NavItem>
                 <NavItem id="menu_why_incede" className="btn">
                   <Link activeClassName="selected" to="/why-incede">
                     Why Incede
@@ -221,11 +225,6 @@ class INavbar extends Component {
                         // onClick={props.onClick}
                         />{" "}
                       </a> */}
-                </NavItem>
-                <NavItem id="menu_customers" className="btn">
-                  <Link activeClassName="selected" to="/customers">
-                    Customers
-                  </Link>
                 </NavItem>
                 {/* <NavItem id="menu_about" className="btn">
                       <a>

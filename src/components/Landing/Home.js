@@ -8,6 +8,7 @@ import { Link } from "gatsby";
 
 // import HeroImage from "../../img/incede-home-page-latest.png";
 import HeroImage from "../../img/incede-ai-illustration.png";
+import CaseStudiesCarousalComponent from "./CaseStudiesCarousal";
 // import HeroImage from "../../img/incede-home-page.png";
 class Home extends React.Component {
   state = {};
@@ -20,7 +21,7 @@ class Home extends React.Component {
             <Row>
               {/* <Col lg={1} md={2}></Col> */}
               <Col lg={7} md={7} sm={12} xs={12}>
-                <article className="gap-y mt-5">
+                <article className="gap-y mt-5 pb-0">
                   {/* <h1 className="text-primary bold">{home.title}</h1> */}
                   <h1 className="text-primary bold">
                     We use AI to solve complex business problems
@@ -38,10 +39,13 @@ class Home extends React.Component {
                     </Link>
                   </div>
                   {/* <pre>{JSON.stringify(home, null, 2)}</pre> */}
+                  <div className="d-none d-xl-block">
+                    <CaseStudiesCarousalComponent />
+                  </div>
                 </article>
               </Col>
               <Col lg={5} md={5} className="d-none d-md-block position-initial">
-                <div className="image-section gap-y mt-5">
+                <div className="image-section gap-y mt-5 pb-0">
                   {/* <PreviewCompatibleImage
                     imageInfo={{
                       image: home.image,
@@ -50,6 +54,9 @@ class Home extends React.Component {
                   /> */}
                   <img src={HeroImage} alt="hero" />
                 </div>
+              </Col>
+              <Col xs={12} className="d-block d-xl-none">
+                <CaseStudiesCarousalComponent />
               </Col>
             </Row>
           </Container>
