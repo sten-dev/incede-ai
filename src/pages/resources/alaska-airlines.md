@@ -24,15 +24,11 @@ Alaska’s Financial Planning & Analysis (FP&A) team leads a wide variety of act
 
 Alaska charged its FP&A team with identifying and implementing a new solution to improve the way business analytics informed decision-making processes throughout the company. To take on this challenge, Alaska turned to IBM Planning Analytics and Incede.ai.
 
-
-
 ###### **THE BUSINESS CASE FOR THE CLOUD**
 
 Alaska Airlines was one of the first to successfully deploy IBM Planning Analytics on the cloud. In making the decision between deploying on premise or on the cloud, Alaska focused on two key factors: compliance and time-to-results. Alaska’s IT team completed a due-diligence analysis to confirm that IBM’s Softlayer cloud services was fully compliant with Alaska’s high technical standards for security and data management.
 
 With IT’s endorsement, the FP&A team analyzed the anticipated time-to-results, or the expected timeline for a solution’s value to be recognized. The FP&A team determined that utilizing IBM Planning Analytics on the cloud meant that Alaska could create value for the business faster, eliminating an ongoing burden to IT and any potential delays presented by other IT projects.
-
-
 
 ###### **PHASED APPROACH DELIVERS SHORT-TERM AND LONG-TERM SUCCESS**
 
@@ -48,13 +44,9 @@ With the leadership, training and mentoring from Incede.ai in phase’s one and 
 
 Throughout this process, Alaska Airlines found Incede.ai’ phased approach invaluable in delivering a high-value, high-impact solution. The training and mentoring provided by Incede.ai enabled Alaska’s FP&A team to become self-sufficient in enhancing and extending the solution in the future.
 
-
-
 ###### **THE FLIGHT PLAN AHEAD**
 
 With the success of implementing IBM Planning Analytics, the Alaska Airlines FP&A team has been credited with two positive shifts within the organization. The first shift is establishing a timeline for implementing a rolling forecast that is fully integrated with the company’s budget. This will allow Alaska to be more agile in making schedule, fare and promotion changes and enables the company to instantly assess the impact of those changes on the forecast and budget, providing Alaska’s leadership with valuable scenario planning insights. The FP&A team was also recognized for its successful collaboration with each business area to improve their forecasts and the overall forecasting process. Putting the power of IBM Planning Analytics in the hands of users across the business has generated new insights and opportunities that have improved business operations and forecasting accuracy. With IBM Planning Analytics successfully deployed on the cloud, Alaska Airlines is ready to continue climbing elevation toward the company’s ambitious growth plans for the future.
-
-
 
 ###### **ABOUT ALASKA AIRLINES**
 
