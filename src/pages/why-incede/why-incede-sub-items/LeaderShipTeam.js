@@ -1,6 +1,6 @@
-import React from 'react';
-import { Row, Col, Container } from 'reactstrap';
-import leadershipImg from '../../../img/why-incede/leadership.png';
+import React from "react";
+import { Row, Col, Container } from "reactstrap";
+import leadershipImg from "../../../img/why-incede/leadership.png";
 
 const LeaderShipTeam = () => {
   return (
@@ -12,22 +12,22 @@ const LeaderShipTeam = () => {
             sm={12}
             md={12}
             lg={8}
-            className='d-flex align-items-center'>
+            className="d-flex align-items-center"
+          >
             <div>
-              <h1 className='text-left heading'>Trusted Leadership</h1>
-              <h4 className='my-4'>
+              <h1 className="text-left heading">Trusted Leadership</h1>
+              <h4 className="my-4">
                 A team of experienced thought leaders who inspire innovation and
                 commitment to customer success
               </h4>
-              <p className='sub-title'>
-                Incede.ai is a division of <a href="http://locussolutions.com/" target="_blank">Locus Solutions</a>, Inc. specializing in
-                IBM Watson technology. For nearly 15 years, Locus Solutions has
-                been an IBM Reseller Partner and worked with hundreds of
-                customers. Incede.ai extends and propels the success of Locus
-                Solutions with deep AI expertise in IBM Watson solutions.
+              <p className="sub-title">
+                Incede.ai (Formerly Locus Solutions, Inc.) specializes in IBM
+                watsonx generative AI technology stack, as well as domain and
+                industry experience that can help accelerate customer’s business
+                transformations.
               </p>
               <br />
-              <p className='sub-title'>
+              <p className="sub-title">
                 With decades of management experience, innovation and business
                 value are core to the leadership team’s ideals. They are trusted
                 to think big and solve the most challenging business problems
@@ -38,6 +38,22 @@ const LeaderShipTeam = () => {
                 unique blend of business and technical expertise across a broad
                 range of solution areas.
               </p>
+              <br />
+              <p className="sub-title">
+                Our organization's essence is encapsulated by our dedicated
+                team, whose commitment consistently surpasses client
+                expectations. We are not just industry experts and problem
+                solvers, but also partners deeply invested in your success. Our
+                holistic solutions are crafted from extensive industry
+                knowledge, guiding clients from identifying problems to
+                delivering projects, adaptable to any scale of involvement. We
+                pride ourselves on being trusted advisors to a diverse client
+                base, achieving the highest satisfaction through outstanding
+                service and tailored solutions. Our firm's strength lies in our
+                continuous pursuit of knowledge, understanding global industry
+                trends, which, combined with our consultants' diverse skills,
+                defines our identity as a professional services provider.
+              </p>
             </div>
           </Col>
           <Col
@@ -45,9 +61,10 @@ const LeaderShipTeam = () => {
             sm={12}
             md={12}
             lg={4}
-            className='mt-4 mt-lg-0 d-flex align-items-center'>
-            <div className='image-section'>
-              <img src={leadershipImg} alt='leadership team' />
+            className="mt-4 mt-lg-0 d-flex align-items-center"
+          >
+            <div className="image-section">
+              <img src={leadershipImg} alt="leadership team" />
             </div>
           </Col>
         </Row>

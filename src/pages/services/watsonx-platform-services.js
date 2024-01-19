@@ -3,16 +3,16 @@ import { Container } from "reactstrap";
 import Layout from "../../components/Layout";
 import Transition from "../../Transition";
 import ServicesHeader from "../../components/services/ServicesHeader";
-import WatsonApi from "../../components/services/WatsonApi";
+import WatsonxPlatform from "../../components/services/WatsonxPlatform";
 
-const WatsonApiServices = () => {
+const WatsonxPlatformServices = () => {
   return (
-    <Layout pageTitle="Watson Discovery Services | Incede">
+    <Layout pageTitle="watsonx Platform Services | Incede">
       <Transition>
         <section className="industry-solution">
-          <ServicesHeader header={"Watson API Services"} title={""} />
+          <ServicesHeader header={"watsonx Platform Services"} title={""} />
           <Container fluid className="p-0">
-            <WatsonApi />
+            <WatsonxPlatform/>
           </Container>
         </section>
       </Transition>
@@ -20,4 +20,4 @@ const WatsonApiServices = () => {
   );
 };
 
-export default WatsonApiServices;
+export default WatsonxPlatformServices;

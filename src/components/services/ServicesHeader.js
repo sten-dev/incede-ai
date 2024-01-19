@@ -6,7 +6,7 @@ import ScrollMenu from "react-horizontal-scrolling-menu";
 let list = [
   { name: "watsonx Assistant Services", className:"text-initial" },
   { name: "Watson Discovery Services"},
-  { name: "Watson API Services"},
+  { name: "watsonx Platform Services", className:"text-initial"},
   { name: "Applications Development"},
   { name: "Analytics Services"},
 ];
@@ -55,7 +55,7 @@ class ServicesHeader extends Component {
         url = "/services/watson-discovery-services";
         break;
       case 2:
-        url = "/services/watson-api";
+        url = "/services/watsonx-platform-services";
         break;
       case 3:
         url = "/services/applications-development";
@@ -80,8 +80,8 @@ class ServicesHeader extends Component {
       case "/services/watson-discovery-services/":
         this.setState({ selected: "1" });
         break;
-      case "/services/watson-api":
-      case "/services/watson-api/":
+      case "/services/watsonx-platform-services":
+      case "/services/watsonx-platform-services/":
         this.setState({ selected: "2" });
         break;
       case "/services/applications-development":
@@ -108,10 +108,10 @@ class ServicesHeader extends Component {
                 <h1 className="title display-3">Services</h1>
                 <h5 className="text-white sub-title">
                   Incede's resources are experts in helping organizations
-                  understand and incorporate IBM’s watsonx technology. We provide
-                  end-to-end capabilities in developing conversational
-                  interfaces and cognitive enterprise search applications with
-                  watsonx.
+                  understand and incorporate IBM’s watsonx technology and its
+                  generative AI models. We provide end-to-end capabilities in
+                  developing conversational interfaces and cognitive enterprise
+                  search applications with IBM watsonx platform.
                 </h5>
               </article>
             </Col>
