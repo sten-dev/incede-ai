@@ -11,7 +11,7 @@ import {
   UncontrolledPopover,
   PopoverBody,
 } from "reactstrap";
-import logo from "../../img/bot_logo.png";
+import logo from "../../img/logo_white.png";
 import { ChatPill } from "./bot/ChatPill";
 import { ChatPillAsk } from "./bot/ChatPillAsk";
 import socketIO from "socket.io-client";
@@ -1306,7 +1306,7 @@ class BotSection extends Component {
           <Row className="chat-header">
             <Col className="d-flex flex-column">
               <div className="d-flex justify-content-center flex-grow-1">
-                <img src={logo} alt="incede.ai" style={{ width: "200px" }} />
+                <img src={logo} alt="incede.ai" style={{ width: "180px", margin:"16px 0" }} />
               </div>
               <div className="d-flex justify-content-center flex-grow-1">
                 <p className="lead text-white d-none d-md-block">

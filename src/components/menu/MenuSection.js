@@ -79,7 +79,7 @@ class MenuSection extends Component {
                 <img
                   src={logo}
                   alt="incede.ai"
-                  style={{ width: "220px" }}
+                  style={{ width: "200px", marginBottom:"16px" }}
                 />
               </div>
               <div className="align-self-center menu-close">
