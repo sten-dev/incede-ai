@@ -101,6 +101,8 @@ class ResourcesCaseStudies extends React.Component {
       { label: "Watson Natural Language Understanding (NLU)", value: "nlu" },
       { label: "Watson Tone Analyzer", value: "tone-analyzer" },
       { label: "Watson Visual Recognition", value: "visual-recognition" },
+      { label: "Planning Analytics", value: "planning-analytics"},
+      { label: "Cognos Analytics", value: "cognos-analytics"},
     ];
     const industryOptions = [
       { label: "All", value: "all" },
