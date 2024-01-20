@@ -68,7 +68,7 @@ class CaseStudiesCarousalComponent extends Component {
     return (
       <React.Fragment>
         {this.state.caseStudiesList && this.state.caseStudiesList.length > 0 && (
-          <section className="case-study">
+          <section className="case-study mt-5">
             <Carousel
               showThumbs={false}
               showStatus={false}
@@ -89,10 +89,10 @@ class CaseStudiesCarousalComponent extends Component {
                               <img
                                 src={caseStudyItem.img}
                                 alt={`case_study_${caseStudyItemIndex}`}
-                                height={298}
+                                height={250}
                               />
                             )}
-                            <p className="pl-3 pt-2 pt-sm-0">{caseStudyItem?.mainTxt || ""}</p>
+                            <p className="pl-3 pt-2 pt-sm-0 fs-14">{caseStudyItem?.mainTxt || ""}</p>
                           </div>
                         </Col>
                         <Col xs={12}>
