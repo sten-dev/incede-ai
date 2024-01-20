@@ -6,8 +6,8 @@ technology:
 industry:
   - retail-trade
 subTitle: >-
-  Incede.ai (formerly Locus Solutions) Frees California Natural Products'
-  Critical Business Information from "Data Jail"
+  Incede.ai Frees California Natural Products' Critical Business Information
+  from "Data Jail"
 image: /img/california-natural-products.jpeg
 ---
 ###### ***“We’ve quickly experienced the benefit of implementing innovative software like IBM Cognos Express and working with an expert partner like Incede.ai to do so. IBM Cognos provides us with a framework that enables us to efficiently locate and analyze data.We were fortunate to have the knowledgeable consultants at Incede.ai, a company that understands the needs of smaller companies like CNP,to help us leverage the benefits of IBM Cognos.”***
