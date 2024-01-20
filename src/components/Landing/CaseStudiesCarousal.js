@@ -96,7 +96,7 @@ class CaseStudiesCarousalComponent extends Component {
                           </div>
                         </Col>
                         <Col xs={12}>
-                          <div className="text-right mt-4 mr-4">
+                          <div className="text-right mr-4">
                             <b className="underline">
                               {caseStudyItem?.caption || ""}
                             </b>
