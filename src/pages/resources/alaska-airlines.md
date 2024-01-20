@@ -6,8 +6,8 @@ technology:
 industry:
   - transportation
 subTitle: >-
-  With Incede.ai (formerly Locus Solutions) as our trusted advisor, we have
-  delivered real value to our business stakeholders
+  With Incede.ai as our trusted advisor, we have delivered real value to our
+  business stakeholders
 image: /img/alaska-airlines.jpg
 ---
 ###### *“With IBM Planning Analytics, Alaska Airlines has automated the budget process for the Airports division and set ourselves up for a rolling-forecast culture that powers our ability to drive growth and remain responsive to our customers. With Incede.ai is our trusted advisor, we have delivered real value to our business stakeholders and the Alaska FP&A team is now trained and empowered to further enhance the solutions value over time"*
