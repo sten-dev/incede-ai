@@ -27,7 +27,7 @@ class ServiceMenu extends React.Component {
           <Link to="/services/applications-development">Applications Development</Link>
         </li>
         <li>
-          <Link to="/services/analytics-services">Analytics Services</Link>
+          <Link to="/services/professional-services">Professional Services</Link>
         </li>
       </ul>
     );
