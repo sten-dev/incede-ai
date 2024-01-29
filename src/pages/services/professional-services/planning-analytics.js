@@ -3,16 +3,16 @@ import { Container } from "reactstrap";
 import Layout from "../../../components/Layout";
 import Transition from "../../../Transition";
 import AnalyticsHeader from "../../../components/services/AnalyticsHeader";
-import AdvancedAnalytics from "../../../components/services/analytics-services/AdvancedAnalytics";
+import PlanningAnalytics from "../../../components/services/professional-services/PlanningAnalytics";
 
-const AdvancedAnalyticsMain = () => {
+const PlanningAnalyticsMain = () => {
   return (
-    <Layout pageTitle="Advanced Analytics | Analytics Services | Incede">
+    <Layout pageTitle="Planning Analytics | Professional Services | Incede">
       <Transition>
         <section className="industry-solution">
           <AnalyticsHeader />
           <Container fluid className="p-0">
-            <AdvancedAnalytics/>
+            <PlanningAnalytics/>
           </Container>
         </section>
       </Transition>
@@ -20,4 +20,4 @@ const AdvancedAnalyticsMain = () => {
   );
 };
 
-export default AdvancedAnalyticsMain;
+export default PlanningAnalyticsMain;

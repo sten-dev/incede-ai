@@ -121,7 +121,7 @@ class AnalyticsHeader extends Component {
               <Col lg={8} md={7} sm={12} xs={12}>
                 <article className="text-left">
                   <h1 className="title display-3">
-                    Analytics Services
+                    Professional Services
                   </h1>
                   <h5 className="text-white sub-title">
                     {/* Incede's resources are experts in helping organizations

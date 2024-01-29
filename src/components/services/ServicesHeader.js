@@ -8,7 +8,7 @@ let list = [
   { name: "Watson Discovery Services"},
   { name: "watsonx Platform Services", className:"text-initial"},
   { name: "Applications Development"},
-  { name: "Analytics Services"},
+  { name: "Professional Services"},
 ];
 const MenuItem = ({ text, selected, className }) => {
   return <div className={`menu-item ${className?className:""} ${selected ? "active" : ""}`}>{text}</div>;
@@ -61,7 +61,7 @@ class ServicesHeader extends Component {
         url = "/services/applications-development";
         break;
       case 4:
-        url = "/services/analytics-services";
+        url = "/services/professional-services";
         break;
       default:
         url = "/services/watson-assistant-services";
@@ -88,8 +88,8 @@ class ServicesHeader extends Component {
       case "/services/applications-development/":
         this.setState({ selected: "3" });
         break;
-      case "/services/analytics-services":
-      case "/services/analytics-services/":
+      case "/services/professional-services":
+      case "/services/professional-services/":
         this.setState({ selected: "4" });
         break;
       default:

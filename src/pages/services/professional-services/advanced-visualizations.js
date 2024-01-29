@@ -3,16 +3,16 @@ import { Container } from "reactstrap";
 import Layout from "../../../components/Layout";
 import Transition from "../../../Transition";
 import AnalyticsHeader from "../../../components/services/AnalyticsHeader";
-import DataWarehousing from "../../../components/services/analytics-services/DataWarehousing";
+import AdvancedVisualizations from "../../../components/services/professional-services/AdvancedVisualizations";
 
-const DataWarehousingMain = () => {
+const AdvancedVisualizationsMain = () => {
   return (
-    <Layout pageTitle="Data Warehousing | Analytics Services | Incede">
+    <Layout pageTitle="Advanced Visualizations | Professional Services | Incede">
       <Transition>
         <section className="industry-solution">
           <AnalyticsHeader />
           <Container fluid className="p-0">
-            <DataWarehousing/>
+            <AdvancedVisualizations/>
           </Container>
         </section>
       </Transition>
@@ -20,4 +20,4 @@ const DataWarehousingMain = () => {
   );
 };
 
-export default DataWarehousingMain;
+export default AdvancedVisualizationsMain;

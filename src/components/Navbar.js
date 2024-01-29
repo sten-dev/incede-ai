@@ -146,19 +146,6 @@ class INavbar extends Component {
                     Home
                   </Link>
                 </NavItem>
-
-                {/* <NavItem id="menu_services" className="btn">
-                  <a>
-                    Services{" "}
-                    <img
-                      className={`${this.state.isServicesMenuOpen ? "active-what-we-do" : ""
-                        }`}
-                      alt="send"
-                      src={dropdown}
-                    // onClick={props.onClick}
-                    />{" "}
-                  </a>
-                </NavItem> */}
                 <NavItem id="menu_solutions" className="btn">
                   <a>
                     Solutions{" "}
@@ -171,6 +158,18 @@ class INavbar extends Component {
                       alt="send"
                       src={dropdown}
                       // onClick={props.onClick}
+                    />{" "}
+                  </a>
+                </NavItem>
+                <NavItem id="menu_services" className="btn">
+                  <a>
+                    Services{" "}
+                    <img
+                      className={`${this.state.isServicesMenuOpen ? "active-what-we-do" : ""
+                        }`}
+                      alt="send"
+                      src={dropdown}
+                    // onClick={props.onClick}
                     />{" "}
                   </a>
                 </NavItem>
@@ -243,7 +242,7 @@ class INavbar extends Component {
             </Collapse>
           </Navbar>
 
-          {/* <Popover
+          <Popover
             boundariesElement="window"
             placement="bottom"
             isOpen={this.state.isServicesMenuOpen}
@@ -255,7 +254,7 @@ class INavbar extends Component {
             <PopoverBody>
               <ServiceMenu />
             </PopoverBody>
-          </Popover> */}
+          </Popover>
 
           <Popover
             boundariesElement="window"

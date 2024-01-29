@@ -105,42 +105,6 @@ class MenuSection extends Component {
                 </div> */}
               </React.Fragment>
             )}
-            {/* {(!this.state.showSubMenu || this.state.showService) && (
-              <div className="menu-items">
-                <span onClick={this.showService} className="d-inline-flex">
-                  {this.state.showService && (
-                    <React.Fragment>
-                      <img
-                        src={arrow}
-                        alt="next"
-                        style={{
-                          width: "11px",
-                          marginTop: "4px",
-                          transform: "scaleX(-1)",
-                        }}
-                      />
-                      &nbsp;&nbsp;
-                    </React.Fragment>
-                  )}
-                  Services
-                  {!this.state.showService && (
-                    <React.Fragment>
-                      &nbsp;&nbsp;
-                      <img
-                        src={arrow}
-                        alt="next"
-                        style={{ width: "11px", marginTop: "4px" }}
-                      />
-                    </React.Fragment>
-                  )}
-                </span>
-              </div>
-            )}
-            {this.state.showSubMenu && this.state.showService && (
-              <React.Fragment>
-                <ServiceMenu />
-              </React.Fragment>
-            )} */}
 
             {(!this.state.showSubMenu || this.state.showSolution) && (
               <div className="menu-items">
@@ -176,6 +140,43 @@ class MenuSection extends Component {
             {this.state.showSubMenu && this.state.showSolution && (
               <React.Fragment>
                 <SolutionMenu />
+              </React.Fragment>
+            )}
+
+            {(!this.state.showSubMenu || this.state.showService) && (
+              <div className="menu-items">
+                <span onClick={this.showService} className="d-inline-flex">
+                  {this.state.showService && (
+                    <React.Fragment>
+                      <img
+                        src={arrow}
+                        alt="next"
+                        style={{
+                          width: "11px",
+                          marginTop: "4px",
+                          transform: "scaleX(-1)",
+                        }}
+                      />
+                      &nbsp;&nbsp;
+                    </React.Fragment>
+                  )}
+                  Services
+                  {!this.state.showService && (
+                    <React.Fragment>
+                      &nbsp;&nbsp;
+                      <img
+                        src={arrow}
+                        alt="next"
+                        style={{ width: "11px", marginTop: "4px" }}
+                      />
+                    </React.Fragment>
+                  )}
+                </span>
+              </div>
+            )}
+            {this.state.showSubMenu && this.state.showService && (
+              <React.Fragment>
+                <ServiceMenu />
               </React.Fragment>
             )}
 
