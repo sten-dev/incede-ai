@@ -19,9 +19,9 @@ class ChatMain extends Component {
         }, () => {
             if (this.props.page === "home") {
                 let isLastOpen = localStorage.getItem("isLastOpen");
-                if (!isLastOpen || isLastOpen === "true") {
-                    this.toggle()
-                }
+                // if (!isLastOpen || isLastOpen === "true") {
+                //     this.toggle()
+                // }
                 // let waCreatedTime = localStorage.getItem("waCreatedTime");
                 // let isInWaSession = true;
                 // if (!waCreatedTime) {
