@@ -1,6 +1,6 @@
 // Installed through  - npm ci
 //prod
-export const API_URL = 'https://incede-api.y5v92m71nsp.us-south.codeengine.appdomain.cloud/';
+export const API_URL = 'https://incede-prod-api.1dglhpqmawd6.us-south.codeengine.appdomain.cloud/';
 export const LINKEDIN = {
   clientId: '78p9i60dhfuau3',// 78p9i60dhfuau3 - Prod 81uni85sqi901i -dev
   redirectUrl: 'https://incede.ai',
