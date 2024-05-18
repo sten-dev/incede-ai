@@ -7,6 +7,7 @@ let list = [
   { name: "watsonx Assistant Services", className:"text-initial" },
   { name: "Watson Discovery Services"},
   { name: "watsonx Platform Services", className:"text-initial"},
+  { name: "watsonx Orchestrate", className:"text-initial"},
   { name: "Applications Development"},
   { name: "Professional Services"},
 ];
@@ -58,9 +59,12 @@ class ServicesHeader extends Component {
         url = "/services/watsonx-platform-services";
         break;
       case 3:
-        url = "/services/applications-development";
+        url = "/services/watsonx-orchestrate";
         break;
       case 4:
+        url = "/services/applications-development";
+        break;
+      case 5:
         url = "/services/professional-services";
         break;
       default:
@@ -84,13 +88,17 @@ class ServicesHeader extends Component {
       case "/services/watsonx-platform-services/":
         this.setState({ selected: "2" });
         break;
+      case "/services/watsonx-orchestrate":
+      case "/services/watsonx-orchestrate/":
+        this.setState({ selected: "3" });
+        break;
       case "/services/applications-development":
       case "/services/applications-development/":
-        this.setState({ selected: "3" });
+        this.setState({ selected: "4" });
         break;
       case "/services/professional-services":
       case "/services/professional-services/":
-        this.setState({ selected: "4" });
+        this.setState({ selected: "5" });
         break;
       default:
         this.setState({ selected: "0" });

@@ -58,6 +58,19 @@ class Services extends React.Component {
       },
       {
         data: {
+          image: "img/watson-orchestrate.png",
+          inactiveImage: "img/watson-orchestrate-inactive.png",
+          title: "watsonx Orchestrate",
+          subTitle: "",
+          mainContext:
+            "Incede utilizes Watson API Services to extend application capabilities and provide multifaceted insights on users, data and interactions.",
+          sideContext:
+            "Experience to know when, why and how to surface user personality traits, emotion and tone.Best practices for integrating text to speech and speech to text in applications, interactions and data.Optimized deep learning models to utilize industry and organizational specific vocabularies, phrases and terms."
+        },
+        path: "/services/watsonx-orchestrate"
+      },
+      {
+        data: {
           image: "img/watson-assistant/development-services.png",
           inactiveImage: "img/watson-assistant/development-services-inactive.png",
           title: "Applications Development",

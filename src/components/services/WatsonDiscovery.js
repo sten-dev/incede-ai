@@ -33,7 +33,7 @@ const discoverySubItems = [
     image: "/img/watson-discovery/smart-document-development.png",
     inactiveImage:
       "/img/watson-discovery/smart-document-development-inactive.png",
-    title: "Smart Document Development Services"
+    title: "Document Processing Services"
   },
   // {
   //   image: "/img/watson-discovery/query-relevancy-development.png",
@@ -605,16 +605,16 @@ class WatsonDiscovery extends Component {
                     <Col>
                       <h4 className="text-uppercase">
                         <b className="color-grey">
-                          Smart Document Development Services
+                          Enhanced Document Processing Services
                         </b>
                       </h4>
                       <div className="content">
                         <p>
-                          Incede can help you with Smart Document Understand (SDU) capability of Watson Discovery. Our team can help you with the best practices on how to understand the structure of the documents and collections of documents. Management of splitting documents, importing models to further annotations of the document, Relevancy is assessed and improved through training to ensure the system is ingesting other documents in the collections. Incede’s expert team can help you with enrichments to your documents by additional enrichments to the text (and other) fields.
+                        Incede specializes in optimizing Watson Discovery's features and capabilities to enhance document processing. Our expert team guides you through best practices for understanding document structures, managing collections, developing enrichments and annotations, and leveraging Watson Discovery’s native relevancy training features.  Our expertise ensures that your implementation of Watson Discovery is robust, efficient, and tailored to meet your specific needs, driving better insights and more informed decision-making.
                         </p>
                       </div>
                     </Col>
-                    <Col
+                    {/* <Col
                       xs={12}
                       sm={12}
                       md={4}
@@ -624,7 +624,7 @@ class WatsonDiscovery extends Component {
                       <div className="image-section">
                         <img className="w-auto-h-100" src={smartDocument} alt="support image" />
                       </div>
-                    </Col>
+                    </Col> */}
                     <Col xs={12}>
                       <div className="content-outcomes">
                         <h5>
@@ -633,17 +633,22 @@ class WatsonDiscovery extends Component {
                         <ul>
                           <li>
                             <p>
-                              Build smarter search and discovery applications
+                              We help you dissect and comprehend the intricacies of your documents, ensuring that key information is accurately extracted and organized.
                             </p>
                           </li>
                           <li>
                             <p>
-                              Standardized inventory of document collections and content areas to surface new insights in targeted workflows.
+                              Our team assists in efficiently managing document collections, enabling seamless integration and retrieval of data.  
                             </p>
                           </li>
                           <li>
                             <p>
-                              Optimized relevancy training to improves users trust in answers.
+                              We develop customized enrichments and annotations to add context and improve the interpretability of your documents, enhancing their value and usability.
+                            </p>
+                          </li>
+                          <li>
+                            <p>
+                              By leveraging Watson Discovery's built-in relevancy training features, we optimize the search accuracy and relevance of your data, ensuring that the most pertinent information is readily accessible.
                             </p>
                           </li>
 

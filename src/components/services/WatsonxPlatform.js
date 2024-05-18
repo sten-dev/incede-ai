@@ -32,6 +32,7 @@ const apiSubItems = [
     image: "/img/watson-api/language-translator.png",
     inactiveImage: "/img/watson-api/language-translator-inactive.png",
     title: "Language Translator",
+    hide: true,
   },
   {
     image: "/img/watson-api/visual-recognition.png",
@@ -219,15 +220,12 @@ class WatsonxPlatform extends Component {
                   </b>
                 </p>
                 <p>
-                  Incede infuses watsonx foundation models and machine learning
-                  capabilities into applications for a deeper user experience
-                  and richer insights for decision-makers. For example, Incede
-                  solutions could integrate a conversational AI solution where a
-                  user provides a question in any number of natural languages,
-                  including speech, and shares a photo that is then evaluated
-                  and answered with the context of the user’s order history,
-                  sentiment, inquiry and specifics about their photo – in their
-                  preferred language, including voice.
+                  Incede infuses IBM watsonx Platform Services to enable
+                  businesses to deploy AI-driven solutions that enhance customer
+                  and knowledge worker interactions. These AI solutions can
+                  handle a wide range of inquiries, provide instant responses,
+                  and perform tasks such as processing orders, resolving issues,
+                  and offering personalized recommendations.
                 </p>
                 <p id="watson-api-id" className="pt-2"></p>
               </div>
