@@ -1,6 +1,6 @@
 // Installed through  - npm ci
 //prod
-export const API_URL = 'https://incede-prod-api.1dglhpqmawd6.us-south.codeengine.appdomain.cloud/';
+export const API_URL = 'https://incedeapi.contenterra.in/';
 export const LINKEDIN = {
   clientId: '78p9i60dhfuau3',// 78p9i60dhfuau3 - Prod 81uni85sqi901i -dev
   redirectUrl: 'https://incede.ai',
@@ -8,7 +8,7 @@ export const LINKEDIN = {
 };
 
 // dev
-// export const API_URL = 'https://incede-dev-api-fluent-squirrel-up.mybluemix.net/';
+// export const API_URL = 'https://incede.contenterra.in/';
 // export const LINKEDIN = {
 //   clientId: '78p9i60dhfuau3', // 78p9i60dhfuau3 - Prod 81uni85sqi901i -dev
 //   redirectUrl: 'https://incede-ai.netlify.com',
