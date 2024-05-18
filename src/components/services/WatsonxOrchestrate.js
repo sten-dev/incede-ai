@@ -9,7 +9,7 @@ const assistantSubItems = [
   {
     image: "/img/watsonx-orchestrate/orchestrate.png",
     inactiveImage: "/img/watsonx-orchestrate/orchestrate-inactive.png",
-    title: "watsonx Orchestrate",
+    title: "watsonx ORCHESTRATE",
     className: "text-initial",
   },
 ];
