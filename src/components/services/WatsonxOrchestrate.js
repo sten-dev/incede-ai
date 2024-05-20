@@ -178,7 +178,7 @@ class WatsonxOrchestrate extends Component {
                   <Row>
                     <Col>
                       <h4>
-                        <b className="color-grey">RETHINK YOUR WORKDAY</b>
+                        <b className="color-grey">RETHINK YOUR WORK DAY</b>
                       </h4>
 
                       <div className="content">
