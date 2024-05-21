@@ -452,8 +452,8 @@ class BotSection extends Component {
     });
   };
 
-  checkWASession = () => {
-    if(!this.props.defaultTextToWA){
+  checkWASession = (isReset=false) => {
+    if(!this.props.defaultTextToWA || isReset){
       this.waCreatedTime = localStorage.getItem("waCreatedTime");
       let isInWaSession = true;
       if (!this.waCreatedTime) {
@@ -876,19 +876,19 @@ class BotSection extends Component {
         selectedDemo: "",
       },
       () => {
-        this.sendCustomMessage("user_demo_exit_done", false);
+        this.sendCustomMessage("user_demo_exit_done", false,true);
       }
     );
     // }, 500);
   };
 
-  resetDemo = () => {
+  resetDemo = (isReset=false) => {
     this.resetLocalStorage();
     // this.demoSocket = undefined;
     if (this.demoSocket) {
       this.demoSocket.close();
     }
-    this.sendCustomMessage("", true);
+    this.sendCustomMessage("", true,isReset);
     this.setState({
       messages: [
         {
@@ -901,8 +901,8 @@ class BotSection extends Component {
     });
   };
 
-  sendCustomMessage = (msg, shouldAddToMessages) => {
-    this.checkWASession();
+  sendCustomMessage = (msg, shouldAddToMessages,isReset=false) => {
+    this.checkWASession(isReset);
     let data = {
       comment: msg,
       wASessionId: this.wASessionId,
@@ -1258,7 +1258,7 @@ class BotSection extends Component {
 
   handelModalCloseOpen = (ans) => {
     if (ans === true) {
-      this.resetDemo();
+      this.resetDemo(true);
     }
     this.setState({ modal: { isOpen: false } });
   };
