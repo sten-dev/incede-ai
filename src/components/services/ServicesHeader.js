@@ -161,7 +161,7 @@ class ServicesHeader extends Component {
                 </h5>
               </article>
             </Col>
-            <Col lg={4} md={5} className="d-none d-md-block position-initial">
+            <Col lg={4} md={5} className="d-none d-md-flex position-initial align-items-center">
               <div className="image-section">
                 <img src={ServicesImage} alt="hero" />
               </div>
