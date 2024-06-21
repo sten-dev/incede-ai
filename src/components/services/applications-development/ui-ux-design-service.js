@@ -10,7 +10,9 @@ const UIUXDesignServices = props => {
                     <Col lg={12} md={12} sm={12} xs={12}>
                         <Row>
                             <Col lg={7} md={12} sm={12} xs={12}>
-                                <h2 className="m-0">UI/UX Design Services</h2>
+                                <h4>
+                                    <b className="color-grey">UI/UX Design Services</b>
+                                </h4>
                                 <br />
                                 <p>
                                     A critical part of application design is the way in which an application will be used and the reactions it will generate from users. The User Interface (UI) and User Experience (UX) is important in all application development, but especially in small, highly personal, hand-held devices that are depended upon often and typically used on the go.

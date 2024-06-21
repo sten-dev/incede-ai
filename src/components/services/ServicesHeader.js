@@ -4,20 +4,38 @@ import ServicesImage from "../../img/services/banner-services.png";
 import ScrollMenu from "react-horizontal-scrolling-menu";
 
 let list = [
-  { name: "watsonx Assistant Services", className:"text-initial" },
-  { name: "Watson Discovery Services"},
-  { name: "watsonx Platform Services", className:"text-initial"},
-  { name: "watsonx Orchestrate", className:"text-initial"},
-  { name: "Applications Development"},
-  { name: "Professional Services"},
+  // { name: "watsonx Assistant Services", className: "text-initial" },
+  // { name: "Watson Discovery Services" },
+  // { name: "watsonx Platform Services", className: "text-initial" },
+  // { name: "watsonx Orchestrate", className: "text-initial" },
+  { name: "Gen AI Services" },
+  { name: "Enterprise BI and Analytics" },
+  { name: "Planning and Budgeting" },
+  { name: "Applications Development" },
+  // { name: "Professional Services" },
 ];
 const MenuItem = ({ text, selected, className }) => {
-  return <div className={`menu-item ${className?className:""} ${selected ? "active" : ""}`}>{text}</div>;
+  return (
+    <div
+      className={`menu-item ${className ? className : ""} ${
+        selected ? "active" : ""
+      }`}
+    >
+      {text}
+    </div>
+  );
 };
 export const Menu = (list, selected) =>
-  list.map((el,index) => {
+  list.map((el, index) => {
     // const { name } = el;
-    return <MenuItem text={el?.name} key={index} selected={selected} className={el?.className} />;
+    return (
+      <MenuItem
+        text={el?.name}
+        key={index}
+        selected={selected}
+        className={el?.className}
+      />
+    );
   });
 const Arrow = ({ text, className }) => {
   return <div className={className}>{text}</div>;
@@ -40,35 +58,51 @@ class ServicesHeader extends Component {
       selected: "0",
       translate: 0,
       transition: 0.3,
-      wheel: false
+      wheel: false,
     };
     this.menuItems = Menu(list.slice(0, list.length), this.state.selected);
   }
-  onSelect = key => {
+  onSelect = (key) => {
     this.setState({ selected: key });
     console.log(`onSelect: ${key}`);
     let url = "/services/watson-assistant-services";
     switch (Number(key)) {
+      // case 0:
+      //   url = "/services/watson-assistant-services";
+      //   break;
+      // case 1:
+      //   url = "/services/watson-discovery-services";
+      //   break;
+      // case 2:
+      //   url = "/services/watsonx-platform-services";
+      //   break;
+      // case 3:
+      //   url = "/services/watsonx-orchestrate";
+      //   break;
+      // case 4:
+      //   url = "/services/applications-development";
+      //   break;
+      // case 5:
+      //   url = "/services/professional-services";
+      //   break;
+      // default:
+      //   url = "/services/watson-assistant-services";
+      //   break;
+
       case 0:
-        url = "/services/watson-assistant-services";
+        url = "/services/gen-ai-services";
         break;
       case 1:
-        url = "/services/watson-discovery-services";
+        url = "/services/enterprise-bi-and-analytics";
         break;
       case 2:
-        url = "/services/watsonx-platform-services";
+        url = "/services/planning-and-budgeting";
         break;
       case 3:
-        url = "/services/watsonx-orchestrate";
-        break;
-      case 4:
         url = "/services/applications-development";
         break;
-      case 5:
-        url = "/services/professional-services";
-        break;
       default:
-        url = "/services/watson-assistant-services";
+        url = "/services/gen-ai-services";
         break;
     }
     window.location.href = url;
@@ -76,30 +110,30 @@ class ServicesHeader extends Component {
   componentDidMount = () => {
     let path = window.location.pathname;
     switch (path) {
-      case "/services/watson-assistant-services":
-      case "/services/watson-assistant-services/":
+      case "/services/gen-ai-services":
+      case "/services/gen-ai-services/":
         this.setState({ selected: "0" });
         break;
-      case "/services/watson-discovery-services":
-      case "/services/watson-discovery-services/":
+      case "/services/enterprise-bi-and-analytics":
+      case "/services/enterprise-bi-and-analytics/":
         this.setState({ selected: "1" });
         break;
-      case "/services/watsonx-platform-services":
-      case "/services/watsonx-platform-services/":
+      case "/services/planning-and-budgeting":
+      case "/services/planning-and-budgeting/":
         this.setState({ selected: "2" });
         break;
-      case "/services/watsonx-orchestrate":
-      case "/services/watsonx-orchestrate/":
-        this.setState({ selected: "3" });
-        break;
+      // case "/services/watsonx-orchestrate":
+      // case "/services/watsonx-orchestrate/":
+      //   this.setState({ selected: "3" });
+      //   break;
       case "/services/applications-development":
       case "/services/applications-development/":
-        this.setState({ selected: "4" });
+        this.setState({ selected: "3" });
         break;
-      case "/services/professional-services":
-      case "/services/professional-services/":
-        this.setState({ selected: "5" });
-        break;
+      // case "/services/professional-services":
+      // case "/services/professional-services/":
+      //   this.setState({ selected: "5" });
+      //   break;
       default:
         this.setState({ selected: "0" });
         break;
@@ -115,11 +149,15 @@ class ServicesHeader extends Component {
               <article className="text-left">
                 <h1 className="title display-3">Services</h1>
                 <h5 className="text-white sub-title">
-                  Incede's resources are experts in helping organizations
-                  understand and incorporate IBM’s watsonx technology and its
-                  generative AI models. We provide end-to-end capabilities in
-                  developing conversational interfaces and cognitive enterprise
-                  search applications with IBM watsonx platform.
+                  Incede helps organizations integrate Gen AI to enhance
+                  business processes and drive innovation. We offer
+                  comprehensive solutions from strategy to implementation.
+                  Specializing in enterprise business intelligence and planning
+                  analytics consulting, we provide advanced data analytics,
+                  visualization, reporting, and financial planning and budgeting
+                  services. Our expertise ensures optimized performance,
+                  streamlined operations, and informed decision-making, driving
+                  sustained growth and supporting strategic initiatives.
                 </h5>
               </article>
             </Col>
@@ -144,7 +182,7 @@ class ServicesHeader extends Component {
               hideSingleArrow={this.state.hideSingleArrow}
               onSelect={this.onSelect}
               onUpdate={this.onUpdate}
-              ref={el => (this.menu = el)}
+              ref={(el) => (this.menu = el)}
               selected={this.state.selected}
               transition={this.state.transition}
               translate={this.state.translate}

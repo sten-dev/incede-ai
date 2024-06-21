@@ -9,7 +9,9 @@ const WebApplications = props => {
                     <Col lg={12} md={12} sm={12} xs={12}>
                         <Row>
                             <Col lg={7} md={12} sm={12} xs={12}>
-                                <h2 className="m-0">Web Applications</h2>
+                                <h4>
+                                    <b className="color-grey">Web Applications</b>
+                                </h4>
                                 <br />
                                 <p>
                                     Successful web applications have a front-end that excites users and functions properly on all devices. We design and develop websites on all major open source platforms and also create web services to provide online tools and backend for mobile applications. We are experts in latest technologies, including HTML5, CSS3, JavaScript frameworks like Angular, React, and NodeJS along with technologies such as .Net and Java.

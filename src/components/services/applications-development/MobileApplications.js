@@ -9,7 +9,9 @@ const MobileApplications = props => {
                     <Col lg={12} md={12} sm={12} xs={12}>
                         <Row>
                             <Col lg={7} md={12} sm={12} xs={12}>
-                                <h2 className="m-0">Mobile Applications</h2>
+                                <h4>
+                                    <b className="color-grey">Mobile Applications</b>
+                                </h4>
                                 <br />
                                 <p>
                                     Incede offers user-centric mobile application development services to design & code apps with seamless experience for mobile devices with the latest platform features. We have dedicated teams that is capable of building the latest app indexing-compliant products for the iPhone, iPad, and Android. Our goal is to create an app for you that has a commanding presence on both the iOS App Store and the Google Play Store.

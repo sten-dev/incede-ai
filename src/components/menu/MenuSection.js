@@ -106,7 +106,7 @@ class MenuSection extends Component {
               </React.Fragment>
             )}
 
-            {(!this.state.showSubMenu || this.state.showSolution) && (
+            {/* {(!this.state.showSubMenu || this.state.showSolution) && (
               <div className="menu-items">
                 <span onClick={this.showSolution} className="d-inline-flex">
                   {this.state.showSolution && (
@@ -141,7 +141,7 @@ class MenuSection extends Component {
               <React.Fragment>
                 <SolutionMenu />
               </React.Fragment>
-            )}
+            )} */}
 
             {(!this.state.showSubMenu || this.state.showService) && (
               <div className="menu-items">

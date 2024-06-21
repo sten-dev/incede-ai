@@ -10,7 +10,7 @@ class ServiceMenu extends React.Component {
   render() {
     return (
       <ul className="menu-links">
-        <li>
+        {/* <li>
           <Link to="/services/watson-assistant-services">
             watsonx Assistant Services
           </Link>
@@ -25,13 +25,22 @@ class ServiceMenu extends React.Component {
         </li>
         <li>
           <Link to="/services/watsonx-orchestrate">watsonx Orchestrate</Link>
+        </li> */}
+        <li>
+          <Link to="/services/gen-ai-services">Gen AI Services</Link>
+        </li>
+        <li>
+          <Link to="/services/enterprise-bi-and-analytics">Enterprise BI and Analytics</Link>
+        </li>
+        <li>
+          <Link to="/services/planning-and-budgeting">Planning and Budgeting</Link>
         </li>
         <li>
           <Link to="/services/applications-development">Applications Development</Link>
         </li>
-        <li>
+        {/* <li>
           <Link to="/services/professional-services">Professional Services</Link>
-        </li>
+        </li> */}
       </ul>
     );
   }

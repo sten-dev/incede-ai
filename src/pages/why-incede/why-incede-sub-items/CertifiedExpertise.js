@@ -19,7 +19,8 @@ const CertifiedExpertise = () => {
             <div>
               <h1 className="text-left heading">Certified Expertise</h1>
               <h4 className="my-4">
-                We are experts in IBM watsonx AI with tools to accelerate results
+                We are experts in IBM watsonx AI with tools to accelerate
+                results
               </h4>
               <p className="sub-title ">
                 With decades of experience, we are visionary thinkers and
@@ -32,7 +33,7 @@ const CertifiedExpertise = () => {
               <br />
               <Container fluid>
                 <Row>
-                  <Col md={6} xs={12} className="p-2">
+                  {/* <Col md={6} xs={12} className="p-2">
                     <Link
                       to="/services/watson-assistant-services"
                       className="btn why-incede-btn primary btn-outline-info btn-lg w-100"
@@ -83,6 +84,45 @@ const CertifiedExpertise = () => {
                         style={{ width: "8px" }}
                       />
                     </Link>
+                  </Col> */}
+                  <Col md={6} xs={12} className="p-2">
+                    <Link
+                      to="/services/gen-ai-services"
+                      className="btn why-incede-btn primary btn-outline-info btn-lg w-100"
+                    >
+                      Gen AI Services &nbsp;
+                      <img
+                        src={arrowPrimary}
+                        alt="next"
+                        style={{ width: "8px" }}
+                      />
+                    </Link>
+                  </Col>
+                  <Col md={6} xs={12} className="p-2">
+                    <Link
+                      to="/services/enterprise-bi-and-analytics"
+                      className="btn why-incede-btn primary btn-outline-info btn-lg w-100"
+                    >
+                      Enterprise BI and Analytics &nbsp;
+                      <img
+                        src={arrowPrimary}
+                        alt="next"
+                        style={{ width: "8px" }}
+                      />
+                    </Link>
+                  </Col>
+                  <Col md={6} xs={12} className="p-2">
+                    <Link
+                      to="/services/planning-and-budgeting"
+                      className="btn why-incede-btn primary btn-outline-info btn-lg w-100"
+                    >
+                      Planning and Budgeting &nbsp;
+                      <img
+                        src={arrowPrimary}
+                        alt="next"
+                        style={{ width: "8px" }}
+                      />
+                    </Link>
                   </Col>
                   <Col md={6} xs={12} className="p-2">
                     <Link
@@ -97,7 +137,7 @@ const CertifiedExpertise = () => {
                       />
                     </Link>
                   </Col>
-                  <Col md={6} xs={12} className="p-2">
+                  {/* <Col md={6} xs={12} className="p-2">
                     <Link
                       to="/services/professional-services"
                       className="btn why-incede-btn primary btn-outline-info btn-lg w-100"
@@ -109,7 +149,7 @@ const CertifiedExpertise = () => {
                         style={{ width: "8px" }}
                       />
                     </Link>
-                  </Col>
+                  </Col> */}
                 </Row>
               </Container>
             </div>

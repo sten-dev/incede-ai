@@ -146,7 +146,7 @@ class INavbar extends Component {
                     Home
                   </Link>
                 </NavItem>
-                <NavItem id="menu_solutions" className="btn">
+                {/* <NavItem id="menu_solutions" className="btn">
                   <a>
                     Solutions{" "}
                     <img
@@ -160,7 +160,7 @@ class INavbar extends Component {
                       // onClick={props.onClick}
                     />{" "}
                   </a>
-                </NavItem>
+                </NavItem> */}
                 <NavItem id="menu_services" className="btn">
                   <a>
                     Services{" "}
@@ -256,7 +256,7 @@ class INavbar extends Component {
             </PopoverBody>
           </Popover>
 
-          <Popover
+          {/* <Popover
             boundariesElement="window"
             placement="bottom"
             isOpen={this.state.isSolutionsMenuOpen}
@@ -264,11 +264,10 @@ class INavbar extends Component {
             toggle={this.toggleSolutionsMenu}
             trigger="legacy"
           >
-            {/* <PopoverHeader>Popover Title</PopoverHeader> */}
             <PopoverBody>
               <SolutionMenu />
             </PopoverBody>
-          </Popover>
+          </Popover> */}
           {/* <Popover
             boundariesElement="window"
             placement="bottom"
