@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import INavbar from "./Navbar";
-import ChatMain from "./Landing/bot/ChatMain";
+// import ChatMain from "./Landing/bot/ChatMain";
 import Footer from "./Footer";
 import { animateScroll as scroll } from "react-scroll";
 import CookieBar from "./CookieBar";
@@ -120,7 +120,7 @@ class LayoutBody extends Component {
       <section id="layout_body">
         <ToastProvider>
           <INavbar page={this.props.page} />
-          <ChatMain page={this.props.page} />
+          {/* <ChatMain page={this.props.page} /> */}
           <div>{this.props.children}</div>
           {["dashboard", "custom-demo-view"].indexOf(this.props.page) === -1 && <Footer />}
           {["dashboard", "login", "cookie/policy", "custom-demo-view"].indexOf(this.props.page) === -1 &&
