@@ -90,7 +90,7 @@ const CertifiedExpertise = () => {
                       to="/services/gen-ai-services"
                       className="btn why-incede-btn primary btn-outline-info btn-lg w-100"
                     >
-                      Gen AI Services &nbsp;
+                      Generative AI Services &nbsp;
                       <img
                         src={arrowPrimary}
                         alt="next"

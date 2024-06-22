@@ -10,7 +10,7 @@ class Main extends Component {
       <React.Fragment>
         <Home home={home} />
         {/* <AboutUs about={about} /> */}
-        <MoreDetail />
+        <MoreDetail forHomePage={true}/>
         {/* <WhatWeDo /> */}
         {/* <CaseStudies /> */}
         {/* <ContactUs location={location} /> */}

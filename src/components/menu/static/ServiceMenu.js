@@ -27,7 +27,7 @@ class ServiceMenu extends React.Component {
           <Link to="/services/watsonx-orchestrate">watsonx Orchestrate</Link>
         </li> */}
         <li>
-          <Link to="/services/gen-ai-services">Gen AI Services</Link>
+          <Link to="/services/gen-ai-services">Generative AI Services</Link>
         </li>
         <li>
           <Link to="/services/enterprise-bi-and-analytics">Enterprise BI and Analytics</Link>

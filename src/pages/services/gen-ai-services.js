@@ -7,7 +7,7 @@ import GenAIServices from "../../components/services/GenAIServices";
 
 const GenAIServicesMain = () => {
     return (
-        <Layout pageTitle="Gen AI Services | Incede">
+        <Layout pageTitle="Generative AI Services | Incede">
             <Transition>
                 <section className="industry-solution">
                     <ServicesHeader />

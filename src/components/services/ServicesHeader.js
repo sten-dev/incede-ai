@@ -8,7 +8,7 @@ let list = [
   // { name: "Watson Discovery Services" },
   // { name: "watsonx Platform Services", className: "text-initial" },
   // { name: "watsonx Orchestrate", className: "text-initial" },
-  { name: "Gen AI Services" },
+  { name: "Generative AI Services" },
   { name: "Enterprise BI and Analytics" },
   { name: "Planning and Budgeting" },
   { name: "Applications Development" },
@@ -149,7 +149,7 @@ class ServicesHeader extends Component {
               <article className="text-left">
                 <h1 className="title display-3">Services</h1>
                 <h5 className="text-white sub-title">
-                  Incede helps organizations integrate Gen AI to enhance
+                  Incede helps organizations integrate Generative AI to enhance
                   business processes and drive innovation. We offer
                   comprehensive solutions from strategy to implementation.
                   Specializing in enterprise business intelligence and planning

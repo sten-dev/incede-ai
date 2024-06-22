@@ -4,11 +4,12 @@ import ServicesSmallCardsList from "./ServicesSmallCardsList";
 import ScrollMenu from "react-horizontal-scrolling-menu";
 import { Link } from "react-scroll";
 import ModelAccuracyAndReliability from "./gen-ai-services/ModelAccuracyAndReliability";
-import ScalabilityAndIntegration from "./gen-ai-services/ScalabilityAndIntegration";
+// import ScalabilityAndIntegration from "./gen-ai-services/ScalabilityAndIntegration";
 import GovernanceAndCompliance from "./gen-ai-services/GovernanceAndCompliance";
 import DataSecurityAndPrivacy from "./gen-ai-services/DataSecurityAndPrivacy";
-import PerformanceAndEfficiency from "./gen-ai-services/PerformanceAndEfficiency";
+// import PerformanceAndEfficiency from "./gen-ai-services/PerformanceAndEfficiency";
 import InterpretableAndExplainableAI from "./gen-ai-services/InterpretableAndExplainableAI";
+import AIIntegrationAndOptimizationService from "./gen-ai-services/AIIntegrationAndOptimizationService";
 
 const subItems = [
   {
@@ -19,19 +20,19 @@ const subItems = [
   {
     image: "/img/watson-assistant/integration-development.png",
     inactiveImage: "/img/watson-assistant/integration-development-inactive.png",
-    title: "Scalability and Integration",
+    title: "AI Integration and Optimization Service",
   },
   {
     image: "/img/watson-assistant/channel-development.png",
     inactiveImage: "/img/watson-assistant/channel-development-inactive.png",
     title: "Governance and Compliance",
   },
-  {
-    image: "/img/watson-discovery/enrich-development-service.png",
-    inactiveImage:
-      "/img/watson-discovery/enrich-development-service-inactive.png",
-    title: "Performance and Efficiency",
-  },
+  // {
+  //   image: "/img/watson-discovery/enrich-development-service.png",
+  //   inactiveImage:
+  //     "/img/watson-discovery/enrich-development-service-inactive.png",
+  //   title: "Performance and Efficiency",
+  // },
   {
     image: "/img/watson-assistant/design-services.png",
     inactiveImage: "/img/watson-assistant/design-services-inactive.png",
@@ -95,20 +96,20 @@ class GenAIServices extends Component {
         case "model-accuracy-and-reliability":
           activeIndex = 0;
           break;
-        case "scalability-and-integration":
+        case "ai-integration-and-optimization-service":
           activeIndex = 1;
           break;
         case "governance-and-compliance":
           activeIndex = 2;
           break;
-        case "performance-and-efficiency":
+        // case "performance-and-efficiency":
+        //   activeIndex = 3;
+        //   break;
+        case "data-security-and-privacy":
           activeIndex = 3;
           break;
-        case "data-security-and-privacy":
-          activeIndex = 4;
-          break;
         case "interpretable-and-explainable-ai":
-          activeIndex = 5;
+          activeIndex = 4;
           break;
         default:
           activeIndex = 0;
@@ -139,18 +140,18 @@ class GenAIServices extends Component {
         linkId = "model-accuracy-and-reliability";
         break;
       case 1:
-        linkId = "scalability-and-integration";
+        linkId = "ai-integration-and-optimization-service";
         break;
       case 2:
         linkId = "governance-and-compliance";
         break;
+      // case 3:
+      //   linkId = "performance-and-efficiency";
+      //   break;
       case 3:
-        linkId = "performance-and-efficiency";
-        break;
-      case 4:
         linkId = "data-security-and-privacy";
         break;
-      case 5:
+      case 4:
         linkId = "interpretable-and-explainable-ai";
         break;
       default:
@@ -187,7 +188,7 @@ class GenAIServices extends Component {
             <Col xs={12}>
               <div className="content">
                 <h1 className="title mb-0 text-primary text-uppercase">
-                  <b>Gen AI Services</b>
+                  <b>Generative AI Services</b>
                 </h1>
                 <p>
                   Transform your enterprise with our advanced Generative AI
@@ -196,7 +197,7 @@ class GenAIServices extends Component {
                   enhancing workflow automation, and ensuring robust AI
                   governance. Our approach begins with a detailed assessment of
                   your current systems to identify opportunities for Gen AI
-                  integration.We then provide a strategic roadmap outlining key
+                  integration. We then provide a strategic roadmap outlining key
                   milestones and expected outcomes, ensuring a smooth transition
                   to Gen AI-powered operations.
                   <span id="gen-ai-services" className="pt-1"></span>
@@ -238,11 +239,11 @@ class GenAIServices extends Component {
           <Row>
             <Col xs={12}>
               {this.state.activeIndex === 0 && <ModelAccuracyAndReliability />}
-              {this.state.activeIndex === 1 && <ScalabilityAndIntegration />}
+              {this.state.activeIndex === 1 && <AIIntegrationAndOptimizationService />}
               {this.state.activeIndex === 2 && <GovernanceAndCompliance />}
-              {this.state.activeIndex === 3 && <PerformanceAndEfficiency />}
-              {this.state.activeIndex === 4 && <DataSecurityAndPrivacy />}
-              {this.state.activeIndex === 5 && (
+              {/* {this.state.activeIndex === 3 && <PerformanceAndEfficiency />} */}
+              {this.state.activeIndex === 3 && <DataSecurityAndPrivacy />}
+              {this.state.activeIndex === 4 && (
                 <InterpretableAndExplainableAI />
               )}
             </Col>
