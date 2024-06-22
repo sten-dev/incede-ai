@@ -7,6 +7,7 @@ import DataStrategyAndManagement from "./enterprise-bi-and-analytics/DataStrateg
 import EnterpriseBIImplementation from "./enterprise-bi-and-analytics/EnterpriseBIImplementation";
 import OnboardingAndSupport from "./enterprise-bi-and-analytics/OnboardingAndSupport";
 import UpgradesAndMigrations from "./enterprise-bi-and-analytics/UpgradesAndMigrations";
+import EmbeddedBIConsulting from "./enterprise-bi-and-analytics/EmbeddedBIConsulting";
 
 const subItems = [
   {
@@ -18,6 +19,12 @@ const subItems = [
     image: "/img/watson-assistant/development-services.png",
     inactiveImage: "/img/watson-assistant/development-services-inactive.png",
     title: "Enterprise BI Implementation",
+  },
+  {
+    image: "/img/watson-discovery/smart-document-development.png",
+    inactiveImage:
+      "/img/watson-discovery/smart-document-development-inactive.png",
+    title: "Embedded BI Consulting",
   },
   {
     image: "/img/watson-assistant/integration-development.png",
@@ -84,11 +91,14 @@ class EnterpriseBIAndAnalytics extends Component {
         case "enterprise-bi-implementation":
           activeIndex = 1;
           break;
-        case "onboarding-and-support":
+        case "embedded-bi-consulting":
           activeIndex = 2;
           break;
-        case "upgrades-and-migration":
+        case "onboarding-and-support":
           activeIndex = 3;
+          break;
+        case "upgrades-and-migration":
+          activeIndex = 4;
           break;
         default:
           activeIndex = 0;
@@ -122,9 +132,12 @@ class EnterpriseBIAndAnalytics extends Component {
         linkId = "enterprise-bi-implementation";
         break;
       case 2:
-        linkId = "onboarding-and-support";
+        linkId = "embedded-bi-consulting";
         break;
       case 3:
+        linkId = "onboarding-and-support";
+        break;
+      case 4:
         linkId = "upgrades-and-migration";
         break;
       default:
@@ -217,8 +230,9 @@ class EnterpriseBIAndAnalytics extends Component {
             <Col xs={12}>
               {this.state.activeIndex === 0 && <DataStrategyAndManagement />}
               {this.state.activeIndex === 1 && <EnterpriseBIImplementation />}
-              {this.state.activeIndex === 2 && <OnboardingAndSupport />}
-              {this.state.activeIndex === 3 && <UpgradesAndMigrations />}
+              {this.state.activeIndex === 2 && <EmbeddedBIConsulting />}
+              {this.state.activeIndex === 3 && <OnboardingAndSupport />}
+              {this.state.activeIndex === 4 && <UpgradesAndMigrations />}
             </Col>
           </Row>
         </Container>

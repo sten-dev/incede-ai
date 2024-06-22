@@ -35,7 +35,7 @@ const EnterpriseBIImplementation = (props) => {
                   tools they need to make informed decisions.
                 </p>
                 <br />
-                <p>
+                {/* <p>
                   <b className="color-grey">Embedded BI Consulting:</b> Enhance
                   your existing applications with embedded BI capabilities. We
                   provide consulting services to integrate BI tools directly
@@ -44,7 +44,7 @@ const EnterpriseBIImplementation = (props) => {
                   workflows. This approach increases user engagement and enables
                   real-time decision-making without switching between platforms.
                 </p>
-                <br />
+                <br /> */}
                 <p>
                   <b className="color-grey">
                     Predictive Analytics and Machine Learning:
