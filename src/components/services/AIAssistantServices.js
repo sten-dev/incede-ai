@@ -3,32 +3,31 @@ import { Container, Row, Col } from "reactstrap";
 import ServicesSmallCardsList from "./ServicesSmallCardsList";
 import ScrollMenu from "react-horizontal-scrolling-menu";
 import { Link } from "react-scroll";
-import IBMPlanningAnalyticsImplementation from "./planning-and-budgeting/IBMPlanningAnalyticsImplementation";
-import CustomizationAndIntegration from "./planning-and-budgeting/CustomizationAndIntegration";
-import TrainingAndEnablement from "./planning-and-budgeting/TrainingAndEnablement";
-import PerformanceOptimization from "./planning-and-budgeting/PerformanceOptimization";
+import ImplementationAndCustomizationServices from "./ai-assistant-services/ImplementationAndCustomizationServices";
+import AutomationAndEfficiencySolutions from "./ai-assistant-services/AutomationAndEfficiencySolutions";
+import TrainingAndSupportPrograms from "./ai-assistant-services/TrainingAndSupportPrograms";
+import SecurityAndInnovationWorkshops from "./ai-assistant-services/SecurityAndInnovationWorkshops";
 
 const subItems = [
   {
-    image: "/img/watson-assistant/channel-development.png",
-    inactiveImage: "/img/watson-assistant/channel-development-inactive.png",
-    title: "Planning & Budgeting Implementation",
-  },
-  {
-    image: "/img/watson-discovery/smart-document-development.png",
-    inactiveImage:
-      "/img/watson-discovery/smart-document-development-inactive.png",
-    title: "Custom System Configuration",
-  },
-  {
     image: "/img/watson-assistant/development-services.png",
     inactiveImage: "/img/watson-assistant/development-services-inactive.png",
-    title: "Training and Enablement",
+    title: "Implementation and Customization Services",
   },
   {
-    image: "/img/watsonx-orchestrate/orchestrate.png",
-    inactiveImage: "/img/watsonx-orchestrate/orchestrate-inactive.png",
-    title: "Performance Optimization",
+    image: "/img/watson-assistant/integration-development.png",
+    inactiveImage: "/img/watson-assistant/integration-development-inactive.png",
+    title: "Automation and Efficiency Solutions",
+  },
+  {
+    image: "/img/watson-assistant/solution-training.png",
+    inactiveImage: "/img/watson-assistant/solution-training-inactive.png",
+    title: "Training and Support Programs",
+  },
+  {
+    image: "/img/watson-assistant/design-services.png",
+    inactiveImage: "/img/watson-assistant/design-services-inactive.png",
+    title: "Security and Innovation Workshops",
   },
 ];
 
@@ -53,7 +52,7 @@ const Arrow = ({ text, className }) => {
 
 export const ArrowLeft = Arrow({ text: "<", className: "arrow-prev" });
 export const ArrowRight = Arrow({ text: ">", className: "arrow-next" });
-class PlanningAndBudgeting extends Component {
+class AIAssistantServices extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -79,33 +78,33 @@ class PlanningAndBudgeting extends Component {
       let hash = window.location.hash.split("#")[1];
       let activeIndex = 0;
       switch (hash) {
-        case "planning-budgeting-implementation":
+        case "implementation-and-customization-services":
           activeIndex = 0;
           break;
-        case "custom-system-configuration":
+        case "automation-and-efficiency-solutions":
           activeIndex = 1;
           break;
-        case "training-and-enablement":
+        case "training-and-support-programs":
           activeIndex = 2;
           break;
-        case "performance-optimization":
+        case "security-and-innovation-workshops":
           activeIndex = 3;
           break;
         default:
           activeIndex = 0;
-          hash = "planning-budgeting-implementation";
+          hash = "implementation-and-customization-services";
           break;
       }
       this.setState(
         {
           activeIndex,
           menuItems: Menu(subItems.slice(0, subItems.length), activeIndex),
-          linkId: "planning-and-budgeting",
+          linkId: "ai-assistant-services",
         },
         () => {
           setTimeout(() => {
             document
-              .getElementById("custom-react-link-planning-and-budgeting")
+              .getElementById("custom-react-link-ai-assistant-services")
               .click();
           }, 500);
         }
@@ -117,36 +116,36 @@ class PlanningAndBudgeting extends Component {
     let linkId;
     switch (Number(key)) {
       case 0:
-        linkId = "planning-budgeting-implementation";
+        linkId = "implementation-and-customization-services";
         break;
       case 1:
-        linkId = "custom-system-configuration";
+        linkId = "automation-and-efficiency-solutions";
         break;
       case 2:
-        linkId = "training-and-enablement";
+        linkId = "training-and-support-programs";
         break;
       case 3:
-        linkId = "performance-optimization";
+        linkId = "security-and-innovation-workshops";
         break;
       default:
-        linkId = "planning-budgeting-implementation";
+        linkId = "implementation-and-customization-services";
         break;
     }
     this.setState(
       {
         activeIndex: Number(key),
         menuItems: Menu(subItems.slice(0, subItems.length), Number(key)),
-        linkId: "planning-and-budgeting",
+        linkId: "ai-assistant-services",
       },
       () => {
         setTimeout(() => {
           document
-            .getElementById("custom-react-link-planning-and-budgeting")
+            .getElementById("custom-react-link-ai-assistant-services")
             .click();
           window.history.pushState(
             "",
             "",
-            `/services/planning-and-budgeting#${linkId}`
+            `/services/ai-assistant-services#${linkId}`
           );
         });
       }
@@ -164,31 +163,31 @@ class PlanningAndBudgeting extends Component {
             <Col xs={12}>
               <div className="content">
                 <h1 className="title mb-0 text-primary text-uppercase">
-                  <b>Planning and Budgeting</b>
+                  <b>AI Assistant Services</b>
                 </h1>
                 <p>
-                  At Incede, we deliver premier planning and budgeting tool
-                  implementation services, designed to refine your financial
-                  strategies and boost overall business performance. Our expert
-                  consultants collaborate closely with your team to integrate
-                  customized planning and budgeting solutions flawlessly into
-                  your current operations. This tailored approach ensures the
-                  tools we implement are well-aligned with your specific
-                  business objectives.
+                  At Incede, we leverage our years of experience to deliver
+                  cutting-edge AI Assistant services tailored for enterprise
+                  productivity. Our expertise in powerful tools like IBM’s
+                  watsonx enables us to offer AI Assistants that transform how
+                  businesses interact with customers and streamline internal
+                  operations.
                 </p>
                 <p>
-                  Our support extends beyond mere tool implementation. We offer
-                  comprehensive training and continuous support, empowering your
-                  team to effectively utilize these tools. Whether you aim to
-                  simplify intricate budgeting processes, enhance financial
-                  forecasting, or uncover deeper financial insights, Incede is
-                  committed to supporting you at every step. Discover how our
-                  services can revolutionize your financial management practices
-                  and contribute to your company's sustained growth.
-                  <span id="planning-and-budgeting" className="pt-1"></span>
+                  Our AI Assistant consulting services leverage technologies
+                  like IBM Watsonx Orchestrate’s advanced conversational AI and
+                  automation capabilities to seamlessly integrate with your
+                  business infrastructure. Expertly designed to enhance
+                  efficiency across various departments like HR and customer
+                  service, our AI Assistants services use a vast array of
+                  pre-built skills to customize solutions for your specific
+                  operational needs, offering full integration support and
+                  ongoing enhancements to boost productivity and service
+                  quality.
+                  <span id="ai-assistant-services" className="pt-1"></span>
                 </p>
                 <Link
-                  id="custom-react-link-planning-and-budgeting"
+                  id="custom-react-link-ai-assistant-services"
                   to={this.state.linkId}
                   className="d-none"
                   smooth={true}
@@ -224,11 +223,15 @@ class PlanningAndBudgeting extends Component {
           <Row>
             <Col xs={12}>
               {this.state.activeIndex === 0 && (
-                <IBMPlanningAnalyticsImplementation />
+                <ImplementationAndCustomizationServices />
               )}
-              {this.state.activeIndex === 1 && <CustomizationAndIntegration />}
-              {this.state.activeIndex === 2 && <TrainingAndEnablement />}
-              {this.state.activeIndex === 3 && <PerformanceOptimization />}
+              {this.state.activeIndex === 1 && (
+                <AutomationAndEfficiencySolutions />
+              )}
+              {this.state.activeIndex === 2 && <TrainingAndSupportPrograms />}
+              {this.state.activeIndex === 3 && (
+                <SecurityAndInnovationWorkshops />
+              )}
             </Col>
           </Row>
         </Container>
@@ -237,4 +240,4 @@ class PlanningAndBudgeting extends Component {
   }
 }
 
-export default PlanningAndBudgeting;
+export default AIAssistantServices;

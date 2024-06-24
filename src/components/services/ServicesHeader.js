@@ -9,6 +9,7 @@ let list = [
   // { name: "watsonx Platform Services", className: "text-initial" },
   // { name: "watsonx Orchestrate", className: "text-initial" },
   { name: "Generative AI Services" },
+  { name: "AI Assistant Services " },
   { name: "Enterprise BI and Analytics" },
   { name: "Planning and Budgeting" },
   { name: "Applications Development" },
@@ -65,7 +66,7 @@ class ServicesHeader extends Component {
   onSelect = (key) => {
     this.setState({ selected: key });
     console.log(`onSelect: ${key}`);
-    let url = "/services/watson-assistant-services";
+    let url = "/services/gen-ai-services";
     switch (Number(key)) {
       // case 0:
       //   url = "/services/watson-assistant-services";
@@ -93,12 +94,15 @@ class ServicesHeader extends Component {
         url = "/services/gen-ai-services";
         break;
       case 1:
-        url = "/services/enterprise-bi-and-analytics";
+        url = "/services/ai-assistant-services";
         break;
       case 2:
-        url = "/services/planning-and-budgeting";
+        url = "/services/enterprise-bi-and-analytics";
         break;
       case 3:
+        url = "/services/planning-and-budgeting";
+        break;
+      case 4:
         url = "/services/applications-development";
         break;
       default:
@@ -114,13 +118,17 @@ class ServicesHeader extends Component {
       case "/services/gen-ai-services/":
         this.setState({ selected: "0" });
         break;
+      case "/services/ai-assistant-services":
+      case "/services/ai-assistant-services/":
+        this.setState({ selected: "1" });
+        break;
       case "/services/enterprise-bi-and-analytics":
       case "/services/enterprise-bi-and-analytics/":
-        this.setState({ selected: "1" });
+        this.setState({ selected: "2" });
         break;
       case "/services/planning-and-budgeting":
       case "/services/planning-and-budgeting/":
-        this.setState({ selected: "2" });
+        this.setState({ selected: "3" });
         break;
       // case "/services/watsonx-orchestrate":
       // case "/services/watsonx-orchestrate/":
@@ -128,7 +136,7 @@ class ServicesHeader extends Component {
       //   break;
       case "/services/applications-development":
       case "/services/applications-development/":
-        this.setState({ selected: "3" });
+        this.setState({ selected: "4" });
         break;
       // case "/services/professional-services":
       // case "/services/professional-services/":
@@ -149,19 +157,24 @@ class ServicesHeader extends Component {
               <article className="text-left">
                 <h1 className="title display-3">Services</h1>
                 <h5 className="text-white sub-title">
-                  Incede helps organizations integrate Generative AI to enhance
-                  business processes and drive innovation. We offer
-                  comprehensive solutions from strategy to implementation.
-                  Specializing in enterprise business intelligence and planning
-                  analytics consulting, we provide advanced data analytics,
-                  visualization, reporting, and financial planning and budgeting
-                  services. Our expertise ensures optimized performance,
-                  streamlined operations, and informed decision-making, driving
-                  sustained growth and supporting strategic initiatives.
+                  Incede empowers organizations by integrating Generative AI to
+                  improve business processes and spark innovation. We deliver
+                  end-to-end solutions, from developing strategic plans to
+                  executing them. As experts in enterprise business intelligence
+                  and planning analytics, we offer sophisticated data analytics,
+                  visualization, and comprehensive reporting services, along
+                  with financial planning and budgeting. Our expertise ensures
+                  your operations are efficient, your performance is optimized,
+                  and your decisions are data-driven, fostering continual growth
+                  and supporting your strategic goals.
                 </h5>
               </article>
             </Col>
-            <Col lg={4} md={5} className="d-none d-md-flex position-initial align-items-center">
+            <Col
+              lg={4}
+              md={5}
+              className="d-none d-md-flex position-initial align-items-center"
+            >
               <div className="image-section">
                 <img src={ServicesImage} alt="hero" />
               </div>

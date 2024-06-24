@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from "reactstrap";
 import "../../styles/more_detail.scss";
+import { Link } from "gatsby";
+import arrow from "../../img/arrow.svg";
 // import AiImage from "../../img/incede-home-page-middle.png";
 class MoreDetail extends Component {
   constructor(props) {
@@ -86,16 +88,53 @@ class MoreDetail extends Component {
                 <article className="gap-y-half pb-0 text-left">
                   <h1 className="title">Generative AI Services</h1>
                   <h5 className="text-white sub-title">
-                    Transform your enterprise with our advanced Generative AI
-                    consulting services. We specialize in integrating
-                    open-source Large Language Models (LLMs) into your business
-                    processes, enhancing workflow automation, and ensuring
-                    robust AI governance. Our approach begins with a detailed
-                    assessment of your current systems to identify opportunities
-                    for Gen AI integration. We then provide a strategic roadmap
-                    outlining key milestones and expected outcomes, ensuring a
-                    smooth transition to Gen AI-powered operations.
+                    Elevate your business with our advanced Generative AI
+                    consulting services. At Incede, we specialize in seamlessly
+                    integrating cutting-edge, open-source Large Language Models
+                    (LLMs) into your business processes to enhance workflow
+                    automation and ensure robust AI governance. Starting with a
+                    comprehensive assessment of your current systems, we
+                    identify prime opportunities for Gen AI integration and then
+                    develop a strategic roadmap tailored to your needs. This
+                    roadmap outlines key milestones and expected outcomes to
+                    ensure a smooth transition, empowering your operations with
+                    the transformative capabilities of Generative AI. Discover
+                    how our tailored solutions can revolutionize your operations
+                    and drive innovation.
                   </h5>
+                  <Link
+                    to="/services/gen-ai-services"
+                    className="btn explore-more-btn secondary btn-outline-info"
+                  >
+                    Explore more &nbsp;
+                    <img src={arrow} alt="next" style={{ width: "8px" }} />
+                  </Link>
+                </article>
+              </Col>
+              <Col lg={12} md={12} sm={12} xs={12}>
+                <article className="gap-y-half pb-0 text-left">
+                  <h1 className="title">AI Assistant Services</h1>
+                  <h5 className="text-white sub-title">
+                    We draw on our extensive experience to provide
+                    state-of-the-art AI Assistant services tailored for
+                    enhancing enterprise productivity. Our AI Assistants are
+                    developed using advanced conversational AI and automation
+                    technologies to ensure seamless integration into your
+                    business infrastructure. Designed to improve efficiency
+                    across various departments such as HR and customer service,
+                    our services utilize a wide array of pre-built skills. This
+                    allows us to customize solutions to meet your specific
+                    operational needs. We offer full integration support and
+                    continuous enhancements, ensuring our AI solutions
+                    consistently elevate productivity and service quality.
+                  </h5>
+                  <Link
+                    to="/services/ai-assistant-services"
+                    className="btn explore-more-btn secondary btn-outline-info"
+                  >
+                    Explore more &nbsp;
+                    <img src={arrow} alt="next" style={{ width: "8px" }} />
+                  </Link>
                 </article>
               </Col>
               <Col lg={12} md={12} sm={12} xs={12}>
@@ -104,33 +143,63 @@ class MoreDetail extends Component {
                     Enterprise BI and Analytics Services
                   </h1>
                   <h5 className="text-white sub-title">
-                    Unlock the full potential of your data with our
-                    comprehensive Enterprise Business Intelligence (BI) and
-                    Analytics consulting services. We specialize in transforming
-                    complex data from modern data sources into clear, actionable
-                    insights that drive strategic decision-making and business
-                    growth. Our team of experts is dedicated to helping you
-                    leverage advanced BI and analytics tools to enhance your
-                    data strategy, analytics, and overall business performance.
+                    Unlock the full potential of your data with our Enterprise
+                    Business Intelligence (BI) and Analytics solutions. We
+                    specialize in transforming complex data from modern data
+                    sources into clear, actionable insights that drive strategic
+                    decision-making and business growth. Our team of experts is
+                    dedicated to helping you leverage advanced BI and analytics
+                    tools to enhance your data strategy, analytics, and overall
+                    business performance. We provide comprehensive solutions,
+                    from in-depth data management and advanced analytics to
+                    detailed reporting systems, all designed to integrate
+                    seamlessly with your existing IT infrastructure.
                   </h5>
+                  <Link
+                    to="/services/enterprise-bi-and-analytics"
+                    className="btn explore-more-btn secondary btn-outline-info"
+                  >
+                    Explore more &nbsp;
+                    <img src={arrow} alt="next" style={{ width: "8px" }} />
+                  </Link>
                 </article>
               </Col>
               <Col lg={12} md={12} sm={12} xs={12}>
                 <article className="gap-y-half pb-0 text-left">
                   <h1 className="title">Planning and Budgeting Services</h1>
                   <h5 className="text-white sub-title">
-                    Maximize the efficiency of your financial planning,
-                    budgeting, and forecasting processes with our specialized
-                    consulting services for IBM Planning Analytics. Our team of
-                    experts is dedicated to helping you implement and optimize
-                    IBM Planning Analytics, ensuring you achieve accurate,
-                    insightful, and strategic financial planning.
+                    At Incede, we specialize in providing top-tier planning and
+                    budgeting tool implementation services designed to optimize
+                    financial strategies and enhance business performance. Our
+                    experienced consultants work closely with your team to
+                    ensure that the planning and budgeting solutions we deploy
+                    integrate seamlessly with your existing operations and align
+                    perfectly with your business objectives. We focus on
+                    creating flexible and robust systems that enable efficient
+                    budget management, improved financial accuracy, and precise
+                    forecasting. Along with tool implementation, we offer
+                    comprehensive support and training to ensure your team is
+                    fully equipped to leverage these tools effectively. Whether
+                    you aim to streamline complex budgeting processes, enhance
+                    financial forecasting, or gain deeper insights into your
+                    financial data, Incede is committed to assisting you every
+                    step of the way in transforming your financial management
+                    practices and driving sustained growth.
                   </h5>
+                  <Link
+                    to="/services/planning-and-budgeting"
+                    className="btn explore-more-btn secondary btn-outline-info"
+                  >
+                    Explore more &nbsp;
+                    <img src={arrow} alt="next" style={{ width: "8px" }} />
+                  </Link>
                 </article>
               </Col>
               <Col lg={12} md={12} sm={12} xs={12}>
                 <article className="gap-y-half text-left">
-                  <h1 className="title">Applications Development Services</h1>
+                  <h1 className="title">
+                    Applications Development
+                  </h1>
                   <h5 className="text-white sub-title">
                     When competitive advantage requires custom applications,
                     Incede has the expertise and specializes in mobile and web
@@ -138,6 +207,13 @@ class MoreDetail extends Component {
                     cloud-based applications that are user-centric and outcome
                     oriented across industries.
                   </h5>
+                  <Link
+                    to="/services/applications-development"
+                    className="btn explore-more-btn secondary btn-outline-info"
+                  >
+                    Explore more &nbsp;
+                    <img src={arrow} alt="next" style={{ width: "8px" }} />
+                  </Link>
                 </article>
               </Col>
             </Row>

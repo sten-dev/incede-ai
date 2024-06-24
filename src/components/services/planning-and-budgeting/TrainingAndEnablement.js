@@ -15,17 +15,31 @@ const TrainingAndEnablement = (props) => {
                 <br />
                 <p>
                   <b className="color-grey">Comprehensive Training Programs:</b>{" "}
-                  We offer extensive training programs designed to equip your
-                  team with the skills needed to effectively use IBM Planning
-                  Analytics. This includes on-site workshops, remote training
-                  sessions, and customized learning paths.
+                  We offer tailored training sessions that are designed to equip
+                  your staff with the necessary skills to utilize IBM Planning
+                  Analytics effectively. Training covers everything from basic
+                  navigation to advanced features, ensuring all users are
+                  competent and confident.
                 </p>
                 <br />
                 <p>
-                  <b className="color-grey">Ongoing Support and Mentoring:</b>{" "}
-                  Our support doesn't end at implementation. We provide ongoing
-                  support and mentoring to ensure your team can continuously
-                  leverage the full capabilities of IBM Planning Analytics.
+                  <b className="color-grey">Resource Provisioning:</b> Alongside
+                  training, we provide extensive documentation and online
+                  resources to support ongoing learning and problem-solving.
+                </p>
+                <br />
+                <p>
+                  <b className="color-grey">Continuous Improvement:</b> We engage in
+                  an ongoing dialogue with your team to gather feedback and
+                  implement enhancements, ensuring the system remains effective
+                  and aligned with your growing business needs.
+                </p>
+                <br />
+                <p>
+                  <b className="color-grey">Proactive Support:</b> Our
+                  dedicated support team is available to address any issues that
+                  arise, ensuring continuous system availability and
+                  performance.
                 </p>
               </Col>
             </Row>

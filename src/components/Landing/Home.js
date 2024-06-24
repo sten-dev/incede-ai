@@ -24,16 +24,12 @@ class Home extends React.Component {
                 <article className="gap-y mt-5 pb-0">
                   {/* <h1 className="text-primary bold">{home.title}</h1> */}
                   <h1 className="text-primary bold">
-                    We leverage AI to solve business problems, streamline
-                    processes, and forecast.
+                    Empowering Businesses with Advanced AI Solutions
                   </h1>
                   <h4>
-                    Incede leverages advanced AI to solve complex business
-                    problems, streamline processes, and personalize user
-                    experiences. We provide enterprise business intelligence and
-                    planning analytics, offering data management, analytics,
-                    reporting, budgeting, forecasting, financial analysis, and
-                    automation.
+                    We offer comprehensive solutions in AI-driven automation, AI
+                    Assistants, Enterprise Business Intelligence, and Planning &
+                    Budgeting
                   </h4>
                   {/* <h4>{home.subTitle}</h4> */}
                   <div className="py-2">

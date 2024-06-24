@@ -10,24 +10,28 @@ const CustomizationAndIntegration = (props) => {
             <Row>
               <Col lg={12} md={12} sm={12} xs={12}>
                 <h4>
-                  <b className="color-grey">Customization and Integration</b>
+                  <b className="color-grey">Custom System Configuration</b>
                 </h4>
                 <br />
                 <p>
-                  <b className="color-grey">Custom Planning Solutions:</b> We
-                  develop customized planning and budgeting solutions that cater
-                  to your unique business requirements. This includes creating
-                  bespoke models and templates that streamline your planning
-                  processes.
+                  <b className="color-grey">Tailored Data Models:</b> We design
+                  and implement data models that accurately reflect your
+                  organization's operational and financial structure, ensuring
+                  the tools deliver relevant and actionable insights.
                 </p>
                 <br />
                 <p>
-                  <b className="color-grey">
-                    Integration with Existing Systems:
-                  </b>{" "}
-                  Our services ensure smooth integration of IBM Planning
-                  Analytics with your existing BI and ERP systems, allowing for
-                  cohesive data management and reporting.
+                  <b className="color-grey">Reporting Frameworks:</b> Custom
+                  reporting frameworks are developed to provide clear visibility
+                  into performance metrics, facilitating quick and informed
+                  decision-making.
+                </p>
+                <br />
+                <p>
+                  <b className="color-grey">Workflow Optimization:</b> We
+                  streamline workflows by automating routine data processing
+                  tasks, enabling your team to focus on strategic activities and
+                  reduce manual errors.
                 </p>
               </Col>
             </Row>

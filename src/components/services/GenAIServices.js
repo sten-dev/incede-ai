@@ -193,13 +193,15 @@ class GenAIServices extends Component {
                 <p>
                   Transform your enterprise with our advanced Generative AI
                   consulting services. We specialize in integrating open-source
-                  Large Language Models (LLMs) into your business processes,
-                  enhancing workflow automation, and ensuring robust AI
+                  Large Language Models (LLMs), as well as leveraging leading AI
+                  platforms like IBM watsonx into your business processes. This
+                  integration enhances workflow automation and ensures robust AI
                   governance. Our approach begins with a detailed assessment of
-                  your current systems to identify opportunities for Gen AI
-                  integration. We then provide a strategic roadmap outlining key
+                  your current systems to identify opportunities for Generative
+                  AI integration. Leveraging the capabilities of watsonx and
+                  Azure AI, we then provide a strategic roadmap outlining key
                   milestones and expected outcomes, ensuring a smooth transition
-                  to Gen AI-powered operations.
+                  to operations powered by advanced Generative AI technologies.
                   <span id="gen-ai-services" className="pt-1"></span>
                 </p>
                 <Link
@@ -239,7 +241,9 @@ class GenAIServices extends Component {
           <Row>
             <Col xs={12}>
               {this.state.activeIndex === 0 && <ModelAccuracyAndReliability />}
-              {this.state.activeIndex === 1 && <AIIntegrationAndOptimizationService />}
+              {this.state.activeIndex === 1 && (
+                <AIIntegrationAndOptimizationService />
+              )}
               {this.state.activeIndex === 2 && <GovernanceAndCompliance />}
               {/* {this.state.activeIndex === 3 && <PerformanceAndEfficiency />} */}
               {this.state.activeIndex === 3 && <DataSecurityAndPrivacy />}

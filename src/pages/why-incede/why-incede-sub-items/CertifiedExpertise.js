@@ -100,6 +100,19 @@ const CertifiedExpertise = () => {
                   </Col>
                   <Col md={6} xs={12} className="p-2">
                     <Link
+                      to="/services/ai-assistant-services"
+                      className="btn why-incede-btn primary btn-outline-info btn-lg w-100"
+                    >
+                      AI Assistant Services &nbsp;
+                      <img
+                        src={arrowPrimary}
+                        alt="next"
+                        style={{ width: "8px" }}
+                      />
+                    </Link>
+                  </Col>
+                  <Col md={6} xs={12} className="p-2">
+                    <Link
                       to="/services/enterprise-bi-and-analytics"
                       className="btn why-incede-btn primary btn-outline-info btn-lg w-100"
                     >
