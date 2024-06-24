@@ -101,24 +101,24 @@ class WhyIncede extends Component {
       let hash = window.location.hash.split("#")[1];
       let activeIndex = 0;
       switch (hash) {
-        case "business-terms":
+        // case "business-terms":
+        //   activeIndex = 0;
+        //   break;
+        case "certified-expertise":
           activeIndex = 0;
           break;
-        case "certified-expertise":
+        case "customer-success":
           activeIndex = 1;
           break;
-        case "customer-success":
+        case "technology-partners":
           activeIndex = 2;
           break;
-        case "technology-partners":
-          activeIndex = 3;
-          break;
         case "leadership-team":
-          activeIndex = 4;
+          activeIndex = 3;
           break;
         default:
           activeIndex = 0;
-          hash = "business-terms";
+          hash = "certified-expertise";
           break;
       }
       this.setState(
@@ -139,23 +139,23 @@ class WhyIncede extends Component {
   onSelect = key => {
     let linkId;
     switch (Number(key)) {
+      // case 0:
+      //   linkId = "business-terms";
+      //   break;
       case 0:
-        linkId = "business-terms";
-        break;
-      case 1:
         linkId = "certified-expertise";
         break;
-      case 2:
+      case 1:
         linkId = "customer-success";
         break;
-      case 3:
+      case 2:
         linkId = "technology-partners";
         break;
-      case 4:
+      case 3:
         linkId = "leadership-team";
         break;
       default:
-        linkId = "business-terms";
+        linkId = "certified-expertise";
         break;
     }
     // linkId = "business-terms";

@@ -22,16 +22,18 @@ class MoreDetail extends Component {
               <Col lg={8} md={7} sm={12} xs={12}>
                 <article className="gap-y-half text-left mt-0 mt-sm-3 mt-lg-4">
                   <h1 className="title">
-                    Incede harnesses the power of Data, AI and Machine Learning
+                    Enhancing Your Business with Proven Technology Expertise
                   </h1>
                   <h5 className="text-white sub-title">
-                    With more than half of the world’s data in natural language,
-                    we solve business problems and create a competitive
-                    advantage by leveraging the power of watsonx AI and machine
-                    learning. We collaborate with you to understand areas where
-                    AI or automation will deliver value to the business and
-                    define a roadmap of incremental steps to roll-out real
-                    solutions that deliver to that value.
+                    Incede, with over a decade of industry experience,
+                    specializes in delivering transformative technology
+                    solutions tailored to enhance operational efficiency,
+                    empower strategic decision-making, and provide a competitive
+                    edge. Known for our proven track record and deep industry
+                    knowledge, we focus on practical, real-world applications.
+                    Committed to continually adapting our solutions to meet your
+                    evolving business needs, we strive to remain your trusted
+                    technology partner.
                   </h5>
                   <p id="business-terms" className="pt-2"></p>
                   {/* <div className="py-2">
@@ -197,9 +199,7 @@ class MoreDetail extends Component {
               </Col>
               <Col lg={12} md={12} sm={12} xs={12}>
                 <article className="gap-y-half text-left">
-                  <h1 className="title">
-                    Applications Development
-                  </h1>
+                  <h1 className="title">Applications Development</h1>
                   <h5 className="text-white sub-title">
                     When competitive advantage requires custom applications,
                     Incede has the expertise and specializes in mobile and web
