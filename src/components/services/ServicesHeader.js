@@ -157,16 +157,12 @@ class ServicesHeader extends Component {
               <article className="text-left">
                 <h1 className="title display-3">Services</h1>
                 <h5 className="text-white sub-title">
-                  Incede empowers organizations by integrating Generative AI to
-                  improve business processes and spark innovation. We deliver
-                  end-to-end solutions, from developing strategic plans to
-                  executing them. As experts in enterprise business intelligence
-                  and planning analytics, we offer sophisticated data analytics,
-                  visualization, and comprehensive reporting services, along
-                  with financial planning and budgeting. Our expertise ensures
-                  your operations are efficient, your performance is optimized,
-                  and your decisions are data-driven, fostering continual growth
-                  and supporting your strategic goals.
+                  Incede specializes in Generative AI Consulting, AI Assistant
+                  Services, Enterprise BI, and Custom Applications Development.
+                  We enhance workflow automation, boost productivity, and drive
+                  strategic decisions. Discover our innovative services for
+                  business transformation and growth. Contact us today to start
+                  your journey.
                 </h5>
               </article>
             </Col>
