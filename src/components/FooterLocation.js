@@ -14,17 +14,20 @@ class FooterLocation extends React.Component {
         </li>
 
         <li className="mb-0">
-          <p>
-            {location.phone}, {location.email}
-          </p>
+          <address className="mb-0">5201 Great America Parkway, Suite #320,</address>
+        </li>
+        <li className="mb-0">
+          <address className="mb-0">Santa Clara, CA 95054</address>
         </li>
         <li>
-          <address>{location.address}</address>
+          <p>
+            408-850-4900, <a href="mailto:info@incede.ai"><u>info@incede.ai</u></a>
+          </p>
         </li>
         <li>
           <Link className="navbar-item" to="/about/cookie-policy">
             Cookie Policy
-                          </Link>
+          </Link>
         </li>
       </ul>
     );
@@ -34,9 +37,9 @@ class FooterLocation extends React.Component {
 FooterLocation.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
-      edges: PropTypes.array
-    })
-  })
+      edges: PropTypes.array,
+    }),
+  }),
 };
 
 export default () => (
@@ -56,7 +59,7 @@ export default () => (
         }
       }
     `}
-    render={data => (
+    render={(data) => (
       <FooterLocation location={data.markdownRemark.frontmatter.location} />
     )}
   />

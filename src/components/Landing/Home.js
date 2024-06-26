@@ -21,10 +21,10 @@ class Home extends React.Component {
       <>
         <section className="landing-home">
           <Container>
-            <Row>
+            <Row className="justify-content-center">
               {/* <Col lg={1} md={2}></Col> */}
-              <Col lg={7} md={7} sm={12} xs={12}>
-                <article className="gap-y mt-5 pb-0">
+              <Col lg={7} md={6} sm={12} xs={12} className="text-center text-md-left">
+                <article className="mt-4 pb-0">
                   {/* <h1 className="text-primary bold">{home.title}</h1> */}
                   <h1 className="text-primary bold">
                     Innovate, Automate, Lead
@@ -43,8 +43,8 @@ class Home extends React.Component {
                   </div>
                 </article>
               </Col>
-              <Col lg={5} md={5} className="d-none d-md-block position-initial">
-                <div className="image-section gap-y mt-5 pb-0">
+              <Col xs={11} sm={9} lg={5} md={6} className="d-flex flex-column align-items-center position-initial mt-4 mt-md-0">
+                <div className="image-section pb-0">
                   <img src={HeroImage} alt="hero" />
                 </div>
               </Col>
@@ -129,7 +129,7 @@ class Home extends React.Component {
                             to elevate your business to new heights.{" "}
                             <ScrollLink
                               className="text-white pointer text"
-                              to="contact-us-form"
+                              to="contact-us-location"
                               smooth={true}
                             >
                               <b>
@@ -238,7 +238,7 @@ class Home extends React.Component {
                             heights with our advanced AI Assistant services.{" "}
                             <ScrollLink
                               className="text-body pointer text"
-                              to="contact-us-form"
+                              to="contact-us-location"
                               smooth={true}
                             >
                               <b>
@@ -361,7 +361,7 @@ class Home extends React.Component {
                             untapped.{" "}
                             <ScrollLink
                               className="text-white pointer text"
-                              to="contact-us-form"
+                              to="contact-us-location"
                               smooth={true}
                             >
                               <b>
@@ -486,7 +486,7 @@ class Home extends React.Component {
                             planning and budgeting.{" "}
                             <ScrollLink
                               className="text-body pointer text"
-                              to="contact-us-form"
+                              to="contact-us-location"
                               smooth={true}
                             >
                               <b>
@@ -609,7 +609,7 @@ class Home extends React.Component {
                             outpace you.{" "}
                             <ScrollLink
                               className="text-white pointer text"
-                              to="contact-us-form"
+                              to="contact-us-location"
                               smooth={true}
                             >
                               <b>

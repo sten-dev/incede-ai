@@ -191,7 +191,7 @@ class Footer extends React.Component {
                     </section>
                   </Col>
                   <Col md='12' sm='6' xs='12' className='py-2'>
-                    <section className='menu'>
+                    <section className='menu' id='contact-us-location'>
                       <FooterLocation />
                     </section>
                   </Col>

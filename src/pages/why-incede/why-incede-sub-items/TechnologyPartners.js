@@ -3,6 +3,7 @@ import { Row, Col, Container } from "reactstrap";
 // import technologyPartners from "../../../img/why-incede/partners.png";
 import ibmPartner from "../../../img/why-incede/ibm-partner.png";
 import microsoftPartner from "../../../img/why-incede/microsoft-partner.png";
+import arrowPartner from "../../../img/why-incede/arrow-partner.png";
 
 const TechnologyPartners = () => {
   return (
@@ -27,7 +28,7 @@ const TechnologyPartners = () => {
           <Col xs={12}>
             <h5 className="color-grey">
               <b>IBM</b>
-            </h5>{" "}
+            </h5>
           </Col>
           <Col xs={12} sm={12} md={12} lg={7} className="d-flex">
             <p className="sub-title">
@@ -73,6 +74,31 @@ const TechnologyPartners = () => {
           >
             <div className="partner-image-section">
               <img width={240} src={microsoftPartner} alt="ibm partner" />
+            </div>
+          </Col>
+          <Col xs={12}>
+            <h5 className="color-grey">
+              <b>Arrow Electronics</b>
+            </h5>
+          </Col>
+          <Col xs={12} sm={12} md={12} lg={7} className="d-flex">
+            <p className="sub-title">
+              Our partnership with Arrow Electronics enhances our ability to
+              deliver advanced technology solutions by providing access to a
+              broad range of electronic components and computing solutions,
+              ensuring our clients benefit from the latest innovations and
+              robust supply chain expertise.
+            </p>
+          </Col>
+          <Col
+            xs={12}
+            sm={12}
+            md={12}
+            lg={5}
+            className="mt-4 mt-lg-0 d-flex align-items-center justify-content-center"
+          >
+            <div className="partner-image-section">
+              <img width={240} src={arrowPartner} alt="arrow-partner" />
             </div>
           </Col>
           <Col xs={12} sm={12} md={12} lg={12} className="d-flex">

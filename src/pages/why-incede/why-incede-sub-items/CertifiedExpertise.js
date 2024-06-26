@@ -23,17 +23,16 @@ const CertifiedExpertise = () => {
                 results
               </h4> */}
               <p className="sub-title mb-0 mb-lg-5">
-                We combine decades of experience with a visionary approach to
+                We combine our extensive experience with a visionary approach to
                 navigate complex technological landscapes. Our team holds
                 industry-recognized certifications in key areas such as
                 Generative AI, Business Intelligence, AI Assistants, and
                 Planning & Budgeting solutions, ensuring we deliver cutting-edge
-                solutions tailored to our clients' needs. As recognized problem
-                solvers trusted by our customers, we leverage our expertise in
-                Artificial Intelligence, Machine Learning, Cloud, Mobile, and
-                emerging technologies to provide analytics strategies, phase-one
-                projects, and full implementations that precisely fit your
-                requirements.
+                solutions tailored to our clients' needs. As trusted problem
+                solvers, we leverage our expertise in Artificial Intelligence,
+                Machine Learning, Cloud, Mobile, and emerging technologies to
+                provide analytics strategies, phase-one projects, and full
+                implementations that precisely fit your requirements.
               </p>
             </div>
           </Col>
@@ -52,14 +51,10 @@ const CertifiedExpertise = () => {
             <div>
               <p className="sub-title ">
                 Our commitment to continuous learning and maintaining the
-                highest standards of professional accreditation allows us to
-                stay at the forefront of technology consulting. We not only
-                focus on implementing sophisticated analytical and automation
-                tools but also on developing reliable, scalable solutions that
-                drive operational efficiencies and transformative results. By
-                doing so, ensures that our clients can confidently leverage
-                modern technology to achieve sustained growth and success in a
-                rapidly evolving digital landscape.
+                highest standards of professional accreditation keeps us at the
+                forefront of technology consulting. This ensures our clients can
+                confidently leverage modern technology for sustained growth and
+                success in a rapidly evolving digital landscape.
               </p>
               <br />
               <Container fluid>

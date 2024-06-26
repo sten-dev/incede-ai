@@ -68,7 +68,7 @@ class CaseStudiesCarousalComponent extends Component {
     return (
       <React.Fragment>
         {this.state.caseStudiesList && this.state.caseStudiesList.length > 0 && (
-          <section className="case-study mt-5">
+          <section className="case-study mt-1 mt-md-5">
             <Carousel
               showThumbs={false}
               showStatus={false}

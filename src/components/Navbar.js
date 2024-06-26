@@ -141,7 +141,14 @@ class INavbar extends Component {
             </NavbarToggler>
             <Collapse isOpen={false} navbar>
               <Nav className="ml-auto" navbar>
-                <NavItem className="btn">
+                <NavItem
+                  className="btn"
+                  onMouseEnter={() => {
+                    this.setState({
+                      isServicesMenuOpen: false,
+                    });
+                  }}
+                >
                   <Link activeClassName="selected" to="/">
                     Home
                   </Link>
@@ -161,15 +168,24 @@ class INavbar extends Component {
                     />{" "}
                   </a>
                 </NavItem> */}
-                <NavItem id="menu_services" className="btn">
+                <NavItem
+                  id="menu_services"
+                  className="btn"
+                  onMouseEnter={() => {
+                    this.setState({
+                      isServicesMenuOpen: true,
+                    });
+                  }}
+                >
                   <a>
                     Services{" "}
                     <img
-                      className={`${this.state.isServicesMenuOpen ? "active-what-we-do" : ""
-                        }`}
+                      className={`${
+                        this.state.isServicesMenuOpen ? "active-what-we-do" : ""
+                      }`}
                       alt="send"
                       src={dropdown}
-                    // onClick={props.onClick}
+                      // onClick={props.onClick}
                     />{" "}
                   </a>
                 </NavItem>
@@ -187,7 +203,7 @@ class INavbar extends Component {
                     />{" "}
                   </a>
                 </NavItem> */}
-                <NavItem id="menu_resources" className="btn">
+                {/* <NavItem id="menu_resources" className="btn">
                   <a>
                     Resources{" "}
                     <img
@@ -201,13 +217,42 @@ class INavbar extends Component {
                       // onClick={props.onClick}
                     />{" "}
                   </a>
+                </NavItem> */}
+                <NavItem
+                  id="menu_case_studies"
+                  className="btn"
+                  onMouseEnter={() => {
+                    this.setState({
+                      isServicesMenuOpen: false,
+                    });
+                  }}
+                >
+                  <Link activeClassName="selected" to="/resources/case-studies">
+                    Case Studies
+                  </Link>
                 </NavItem>
-                <NavItem id="menu_customers" className="btn">
+                <NavItem
+                  id="menu_customers"
+                  className="btn"
+                  onMouseEnter={() => {
+                    this.setState({
+                      isServicesMenuOpen: false,
+                    });
+                  }}
+                >
                   <Link activeClassName="selected" to="/customers">
                     Customers
                   </Link>
                 </NavItem>
-                <NavItem id="menu_why_incede" className="btn">
+                <NavItem
+                  id="menu_why_incede"
+                  className="btn"
+                  onMouseEnter={() => {
+                    this.setState({
+                      isServicesMenuOpen: false,
+                    });
+                  }}
+                >
                   <Link activeClassName="selected" to="/why-incede">
                     Why Incede
                   </Link>
@@ -251,7 +296,18 @@ class INavbar extends Component {
             trigger="legacy"
             className="popover-main"
           >
-            <PopoverBody>
+            <PopoverBody
+              onMouseEnter={() => {
+                this.setState({
+                  isServicesMenuOpen: true,
+                });
+              }}
+              onMouseLeave={() => {
+                this.setState({
+                  isServicesMenuOpen: false,
+                });
+              }}
+            >
               <ServiceMenu />
             </PopoverBody>
           </Popover>
@@ -280,7 +336,7 @@ class INavbar extends Component {
               <IndustryMenu />
             </PopoverBody>
           </Popover> */}
-          <Popover
+          {/* <Popover
             boundariesElement="window"
             placement="bottom"
             isOpen={this.state.isResourcesMenuOpen}
@@ -291,7 +347,7 @@ class INavbar extends Component {
             <PopoverBody>
               <ResourceMenu />
             </PopoverBody>
-          </Popover>
+          </Popover> */}
 
           {/* <Popover
                 boundariesElement="window"
