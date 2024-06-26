@@ -43,7 +43,7 @@ class Home extends React.Component {
                   </div>
                 </article>
               </Col>
-              <Col xs={11} sm={9} lg={5} md={6} className="d-flex flex-column align-items-center position-initial mt-4 mt-md-0">
+              <Col xs={11} sm={9} lg={5} md={6} className="d-flex align-items-center position-initial mt-4 mt-md-0">
                 <div className="image-section pb-0">
                   <img src={HeroImage} alt="hero" />
                 </div>
