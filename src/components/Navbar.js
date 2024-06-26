@@ -61,7 +61,7 @@ class INavbar extends Component {
         header.classList.add("incede-nav-shadow");
       }
     } else {
-      header.classList.remove("incede-nav-shadow");
+      // header.classList.remove("incede-nav-shadow");
     }
   };
 
@@ -129,7 +129,7 @@ class INavbar extends Component {
       <React.Fragment>
         {/* <PageTransition> */}
 
-        <nav className="incede-nav " id="header">
+        <nav className="incede-nav incede-nav-shadow" id="header">
           <Navbar color="white" expand="lg" light>
             <NavbarBrand>
               <Link to="/">
