@@ -82,7 +82,7 @@ const MetaData = (props) => {
                 <link rel='manifest' href={`${withPrefix('/')}img/fav/manifest.json`} />
                 <meta
                     name='msapplication-TileImage'
-                    content={`${withPrefix('/')}img/fav/ms-icon-144x144.png`}></meta>
+                    content={`${withPrefix('/')}img/fav/ms-icon-144x144.png`} />
 
                 <link
                     rel='mask-icon'
@@ -134,12 +134,33 @@ const MetaData = (props) => {
                         'GTM-KVWHF6H'
                     )}
                 </script>
+                <script type="text/javascript">{`
+                    _linkedin_partner_id = "7125988";
+                    window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+                    window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+                `}</script>
+                <script type="text/javascript">{`
+                    (function(l) {
+                        if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+                        window.lintrk.q=[]
+                    }
+                    var s = document.getElementsByTagName("script")[0];
+                    var b = document.createElement("script");
+                    b.type = "text/javascript";
+                    b.async = true;
+                    b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+                    s.parentNode.insertBefore(b, s);
+                    })(window.lintrk);
+                `}</script>
+                <noscript>
+                    <img height="1" width="1" style={{display:'none'}} alt="" src="https://px.ads.linkedin.com/collect/?pid=7125988&fmt=gif" />
+                </noscript>
                 {/* <noscript>
-          <React.Fragment>
-            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KVWHF6H"
-              height="0" width="0" style="display:none;visibility:hidden" ></iframe>
-          </React.Fragment>
-        </noscript> */}
+                    <React.Fragment>
+                        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KVWHF6H"
+                        height="0" width="0" style="display:none;visibility:hidden" ></iframe>
+                    </React.Fragment>
+                </noscript> */}
                 <script src='https://dde-us-south.analytics.ibm.com/daas/CognosApi.js'></script>
                 <script src='https://web-chat.global.assistant.watson.cloud.ibm.com/loadWatsonAssistantChat.js'></script>
                 {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
@@ -147,5 +168,4 @@ const MetaData = (props) => {
         </React.Fragment>
     );
 }
-
 export default MetaData;
