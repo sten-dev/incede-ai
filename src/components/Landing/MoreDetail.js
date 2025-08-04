@@ -115,10 +115,10 @@ class MoreDetail extends Component {
               </Col>
               <Col lg={12} md={12} sm={12} xs={12}>
                 <article className="gap-y-half pb-0 text-left">
-                  <h1 className="title">AI Assistant Services</h1>
+                  <h1 className="title">Agentic AI Services</h1>
                   <h5 className="text-white sub-title">
                     We draw on our extensive experience to provide
-                    state-of-the-art AI Assistant services tailored for
+                    state-of-the-art Agentic AI Services tailored for
                     enhancing enterprise productivity. Our AI Assistants are
                     developed using advanced conversational AI and automation
                     technologies to ensure seamless integration into your
@@ -131,7 +131,7 @@ class MoreDetail extends Component {
                     consistently elevate productivity and service quality.
                   </h5>
                   <Link
-                    to="/services/ai-assistant-services"
+                    to="/services/ai-agentic-services"
                     className="btn explore-more-btn secondary btn-outline-info"
                   >
                     Explore more &nbsp;

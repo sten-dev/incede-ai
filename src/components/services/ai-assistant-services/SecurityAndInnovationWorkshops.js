@@ -16,11 +16,11 @@ const SecurityAndInnovationWorkshops = (props) => {
                 </h4>
                 <br />
                 <p>
-                  Ensure all AI solutions are secure and compliant with
-                  industry standards and regulations. Conduct workshops and
-                  brainstorming sessions to explore innovative applications of
-                  AI Assistants in the business environment, encouraging ongoing
-                  adaptation and technological advancement.
+                  Ensure all Agentic AI solutions are secure, compliant, and
+                  aligned with industry regulations. Conduct collaborative
+                  workshops to explore innovative use cases, helping
+                  organizations uncover new opportunities for automation,
+                  continuous improvement, and enterprise-wide AI adoption.
                 </p>
               </Col>
             </Row>

@@ -23,13 +23,19 @@ class Home extends React.Component {
           <Container>
             <Row className="justify-content-center">
               {/* <Col lg={1} md={2}></Col> */}
-              <Col lg={7} md={6} sm={12} xs={12} className="text-center text-md-left">
+              <Col
+                lg={7}
+                md={6}
+                sm={12}
+                xs={12}
+                className="text-center text-md-left"
+              >
                 <article className="mt-4 pb-0">
                   {/* <h1 className="text-primary bold">{home.title}</h1> */}
                   <h1 className="text-primary bold">
                     Innovate, Automate, Lead
                   </h1>
-                  <h4>Transform Your Business with Our AI Solutions</h4>
+                  <h4>Transform Your Business with Agentic AI Solutions</h4>
                   {/* <h4>{home.subTitle}</h4> */}
                   <div className="py-2">
                     <Link to="/why-incede" className="btn btn-secondary btn-lg">
@@ -43,7 +49,13 @@ class Home extends React.Component {
                   </div>
                 </article>
               </Col>
-              <Col xs={11} sm={9} lg={5} md={6} className="d-flex align-items-center position-initial mt-4 mt-md-0">
+              <Col
+                xs={11}
+                sm={9}
+                lg={5}
+                md={6}
+                className="d-flex align-items-center position-initial mt-4 mt-md-0"
+              >
                 <div className="image-section pb-0">
                   <img src={HeroImage} alt="hero" />
                 </div>
@@ -172,44 +184,53 @@ class Home extends React.Component {
               <Col lg={12} md={12} sm={12} xs={12}>
                 <article className="gap-y-half text-left">
                   <h1 className="title">
-                    Transform Your Business with Our AI Assistant Services
+                    Transform Your Business with Our Agentic AI Services
                   </h1>
+                  <p>
+                    Boost productivity. Automate workflows. Scale with
+                    confidence.
+                  </p>
                   <h5 className="sub-title">
-                    Are you ready to boost your enterprise productivity? Our
-                    state-of-the-art AI Assistant services are here to
-                    revolutionize your operations. Leveraging advanced
-                    conversational AI and automation technologies, we ensure
-                    seamless integration into your business infrastructure.
+                    At Incede, we specialize in delivering next-generation
+                    agentic AI services that drive operational efficiency across
+                    the enterprise. As a trusted IBM partner, we implement
+                    solutions powered by IBM watsonx and configure MCP agents to
+                    streamline tasks, reduce manual work, and integrate
+                    seamlessly across your systems.
+                  </h5>
+                  <h5 className="sub-title">
+                    With intelligent automation, conversational AI, and
+                    orchestration tools at the core, we tailor each deployment
+                    to your specific business needs—accelerating results across
+                    HR, customer support, sales, IT, and more
                   </h5>
                   <Container>
                     <Row className="justify-content-center">
                       <Col lg={11} md={11} sm={11} xs={11}>
                         <div>
                           <h3 className="mb-1">
-                            <b>Why Choose Our AI Assistants?</b>
+                            <b>Why Partner with Incede?</b>
                           </h3>
                           <ul>
                             <li>
-                              <b>Tailored Solutions</b>: We customize our AI
-                              Assistants to meet your specific operational
-                              needs, enhancing efficiency across various
-                              departments such as HR and customer service.
+                              <b>Tailored Agentic Solutions</b>: Purpose-built
+                              implementations using IBM's AI Agents—configured
+                              for your unique workflows.
                             </li>
                             <li>
-                              <b>Pre-Built Skills</b>: Our AI Assistants come
-                              equipped with a wide array of pre-built skills,
-                              allowing for quick and effective deployment.
+                              <b>Accelerated Time to Value</b>: Leverage IBM's
+                              pre-built action libraries to shorten deployment
+                              cycles and maximize ROI.
                             </li>
                             <li>
-                              <b>Full Integration Support</b>: We provide
-                              comprehensive support to ensure a smooth
-                              integration process.
+                              <b>Seamless Integration</b>: Full support for
+                              connecting AI Agents with enterprise platforms
+                              like Salesforce, Workday, Slack, and more.
                             </li>
                             <li>
-                              <b>Continuous Enhancements</b>: Our commitment to
-                              ongoing improvements ensures that your AI
-                              solutions remain cutting-edge, consistently
-                              elevating productivity and service quality.
+                              <b>Ongoing Optimization</b>: We continuously
+                              refine your agentic solutions to scale with your
+                              evolving business needs
                             </li>
                           </ul>
                           <h3 className="mb-1">
@@ -217,25 +238,24 @@ class Home extends React.Component {
                           </h3>
                           <ul>
                             <li>
-                              <b>Enhanced Productivity</b>: Streamline workflows
-                              and reduce manual tasks with our AI-powered
-                              automation.
+                              <b>Increased Productivity</b>: Automate multi-step
+                              tasks to free up your team for high-impact work.
                             </li>
                             <li>
-                              <b>Improved Efficiency</b>: Optimize departmental
-                              operations, making your business more agile and
-                              responsive.
+                              <b>Operational Efficiency</b>: AI Agents handle
+                              repetitive processes—reducing errors and manual
+                              effort.
                             </li>
                             <li>
-                              <b>Seamless Integration</b>: Our AI Assistants fit
-                              effortlessly into your existing systems,
-                              minimizing disruption.
+                              <b>Ecosystem Compatibility</b>: Integrate
+                              seamlessly with your existing tools and workflows
+                              for faster adoption.
                             </li>
                           </ul>
                           <br />
                           <p className="sub-title">
                             <b>Take Action Now!</b> Elevate your business to new
-                            heights with our advanced AI Assistant services.{" "}
+                            heights with our advanced Agentic AI Services.
                             <ScrollLink
                               className="text-body pointer text"
                               to="contact-us-location"
@@ -258,7 +278,7 @@ class Home extends React.Component {
                           </p>
                           <br />
                           <Link
-                            to="/services/ai-assistant-services"
+                            to="/services/ai-agentic-services"
                             className="btn explore-more-btn primary btn-outline-info"
                           >
                             Explore more &nbsp;
@@ -373,9 +393,7 @@ class Home extends React.Component {
                           </p>
                           <br />
                           <p className="sub-title">
-                            <b>
-                              Ready to Unlock Your Data's Full Potential?
-                            </b>{" "}
+                            <b>Ready to Unlock Your Data's Full Potential?</b>{" "}
                             Your journey to data-driven growth begins here!
                           </p>
                           <br />
@@ -623,7 +641,8 @@ class Home extends React.Component {
                           <br />
                           <p className="sub-title">
                             <b>
-                              Ready to Transform Your Business with Custom Applications?
+                              Ready to Transform Your Business with Custom
+                              Applications?
                             </b>{" "}
                             Your path to a competitive advantage begins here!
                           </p>

@@ -30,7 +30,7 @@ class ServiceMenu extends React.Component {
           <Link to="/services/gen-ai-services">Generative AI Services</Link>
         </li>
         <li>
-          <Link to="/services/ai-assistant-services">AI Assistant Services</Link>
+          <Link to="/services/ai-agentic-services">AI Agentic Services</Link>
         </li>
         <li>
           <Link to="/services/enterprise-bi-and-analytics">Enterprise BI and Analytics</Link>

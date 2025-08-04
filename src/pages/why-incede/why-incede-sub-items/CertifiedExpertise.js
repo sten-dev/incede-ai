@@ -26,12 +26,12 @@ const CertifiedExpertise = () => {
                 We combine our extensive experience with a visionary approach to
                 navigate complex technological landscapes. Our team holds
                 industry-recognized certifications in key areas such as
-                Generative AI, Business Intelligence, AI Assistants, and
-                Planning & Budgeting solutions, ensuring we deliver cutting-edge
-                solutions tailored to our clients' needs. As trusted problem
-                solvers, we leverage our expertise in Artificial Intelligence,
-                Machine Learning, Cloud, Mobile, and emerging technologies to
-                provide analytics strategies, phase-one projects, and full
+                Generative AI, Agentic AI, Business Intelligence, and Planning &
+                Budgeting solutions—ensuring we deliver cutting-edge solutions
+                tailored to our clients' needs. As trusted problem solvers, we
+                leverage our expertise in Artificial Intelligence, Machine
+                Learning, Cloud, Mobile, and emerging technologies to provide
+                analytics strategies, phase-one projects, and full
                 implementations that precisely fit your requirements.
               </p>
             </div>
@@ -126,10 +126,10 @@ const CertifiedExpertise = () => {
                   </Col>
                   <Col lg={4} md={6} xs={12} className="p-2">
                     <Link
-                      to="/services/ai-assistant-services"
+                      to="/services/ai-agentic-services"
                       className="btn why-incede-btn primary btn-outline-info btn-lg w-100"
                     >
-                      AI Assistant Services &nbsp;
+                      AI Agentic Services &nbsp;
                       <img
                         src={arrowPrimary}
                         alt="next"

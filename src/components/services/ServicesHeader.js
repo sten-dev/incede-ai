@@ -9,7 +9,7 @@ let list = [
   // { name: "watsonx Platform Services", className: "text-initial" },
   // { name: "watsonx Orchestrate", className: "text-initial" },
   { name: "Generative AI Services" },
-  { name: "AI Assistant Services " },
+  { name: "Agentic AI Services" },
   { name: "Enterprise BI and Analytics" },
   { name: "Planning and Budgeting" },
   { name: "Applications Development" },
@@ -94,7 +94,7 @@ class ServicesHeader extends Component {
         url = "/services/gen-ai-services";
         break;
       case 1:
-        url = "/services/ai-assistant-services";
+        url = "/services/ai-agentic-services";
         break;
       case 2:
         url = "/services/enterprise-bi-and-analytics";
@@ -118,8 +118,8 @@ class ServicesHeader extends Component {
       case "/services/gen-ai-services/":
         this.setState({ selected: "0" });
         break;
-      case "/services/ai-assistant-services":
-      case "/services/ai-assistant-services/":
+      case "/services/ai-agentic-services":
+      case "/services/ai-agentic-services/":
         this.setState({ selected: "1" });
         break;
       case "/services/enterprise-bi-and-analytics":
@@ -157,8 +157,7 @@ class ServicesHeader extends Component {
               <article className="text-left">
                 <h1 className="title display-3">Services</h1>
                 <h5 className="text-white sub-title">
-                  Incede specializes in Generative AI Consulting, AI Assistant
-                  Services, Enterprise BI, and Custom Applications Development.
+                  Incede specializes in Generative AI Consulting, Agentic AI Services, Enterprise BI, and Custom Applications Development.
                   We enhance workflow automation, boost productivity, and drive
                   strategic decisions. Discover our innovative services for
                   business transformation and growth. Contact us today to start

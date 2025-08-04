@@ -14,11 +14,11 @@ const TrainingAndSupportPrograms = (props) => {
                 </h4>
                 <br />
                 <p>
-                  Provide comprehensive training for client teams on how to
-                  effectively use AI Assistants. Include ongoing technical
-                  support, troubleshooting, and performance monitoring to ensure
-                  the AI Assistants continue to operate optimally and evolve
-                  with the business.
+                  Deliver comprehensive training for client teams on effectively
+                  using Agentic AI powered by IBM Watsonx Orchestrate. Provide
+                  ongoing technical support, troubleshooting, and performance
+                  monitoring to ensure agents operate optimally and continuously
+                  evolve with business needs.
                 </p>
               </Col>
             </Row>

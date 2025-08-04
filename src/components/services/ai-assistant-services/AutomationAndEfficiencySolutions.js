@@ -16,11 +16,12 @@ const AutomationAndEfficiencySolutions = (props) => {
                 </h4>
                 <br />
                 <p>
-                  Utilize AI Assistants to automate routine tasks and processes,
-                  enhancing productivity and operational efficiency. Develop
-                  tailored automation strategies that leverage the unique
-                  capabilities of AI Assistants to solve complex business
-                  challenges and streamline decision-making.
+                  Leverage Agentic AI to automate routine and multi-step tasks,
+                  boosting productivity and operational efficiency. Develop
+                  tailored automation strategies that harness the capabilities
+                  of IBM Watsonx Orchestrate to solve complex business
+                  challenges, orchestrate workflows, and streamline
+                  decision-making across the enterprise.
                 </p>
               </Col>
             </Row>

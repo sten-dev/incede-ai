@@ -7,7 +7,7 @@ import AIAssistantServices from "../../components/services/AIAssistantServices";
 
 const AIAssistantServicesMain = () => {
     return (
-        <Layout pageTitle="AI Assistant Services  | Incede">
+        <Layout pageTitle="AI Agentic Services  | Incede">
             <Transition>
                 <section className="industry-solution">
                     <ServicesHeader />

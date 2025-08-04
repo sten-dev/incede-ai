@@ -16,11 +16,11 @@ const ImplementationAndCustomizationServices = (props) => {
                 </h4>
                 <br />
                 <p>
-                  Offer full implementation services for AI Assistants,
-                  including integration with existing systems and platforms.
-                  Customize AI solutions to align with specific business
-                  processes and objectives, ensuring that AI Assistants enhance
-                  workflow efficiency and effectiveness.
+                  Offer full implementation services for Agentic AI solutions,
+                  including seamless integration with existing systems and
+                  platforms. Customize IBM watsonx-powered agents to align with
+                  specific business processes and objectives—ensuring they drive
+                  workflow efficiency, automation, and measurable impact.
                 </p>
               </Col>
             </Row>

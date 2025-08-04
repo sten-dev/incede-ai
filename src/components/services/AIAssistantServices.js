@@ -99,12 +99,12 @@ class AIAssistantServices extends Component {
         {
           activeIndex,
           menuItems: Menu(subItems.slice(0, subItems.length), activeIndex),
-          linkId: "ai-assistant-services",
+          linkId: "ai-agentic-services",
         },
         () => {
           setTimeout(() => {
             document
-              .getElementById("custom-react-link-ai-assistant-services")
+              .getElementById("custom-react-link-ai-agentic-services")
               .click();
           }, 500);
         }
@@ -135,17 +135,17 @@ class AIAssistantServices extends Component {
       {
         activeIndex: Number(key),
         menuItems: Menu(subItems.slice(0, subItems.length), Number(key)),
-        linkId: "ai-assistant-services",
+        linkId: "ai-agentic-services",
       },
       () => {
         setTimeout(() => {
           document
-            .getElementById("custom-react-link-ai-assistant-services")
+            .getElementById("custom-react-link-ai-agentic-services")
             .click();
           window.history.pushState(
             "",
             "",
-            `/services/ai-assistant-services#${linkId}`
+            `/services/ai-agentic-services#${linkId}`
           );
         });
       }
@@ -163,31 +163,29 @@ class AIAssistantServices extends Component {
             <Col xs={12}>
               <div className="content">
                 <h1 className="title mb-0 text-primary text-uppercase">
-                  <b>AI Assistant Services</b>
+                  <b>Agentic AI Services</b>
                 </h1>
                 <p>
                   At Incede, we leverage our years of experience to deliver
-                  cutting-edge AI Assistant services tailored for enterprise
-                  productivity. Our expertise in powerful tools like IBM’s
-                  watsonx enables us to offer AI Assistants that transform how
-                  businesses interact with customers and streamline internal
-                  operations.
+                  cutting-edge Agentic AI services tailored to drive enterprise
+                  productivity. With deep expertise in IBM's watsonx platform,
+                  we help organizations implement intelligent agents that
+                  transform business operations through task automation,
+                  orchestration, and seamless integration.
                 </p>
                 <p>
-                  Our AI Assistant consulting services leverage technologies
-                  like IBM Watsonx Orchestrate’s advanced conversational AI and
-                  automation capabilities to seamlessly integrate with your
-                  business infrastructure. Expertly designed to enhance
-                  efficiency across various departments like HR and customer
-                  service, our AI Assistants services use a vast array of
-                  pre-built skills to customize solutions for your specific
-                  operational needs, offering full integration support and
-                  ongoing enhancements to boost productivity and service
-                  quality.
-                  <span id="ai-assistant-services" className="pt-1"></span>
+                  Our Agentic AI consulting services utilize IBM watsonx
+                  Orchestrate to deploy autonomous agents that streamline
+                  workflows and enhance operational efficiency across
+                  departments like HR, customer service, and IT. Using a robust
+                  library of pre-built actions, we customize each solution to
+                  your specific needs—offering full integration support, ongoing
+                  optimization, and scalable architectures that evolve with your
+                  business.
+                  <span id="ai-agentic-services" className="pt-1"></span>
                 </p>
                 <Link
-                  id="custom-react-link-ai-assistant-services"
+                  id="custom-react-link-ai-agentic-services"
                   to={this.state.linkId}
                   className="d-none"
                   smooth={true}
