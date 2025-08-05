@@ -13,7 +13,7 @@ class FooterLocation extends React.Component {
           </h6>
         </li> */}
 
-        <li className="mb-0">
+        {/* <li className="mb-0">
           <address className="mb-0">5201 Great America Parkway, Suite #320,</address>
         </li>
         <li className="mb-0">
@@ -23,7 +23,7 @@ class FooterLocation extends React.Component {
           <p>
             408-850-4900, <a href="mailto:info@incede.ai"><u>info@incede.ai</u></a>
           </p>
-        </li>
+        </li> */}
         <li>
           <Link className="navbar-item" to="/about/cookie-policy">
             Cookie Policy

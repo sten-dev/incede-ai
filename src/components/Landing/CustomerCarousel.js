@@ -13,8 +13,12 @@ const CustomerCarousel = () => {
         setChunkSize(2);
       } else if (window.innerWidth <= 768) {
         setChunkSize(3);
-      } else {
+      }else if (window.innerWidth <= 1279) {
         setChunkSize(5);
+      }else if (window.innerWidth <= 1600) {
+        setChunkSize(6);
+      } else {
+        setChunkSize(7);
       }
     };
 

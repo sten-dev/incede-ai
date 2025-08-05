@@ -12,9 +12,9 @@ class CaseStudiesMain extends React.Component {
       <section className="wtd-list ">
         <section className="header-section gap-y text-center">
           <Container>
-            <div className="text-left">
+            {/* <div className="text-left">
               <h1>Case Studies</h1>
-            </div>
+            </div> */}
             <Row>
               {caseStudies.map(caseStudy => (
                 <Col xs="12" sm="6" md="6" lg="4" className="mt-16 ">

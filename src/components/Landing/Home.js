@@ -45,7 +45,7 @@ class Home extends React.Component {
             <Row className="justify-content-center">
               {/* <Col lg={1} md={2}></Col> */}
               <Col
-                lg={7}
+                lg={6}
                 md={6}
                 sm={12}
                 xs={12}
@@ -74,7 +74,7 @@ class Home extends React.Component {
                           className="btn btn-primary btn-block"
                           onClick={this.handleContactClick}
                         >
-                          Schedule
+                          Let's talk
                         </button>
                       </Col>
                     </Row>
@@ -92,12 +92,12 @@ class Home extends React.Component {
               <Col
                 xs={11}
                 sm={9}
-                lg={5}
+                lg={6}
                 md={6}
                 className="d-flex align-items-center position-initial mt-4 mt-md-0"
               >
                 <div className="image-section pb-0">
-                  <img src={HeroImage} alt="hero" />
+                  <img src={HeroImage} alt="hero"  style={{borderRadius:8}}/>
                 </div>
               </Col>
             </Row>

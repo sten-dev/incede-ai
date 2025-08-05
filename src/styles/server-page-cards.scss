@@ -1,5 +1,5 @@
 .subscription-cards-section {
-  padding: 60px 0;
+  padding: 16px 0;
 }
 
 .subscription-cards-container {
@@ -90,5 +90,11 @@
     width: 20px; /* Reduced image size */
     height: 20px;
     margin-right: 8px;
+  }
+}
+
+@media screen and (max-width:1279px) {
+  .subscription-cards-section{
+    display: none;
   }
 }
