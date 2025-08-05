@@ -175,7 +175,7 @@ class ServicesHeader extends Component {
           <article className="flex justify-content-center align-items-center py-4 text-center mt-0 mt-sm-3 mt-lg-4">
             <h4 className="text-white bold pt-0">SERVICES OVERVIEW</h4>
             <h1 className="text-white bold">Builds Outcome-Driven AI</h1>
-            <p className="text-white">
+            <p className="text-white px-4" style={{fontSize:"larger"}}>
               Incede.ai delivers modular AI services—from intelligent agents and
               Gen AI strategy to automated workflows and agile planning. We help
               enterprises streamline operations, boost decision-making, and

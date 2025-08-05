@@ -121,7 +121,7 @@ class ResourcesCaseStudies extends React.Component {
     return (
       <section className="resources-library-content gap-y-half" id="1">
         <Container>
-          <h1 className="text-left heading mb-5">Case Studies</h1>
+          {/* <h1 className="text-left heading mb-5">Case Studies</h1> */}
           <Row className="mb-4">
             <Col xs="12" sm="6" md="6" lg="6" className="mt-16 ">
             <label className="case-study-filter-label">Industry</label>

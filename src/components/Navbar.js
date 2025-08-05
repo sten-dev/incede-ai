@@ -228,7 +228,7 @@ class INavbar extends Component {
                   }}
                 >
                   <Link activeClassName="selected" to="/resources/case-studies">
-                    Case Studies
+                    Resources
                   </Link>
                 </NavItem>
                 <NavItem

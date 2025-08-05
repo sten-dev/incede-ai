@@ -12,7 +12,7 @@ const stats = [
     value: "17"
   },
   {
-    label: "SUCCESSFUL IBM PROJECTS",
+    label: "SUCCESSFUL PROJECTS",
     value: "+500"
   },
   {

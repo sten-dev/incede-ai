@@ -56,7 +56,7 @@ class Footer extends React.Component {
                       </Col>
                     </Row>
                   </Col>
-                  <Col md='12' sm='6' xs='12' className='py-2'>
+                  <Col md='12' sm='6' xs='12'>
                     <section className='half-menu'>
                       <ul className='list-unstyled'>
                         <li>
@@ -72,7 +72,7 @@ class Footer extends React.Component {
                       </ul>
                     </section>
                   </Col>
-                  <Col md='12' sm='6' xs='12' className='py-2'>
+                  <Col md='12' sm='6' xs='12'>
                     <section className='menu' id='contact-us-location'>
                       <FooterLocation />
                     </section>
@@ -169,7 +169,7 @@ class Footer extends React.Component {
                             className="btn btn-primary btn-block"
                             onClick={this.handleContactClick}
                           >
-                            Schedule
+                            Let's talk
                           </button>
                         </Col>
                       </Row>
