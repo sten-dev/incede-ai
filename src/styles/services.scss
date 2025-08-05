@@ -17,8 +17,35 @@
       font-size: 18px;
       color: #474747;
       line-height: 32px;
+  }
+}
+
+.check-list {
+  list-style: none !important; /* Force remove all list styling */
+  padding-left: 0 !important; /* Force remove default padding */
+  li {
+    list-style: none !important; /* Force remove list styling on list items */
+    position: relative; /* Needed for ::before pseudo-element positioning */
+    padding-left: 20px; /* Space for the checkmark */
+    &::before {
+      content: "✓ ";
+      color: green;
+      position: absolute;
+      left: 0;
+      top: 0;
     }
   }
+}
+
+.cta-column {
+  width: 150px; /* Adjust width as needed */
+  text-align: center;
+  vertical-align: middle !important; /* Center vertically */
+  .btn {
+    white-space: nowrap; /* Keep text on one line */
+    display: inline-block; /* Ensure button respects text-align */
+  }
+}
   .content-outcomes {
     p {
       margin: 0 !important;

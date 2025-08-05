@@ -25,11 +25,15 @@
 }
 
 .subscription-card-heading {
-  min-height: 50px;
   font-weight: 700;
   color: #333;
   margin: 0 !important; /* Added !important */
   text-align: center;
+}
+@media (min-width: 768px) { /* Targeting medium screens and up */
+  .subscription-card-heading {
+    font-size: 1.0em; /* Adjust font size for better fit on medium screens */
+  }
 }
 
 .subscription-card-points {

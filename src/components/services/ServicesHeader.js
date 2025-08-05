@@ -10,12 +10,17 @@ let list = [
   // { name: "Watson Discovery Services" },
   // { name: "watsonx Platform Services", className: "text-initial" },
   // { name: "watsonx Orchestrate", className: "text-initial" },
-  { name: "Generative AI Services" },
-  { name: "Agentic AI Services" },
-  { name: "Enterprise BI and Analytics" },
-  { name: "Planning and Budgeting" },
-  { name: "Applications Development" },
+  // { name: "Generative AI Services" },
+  // { name: "Agentic AI Services" },
+  // { name: "Enterprise BI and Analytics" },
+  // { name: "Planning and Budgeting" },
+  // { name: "Applications Development" },
   // { name: "Professional Services" },
+  { name: "AI-Powered Business Process Automation" },
+  { name: "Enterprise AI Agents" },
+  { name: "Gen AI Implementation" },
+  { name: "Planning Budgeting and Analytics" },
+
 ];
 const MenuItem = ({ text, selected, className }) => {
   return (
@@ -68,7 +73,7 @@ class ServicesHeader extends Component {
     super(props);
     this.state = {
       clickWhenDrag: false,
-      alignCenter: false,
+      alignCenter: true, // <-- set to true
       dragging: true,
       hideArrows: false,
       hideSingleArrow: true,
@@ -84,8 +89,24 @@ class ServicesHeader extends Component {
   onSelect = (key) => {
     this.setState({ selected: key });
     console.log(`onSelect: ${key}`);
-    let url = "/services/gen-ai-services";
+    // let url = "/services/gen-ai-services";
+    let url = "/services/ai-powered-business-process-automation";
     switch (Number(key)) {
+      case 0:
+        url = "/services/ai-powered-business-process-automation";
+        break;
+      case 1:
+        url = "/services/enterprise-ai-agents";
+        break;
+      case 2:
+        url = "/services/gen-ai-implementation";
+        break;
+      case 3:
+        url = "/services/planning-budgeting-and-analytics";
+        break;
+      default:
+        url = "/services/ai-powered-business-process-automation";
+        break;
       // case 0:
       //   url = "/services/watson-assistant-services";
       //   break;
@@ -108,54 +129,70 @@ class ServicesHeader extends Component {
       //   url = "/services/watson-assistant-services";
       //   break;
 
-      case 0:
-        url = "/services/gen-ai-services";
-        break;
-      case 1:
-        url = "/services/ai-agentic-services";
-        break;
-      case 2:
-        url = "/services/enterprise-bi-and-analytics";
-        break;
-      case 3:
-        url = "/services/planning-and-budgeting";
-        break;
-      case 4:
-        url = "/services/applications-development";
-        break;
-      default:
-        url = "/services/gen-ai-services";
-        break;
+      // case 0:
+      //   url = "/services/gen-ai-services";
+      //   break;
+      // case 1:
+      //   url = "/services/ai-agentic-services";
+      //   break;
+      // case 2:
+      //   url = "/services/enterprise-bi-and-analytics";
+      //   break;
+      // case 3:
+      //   url = "/services/planning-and-budgeting";
+      //   break;
+      // case 4:
+      //   url = "/services/applications-development";
+      //   break;
+      // default:
+      //   url = "/services/gen-ai-services";
+      //   break;
     }
     window.location.href = url;
   };
   componentDidMount = () => {
     let path = window.location.pathname;
     switch (path) {
-      case "/services/gen-ai-services":
-      case "/services/gen-ai-services/":
+      case "/services/ai-powered-business-process-automation":
+      case "/services/ai-powered-business-process-automation/":
         this.setState({ selected: "0" });
         break;
-      case "/services/ai-agentic-services":
-      case "/services/ai-agentic-services/":
+      case "/services/enterprise-ai-agents":
+      case "/services/enterprise-ai-agents/":
         this.setState({ selected: "1" });
         break;
-      case "/services/enterprise-bi-and-analytics":
-      case "/services/enterprise-bi-and-analytics/":
+      case "/services/gen-ai-implementation":
+      case "/services/gen-ai-implementation/":
         this.setState({ selected: "2" });
         break;
-      case "/services/planning-and-budgeting":
-      case "/services/planning-and-budgeting/":
+      case "/services/planning-budgeting-and-analytics":
+      case "/services/planning-budgeting-and-analytics/":
         this.setState({ selected: "3" });
         break;
+      // case "/services/gen-ai-services":
+      // case "/services/gen-ai-services/":
+      //   this.setState({ selected: "0" });
+      //   break;
+      // case "/services/ai-agentic-services":
+      // case "/services/ai-agentic-services/":
+      //   this.setState({ selected: "1" });
+      //   break;
+      // case "/services/enterprise-bi-and-analytics":
+      // case "/services/enterprise-bi-and-analytics/":
+      //   this.setState({ selected: "2" });
+      //   break;
+      // case "/services/planning-and-budgeting":
+      // case "/services/planning-and-budgeting/":
+      //   this.setState({ selected: "3" });
+      //   break;
       // case "/services/watsonx-orchestrate":
       // case "/services/watsonx-orchestrate/":
       //   this.setState({ selected: "3" });
       //   break;
-      case "/services/applications-development":
-      case "/services/applications-development/":
-        this.setState({ selected: "4" });
-        break;
+      // case "/services/applications-development":
+      // case "/services/applications-development/":
+      //   this.setState({ selected: "4" });
+      //   break;
       // case "/services/professional-services":
       // case "/services/professional-services/":
       //   this.setState({ selected: "5" });
@@ -235,7 +272,7 @@ class ServicesHeader extends Component {
           </Row>
         </Container>
         <Container fluid className="section-tabs-container">
-          <Container>
+          {/* <Container> */}
             <ScrollMenu
               alignCenter={this.state.alignCenter}
               arrowLeft={ArrowLeft}
@@ -254,7 +291,7 @@ class ServicesHeader extends Component {
               wheel={this.state.wheel}
               scrollToSelected={true}
             />
-          </Container>
+          {/* </Container> */}
         </Container>
       </section>
     );
