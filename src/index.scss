@@ -22,7 +22,40 @@ body {
 }
 
 .modal-dialog {
-  margin-left: 0 !important;
+  // margin-left: 0 !important;
+}
+.modal-dialog-centered {
+  display: flex;
+  align-items: center;
+  min-height: 100%;
+  margin: auto !important;
+}
+
+.btn-linkedin {
+  background-color: #2969B1 !important;
+  color: white !important;
+}
+
+.contact-modal-heading {
+  font-weight: 800;
+  text-align: center;
+  width: 100%; /* Add this line to ensure it takes full width for centering */
+}
+
+/* Fix for Contact Modal Header Centering */
+.modal-header.d-flex.justify-content-center {
+  .modal-title {
+    text-align: center !important;
+    flex: 1 !important;
+    margin: 0 !important;
+  }
+  .close {
+    position: absolute !important;
+    right: 1rem !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 1 !important;
+  }
 }
 
 p {
@@ -112,6 +145,11 @@ small,
     padding-bottom: 0;
     .modal-title {
       margin-top: 0 !important;
+    }
+    .close {
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
     }
   }
   .modal-footer {

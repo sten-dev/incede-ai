@@ -9,14 +9,33 @@ import { Link } from "gatsby";
 
 // import HeroImage from "../../img/incede-home-page-latest.png";
 // import HeroImage from "../../img/incede-ai-illustration.png";
-import HeroImage from "../../img/incede-ai-services.png";
+// import HeroImage from "../../img/incede-ai-services.png";
+import HeroImage from "../../img/incede_ai_homepage_image.png"; // Removed import
 import CaseStudiesCarousalComponent from "./CaseStudiesCarousal";
+import CustomerCarousel from "./CustomerCarousel";
 // import HeroImage from "../../img/incede-home-page.png";
 import { Link as ScrollLink } from "react-scroll";
+import ContactModal from '../ContactModal';
+
 class Home extends React.Component {
-  state = {};
+  state = {
+    email: '',
+    showContactModal: false
+  };
+
+  handleEmailChange = (e) => {
+    this.setState({ email: e.target.value });
+  };
+
+  handleContactClick = () => {
+    this.setState({ showContactModal: true });
+  };
+
+  handleModalClose = () => {
+    this.setState({ showContactModal: false });
+  };
+
   render() {
-    // const { home } = this.props;
     return (
       <>
         <section className="landing-home">
@@ -33,10 +52,32 @@ class Home extends React.Component {
                 <article className="mt-4 pb-0">
                   {/* <h1 className="text-primary bold">{home.title}</h1> */}
                   <h1 className="text-primary bold">
-                    Innovate, Automate, Lead
+                    Bridge AI Vision to Execution with Incede.ai
                   </h1>
-                  <h4>Transform Your Business with Agentic AI Solutions</h4>
-                  {/* <h4>{home.subTitle}</h4> */}
+                  <h4>Incede.ai delivers enterprise-ready AI agents, workflow automation, and actionable analytics—designed to accelerate business operations, drive measurable impact, and ensure trusted governance at scale </h4>
+                  
+                  <div className="py-2 mb-3">
+                    <Row>
+                      <Col xs={12} md={8} className="pr-md-2 mb-2 mb-md-0">
+                        <input
+                          type="email"
+                          className="form-control"
+                          placeholder="Enter your email address"
+                          value={this.state.email}
+                          onChange={this.handleEmailChange}
+                        />
+                      </Col>
+                      <Col xs={12} md={4} className="pl-md-2">
+                        <button
+                          className="btn btn-primary btn-block"
+                          onClick={this.handleContactClick}
+                        >
+                          Contact Us
+                        </button>
+                      </Col>
+                    </Row>
+                  </div>
+                  
                   <div className="py-2">
                     <Link to="/why-incede" className="btn btn-secondary btn-lg">
                       Why incede &nbsp;
@@ -44,9 +85,6 @@ class Home extends React.Component {
                     </Link>
                   </div>
                   {/* <pre>{JSON.stringify(home, null, 2)}</pre> */}
-                  <div className="d-none d-xl-block">
-                    <CaseStudiesCarousalComponent />
-                  </div>
                 </article>
               </Col>
               <Col
@@ -60,12 +98,10 @@ class Home extends React.Component {
                   <img src={HeroImage} alt="hero" />
                 </div>
               </Col>
-              <Col xs={12} className="d-block d-xl-none">
-                <CaseStudiesCarousalComponent />
-              </Col>
             </Row>
           </Container>
         </section>
+        <CustomerCarousel />
         <section className="home-more-detail bg-primary">
           <Container>
             <Row>
@@ -178,6 +214,8 @@ class Home extends React.Component {
             </Row>
           </Container>
         </section>
+        <CaseStudiesCarousalComponent />
+
         <section className="home-more-detail">
           <Container>
             <Row>
@@ -667,6 +705,13 @@ class Home extends React.Component {
             </Row>
           </Container>
         </section>
+        
+        {/* Contact Modal */}
+        <ContactModal
+          isOpen={this.state.showContactModal}
+          onClose={this.handleModalClose}
+          prefillEmail={this.state.email}
+        />
       </>
     );
   }

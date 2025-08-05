@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import { Col, Container, Row } from "reactstrap";
+import { Col, Row } from "reactstrap";
 import "../../styles/case-study-carousal.scss";
 import ZyngaLogo2 from "../../img/case-studies/ZyngaLogo2.png";
 import ibmpos_blue from "../../img/case-studies/ibmpos_blue.png";
@@ -11,6 +11,7 @@ import ticketmaster_logo from "../../img/case-studies/ticketmaster_logo.png";
 import yakimavalleylogo from "../../img/case-studies/yakimavalleylogo.png";
 import Markon_Logo from "../../img/case-studies/2000_Markon_Logo.png";
 import ChurchBrothers_Footer from "../../img/case-studies/ChurchBrothers_Footer.png";
+import { Link } from "gatsby";
 
 class CaseStudiesCarousalComponent extends Component {
   state = {
@@ -63,11 +64,37 @@ class CaseStudiesCarousalComponent extends Component {
         caption: "- Director of IT - Church Brothers",
       },
     ],
+    chunkSize: 3,
   };
+
+  componentDidMount() {
+    this.handleResize();
+    window.addEventListener("resize", this.handleResize);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.handleResize);
+  }
+
+  handleResize = () => {
+    if (window.innerWidth <= 576) {
+      this.setState({ chunkSize: 1 });
+    } else if (window.innerWidth <= 768) {
+      this.setState({ chunkSize: 2 });
+    } else {
+      this.setState({ chunkSize: 3 });
+    }
+  };
+
   render() {
+    const { caseStudiesList, chunkSize } = this.state;
+    const chunkedCaseStudies = [];
+    for (let i = 0; i < caseStudiesList.length; i += chunkSize) {
+      chunkedCaseStudies.push(caseStudiesList.slice(i, i + chunkSize));
+    }
     return (
       <React.Fragment>
-        {this.state.caseStudiesList && this.state.caseStudiesList.length > 0 && (
+        {chunkedCaseStudies && chunkedCaseStudies.length > 0 && (
           <section className="case-study mt-1 mt-md-5">
             <Carousel
               showThumbs={false}
@@ -76,37 +103,38 @@ class CaseStudiesCarousalComponent extends Component {
               autoPlay={true}
               showArrows={false}
               showIndicators={true}
-            //   interval={10000}
-            >   
-              {this.state.caseStudiesList.map(
-                (caseStudyItem, caseStudyItemIndex) => (
-                  <div key={caseStudyItemIndex}>
-                    <div className="case-study-item pl-1">
-                      <Row className="gap-y-half pt-lg-2 pt-xl-3">
-                        <Col xs={12}>
-                          <div className="d-flex justify-content-between align-items-center flex-column flex-sm-row">
-                            {caseStudyItem?.img && (
+            >
+              {chunkedCaseStudies.map((chunk, chunkIndex) => (
+                <div key={chunkIndex}>
+                  <Row className="gap-y-half pt-lg-2 pt-xl-3 justify-content-center">
+                    {chunk.map((testimonial, testimonialIndex) => (
+                      <Col
+                        md={12 / chunkSize}
+                        key={testimonialIndex}
+                      >
+                        <div className="testimonial-card">
+                          <p className="quote">{testimonial.mainTxt}</p>
+                          <div className="author-section">
+                            <div className="author-info">
+                              <div>
+                                <p className="author-name">
+                                  {testimonial.caption}
+                                </p>
+                              </div>
+                            </div>
+                            <div className="company-logo">
                               <img
-                                src={caseStudyItem.img}
-                                alt={`case_study_${caseStudyItemIndex}`}
-                                height={250}
+                                src={testimonial.img}
+                                alt={testimonial.caption}
                               />
-                            )}
-                            <p className="pl-3 pt-2 pt-sm-0 fs-14">{caseStudyItem?.mainTxt || ""}</p>
+                            </div>
                           </div>
-                        </Col>
-                        <Col xs={12}>
-                          <div className="text-right mr-4">
-                            <b className="underline">
-                              {caseStudyItem?.caption || ""}
-                            </b>
-                          </div>
-                        </Col>
-                      </Row>
-                    </div>
-                  </div>
-                )
-              )}
+                        </div>
+                      </Col>
+                    ))}
+                  </Row>
+                </div>
+              ))}
             </Carousel>
           </section>
         )}
