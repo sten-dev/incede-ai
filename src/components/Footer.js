@@ -43,7 +43,7 @@ class Footer extends React.Component {
     const width = this.window && this.window.innerWidth;
 
     return (
-      <footer className='footer gap-y-half'>
+      <footer className='footer py-4 px-2'>
         <Container>
           <Row className='d-flex flex-column-reverse flex-md-row'>
             <Col sm={12} md={6}>

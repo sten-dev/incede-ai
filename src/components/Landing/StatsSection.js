@@ -22,13 +22,13 @@ const stats = [
 ];
 
 const StatsSection = () => (
-  <section className="stats-section">
-    <div className="stats-header">
-      <h2 className="stats-title">Grow with Incede.ai</h2>
-    </div>
+  <section className="stats-section bg-primary ">
     <div className="stats-container">
       <Container fluid>
         <Row className="justify-content-center">
+          <Col xs={12} md={12}>
+            <h2 className="text-white text-center">Grow with Incede.ai</h2>
+          </Col>
           {stats.map((stat, idx) => (
             <Col key={idx} xs={6} md={3} className="stats-col">
               <div className="stats-card">

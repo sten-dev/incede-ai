@@ -18,9 +18,9 @@
 }
 
 .stats-container {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  padding: 3rem 0;
-  width: 100vw;
+  // background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 2rem 8px;
+  width: 100%;
   margin-left: calc(-50vw + 50%);
 }
 
@@ -41,17 +41,17 @@
 }
 
 .stats-label {
-  background-color: #06b6d4; // Cyan background
+  // background-color: #06b6d4; // Cyan background
   color: white;
   padding: 8px 16px;
   border-radius: 6px;
-  font-size: 0.75rem;
+  font-size:1rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-bottom: 1rem;
   display: inline-block;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  // box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .stats-value {

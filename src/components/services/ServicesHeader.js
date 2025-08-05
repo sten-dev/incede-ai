@@ -172,7 +172,7 @@ class ServicesHeader extends Component {
         <Container>
           {/* <Row className="gap-y-quarter"> */}
           {/* <Col lg={8} md={7} sm={12} xs={12}> */}
-          <article className="flex justify-content-center align-items-center gap-y-half text-center mt-0 mt-sm-3 mt-lg-4">
+          <article className="flex justify-content-center align-items-center py-4 text-center mt-0 mt-sm-3 mt-lg-4">
             <h4 className="text-white bold pt-0">SERVICES OVERVIEW</h4>
             <h1 className="text-white bold">Builds Outcome-Driven AI</h1>
             <p className="text-white">
@@ -208,7 +208,7 @@ class ServicesHeader extends Component {
         
         <ServicePageCards />
         <Container>
-          <Row className='w-50 my-5 d-flex justify-content-between align-items-center mx-auto'>
+          <Row className='w-50 mt-2 mb-4 d-flex justify-content-between align-items-center mx-auto'>
             <Col xs={12} md={8} className="pr-md-2 mb-2 mb-md-0">
               <input
                 type="email"
