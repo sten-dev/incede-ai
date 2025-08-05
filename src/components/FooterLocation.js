@@ -7,11 +7,11 @@ class FooterLocation extends React.Component {
     const { location } = this.props;
     return (
       <ul className="list-unstyled">
-        <li className="mb-0">
+        {/* <li className="mb-0">
           <h6>
             <b>Contact Us</b>
           </h6>
-        </li>
+        </li> */}
 
         <li className="mb-0">
           <address className="mb-0">5201 Great America Parkway, Suite #320,</address>

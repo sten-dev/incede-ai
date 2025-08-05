@@ -169,7 +169,7 @@ class Footer extends React.Component {
                             className="btn btn-primary btn-block"
                             onClick={this.handleContactClick}
                           >
-                            Contact Us
+                            Schedule
                           </button>
                         </Col>
                       </Row>

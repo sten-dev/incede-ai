@@ -102,7 +102,7 @@ class CaseStudiesCarousalComponent extends Component {
               infiniteLoop={true}
               autoPlay={true}
               showArrows={false}
-              showIndicators={true}
+              showIndicators={false}
             >
               {chunkedCaseStudies.map((chunk, chunkIndex) => (
                 <div key={chunkIndex}>

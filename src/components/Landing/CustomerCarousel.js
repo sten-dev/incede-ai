@@ -31,6 +31,9 @@ const CustomerCarousel = () => {
 
   return (
     <div className="customer-carousel-container">
+      <div className="customer-carousel-heading">
+        TRUSTED BY BUSINESSES BIG AND SMALL, EVERYWHERE
+      </div>
       <Carousel
         showThumbs={false}
         showStatus={false}
@@ -38,6 +41,7 @@ const CustomerCarousel = () => {
         useKeyboardArrows
         autoPlay
         interval={5000}
+        showIndicators={false}
       >
         {chunkedCustomers.map((chunk, index) => (
           <div key={index} className="carousel-slide">

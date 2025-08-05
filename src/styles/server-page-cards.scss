@@ -1,0 +1,90 @@
+.subscription-cards-section {
+  padding: 60px 0;
+}
+
+.subscription-cards-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.subscription-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  text-align: left;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease-in-out;
+  justify-content: space-between !important; /* Added !important */
+
+  &:hover {
+    transform: translateY(-10px);
+  }
+}
+
+.subscription-card-heading {
+  min-height: 50px;
+  font-weight: 700;
+  color: #333;
+  margin: 0 !important; /* Added !important */
+  text-align: center;
+}
+
+.subscription-card-points {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  padding: 0;
+  margin: 0;
+  margin-top: 20px;
+  flex-grow: 1; /* Allows the list to take up available space */
+}
+
+.subscription-card-point-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* Reduced from 15px */
+  font-size: 0.95em; /* Reduced from 1.1em */
+  color: #555;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.point-image {
+  width: 30px;
+  height: 30px;
+  margin-right: 15px;
+  flex-shrink: 0; /* Prevent image from shrinking */
+}
+
+.point-text {
+  margin: 0;
+  line-height: 1.4;
+}
+
+@media (max-width: 767.98px) {
+  .subscription-card {
+    padding: 15px; /* Reduced padding */
+  }
+
+  .subscription-card-heading {
+    font-size: 1.1em; /* Reduced from 1.3em */
+    margin-bottom: 10px;
+  }
+
+  .subscription-card-point-item {
+    font-size: 0.85em; /* Reduced from 1em */
+    margin-bottom: 8px;
+  }
+
+  .point-image {
+    width: 20px; /* Reduced image size */
+    height: 20px;
+    margin-right: 8px;
+  }
+}

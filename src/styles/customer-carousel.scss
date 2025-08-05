@@ -1,3 +1,12 @@
+.customer-carousel-heading {
+  text-align: center;
+  font-weight: bold;
+  color: #7a7a7a; // medium gray
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
 .customer-carousel-container {
   padding: 2rem 0;
   margin-bottom: 2rem;
@@ -5,24 +14,6 @@
 
   .carousel .slide {
     background: none !important;
-  }
-
-  .carousel .control-dots {
-    margin-top: 20px;
-    position: relative;
-    bottom: auto;
-  }
-
-  .carousel .control-dots .dot {
-    background: #a08ff7 !important;
-    border: 1px solid #fff;
-    box-shadow: 0 0 5px #646368;
-    width: 10px;
-    height: 10px;
-  }
-
-  .carousel .control-dots .dot.selected {
-    background: #5c4abb !important;
   }
 
   .carousel-slide {
@@ -52,9 +43,6 @@
   }
 
   @media (max-width: 768px) {
-    .carousel .control-dots {
-      display: none;
-    }
     .carousel-slide {
       flex-wrap: wrap;
     }

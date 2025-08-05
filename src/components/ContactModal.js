@@ -167,7 +167,7 @@ class ContactModal extends Component {
           toggle={this.props.onClose}
           className="d-flex justify-content-center position-relative"
         >
-          Contact Us
+          Schedule
         </ModalHeader>
         <ModalBody>
           <div className='contact-us-section'>
@@ -265,38 +265,39 @@ class ContactModal extends Component {
                   </FormGroup>
                 </Col>
                 <Col md={12}>
-                  <Row>
-                    <Col xs={12} md={6} className="pr-md-2 mb-2 mb-md-0">
-                      <Button className='btn btn-secondary btn-block' type='submit'>
-                        Submit
-                      </Button>
-                    </Col>
-                    <Col xs={12} md={6} className="pl-md-2">
-                      {this.state.showLinkedin && (
-                        <LinkedInSignIn
-                          clientId={LINKEDIN.clientId}
-                          redirectUrl={LINKEDIN.redirectUrl}
-                          onSuccess={this.handleSuccess}
-                          onError={this.handleFailure}
-                          scopes={['r_liteprofile', 'r_emailaddress']}>
-                          {onclick => (
-                            <Button
-                              onClick={onclick}
-                              className='btn btn-linkedin btn-block'>
-                              <img
-                                src={linkedInPNG}
-                                alt='linkedin'
-                                style={{ width: '16px', marginRight: '8px' }}
-                              />
-                              {width && width <= 992 && width >= 768
-                                ? 'LinkedIn'
-                                : 'Login with LinkedIn'}
-                            </Button>
-                          )}
-                        </LinkedInSignIn>
+                  {/* Submit Button */}
+                  <Button className='btn btn-secondary btn-block mb-2' type='submit' style={{ width: '100%' }}>
+                    Submit
+                  </Button>
+                  {/* Separator */}
+                  <div style={{ textAlign: 'center', fontSize: '0.9rem', color: '#888', margin: '8px 0' }}>
+                    or
+                  </div>
+                  {/* LinkedIn Button */}
+                  {this.state.showLinkedin && (
+                    <LinkedInSignIn
+                      clientId={LINKEDIN.clientId}
+                      redirectUrl={LINKEDIN.redirectUrl}
+                      onSuccess={this.handleSuccess}
+                      onError={this.handleFailure}
+                      scopes={['r_liteprofile', 'r_emailaddress']}>
+                      {onclick => (
+                        <Button
+                          onClick={onclick}
+                          className='btn btn-linkedin btn-block'
+                          style={{ width: '100%' }}>
+                          <img
+                            src={linkedInPNG}
+                            alt='linkedin'
+                            style={{ width: '16px', marginRight: '8px' }}
+                          />
+                          {width && width <= 992 && width >= 768
+                            ? 'LinkedIn'
+                            : 'Login with LinkedIn'}
+                        </Button>
                       )}
-                    </Col>
-                  </Row>
+                    </LinkedInSignIn>
+                  )}
                 </Col>
                 {this.state.message &&
                   (this.state.hasDetailsSubmitted !== undefined &&

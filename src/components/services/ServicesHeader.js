@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Row, Col, Container } from "reactstrap";
 import ServicesImage from "../../img/services/banner-services.png";
 import ScrollMenu from "react-horizontal-scrolling-menu";
+import ServicePageCards from "../Landing/ServicePageCards";
+import ContactModal from '../ContactModal';
 
 let list = [
   // { name: "watsonx Assistant Services", className: "text-initial" },
@@ -46,6 +48,22 @@ export const ArrowLeft = Arrow({ text: "<", className: "arrow-prev" });
 export const ArrowRight = Arrow({ text: ">", className: "arrow-next" });
 
 class ServicesHeader extends Component {
+  state = {
+    email: "",
+    showContactModal: false,
+  };
+
+  handleEmailChange = (e) => {
+    this.setState({ email: e.target.value });
+  };
+
+  handleContactClick = () => {
+    this.setState({ showContactModal: true });
+  };
+
+  handleModalClose = () => {
+    this.setState({ showContactModal: false });
+  };
   constructor(props) {
     super(props);
     this.state = {
@@ -152,9 +170,20 @@ class ServicesHeader extends Component {
     return (
       <section className="services-header header-section text-center">
         <Container>
-          <Row className="gap-y-quarter">
-            <Col lg={8} md={7} sm={12} xs={12}>
-              <article className="text-left">
+          {/* <Row className="gap-y-quarter"> */}
+          {/* <Col lg={8} md={7} sm={12} xs={12}> */}
+          <article className="flex justify-content-center align-items-center gap-y-half text-center mt-0 mt-sm-3 mt-lg-4">
+            <h4 className="text-white bold pt-0">SERVICES OVERVIEW</h4>
+            <h1 className="text-white bold">Builds Outcome-Driven AI</h1>
+            <p className="text-white">
+              Incede.ai delivers modular AI services—from intelligent agents and
+              Gen AI strategy to automated workflows and agile planning. We help
+              enterprises streamline operations, boost decision-making, and
+              scale transformation by offering targeted solutions or end-to-end
+              support tailored to your business needs.
+            </p>
+          </article>
+          {/* <article className="text-left">
                 <h1 className="title display-3">Services</h1>
                 <h5 className="text-white sub-title">
                   Incede specializes in Generative AI Consulting, Agentic AI Services, Enterprise BI, and Custom Applications Development.
@@ -163,9 +192,9 @@ class ServicesHeader extends Component {
                   business transformation and growth. Contact us today to start
                   your journey.
                 </h5>
-              </article>
-            </Col>
-            <Col
+              </article> */}
+          {/* </Col> */}
+          {/* <Col
               lg={4}
               md={5}
               className="d-none d-md-flex position-initial align-items-center"
@@ -173,10 +202,38 @@ class ServicesHeader extends Component {
               <div className="image-section">
                 <img src={ServicesImage} alt="hero" />
               </div>
+            </Col> */}
+          {/* </Row> */}
+        </Container>
+        
+        <ServicePageCards />
+        <Container>
+          <Row className='w-50 my-5 d-flex justify-content-between align-items-center mx-auto'>
+            <Col xs={12} md={8} className="pr-md-2 mb-2 mb-md-0">
+              <input
+                type="email"
+                className="form-control"
+                placeholder="Enter your email address"
+                value={this.state.email}
+                onChange={this.handleEmailChange}
+              />
             </Col>
+            <Col xs={12} md={4} className="pl-md-2">
+              <button
+                className="btn btn-block bg-secondary text-white"
+                onClick={this.handleContactClick}
+              >
+                Schedule
+              </button>
+            </Col>
+            {/* Contact Modal */}
+            <ContactModal
+              isOpen={this.state.showContactModal}
+              onClose={this.handleModalClose}
+              prefillEmail={this.state.email}
+            />
           </Row>
         </Container>
-
         <Container fluid className="section-tabs-container">
           <Container>
             <ScrollMenu

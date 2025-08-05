@@ -16,6 +16,8 @@ import CustomerCarousel from "./CustomerCarousel";
 // import HeroImage from "../../img/incede-home-page.png";
 import { Link as ScrollLink } from "react-scroll";
 import ContactModal from '../ContactModal';
+import ServiceCards from "./ServiceCards"; // Add this import
+import StatsSection from "./StatsSection";
 
 class Home extends React.Component {
   state = {
@@ -72,18 +74,18 @@ class Home extends React.Component {
                           className="btn btn-primary btn-block"
                           onClick={this.handleContactClick}
                         >
-                          Contact Us
+                          Schedule
                         </button>
                       </Col>
                     </Row>
                   </div>
                   
-                  <div className="py-2">
+                  {/* <div className="py-2">
                     <Link to="/why-incede" className="btn btn-secondary btn-lg">
                       Why incede &nbsp;
                       <img src={arrow} alt="next" style={{ width: "12px" }} />
                     </Link>
-                  </div>
+                  </div> */}
                   {/* <pre>{JSON.stringify(home, null, 2)}</pre> */}
                 </article>
               </Col>
@@ -103,7 +105,8 @@ class Home extends React.Component {
         </section>
         <CustomerCarousel />
         <section className="home-more-detail bg-primary">
-          <Container>
+          <ServiceCards onDemoClick={() => this.setState({ showContactModal: true })} />
+          {/* <Container>
             <Row>
               <Col lg={12} md={12} sm={12} xs={12} className="text-white">
                 <article className="gap-y-half text-left">
@@ -212,11 +215,12 @@ class Home extends React.Component {
                 </article>
               </Col>
             </Row>
-          </Container>
+          </Container> */}
         </section>
         <CaseStudiesCarousalComponent />
+        <StatsSection />
 
-        <section className="home-more-detail">
+        {/* <section className="home-more-detail">
           <Container>
             <Row>
               <Col lg={12} md={12} sm={12} xs={12}>
@@ -704,7 +708,7 @@ class Home extends React.Component {
               </Col>
             </Row>
           </Container>
-        </section>
+        </section> */}
         
         {/* Contact Modal */}
         <ContactModal
