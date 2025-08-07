@@ -2,7 +2,7 @@
 templateKey: resources-case-studies
 title: Alaska Airlines
 technology:
-  - planning-analytics
+  - watsonx
 industry:
   - transportation
 subTitle: >-

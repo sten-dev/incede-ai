@@ -2,11 +2,9 @@
 templateKey: resources-case-studies
 title: OP Financial Group
 technology:
-  - watson-assistant
+  - watsonx
 industry:
-  - finance
-  - insurance
-  - real-estate
+  - transportation
 subTitle: Enhancing customer experience at scale with an AI-powered chatbot
 image: /img/leadspace_woman_smartphone_hands.webp
 ---

@@ -2,9 +2,9 @@
 templateKey: resources-case-studies
 title: California Natural Products
 technology:
-  - planning-analytics
+  - watsonx
 industry:
-  - retail-trade
+  - transportation
 subTitle: >-
   Incede.ai Frees California Natural Products' Critical Business Information
   from "Data Jail"

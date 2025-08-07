@@ -2,10 +2,9 @@
 templateKey: resources-case-studies
 title: 'MRS BPO, LLC'
 technology:
-  - watson-assistant
+  - watsonx
 industry:
   - transportation
-  - communications
 subTitle: Enhancing customer service with cognitive technology
 image: /img/leadspace-531204799.webp
 ---

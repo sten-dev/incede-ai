@@ -2,11 +2,9 @@
 templateKey: resources-case-studies
 title: London Borough of Redbridge
 technology:
-  - watson-assistant
-  - tone-analyzer
-  - visual-recognition
+  - watsonx
 industry:
-  - public-administration
+  - transportation
 subTitle: Cleaning up the streets with an AI-powered chatbot
 image: /img/london-rebridge.jpg
 ---
