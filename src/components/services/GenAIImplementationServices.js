@@ -174,7 +174,7 @@ class GenAIImplementationServices extends Component {
   render() {
     let menu = this.state.menuItems;
     return (
-      <section className="services-content gap-y-half pb-0" id="3">
+      <section className="services-content gap-y-half pb-0" id="gen">
         <Container>
           <Row>
             <Col xs={12}>

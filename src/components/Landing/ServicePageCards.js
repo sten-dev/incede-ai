@@ -21,6 +21,7 @@ const servicePageCardsData = [
   {
     heading: "ENTERPRISE AI AGENTS",
     url: "/services/enterprise-ai-agents",
+    sectionId: "enterprise",
     points: [
       {
         text: "Prebuilt Agents",
@@ -37,6 +38,7 @@ const servicePageCardsData = [
   {
     heading: "GEN AI IMPLEMENTATION",
     url: "/services/gen-ai-implementation",
+    sectionId: "gen",
     points: [
       {
         text: "AI Roadmapping",
@@ -64,6 +66,7 @@ const servicePageCardsData = [
   {
     heading: "AI-POWERED BUSINESS PROCESS AUTOMATION",
     url: "/services/ai-powered-business-process-automation",
+    sectionId: "ai",
     points: [
       {
         text: "Process Mapping",
@@ -86,6 +89,7 @@ const servicePageCardsData = [
   {
     heading: "PLANNING AND ANALYTICS",
     url: "/services/planning-budgeting-and-analytics",
+    sectionId: "planning",
     points: [
       {
         text: "Prebuilt Templates",
@@ -117,16 +121,16 @@ const ServicePageCards = () => {
         <Row className="justify-content-center mx-4">
           {servicePageCardsData.map((card, idx) => (
             <Col key={idx} xs={12} sm={6} lg={3} className="mb-4 d-flex px-2">
-            <Link to={card.url} className="link-card" onClick={() => updateServiceSelection(card.url, '')}>
+            <Link to={`${card.url}#${card.sectionId}`} className="link-card" onClick={() => updateServiceSelection(card.url, card.sectionId)}>
                 <div className="subscription-card">
                   <h6 className="subscription-card-heading">{card.heading}</h6>
                   <ul className="subscription-card-points">
                     {card.points.map((point, pointIdx) => (
-                      <Link
-                        to={point.url}
-                        className="link-list"
-                        onClick={() => updateServiceSelection(point.url.split('#')[0], point.url.split('#')[1])}
-                      >
+                      // <Link
+                      //   to={point.url}
+                      //   className="link-list"
+                      //   onClick={() => updateServiceSelection(point.url.split('#')[0], point.url.split('#')[1])}
+                      // >
                         <li
                           key={pointIdx}
                           className="subscription-card-point-item"
@@ -138,7 +142,6 @@ const ServicePageCards = () => {
                           />
                           <p className="point-text">{point.text}</p>
                         </li>
-                      </Link>
                     ))}
                   </ul>
                 </div>
