@@ -67,7 +67,7 @@ Similarly, Havas is reaping the benefits of its Arcadia solution. The applicatio
 
 Havas is a multinational advertising and public relations company. Headquartered in New York City, Havas New York is the company’s North American flagship agency. Havas New York helps CMOs unlock new growth and deliver better, more meaningful brand experiences. Learn more at ny.havas.com.
 
-**AboutIncede.ai**
+**About Incede.ai**
 
 Incede.ai delivers enterprise-ready AI agents, workflow automation, and actionable analytics—designed to accelerate business operations, drive measurable impact, and ensure trusted governance at scale. 
 
