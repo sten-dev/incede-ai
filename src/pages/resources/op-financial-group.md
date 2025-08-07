@@ -2,29 +2,23 @@
 templateKey: resources-case-studies
 title: OP Financial Group
 technology:
-  - watsonx
+  - watsonx.orchestrate
 industry:
-  - transportation
-subTitle: Enhancing customer experience at scale with an AI-powered chatbot
+  - finance
+subTitle: Enhancing customer experience at scale with an AI-powered agent
 image: /img/leadspace_woman_smartphone_hands.webp
 ---
-When OP Financial Group launched an online chat service, it quickly became extremely popular with customers. To scale the service to support thousands of users per day, the company worked with IBM to develop an AI-powered chatbot that can converse with customers in Finnish, provide helpful insurance advice, and streamline claims processing.
+When OP Financial Group launched an online chat service, it quickly became extremely popular with customers. To scale the service to support thousands of users per day, the company worked with IBM to develop an AI-powered agent that can converse with customers in Finnish, provide helpful insurance advice, and streamline claims processing.
 
-*“IBM Watson Assistant enables us to scale the number of customers we can support, without having to increase the size of our customer service team… We expect to see a strong return on investment.” - Jaakko Savilammi, Development Manager, OP Financial Group*
-
-
+*“IBM watsonx.orchestrate enables us to scale the number of customers we can support, without having to increase the size of our customer service team… We expect to see a strong return on investment.” - Jaakko Savilammi, Development Manager, OP Financial Group.*
 
 **Business challenge**
 
 As people increasingly turn to online channels for insurance information and claims processing, OP wanted to ensure it could give its customers helpful guidance without delay.
 
-
-
 **Transformation**
 
-OP worked with IBM to create an intelligent chatbot, training IBM Watson Assistant to understand common insurance issues and learn Finnish - enabling it to interact with customers in natural language.
-
-
+OP worked with IBM watsonx.orchestrate to create an intelligent agent, to understand common insurance issues and learn Finnish - enabling it to interact with customers in natural language
 
 **Results**
 
@@ -34,13 +28,9 @@ OP worked with IBM to create an intelligent chatbot, training IBM Watson Assista
 
 **Accelerates ROI** by scaling customer service capabilities without additional headcount
 
-
-
 **Solution components**
 
-Watson Assistant
-
-
+watsonx.orchestrate
 
 **Business challenge story**
 
@@ -62,54 +52,44 @@ OP realized that customers are most likely to seek insurance advice when they ne
 
 “We realized that if we could harness artificial intelligence to help our customer service teams handle these peaks in demand, we could make a significant impact on customer experience.”
 
-
-
 **Transformation**
 
 *Putting AI to work*
 
-OP’s data science team began researching whether an AI-powered chatbot could help to handle some of the incoming requests from the online chat service.
+OP’s data science team began researching whether an AI-powered agent could help to handle some of the incoming requests from the online chat service.
 
-One of the main challenges was that the chatbot would need to be trained not only to give insurance advice, but also to converse with Finnish customers in a natural way. The company needed a vendor that could not only provide the best technology, but also an implementation team who understood the Finnish language and culture.
+One of the main challenges was that the agent would need to be trained not only to give insurance advice, but also to converse with Finnish customers in a natural way. The company needed a vendor that could not only provide the best technology, but also an implementation team who understood the Finnish language and culture.
 
-“We tested solutions from many vendors, and IBM Watson Assistant produced the best results,” says Savilammi. “We were impressed by IBM’s AI heritage with Watson, and with their roadmap and investment in the field. Moreover, IBM has a large presence in Finland and was able to assign local resources to the project. Having native Finnish speakers on the team is a huge advantage for this kind of natural language processing project.”
+“We tested solutions from many vendors, and IBM watsonx,orchestrate produced the best results,” says Savilammi. “We were impressed by IBM’s AI heritage with watsonx, and with their roadmap and investment in the field. Moreover, IBM has a large presence in Finland and was able to assign local resources to the project. Having native Finnish speakers on the team is a huge advantage for this kind of natural language processing project.”
 
-OP’s initial research suggested that training the chatbot would require a significant time-investment, and that it would take many iterations until the AI model achieved the desired level of accuracy. However, by working with a team from IBM Services, the company was able to take full advantage of the Watson Assistant platform and deliver a solution on time and within budget.
+OP’s initial research suggested that training the agent would require a significant time-investment, and that it would take many iterations until the AI model achieved the desired level of accuracy. However, by working with a team from IBM Services, the company was able to take full advantage of the watsonx.orchestrate platform and deliver a solution on time and within budget.
 
-“Of course, like any project, there were challenges,” says Savilammi. “But IBM helped us take a very pragmatic approach. We used the early iterations of the chatbot as an internal tool that our customer service teams could ask for information - so it started delivering value quickly. This also helped us continuously assess the accuracy of the model in a real-world context, so by the time we were ready to roll the chatbot out to our customers, we were already very confident that it would provide a good user experience.”
+“Of course, like any project, there were challenges,” says Savilammi. “But IBM helped us take a very pragmatic approach. We used the early iterations of the agent as an internal tool that our customer service teams could ask for information - so it started delivering value quickly. This also helped us continuously assess the accuracy of the model in a real-world context, so by the time we were ready to roll the agent out to our customers, we were already very confident that it would provide a good user experience.”
 
-One of the key pieces of advice that OP would give to other companies is that AI projects require a diverse set of skills to succeed. In addition to data scientists with expertise in natural language processing, the OP and IBM team included business people who understood the insurance domain and the data, IT people who assisted with application development and integration and customer experience experts who played a vital role in fine-tuning the chatbot’s interactions to ensure that users would stay engaged.
+One of the key pieces of advice that OP would give to other companies is that AI projects require a diverse set of skills to succeed. In addition to data scientists with expertise in natural language processing, the OP and IBM team included business people who understood the insurance domain and the data, IT people who assisted with application development and integration and customer experience experts who played a vital role in fine-tuning the agent’s interactions to ensure that users would stay engaged.
 
 Savilammi adds: “Teamwork is vital because supervised learning is a long, resource-intensive process. You need people who have the motivation, expertise and patience to power through the many iterations of design, training and evaluation. IBM made a critical contribution, augmenting our in-house resources and helping us build up our own expertise.”
-
-
 
 **Results story**
 
 *Outperforming expectations*
 
-At the start of the project, OP established a set of metrics that it would use to evaluate the chatbot’s performance.
+At the start of the project, OP established a set of metrics that it would use to evaluate the agent’s performance.
 
-“Our main objective was that the chatbot should be able to handle a certain percentage of conversations with customers from end to end, without human involvement,” says Savilammi. “When we rolled out the chatbot to our customers, it outperformed our targets by a huge margin: the rate of automation was more than double our expectation.”
+“Our main objective was that the agent should be able to handle a certain percentage of conversations with customers from end to end, without human involvement,” says Savilammi. “When we rolled out the agent to our customers, it outperformed our targets by a huge margin: the rate of automation was more than double our expectation.”
 
-OP customers don’t need to wait for a response to their chat messages, as chatbot and customer service teams work contiguously. This improves the customer experience, especially if the user is in a stressful situation and needs an answer quickly.
+OP customers don’t need to wait for a response to their chat messages, as agent and customer service teams work contiguously. This improves the customer experience, especially if the user is in a stressful situation and needs an answer quickly.
 
-“IBM Watson Assistant enables us to scale the number of customers we can support, without having to increase the size of our customer service team,” says Savilammi. “As demand for the online chat service is growing all the time, we expect to see a strong return on investment.”
+“IBM watsonx.orchestrate enables us to scale the number of customers we can support, without having to increase the size of our customer service team,” says Savilammi. “As demand for the online chat service is growing all the time, we expect to see a strong return on investment.”
 
 He concludes: “It’s rare for a vendor to keep all their promises, but IBM delivered every iteration on schedule and on budget, and the results were twice as good as we expected. The whole project has been a great example of what can be achieved when software providers are prepared to listen and innovate, rather than just pushing their products. Working with IBM has been a breath of fresh air.”
-
-
 
 **About OP Financial Group**
 
 Established in 1902, OP is one of Finland’s largest financial services companies. It employs around 12,000 people in Finland and the Baltic countries, and operates in a diverse range of markets, including banking, life and non-life insurance and wealth management, as well as branching out into health services, with five hospitals across the country.
 
-
-
 **AboutIncede.ai**
 
-[Incede.ai](https://www.incede.ai) is the AI division of [Locus Solutions, Inc](http://www.locussolutions.com).; harnessing the power of Data, AI and Machine Learning
+Incede.ai delivers enterprise-ready AI agents, workflow automation, and actionable analytics—designed to accelerate business operations, drive measurable impact, and ensure trusted governance at scale. 
 
-
-
-With more than half of the world’s data in natural language, Incede.ai solves business problems and creates a competitive advantage by leveraging the power of [Watson AI](https://www.ibm.com/watson) and machine learning.As thought leaders, we collaborate with stakeholders to deploy AI solutions that deliver real value.
+Our global delivery model provides an advantage to customers by delivering best-in-class solutions economically. Our consultants are seasoned professionals with deep expertise in designing, developing, delivering and managing successful projects. By using proven processes, our customers are assured of consistently high levels of quality for every project.
