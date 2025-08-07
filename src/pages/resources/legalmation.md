@@ -91,7 +91,7 @@ The IBM watsonx ecosystem and membership in the With Watson™ client success pr
 
 Founded in 2016 and headquartered in Irvine, California, LegalMation is harnessing AI to change the way legal professionals provide value to their customers. The company brings together award-winning lawyers and technologists to create solutions that automate and accelerate routine tasks, allowing law firms and corporate legal departments to redirect resources to more critical activities. LegalMation’s cornerstone cognitive platform drafts high-quality litigation work in minutes, delivering unparalleled time and cost savings.
 
-**AboutIncede.ai**
+**About Incede.ai**
 
 Incede.ai delivers enterprise-ready AI agents, workflow automation, and actionable analytics—designed to accelerate business operations, drive measurable impact, and ensure trusted governance at scale. 
 
