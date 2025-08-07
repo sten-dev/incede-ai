@@ -90,32 +90,21 @@ class ResourcesCaseStudies extends React.Component {
     const { edges: caseStudies } = this.props.data.allMarkdownRemark;
     console.log("case-studies", this.state.filteredCaseStudies);
     const technologyOptions = [
-      { label: "All", value: "all" },
-      { label: "Watson Assistant", value: "watson-assistant" },
-      { label: "Watson Discovery", value: "watson-discovery" },
-      { label: "Watson Text to Speech", value: "text-to-speech" },
-      { label: "Watson Speech to Text", value: "speech-to-text" },
-      { label: "Watson Knowledge Studio", value: "knowledge-studio" },
-      { label: "Watson Personality Insights", value: "personality-insights" },
-      { label: "Watson Natural Language Classifier (NLC)", value: "nlc" },
-      { label: "Watson Natural Language Understanding (NLU)", value: "nlu" },
-      { label: "Watson Tone Analyzer", value: "tone-analyzer" },
-      { label: "Watson Visual Recognition", value: "visual-recognition" },
-      { label: "Planning Analytics", value: "planning-analytics"},
-      { label: "Cognos Analytics", value: "cognos-analytics"},
-    ];
+      {label: "watsonx.orchestrate", "value": "watsonx.orchestrate"},
+      {label: "watsonx", "value": "watsonx"},
+      {label: "Watson Discovery", "value": "watson-discovery"},
+      {label: "IBM Cognos Analytics", "value": "ibmCcgnos-analytics"},
+      {label: "Planning Analytics", "value": "planning-analytics"}
+    ]
     const industryOptions = [
-      { label: "All", value: "all" },
-      { label: "Finance", value: "finance" },
-      { label: "Insurance", value: "insurance" },
-      { label: "Services", value: "services" },
-      { label: "Real Estate", value: "real-estate" },
-      { label: "Manufacturing", value: "manufacturing" },
-      { label: "Transportation", value: "transportation" },
-      { label: "Communications", value: "communications" },
-      { label: "Public Administration", value: "public-administration" },
-      { label: "Retail Trade", value: "retail-trade" },
-      { label: "Education", value: "education" },
+      {label: "Transportation", "value": "transportation"},
+      {label: "Insurance", "value": "insurance"},
+      {label: "Manufacturing", "value": "manufacturing"},
+      {label: "Services", "value": "services"},
+      {label: "Finance", "value": "finance"},
+      {label: "Public Administration", "value": "public-administration"},
+      {label: "Media", "value": "media"},
+      {label: "Food and Beverages", "value": "food-and-beverages"}
     ];
 
     return (
