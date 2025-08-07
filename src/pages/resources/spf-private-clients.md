@@ -85,7 +85,7 @@ Savundra concludes: “We’re very proud to present the SPF Help to Buy agent i
 
 SPF Private Clients helps its clients achieve their financial goals through funding, wealth management and insurance advice. With offices in London, Manchester, Guernsey, Nottingham and Oxford, the company is one of the market leaders in UK financial services.
 
-**AboutIncede.ai**
+**About Incede.ai**
 
 Incede.ai delivers enterprise-ready AI agents, workflow automation, and actionable analytics—designed to accelerate business operations, drive measurable impact, and ensure trusted governance at scale. 
 
