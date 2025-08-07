@@ -2,10 +2,9 @@
 templateKey: resources-case-studies
 title: DXC Technology
 technology:
-  - watson-assistant
-  - watson-discovery
+  - watsonx
 industry:
-  - services
+  - transportation
 subTitle: How AI is leading an insurance call center into the digital age
 image: /img/leadspace_sim_img_4340899.webp
 ---

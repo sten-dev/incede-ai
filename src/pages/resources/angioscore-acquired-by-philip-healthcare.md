@@ -2,9 +2,9 @@
 templateKey: resources-case-studies
 title: Angioscore(acquired by Philip Healthcare)
 technology:
-  - cognos-analytics
+  - watsonx
 industry:
-  - manufacturing
+  - transportation
 subTitle: >-
   IBM Cognos Business Intelligence System Tracks the Heartbeat of Sales to
   Deliver Real-Time Visibility for AngioScore

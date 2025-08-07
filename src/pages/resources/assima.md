@@ -2,9 +2,9 @@
 templateKey: resources-case-studies
 title: Assima
 technology:
-  - watson-assistant
+  - watsonx
 industry:
-  - services
+  - transportation
 subTitle: >-
   Creating the smarter employee: unlocking new levels of productivity with
   cloud-delivered AI

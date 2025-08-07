@@ -2,12 +2,9 @@
 templateKey: resources-case-studies
 title: ZX Ventures
 technology:
-  - watson-assistant
-  - nlu
+  - watsonx
 industry:
-  - finance
-  - insurance
-  - real-estate
+  - transportation
 subTitle: Innovation on tap - serving up a winning candidate experience
 image: /img/1a27015d0107b64f6eeba84991a09cd5_320x320.webp
 ---

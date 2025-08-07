@@ -2,12 +2,9 @@
 templateKey: resources-case-studies
 title: Havas
 technology:
-  - watson-assistant
-  - personality-insights
-  - nlc
+  - watsonx
 industry:
   - transportation
-  - communications
 subTitle: Solving customers’ business challenges with IBM Watson technology
 image: /img/leadspace-294035883.lo-res.webp
 ---

@@ -2,10 +2,9 @@
 templateKey: resources-case-studies
 title: QNC GmbH
 technology:
-  - watson-discovery
-  - knowledge-studio
+  - watsonx
 industry:
-  - services
+  - transportation
 subTitle: Raising the bar - making legal services more affordable with AI
 image: /img/qnc-logo_lr.webp
 ---

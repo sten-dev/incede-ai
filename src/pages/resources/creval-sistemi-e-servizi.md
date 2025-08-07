@@ -2,11 +2,9 @@
 templateKey: resources-case-studies
 title: Creval Sistemi e Servizi
 technology:
-  - watson-discovery
+  - watsonx
 industry:
-  - finance
-  - insurance
-  - real-estate
+  - transportation
 subTitle: >-
   Using cognitive analysis of customer data to find hidden hotspots of
   opportunity
