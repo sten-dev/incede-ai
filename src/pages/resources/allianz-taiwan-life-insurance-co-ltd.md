@@ -8,7 +8,7 @@ industry:
 subTitle: >-
   No bot - this smart, social virtual assistant connects with customers like a
   local
-image: /img/allianz_img3_1366w.jpg
+image: /img/allianz.webp
 ---
 Meet Allie, an AI-powered Agent that connects with customers in a very human way. Allianz wanted a virtual Agent that worked across platforms to better serve customers. Using IBM Cloud and IBM watsonx.orchestrate, Allie can field 80 percent of the company’s most frequent customer requests - for real help in real time.
 
