@@ -2,13 +2,13 @@
 templateKey: resources-case-studies
 title: Creval Sistemi e Servizi
 technology:
-  - watsonx
+  - watson-discovery
 industry:
-  - transportation
+  - services
 subTitle: >-
   Using cognitive analysis of customer data to find hidden hotspots of
   opportunity
-image: /img/istock_000042660792_full_01.webp
+image: /img/creval-sistemi-e-serviz.png
 ---
 The bank, Credito Valtellinese, turned to its internal service unit, Creval Sistemi e Servizi (CSS), to create a cognitive filter to find and extract chunks of customer information and index them into detailed customer profiles-the building blocks of market segmentation.
 
@@ -72,6 +72,6 @@ Based in Sondrio, Italy, Credito Valtellinese is a retail bank with over 500 loc
 
 **About Incede.ai**
 
-[Incede.ai](https://www.incede.ai) is the AI division of [Locus Solutions, Inc.](http://www.locussolutions.com); harnessing the power of Data, AI and Machine Learning
+Incede.ai delivers enterprise-ready AI agents, workflow automation, and actionable analytics—designed to accelerate business operations, drive measurable impact, and ensure trusted governance at scale. 
 
-With more than half of the world’s data in natural language, Incede.ai solves business problems and creates a competitive advantage by leveraging the power of [Watson AI](https://www.ibm.com/watson) and machine learning.As thought leaders, we collaborate with stakeholders to deploy AI solutions that deliver real value.
+Our global delivery model provides an advantage to customers by delivering best-in-class solutions economically. Our consultants are seasoned professionals with deep expertise in designing, developing, delivering and managing successful projects. By using proven processes, our customers are assured of consistently high levels of quality for every project.
