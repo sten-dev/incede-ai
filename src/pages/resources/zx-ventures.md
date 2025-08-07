@@ -3,14 +3,15 @@ templateKey: resources-case-studies
 title: ZX Ventures
 technology:
   - watsonx
+  - watsonx.orchestrate
 industry:
-  - transportation
+  - finance
 subTitle: Innovation on tap - serving up a winning candidate experience
 image: /img/1a27015d0107b64f6eeba84991a09cd5_320x320.webp
 ---
-ZX Ventures used the IBM Watson Candidate Assistant solution to engage job seekers in personalized discussions and enable them to learn about the company’s unique culture and career opportunities. They integrated the Watson-powered chatbot with video content to deliver a more engaging and innovative candidate experience.
+ZX Ventures used the IBM watsonx.orchestrate solution to engage job seekers in personalized discussions and enable them to learn about the company’s unique culture and career opportunities. They integrated the Watson-powered Agent with video content to deliver a more engaging and innovative candidate experience.
 
-*“We needed to communicate our culture and authentically tell our story to more people. The Watson solution was a mechanism designed to deliver that.” - Kristina Deighan, Global Manager of Talent Attraction, ZX Ventures*
+*“We needed to communicate our culture and authentically tell our story to more people. The watsonx solution was a mechanism designed to deliver that.” - Kristina Deighan, Global Manager of Talent Attraction, ZX Ventures.*
 
 **Business challenge**
 
@@ -18,7 +19,7 @@ As ZX Ventures grew, it needed a scalable and engaging way to educate candidates
 
 **Transformation**
 
-ZX Ventures deployed [Watson Candidate Assistant](https://www.ibm.com/us-en/marketplace/watson-candidate-assistant) to deliver a more innovative and engaging experience for job seekers while helping the recruiting staff increase their capacity to reach more candidates.
+ZX Ventures deployed watsonx.orchestrate to deliver a more innovative and engaging experience for job seekers while helping the recruiting staff increase their capacity to reach more candidates.
 
 **Results**
 
@@ -30,9 +31,9 @@ ZX Ventures deployed [Watson Candidate Assistant](https://www.ibm.com/us-en/mark
 
 **Solution components**
 
-Watson Assistant
+watsonx.orchestrate
 
-Watson Natural Language Understanding (NLU)
+watsonx
 
 **Business challenge story**
 
@@ -44,31 +45,31 @@ Early on, ZX Ventures realized that communicating its distinctive culture to pot
 
 “We needed to reach more people and educate them about who we are early in the recruitment process so they could decide if it’s the right fit,” says Kristina Deighan, Global Manager of Talent Attraction at ZX Ventures. “We wanted to find an innovative solution that was engaging and candidate-centric.”
 
-ZX Ventures needed to do more than provide static, FAQ-style information to job-seekers, especially if it wanted to express itself as an innovative, digitally-savvy employer. A new online recruitment platform was proposed that was interactive, intuitive and based on the transformative power of Watson AI technology.
+ZX Ventures needed to do more than provide static, FAQ-style information to job-seekers, especially if it wanted to express itself as an innovative, digitally-savvy employer. A new online recruitment platform was proposed that was interactive, intuitive and based on the transformative power of watsonx technology.
 
 **Transformation**
 
 *Serving the recruiter and the candidate*
 
-Watson Candidate Assistant is an AI and cognitive talent management platform that answers job seeker questions and provides relevant answers in natural, conversational language.
+IBM watsonx.orchestrate is an AI and cognitive talent management platform that answers job seeker questions and provides relevant answers in natural, conversational language.
 
-Watson Candidate Assistant uses [IBM Watson Natural Language Understanding](https://www.ibm.com/watson/services/natural-language-understanding/) technology to gather concepts, skills and keywords from resumes and job descriptions to provide the best job matches for individual applicants. The solution also includes a chatbot to enable applicants to engage in a conversation with Watson as if they were talking to a recruiter. Applicants are no longer just scrolling down the screen for information but interacting with a virtual recruiter in real time.
+Using watsonx.orchestrate technology to gather concepts, skills and keywords from resumes and job descriptions to provide the best job matches for individual applicants. The solution also includes a virtual Agent to enable applicants to engage in a conversation with the Agent as if they were talking to a recruiter. Applicants are no longer just scrolling down the screen for information but interacting with a virtual recruiter in real time.
 
-Working with the ZX Ventures talent attraction team,the application process was reviewed and the Watson Candidate Assistant solution was taught to understand and respond to the intent of over 60 applicant requests and inquiry topics.
+Working with the ZX Ventures talent attraction team, the application process was reviewed and the solution was taught to understand and respond to the intent of over 60 applicant requests and inquiry topics.
 
-To enhance candidate interaction with the Watson Candidate Assistant platform, they also integrated video content into the experience. Custom-produced videos, surfaced by Watson, present online job seekers with visual context about who ZX Ventures is, what the company does, and what “culture” truly means.
+To enhance candidate interaction with the virtual Agent, they also integrated video content into the experience. Custom-produced videos, present online job seekers with visual context about who ZX Ventures is, what the company does, and what “culture” truly means.
 
-“Adding video to the Watson Candidate Assistant helps with the ‘show’ in addition to the ‘tell’ story,” says Deighan. “Delivering video content in a chat experience imitates a more natural conversation than text alone does. The candidate not only gets a response to their question, they get meta information that text alone can’t convey. For example, they might see a video in response to, ‘What are successful traits of candidates?’ and in 60 seconds they’ll also see key elements of our culture in the background: people dressed informally, senior leaders sitting next to more junior team members and a workspace without offices because we believe in transparency and minimizing hierarchy.”
+“Adding video to the Agent helps with the ‘show’ in addition to the ‘tell’ story,” says Deighan. “Delivering video content in a chat experience imitates a more natural conversation than text alone does. The candidate not only gets a response to their question, they get meta information that text alone can’t convey. For example, they might see a video in response to, ‘What are successful traits of candidates?’ and in 60 seconds they’ll also see key elements of our culture in the background: people dressed informally, senior leaders sitting next to more junior team members and a workspace without offices because we believe in transparency and minimizing hierarchy.”
 
 **Results story**
 
 *Onboarding begins at recruitment*
 
-Within a month after going online, the Watson Candidate Assistant solution began producing significant benefits. The chatbot managed a volume of questions five times greater than human recruiters could handle, and it continues engaging over 600 applicants in dialogue every month.
+Within a month after going online, the tailored solution began producing significant benefits. The Agent managed a volume of questions five times greater than human recruiters could handle, and it continues engaging over 600 applicants in dialogue every month.
 
-Analytics tools scrutinize the content and intent of these questions and develop insights to refine how the Watson Candidate Assistant solution engages with applicants. Insights into applicant questions also help ZX Ventures customize recruiting strategies based on who is asking the questions and where they are coming from.
+Analytics tools scrutinize the content and intent of these questions and develop insights to refine how the Agent engages with applicants. Insights into applicant questions also help ZX Ventures customize recruiting strategies based on who is asking the questions and where they are coming from.
 
-Recruiters see that candidates coming through the Watson experience are better prepared. They know more about ZX Ventures and are a more natural fit for the positions and roles for which they are hired.
+Recruiters see that candidates coming through the watsonx experience are better prepared. They know more about ZX Ventures and are a more natural fit for the positions and roles for which they are hired.
 
 **About ZX Ventures**
 
@@ -76,6 +77,6 @@ Established in 2015, ZX Ventures is the global growth and innovation group withi
 
 **About Incede.ai**
 
-[Incede.ai](https://www.incede.ai) is the AI division of [Locus Solutions, Inc](http://www.locussolutions.com).; harnessing the power of Data, AI and Machine Learning
+Incede.ai delivers enterprise-ready AI agents, workflow automation, and actionable analytics—designed to accelerate business operations, drive measurable impact, and ensure trusted governance at scale. 
 
-With more than half of the world’s data in natural language, Incede.ai solves business problems and creates a competitive advantage by leveraging the power of [Watson AI](https://www.ibm.com/watson) and machine learning.As thought leaders, we collaborate with stakeholders to deploy AI solutions that deliver real value.
+Our global delivery model provides an advantage to customers by delivering best-in-class solutions economically. Our consultants are seasoned professionals with deep expertise in designing, developing, delivering and managing successful projects. By using proven processes, our customers are assured of consistently high levels of quality for every project.
