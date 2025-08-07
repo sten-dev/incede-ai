@@ -2,17 +2,18 @@
 templateKey: resources-case-studies
 title: CodeObjects
 technology:
-  - watsonx
+  - watsonx.orchestrate
+  - watson-discovery
 industry:
-  - transportation
+  - insurance
 subTitle: >-
   Creating a frictionless experience for insurance customers, even during
   disasters
 image: /img/leadspace-sim_img_1006070.webp
 ---
-In the insurance industry, some of the most important calls come under some of the most stressful circumstances. That’s why CodeObjects is using IBM Watson technology to develop InsurBot.ai, an AI assistant that eliminates call center holds, reduces costs and helps put anxious customers on the road to recovery quickly.
+In the insurance industry, some of the most important calls come under some of the most stressful circumstances. That’s why CodeObjects is using IBM watsonx.orchestrate technology to develop InsurBot.ai, an AI Agent that eliminates call center holds, reduces costs and helps put anxious customers on the road to recovery quickly.
 
-*“Every single touchpoint they have with customer service reps can be fraught with inefficiency, not to mention the high cost. These are significant pain points, and many insurance carriers are trying to mitigate them using automation.” - Arun Bala, Vice President of Product Management, CodeObjects*
+*“Every single touchpoint they have with customer service reps can be fraught with inefficiency, not to mention the high cost. These are significant pain points, and many insurance carriers are trying to mitigate them using automation.” - Arun Bala, Vice President of Product Management, CodeObjects.*
 
 **Business challenge**
 
@@ -32,13 +33,9 @@ InsurBot.ai helps insurance companies improve responsiveness by automatically re
 
 **Solution components**
 
-Watson Assistant
+watsonx.orchestrate
 
 Watson Discovery
-
-Watson Text to Speech
-
-Watson Speech to Text
 
 **Business challenge story**
 
@@ -52,25 +49,25 @@ However, many insurance companies outsource this vital touch point to third-part
 
 “And it’s not just calls related to catastrophic events,” says Bala. “People call to find out what sort of coverage they have, or to ask questions about their bills. Every single touch point they have with customer service reps can be fraught with inefficiency, not to mention the high cost. These are significant pain points, and many insurance carriers are trying to mitigate them using automation.”
 
-“In response,” says Bala, “we are augmenting our core system offerings with chatbot capabilities that will allow our existing and prospective customers to provide a superior customer experience.”
+“In response,” says Bala, “we are augmenting our core system offerings with virtual agent capabilities that will allow our existing and prospective customers to provide a superior customer experience.”
 
-“We believe chatbots make a compelling case. Once you train the model well enough, it provides predictable and repeatable outcomes. Once you train the chatbot to converse like your five-star CSF \[customer service representative], every single conversation has the potential of being a five-star conversation,” says Bala.
+“We believe chatbots make a compelling case. Once you train the model well enough, it provides predictable and repeatable outcomes. Once you train the virtual agent to converse like your five-star CSF \[customer service representative], every single conversation has the potential of being a five-star conversation,” says Bala.
 
 **Transformation**
 
 *A dramatic rollout*
 
-After exploring a number of options for AI, CodeObjects selected the IBM Watson platform to support its chatbot product, which the company calls InsurBot.ai. The solution features IBM Watson Assistant, IBM Watson Discovery, IBM Watson Speech to Text, IBM Watson Text to Speech and IBM Voice Agent with Watson services.
+After exploring a number of options for AI, CodeObjects selected the IBM watsonx platform to support its Agent product, which the company calls InsurBot.ai. The solution features IBM watsonx.orchestrate, IBM Watson Discovery, and other in-built watsonx capabilities (text to speech, speech to text, etc).
 
 Anthony Peccerillo, Vice President of Product Marketing for CodeObjects, picks up the story: “Our plan for phase one of the product was to target the customer service area and automate repeatable tasks that people are doing on a daily basis.”
 
 Critical first-phase tasks included filing a first notice of loss (FNOL), checking payment or claims status, getting a quote and making a payment. The solution responds to policyholders’ voices, following a predetermined script that was developed after using Watson technology to analyze approximately 50,000 calls received after Hurricane Irma in 2017.
 
-Although the intention was to make the experience as easy and seamless as possible for policyholders, InsurBot.ai was also careful to give callers a sense of control. Bala explains: “In the dialog flow we wrote using Watson Assistant, there are various nodes where the call could be branched off to a live agent, either because of user request or because of some other internal condition.”
+Although the intention was to make the experience as easy and seamless as possible for policyholders, InsurBot.ai was also careful to give callers a sense of control. Bala explains: “In the dialog flow we wrote using watsonx.orchestrate, there are various nodes where the call could be branched off to a live agent, either because of user request or because of some other internal condition.”
 
 Just as CodeObjects was finishing up the scripts for the first phase of the InsurBot.ai initiative, Hurricane Michael made its first appearance on radar screens. The hurricane was headed for the Florida Panhandle, where many of CodeObjects’ customers had operations. If the models were correct, it would be one of the largest storms to hit the area since 1992. Catastrophic losses were virtually inevitable.
 
-Anticipating a huge influx of P&C claims after the hurricane hit, Security First Insurance, one of CodeObjects’ existing customers, decided to roll out the new AI assistant in advance of the storm. With less than a week’s notice, the InsurBot.ai and Security First Insurance teams got to work on moving from pilot to production. “We went into deployment mode,” says Bala. “It was all hands on deck. We tested it, stabilized it and migrated the production environment from standard to premium Watson plan. It was a short window for a lot of activity, but we met the challenge head on and had a successful outcome.”
+Anticipating a huge influx of P&C claims after the hurricane hit, Security First Insurance, one of CodeObjects’ existing customers, decided to roll out the new AI agent in advance of the storm. With less than a week’s notice, the InsurBot.ai and Security First Insurance teams got to work on moving from pilot to production. “We went into deployment mode,” says Bala. “It was all hands on deck. We tested it, stabilized it and migrated the production environment from standard to premium Watson plan. It was a short window for a lot of activity, but we met the challenge head on and had a successful outcome.”
 
 Werner Kruck, Chief Operating Officer at Security First Insurance, agrees: "Not only are we able to improve customer satisfaction, the team at InsurBot.ai enabled us to create a technology strategy to further differentiate the experience we offer and lower costs in the long term.”
 
@@ -92,10 +89,10 @@ With these additional capabilities, CodeObjects believes that InsurBot.ai will b
 
 **About CodeObjects**
 
-Founded in 2006, CodeObjects develops core systems for insurance companies across the US. In 2018, CodeObjects introduced its flagship product, InsurBot.ai, an AI-powered customer assistance service that is changing the way insurance companies communicate with their customers.
+Founded in 2006, CodeObjects develops core systems for insurance companies across the US. In 2018, CodeObjects introduced its flagship product, InsurBot.ai, an AI-powered customer agent service that is changing the way insurance companies communicate with their customers.
 
 **About Incede.ai**
 
-[Incede.ai](https://www.incede.ai) is the AI division of [Locus Solutions, Inc](http://www.locussolutions.com).; harnessing the power of Data, AI and Machine Learning
+Incede.ai delivers enterprise-ready AI agents, workflow automation, and actionable analytics—designed to accelerate business operations, drive measurable impact, and ensure trusted governance at scale. 
 
-With more than half of the world’s data in natural language, Incede.ai solves business problems and creates a competitive advantage by leveraging the power of [Watson AI](https://www.ibm.com/watson) and machine learning.As thought leaders, we collaborate with stakeholders to deploy AI solutions that deliver real value.
+Our global delivery model provides an advantage to customers by delivering best-in-class solutions economically. Our consultants are seasoned professionals with deep expertise in designing, developing, delivering and managing successful projects. By using proven processes, our customers are assured of consistently high levels of quality for every project.
