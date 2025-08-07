@@ -2,7 +2,7 @@
 templateKey: resources-case-studies
 title: Alaska Airlines
 technology:
-  - watsonx
+  - planning-analytics
 industry:
   - transportation
 subTitle: >-
@@ -32,13 +32,9 @@ With IT’s endorsement, the FP&A team analyzed the anticipated time-to-results,
 
 ###### **PHASED APPROACH DELIVERS SHORT-TERM AND LONG-TERM SUCCESS**
 
-Incede.ai’s most successful customers follow a phased approach to defining, developing and deploying welldefined, quick-win stages that deliver real value to the business — on-time and on-budget. Alaska Airlines has completed two phased deployments of IBM Planning Analytics and is in the process of completing phase three.
+Incede.ai’s most successful customers follow a phased approach to defining, developing and deploying well-defined, quick-win stages that deliver real value to the business — on-time and on-budget. Alaska Airlines has completed two phased deployments of IBM Planning Analytics and is in the process of completing phase three.
 
-n the first phase, Incede.ai deployed the centralized planning system and improved the FP&A team’s ability to aggregate, integrate and manage planning data from the airports Alaska serves. Phase two utilized ﻿Incede.ai and Alaska resources to extend the planning system to marketing, aircraft maintenance, flight operations, IT and real estate. With most of the organization using the system, phase two established the foundation for providing rolling forecasts for Alaska’s stakeholders.
-
-<!--EndFragment-->deployed the centralized planning system and improved the FP&A team’s ability to aggregate, integrate and manage planning data from the airports Alaska serves. Phase two utilized Incede.ai and Alaska resources to extend the planning system to marketing, aircraft maintenance, flight operations, IT and real estate. With most of the organization using the system, phase two established the foundation for providing rolling forecasts for Alaska’s stakeholders.
-
-<!--EndFragment-->and Alaska resources to extend the planning system to marketing, aircraft maintenance, flight operations, IT and real estate. With most of the organization using the system, phase two established the foundation for providing rolling forecasts for Alaska’s stakeholders.
+In the first phase, Incede.ai deployed the centralized planning system and improved the FP&A team’s ability to aggregate, integrate and manage planning data from the airports Alaska serves. Phase two utilized Incede.ai and Alaska resources to extend the planning system to marketing, aircraft maintenance, flight operations, IT and real estate. With most of the organization using the system, phase two established the foundation for providing rolling forecasts for Alaska’s stakeholders.
 
 With the leadership, training and mentoring from Incede.ai in phase’s one and two, Alaska was able to take the lead in phase three, which will further enhance the solution and establish it as the hub for organizational performance, measurement and collaboration with stakeholders.
 
@@ -58,8 +54,6 @@ Long known for its Alaskan heritage, symbolized by the Eskimo painted on the tai
 
 ###### **ABOUT INCEDE.AI**
 
-Incede.ai is a strategy and technology consultancy that helps companies use Business Analytics solutions to achieve competitive advantage and operational excellence. Our goal is to help clients deploy and manage a complete range of information requirements ranging from budgeting and forecasting to enterprise reporting to the use of innovative Business Analytics technologies like Mobile and Search.
+Incede.ai delivers enterprise-ready AI agents, workflow automation, and actionable analytics—designed to accelerate business operations, drive measurable impact, and ensure trusted governance at scale. 
 
-Our global delivery model provides an advantage to customers by delivering best-in-class solutions economically. By using proven processes, our customers are assured of consistently high levels of quality for every project.
-
-Our consultants are seasoned professionals with deep expertise in designing, developing, delivering and managing successful projects. This includes budgeting and forecasting, reporting and dashboarding and data warehousing solutions. Whether your needs include Business Analytics strategies, first-time projects, full implementations, standardizations or enhancement services, our proven practices deliver results.
+Our global delivery model provides an advantage to customers by delivering best-in-class solutions economically. Our consultants are seasoned professionals with deep expertise in designing, developing, delivering and managing successful projects. By using proven processes, our customers are assured of consistently high levels of quality for every project.
