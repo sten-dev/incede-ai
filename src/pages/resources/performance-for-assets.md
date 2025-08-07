@@ -2,9 +2,9 @@
 templateKey: resources-case-studies
 title: Performance for Assets
 technology:
-  - watson-assistant
+  - watsonx
 industry:
-  - services
+  - transportation
 subTitle: >-
   Turning up cost efficiency and output for windfarms with predictive
   maintenance solutions in the IBM Cloud

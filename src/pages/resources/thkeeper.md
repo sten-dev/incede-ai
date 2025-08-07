@@ -2,9 +2,9 @@
 templateKey: resources-case-studies
 title: ThKeeper
 technology:
-  - watson-discovery
+  - watsonx
 industry:
-  - services
+  - transportation
 subTitle: >-
   Helping companies do business with customers they can trust through AI
   technology

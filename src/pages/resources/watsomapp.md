@@ -2,9 +2,9 @@
 templateKey: resources-case-studies
 title: WatsomApp
 technology:
-  - watson-assistant
+  - watsonx
 industry:
-  - services
+  - transportation
 subTitle: >-
   Empowering teachers to proactively identify and prevent bullying with an
   AI-driven chatbot

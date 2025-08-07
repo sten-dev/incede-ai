@@ -2,11 +2,9 @@
 templateKey: resources-case-studies
 title: 'Dairy, food and beverage manufacturer'
 technology:
-  - watson-assistant
-  - watson-discovery
-  - knowledge-studio
+  - watsonx
 industry:
-  - manufacturing
+  - transportation
 subTitle: 'Unlocking new insights with a central, AI-managed research library'
 image: /img/919729444.jpg
 ---

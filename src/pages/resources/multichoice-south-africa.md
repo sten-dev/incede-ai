@@ -2,10 +2,9 @@
 templateKey: resources-case-studies
 title: MultiChoice South Africa
 technology:
-  - nlu
+  - watsonx
 industry:
   - transportation
-  - communications
 subTitle: >-
   Answers customer enquiries faster than ever with an AI-powered virtual
   assistant

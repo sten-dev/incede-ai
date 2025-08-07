@@ -2,9 +2,9 @@
 templateKey: resources-case-studies
 title: Pixelabs
 technology:
-  - visual-recognition
+  - watsonx
 industry:
-  - services
+  - transportation
 subTitle: >-
   An AI innovator helps egg farms transform a labor-intensive process and cut
   costs
