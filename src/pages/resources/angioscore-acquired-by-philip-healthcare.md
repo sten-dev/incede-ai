@@ -2,29 +2,29 @@
 templateKey: resources-case-studies
 title: Angioscore(acquired by Philip Healthcare)
 technology:
-  - watsonx
+  - ibmCcgnos-analytics
 industry:
-  - transportation
+  - manufacturing
 subTitle: >-
-  IBM Cognos Business Intelligence System Tracks the Heartbeat of Sales to
-  Deliver Real-Time Visibility for AngioScore
+  IBM Cognos Anatytics System Tracks the Heartbeat of Sales to Deliver Real-Time
+  Visibility for AngioScore
 image: /img/angioscore-logo.jpg
 ---
-###### *"This entire process has been quite exciting and we are proud of our results.With our management's support and end user input,we have put controls in place and built a solid BI infrastructure for our department. The IBM Cognos BI system implemented by Incede.ai has been especially critical to our success with this project, and we look forward to helping our other departments achieve the same results."*
+###### *"This entire process has been quite exciting and we are proud of our results.With our management's support and end user input,we have put controls in place and built a solid BI infrastructure for our department. The IBM Cognos Analytics system implemented by Incede.ai has been especially critical to our success with this project, and we look forward to helping our other departments achieve the same results."*
 
 **\- Lu Lee Director of IT AngioScore Inc.**
 
-### IBM Cognos Business Intelligence System Tracks the Heartbeat of Sales to Deliver Real-Time Visibility for AngioScore
+### IBM Cognos Analytics System Tracks the Heartbeat of Sales to Deliver Real-Time Visibility for AngioScore
 
-AngioScore Inc.develops, manufactures and markets the innovative AngioSculpt Scoring Balloon Catheter to significantly alter the landscape for treating both peripheral arterial disease (PAD) and coronary artery disease (CAD).AngioScore addresses markets that represent a worldwide opportunity of over $2 billion.
+AngioScore Inc. develops, manufactures and markets the innovative AngioSculpt Scoring Balloon Catheter to significantly alter the landscape for treating both peripheral arterial disease (PAD) and coronary artery disease (CAD). AngioScore addresses markets that represent a worldwide opportunity of over $2 billion.
 
-To empower a small sales team to more effectively address the massive worldwide market opportunity,AngioScore faced the challenge to provide up-to-date sales information for management and sales teams in real-time delivered for both mobile and web-based devices.
+To empower a small sales team to more effectively address the massive worldwide market opportunity, AngioScore faced the challenge to provide up-to-date sales information for management and sales teams in real-time delivered for both mobile and web-based devices.
 
-A comprehensive IBM Cognos 8 business intelligence (BI) system developed by Incede.ai provides the AngioScore sales team with easy access to intuitively designed dashboards and reports with the capability to drill-down to details.To provide a real-time view into sales,reports based on the latest orders are pushed out on a regular basis to the sales team on their mobile devices. 
+A comprehensive IBM Cognos Analytics system developed by Incede.ai provides the AngioScore sales team with easy access to intuitively designed dashboards and reports with the capability to drill-down to details. To provide a real-time view into sales, reports based on the latest orders are pushed out on a regular basis to the sales team on their mobile devices. 
 
-*"Current and valid information for management is essential for the success of our sales organization and for efficiently marketing the AngioScore products," said Lu Lee,Director of IT,AngioScore."Sales data, order quantities and product lines must be available quickly and reliably.We knew that a BI platform was necessary to supply information for decision-making to the sales team and sales management."*
+*"Current and valid information for management is essential for the success of our sales organization and for efficiently marketing the AngioScore products," said Lu Lee, Director of IT, AngioScore."Sales data, order quantities and product lines must be available quickly and reliably. We knew that a BI platform was necessary to supply information for decision-making to the sales team and sales management."*
 
-AngioScore turned to Incede.ai for its expertise in delivering BI systems based on IBM Cognos.
+AngioScore turned to Incede.ai for its expertise in delivering BI systems based on IBM Cognos Analytics.
 
 Incede.ai consultants gained a strong understanding of the AngioScore business model and worked rapidly and efficiently to develop the new BI system for AngioScore that provided:
 
@@ -33,9 +33,9 @@ Incede.ai consultants gained a strong understanding of the AngioScore business m
 * An easy-to-use facility to write simple ad hoc reports 
 * Tracking of product sales initiatives
 
-Capabilities of the BI system include automated reporting of daily sales for immediate view of business performance and a dashboard screen with drill-through access to detail behind the summary reports for improved decision-making.The system connects for real-time updates to AngioScore's Salesforce.com and Expandable ERP systems, and replaces several SAP Crystal reports with IBM Cognos.
+Capabilities of the BI system include automated reporting of daily sales for immediate view of business performance and a dashboard screen with drill-through access to detail behind the summary reports for improved decision-making. The system connects for real-time updates to AngioScore's Salesforce.com and Expandable ERP systems, and replaces several SAP Crystal reports with IBM Cognos.
 
-The cost savings were a result of consolidating into one centralized, scalable infrastructure leveraging common operational services within IBM Cognos 8 BI.
+The cost savings were a result of consolidating into one centralized, scalable infrastructure leveraging common operational services within IBM Cognos Analytics.
 
 **About AngioScore**
 
@@ -43,4 +43,6 @@ AngioScore Inc.develops, manufactures and markets the AngioSculpt Scoring Balloo
 
 **About Incede.ai**
 
-Incede.ai, based in Santa Clara, California, is a strategy and technology consultancy that helps leading companies use advanced performance management, business intelligence and business analytics solutions to achieve competitive advantage and operational excellence.
+Incede.ai delivers enterprise-ready AI agents, workflow automation, and actionable analytics—designed to accelerate business operations, drive measurable impact, and ensure trusted governance at scale. 
+
+Our global delivery model provides an advantage to customers by delivering best-in-class solutions economically. Our consultants are seasoned professionals with deep expertise in designing, developing, delivering and managing successful projects. By using proven processes, our customers are assured of consistently high levels of quality for every project.
