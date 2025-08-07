@@ -2,9 +2,9 @@
 templateKey: resources-case-studies
 title: Vidahora
 technology:
-  - watson-assistant
+  - watsonx
 industry:
-  - services
+  - transportation
 subTitle: 'Cultivating happy, healthy and productive workplaces with AI-driven support'
 image: /img/vidahora_image_1.webp
 ---
