@@ -127,6 +127,13 @@
     font-weight: 300 !important;
     line-height: 1.2 !important;
   }
+  .services-input-button-row {
+    max-width: 700px; /* Adjust as needed for overall width */
+    .col-lg-6 {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+  }
 }
 .custom-services-img {
   .image-section {
@@ -154,12 +161,6 @@
 }
 .text-initial{
   text-transform: initial !important;
-}
-.watson-api-scroll-container {
-  .menu-wrapper--inner {
-    display: flex !important;
-    justify-content: start !important;
-  }
 }
 
 @media screen and (max-width: 576px) {

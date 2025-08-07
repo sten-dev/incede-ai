@@ -23,6 +23,24 @@ class LayoutBody extends Component {
     setTimeout(() => {
       this.addGoogleAnalytics()
     }, 2000);
+    this.scrollToHash(); // Initial scroll on mount
+  };
+
+  componentDidUpdate(prevProps) {
+    // Check if the hash part of the URL has changed
+    if (this.window && this.window.location && prevProps.location && this.window.location.hash !== prevProps.location.hash) {
+      this.scrollToHash();
+    }
+  }
+
+  scrollToHash = () => {
+    if (this.window && this.window.location && this.window.location.hash) {
+      const id = this.window.location.hash.substring(1);
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
   };
 
   parseJwt = () => {

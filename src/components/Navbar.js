@@ -35,7 +35,7 @@ class INavbar extends Component {
     this.state = {
       isOpen: false,
       isWWDPopoverOpen: false,
-      isServicesMenuOpen: false,
+      // isServicesMenuOpen: false, // Commented out as per user request
       isSolutionsMenuOpen: false,
       isIndustriesMenuOpen: false,
       isResourcesMenuOpen: false,
@@ -94,11 +94,11 @@ class INavbar extends Component {
       isWWDPopoverOpen: !this.state.isWWDPopoverOpen,
     });
   };
-  toggleServicesMenu = () => {
-    this.setState({
-      isServicesMenuOpen: !this.state.isServicesMenuOpen,
-    });
-  };
+  // toggleServicesMenu = () => { // Commented out as per user request
+  //   this.setState({
+  //     isServicesMenuOpen: !this.state.isServicesMenuOpen,
+  //   });
+  // };
   toggleSolutionsMenu = () => {
     this.setState({
       isSolutionsMenuOpen: !this.state.isSolutionsMenuOpen,
@@ -168,6 +168,8 @@ class INavbar extends Component {
                     />{" "}
                   </a>
                 </NavItem> */}
+                {/* Commented out as per user request */}
+                {/*
                 <NavItem
                   id="menu_services"
                   className="btn"
@@ -188,6 +190,12 @@ class INavbar extends Component {
                       // onClick={props.onClick}
                     />{" "}
                   </a>
+                </NavItem>
+                */}
+                <NavItem className="btn">
+                  <Link activeClassName="selected" to="/services/enterprise-ai-agents">
+                    Services
+                  </Link>
                 </NavItem>
                 {/* <NavItem id="menu_industries" className="btn">
                   <a>
@@ -231,7 +239,7 @@ class INavbar extends Component {
                     Resources
                   </Link>
                 </NavItem>
-                <NavItem
+                {/* <NavItem
                   id="menu_customers"
                   className="btn"
                   onMouseEnter={() => {
@@ -243,7 +251,7 @@ class INavbar extends Component {
                   <Link activeClassName="selected" to="/customers">
                     Customers
                   </Link>
-                </NavItem>
+                </NavItem> */}
                 <NavItem
                   id="menu_why_incede"
                   className="btn"
@@ -287,6 +295,8 @@ class INavbar extends Component {
             </Collapse>
           </Navbar>
 
+          {/* Commented out as per user request */}
+          {/*
           <Popover
             boundariesElement="window"
             placement="bottom"
@@ -311,6 +321,7 @@ class INavbar extends Component {
               <ServiceMenu />
             </PopoverBody>
           </Popover>
+          */}
 
           {/* <Popover
             boundariesElement="window"

@@ -5,7 +5,7 @@ import logo from "../../img/logo_white.png";
 import arrow from "../../img/arrow.svg";
 import close from "../../img/close.svg";
 import { Link } from "gatsby";
-import ServiceMenu from "./static/ServiceMenu";
+// import ServiceMenu from "./static/ServiceMenu"; // Commented out as per user request
 import IndustryMenu from "./static/IndustryMenu";
 import SolutionMenu from "./static/SolutionMenu";
 import WhyIncedeMenu from "./static/WhyIncedeMenu";
@@ -17,7 +17,7 @@ class MenuSection extends Component {
     super(props);
     this.state = {
       showSubMenu: false,
-      showService: false,
+      // showService: false, // Commented out as per user request
       showSolution: false,
       showIndustry: false,
       showResource: false,
@@ -25,12 +25,12 @@ class MenuSection extends Component {
       showAboutUs: false,
     };
   }
-  showService = () => {
-    this.setState({
-      showSubMenu: !this.state.showSubMenu,
-      showService: !this.state.showService,
-    });
-  };
+  // showService = () => { // Commented out as per user request
+  //   this.setState({
+  //     showSubMenu: !this.state.showSubMenu,
+  //     showService: !this.state.showService,
+  //   });
+  // };
   showSolution = () => {
     this.setState({
       showSubMenu: !this.state.showSubMenu,
@@ -143,6 +143,8 @@ class MenuSection extends Component {
               </React.Fragment>
             )} */}
 
+            {/* Commented out as per user request */}
+            {/*
             {(!this.state.showSubMenu || this.state.showService) && (
               <div className="menu-items">
                 <span onClick={this.showService} className="d-inline-flex">
@@ -179,6 +181,12 @@ class MenuSection extends Component {
                 <ServiceMenu />
               </React.Fragment>
             )}
+            */}
+            <div className="menu-items">
+              <Link to="/services/enterprise-ai-agents">
+                <span onClick={this.props.toggle}>Services</span>
+              </Link>
+            </div>
 
             {/* {(!this.state.showSubMenu || this.state.showIndustry) && (
               <div className="menu-items">
@@ -258,12 +266,12 @@ class MenuSection extends Component {
               <React.Fragment>
                 <div className="menu-items">
                   <Link to="/resources/case-studies">
-                    <span onClick={this.props.toggle}>Case Studies</span>
+                    <span onClick={this.props.toggle}>Resources</span>
                   </Link>
                 </div>
               </React.Fragment>
             )}
-            {!this.state.showSubMenu && (
+            {/* {!this.state.showSubMenu && (
               <React.Fragment>
                 <div className="menu-items">
                   <Link to="/customers">
@@ -271,7 +279,7 @@ class MenuSection extends Component {
                   </Link>
                 </div>
               </React.Fragment>
-            )}
+            )} */}
 
             {/* why-incede-link */}
             {!this.state.showSubMenu && (

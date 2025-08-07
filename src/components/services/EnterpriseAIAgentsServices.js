@@ -7,6 +7,8 @@ import { Link, animateScroll as scroll } from "react-scroll";
 import PrebuiltAgents from "./enterprise-ai-agents-services/PrebuiltAgents";
 import CustomAIAgentDevelopment from "./enterprise-ai-agents-services/CustomAIAgentDevelopment";
 import ContactModal from '../ContactModal'; // Import ContactModal
+import { ServiceContext } from '../../context/ServiceContext';
+
 
 
 const serviceSubItems = [
@@ -47,6 +49,7 @@ export const ArrowLeft = Arrow({ text: "<", className: "arrow-prev" });
 export const ArrowRight = Arrow({ text: ">", className: "arrow-next" });
 
 class EnterpriseAIAgentsServices extends Component {
+  static contextType = ServiceContext;
   constructor(props) {
     super(props);
     this.state = {
@@ -78,7 +81,8 @@ class EnterpriseAIAgentsServices extends Component {
 
   componentDidMount = () => {
     if (window.location.hash.length > 0) {
-      let hash = window.location.hash.split("#")[1];
+      // let hash = window.location.hash.split("#")[1];
+      let hash = this.context.selectedSubServiceHash;
       let activeIndex = 0;
       let itemIndex = 0;
       switch (hash) {
@@ -114,6 +118,42 @@ class EnterpriseAIAgentsServices extends Component {
     }
   };
 
+  componentDidUpdate(prevProps, prevState) {
+    // debugger
+    // Check if the context hash value has changed
+    if (
+      this.context.selectedSubServiceHash &&
+      this.context.selectedSubServiceHash !==
+      (prevState._lastContextHash || "")
+    ) {
+      let hash = this.context.selectedSubServiceHash;
+      let activeIndex = 0;
+      let itemIndex = 0;
+      switch (hash) {
+        case "prebuilt-agents":
+          activeIndex = 0;
+          itemIndex = 0;
+          break;
+        case "custom-ai-agent-development":
+          activeIndex = 1;
+          itemIndex = 1;
+          break;
+        default:
+          activeIndex = 0;
+          itemIndex = 0;
+          break;
+      }
+      this.setState({
+        activeIndex,
+        menuItems: Menu(
+          serviceSubItems.slice(0, serviceSubItems.length),
+          itemIndex
+        ),
+        _lastContextHash: hash, // Track last context hash to avoid loops
+      });
+    }
+  }
+
   handleChange = index => {
     this.setState({ activeIndex: index });
   };
@@ -136,20 +176,22 @@ class EnterpriseAIAgentsServices extends Component {
         linkId = "prebuilt-agents";
         break;
     }
-    this.setState(
+     this.setState(
       {
         activeIndex: activeIndex,
         menuItems: menuItems,
-        linkId: "enterprise-ai-agents-id"
+        linkId: linkId
       },
       () => {
         setTimeout(() => {
-          document.getElementById("custom-react-link").click();
           window.history.pushState(
             "",
             "",
             `/services/enterprise-ai-agents#${linkId}`
           );
+          this.context.updateServiceSelection(window.location.pathname,linkId);
+          // document.getElementById("custom-react-link").click();
+   
         });
       }
     );

@@ -3,7 +3,7 @@ import { Row, Col, Container } from "reactstrap";
 import ServicesImage from "../../img/services/banner-services.png";
 import ScrollMenu from "react-horizontal-scrolling-menu";
 import ServicePageCards from "../Landing/ServicePageCards";
-import ContactModal from '../ContactModal';
+import ContactModal from "../ContactModal";
 
 let list = [
   // { name: "watsonx Assistant Services", className: "text-initial" },
@@ -16,11 +16,10 @@ let list = [
   // { name: "Planning and Budgeting" },
   // { name: "Applications Development" },
   // { name: "Professional Services" },
-  { name: "AI-Powered Business Process Automation" },
   { name: "Enterprise AI Agents" },
   { name: "Gen AI Implementation" },
+  { name: "AI-Powered Business Process Automation" },
   { name: "Planning Budgeting and Analytics" },
-
 ];
 const MenuItem = ({ text, selected, className }) => {
   return (
@@ -90,22 +89,22 @@ class ServicesHeader extends Component {
     this.setState({ selected: key });
     console.log(`onSelect: ${key}`);
     // let url = "/services/gen-ai-services";
-    let url = "/services/ai-powered-business-process-automation";
+    let url = "/services/enterprise-ai-agents";
     switch (Number(key)) {
       case 0:
-        url = "/services/ai-powered-business-process-automation";
-        break;
-      case 1:
         url = "/services/enterprise-ai-agents";
         break;
-      case 2:
+      case 1:
         url = "/services/gen-ai-implementation";
+        break;
+      case 2:
+        url = "/services/ai-powered-business-process-automation";
         break;
       case 3:
         url = "/services/planning-budgeting-and-analytics";
         break;
       default:
-        url = "/services/ai-powered-business-process-automation";
+        url = "/services/enterprise-ai-agents";
         break;
       // case 0:
       //   url = "/services/watson-assistant-services";
@@ -153,16 +152,16 @@ class ServicesHeader extends Component {
   componentDidMount = () => {
     let path = window.location.pathname;
     switch (path) {
-      case "/services/ai-powered-business-process-automation":
-      case "/services/ai-powered-business-process-automation/":
-        this.setState({ selected: "0" });
-        break;
       case "/services/enterprise-ai-agents":
       case "/services/enterprise-ai-agents/":
-        this.setState({ selected: "1" });
+        this.setState({ selected: "0" });
         break;
       case "/services/gen-ai-implementation":
       case "/services/gen-ai-implementation/":
+        this.setState({ selected: "1" });
+        break;
+      case "/services/ai-powered-business-process-automation":
+      case "/services/ai-powered-business-process-automation/":
         this.setState({ selected: "2" });
         break;
       case "/services/planning-budgeting-and-analytics":
@@ -212,7 +211,7 @@ class ServicesHeader extends Component {
           <article className="flex justify-content-center align-items-center py-4 text-center mt-0 mt-sm-3 mt-lg-4">
             <h4 className="text-white bold pt-0">SERVICES OVERVIEW</h4>
             <h1 className="text-white bold">Builds Outcome-Driven AI</h1>
-            <p className="text-white px-4" style={{fontSize:"larger"}}>
+            <p className="text-white px-4" style={{ fontSize: "larger" }}>
               Incede.ai delivers modular AI services—from intelligent agents and
               Gen AI strategy to automated workflows and agile planning. We help
               enterprises streamline operations, boost decision-making, and
@@ -242,10 +241,10 @@ class ServicesHeader extends Component {
             </Col> */}
           {/* </Row> */}
         </Container>
-        
+
         <ServicePageCards />
         <Container>
-          <Row className='w-50 mt-2 mb-4 d-flex justify-content-between align-items-center mx-auto'>
+          <Row className="w-50 mt-2 mb-4 d-flex justify-content-between align-items-center mx-auto">
             <Col xs={12} md={8} className="pr-md-2 mb-2 mb-md-0">
               <input
                 type="email"
@@ -273,24 +272,24 @@ class ServicesHeader extends Component {
         </Container>
         <Container fluid className="section-tabs-container">
           {/* <Container> */}
-            <ScrollMenu
-              alignCenter={this.state.alignCenter}
-              arrowLeft={ArrowLeft}
-              arrowRight={ArrowRight}
-              clickWhenDrag={this.state.clickWhenDrag}
-              data={menu}
-              dragging={this.state.dragging}
-              hideArrows={this.state.hideArrows}
-              hideSingleArrow={this.state.hideSingleArrow}
-              onSelect={this.onSelect}
-              onUpdate={this.onUpdate}
-              ref={(el) => (this.menu = el)}
-              selected={this.state.selected}
-              transition={this.state.transition}
-              translate={this.state.translate}
-              wheel={this.state.wheel}
-              scrollToSelected={true}
-            />
+          <ScrollMenu
+            alignCenter={this.state.alignCenter}
+            arrowLeft={ArrowLeft}
+            arrowRight={ArrowRight}
+            clickWhenDrag={this.state.clickWhenDrag}
+            data={menu}
+            dragging={this.state.dragging}
+            hideArrows={this.state.hideArrows}
+            hideSingleArrow={this.state.hideSingleArrow}
+            onSelect={this.onSelect}
+            onUpdate={this.onUpdate}
+            ref={(el) => (this.menu = el)}
+            selected={this.state.selected}
+            transition={this.state.transition}
+            translate={this.state.translate}
+            wheel={this.state.wheel}
+            scrollToSelected={true}
+          />
           {/* </Container> */}
         </Container>
       </section>

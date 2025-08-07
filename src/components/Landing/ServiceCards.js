@@ -4,6 +4,7 @@ import solutionTrainingIcon from "../../../static/img/watson-assistant/solution-
 import integrationDevelopmentIcon from "../../../static/img/watson-assistant/integration-development.png";
 import channelDevelopmentIcon from "../../../static/img/watson-assistant/channel-development.png";
 import designServicesIcon from "../../../static/img/watson-assistant/design-services.png";
+import { Link } from "gatsby"; /* Import Link component */
 import "../../styles/service-cards.scss";
 
 const cards = [
@@ -12,28 +13,32 @@ const cards = [
     title: "Enterprise AI Agents",
     desc: "Deploy AI Agents as autonomous teammates—powered by models, logic, and built for action.",
     demo: "Get a demo",
-    learn: "Learn more"
+    learn: "Learn more",
+    url: "/services/enterprise-ai-agents" /* Added URL */
   },
   {
     icon: integrationDevelopmentIcon,
     title: "Gen AI Implementation",
     desc: "From Documents to Decisions—Turn Gen AI into Enterprise-Ready, Actionable Intelligence at Scale.",
     demo: "Get a demo",
-    learn: "Learn more"
+    learn: "Learn more",
+    url: "/services/gen-ai-implementation" /* Added URL */
   },
   {
     icon: channelDevelopmentIcon,
     title: "AI-Powered Business Process Automation",
     desc: "Streamline operations, reduce costs, and accelerate workflows—powered by enterprise-grade GenAI.",
     demo: "Get a demo",
-    learn: "Learn more"
+    learn: "Learn more",
+    url: "/services/ai-powered-business-process-automation" /* Added URL */
   },
   {
     icon: designServicesIcon,
     title: "Planning & Analytics",
     desc: "Modernize planning and analytics with real-time collaboration, agile forecasting, and GenAI-powered decision intelligence.",
     demo: "Get a demo",
-    learn: "Learn more"
+    learn: "Learn more",
+    url: "/services/planning-budgeting-and-analytics" /* Added URL */
   }
 ];
 
@@ -59,7 +64,7 @@ const ServiceCards = ({ onDemoClick }) => (
               >
                 {card.demo}
               </Button>
-              <span className="service-card-learn">{card.learn}</span>
+              <Link to={card.url} className="service-card-learn">{card.learn}</Link> {/* Changed to Link component */}
             </div>
           </Col>
         ))}

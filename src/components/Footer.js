@@ -65,6 +65,16 @@ class Footer extends React.Component {
                           </Link>
                         </li>
                         <li>
+                          <li>
+                          <Link to='/services/enterprise-ai-agents' className='navbar-item'>
+                            Services
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to='/' className='navbar-item'>
+                            Resources
+                          </Link>
+                        </li>
                           <Link className='navbar-item' to='/why-incede'>
                             Why Incede
                           </Link>
