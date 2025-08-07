@@ -2,15 +2,15 @@
 templateKey: resources-case-studies
 title: BASF
 technology:
-  - watsonx
+  - watsonx.orchestrate
 industry:
-  - transportation
+  - manufacturing
 subTitle: Supporting smarter supply chain operations with cognitive cloud technology
 image: /img/basf_image_for_digital.webp
 ---
-BASF wanted to make digitalization an integral part of its business to create additional value for customers, grow the business and improve efficiency. Working with IBM, the company’s Nutrition & Health division conducted a proof of concept (PoC) with IBM Watson technology to explore how AI and machine learning can support smarter inventory decisions, helping to ensure that products arrive in the right place at the right time.
+BASF wanted to make digitalization an integral part of its business to create additional value for customers, grow the business and improve efficiency. Working with IBM, the company’s Nutrition & Health division conducted a proof of concept (PoC) with IBM watsonx technology to explore how AI and machine learning can support smarter inventory decisions, helping to ensure that products arrive in the right place at the right time.
 
-*“The Replenishment Advisor proof of concept demonstrated how IBM Watson, AI and machine learning can help to deliver greater visibility across a global supply chain.” - Dr. Bernd Lohe, Director Supply Chain Operational Excellence & Digitization, BASF Nutrition & Health*
+*“The Replenishment Advisor proof of concept demonstrated how IBM watsonx, AI and machine learning can help to deliver greater visibility across a global supply chain.” - Dr. Bernd Lohe, Director Supply Chain Operational Excellence & Digitization, BASF Nutrition & Health.*
 
 **Business challenge**
 
@@ -30,7 +30,7 @@ BASF worked with IBM on a PoC to demonstrate that AI and machine learning could 
 
 **Solution components**
 
-Watson Assistant
+watsonx.orchestrate
 
 **Business challenge story**
 
@@ -50,37 +50,37 @@ After evaluating its options, BASF Nutrition & Health identified AI as a potenti
 
 The company’s planners had to comb through a number of systems and reports to get the facts and figures they needed to make informed replenishment decisions, but cognitive technologies would allow them to integrate, analyze and visualize data from multiple sources to make the decision-making process quicker, easier and smarter.
 
-Impressed by IBM’s achievements with cognitive intelligence based on Watson™ solutions, the BASF Nutrition & Health Supply Chain team engaged[IBM Services™](https://www.ibm.com/services)to help build a PoC. The goal was to evaluate how cognitive technology based on AI and machine learning could be used to build a more powerful Replenishment Advisor tool. The new Replenishment Advisor tool will use the latest operational data, such as forecast and actual sales, sales opportunities, and shipping schedules, to provide planners with guidance on replenishment timing and quantity. The tool will rely on machine learning and feedback from experienced planners to offer increasingly intelligent recommendations for highly efficient inventory decisions.
+Impressed by IBM’s achievements with cognitive intelligence based on IBM wastonx solutions, the BASF Nutrition & Health Supply Chain team engaged IBM Services™ to help build a PoC. The goal was to evaluate how cognitive technology based on AI and machine learning could be used to build a more powerful Replenishment Advisor tool. The new Replenishment Advisor tool will use the latest operational data, such as forecast and actual sales, sales opportunities, and shipping schedules, to provide planners with guidance on replenishment timing and quantity. The tool will rely on machine learning and feedback from experienced planners to offer increasingly intelligent recommendations for highly efficient inventory decisions.
 
-The Replenishment Advisor tool could be built quickly using [IBM Cloud™](https://www.ibm.com/cloud/)and [IBM Watson AI](https://www.ibm.com/cloud/ai) services, a robust integration platform that allows expert users to connect structured and unstructured data from disparate systems to deliver a unified overview of supply chain operations.
+The Replenishment Advisor tool could be built quickly using IBM Cloud™ and IBM watsonx.orchestrate services, a robust integration platform that allows expert users to connect structured and unstructured data from disparate systems to deliver a unified overview of supply chain operations.
 
-Today, many of the AI-related capabilities have been developed in a standard supply chain offering called the [IBM Watson Supply Chain Insights](https://www.ibm.com/marketplace/supply-chain-insights) platform. The solution applies AI, trained in supply chain through machine learning, to provide comprehensive, end-to-end visibility and insights. With Watson Supply Chain Insights software, organizations can now access the unstructured data relevant to their operations; predict, assess and mitigate disruptions and risks; and optimize the supply chain to deliver greater value to the business.
+Today, many of the AI-related capabilities have been developed in a standard supply chain offering called the IBM Watson Supply Chain Insights platform. The solution applies AI, trained in supply chain through machine learning, to provide comprehensive, end-to-end visibility and insights. With Watson Supply Chain Insights software, organizations can now access the unstructured data relevant to their operations; predict, assess and mitigate disruptions and risks; and optimize the supply chain to deliver greater value to the business.
 
 When presenting their vision of a more responsive supply chain, the IBM team highlighted how they had recently overhauled their own global supply chain operations. The results IBM achieved internally encouraged BASF Nutrition & Health to conduct the PoC together.
 
-Matthias Graefe, Director of Supply Chain Transformation at IBM, notes: “IBM has been using AI and Watson to support supply chain operations for over a decade. This makes us uniquely placed to offer advice in that area and support others in creating innovative solutions that drive digital transformation. Furthermore, IBM was named [2018 Manufacturer of the Year](https://www.ibm.com/blogs/watson-customer-engagement/2018/06/27/ibm-named-2018-manufacturer-year/) in recognition of the supply chain team’s use of new technologies, including AI and machine learning, to optimize operations.”
+Matthias Graefe, Director of Supply Chain Transformation at IBM, notes: “IBM has been using AI and watsonx to support supply chain operations for over a decade. This makes us uniquely placed to offer advice in that area and support others in creating innovative solutions that drive digital transformation. Furthermore, IBM was named 2018 Manufacturer of the Year in recognition of the supply chain team’s use of new technologies, including AI and machine learning, to optimize operations.”
 
-As a first step, IBM organized an [IBM Enterprise Design Thinking™](https://www.ibm.com/design/thinking/)workshop with BASF Nutrition & Health Supply Chain teams, and they decided on the replenishment planning process for exploring the new opportunities of AI. Supply chain activity represents a promising, scalable pilot to investigate the feasibility of cognitive technology for improving the accuracy and overall performance of handling dynamic market conditions across continents and time zones while minimizing disruptions.
+As a first step, IBM organized an IBM Enterprise Design Thinking™ workshop with BASF Nutrition & Health Supply Chain teams, and they decided on the replenishment planning process for exploring the new opportunities of AI. Supply chain activity represents a promising, scalable pilot to investigate the feasibility of cognitive technology for improving the accuracy and overall performance of handling dynamic market conditions across continents and time zones while minimizing disruptions.
 
 Second, data scientists designed a model based on transactional order data from the ERP system, information about future orders in the pipeline and other sources, including sales pattern reports, volume strategy, inventory levels and average shipping times, to assess the stock levels of a small subset of products. Using integrated and open-source machine learning tools, the team developed a customized solution based on so-called artificial neural networks to predict the future development of replenishment requirements.
 
-Dr. Bernd Lohe, Director Supply Chain Operational Excellence & Digitization at BASF Nutrition & Health, states: “IBM Cloud and Watson AI services gave us access to a wide range of machine learning models with IBM experience built in, right out of the box. This meant that we could start analyzing our data and training the Replenishment Advisor immediately. The solution also includes data visualizations. During the training phase, this helped our planners to understand system recommendations and to execute effective training loops for machine learning. An integrated chatbot functionality is built into the Replenishment Advisor, allowing staff to interact with the solution using natural language. Based on our successful PoC, we are very satisfied with the IBM Watson portfolio, both in terms of the powerful cognitive capabilities and ease of use.”
+Dr. Bernd Lohe, Director Supply Chain Operational Excellence & Digitization at BASF Nutrition & Health, states: “IBM Cloud and watsonx.ai services gave us access to a wide range of machine learning models with IBM experience built in, right out of the box. This meant that we could start analyzing our data and training the Replenishment Advisor immediately. The solution also includes data visualizations. During the training phase, this helped our planners to understand system recommendations and to execute effective training loops for machine learning. An integrated virtual Agent functionality is built into the Replenishment Advisor, allowing staff to interact with the solution using natural language. Based on our successful PoC, we are very satisfied with the IBM watsonx portfolio, both in terms of the powerful cognitive capabilities and ease of use.”
 
 **Results story**
 
 *Making the most of cognitive technologies*
 
-After completing just 10 training cycles, the Replenishment Advisor accurately predicted when product stock was running low, providing early warnings and advising the optimal time to replenish supply and minimize disruptions. This signaled planners to take timely action, helping to prevent under- and over-stocking.
+After completing just 10 training cycles, the Replenishment Advisor accurately predicted when product stock was running low, providing early warnings and advising the optimal time to replenish supply and minimize disruptions. This signalled planners to take timely action, helping to prevent under- and over-stocking.
 
 With the success of the PoC, BASF Nutrition & Health could demonstrate the potential of cognitive supply chain management to the entire group.
 
 The Replenishment Advisor has proven to increase visibility into inventory levels, which supports smarter replenishment planning, more efficient demand fulfilment and, ultimately, better service to customers. This will help BASF Nutrition & Health to adapt to shifts in demand faster and more effectively, so that products are always in the right place at the right time. The Replenishment Advisor has also proven to reduce manual workloads, allowing planners to redirect their attention from data collection to sophisticated decision-making and coordination activities.
 
-The conversational component provided by a chatbot is especially useful for stakeholders less familiar with the planning systems. Being able to ask questions and be guided to the right answers is a great option for many users who might be overwhelmed by a complex user interface with many detailed options. In combination with the powerful graphical visualization of the recommendations, the Replenishment Advisor can communicate complicated analyses in a simple, straightforward way, making the innovative insights intuitively accessible to cross functional teams.
+The conversational component provided by a Agent is especially useful for stakeholders less familiar with the planning systems. Being able to ask questions and be guided to the right answers is a great option for many users who might be overwhelmed by a complex user interface with many detailed options. In combination with the powerful graphical visualization of the recommendations, the Replenishment Advisor can communicate complicated analyses in a simple, straightforward way, making the innovative insights intuitively accessible to cross functional teams.
 
 Based on these positive results, BASF Nutrition & Health estimates that with the Replenishment Advisor, planners could significantly extend a more rigorous monitoring and optimization to its full product portfolio, increasing availability and reducing waste for lower priority products. Together with IBM, the team is now evaluating ways to bring the PoC into production.
 
-Dr. Lohe concludes: “The Replenishment Advisor PoC demonstrated how IBM Watson, AI and machine learning can help to deliver greater visibility across a global supply chain. Equally important, it showed the willingness of our teams to engage with digital technologies. By optimizing inventory management further with the latest solutions from IBM, we can further increase the service levels to our customers. With help from IBM, we have made a big step toward understanding the high potential – beyond replenishment planning – in digitizing and innovating our supply chain processes. This is just the start of our transformation journey, and we are excited to see what the future will bring.”
+Dr. Lohe concludes: “The Replenishment Advisor PoC demonstrated how IBM watsonx.orchestrate, AI and machine learning can help to deliver greater visibility across a global supply chain. Equally important, it showed the willingness of our teams to engage with digital technologies. By optimizing inventory management further with the latest solutions from IBM, we can further increase the service levels to our customers. With help from IBM, we have made a big step toward understanding the high potential – beyond replenishment planning – in digitizing and innovating our supply chain processes. This is just the start of our transformation journey, and we are excited to see what the future will bring.”
 
 **About BASF**
 
@@ -88,6 +88,6 @@ BASF is one of the world’s largest chemicals groups, helping customers in almo
 
 **About Incede.ai**
 
-[Incede.ai](https://www.incede.ai) is the AI division of [Locus Solutions, Inc.](http://www.locussolutions.com); harnessing the power of Data, AI and Machine Learning
+Incede.ai delivers enterprise-ready AI agents, workflow automation, and actionable analytics—designed to accelerate business operations, drive measurable impact, and ensure trusted governance at scale. 
 
-With more than half of the world’s data in natural language, Incede.ai solves business problems and creates a competitive advantage by leveraging the power of [Watson AI](https://www.ibm.com/watson) and machine learning.As thought leaders, we collaborate with stakeholders to deploy AI solutions that deliver real value.
+Our global delivery model provides an advantage to customers by delivering best-in-class solutions economically. Our consultants are seasoned professionals with deep expertise in designing, developing, delivering and managing successful projects. By using proven processes, our customers are assured of consistently high levels of quality for every project.
