@@ -2,15 +2,16 @@
 templateKey: resources-case-studies
 title: 'Dairy, food and beverage manufacturer'
 technology:
-  - watsonx
+  - watsonx.orchestrate
+  - watson-discovery
 industry:
-  - transportation
+  - manufacturing
 subTitle: 'Unlocking new insights with a central, AI-managed research library'
 image: /img/919729444.jpg
 ---
-The business used AI to make it possible to cross-reference and draw meaningful conclusions from its own critical market research as well as third-party reports by creating a unified report repository, supported by IBM Watson and IBM Cloud technology.
+The business used AI to make it possible to cross-reference and draw meaningful conclusions from its own critical market research as well as third-party reports by creating a unified report repository, supported by IBM watsonx and IBM Cloud technology.
 
-*“Now everyone in the company, no matter which brand or department, can instantly find exactly what they need.” - Suhale Kapoor, Executive Vice-President and Cofounder, IBM Business Partner Absolutdata*
+*“Now everyone in the company, no matter which brand or department, can instantly find exactly what they need.” - Suhale Kapoor, Executive Vice-President and Cofounder, IBM Business Partner Absolutdata.*
 
 **Business challenge**
 
@@ -30,11 +31,9 @@ The business deployed a central research library that was bolstered by cognitive
 
 **Solution components**
 
-Watson Assistant
+watsonx.orchestrate
 
 Watson Discovery
-
-Watson Knowledge Studio
 
 **Business challenge story**
 
@@ -54,15 +53,15 @@ To make answering these types of questions easier, the manufacturer began lookin
 
 *Finding the solution*
 
-After considering many options, the first step was to work with the business to compile the market and product records it had collected over the past three years, uploading these documents to a common [IBM Cloud](https://www.ibm.com/cloud/) repository.
+After considering many options, the first step was to work with the business to compile the market and product records it had collected over the past three years, uploading these documents to a common IBM Cloud repository.
 
-“One of their key concerns was if the cloud was secure,” recalls Kapoor. “But when we say that we’re an IBM partner, clients are more confident. We are able to show them that their data is going to go into a security-rich location, which is IBM Cloud.” As these documents were uploaded, [IBM Watson Discovery](https://www.ibm.com/cloud/watson-discovery) technology automatically analyzed the files, identifying key details and metadata so that the record could be properly stored within the new research library.
+“One of their key concerns was if the cloud was secure,” recalls Kapoor. “But when we say that we’re an IBM partner, clients are more confident. We are able to show them that their data is going to go into a security-rich location, which is IBM Cloud.” As these documents were uploaded, IBM Watson Discovery technology automatically analyzed the files, identifying key details and metadata so that the record could be properly stored within the new research library.
 
-To make locating specific facts and records easier, the library is supported with an AI-based search tool trained using[ IBM Watson Knowledge Studio](https://www.ibm.com/watson/services/knowledge-studio) and a custom chatbot built using [IBM Watson Assistant](https://www.ibm.com/cloud/watson-assistant/) technology. Now, users can simply type natural language questions to find the needed data, and they can even rate the accuracy and relevance of the results — feedback that the system will use to self-learn and refine future searches. Further, the manufacturer’s employees can edit the response text given by the search tool to clarify or amend details surrounding the research files and corresponding metadata.
+To make locating specific facts and records easier, the library is supported with an AI-based search tool trained using IBM watsonx and a custom Agent built using IBM watsonx.orchestrate technology. Now, users can simply type natural language questions to find the needed data, and they can even rate the accuracy and relevance of the results — feedback that the system will use to self-learn and refine future searches. Further, the manufacturer’s employees can edit the response text given by the search tool to clarify or amend details surrounding the research files and corresponding metadata.
 
 “They are leading the technology makeover in the region,” explains Kapoor. “They are one of the first consumer products companies in the Middle East to start using AI, and with the help of Watson and the capability that we have built on top of it, they can access solutions with the click of a button.”
 
-With a focus on convenience, they also integrated the new research library and corresponding AI-based search tool into the client’s main intranet site. In addition, an app was created for both the Android and iOS platforms that allows users to access both the research library and chatbot from their mobile devices. And to further enhance the usability of the solution, the team also developed an integrated, real-time performance dashboard and reference glossary to complement the library.
+With a focus on convenience, they also integrated the new research library and corresponding AI-based search tool into the client’s main intranet site. In addition, an app was created for both the Android and iOS platforms that allows users to access both the research library and Agent from their mobile devices. And to further enhance the usability of the solution, the team also developed an integrated, real-time performance dashboard and reference glossary to complement the library.
 
 **Results story**
 
@@ -78,7 +77,7 @@ He continues, explaining: “Just finding the right document isn’t enough. Som
 
 Further, the client is pleased with the convenience of the solution. By integrating the tool into the corporate intranet, users can rely on single sign-on access to view research records, and the mobile app makes critical data more readily available, even outside of the office.
 
-Finally, not only did the IBM Cloud environment provide a security-rich environment, but it also delivers an architecture that’s designed for high availability, yielding 99.99 percent uptime. And the Watson™ platform proved the ideal AI framework. “When we use an API from Watson,” concludes Kapoor, “it’s faster and much more intelligent. So once we train the solution, there’s hardly any manual intervention required.”
+Finally, not only did the IBM Cloud environment provide a security-rich environment, but it also delivers an architecture that’s designed for high availability, yielding 99.99 percent uptime. And the watsonx™ platform proved the ideal AI framework. “When we use an API from watsonx,” concludes Kapoor, “it’s faster and much more intelligent. So once we train the solution, there’s hardly any manual intervention required.”
 
 **About this dairy, food and beverage manufacturer**
 
@@ -86,6 +85,6 @@ This business is a large, vertically-integrated dairy company and a leading food
 
 **About Incede.ai**
 
-[Incede.ai](https://www.incede.ai) is the AI division of [Locus Solutions, Inc](http://www.locussolutions.com).; harnessing the power of Data, AI and Machine Learning
+Incede.ai delivers enterprise-ready AI agents, workflow automation, and actionable analytics—designed to accelerate business operations, drive measurable impact, and ensure trusted governance at scale. 
 
-With more than half of the world’s data in natural language, Incede.ai solves business problems and creates a competitive advantage by leveraging the power of [Watson AI](https://www.ibm.com/watson) and machine learning.As thought leaders, we collaborate with stakeholders to deploy AI solutions that deliver real value.
+Our global delivery model provides an advantage to customers by delivering best-in-class solutions economically. Our consultants are seasoned professionals with deep expertise in designing, developing, delivering and managing successful projects. By using proven processes, our customers are assured of consistently high levels of quality for every project.
