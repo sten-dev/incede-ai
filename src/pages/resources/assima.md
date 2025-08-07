@@ -2,9 +2,9 @@
 templateKey: resources-case-studies
 title: Assima
 technology:
-  - watsonx
+  - watsonx.orchestrate
 industry:
-  - transportation
+  - services
 subTitle: >-
   Creating the smarter employee: unlocking new levels of productivity with
   cloud-delivered AI
@@ -20,7 +20,7 @@ Imagine how productive your employees could be if they could access the right an
 
 **Transformation**
 
-Assima helps create smarter employees, arming them with an intelligent application overlay hosted in the IBM Cloud, delivering AI capabilities with IBM Watson technology.
+Assima helps create smarter employees, arming them with an intelligent application overlay hosted in the IBM Cloud, delivering AI capabilities with IBM watsonx technology.
 
 **Results**
 
@@ -32,7 +32,7 @@ Assima helps create smarter employees, arming them with an intelligent applicati
 
 **Solution components**
 
-Watson Assistant
+watsonx.orchestrate
 
 **Business challenge story**
 
@@ -58,13 +58,13 @@ To help it to successfully evolve into a SaaS provider, Assima embraced IBM Clou
 
 He continues: “Assima has always been known for its innovative, intelligent technology. When the opportunity presented itself to participate in a new IBM Event, the Watson Build Challenge, we seized it, knowing it would accelerate our journey with the development of our cognitive solutions.”
 
-Eleni Iatridis, Chief Learning Officer at Assima, picks up the story: “The Watson Build Challenge was a chance to compete for access to IBM support and tools, and to gain recognition for our cognitive solutions by building an AI-enhanced prototype. The concept we presented was an extension to our existing application overlay solution. Powered with Watson AI services, it goes beyond giving role-based information to provide users with intelligent responses and recommendations as they work, to improve and accelerate their decision-making. From 400 entries, our submission was judged the second best in Europe, an exciting achievement.”
+Eleni Iatridis, Chief Learning Officer at Assima, picks up the story: “The Watson Build Challenge was a chance to compete for access to IBM support and tools, and to gain recognition for our cognitive solutions by building an AI-enhanced prototype. The concept we presented was an extension to our existing application overlay solution. Powered with watsonx services, it goes beyond giving role-based information to provide users with intelligent responses and recommendations as they work, to improve and accelerate their decision-making. From 400 entries, our submission was judged the second best in Europe, an exciting achievement.”
 
-Today, Assima is further developing its cognitive solutions and has harnessed [IBM Watson Assistant](https://www.ibm.com/watson/services/conversation/) to enable its solutions to communicate with users via a chatbot in natural language. Assima is also leveraging data from [the Weather Company](https://www.ibm.com/weather)®, an IBM Business, to facilitate weather-based recommendations. Soon, Assima plans to incorporate Personality Insights and Tone Analyzer.
+Today, Assima is further developing its cognitive solutions and has harnessed IBM watsonx.orchestrate to enable its solutions to communicate with users via an agent in natural language. Assima is also leveraging data from the Weather Company®, an IBM Business, to facilitate weather-based recommendations.
 
-“With help from IBM, we are adding chatbot capabilities and increasing personalization, to help enhance user performance even further,” explains Eleni Iatridis. “The use cases are numerous. For example, if an employee is struggling with the next step in a process, our digital agent intervenes with the relevant help documents and even performs tasks automatically for them.
+“With help from IBM, we are adding virtual agent capabilities and increasing personalization, to help enhance user performance even further,” explains Eleni Iatridis. “The use cases are numerous. For example, if an employee is struggling with the next step in a process, our digital agent intervenes with the relevant help documents and even performs tasks automatically for them.
 
-“It can help with recommendations about the best time to schedule external works based on up to date weather predictions. Or, if a call center worker is on the telephone with a customer, the digital agent can give practical suggestions around how to interact effectively with that customer, depending on their mood and the situation.”
+“It can help with recommendations about the best time to schedule external works based on up-to-date weather predictions. Or, if a call center worker is on the telephone with a customer, the digital agent can give practical suggestions around how to interact effectively with that customer, depending on their mood and the situation.”
 
 **Results story**
 
@@ -78,9 +78,9 @@ The IBM platform has lived up to Assima’s expectations for security and reliab
 
 “Since adopting IBM Cloud solutions, we have experienced no interruptions to service, which means we can deliver on extremely demanding client SLAs \[service level agreements],” says Germain Bourgeois. “Equally, the IBM data centers are highly secure and compliant with a range of regulations, allowing us to serve clients in the healthcare and banking industries with ease. We are also confident that IBM can help us to meet the upcoming requirements of the General Data Protection Regulation \[GDPR].”
 
-By augmenting its solutions with AI capabilities, powered by IBM Watson, Assima is poised to deliver even greater value to its client base and sharpen its competitive edge.
+By augmenting its solutions with AI capabilities, powered by IBM watsonx.orchestrate, Assima is poised to deliver even greater value to its client base and sharpen its competitive edge.
 
-Eleni Iatridis concludes: “IBM Watson solutions are helping us deliver ‘augmented human intelligence’, where employees benefit from improved decision-making and reduced complexity, so they can get the most out of their business applications. With help from IBM, we’re cutting out the noise to put the most essential information at users’ fingertips, so they can perform better than ever.”
+Eleni Iatridis concludes: “IBM watsonx solutions are helping us deliver ‘augmented human intelligence’, where employees benefit from improved decision-making and reduced complexity, so they can get the most out of their business applications. With help from IBM, we’re cutting out the noise to put the most essential information at users’ fingertips, so they can perform better than ever.”
 
 **About Assima**
 
@@ -88,6 +88,6 @@ Established in 2002, Assima provides technology and services that help to improv
 
 **About Incede.ai**
 
-[Incede.ai](https://www.incede.ai) is the AI division of [Locus Solutions, Inc.](http://www.locussolutions.com); harnessing the power of Data, AI and Machine Learning
+[](https://www.incede.ai)Incede.ai delivers enterprise-ready AI agents, workflow automation, and actionable analytics—designed to accelerate business operations, drive measurable impact, and ensure trusted governance at scale. 
 
-With more than half of the world’s data in natural language, Incede.ai solves business problems and creates a competitive advantage by leveraging the power of [Watson AI](https://www.ibm.com/watson) and machine learning.As thought leaders, we collaborate with stakeholders to deploy AI solutions that deliver real value.
+Our global delivery model provides an advantage to customers by delivering best-in-class solutions economically. Our consultants are seasoned professionals with deep expertise in designing, developing, delivering and managing successful projects. By using proven processes, our customers are assured of consistently high levels of quality for every project.
