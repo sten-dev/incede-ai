@@ -182,7 +182,7 @@ class WhyIncede extends Component {
     return (
       <React.Fragment>
         <Layout pageTitle="Why Incede | Incede">
-          <Transition>
+          {/* <Transition> */}
             <MoreDetail />
             <Link
               id="custom-react-link-why-incede"
@@ -213,7 +213,7 @@ class WhyIncede extends Component {
               </div>
             </Container> */}
             {/* <Container
-              fluid
+               
               style={{ background: "rgba(122, 121, 121, 0.06)" }}
               className="gap-y industry-solution why-incede-container"
             >
@@ -227,20 +227,23 @@ class WhyIncede extends Component {
                 </Col>
               </Row>
             </Container> */}
-            <Container style={{ background: "rgba(122, 121, 121, 0.06)" }}>
-              <Row className="d-flex align-items-center">
-                <Col>
-                <article className="flex justify-content-center align-items-center py-4 text-center mt-0 mt-sm-3 mt-lg-4">
-                  <h1 className="text-center heading">Proven. Experienced. Built to Scale.</h1>
-                  <p className="sub-title mb-0 mb-lg-5 text-center">
-                    Led by a team of enterprise transformation experts, Incede.ai brings decades of real-world implementation experience to every engagement. Our leadership has built intelligent systems across healthcare, finance, manufacturing, and technology and now brings that expertise to power the next wave of AI-driven business.
-                  </p>
-                  </article>
-                </Col>
-              </Row>
-            </Container>
+            <section style={{ background: "rgba(122, 121, 121, 0.06)" }}>
+              <Container>
+                <Row className="d-flex align-items-center">
+                  <Col>
+                  <article className="flex justify-content-center align-items-center py-4 text-center mt-0 mt-sm-3 mt-lg-4">
+                    <h1 className="text-center heading">Proven. Experienced. Built to Scale.</h1>
+                    <p className="sub-title mb-0 mb-lg-5 text-center">
+                      Led by a team of enterprise transformation experts, Incede.ai brings decades of real-world implementation experience to every engagement. Our leadership has built intelligent systems across healthcare, finance, manufacturing, and technology and now brings that expertise to power the next wave of AI-driven business.
+                    </p>
+                    </article>
+                  </Col>
+                </Row>
+              </Container>
+            </section>
             <StatsSection />
-            <Container style={{ background: "rgba(122, 121, 121, 0.06)" }}>
+            <section style={{ background: "rgba(122, 121, 121, 0.06)" }}>
+            <Container>
               <Container >
                 <Row className="text-center">
                   <Col>
@@ -336,8 +339,9 @@ class WhyIncede extends Component {
                 </Row>
               </Container>
             </Container>
-
-            <Container fluid className="bg-primary text-white text-center py-5">
+            </section>
+            <section className="bg-primary">
+            <Container   className=" text-white text-center py-5">
               <Row>
                 <Col>
                   <h2 className="text-white">Explore What We Offer</h2>
@@ -384,7 +388,8 @@ class WhyIncede extends Component {
                 </Col>
               </Row>
             </Container>
-          </Transition>
+            </section>
+          {/* </Transition> */}
         </Layout>
       </React.Fragment>
     );
