@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Row, Col, Container } from "reactstrap";
 import ServicesImage from "../../img/services/banner-services.png";
+import mobileImage from "../../img/mobile.png"; // Import mobile.png
 import ScrollMenu from "react-horizontal-scrolling-menu";
 import ServicePageCards from "../Landing/ServicePageCards";
 import ContactModal from "../ContactModal";
@@ -19,8 +20,9 @@ let list = [
   { name: "Enterprise AI Agents" },
   { name: "Gen AI Implementation" },
   { name: "AI-Powered Business Process Automation" },
-  { name: "Planning Budgeting and Analytics" },
+  { name: "Planning, Budgeting and Analytics" },
 ];
+
 const MenuItem = ({ text, selected, className }) => {
   return (
     <div
@@ -32,6 +34,7 @@ const MenuItem = ({ text, selected, className }) => {
     </div>
   );
 };
+
 export const Menu = (list, selected) =>
   list.map((el, index) => {
     // const { name } = el;
@@ -44,6 +47,7 @@ export const Menu = (list, selected) =>
       />
     );
   });
+
 const Arrow = ({ text, className }) => {
   return <div className={className}>{text}</div>;
 };
@@ -68,11 +72,12 @@ class ServicesHeader extends Component {
   handleModalClose = () => {
     this.setState({ showContactModal: false });
   };
+
   constructor(props) {
     super(props);
     this.state = {
       clickWhenDrag: false,
-      alignCenter: true, // <-- set to true
+      alignCenter: true,
       dragging: true,
       hideArrows: false,
       hideSingleArrow: true,
@@ -85,6 +90,7 @@ class ServicesHeader extends Component {
     };
     this.menuItems = Menu(list.slice(0, list.length), this.state.selected);
   }
+
   onSelect = (key) => {
     this.setState({ selected: key });
     console.log(`onSelect: ${key}`);
@@ -149,6 +155,7 @@ class ServicesHeader extends Component {
     }
     window.location.href = url;
   };
+
   componentDidMount = () => {
     let path = window.location.pathname;
     switch (path) {
@@ -201,6 +208,7 @@ class ServicesHeader extends Component {
         break;
     }
   };
+
   render() {
     const menu = this.menuItems;
     return (
@@ -210,14 +218,30 @@ class ServicesHeader extends Component {
           {/* <Col lg={8} md={7} sm={12} xs={12}> */}
           <article className="flex justify-content-center align-items-center py-4 text-center mt-0 mt-sm-3 mt-lg-4">
             <h4 className="text-white bold pt-0">SERVICES OVERVIEW</h4>
-            <h1 className="text-white bold">Builds Outcome-Driven AI</h1>
-            <p className="text-white px-4" style={{ fontSize: "larger" }}>
-              Incede.ai delivers modular AI services—from intelligent agents and
-              Gen AI strategy to automated workflows and agile planning. We help
-              enterprises streamline operations, boost decision-making, and
-              scale transformation by offering targeted solutions or end-to-end
-              support tailored to your business needs.
-            </p>
+            
+            {/* New responsive layout container */}
+            <div className="hero-content-wrapper">
+              <div className="hero-text-content">
+                <h1 className="text-white bold hero-title">Builds Outcome-Driven AI</h1>
+                <p className="text-white hero-description" style={{ fontSize: "larger" }}>
+                  Incede.ai delivers modular AI services—from intelligent agents
+                  and Gen AI strategy to automated workflows and agile planning.
+                  We help enterprises streamline operations, boost
+                  decision-making, and scale transformation by offering targeted
+                  solutions or end-to-end support tailored to your business
+                  needs.
+                </p>
+              </div>
+              
+              {/* Mobile image with responsive positioning */}
+              <div className="mobile-image-container">
+                <img
+                  src={mobileImage || "/placeholder.svg"}
+                  alt="Mobile AI"
+                  className="img-fluid mobile-responsive-image"
+                />
+              </div>
+            </div>
           </article>
           {/* <article className="text-left">
                 <h1 className="title display-3">Services</h1>
@@ -243,9 +267,10 @@ class ServicesHeader extends Component {
         </Container>
 
         <ServicePageCards />
-        <Container>
-          <Row className="w-50 mt-2 mb-4 d-flex justify-content-between align-items-center mx-auto">
-            <Col xs={12} md={8} className="pr-md-2 mb-2 mb-md-0">
+        
+        <Container className="d-flex justify-content-center">
+          <Row className="mt-2 mb-4 d-flex justify-content-center align-items-center email-schedule-row">
+            <Col xs={12} md={6} className="pr-md-2 mb-2 mb-md-0">
               <input
                 type="email"
                 className="form-control"
@@ -254,15 +279,14 @@ class ServicesHeader extends Component {
                 onChange={this.handleEmailChange}
               />
             </Col>
-            <Col xs={12} md={4} className="pl-md-2">
+            <Col xs={12} md={2} className="pl-md-2">
               <button
-                className="btn btn-block bg-secondary text-white"
+                className="btn btn-block bg-secondary text-white px-2"
                 onClick={this.handleContactClick}
               >
-                Schedule
+                Let's talk
               </button>
             </Col>
-            {/* Contact Modal */}
             <ContactModal
               isOpen={this.state.showContactModal}
               onClose={this.handleModalClose}
@@ -270,8 +294,8 @@ class ServicesHeader extends Component {
             />
           </Row>
         </Container>
+        
         <Container fluid className="section-tabs-container">
-          {/* <Container> */}
           <ScrollMenu
             alignCenter={this.state.alignCenter}
             arrowLeft={ArrowLeft}

@@ -7,10 +7,10 @@ import PlanningBudgetingAnalyticsServices from "../../components/services/Planni
 
 const PlanningBudgetingAndAnalyticsPage = () => {
   return (
-    <Layout pageTitle="Planning Budgeting and Analytics | Incede">
+    <Layout pageTitle="Planning, Budgeting and Analytics | Incede">
       <Transition>
         <section className="industry-solution">
-          <ServicesHeader header={"Planning Budgeting and Analytics"} title={""} />
+          <ServicesHeader header={"Planning, Budgeting and Analytics"} title={""} />
           <Container fluid className="p-0">
             <PlanningBudgetingAnalyticsServices />
           </Container>

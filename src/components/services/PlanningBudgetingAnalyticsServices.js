@@ -167,7 +167,7 @@ class PlanningBudgetingAnalyticsServices extends Component {
               <div className="content">
                 <p id="planning-budgeting-analytics-id" className="pt-2"></p>
                 <h1 className="title text-primary">
-                  <b>Planning Budgeting and Analytics</b>
+                  <b>Planning, Budgeting and Analytics</b>
                   <Link
                     id="custom-react-link"
                     to={this.state.linkId}

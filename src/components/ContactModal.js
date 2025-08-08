@@ -167,7 +167,7 @@ class ContactModal extends Component {
           toggle={this.props.onClose}
           className="d-flex justify-content-center position-relative"
         >
-          Schedule
+          Let's talk
         </ModalHeader>
         <ModalBody>
           <div className='contact-us-section'>

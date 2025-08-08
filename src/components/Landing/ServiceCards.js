@@ -34,7 +34,7 @@ const cards = [
   },
   {
     icon: designServicesIcon,
-    title: "Planning & Analytics",
+    title: "Planning, Budgeting and Analytics",
     desc: "Modernize planning and analytics with real-time collaboration, agile forecasting, and GenAI-powered decision intelligence.",
     demo: "Get a demo",
     learn: "Learn more",

@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import { Container, Row, Col } from "reactstrap";
 import "../../../styles/services.scss";
 
-class AIPoweredWebsiteAssistant extends Component {
+class AIPoweredWebAgent extends Component {
   render() {
     return (
       <Container>
         <Row>
           <Col>
             <h4>
-              <b className="color-grey">AI-Powered Website Assistant</b>
+              <b className="color-grey">AI-Powered Web Agent</b>
             </h4>
             <div className="content">
               <p>
@@ -26,4 +26,4 @@ class AIPoweredWebsiteAssistant extends Component {
   }
 }
 
-export default AIPoweredWebsiteAssistant;
+export default AIPoweredWebAgent;

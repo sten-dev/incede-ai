@@ -51,10 +51,10 @@ const servicePageCardsData = [
         url: "/services/gen-ai-implementation#private-ai",
       },
       {
-        text: "Website AI Assistant",
+        text: "AI-Powered Web Agent",
         image: integrationDevelopmentIcon,
         url:
-          "/services/gen-ai-implementation#ai-powered-website-assistant",
+          "/services/gen-ai-implementation#ai-powered-web-agent",
       },
       {
         text: "Custom Model Training",
@@ -87,7 +87,7 @@ const servicePageCardsData = [
     ],
   },
   {
-    heading: "PLANNING AND ANALYTICS",
+    heading: "PLANNING, BUDGETING AND ANALYTICS",
     url: "/services/planning-budgeting-and-analytics",
     sectionId: "planning",
     points: [

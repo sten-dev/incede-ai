@@ -6,7 +6,7 @@ import ScrollMenu from "react-horizontal-scrolling-menu";
 import { Link, animateScroll as scroll } from "react-scroll";
 import AIRoadmapping from "./gen-ai-implementation-services/AIRoadmapping";
 import PrivateAI from "./gen-ai-implementation-services/PrivateAI";
-import AIPoweredWebsiteAssistant from "./gen-ai-implementation-services/AIPoweredWebsiteAssistant";
+import AIPoweredWebAgent from "./gen-ai-implementation-services/AIPoweredWebAgent";
 import CustomFoundationModelTraining from "./gen-ai-implementation-services/CustomFoundationModelTraining";
 
 
@@ -26,7 +26,7 @@ const serviceSubItems = [
   {
     image: "/img/watson-assistant/channel-development.png", // Placeholder
     inactiveImage: "/img/watson-assistant/channel-development-inactive.png", // Placeholder
-    title: "AI-Powered Website Assistant"
+    title: "AI-Powered Webs Agent"
   },
   {
     image: "/img/watson-assistant/integration-development.png", // Placeholder
@@ -92,7 +92,7 @@ class GenAIImplementationServices extends Component {
           activeIndex = 1;
           itemIndex = 1;
           break;
-        case "ai-powered-website-assistant":
+        case "ai-powered-web-agent":
           activeIndex = 2;
           itemIndex = 2;
           break;
@@ -143,7 +143,7 @@ class GenAIImplementationServices extends Component {
         linkId = "private-ai";
         break;
       case 2:
-        linkId = "ai-powered-website-assistant";
+        linkId = "ai-powered-web-agent";
         break;
       case 3:
         linkId = "custom-foundation-model-training";
@@ -224,7 +224,7 @@ class GenAIImplementationServices extends Component {
             <Col xs={12}>
               {this.state.activeIndex === 0 && <AIRoadmapping />}
               {this.state.activeIndex === 1 && <PrivateAI />}
-              {this.state.activeIndex === 2 && <AIPoweredWebsiteAssistant />}
+              {this.state.activeIndex === 2 && <AIPoweredWebAgent />}
               {this.state.activeIndex === 3 && <CustomFoundationModelTraining />}
             </Col>
           </Row>
