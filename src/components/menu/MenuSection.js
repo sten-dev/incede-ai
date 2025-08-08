@@ -11,6 +11,7 @@ import SolutionMenu from "./static/SolutionMenu";
 import WhyIncedeMenu from "./static/WhyIncedeMenu";
 import AboutUsMenu from "./static/AboutUsMenu";
 import ResourceMenu from "./static/ResourceMenu";
+import ContactModal from "../ContactModal";
 
 class MenuSection extends Component {
   constructor(props) {
@@ -23,6 +24,7 @@ class MenuSection extends Component {
       showResource: false,
       showWhyIncede: false,
       showAboutUs: false,
+      showContactModal: false,
     };
   }
   // showService = () => { // Commented out as per user request
@@ -61,6 +63,14 @@ class MenuSection extends Component {
       showAboutUs: !this.state.showAboutUs,
     });
   };
+
+  handleContactClick = () => {
+    this.setState({ showContactModal: true });
+  }
+
+  handleModalClose = () => {
+    this.setState({ showContactModal: false})
+  }
   render() {
     return (
       <section className="menu-section">
@@ -369,6 +379,23 @@ class MenuSection extends Component {
                 <AboutUsMenu />
               </React.Fragment>
             )}
+            {!this.state.showSubMenu && (
+              <div className="menu-items">
+                <button
+                  className="btn bg-secondary text-white"
+                  onClick={() => {
+                    this.props.onContactClick();
+                    this.props.toggle();
+                  }}
+                >
+                  Let's talk
+                </button>
+              </div>
+            )}
+            <ContactModal
+          isOpen={this.state.showContactModal}
+          onClose={this.handleModalClose}
+        />
           </div>
         </Container>
       </section>

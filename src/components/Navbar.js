@@ -27,6 +27,7 @@ import IndustryMenu from "./menu/static/IndustryMenu";
 import WhyIncedeMenu from "./menu/static/WhyIncedeMenu";
 import AboutUsMenu from "./menu/static/AboutUsMenu";
 import ResourceMenu from "./menu/static/ResourceMenu";
+import ContactModal from './ContactModal'; // Import ContactModal
 
 class INavbar extends Component {
   window;
@@ -41,6 +42,7 @@ class INavbar extends Component {
       isResourcesMenuOpen: false,
       isWhyIncedeMenuOpen: false,
       isAboutMenuOpen: false,
+      showContactModal: false, 
     };
   }
 
@@ -124,6 +126,14 @@ class INavbar extends Component {
       isAboutMenuOpen: !this.state.isAboutMenuOpen,
     });
   };
+  handleContactClick = () => {
+    this.setState({ showContactModal: true });
+  };
+
+  handleModalClose = () => {
+    this.setState({ showContactModal: false });
+  };
+
   render() {
     return (
       <React.Fragment>
@@ -277,6 +287,14 @@ class INavbar extends Component {
                         // onClick={props.onClick}
                         />{" "}
                       </a> */}
+                </NavItem>
+                <NavItem className="btn">
+                  <button
+                    className="btn bg-secondary text-white"
+                    onClick={this.handleContactClick}
+                  >
+                    Let's talk
+                  </button>
                 </NavItem>
                 {/* <NavItem id="menu_about" className="btn">
                       <a>
@@ -437,6 +455,10 @@ class INavbar extends Component {
             </ModalBody>
           </Modal>
         </nav>
+        <ContactModal
+          isOpen={this.state.showContactModal}
+          onClose={this.handleModalClose}
+        />
         {/* </PageTransition> */}
       </React.Fragment>
     );

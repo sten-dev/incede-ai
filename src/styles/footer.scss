@@ -58,8 +58,11 @@ footer {
         border-radius: 4px;
       }
       a {
-        padding: 12px;
+        padding: 4px;
       }
+    }
+    .list-unstyled{
+      margin-bottom: 0 !important;
     }
     // li {
     //   margin-bottom: 16px;
@@ -80,7 +83,7 @@ footer {
           height: 1.4em;
         }
         a {
-          padding: 8px;
+          padding: 3px;
         }
       }
       li {

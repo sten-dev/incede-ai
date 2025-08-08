@@ -56,7 +56,7 @@ class Footer extends React.Component {
                       </Col>
                     </Row>
                   </Col>
-                  <Col md='12' sm='6' xs='12'>
+                  <Col md='6' sm='6' xs='6'>
                     <section className='half-menu'>
                       <ul className='list-unstyled'>
                         <li>
@@ -82,16 +82,15 @@ class Footer extends React.Component {
                       </ul>
                     </section>
                   </Col>
-                  <Col md='12' sm='6' xs='12'>
-                    <section className='menu' id='contact-us-location'>
+                  <Col md='6' sm='6' xs='6'>
+                    {/* <section className='menu' id='contact-us-location'> */}
                       <FooterLocation />
-                    </section>
-                  </Col>
-                  <Col lg='12' md='12' sm='12' xs='12'>
+                    {/* </section> */}
+                  {/* <Col lg='12' md='12' sm='12' xs='12'> */}
                     <p className='m-0'>© Copyright {(new Date()).getFullYear()} incede.ai</p>
-                  </Col>
-                  <Col lg='12' md='12' sm='12' xs='12'>
-                    <br />
+                  {/* </Col> */}
+                  {/* <Col lg='12' md='12' sm='12' xs='12'> */}
+                    {/* <br /> */}
                     <section className='social'>
                       <a
                         className='pl-0'
@@ -137,6 +136,7 @@ class Footer extends React.Component {
                         <img src={instagram} alt="Instagram" />
                       </a> */}
                     </section>
+                  {/* </Col> */}
                   </Col>
                 </Row>
               </Container>
@@ -165,7 +165,7 @@ class Footer extends React.Component {
                   <Col xs={12}>
                     <div className="py-2 mb-3">
                       <Row>
-                        <Col xs={12} md={8} className="pr-md-2 mb-2 mb-md-0">
+                        <Col xs={12} sm={12} md={8} className="pr-md-2 mb-2 mb-md-0">
                           <input
                             type="email"
                             className="form-control"
@@ -174,7 +174,7 @@ class Footer extends React.Component {
                             onChange={this.handleEmailChange}
                           />
                         </Col>
-                        <Col xs={12} md={4} className="pl-md-2">
+                        <Col xs={12} sm={12} md={4} className="pl-md-2">
                           <button
                             className="btn btn-primary btn-block"
                             onClick={this.handleContactClick}
