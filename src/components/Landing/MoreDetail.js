@@ -19,21 +19,14 @@ class MoreDetail extends Component {
         <Container>
           {!this.props?.forHomePage ? (
             <Row>
-              <Col lg={8} md={7} sm={12} xs={12}>
-                <article className="gap-y-half text-left mt-0 mt-sm-3 mt-lg-4">
+              <Col>
+                <article className="flex justify-content-center align-items-center py-4 text-center mt-0 mt-sm-3 mt-lg-4">
+                  <h4 className="text-white bold pt-0">Why Incede.ai</h4>
                   <h1 className="title">
-                    Enhancing Your Business with Proven Technology Expertise
+                    The AI & Automation Partner IBM Recommends — and Enterprises Rely On
                   </h1>
                   <h5 className="text-white sub-title">
-                    Incede, with over a decade of industry experience,
-                    specializes in delivering transformative technology
-                    solutions tailored to enhance operational efficiency,
-                    empower strategic decision-making, and provide a competitive
-                    edge. Known for our proven track record and deep industry
-                    knowledge, we focus on practical, real-world applications.
-                    Committed to continually adapting our solutions to meet your
-                    evolving business needs, we strive to remain your trusted
-                    technology partner.
+                    Incede.ai helps enterprises activate AI, automate processes, and modernize planning with precision and speed. As a certified IBM partner, we work alongside global teams to deploy secure, enterprise-ready solutions that drive real business outcomes and not just proof of concepts.
                   </h5>
                   <p id="business-terms" className="pt-2"></p>
                   {/* <div className="py-2">
