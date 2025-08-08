@@ -240,8 +240,8 @@ class WhyIncede extends Component {
               </Row>
             </Container>
             <StatsSection />
-            <Container>
-              <Container style={{ background: "rgba(122, 121, 121, 0.06)" }}>
+            <Container style={{ background: "rgba(122, 121, 121, 0.06)" }}>
+              <Container >
                 <Row className="text-center">
                   <Col>
                     <h3 className="fw-bold">At a Glance</h3>
