@@ -227,7 +227,7 @@ class WhyIncede extends Component {
                 </Col>
               </Row>
             </Container> */}
-            <Container >
+            <Container style={{ background: "rgba(122, 121, 121, 0.06)" }}>
               <Row className="d-flex align-items-center">
                 <Col>
                 <article className="flex justify-content-center align-items-center py-4 text-center mt-0 mt-sm-3 mt-lg-4">
@@ -241,7 +241,7 @@ class WhyIncede extends Component {
             </Container>
             <StatsSection />
             <Container>
-              <Container>
+              <Container style={{ background: "rgba(122, 121, 121, 0.06)" }}>
                 <Row className="text-center">
                   <Col>
                     <h3 className="fw-bold">At a Glance</h3>
