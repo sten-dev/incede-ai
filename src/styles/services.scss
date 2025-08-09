@@ -222,22 +222,22 @@
     .hero-content-wrapper {
       flex-direction: column;
     }
-    
+
     .hero-text-content {
-      text-align: left; /* Align text left when mobile image is visible */
+      text-align: center; /* Align text center on mobile */
       width: 100%;
     }
-    
+
     .hero-title {
-      text-align: left;
+      text-align: center; /* Align title center on mobile */
     }
-    
+
     .hero-description {
-      text-align: left;
+      text-align: center; /* Align description center on mobile */
       padding-left: 0 !important; /* Override the px-4 class */
       padding-right: 0 !important;
     }
-    
+
     .mobile-image-container {
       margin-top: 1.5rem;
       max-width: 250px;

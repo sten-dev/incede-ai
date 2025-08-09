@@ -71,11 +71,11 @@ class Footer extends React.Component {
                           </Link>
                         </li>
                         <li>
-                          <Link to='/' className='navbar-item'>
+                          <Link to='/resources/case-studies' className='navbar-item'>
                             Resources
                           </Link>
                         </li>
-                          <Link className='navbar-item' to='/why-incede'>
+                          <Link to='/why-incede' className='navbar-item'>
                             Why Incede
                           </Link>
                         </li>

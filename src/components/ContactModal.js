@@ -157,7 +157,7 @@ class ContactModal extends Component {
       <Modal
         isOpen={this.props.isOpen}
         toggle={this.props.onClose}
-        className='modal-lg'
+        className='custom-modal'
         centered
         backdrop="static"
         keyboard={false}
@@ -165,17 +165,18 @@ class ContactModal extends Component {
       >
         <ModalHeader
           toggle={this.props.onClose}
-          className="d-flex justify-content-center position-relative"
+          className="d-flex justify-content-center align-items-center position-relative"
         >
-          Let's talk
+          <h5 className='modal-title'>Let's Activate AI Together</h5>
+          <p className='modal-description'>Just a few details to get started.</p>
         </ModalHeader>
         <ModalBody>
           <div className='contact-us-section'>
             <Form onSubmit={this.handleSubmit}>
               <Row>
-                <Col md={6}>
+                <Col md={12}>
                   <FormGroup>
-                    <Label>Name *</Label>
+                    <Label>Name*</Label>
                     <Input
                       onChange={this.handleOnChange}
                       className='form-control'
@@ -187,9 +188,9 @@ class ContactModal extends Component {
                     />
                   </FormGroup>
                 </Col>
-                <Col md={6}>
+                <Col md={12}>
                   <FormGroup>
-                    <Label>Email *</Label>
+                    <Label>Work Email*</Label>
                     <Input
                       onChange={this.handleOnChange}
                       className='form-control'
@@ -201,9 +202,9 @@ class ContactModal extends Component {
                     />
                   </FormGroup>
                 </Col>
-                <Col md={6}>
+                <Col md={12}>
                   <FormGroup>
-                    <Label>Company *</Label>
+                    <Label>Company*</Label>
                     <Input
                       onChange={this.handleOnChange}
                       className='form-control'
@@ -215,7 +216,7 @@ class ContactModal extends Component {
                     />
                   </FormGroup>
                 </Col>
-                <Col md={6}>
+                {/* <Col md={6}>
                   <FormGroup>
                     <Label>Phone</Label>
                     <Input
@@ -227,10 +228,10 @@ class ContactModal extends Component {
                       placeholder='Phone'
                     />
                   </FormGroup>
-                </Col>
+                </Col> */}
                 <Col md={12}>
                   <FormGroup>
-                    <Label>What do you want to talk about</Label>
+                    <Label>What would you like to explore together?</Label>
                     <Input
                       onChange={this.handleOnChange}
                       className='form-control'
@@ -243,9 +244,9 @@ class ContactModal extends Component {
                 </Col>
                 <Col md={12}>
                   <FormGroup>
-                    <Label>Convenient Time</Label>
+                    <Label>Preferred Date & Time (Optional)</Label>
                     <DateTime
-                      inputProps={{ placeholder: 'Convenient Time', className: 'form-control' }}
+                      inputProps={{ placeholder: 'mm/dd/yyyy  --:-- --', className: 'form-control' }}
                       isValidDate={current =>
                         moment(current)
                           .add(1, 'days')
@@ -266,15 +267,15 @@ class ContactModal extends Component {
                 </Col>
                 <Col md={12}>
                   {/* Submit Button */}
-                  <Button className='btn btn-secondary btn-block mb-2' type='submit' style={{ width: '100%' }}>
-                    Submit
+                  <Button className='btn btn-primary btn-block mb-2' type='submit' style={{ width: '100%' }}>
+                    Send Request
                   </Button>
                   {/* Separator */}
-                  <div style={{ textAlign: 'center', fontSize: '0.9rem', color: '#888', margin: '8px 0' }}>
+                  {/* <div style={{ textAlign: 'center', fontSize: '0.9rem', color: '#888', margin: '8px 0' }}>
                     or
-                  </div>
+                  </div> */}
                   {/* LinkedIn Button */}
-                  {this.state.showLinkedin && (
+                  {/* {this.state.showLinkedin && (
                     <LinkedInSignIn
                       clientId={LINKEDIN.clientId}
                       redirectUrl={LINKEDIN.redirectUrl}
@@ -297,7 +298,7 @@ class ContactModal extends Component {
                         </Button>
                       )}
                     </LinkedInSignIn>
-                  )}
+                  )} */}
                 </Col>
                 {this.state.message &&
                   (this.state.hasDetailsSubmitted !== undefined &&

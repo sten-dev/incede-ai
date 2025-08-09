@@ -3,7 +3,7 @@ import { Container, Row, Col } from "reactstrap";
 import "../../styles/more_detail.scss";
 import { Link } from "gatsby";
 import arrow from "../../img/arrow.svg";
-// import AiImage from "../../img/incede-home-page-middle.png";
+import AiImage from "../../img/incede-home-page-middle.png";
 class MoreDetail extends Component {
   constructor(props) {
     super(props);
@@ -18,12 +18,14 @@ class MoreDetail extends Component {
       <section className="more-detail">
         <Container>
           {!this.props?.forHomePage ? (
-            <Row>
-              <Col>
-                <article className="flex justify-content-center align-items-center py-4 text-center mt-0 mt-sm-3 mt-lg-4">
-                  <h4 className="text-white bold pt-0">Why Incede.ai</h4>
+            <article className="flex py-4 text-center text-md-left mt-0 mt-sm-3 mt-lg-4">
+                <Row className="align-items-center">
+                <Col md={12} sm={12} xs={12}>
+                  <h4 className="text-white text-center bold pt-0">Why Incede.ai</h4>
+                </Col>
+                <Col lg={8} md={7} sm={12} xs={12} className="flex py-4 text-center text-md-left mt-0 mt-sm-3">
                   <h1 className="title">
-                    The AI & Automation Partner IBM Recommends — and Enterprises Rely On
+                    The AI and Automation Partner Trusted by IBM
                   </h1>
                   <h5 className="text-white sub-title">
                     Incede.ai helps enterprises activate AI, automate processes, and modernize planning with precision and speed. As a certified IBM partner, we work alongside global teams to deploy secure, enterprise-ready solutions that drive real business outcomes and not just proof of concepts.
@@ -69,14 +71,14 @@ class MoreDetail extends Component {
                     </Col>
                   </Row>
                 </div> */}
-                </article>
-              </Col>
-              {/* <Col lg={4} md={5} className="d-none d-md-block position-initial">
-              <div className="image-section gap-y-half">
-                <img src={AiImage} alt="hero" />
-              </div>
-            </Col> */}
+                </Col>
+                <Col lg={4} md={5} sm={12} xs={12} className="position-initial">
+                  <div className="image-section">
+                    <img src={AiImage} alt="hero" />
+                  </div>
+                </Col>
             </Row>
+              </article>
           ) : (
             <Row>
               <Col lg={12} md={12} sm={12} xs={12}>

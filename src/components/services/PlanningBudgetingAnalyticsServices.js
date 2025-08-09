@@ -24,7 +24,8 @@ const serviceSubItems = [
   {
     image: "/img/watson-assistant/channel-development.png", // Placeholder
     inactiveImage: "/img/watson-assistant/channel-development-inactive.png", // Placeholder
-    title: "AI-Powered Analytics"
+    title: "AI-Powered Analytics",
+    className: "text-initial"
   }
 ];
 

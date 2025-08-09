@@ -49,6 +49,20 @@ import Sharp2 from "../../img/customers/Sharp2.png";
 import rh_logo from "../../img/customers/rh_logo.png";
 import tplLogo from "../../img/customers/tpl-logo.png";
 import GCI from "../../img/customers/GCI.png";
+import adp from "../../img/customers/adp.jpg";
+import benchmark from "../../img/customers/benchmark.jpg"
+import centralPacific from "../../img/customers/central-pacific.jpg";
+import diamler from "../../img/customers/diamler.jpg"
+import earthbould from "../../img/customers/earthbould.png"
+import gettyimages from "../../img/customers/gettyimages.png"
+import johnson from "../../img/customers/johnson.png"
+import perkins from "../../img/customers/perkins.jpg"
+import poolcrop from "../../img/customers/poolcrop.jpg"
+import rubicon from "../../img/customers/rubicon.jpg"
+import swagelok from "../../img/customers/swagelok.png"
+import uber from "../../img/customers/uber.png"
+
+
 
 export const customersList = [
     d2lLogo,
@@ -102,4 +116,16 @@ export const customersList = [
     rh_logo,
     tplLogo,
     GCI,
+    adp,
+    benchmark,
+    centralPacific,
+    diamler,
+    earthbould,
+    gettyimages,
+    johnson,
+    perkins,
+    poolcrop,
+    rubicon,
+    swagelok,
+    uber,
 ];

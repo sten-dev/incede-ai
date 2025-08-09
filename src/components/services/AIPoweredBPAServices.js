@@ -26,7 +26,8 @@ const serviceSubItems = [
   {
     image: "/img/watson-assistant/channel-development.png", // Placeholder
     inactiveImage: "/img/watson-assistant/channel-development-inactive.png", // Placeholder
-    title: "Application Integration"
+    title: "Application Integration",
+    className: "text-initial"
   }
 ];
 

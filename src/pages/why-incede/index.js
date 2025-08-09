@@ -23,9 +23,12 @@ import CertifiedExpertise from "./why-incede-sub-items/CertifiedExpertise";
 import CustomerSuccess from "./why-incede-sub-items/CustomerSuccess";
 import TechnologyPartners from "./why-incede-sub-items/TechnologyPartners";
 import LeaderShipTeam from "./why-incede-sub-items/LeaderShipTeam";
-import { Link, animateScroll as scroll } from "react-scroll";
+import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import StatsSection from "../../components/Landing/StatsSection";
 import TestimonialCarousel from "../../components/Landing/TestimonialsCarousel";
+import { Link } from "gatsby";
+import ContactModal from "../../components/ContactModal";
+import { withToastContext } from "../../components/common/ToastProvider";
 
 
 const subItems = [
@@ -95,7 +98,8 @@ class WhyIncede extends Component {
       transition: 0.3,
       wheel: false,
       menuItems: Menu(subItems.slice(0, subItems.length), 0),
-      linkId: ""
+      linkId: "",
+      showContactModal: false, // Added for ContactModal
     };
   }
 
@@ -177,21 +181,29 @@ class WhyIncede extends Component {
     );
   };
 
+  handleContactClick = () => {
+    this.setState({ showContactModal: true });
+  };
+
+  handleModalClose = () => {
+    this.setState({ showContactModal: false });
+  };
+
   render() {
     let menu = this.state.menuItems;
     return (
       <React.Fragment>
         <Layout pageTitle="Why Incede | Incede">
           {/* <Transition> */}
-            <MoreDetail />
-            <Link
-              id="custom-react-link-why-incede"
-              to={this.state.linkId}
-              className="d-none"
-              smooth={true}
-            />
+          <MoreDetail />
+          <ScrollLink
+            id="custom-react-link-why-incede"
+            to={this.state.linkId}
+            className="d-none"
+            smooth={true}
+          />
 
-            {/* <Container>
+          {/* <Container>
               <div className="section-tabs-container watson-api-scroll-container custom-services-img">
                 <ScrollMenu
                   alignCenter={this.state.alignCenter}
@@ -212,7 +224,7 @@ class WhyIncede extends Component {
                 />
               </div>
             </Container> */}
-            {/* <Container
+          {/* <Container
                
               style={{ background: "rgba(122, 121, 121, 0.06)" }}
               className="gap-y industry-solution why-incede-container"
@@ -227,56 +239,57 @@ class WhyIncede extends Component {
                 </Col>
               </Row>
             </Container> */}
-            <section style={{ background: "rgba(122, 121, 121, 0.06)" }}>
-              <Container>
-                <Row className="d-flex align-items-center">
-                  <Col>
+          <section style={{ background: "rgba(122, 121, 121, 0.06)" }}>
+            <Container>
+              <Row className="d-flex align-items-center">
+                <Col>
                   <article className="flex justify-content-center align-items-center py-4 text-center mt-0 mt-sm-3 mt-lg-4">
                     <h1 className="text-center heading">Proven. Experienced. Built to Scale.</h1>
                     <p className="sub-title mb-0 mb-lg-5 text-center">
                       Led by a team of enterprise transformation experts, Incede.ai brings decades of real-world implementation experience to every engagement. Our leadership has built intelligent systems across healthcare, finance, manufacturing, and technology and now brings that expertise to power the next wave of AI-driven business.
                     </p>
-                    </article>
-                  </Col>
-                </Row>
-              </Container>
-            </section>
+                  </article>
+                </Col>
+              </Row>
+            </Container>
+          </section>
+          <section className="bg-primary">
             <StatsSection />
-            <section style={{ background: "rgba(122, 121, 121, 0.06)" }}>
+            <Container className="text-white pb-5">
+              <Row className="text-center">
+                <Col>
+                  <h3 className="">At a Glance</h3>
+                </Col>
+              </Row>
+                <ul className='d-flex'>
+              <Row className="justify-content-center">
+                  <Col md={6} sm={12} xs={12} className="">
+                    <li><b>Certified IBM</b> partner across watsonx, watsonx orchestrate, Planning Analytics, Cognos Analytics, and Business Automation Workflow (BAW) and RPA.
+                    </li>
+                    <li>
+                      <b>Global delivery</b> with teams across North America and APAC
+                    </li>
+                  </Col>
+                  <Col md={6} sm={12} xs={12} className="">
+                    <li>
+                      <b>Industry focus:</b> Healthcare, Financial Services, Tech, Manufacturing, Government
+                    </li>
+                    <li>
+                      <b>95%+ customer satisfaction</b> across delivery engagements
+                    </li>
+                  </Col>
+              </Row>
+                </ul>
+              <Row>
+                <Col md={12} sm={12} xs={12} className="text-center">
+                  <p className="fst-italic">We’re not just a vendor. We’re a trusted extension of your enterprise team.</p>
+                </Col>
+              </Row>
+            </Container>
+
+          </section>
+          <section style={{ background: "rgba(122, 121, 121, 0.06)" }}>
             <Container>
-              <Container >
-                <Row className="text-center">
-                  <Col>
-                    <h3 className="fw-bold">At a Glance</h3>
-                  </Col>
-                </Row>
-                <Row className="justify-content-center">
-                  <Col md={6} sm={12} xs={12} className="p-2">
-                    <ul>
-                      <li>Certified IBM partner across watsonx, watsonx orchestrate, Planning Analytics, Cognos Analytics, and Business Automation Workflow (BAW) and RPA.
-                      </li>
-                      <li>
-                        Global delivery with teams across North America and APAC
-                      </li>
-                    </ul>
-                  </Col>
-                  <Col md={6} sm={12} xs={12} className="p-2">
-                    <ul>
-                      <li>
-                        Industry focus: Healthcare, Financial Services, Tech, Manufacturing, Government
-                      </li>
-                      <li>
-                        95%+ customer satisfaction across delivery engagements
-                      </li>
-                    </ul>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col md={12} sm={12} xs={12} className="text-center">
-                    <p className="fst-italic">We’re not just a vendor. We’re a trusted extension of your enterprise team.</p>
-                  </Col>
-                </Row>
-              </Container>
               <Container className='mt-5'>
                 <Row className="text-center">
                   <Col>
@@ -312,36 +325,36 @@ class WhyIncede extends Component {
               </Container>
               <Row>
                 <Col className="text-center">
-                  <p  className="text-left fst-italic">“Incede.ai consistently delivers with excellence. Our teams trust them to represent IBM with credibility and help our customers succeed.”
+                  <p className="text-left mt-5 quote">“Incede.ai consistently delivers with excellence. Our teams trust them to represent IBM with credibility and help our customers succeed.”
                   </p>
                   <br />
-                  <p className="text-right fst-italic">— IBM Partner Sales Leader</p>
+                  <p className="text-right quote">— IBM Partner Sales Leader</p>
                 </Col>
               </Row>
-              <Row>
-                <TestimonialCarousel />
-              </Row>
-              <Container>
-                <Row className="justify-content-center">
-                  <Col lg={3} md={6} xs={12} className="p-2">
-                    <Link
-                      to="/customers"
-                      className="btn why-incede-btn primary btn-outline-info btn-lg w-100"
-                    >
-                      Customers &nbsp;
-                      <img
-                        src={arrowPrimary}
-                        alt="next"
-                        style={{ width: "8px" }}
-                      />
-                    </Link>
-                  </Col>
-                </Row>
-              </Container>
             </Container>
-            </section>
-            <section className="bg-primary">
-            <Container   className=" text-white text-center py-5">
+            {/* <Row> */}
+            <TestimonialCarousel />
+            {/* </Row> */}
+            <Container>
+              <Row className="justify-content-center mb-2">
+                <Col lg={3} md={6} xs={12} className="p-2">
+                  <Link
+                    to="/customers"
+                    className="btn why-incede-btn primary btn-outline-info btn-lg w-100"
+                  >
+                    Customers &nbsp;
+                    <img
+                      src={arrowPrimary}
+                      alt="next"
+                      style={{ width: "8px" }}
+                    />
+                  </Link>
+                </Col>
+              </Row>
+            </Container>
+          </section>
+          <section className="bg-primary">
+            <Container className=" text-white text-center py-5">
               <Row>
                 <Col>
                   <h2 className="text-white">Explore What We Offer</h2>
@@ -350,18 +363,18 @@ class WhyIncede extends Component {
               </Row>
               <Row className="justify-content-center mb-4">
                 <Col md={6} xs={12} className="d-flex flex-column align-items-center">
-                  <Link to="/services/enterprise-ai-agents" className="btn btn-outline-light btn-lg my-2 w-75">
+                  <Link to="/services/enterprise-ai-agents" className="btn explore-button my-2 w-75">
                     Enterprise AI Agents
                   </Link>
-                  <Link to="/services/gen-ai-implementation" className="btn btn-outline-light btn-lg my-2 w-75">
+                  <Link to="/services/gen-ai-implementation" className="btn explore-button my-2 w-75">
                     Gen AI Implementation
                   </Link>
                 </Col>
                 <Col md={6} xs={12} className="d-flex flex-column align-items-center">
-                  <Link to="/services/ai-powered-business-process-automation" className="btn btn-outline-light btn-lg my-2 w-75">
+                  <Link to="/services/ai-powered-business-process-automation" className="btn explore-button my-2 w-75">
                     Business Process Automation
                   </Link>
-                  <Link to="/services/planning-budgeting-and-analytics" className="btn btn-outline-light btn-lg my-2 w-75">
+                  <Link to="/services/planning-budgeting-and-analytics" className="btn explore-button my-2 w-75">
                     Planning, Budgeting & Analytics
                   </Link>
                 </Col>
@@ -376,24 +389,21 @@ class WhyIncede extends Component {
                 </Col>
               </Row>
               <Row className="justify-content-center">
-                <Col md={6} xs={12} className="d-flex flex-column align-items-center">
-                  <Link to="/contact" className="btn btn-outline-light btn-lg my-2 w-75">
-                    Let’s Talk AI
-                  </Link>
-                </Col>
-                <Col md={6} xs={12} className="d-flex flex-column align-items-center">
-                  <Link to="/contact" className="btn btn-outline-light btn-lg my-2 w-75">
-                    Partner With Us
-                  </Link>
-                </Col>
+                  <Button onClick={this.handleContactClick} className="btn explore-button my-2">
+                    Let’s Talk
+                  </Button>
               </Row>
             </Container>
-            </section>
+          </section>
           {/* </Transition> */}
         </Layout>
+        <ContactModal
+          isOpen={this.state.showContactModal}
+          onClose={this.handleModalClose}
+        />
       </React.Fragment>
     );
   }
 }
 
-export default WhyIncede;
+export default withToastContext(WhyIncede);

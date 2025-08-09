@@ -66,10 +66,11 @@ class MenuSection extends Component {
 
   handleContactClick = () => {
     this.setState({ showContactModal: true });
+    // this.props.toggle(); // Close the side menu when "Let's talk" is clicked
   }
 
   handleModalClose = () => {
-    this.setState({ showContactModal: false})
+    this.setState({ showContactModal: false })
   }
   render() {
     return (
@@ -89,7 +90,7 @@ class MenuSection extends Component {
                 <img
                   src={logo}
                   alt="incede.ai"
-                  style={{ width: "200px", marginBottom:"16px" }}
+                  style={{ width: "200px", marginBottom: "16px" }}
                 />
               </div>
               <div className="align-self-center menu-close">
@@ -383,19 +384,16 @@ class MenuSection extends Component {
               <div className="menu-items">
                 <button
                   className="btn bg-secondary text-white"
-                  onClick={() => {
-                    this.props.onContactClick();
-                    this.props.toggle();
-                  }}
+                  onClick={this.handleContactClick}
                 >
                   Let's talk
                 </button>
               </div>
             )}
             <ContactModal
-          isOpen={this.state.showContactModal}
-          onClose={this.handleModalClose}
-        />
+              isOpen={this.state.showContactModal}
+              onClose={this.handleModalClose}
+            />
           </div>
         </Container>
       </section>

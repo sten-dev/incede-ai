@@ -26,12 +26,15 @@ const serviceSubItems = [
   {
     image: "/img/watson-assistant/channel-development.png", // Placeholder
     inactiveImage: "/img/watson-assistant/channel-development-inactive.png", // Placeholder
-    title: "AI-Powered Webs Agent"
+    title: "AI-Powered Web Agent",
+    className: "text-initial"
+
   },
   {
     image: "/img/watson-assistant/integration-development.png", // Placeholder
     inactiveImage: "/img/watson-assistant/integration-development-inactive.png", // Placeholder
-    title: "Custom Foundation Model Training"
+    title: "Custom Foundation Model Training",
+    className: "text-initial"
   }
 ];
 
@@ -190,7 +193,7 @@ class GenAIImplementationServices extends Component {
                   />
                 </h1>
                 <p>
-                  Incede.ai helps organizations operationalize Gen AI with end-to-end services—from AI readiness assessments and strategic roadmapping to secure foundation model training and deployment. Our solutions include private AI for intelligent document understanding, website assistants that deliver real-time help without redesign, and the implementation of proven patterns like retrieval-augmented generation (RAG), summarization, and classification to accelerate insight and decision-making across the enterprise.
+                  Incede.ai partners with enterprises to operationalize Generative AI through a full-service lifecycle—starting with readiness assessments, strategic AI roadmapping, and secure model training, through to robust deployment. Our solutions span: private AI for intelligent document understanding; AI-powered website assistants that deliver real-time support without redesign; and advanced implementations of retrieval-augmented generation (RAG), summarization, and classification. Together, these accelerate insight, automation, and decision-making across the enterprise.
                 </p>
               </div>
             </Col>

@@ -23,6 +23,9 @@
     // margin-bottom: 16px;
   }
 }
+.quote{
+    font-style: italic;
+}
 .why-incede-btn {
   color: $white !important;
   border-color: $white !important;
@@ -45,4 +48,15 @@
   // .why-incede-container .partner-image-section {
   //   display: none !important;
   // }
+}
+
+.explore-button {
+  color: $white !important;
+  border-color: $white !important;
+  transition: none !important; /* Remove hover delay */
+
+  @media (max-width: 768px) { /* For medium screens and smaller */
+    font-size: 1rem !important; /* Adjust font size as needed */
+    padding: 0.5rem 1rem !important; /* Adjust padding if necessary */
+  }
 }

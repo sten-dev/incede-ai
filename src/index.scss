@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  margin-top: 84px !important;
+  margin-top: 55px !important;
   background-color: white;
   font-family: "Open Sans", sans-serif !important;
   // font-family: "Noto Sans", sans-serif;
@@ -29,6 +29,13 @@ body {
   align-items: center;
   min-height: 100%;
   margin: auto !important;
+}
+.modal-title{
+  // width: 70% !important;
+  margin: 0 !important;
+}
+.modal-description{
+  font-size: 0.7em !important;
 }
 
 .btn-linkedin {
@@ -444,6 +451,10 @@ small,
     .body p {
       font-size: 14px;
     }
+  }
+
+  .modal-content p {
+    font-size: 0.8em !important;
   }
 }
 .loading-modal-container {
