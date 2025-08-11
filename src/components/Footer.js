@@ -144,7 +144,7 @@ class Footer extends React.Component {
             <Col sm={12} md={6} id='contact-us-form'>
               <Container fluid>
                 <Row>
-                  <Col xs={12}>
+                  <Col xs={12} className="p-1">
                     <h3 className='text-white'>
                       <b>Got any questions ?</b>
                       {/* &nbsp; */}
@@ -164,8 +164,8 @@ class Footer extends React.Component {
                   </Col>
                   <Col xs={12}>
                     <div className="py-2 mb-3">
-                      <Row>
-                        <Col xs={12} sm={12} md={8} className="pr-md-2 mb-2 mb-md-0">
+                      <Row className="gap-1">
+                        <Col xs={12} sm={12} md={12} lg={8} className="mb-2 p-1">
                           <input
                             type="email"
                             className="form-control"
@@ -174,7 +174,7 @@ class Footer extends React.Component {
                             onChange={this.handleEmailChange}
                           />
                         </Col>
-                        <Col xs={12} sm={12} md={4} className="pl-md-2">
+                        <Col xs={12} sm={12} md={12} lg={4} className="mb-2 p-1">
                           <button
                             className="btn btn-primary btn-block"
                             onClick={this.handleContactClick}

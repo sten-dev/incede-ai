@@ -290,10 +290,10 @@ class WhyIncede extends Component {
           </section>
           <section style={{ background: "rgba(122, 121, 121, 0.06)" }}>
             <Container>
-              <Container className='mt-5'>
+              <Container className=''>
                 <Row className="text-center">
                   <Col>
-                    <h1 className="heading">Why Customers and IBMers Trust Incede.ai</h1>
+                    <h1 className="heading mt-5">Why Customers and IBMers Trust Incede.ai</h1>
                   </Col>
                 </Row>
                 <Row className="justify-content-center">
@@ -336,7 +336,7 @@ class WhyIncede extends Component {
             <TestimonialCarousel />
             {/* </Row> */}
             <Container>
-              <Row className="justify-content-center mb-2">
+              <Row className="justify-content-center">
                 <Col lg={3} md={6} xs={12} className="p-2">
                   <Link
                     to="/customers"
@@ -389,8 +389,8 @@ class WhyIncede extends Component {
                 </Col>
               </Row>
               <Row className="justify-content-center">
-                  <Button onClick={this.handleContactClick} className="btn explore-button my-2">
-                    Let’s Talk
+                  <Button onClick={this.handleContactClick} className="btn bg-secondary text-white my-2">
+                    Let’s talk
                   </Button>
               </Row>
             </Container>
