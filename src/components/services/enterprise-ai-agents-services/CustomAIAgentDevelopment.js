@@ -30,7 +30,7 @@ class CustomAIAgentDevelopment extends Component {
                 <li>Technical flexibility to support both business-led use cases and IT-led implementations</li>
               </ul>
               <p>
-                We build intelligent agents that adapt to your enterprise - not the other way around.
+                Whether you're automating complex HR escalations, internal service requests, or multi-system workflows, we build intelligent agents that adapt to your enterprise - not the other way around.
               </p>
             </div>
           </Col>
