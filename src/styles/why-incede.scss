@@ -59,4 +59,11 @@
     font-size: 1rem !important; /* Adjust font size as needed */
     padding: 0.5rem 1rem !important; /* Adjust padding if necessary */
   }
+
+  @media (max-width: 990px) { /* For screens below 990px */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100% !important; /* Ensure it takes full width */
+  }
 }
