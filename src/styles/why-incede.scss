@@ -67,3 +67,11 @@
     width: 100% !important; /* Ensure it takes full width */
   }
 }
+
+.custom-col-gap {
+  .col,
+  [class*="col-"] {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

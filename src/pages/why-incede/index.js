@@ -262,7 +262,7 @@ class WhyIncede extends Component {
                 </Col>
               </Row>
                 <ul className='d-flex'>
-              <Row className="justify-content-center">
+              <Row className="justify-content-center custom-col-gap">
                   <Col md={6} sm={12} xs={12} className="">
                     <li><b>Certified IBM</b> partner across watsonx, watsonx orchestrate, Planning Analytics, Cognos Analytics, and Business Automation Workflow (BAW) and RPA.
                     </li>
