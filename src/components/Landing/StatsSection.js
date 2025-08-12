@@ -9,7 +9,7 @@ const stats = [
   },
   {
     label: "YEARS IN BUSINESS",
-    value: "17"
+    value: "+10"
   },
   {
     label: "SUCCESSFUL PROJECTS",

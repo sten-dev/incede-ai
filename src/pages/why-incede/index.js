@@ -267,15 +267,15 @@ class WhyIncede extends Component {
                     <li><b>Certified IBM</b> partner across watsonx, watsonx orchestrate, Planning Analytics, Cognos Analytics, and Business Automation Workflow (BAW) and RPA.
                     </li>
                     <li>
-                      <b>Global delivery</b> with teams across North America and APAC
+                      <b>Global delivery</b> with teams across North America and APAC.
                     </li>
                   </Col>
                   <Col md={6} sm={12} xs={12} className="">
                     <li>
-                      <b>Industry focus:</b> Healthcare, Financial Services, Tech, Manufacturing, Government
+                      <b>Industry focus:</b> Healthcare, Financial Services, Tech, Manufacturing, Retail.
                     </li>
                     <li>
-                      <b>95%+ customer satisfaction</b> across delivery engagements
+                      <b>95%+ customer satisfaction</b> across delivery engagements.
                     </li>
                   </Col>
               </Row>
@@ -363,18 +363,18 @@ class WhyIncede extends Component {
               </Row>
               <Row className="justify-content-center mb-4">
                 <Col md={6} xs={12} className="d-flex flex-column align-items-center">
-                  <Link to="/services/enterprise-ai-agents" className="btn explore-button my-2 w-75">
+                  <Link to="/services/enterprise-ai-agents#enterprise" className="btn explore-button my-2 w-100">
                     Enterprise AI Agents
                   </Link>
-                  <Link to="/services/gen-ai-implementation" className="btn explore-button my-2 w-75">
+                  <Link to="/services/gen-ai-implementation#gen" className="btn explore-button my-2 w-100">
                     Gen AI Implementation
                   </Link>
                 </Col>
                 <Col md={6} xs={12} className="d-flex flex-column align-items-center">
-                  <Link to="/services/ai-powered-business-process-automation" className="btn explore-button my-2 w-75">
-                    Business Process Automation
+                  <Link to="/services/ai-powered-business-process-automation#ai" className="btn explore-button my-2 w-100">
+                    AI-Powered Business Process Automation
                   </Link>
-                  <Link to="/services/planning-budgeting-and-analytics" className="btn explore-button my-2 w-75">
+                  <Link to="/services/planning-budgeting-and-analytics#planning" className="btn explore-button my-2 w-100">
                     Planning, Budgeting & Analytics
                   </Link>
                 </Col>

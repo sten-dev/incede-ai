@@ -44,7 +44,6 @@ const CustomerCarousel = () => {
         infiniteLoop
         useKeyboardArrows
         autoPlay
-        interval={5000}
         showIndicators={false}
       >
         {chunkedCustomers.map((chunk, index) => (

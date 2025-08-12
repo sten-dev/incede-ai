@@ -14,7 +14,7 @@ const cards = [
     desc: "Deploy AI Agents as autonomous teammates—powered by models, logic, and built for action.",
     demo: "Get a demo",
     learn: "Learn more",
-    url: "/services/enterprise-ai-agents" /* Added URL */
+    url: "/services/enterprise-ai-agents#enterprise" /* Added URL */
   },
   {
     icon: integrationDevelopmentIcon,
@@ -22,7 +22,7 @@ const cards = [
     desc: "From Documents to Decisions—Turn Gen AI into Enterprise-Ready, Actionable Intelligence at Scale.",
     demo: "Get a demo",
     learn: "Learn more",
-    url: "/services/gen-ai-implementation" /* Added URL */
+    url: "/services/gen-ai-implementation#gen" /* Added URL */
   },
   {
     icon: channelDevelopmentIcon,
@@ -30,7 +30,7 @@ const cards = [
     desc: "Streamline operations, reduce costs, and accelerate workflows—powered by enterprise-grade GenAI.",
     demo: "Get a demo",
     learn: "Learn more",
-    url: "/services/ai-powered-business-process-automation" /* Added URL */
+    url: "/services/ai-powered-business-process-automation#ai" /* Added URL */
   },
   {
     icon: designServicesIcon,
@@ -38,7 +38,7 @@ const cards = [
     desc: "Modernize planning and analytics with real-time collaboration, agile forecasting, and GenAI-powered decision intelligence.",
     demo: "Get a demo",
     learn: "Learn more",
-    url: "/services/planning-budgeting-and-analytics" /* Added URL */
+    url: "/services/planning-budgeting-and-analytics#planning" /* Added URL */
   }
 ];
 
