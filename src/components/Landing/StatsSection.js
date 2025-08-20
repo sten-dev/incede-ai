@@ -9,15 +9,15 @@ const stats = [
   },
   {
     label: "YEARS IN BUSINESS",
-    value: "+10"
+    value: "10+"
   },
   {
     label: "SUCCESSFUL PROJECTS",
-    value: "+500"
+    value: "500+"
   },
   {
     label: "CUSTOMERS",
-    value: "+200"
+    value: "200+"
   }
 ];
 
