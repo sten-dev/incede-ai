@@ -246,8 +246,7 @@ class WhyIncede extends Component {
                   <article className="flex justify-content-center align-items-center py-4 text-center mt-0 mt-sm-3 mt-lg-4">
                     <h1 className="text-center heading">Proven. Experienced. Built to Scale.</h1>
                     <p className="sub-title mb-0 mb-lg-5 text-center">
-                      Led by a team of enterprise transformation experts, Incede.ai brings decades of real-world implementation experience to every engagement. Our leadership has built intelligent systems across healthcare, finance, manufacturing, and technology and now brings that expertise to power the next wave of AI-driven business.
-                    </p>
+                      Headquartered in the heart of Silicon Valley, Incede.ai is led by a seasoned leadership team with decades of experience delivering AI solutions that drive measurable ROI. Our leaders have guided successful AI and automation initiatives across healthcare, finance, manufacturing, technology, and government helping organizations achieve faster insights, reduced costs, and scalable growth. Today, that expertise powers our mission: to deliver practical, results-driven AI solutions that enterprises can trust to create lasting business impact.  </p>
                   </article>
                 </Col>
               </Row>
@@ -264,7 +263,7 @@ class WhyIncede extends Component {
                 <ul className='d-flex'>
               <Row className="justify-content-center custom-col-gap">
                   <Col md={6} sm={12} xs={12} className="">
-                    <li><b>Certified IBM</b> partner across watsonx, watsonx orchestrate, Planning Analytics, Cognos Analytics, and Business Automation Workflow (BAW) and RPA.
+                    <li><b>Certified IBM partner</b> across watsonx platform, watsonx Orchestrate, watsonx BI, Planning Analytics, Cognos Analytics, Business Automation Workflow (BAW), and RPA.
                     </li>
                     <li>
                       <b>Global delivery</b> with teams across North America and APAC.
@@ -300,20 +299,30 @@ class WhyIncede extends Component {
                   <Col md={12} className="text-center">
                     <h3 className="text-center fw-bold">Strategic IBM Alignment</h3>
                     <p className="sub-title mb-0 mb-lg-5 text-center">
-                      We’re deeply aligned with IBM’s product teams, partner network, and go-to-market motions. That means faster solutioning, smarter integrations, and more confident execution for both customers and IBM sellers.
-                    </p>
+                      We are closely aligned with IBM’s product teams and partner network, enabling faster solutioning, smarter integrations, and confident execution. As part of IBM Partner Plus and listed in Partner Finder, we frequently co-develop POCs with IBM and are recognized for delivery excellence and client success.</p>
                   </Col>
                   <Col md={12} className="text-center">
                     <h3 className="text-center fw-bold">Enterprise-Ready from Day One</h3>
                     <p className="sub-title mb-0 mb-lg-5 text-center">
-                      Our implementations are designed with scale, security, and compliance in mind to supporting hybrid cloud, SOC2, HIPAA, and GDPR frameworks. Whether embedded in Slack or integrated with SAP, our solutions are built to perform where work happens.
-                    </p>
+                      Our implementations are built for scale, security, and compliance across IBM Cloud, AWS, Azure, hybrid, and on-premises environments. Aligned with IBM governance standards, we meet SOC2, HIPAA, and GDPR, using cloud-native containers, Kubernetes, encryption, and audit trails to ensure resilient, enterprise-grade protection.
+                      </p>
                   </Col>
                   <Col md={12} className="text-center">
                     <h3 className="text-center fw-bold">Outcome-Driven, Not Just Tech-Driven</h3>
                     <p className="sub-title mb-0 mb-lg-5 text-center">
-                      We deliver clear value: faster approvals, reduced cycle times, improved planning agility, and intelligent automation. Every project starts with business outcomes and not buzzwords.
-                    </p>
+                      We deliver measurable results by focusing on business outcomes. Clients achieve 20–40% cost savings, faster approvals, reduced cycle times, and smarter forecasting. Our AI-powered automation integrates seamlessly with SAP, Salesforce, Workday, ServiceNow, Slack, Teams, and Co-Pilot driving lasting efficiency and enterprise value.
+                      </p>
+                  </Col>
+                  <Col md={12} className="text-center">
+                    <h3 className="text-center fw-bold">Secure Governance & Responsible AI</h3>
+                    <p className="sub-title mb-0 mb-lg-5 text-center">
+                     At Incede.ai, we embed responsibility and transparency into every solution. We mitigate bias and hallucinations, monitor accuracy and costs, ensure explainability with RAG grounding, and apply safety guardrails. Our AI safety assessments and ethical practices balance innovation with accountability for enterprise-ready trust.
+                      </p>
+                  </Col>
+                  <Col md={12} className="text-center">
+                    <h3 className="text-center fw-bold">Proven Services & Engagement Model</h3>
+                    <p className="sub-title mb-0 mb-lg-5 text-center">
+                      Every engagement begins with discovery and roadmap planning to define scope, priorities, and timelines. Projects move from pilot to deployment in weeks, not months, with phased rollouts aligned to business goals. Our agile model ensures rapid POCs, seamless integrations, and post-launch training, optimization, and support to drive measurable outcomes and lasting impact.</p>
                   </Col>
                   <Col md={12} className="text-center">
                     <h3 className="text-center fw-bold">Trusted by IBM Field Teams</h3>

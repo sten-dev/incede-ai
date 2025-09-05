@@ -13,11 +13,14 @@ class PrivateAI extends Component {
             </h4>
             <div className="content">
               <p>
-                Incede.ai helps enterprises unlock actionable intelligence from unstructured content—policies, contracts, SOPs, and reports—by deploying domain-specific GenAI retrieval patterns. We go beyond basic search, enabling document intelligence solutions that extract insights, explain context, and drive real outcomes.
-              </p>
+                We deploy private and hybrid AI environments tailored for enterprises that require full control over sensitive data. Whether on-premises, in a private cloud, or within hybrid infrastructures, our solutions ensure secure model hosting, governance, and compliance while maintaining enterprise scalability. </p>
               <p>
-                Our services combine techniques like RAG, semantic classification, clause detection, and summarization with hybrid architectures that balance self-hosted and cloud-based models for compliance and control. From legal clause automation to financial document analysis, each deployment is tailored to your operational needs, ensuring secure, scalable, and effective AI-powered document workflows.
-              </p>
+               We also connect LLMs with enterprise data through retrieval-augmented generation (RAG), semantic search, and vector databases such as FAISS, Pinecone, Weaviate etc. Our integration approach includes data pipelines, middleware, and orchestration frameworks that unify legacy and modern systems. </p>
+          <p>
+            For customer-facing solutions, we design custom UIs and embed AI into websites and mobile apps, enabling real-time engagement, automation, and decision support.
+We deploy AI across cloud, hybrid, and on-premises environments, depending on compliance and business needs.
+
+          </p>
             </div>
           </Col>
         </Row>

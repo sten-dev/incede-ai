@@ -19,8 +19,8 @@ const prebuiltAgentsData = [
     integrations: ["SAP Ariba", "Coupa", "Oracle"],
   },
   {
-    type: "Customer Support Agents",
-    useCases: "Handle inquiries, fulfill AI requests, and manage escalations—boosting CSAT and first-touch resolution.",
+    type: "Customer Support & Call Center Agents",
+    useCases: "Handle inquiries, manage escalations, and automate workflows across chat, voice, and service channels— boosting CSAT and first-touch resolution.",
     integrations: ["Zendesk", "Salesforce Service", "Voice/Chat APIs"],
   },
   {
@@ -130,8 +130,7 @@ class PrebuiltAgents extends Component {
             </h4>
             <div className="content">
               <p className="description">
-                These domain-specific agents spanning HR, Sales, Procurement, Support, IT, and Document workflows are enterprise-ready and customizable. They accelerate deployments, reduce risk, and deliver rapid ROI for clients across industries.
-              </p>
+                We leverage IBM watsonx Orchestrate’s prebuilt agents across HR, Sales, Procurement, Customer Support & Call Center, IT, Productivity, and Document workflows. These enterprise-ready, customizable agents accelerate deployments, reduce risk, and deliver rapid ROI across industries. </p>
               
               {/* Table for larger screens */}
               {isDesktop ? (

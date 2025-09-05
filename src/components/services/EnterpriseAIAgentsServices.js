@@ -216,11 +216,9 @@ class EnterpriseAIAgentsServices extends Component {
                   />
                 </h1>
                 <p>
-                  Incede.ai delivers AI Agents that function as autonomous teammates—powered by enterprise logic and foundation models. Integrated with platforms like SAP, Workday, and Salesforce, and embedded in tools like Teams and Slack, they automate high-value tasks where work happens.
-                </p>
+                  Our agentic AI agents go beyond simple task execution, they apply business logic, make contextual decisions, and integrate seamlessly with enterprise platforms like Salesforce, SAP, Workday, ServiceNow, Teams, Slack, and can be extended to WhatsApp or other channels through APIs. They also automate everyday tasks such as emails, reports, and document handling, freeing up teams for higher-value work. </p>
                 <p>
-                  With IBM watsonx Orchestrate and Multi-Client Protocol (MCP), we design and deploy multi-agent workflows that coordinate action, accelerate outcomes, and scale across business functions.
-                </p>
+                 With IBM watsonx Orchestrate and Multi-Client Protocol (MCP), we design and deploy multi-agent workflows that coordinate action, accelerate outcomes, and scale across business functions.   </p>
               </div>
             </Col>
           </Row>

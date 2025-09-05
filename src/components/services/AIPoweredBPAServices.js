@@ -179,11 +179,9 @@ class AIPoweredBPAServices extends Component {
                   />
                 </h1>
                 <p>
-                  Incede.ai accelerates enterprise operations by automating high-impact workflows across departments without requiring system overhauls. From approvals to document handling, our intelligent automation integrates with platforms like SAP, Salesforce, Workday, ServiceNow and many more enterprise or home-grown applications.
-                </p>
+                 Incede.ai accelerates enterprise operations by automating high-impact workflows across departments without requiring system overhauls. From approvals to document handling, our intelligent automation integrates with platforms like SAP, Salesforce, Workday, ServiceNow, and other enterprise or home-grown applications.</p>
                 <p>
-                  Using GenAI, we go beyond data movement, extracting intent, applying real-time logic, and scaling decisions. Built on IBM Business Automation Workflow, our solutions deliver measurable impact through shorter cycles, lower costs, and enterprise-grade compliance.
-                </p>
+                  Using GenAI, we go beyond data movement — extracting intent, applying real-time logic, and scaling decisions across the enterprise. Built on IBM Business Automation Workflow, our solutions deliver measurable outcomes through shorter cycles and enterprise-grade compliance. By reducing manual effort, streamlining workflows, and enabling smarter decision-making, clients typically realize 20–40% cost savings.  </p>
               </div>
             </Col>
           </Row>

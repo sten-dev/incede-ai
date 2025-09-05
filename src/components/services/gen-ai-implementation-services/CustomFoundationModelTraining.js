@@ -13,11 +13,9 @@ class CustomFoundationModelTraining extends Component {
             </h4>
             <div className="content">
               <p>
-                Generic models often fall short in capturing domain expertise and business context. Incede.ai helps enterprises build and fine-tune foundation models that understand your language, industry, and compliance needs—delivering AI systems that are aligned, accurate, and ready for real-world use.
-              </p>
+                Incede.ai helps enterprises fine-tune foundation models to capture domain expertise and business context, delivering AI that is accurate, secure, and production ready. We support both open-source and enterprise models, including IBM Granite, GPT, LLaMA, Mistral, Claude, FinBERT, and Med-PaLM. Our services cover dataset preparation, prompt tuning, fine-tuning, and rigorous evaluation for accuracy, safety, and governance—ensuring models meet compliance requirements and deliver measurable business impact across cloud or private environments. </p>
               <p>
-                We support training across open-source and enterprise models—from IBM Granite to specialized LLMs like FinBERT and Med-PaLM. Our services span dataset preparation, prompt tuning, full fine-tuning, and rigorous evaluation for accuracy and safety. Whether you’re deploying on cloud or private infrastructure, we ensure your models are secure, governance-ready, and optimized for production success.
-              </p>
+                We also bring flexibility by supporting open-source AI stacks such as Hugging Face, LangChain, and FAISS, alongside enterprise-grade frameworks. Beyond text, our expertise extends into document and image generation use cases—enabling automation in marketing, creative, and knowledge workflows. By tailoring foundation and large language models with domain-specific data, Incede.ai ensures enterprises unlock measurable ROI while maintaining compliance, security, and business alignment. </p>
             </div>
           </Col>
         </Row>

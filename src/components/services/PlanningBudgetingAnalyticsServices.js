@@ -182,6 +182,9 @@ class PlanningBudgetingAnalyticsServices extends Component {
                 <p>
                   Our solutions combine enterprise-grade planning tools with GenAI-powered analytics assistants that deliver clear, explainable answers in everyday language. From agile budgeting to insight generation, Incede.ai enables business leaders to confidently plan, adapt, and scale with precision, built on IBM’s trusted analytics platforms and tailored to your operational needs.
                 </p>
+                <p>
+                  In addition, we build custom dashboards, reports and insights on top of IBM watsonx and Cognos Analytics, enabling explainability, monitoring, and governance of AI models. These dashboards serve as both operational tools and audit trails, ensuring clarity, compliance, and trust.
+                </p>
               </div>
             </Col>
           </Row>
