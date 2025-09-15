@@ -61,6 +61,7 @@ import poolcrop from "../../img/customers/poolcrop.jpg"
 import rubicon from "../../img/customers/rubicon.jpg"
 import swagelok from "../../img/customers/swagelok.png"
 import uber from "../../img/customers/uber.png"
+import ccg from "../../img/customers/ccg.png"
 
 
 
@@ -127,5 +128,7 @@ export const customersList = [
     poolcrop,
     rubicon,
     swagelok,
-    uber,
+    uber
+    // ,
+    // ccg
 ];

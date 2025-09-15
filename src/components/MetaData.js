@@ -173,7 +173,7 @@ const MetaData = (props) => {
                 </noscript> */}
         <script src="https://dde-us-south.analytics.ibm.com/daas/CognosApi.js"></script>
         <script src="https://web-chat.global.assistant.watson.cloud.ibm.com/loadWatsonAssistantChat.js"></script>
-        <script>{`
+        {/* <script>{`
             window.wxOConfiguration = {
               orchestrationID: "8a42557f82eb4562827378c97f834374_2a927bf8-609a-487a-8156-bcc430350d94",
               hostURL: "https://us-south.watson-orchestrate.cloud.ibm.com",
@@ -194,8 +194,34 @@ const MetaData = (props) => {
               document.head.appendChild(script);
             }, 0);      
             `
-          }               
-          </script>
+          }
+          </script> */}
+          <script>{`
+            window.wxOConfiguration = {
+              orchestrationID: "8a42557f82eb4562827378c97f834374_2a927bf8-609a-487a-8156-bcc430350d94",
+              hostURL: "https://us-south.watson-orchestrate.cloud.ibm.com",
+              rootElementID: "root",
+              deploymentPlatform: "ibmcloud",
+              crn: "crn:v1:bluemix:public:watsonx-orchestrate:us-south:a/8a42557f82eb4562827378c97f834374:2a927bf8-609a-487a-8156-bcc430350d94::",
+              chatOptions: {
+                  agentId: "3c32731f-fbec-4028-bfd9-63519ff10541", 
+                  agentEnvironmentId: "c181a195-283c-41f3-a032-8c74108d927c",
+              },
+              style: {
+                headerColor: '#5C4ABB',
+                primaryColor: '#5C4ABB'
+              },
+            };
+            setTimeout(function () {
+              const script = document.createElement('script');
+              script.src = 'https://us-south.watson-orchestrate.cloud.ibm.com/wxochat/wxoLoader.js?embed=true';
+              script.addEventListener('load', function () {
+                  wxoLoader.init();
+              });
+              document.head.appendChild(script);
+            }, 0);                     
+           `}
+          </script>  
         {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
       </Helmet>
     </React.Fragment>
