@@ -57,7 +57,7 @@ class AIPoweredBPAServices extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeIndex: 0,
+      activeIndex: props.activeIndex || 0,
       clickWhenDrag: false,
       alignCenter: false,
       dragging: true,
@@ -69,7 +69,7 @@ class AIPoweredBPAServices extends Component {
       translate: 0,
       transition: 0.3,
       wheel: false,
-      menuItems: Menu(serviceSubItems.slice(0, serviceSubItems.length), 0),
+      menuItems: Menu(serviceSubItems.slice(0, serviceSubItems.length), props.activeIndex || 0),
       linkId: ""
     };
   }
@@ -153,7 +153,7 @@ class AIPoweredBPAServices extends Component {
           window.history.pushState(
             "",
             "",
-            `/services/ai-powered-business-process-automation#${linkId}`
+            `/services/ai-powered-business-process-automation/${linkId}`
           );
         });
       }

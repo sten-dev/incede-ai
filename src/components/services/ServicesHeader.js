@@ -158,6 +158,11 @@ class ServicesHeader extends Component {
 
   componentDidMount = () => {
     let path = window.location.pathname;
+    let splits = path.split("/");
+    while(splits.length>3){
+      splits.pop();
+      path = splits.join("/");
+    }
     switch (path) {
       case "/services/enterprise-ai-agents":
       case "/services/enterprise-ai-agents/":

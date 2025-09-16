@@ -53,7 +53,7 @@ class EnterpriseAIAgentsServices extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeIndex: 0,
+      activeIndex: props.activeIndex || 0,
       clickWhenDrag: false,
       alignCenter: false,
       dragging: true,
@@ -65,7 +65,7 @@ class EnterpriseAIAgentsServices extends Component {
       translate: 0,
       transition: 0.3,
       wheel: false,
-      menuItems: Menu(serviceSubItems.slice(0, serviceSubItems.length), 0),
+      menuItems: Menu(serviceSubItems.slice(0, serviceSubItems.length), props.activeIndex || 0),
       linkId: "",
       showContactModal: false, // Add state for ContactModal
     };
@@ -83,6 +83,9 @@ class EnterpriseAIAgentsServices extends Component {
     if (window.location.hash.length > 0) {
       // let hash = window.location.hash.split("#")[1];
       let hash = this.context.selectedSubServiceHash;
+      if(!hash){
+        hash = window.location.hash.split("/").pop();
+      }
       let activeIndex = 0;
       let itemIndex = 0;
       switch (hash) {
@@ -187,7 +190,7 @@ class EnterpriseAIAgentsServices extends Component {
           window.history.pushState(
             "",
             "",
-            `/services/enterprise-ai-agents#${linkId}`
+            `/services/enterprise-ai-agents/${linkId}`
           );
           this.context.updateServiceSelection(window.location.pathname,linkId);
           // document.getElementById("custom-react-link").click();

@@ -55,7 +55,7 @@ class PlanningBudgetingAnalyticsServices extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeIndex: 0,
+      activeIndex: props.activeIndex||0,
       clickWhenDrag: false,
       alignCenter: false,
       dragging: true,
@@ -67,7 +67,7 @@ class PlanningBudgetingAnalyticsServices extends Component {
       translate: 0,
       transition: 0.3,
       wheel: false,
-      menuItems: Menu(serviceSubItems.slice(0, serviceSubItems.length), 0),
+      menuItems: Menu(serviceSubItems.slice(0, serviceSubItems.length), props.activeIndex||0),
       linkId: ""
     };
   }
@@ -151,7 +151,7 @@ class PlanningBudgetingAnalyticsServices extends Component {
           window.history.pushState(
             "",
             "",
-            `/services/planning-budgeting-and-analytics#${linkId}`
+            `/services/planning-budgeting-and-analytics/${linkId}`
           );
         });
       }
