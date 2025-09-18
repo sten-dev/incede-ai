@@ -236,7 +236,7 @@ const MetaData = ({pageTitle, pageDescription, keyWords}) => {
           </script>   */}
 
           {/* PROD */}
-            <script>{`
+            {/* <script>{`
                   window.wxOConfiguration = {
                     orchestrationID: "ad4fa6953138448689fb746aade5025e_ad8cbbfc-f515-42a2-9c60-e21db18362a7",
                     hostURL: "https://us-south.watson-orchestrate.cloud.ibm.com",
@@ -261,7 +261,7 @@ const MetaData = ({pageTitle, pageDescription, keyWords}) => {
                     document.head.appendChild(script);
                   }, 0);
               `}                     
-            </script>  
+            </script>   */}
 
         {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
       </Helmet>
