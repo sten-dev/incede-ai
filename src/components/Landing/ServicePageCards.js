@@ -22,6 +22,7 @@ const servicePageCardsData = [
     heading: "ENTERPRISE AI AGENTS",
     url: "/services/enterprise-ai-agents",
     sectionId: "enterprise",
+    scrollId: "enterprise-ai-agents-id",
     points: [
       {
         text: "Prebuilt Agents",
@@ -39,6 +40,7 @@ const servicePageCardsData = [
     heading: "GEN AI IMPLEMENTATION",
     url: "/services/gen-ai-implementation",
     sectionId: "gen",
+    scrollId: "enterprise-ai-agents-id",
     points: [
       {
         text: "AI Roadmapping",
@@ -67,6 +69,7 @@ const servicePageCardsData = [
     heading: "AI-POWERED BUSINESS PROCESS AUTOMATION",
     url: "/services/ai-powered-business-process-automation",
     sectionId: "ai",
+    scrollId: "enterprise-ai-agents-id",
     points: [
       {
         text: "Process Mapping",
@@ -90,6 +93,7 @@ const servicePageCardsData = [
     heading: "PLANNING, BUDGETING AND ANALYTICS",
     url: "/services/planning-budgeting-and-analytics",
     sectionId: "planning",
+    scrollId: "enterprise-ai-agents-id",
     points: [
       {
         text: "Prebuilt Templates",

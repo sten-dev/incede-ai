@@ -51,6 +51,8 @@ footer {
     //   }
     // }
     .social {
+      display: flex;
+      justify-content: flex-end;
       // margin-bottom: 24px;
       img {
         width: 36px;

@@ -7,13 +7,13 @@ class FooterLocation extends React.Component {
     const { location } = this.props;
     return (
       <ul className="list-unstyled">
-        {/* <li className="mb-0">
-          <h6>
+        <li className="mb-0">
+          <h3 className='text-white m-0'>
             <b>Contact Us</b>
-          </h6>
-        </li> */}
+          </h3>
+        </li>
 
-        {/* <li className="mb-0">
+        <li className="mb-0">
           <address className="mb-0">5201 Great America Parkway, Suite #320,</address>
         </li>
         <li className="mb-0">
@@ -23,12 +23,8 @@ class FooterLocation extends React.Component {
           <p>
             408-850-4900, <a href="mailto:info@incede.ai"><u>info@incede.ai</u></a>
           </p>
-        </li> */}
-        <li>
-          <Link className="navbar-item" to="/about/cookie-policy">
-            Cookie Policy
-          </Link>
         </li>
+        
       </ul>
     );
   }
