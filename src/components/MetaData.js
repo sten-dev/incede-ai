@@ -236,32 +236,32 @@ const MetaData = ({pageTitle, pageDescription, keyWords}) => {
           </script>   */}
 
           {/* PROD */}
-            {/* <script>{`
-                  window.wxOConfiguration = {
-                    orchestrationID: "ad4fa6953138448689fb746aade5025e_ad8cbbfc-f515-42a2-9c60-e21db18362a7",
-                    hostURL: "https://us-south.watson-orchestrate.cloud.ibm.com",
-                    rootElementID: "root",
-                    deploymentPlatform: "ibmcloud",
-                    crn: "crn:v1:bluemix:public:watsonx-orchestrate:us-south:a/ad4fa6953138448689fb746aade5025e:ad8cbbfc-f515-42a2-9c60-e21db18362a7::",
-                    chatOptions: {
-                        agentId: "f66de13e-9ca8-4333-a290-c32c56e5f804", 
-                        agentEnvironmentId: "51fa36ba-a5f6-4f92-97dd-ef7015558a7f",
-                    },
-                    style: {
-                      headerColor: '#5C4ABB',
-                      primaryColor: '#5C4ABB'
-                    },
-                  };
-                  setTimeout(function () {
-                    const script = document.createElement('script');
-                    script.src = 'https://us-south.watson-orchestrate.cloud.ibm.com/wxochat/wxoLoader.js?embed=true';
-                    script.addEventListener('load', function () {
-                        wxoLoader.init();
-                    });
-                    document.head.appendChild(script);
-                  }, 0);
-              `}                     
-            </script>   */}
+            <script>{`
+            window.wxOConfiguration = {
+              orchestrationID: "ab9d15f6eb914ea8995f2cab32aa0441_2f3a376b-b520-448a-bf26-a86f30ed3a4b",
+              hostURL: "https://us-south.watson-orchestrate.cloud.ibm.com",
+              rootElementID: "root",
+              deploymentPlatform: "ibmcloud",
+              crn: "crn:v1:bluemix:public:watsonx-orchestrate:us-south:a/ab9d15f6eb914ea8995f2cab32aa0441:2f3a376b-b520-448a-bf26-a86f30ed3a4b::",
+              chatOptions: {
+                  agentId: "96e513a8-1c69-46d3-9e0f-57788b2ec820", 
+                  agentEnvironmentId: "822119c3-2faf-417d-8d3f-a6860b7a05fb",
+              },
+              style: {
+                headerColor: '#5C4ABB',
+                primaryColor: '#5C4ABB'
+              },
+            };
+            setTimeout(function () {
+              const script = document.createElement('script');
+              script.src = 'https://us-south.watson-orchestrate.cloud.ibm.com/wxochat/wxoLoader.js?embed=true';
+              script.addEventListener('load', function () {
+                  wxoLoader.init();
+              });
+              document.head.appendChild(script);
+            }, 0);   
+        `}                  
+      </script> 
 
         {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
       </Helmet>
