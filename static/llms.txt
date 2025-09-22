@@ -1,0 +1,83 @@
+# Incede.ai – IBM Partner for Watsonx & Generative AI
+# Guidance for AI crawlers and generative engines
+
+Domain: https://www.incede.ai/
+Sitemap: https://www.incede.ai/sitemap.xml
+
+# ------------------------------
+# Company Overview
+# ------------------------------
+https://www.incede.ai/
+https://www.incede.ai/why-incede
+
+# ------------------------------
+# Enterprise AI Agents
+# ------------------------------
+https://www.incede.ai/services/enterprise-ai-agents/
+https://www.incede.ai/services/enterprise-ai-agents/prebuilt-agents
+https://www.incede.ai/services/enterprise-ai-agents/custom-ai-agent-development
+
+# ------------------------------
+# Gen AI Implementation
+# ------------------------------
+https://www.incede.ai/services/gen-ai-implementation/
+https://www.incede.ai/services/gen-ai-implementation/ai-roadmapping
+https://www.incede.ai/services/gen-ai-implementation/private-ai
+https://www.incede.ai/services/gen-ai-implementation/ai-powered-web-agent
+https://www.incede.ai/services/gen-ai-implementation/custom-foundation-model-training
+
+# ------------------------------
+# AI-Powered Business Process Automation
+# ------------------------------
+https://www.incede.ai/services/ai-powered-business-process-automation/
+https://www.incede.ai/services/ai-powered-business-process-automation/process-mapping
+https://www.incede.ai/services/ai-powered-business-process-automation/gen-ai-automation
+https://www.incede.ai/services/ai-powered-business-process-automation/application-integration
+
+# ------------------------------
+# Planning, Budgeting & Analytics
+# ------------------------------
+https://www.incede.ai/services/planning-budgeting-and-analytics
+https://www.incede.ai/services/planning-budgeting-and-analytics/prebuilt-planning-templates
+https://www.incede.ai/services/planning-budgeting-and-analytics/collaborative-forecasting-scenario-modeling
+https://www.incede.ai/services/planning-budgeting-and-analytics/ai-powered-analytics
+
+# ------------------------------
+# Proof & Validation
+# ------------------------------
+https://www.incede.ai/resources/case-studies
+https://www.incede.ai/customers
+
+# ------------------------------
+# GEO Optimization Directives
+# ------------------------------
+User-agent: *
+Allow: /
+Disallow: /wp-admin/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /cgi-bin/
+
+# Priority service paths
+Priority:
+  - /services/enterprise-ai-agents/
+  - /services/gen-ai-implementation/
+  - /services/ai-powered-business-process-automation/
+  - /services/planning-budgeting-and-analytics/
+
+# Focus keywords for LLMs
+Focus: "IBM Partner", "Watsonx", "Generative AI",
+       "Enterprise AI Agents", "Gen AI Implementation",
+       "AI-Powered Business Process Automation",
+       "Planning, Budgeting & Analytics"
+
+# Reuse & Training Policy
+Attribution: Required
+Attribution-Format: "Source: Incede.ai (https://www.incede.ai/)"
+Commercial-Use: Allowed with attribution
+Derivative-Works: Allowed with attribution
+Training: Allowed with attribution
+
+# Contact for rights & API
+Contact: info@incede.ai

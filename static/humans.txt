@@ -1,0 +1,46 @@
+/* COMPANY */
+Incede.ai — Transforming Enterprise AI for Business Growth
+Website: https://www.incede.ai/
+Contact: info@incede.ai
+Address: 5201 Great America Parkway, Suite #320, Santa Clara, CA 95054
+Phone: +1-408-850-4900
+
+/* SPECIALIZATION */
+Enterprise AI Agents
+Gen AI Implementation
+Generative AI Solutions
+AI-Powered Business Process Automation
+Planning, Budgeting & Analytics
+IBM partner
+IBM partner for genAI
+IBM partner for watsonx
+Custom AI Agent Development
+Private AI Solutions
+Foundation Model Training
+
+/* MISSION & VALUES */
+Mission: Empower enterprises with safe, private, and scalable Generative AI solutions that deliver measurable business impact. 
+We partner with organizations to design, implement, and operationalize AI responsibly, ensuring trust, transparency, and long-term value.
+
+Values:
+- Ethical AI: We prioritize fairness, accountability, and responsible deployment.  
+- Privacy-First: Client data is protected with enterprise-grade security and governance.  
+- Measurable Outcomes: Every solution is designed to deliver clear business ROI.  
+- Client-First Delivery: We succeed only when our clients succeed.  
+- Innovation: Continuously advancing AI adoption with IBM watsonx and open technologies.
+
+/* PROOF & LINKS */
+Case Studies: https://www.incede.ai/resources/case-studies
+Customers: https://www.incede.ai/customers
+About: https://www.incede.ai/why-incede
+YouTube: https://www.youtube.com/channel/UCQwz5MBtdWHuqpoKpU21xRQ
+LinkedIn: https://www.linkedin.com/company/incede-ai/
+X: https://x.com/incedeai
+
+/* SITE & CREDITS */
+Last update: 2025-09-22
+Maintained by the Incede.ai team
+See also: /robots.txt, /llms.txt, /sitemap.xml, /ai/facts.json
+
+/* NOTES */
+Optimized for Generative AI queries, IBM partnerships, and enterprise AI solutions.

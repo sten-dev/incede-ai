@@ -1,0 +1,112 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://www.incede.ai/#organization",
+  "name": "Incede.ai",
+  "url": "https://www.incede.ai/",
+  "logo": "https://www.incede.ai/images/logo.png",
+  "description": "Incede.ai is an IBM watsonx Partner specializing in Generative AI, Enterprise AI Agents, AI-Powered Business Process Automation, and Planning, Budgeting & Analytics.",
+  "slogan": "Over 10 years of enterprise AI expertise",
+  "sameAs": [
+    "https://www.linkedin.com/company/incede-ai/",
+    "https://x.com/incedeai",
+    "https://www.youtube.com/channel/UCQwz5MBtdWHuqpoKpU21xRQ"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Customer Service",
+    "telephone": "+1-408-850-4900",
+    "email": "info@incede.ai",
+    "areaServed": "Worldwide",
+    "availableLanguage": ["English"]
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "5201 Great America Parkway, Suite #320",
+    "addressLocality": "Santa Clara",
+    "addressRegion": "CA",
+    "postalCode": "95054",
+    "addressCountry": "US"
+  },
+  "brand": {
+    "@type": "Brand",
+    "name": "IBM Partner for Watsonx"
+  },
+  "department": [
+    {
+      "@type": "Organization",
+      "name": "Enterprise AI Agents",
+      "url": "https://www.incede.ai/services/enterprise-ai-agents/",
+      "description": "Prebuilt and custom AI agents to automate business processes and enhance decision-making."
+    },
+    {
+      "@type": "Organization",
+      "name": "Gen AI Implementation",
+      "url": "https://www.incede.ai/services/gen-ai-implementation/",
+      "description": "Roadmapping, private AI, AI-powered web agents, and custom foundation model training."
+    },
+    {
+      "@type": "Organization",
+      "name": "AI-Powered Business Process Automation",
+      "url": "https://www.incede.ai/services/ai-powered-business-process-automation/",
+      "description": "Process mapping, Gen AI integration, and enterprise app integration."
+    },
+    {
+      "@type": "Organization",
+      "name": "Planning, Budgeting & Analytics",
+      "url": "https://www.incede.ai/services/planning-budgeting-and-analytics",
+      "description": "Collaborative forecasting, scenario modeling, and AI-powered analytics."
+    }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "AI Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Enterprise AI Agents",
+          "url": "https://www.incede.ai/services/enterprise-ai-agents/"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Gen AI Implementation",
+          "url": "https://www.incede.ai/services/gen-ai-implementation/"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "AI-Powered Business Process Automation",
+          "url": "https://www.incede.ai/services/ai-powered-business-process-automation/"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Planning, Budgeting & Analytics",
+          "url": "https://www.incede.ai/services/planning-budgeting-and-analytics"
+        }
+      }
+    ]
+  },
+  "proof": {
+    "caseStudies": "https://www.incede.ai/resources/case-studies",
+    "customers": "https://www.incede.ai/customers"
+  },
+  "policy": {
+    "reuse": {
+      "training": "allowed",
+      "commercialUse": "allowed",
+      "derivativeWorks": "allowed",
+      "attributionRequired": true,
+      "attributionFormat": "Source: Incede.ai (https://www.incede.ai/)"
+    }
+  }
+}

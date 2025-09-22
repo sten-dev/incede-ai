@@ -1,0 +1,62 @@
+# robots.txt for Incede.ai
+# Purpose: Optimize for SEO + GEO (AI crawlers and search engines)
+
+# Global rules
+User-agent: *
+Allow: /
+Crawl-delay: 1
+
+# Priority pages for all crawlers
+Allow: /services/
+Allow: /why-incede
+Allow: /resources/case-studies
+Allow: /customers
+
+# Explicit allow for major AI / LLM crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: GrokBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Block non-public / sensitive paths
+Disallow: /admin/
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /wp-content/plugins/
+Disallow: /wp-content/themes/
+Disallow: /wp-login.php
+Disallow: /wp-json/
+Disallow: /wp-admin/admin-ajax.php
+Disallow: /cgi-bin/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /404/
+Disallow: /*.pdf$
+
+# Sitemap for discovery
+Sitemap: https://www.incede.ai/sitemap.xml
