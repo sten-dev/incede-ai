@@ -7,7 +7,8 @@ import PlanningBudgetingAnalyticsServices from "../../../components/services/Pla
 
 const PlanningBudgetingAndAnalyticsPage = () => {
   return (
-    <Layout pageTitle="Planning, Budgeting and Analytics | Incede">
+    <Layout pageTitle="AI-Powered Analytics | Incede.ai"
+    pageDescription={`Unlock insights with AI-powered analytics and IBM watsonx-driven intelligence.`}>
       <Transition>
         <section className="industry-solution">
           <ServicesHeader header={"Planning, Budgeting and Analytics"} title={""} />

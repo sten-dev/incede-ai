@@ -1,15 +1,19 @@
 import React, { Component } from "react";
 import { Helmet } from "react-helmet";
 import useSiteMetadata from "./SiteMetadata";
-import { withPrefix } from "gatsby";
-const MetaData = (props) => {
+import { withPrefix,  } from "gatsby";
+import { useLocation } from "@reach/router";
+const MetaData = ({pageTitle, pageDescription, keyWords}) => {
   const { title, description } = useSiteMetadata();
+  const location = useLocation();
+  let pathName = `${location.pathname}`;
+  
   return (
     <React.Fragment>
       <Helmet>
         <html lang="en" />
-        <title>{props.pageTitle}</title>
-        <meta name="description" content={description} />
+        <title>{pageTitle || title}</title>
+        <meta name="description" content={pageDescription || description} />
         <link
           rel="apple-touch-icon"
           sizes="57x57"
@@ -97,18 +101,25 @@ const MetaData = (props) => {
         />
         {/* <link  href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700&display=swap" rel="stylesheet"/> */}
 
-        <meta property="og:title" content={title} />
+        <meta property="og:title" content={pageTitle || title} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="/" />
+        <meta property="og:url" content={`${pathName}`} />
         <meta
           property="og:image"
           content={`${withPrefix("/")}img/og-image.jpg`}
         />
-        <meta property="og:image:alt" content={title} />
-        <meta property="og:description" content={description} />
-        <meta name="keywords" content="" />
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={description} />
+
+        <meta property="og:image" content={`${withPrefix("/")}og-image.png`}/>
+        <meta name="twitter:image" content={`${withPrefix("/")}twitter-image.png`}/>
+        <meta name="twitter:card" content="summary_large_image"/>
+        <meta property="og:site_name" content="Incede.ai"/>
+
+        <link rel="canonical" href={`${pathName}`}/>
+        <meta property="og:image:alt" content={pageTitle || title} />
+        <meta property="og:description" content={pageDescription || description} />
+        <meta name="keywords" content={keyWords || `IBM partner for watsonx, enterprise AI agents, generative AI, GenAI implementation, AI-powered business automation, planning budgeting analytics`} />
+        <meta name="twitter:title" content={pageTitle || title} />
+        <meta name="twitter:description" content={pageDescription || description} />
         <meta
           name="twitter:image"
           content={`${withPrefix("/")}img/og-image.jpg`}

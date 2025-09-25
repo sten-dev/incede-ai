@@ -7,7 +7,8 @@ import AIPoweredBPAServices from "../../../components/services/AIPoweredBPAServi
 
 const AIPoweredBusinessProcessAutomationPage = () => {
   return (
-    <Layout pageTitle="AI-Powered Business Process Automation | Incede">
+    <Layout pageTitle="Gen AI + Automation | Incede.ai"
+    pageDescription={`Integrate generative AI with enterprise automation for scalable, intelligent workflows.`}>
       <Transition>
         <section className="industry-solution">
           <ServicesHeader header={"AI-Powered Business Process Automation"} title={""} />

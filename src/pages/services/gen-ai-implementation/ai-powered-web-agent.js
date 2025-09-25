@@ -7,7 +7,8 @@ import GenAIImplementationServices from "../../../components/services/GenAIImple
 
 const GenAIImplementationPage = () => {
   return (
-    <Layout pageTitle="Gen AI Implementation | Incede">
+    <Layout pageTitle="AI-Powered Web Agent | Incede.ai"
+    pageDescription={`Create AI-powered web agents to enhance customer engagement and automate support.`}>
       <Transition>
         <section className="industry-solution">
           <ServicesHeader header={"Gen AI Implementation"} title={""} />

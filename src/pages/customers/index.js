@@ -11,7 +11,12 @@ export default class Index extends React.Component {
 
   render() {
     return (
-      <Layout pageTitle="Customers | Incede">
+      <Layout 
+        pageTitle="Our Customers | Incede.ai | Trusted IBM watsonx Partner"
+        pageDescription="Meet the customers and enterprises who trust Incede.ai for IBM watsonx-powered generative AI, automation, and analytics solutions."
+        keyWords=""
+      >
+
         <Transition>
           <Customers />
         </Transition>

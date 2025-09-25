@@ -6,7 +6,10 @@ import Transition from "../../Transition";
 export default class CaseStudiesPage extends React.Component {
   render() {
     return (
-      <Layout pageTitle="Case Studies | Incede">
+      <Layout 
+        pageTitle="Case Studies | Incede.ai | IBM watsonx Enterprise Solutions"
+        pageDescription="Explore real-world case studies showcasing how Incede.ai delivers enterprise AI agents, GenAI, automation, and analytics using IBM watsonx."
+      >
         <Transition>
           <CaseStudiesMain />
         </Transition>

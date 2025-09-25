@@ -7,7 +7,9 @@ import EnterpriseAIAgentsServices from "../../../components/services/EnterpriseA
 
 const EnterpriseAIAgentsPage = () => {
   return (
-    <Layout pageTitle="Enterprise AI Agents | Incede">
+    <Layout pageTitle="Custom AI Agent Development | Incede.ai"
+    pageDescription="Design and build custom AI agents tailored to your enterprise needs, powered by IBM watsonx."
+    >
       <Transition>
         <section className="industry-solution">
           <ServicesHeader header={"Enterprise AI Agents"} title={""} />

@@ -29,6 +29,7 @@ import TestimonialCarousel from "../../components/Landing/TestimonialsCarousel";
 import { Link } from "gatsby";
 import ContactModal from "../../components/ContactModal";
 import { withToastContext } from "../../components/common/ToastProvider";
+import MetaData from "../../components/MetaData";
 
 
 const subItems = [
@@ -193,6 +194,10 @@ class WhyIncede extends Component {
     let menu = this.state.menuItems;
     return (
       <React.Fragment>
+        <MetaData 
+          pageTitle="Why Incede | IBM Partner for watsonx & Generative AI" 
+          pageDescription="Learn why Incede.ai is trusted as an IBM partner for watsonx and generative AI solutions. Discover our mission, values, and customer success stories."
+        />
         <Layout pageTitle="Why Incede | Incede">
           {/* <Transition> */}
           <MoreDetail />
