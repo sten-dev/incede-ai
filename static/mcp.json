@@ -1,0 +1,52 @@
+{
+  "version": "1.0",
+  "about": {
+    "name": "Incede.ai",
+    "description": "IBM partner specializing in Watsonx, Enterprise AI Agents, Generative AI Implementation, and AI-powered Automation & Analytics.",
+    "homepage": "https://www.incede.ai/",
+    "logo": "https://www.incede.ai/images/incede-logo.png"
+  },
+  "endpoints": [
+    {
+      "name": "Facts",
+      "url": "https://www.incede.ai/ai/facts.json",
+      "type": "json",
+      "description": "Structured facts about Incede.ai, its services, and IBM partnership credentials."
+    },
+    {
+      "name": "Services",
+      "url": "https://www.incede.ai/services/",
+      "type": "html",
+      "description": "Detailed descriptions of AI Agents, GenAI, Process Automation, and Planning & Analytics services."
+    },
+    {
+      "name": "Case Studies",
+      "url": "https://www.incede.ai/resources/case-studies",
+      "type": "html",
+      "description": "Enterprise AI success stories and implementation details."
+    },
+    {
+      "name": "Contact",
+      "url": "https://www.incede.ai/contact",
+      "type": "html",
+      "description": "Contact details for sales, partnerships, and support."
+    }
+  ],
+  "capabilities": [
+    "faq",
+    "case_study",
+    "service_description",
+    "thought_leadership"
+  ],
+  "policies": {
+    "auth": "public",
+    "rate_limit": "1000 requests/day",
+    "attribution_required": true,
+    "update_frequency": "daily"
+  },
+  "contact": {
+    "email": "info@incede.ai",
+    "support_url": "https://www.incede.ai/contact",
+    "linkedin": "https://www.linkedin.com/company/incede-ai"
+  }
+}
