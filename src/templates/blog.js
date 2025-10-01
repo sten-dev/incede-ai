@@ -96,7 +96,7 @@ BlogTemplate.propTypes = {
 
 const Blog = ({ data }) => {
   const { markdownRemark: post } = data;
-
+  console.log("Post data:", post); // Debugging line
   return (
     <Layout pageTitle="Blog | Incede">
       <BlogTemplate
