@@ -12,6 +12,7 @@ import IndustriesPreview from "./preview-templates/IndustryPreview";
 import ResourcesLibraryReview from "./preview-templates/ResourcesLibraryReview";
 import ResourcesEventsReview from "./preview-templates/ResourcesEventsReview";
 import ResourcesCaseStudiesPreview from "./preview-templates/ResourcesCaseStudiesPreview";
+import NewsPreview from "./preview-templates/NewsPreview";
 
 // CMS.registerEditorComponent(YoutubeLink);
 CMS.registerMediaLibrary(uploadcare);
@@ -29,3 +30,4 @@ CMS.registerPreviewTemplate(
   "resources-case-studies",
   ResourcesCaseStudiesPreview
 );
+CMS.registerPreviewTemplate("news", NewsPreview);

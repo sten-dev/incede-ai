@@ -31,3 +31,16 @@ collections:
       - { label: "Sub Title", name: "subTitle", widget: "text" }
       - { label: "Image", name: "image", widget: image }
       - { label: "Body", name: "body", widget: "markdown" }
+  - name: "news"
+    label: "News"
+    folder: "src/pages/news/"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "news" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Date & Time", name: "date", widget: "datetime" }
+      - { label: "Category", name: "category", widget: "string" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Body", name: "body", widget: "markdown" }
