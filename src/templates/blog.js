@@ -7,34 +7,56 @@ import Content, { HTMLContent } from "../components/Content";
 import { Col, Row, Container } from "reactstrap";
 import Transition from "../Transition";
 
-export const NewsTemplate = ({
+export const BlogTemplate = ({
   title,
   description,
+  author,
   date,
-  category,
+  readingTime,
   image,
+  format,
+  speakers,
+  category,
   helmet,
   content,
   contentComponent,
 }) => {
   const PageContent = contentComponent || Content;
-  console.log(date);
   return (
     <Transition>
-      <section className="news">
+      <section className="blog">
         {helmet || ""}
         <section className="header-section gap-y">
           <Container>
             <Row>
               <Col>
                 <h1>{title}</h1>
+                <p>
+                  <strong>Author:</strong> {author}
+                </p>
                 {/* <p>
-                  <strong>Date:</strong> {date.toString()}
+                  <strong>Date:</strong> {date}
                 </p> */}
+                <p>
+                  <strong>Time for Reading:</strong> {readingTime}
+                </p>
+                <p>
+                  <strong>Format:</strong> {format}
+                </p>
                 <p>
                   <strong>Category:</strong> {category}
                 </p>
                 <p>{description}</p>
+                {Array.isArray(speakers) && speakers.length > 0 && (
+                  <div>
+                    <strong>Speakers:</strong>
+                    <ul>
+                      {speakers.map((speaker, idx) => (
+                        <li key={idx}>{speaker}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
                 {/* {image && <PreviewCompatibleImage imageInfo={image} />} */}
               </Col>
             </Row>
@@ -54,22 +76,32 @@ export const NewsTemplate = ({
   );
 };
 
-NewsTemplate.propTypes = {
+BlogTemplate.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
+  author: PropTypes.string,
   date: PropTypes.string,
+  readingTime: PropTypes.string,
+  image: PropTypes.string,
+  format: PropTypes.string,
+  speakers: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.string),
+    PropTypes.object,
+  ]),
   category: PropTypes.string,
   helmet: PropTypes.object,
+  content: PropTypes.node,
+  contentComponent: PropTypes.func,
 };
 
-const News = ({ data }) => {
+const Blog = ({ data }) => {
   const { markdownRemark: post } = data;
 
   return (
-    <Layout pageTitle="News | Incede">
-      <NewsTemplate
+    <Layout pageTitle="Blog | Incede">
+      <BlogTemplate
         helmet={
-          <Helmet titleTemplate="%s | News">
+          <Helmet titleTemplate="%s | Blog">
             <title>{`${post.frontmatter.title}`}</title>
             <meta
               name="description"
@@ -79,9 +111,13 @@ const News = ({ data }) => {
         }
         title={post.frontmatter.title}
         description={post.frontmatter.description}
+        author={post.frontmatter.author}
         date={post.frontmatter.date}
-        category={post.frontmatter.category}
+        readingTime={post.frontmatter.readingTime}
         image={post.frontmatter.image}
+        format={post.frontmatter.format}
+        speakers={post.frontmatter.speakers}
+        category={post.frontmatter.category}
         content={post.html}
         contentComponent={HTMLContent}
       />
@@ -89,30 +125,11 @@ const News = ({ data }) => {
   );
 };
 
-News.propTypes = {
+Blog.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
   }),
 };
 
-export default News;
+export default Blog;
 
-export const pageQuery = graphql`
-  query NewsByID($id: String!) {
-    markdownRemark(id: { eq: $id }) {
-      id
-      html
-      frontmatter {
-        title
-        description
-        image {
-          childImageSharp {
-            fluid(maxWidth: 240, quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    }
-  }
-`;
