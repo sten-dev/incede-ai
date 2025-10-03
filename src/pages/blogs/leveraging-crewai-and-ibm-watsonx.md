@@ -11,7 +11,7 @@ image: /img/chatbotscreen_resized.webp
 format: Text
 speakers:
   - Sam
-category: Generative AI • CrewAI
+category: OP • CrewAI
 ---
 <!--StartFragment-->
 
