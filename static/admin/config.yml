@@ -42,6 +42,7 @@ collections:
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Date & Time", name: "date", widget: "datetime" }
       - { label: "Category", name: "category", widget: "string" }
+      - { label: "Feature", name: "feature", widget: "select", "multiple":false , "options":[{label: "Yes", "value": "yes", widget: string},{label: "No", "value": "no", widget: string}]}
       - { label: "Image", name: "image", widget: "image" }
       - { label: "Body", name: "body", widget: "markdown" }
   - name: "blogs"
@@ -58,6 +59,20 @@ collections:
       - { label: "Time for Reading", name: "readingTime", widget: "string" }
       - { label: "Image", name: "image", widget: "image" }
       - { label: "Format", name: "format", widget: "string" }
+      - { label: "Feature", name: "feature", widget: "select", "multiple":false , "options":[{label: "Yes", "value": "yes", widget: string},{label: "No", "value": "no", widget: string}]}
       - { label: "Speakers", name: "speakers", widget: "list", field: { label: "Speaker", name: "speaker", widget: "string" } }
       - { label: "Category", name: "category", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+  - name: "events"
+    label: "Events"
+    folder: "src/pages/events/"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Template Key", name: "templateKey", widget: "hidden", default: "events" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Speakers", name: "speakers", widget: "string" }
+      - { label: "Date & Time", name: "date", widget: "datetime" }
+      - { label: "Duration", name: "duration", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }

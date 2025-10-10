@@ -14,6 +14,7 @@ import ResourcesEventsReview from "./preview-templates/ResourcesEventsReview";
 import ResourcesCaseStudiesPreview from "./preview-templates/ResourcesCaseStudiesPreview";
 import NewsPreview from "./preview-templates/NewsPreview";
 import BlogPreview from "./preview-templates/BlogPreview";
+import EventsPreview from "./preview-templates/EventsPreview";
 
 // CMS.registerEditorComponent(YoutubeLink);
 CMS.registerMediaLibrary(uploadcare);
@@ -33,3 +34,5 @@ CMS.registerPreviewTemplate(
 );
 CMS.registerPreviewTemplate("news", NewsPreview);
 CMS.registerPreviewTemplate("blogs", BlogPreview);
+CMS.registerPreviewTemplate("events", EventsPreview);
+

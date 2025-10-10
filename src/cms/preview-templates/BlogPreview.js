@@ -14,6 +14,7 @@ const BlogPreview = ({ entry, widgetFor }) => {
         image={entry.getIn(["data", "image"])}
         format={entry.getIn(["data", "format"])}
         speakers={entry.getIn(["data", "speakers"])}
+        feature={entry.getIn(["data", "feature"])}
         category={entry.getIn(["data", "category"])}
         content={widgetFor("body")}
       />

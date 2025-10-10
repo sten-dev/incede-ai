@@ -1,28 +1,27 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { NewsTemplate } from "../../templates/news";
+import { EventsTemplate } from "../../templates/events";
 
-const NewsPreview = ({ entry, widgetFor }) => {
+const EventsPreview = ({ entry, widgetFor }) => {
   return (
     <React.Fragment>
-      <NewsTemplate
+      <EventsTemplate
         title={entry.getIn(["data", "title"])}
         description={entry.getIn(["data", "description"])}
+        //speakers={entry.getIn(["data", "speakers"])}
+        duration={entry.getIn(["data", "duration"])}
         date={entry.getIn(["data", "date"])}
-        category={entry.getIn(["data", "category"])}
-        image={entry.getIn(["data", "image"])}
-        feature={entry.getIn(["data", "feature"])}
         content={widgetFor("body")}
       />
     </React.Fragment>
   );
 };
 
-NewsPreview.propTypes = {
+EventsPreview.propTypes = {
   entry: PropTypes.shape({
     getIn: PropTypes.func,
   }),
   widgetFor: PropTypes.func,
 };
 
-export default NewsPreview;
+export default EventsPreview;

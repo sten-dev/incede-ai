@@ -6,10 +6,12 @@ import Layout from "../components/Layout";
 import Content, { HTMLContent } from "../components/Content";
 import { Col, Row, Container } from "reactstrap";
 import Transition from "../Transition";
+import PreviewCompatibleImage from "../components/PreviewCompatibleImage";
 
 export const NewsTemplate = ({
   title,
-  description,
+  tagLine,
+  feature,
   date,
   category,
   image,
@@ -18,32 +20,58 @@ export const NewsTemplate = ({
   contentComponent,
 }) => {
   const PageContent = contentComponent || Content;
-  console.log(date);
+  const  formatDate= (dateString) => {
+    const options = { year: "numeric", month: "short", day: "numeric" };
+    return new Date(dateString).toLocaleDateString("en-US", options);
+  };
   return (
     <Transition>
-      <section className="news">
+      <section className="news-article">
         {helmet || ""}
-        <section className="header-section gap-y">
-          <Container>
+
+        {/* Title bar */}
+    <section className="text-white py-3 rounded-top" style={{ backgroundColor: "#0d1a4f" }}>          
+    <Container>
             <Row>
               <Col>
-                <h1>{title}</h1>
-                {/* <p>
-                  <strong>Date:</strong> {date.toString()}
-                </p> */}
-                <p>
-                  <strong>Category:</strong> {category}
-                </p>
-                <p>{description}</p>
-                {/* {image && <PreviewCompatibleImage imageInfo={image} />} */}
+                <h2 className="mb-0">{title}</h2>
               </Col>
             </Row>
           </Container>
         </section>
+
+        {/* Meta info */}
+        <section className="bg-light py-2 border-bottom">
+          <Container>
+            <Row>
+              <Col>
+                <small className="text-muted">
+                  Published: {formatDate(String(date))} • Category: {category}
+                </small>
+              </Col>
+            </Row>
+          </Container>
+        </section>
+
+        {/* Hero image */}
+        {image && (
+          <Container className="my-3">
+            <Row>
+              <Col>
+                <div className="rounded overflow-hidden">
+                    <img src={image.childImageSharp?.fluid?.src || image} className="img-fluid w-70 min-vh-25" alt="image"/>
+                  {/* <PreviewCompatibleImage imageInfo={image} /> */}
+                </div>
+              </Col>
+            </Row>
+          </Container>
+        )}
+
+        {/* Content */}
         <Container>
           <Row>
             <Col>
-              <main className="content gap-y-half">
+              <main className="content my-4">
                 <PageContent content={content} />
               </main>
             </Col>
@@ -105,9 +133,12 @@ export const pageQuery = graphql`
       frontmatter {
         title
         description
+        feature
+        category
+        date
         image {
           childImageSharp {
-            fluid(maxWidth: 240, quality: 100) {
+            fluid(maxWidth: 1200, quality: 100) {
               ...GatsbyImageSharpFluid
             }
           }
