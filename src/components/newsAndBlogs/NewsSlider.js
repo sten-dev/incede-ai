@@ -16,7 +16,7 @@ class NewsSlider extends React.Component {
   componentDidMount() {
     const { data } = this.props;
     const featuredNews = data?.allMarkdownRemark.edges.filter(
-      ({ node }) => node.frontmatter.feature === "true"
+      ({ node }) => node.frontmatter.feature === "yes"
     );
     this.setState({ newsList: featuredNews });
     this.handleResize();

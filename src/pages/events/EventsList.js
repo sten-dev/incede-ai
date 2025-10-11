@@ -166,7 +166,7 @@ console.log(allEvents,"allEvents")
                           padding: "6px 18px",
                         }}
                       >
-                        Register
+                        View
                       </Button>
                     </Link>
                   </div>
