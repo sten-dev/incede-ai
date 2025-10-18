@@ -184,29 +184,7 @@ const MetaData = ({pageTitle, pageDescription, keyWords}) => {
                 </noscript> */}
         <script src="https://dde-us-south.analytics.ibm.com/daas/CognosApi.js"></script>
         <script src="https://web-chat.global.assistant.watson.cloud.ibm.com/loadWatsonAssistantChat.js"></script>
-        {/* <script>{`
-            window.wxOConfiguration = {
-              orchestrationID: "8a42557f82eb4562827378c97f834374_2a927bf8-609a-487a-8156-bcc430350d94",
-              hostURL: "https://us-south.watson-orchestrate.cloud.ibm.com",
-              rootElementID: "root",
-              deploymentPlatform: "ibmcloud",
-              crn: "crn:v1:bluemix:public:watsonx-orchestrate:us-south:a/8a42557f82eb4562827378c97f834374:2a927bf8-609a-487a-8156-bcc430350d94::",
-              chatOptions: {
-                  agentId: "3c32731f-fbec-4028-bfd9-63519ff10541", 
-                  agentEnvironmentId: "c181a195-283c-41f3-a032-8c74108d927c",
-              }
-            };
-            setTimeout(function () {
-              const script = document.createElement('script');
-              script.src = 'https://us-south.watson-orchestrate.cloud.ibm.com/wxochat/wxoLoader.js?embed=true';
-              script.addEventListener('load', function () {
-                  wxoLoader.init();
-              });
-              document.head.appendChild(script);
-            }, 0);      
-            `
-          }
-          </script> */}
+
           {/* DEV */}
           {/* <script>{`
             window.wxOConfiguration = {
@@ -238,19 +216,19 @@ const MetaData = ({pageTitle, pageDescription, keyWords}) => {
           {/* PROD */}
             <script>{`
             window.wxOConfiguration = {
-              orchestrationID: "ab9d15f6eb914ea8995f2cab32aa0441_2f3a376b-b520-448a-bf26-a86f30ed3a4b",
+              orchestrationID: "a8b6f41c856d4312a3bc7a99e5eab392_719eee6f-1de3-4460-a8d0-d1b9a28cf15a",
               hostURL: "https://us-south.watson-orchestrate.cloud.ibm.com",
               rootElementID: "root",
               deploymentPlatform: "ibmcloud",
-              crn: "crn:v1:bluemix:public:watsonx-orchestrate:us-south:a/ab9d15f6eb914ea8995f2cab32aa0441:2f3a376b-b520-448a-bf26-a86f30ed3a4b::",
+              crn: "crn:v1:bluemix:public:watsonx-orchestrate:us-south:a/a8b6f41c856d4312a3bc7a99e5eab392:719eee6f-1de3-4460-a8d0-d1b9a28cf15a::",
               chatOptions: {
-                  agentId: "96e513a8-1c69-46d3-9e0f-57788b2ec820", 
-                  agentEnvironmentId: "822119c3-2faf-417d-8d3f-a6860b7a05fb",
+                  agentId: "4b31bb45-3efc-4a95-8bfe-7a7202abcea6", 
+                  agentEnvironmentId: "e094d904-97f2-4889-b5f3-d6f4b8eb4afc",
               },
-              style: {
-                headerColor: '#5C4ABB',
-                primaryColor: '#5C4ABB'
-              },
+            style: {
+              headerColor: '#5C4ABB',
+              primaryColor: '#5C4ABB'
+            },
             };
             setTimeout(function () {
               const script = document.createElement('script');
@@ -259,7 +237,7 @@ const MetaData = ({pageTitle, pageDescription, keyWords}) => {
                   wxoLoader.init();
               });
               document.head.appendChild(script);
-            }, 0);   
+            }, 0);                  
         `}                  
       </script> 
 
