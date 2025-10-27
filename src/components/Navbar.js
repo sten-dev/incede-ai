@@ -203,7 +203,7 @@ class INavbar extends Component {
                 </NavItem>
                 */}
                 <NavItem className="btn">
-                  <Link activeClassName="selected" to="/services/enterprise-ai-agents">
+                  <Link  activeClassName="selected" to="/services/enterprise-ai-agents">
                     Services
                   </Link>
                 </NavItem>

@@ -7,6 +7,8 @@ let list = [
   // { name: "Resource Library" },
   // { name: "Events" },
   { name: "Case Studies" },
+  { name: "News" },
+  { name: "Blogs" },
 ];
 
 const MenuItem = ({ text, selected }) => {
@@ -37,7 +39,7 @@ export class ResourceHeader extends Component {
       hideSingleArrow: true,
       itemsCount: list.length,
       scrollToSelected: false,
-      selected: "Resource Library",
+      selected: "Case Studies",
       translate: 0,
       transition: 0.3,
       wheel: false,
@@ -48,19 +50,19 @@ export class ResourceHeader extends Component {
   onSelect = (key) => {
     console.log(`onSelect: ${key}`);
     this.setState({ selected: key });
-    let url = "/resources/resource-library";
+    let url = "/resources/news";
     switch (key) {
-      case "Resource Library":
-        url = "/resources/resource-library";
+      case "News":
+        url = "/resources/news";
         break;
-      case "Events":
-        url = "/resources/events";
+      case "Blogs":
+        url = "/resources/blogs";
         break;
       case "Case Studies":
         url = "/resources/case-studies";
         break;
       default:
-        url = "/resources/resource-library";
+        url = "/resources/case-studies";
         break;
     }
     window.location.href = url;
@@ -69,20 +71,20 @@ export class ResourceHeader extends Component {
   componentDidMount = () => {
     let path = window.location.pathname;
     switch (path) {
-      case "/resources/resource-library":
-      case "/resources/resource-library/":
-        this.setState({ selected: "Resource Library" });
+      case "/resources/news":
+      case "/resources/news/":
+        this.setState({ selected: "News" });
         break;
-      case "/resources/events":
-      case "/resources/events/":
-        this.setState({ selected: "Events" });
+      case "/resources/blogs":
+      case "/resources/blogs/":
+        this.setState({ selected: "Blogs" });
         break;
       case "/resources/case-studies":
       case "/resources/case-studies/":
         this.setState({ selected: "Case Studies" });
         break;
       default:
-        this.setState({ selected: "Resource Library" });
+        this.setState({ selected: "Case Studies" });
         break;
     }
   };
@@ -113,7 +115,7 @@ export class ResourceHeader extends Component {
           </Row>
         </Container>
 
-        {/* <Container fluid className="section-tabs-container">
+        <Container fluid className="section-tabs-container">
           <Container>
             <ScrollMenu
               alignCenter={this.state.alignCenter}
@@ -133,7 +135,7 @@ export class ResourceHeader extends Component {
               wheel={this.state.wheel}
             />
           </Container>
-        </Container> */}
+        </Container>
       </section>
     );
   }

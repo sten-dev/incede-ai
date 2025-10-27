@@ -17,6 +17,7 @@ class CaseStudyCard extends Component {
     this.state = {};
   }
   render() {
+    console.log("case study card props", this.props);
     const { title, description, image, slug, type } = this.props;
     let desLen = description.length;
     return (
