@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { Helmet } from "react-helmet";
 import useSiteMetadata from "./SiteMetadata";
-import { withPrefix,  } from "gatsby";
+import { withPrefix } from "gatsby";
 import { useLocation } from "@reach/router";
-const MetaData = ({pageTitle, pageDescription, keyWords}) => {
+const MetaData = ({ pageTitle, pageDescription, keyWords }) => {
   const { title, description } = useSiteMetadata();
   const location = useLocation();
   let pathName = `${location.pathname}`;
-  
+
   return (
     <React.Fragment>
       <Helmet>
@@ -109,17 +109,32 @@ const MetaData = ({pageTitle, pageDescription, keyWords}) => {
           content={`${withPrefix("/")}img/og-image.jpg`}
         />
 
-        <meta property="og:image" content={`${withPrefix("/")}og-image.png`}/>
-        <meta name="twitter:image" content={`${withPrefix("/")}twitter-image.png`}/>
-        <meta name="twitter:card" content="summary_large_image"/>
-        <meta property="og:site_name" content="Incede.ai"/>
+        <meta property="og:image" content={`${withPrefix("/")}og-image.png`} />
+        <meta
+          name="twitter:image"
+          content={`${withPrefix("/")}twitter-image.png`}
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="og:site_name" content="Incede.ai" />
 
-        <link rel="canonical" href={`${pathName}`}/>
+        <link rel="canonical" href={`${pathName}`} />
         <meta property="og:image:alt" content={pageTitle || title} />
-        <meta property="og:description" content={pageDescription || description} />
-        <meta name="keywords" content={keyWords || `IBM partner for watsonx, enterprise AI agents, generative AI, GenAI implementation, AI-powered business automation, planning budgeting analytics`} />
+        <meta
+          property="og:description"
+          content={pageDescription || description}
+        />
+        <meta
+          name="keywords"
+          content={
+            keyWords ||
+            `IBM partner for watsonx, enterprise AI agents, generative AI, GenAI implementation, AI-powered business automation, planning budgeting analytics`
+          }
+        />
         <meta name="twitter:title" content={pageTitle || title} />
-        <meta name="twitter:description" content={pageDescription || description} />
+        <meta
+          name="twitter:description"
+          content={pageDescription || description}
+        />
         <meta
           name="twitter:image"
           content={`${withPrefix("/")}img/og-image.jpg`}
@@ -185,8 +200,8 @@ const MetaData = ({pageTitle, pageDescription, keyWords}) => {
         <script src="https://dde-us-south.analytics.ibm.com/daas/CognosApi.js"></script>
         <script src="https://web-chat.global.assistant.watson.cloud.ibm.com/loadWatsonAssistantChat.js"></script>
 
-          {/* DEV */}
-          {/* <script>{`
+        {/* DEV */}
+        {/* <script>{`
             window.wxOConfiguration = {
               orchestrationID: "8a42557f82eb4562827378c97f834374_2a927bf8-609a-487a-8156-bcc430350d94",
               hostURL: "https://us-south.watson-orchestrate.cloud.ibm.com",
@@ -213,34 +228,32 @@ const MetaData = ({pageTitle, pageDescription, keyWords}) => {
            `}
           </script>   */}
 
-          {/* PROD */}
-            <script>{`
-            window.wxOConfiguration = {
-              orchestrationID: "a8b6f41c856d4312a3bc7a99e5eab392_719eee6f-1de3-4460-a8d0-d1b9a28cf15a",
-              hostURL: "https://us-south.watson-orchestrate.cloud.ibm.com",
-              rootElementID: "root",
-              deploymentPlatform: "ibmcloud",
-              crn: "crn:v1:bluemix:public:watsonx-orchestrate:us-south:a/a8b6f41c856d4312a3bc7a99e5eab392:719eee6f-1de3-4460-a8d0-d1b9a28cf15a::",
-              chatOptions: {
-                  agentId: "4b31bb45-3efc-4a95-8bfe-7a7202abcea6", 
-                  agentEnvironmentId: "e094d904-97f2-4889-b5f3-d6f4b8eb4afc",
-              },
-            style: {
-              headerColor: '#5C4ABB',
-              primaryColor: '#5C4ABB'
+        {/* PROD */}
+        <script>{`
+          window.wxOConfiguration = {
+            orchestrationID: "fb7864c969b640e29a59ee1365731e3b_54b70c21-223f-43a8-800e-d51dc81d56ef",
+            hostURL: "https://us-south.watson-orchestrate.cloud.ibm.com",
+            rootElementID: "root",
+            deploymentPlatform: "ibmcloud",
+            crn: "crn:v1:bluemix:public:watsonx-orchestrate:us-south:a/fb7864c969b640e29a59ee1365731e3b:54b70c21-223f-43a8-800e-d51dc81d56ef::",
+            chatOptions: {
+                agentId: "915bc5c8-db4f-4b53-a6d3-a15b6fc14ed9",
+                agentEnvironmentId: "e1c6c392-657b-46d1-bd76-53d7cc3d0654",
             },
-            };
-            setTimeout(function () {
-              const script = document.createElement('script');
-              script.src = 'https://us-south.watson-orchestrate.cloud.ibm.com/wxochat/wxoLoader.js?embed=true';
-              script.addEventListener('load', function () {
-                  wxoLoader.init();
-              });
-              document.head.appendChild(script);
-            }, 0);                  
-        `}                  
-      </script> 
-
+            style: {
+            headerColor: '#5C4ABB',
+            primaryColor: '#5C4ABB'
+            },
+          };
+          setTimeout(function () {
+            const script = document.createElement('script');
+            script.src = 'https://us-south.watson-orchestrate.cloud.ibm.com/wxochat/wxoLoader.js?embed=true';
+            script.addEventListener('load', function () {
+                wxoLoader.init();
+            });
+            document.head.appendChild(script);
+          }, 0);
+        `}</script>
         {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
       </Helmet>
     </React.Fragment>
