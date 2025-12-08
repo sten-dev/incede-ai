@@ -231,19 +231,19 @@ const MetaData = ({ pageTitle, pageDescription, keyWords }) => {
         {/* PROD */}
         <script>{`
           window.wxOConfiguration = {
-            orchestrationID: "fb7864c969b640e29a59ee1365731e3b_54b70c21-223f-43a8-800e-d51dc81d56ef",
+            orchestrationID: "5c7165eca27b4d538ce71dda3e3c6799_858aebd4-1f8f-4819-aacb-73e79c819ddb",
             hostURL: "https://us-south.watson-orchestrate.cloud.ibm.com",
             rootElementID: "root",
             deploymentPlatform: "ibmcloud",
-            crn: "crn:v1:bluemix:public:watsonx-orchestrate:us-south:a/fb7864c969b640e29a59ee1365731e3b:54b70c21-223f-43a8-800e-d51dc81d56ef::",
+            crn: "crn:v1:bluemix:public:watsonx-orchestrate:us-south:a/5c7165eca27b4d538ce71dda3e3c6799:858aebd4-1f8f-4819-aacb-73e79c819ddb::",
             chatOptions: {
-                agentId: "915bc5c8-db4f-4b53-a6d3-a15b6fc14ed9",
-                agentEnvironmentId: "e1c6c392-657b-46d1-bd76-53d7cc3d0654",
+                agentId: "19aa5d07-80a8-4d37-8330-d63edfe95d8c", 
+                agentEnvironmentId: "cca8bb08-701b-4e35-9010-cd45deddef36",
             },
             style: {
             headerColor: '#5C4ABB',
             primaryColor: '#5C4ABB'
-            },
+          },
           };
           setTimeout(function () {
             const script = document.createElement('script');
