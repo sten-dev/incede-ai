@@ -231,14 +231,14 @@ const MetaData = ({ pageTitle, pageDescription, keyWords }) => {
         {/* PROD */}
         <script>{`
           window.wxOConfiguration = {
-            orchestrationID: "5c7165eca27b4d538ce71dda3e3c6799_858aebd4-1f8f-4819-aacb-73e79c819ddb",
+            orchestrationID: "19638c75dbf14b06a245515d59462c0b_a85dc2bc-3501-4bf2-8fdd-dc8a3f443f4f",
             hostURL: "https://us-south.watson-orchestrate.cloud.ibm.com",
             rootElementID: "root",
             deploymentPlatform: "ibmcloud",
-            crn: "crn:v1:bluemix:public:watsonx-orchestrate:us-south:a/5c7165eca27b4d538ce71dda3e3c6799:858aebd4-1f8f-4819-aacb-73e79c819ddb::",
+            crn: "crn:v1:bluemix:public:watsonx-orchestrate:us-south:a/19638c75dbf14b06a245515d59462c0b:a85dc2bc-3501-4bf2-8fdd-dc8a3f443f4f::",
             chatOptions: {
-                agentId: "19aa5d07-80a8-4d37-8330-d63edfe95d8c", 
-                agentEnvironmentId: "cca8bb08-701b-4e35-9010-cd45deddef36",
+                agentId: "11233a2c-50f3-45a7-9d43-5868da5e9a67", 
+                agentEnvironmentId: "dac7a10c-1b5c-438b-a416-e25da794c366",
             },
             style: {
             headerColor: '#5C4ABB',
