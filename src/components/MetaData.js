@@ -12,7 +12,7 @@ const MetaData = ({ pageTitle, pageDescription, keyWords }) => {
     <React.Fragment>
       <Helmet>
         <html lang="en" />
-        <meta http-equiv="Content-Security-Policy" content="
+        {/* <meta http-equiv="Content-Security-Policy" content="
           default-src 'self';
           script-src 'self' 'unsafe-inline' 'unsafe-eval' 
             https://us-south.watson-orchestrate.cloud.ibm.com 
@@ -29,7 +29,7 @@ const MetaData = ({ pageTitle, pageDescription, keyWords }) => {
           font-src 'self' https://fonts.googleapis.com;
           style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
           frame-src 'self' https://www.googletagmanager.com;
-        " />
+        " /> */}
         <title>{pageTitle || title}</title>
         <meta name="description" content={pageDescription || description} />
         <link
