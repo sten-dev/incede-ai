@@ -251,6 +251,7 @@ const MetaData = ({ pageTitle, pageDescription, keyWords }) => {
           window.wxOConfiguration = {
             orchestrationID: "0781f29958be4f588e177e1250f85e99_01472fb1-37b5-46dd-8479-0e23044b68d2",
             hostURL: "/wxo",
+            assetURL: "/wxo/wxochat",
             rootElementID: "root",
             deploymentPlatform: "ibmcloud",
             crn: "crn:v1:bluemix:public:watsonx-orchestrate:us-south:a/0781f29958be4f588e177e1250f85e99:01472fb1-37b5-46dd-8479-0e23044b68d2::",
@@ -266,8 +267,8 @@ const MetaData = ({ pageTitle, pageDescription, keyWords }) => {
           setTimeout(function () {
             const script = document.createElement('script');
             script.src = '/wxo/wxochat/wxoLoader.js';
-            script.crossOrigin = 'anonymous';
             script.addEventListener('load', function () {
+                console.log('Watson Orchestrate script loaded successfully');
                 wxoLoader.init();
             });
             script.addEventListener('error', function() {
