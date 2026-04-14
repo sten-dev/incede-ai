@@ -218,65 +218,69 @@ const MetaData = ({ pageTitle, pageDescription, keyWords }) => {
         <script src="https://dde-us-south.analytics.ibm.com/daas/CognosApi.js"></script>
         <script src="https://web-chat.global.assistant.watson.cloud.ibm.com/loadWatsonAssistantChat.js"></script>
         <script>{`
-          var IBM_HOST = "https://us-south.watson-orchestrate.cloud.ibm.com";
-          var PROXY_PREFIX = "/wxo";
+          function patchWatsonRequests() {
+            var IBM_HOST = "https://us-south.watson-orchestrate.cloud.ibm.com";
+            var PROXY_PREFIX = "/wxo";
 
-          if (window.__wxoPatched) return;
-          window.__wxoPatched = true;
+            // جلوگیری از دوباره اجرا شدن
+            if (window.__wxoPatched) return;
+            window.__wxoPatched = true;
 
-          /**
-           * ✅ Patch fetch
-           */
-          var originalFetch = window.fetch;
+            /**
+             * ✅ Patch fetch
+             */
+            var originalFetch = window.fetch;
 
-          window.fetch = function (input, init) {
-            var url = typeof input === "string" ? input : input.url || input.toString();
+            window.fetch = function (input, init) {
+              var url = typeof input === "string" ? input : input.url || input.toString();
 
-            if (url && url.indexOf(IBM_HOST) === 0) {
-              url = url.replace(IBM_HOST, PROXY_PREFIX);
-              console.log("[Watson Proxy][fetch]", url);
-            }
+              if (url && url.indexOf(IBM_HOST) === 0) {
+                url = url.replace(IBM_HOST, PROXY_PREFIX);
+                console.log("[Watson Proxy][fetch]", url);
+              }
 
-            return originalFetch.call(this, url, init);
-          };
+              return originalFetch.call(this, url, init);
+            };
 
-          /**
-           * ✅ Patch XMLHttpRequest (used by Axios)
-           */
-          var originalOpen = XMLHttpRequest.prototype.open;
+            /**
+             * ✅ Patch XMLHttpRequest (used by Axios)
+             */
+            var originalOpen = XMLHttpRequest.prototype.open;
 
-          XMLHttpRequest.prototype.open = function (method, url, async, user, password) {
-            var newUrl = typeof url === "string" ? url : url.toString();
+            XMLHttpRequest.prototype.open = function (method, url, async, user, password) {
+              var newUrl = typeof url === "string" ? url : url.toString();
 
-            if (newUrl && newUrl.indexOf(IBM_HOST) === 0) {
-              newUrl = newUrl.replace(IBM_HOST, PROXY_PREFIX);
-              console.log("[Watson Proxy][xhr]", newUrl);
-            }
+              if (newUrl && newUrl.indexOf(IBM_HOST) === 0) {
+                newUrl = newUrl.replace(IBM_HOST, PROXY_PREFIX);
+                console.log("[Watson Proxy][xhr]", newUrl);
+              }
 
-            return originalOpen.call(this, method, newUrl, async !== false, user, password);
-          };
+              return originalOpen.call(this, method, newUrl, async !== false, user, password);
+            };
 
-          /**
-           * ✅ Optional: Patch WebSocket
-           */
-          var OriginalWebSocket = window.WebSocket;
+            /**
+             * ✅ Optional: Patch WebSocket
+             */
+            var OriginalWebSocket = window.WebSocket;
 
-          window.WebSocket = function (url, protocols) {
-            var newUrl = url;
+            window.WebSocket = function (url, protocols) {
+              var newUrl = url;
 
-            if (typeof url === "string" &&
-                url.indexOf("wss://us-south.watson-orchestrate.cloud.ibm.com") === 0) {
+              if (typeof url === "string" &&
+                  url.indexOf("wss://us-south.watson-orchestrate.cloud.ibm.com") === 0) {
 
-              newUrl = url.replace(
-                "wss://us-south.watson-orchestrate.cloud.ibm.com",
-                "wss://" + window.location.host + PROXY_PREFIX
-              );
+                newUrl = url.replace(
+                  "wss://us-south.watson-orchestrate.cloud.ibm.com",
+                  "wss://" + window.location.host + PROXY_PREFIX
+                );
 
-              console.log("[Watson Proxy][ws]", newUrl);
-            }
+                console.log("[Watson Proxy][ws]", newUrl);
+              }
 
-            return new OriginalWebSocket(newUrl, protocols);
-          };
+              return new OriginalWebSocket(newUrl, protocols);
+            };
+          }
+          patchWatsonRequests();
         `}</script>
         {/* DEV */}
         {/* <script>{`
