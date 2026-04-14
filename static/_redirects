@@ -1,2 +1,1 @@
-/api/watson/*  https://us-south.watson-orchestrate.cloud.ibm.com/:splat  200
-/wxo/*         https://us-south.watson-orchestrate.cloud.ibm.com/wxochat/:splat  200
+/wxo/*  https://us-south.watson-orchestrate.cloud.ibm.com/:splat  200

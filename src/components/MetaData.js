@@ -250,7 +250,7 @@ const MetaData = ({ pageTitle, pageDescription, keyWords }) => {
         <script>{`
           window.wxOConfiguration = {
             orchestrationID: "0781f29958be4f588e177e1250f85e99_01472fb1-37b5-46dd-8479-0e23044b68d2",
-            hostURL: "https://us-south.watson-orchestrate.cloud.ibm.com",
+            hostURL: "/wxo",
             rootElementID: "root",
             deploymentPlatform: "ibmcloud",
             crn: "crn:v1:bluemix:public:watsonx-orchestrate:us-south:a/0781f29958be4f588e177e1250f85e99:01472fb1-37b5-46dd-8479-0e23044b68d2::",
@@ -265,7 +265,7 @@ const MetaData = ({ pageTitle, pageDescription, keyWords }) => {
           };
           setTimeout(function () {
             const script = document.createElement('script');
-            script.src = 'https://us-south.watson-orchestrate.cloud.ibm.com/wxochat/wxoLoader.js';
+            script.src = '/wxo/wxochat/wxoLoader.js';
             script.crossOrigin = 'anonymous';
             script.addEventListener('load', function () {
                 wxoLoader.init();
