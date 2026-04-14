@@ -218,49 +218,60 @@ const MetaData = ({ pageTitle, pageDescription, keyWords }) => {
         <script src="https://dde-us-south.analytics.ibm.com/daas/CognosApi.js"></script>
         <script src="https://web-chat.global.assistant.watson.cloud.ibm.com/loadWatsonAssistantChat.js"></script>
         <script>{`
-          const originalFetch = window.fetch;
-          window.fetch = function (input: RequestInfo | URL, init?: RequestInit) {
-            let url = typeof input === "string" ? input : input.toString();
+          var IBM_HOST = "https://us-south.watson-orchestrate.cloud.ibm.com";
+          var PROXY_PREFIX = "/wxo";
 
-            if (url.includes("watson-orchestrate.cloud.ibm.com")) {
-              url = url.replace(
-                "https://us-south.watson-orchestrate.cloud.ibm.com",
-                "/wxo"
-              );
+          if (window.__wxoPatched) return;
+          window.__wxoPatched = true;
+
+          /**
+           * ✅ Patch fetch
+           */
+          var originalFetch = window.fetch;
+
+          window.fetch = function (input, init) {
+            var url = typeof input === "string" ? input : input.url || input.toString();
+
+            if (url && url.indexOf(IBM_HOST) === 0) {
+              url = url.replace(IBM_HOST, PROXY_PREFIX);
+              console.log("[Watson Proxy][fetch]", url);
             }
 
-            return originalFetch(url, init);
+            return originalFetch.call(this, url, init);
           };
 
+          /**
+           * ✅ Patch XMLHttpRequest (used by Axios)
+           */
+          var originalOpen = XMLHttpRequest.prototype.open;
 
-          const originalOpen = XMLHttpRequest.prototype.open;
+          XMLHttpRequest.prototype.open = function (method, url, async, user, password) {
+            var newUrl = typeof url === "string" ? url : url.toString();
 
-          XMLHttpRequest.prototype.open = function (
-            method: string,
-            url: string | URL,
-            ...rest: any[]
-          ) {
-            let newUrl = typeof url === "string" ? url : url.toString();
-
-            if (newUrl.includes("watson-orchestrate.cloud.ibm.com")) {
-              newUrl = newUrl.replace(
-                "https://us-south.watson-orchestrate.cloud.ibm.com",
-                "/wxo"
-              );
+            if (newUrl && newUrl.indexOf(IBM_HOST) === 0) {
+              newUrl = newUrl.replace(IBM_HOST, PROXY_PREFIX);
+              console.log("[Watson Proxy][xhr]", newUrl);
             }
 
-            return originalOpen.call(this, method, newUrl, ...rest);
+            return originalOpen.call(this, method, newUrl, async !== false, user, password);
           };
-          const OriginalWebSocket = window.WebSocket;
 
-          (window as any).WebSocket = function (url: string, protocols?: string | string[]) {
-            let newUrl = url;
+          /**
+           * ✅ Optional: Patch WebSocket
+           */
+          var OriginalWebSocket = window.WebSocket;
 
-            if (url.startsWith("wss://us-south.watson-orchestrate.cloud.ibm.com")) {
+          window.WebSocket = function (url, protocols) {
+            var newUrl = url;
+
+            if (typeof url === "string" &&
+                url.indexOf("wss://us-south.watson-orchestrate.cloud.ibm.com") === 0) {
+
               newUrl = url.replace(
                 "wss://us-south.watson-orchestrate.cloud.ibm.com",
                 "wss://" + window.location.host + PROXY_PREFIX
               );
+
               console.log("[Watson Proxy][ws]", newUrl);
             }
 
