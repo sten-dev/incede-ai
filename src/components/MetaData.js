@@ -232,7 +232,7 @@ const MetaData = ({ pageTitle, pageDescription, keyWords }) => {
         <script>{`
           window.wxOConfiguration = {
             orchestrationID: "0781f29958be4f588e177e1250f85e99_01472fb1-37b5-46dd-8479-0e23044b68d2",
-            hostURL: "https://us-south.watson-orchestrate.cloud.ibm.com",
+            hostURL: "https://www.incede.ai/api/watson",
             rootElementID: "root",
             deploymentPlatform: "ibmcloud",
             crn: "crn:v1:bluemix:public:watsonx-orchestrate:us-south:a/0781f29958be4f588e177e1250f85e99:01472fb1-37b5-46dd-8479-0e23044b68d2::",
@@ -247,7 +247,7 @@ const MetaData = ({ pageTitle, pageDescription, keyWords }) => {
           };
           setTimeout(function () {
             const script = document.createElement('script');
-            script.src = '/wxoLoader.js?embed=true';
+            script.src = 'https://www.incede.ai/wxo/wxoLoader.js?embed=true';
             script.addEventListener('load', function () {
                 wxoLoader.init();
             });
