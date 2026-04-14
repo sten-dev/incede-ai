@@ -265,7 +265,7 @@ const MetaData = ({ pageTitle, pageDescription, keyWords }) => {
           };
           setTimeout(function () {
             const script = document.createElement('script');
-            script.src = 'https://us-south.watson-orchestrate.cloud.ibm.com/wxochat/wxoLoader.js?embed=true';
+            script.src = 'https://us-south.watson-orchestrate.cloud.ibm.com/wxochat/wxoLoader.js';
             script.crossOrigin = 'anonymous';
             script.addEventListener('load', function () {
                 wxoLoader.init();
