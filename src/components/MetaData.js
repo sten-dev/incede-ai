@@ -232,7 +232,7 @@ const MetaData = ({ pageTitle, pageDescription, keyWords }) => {
             return originalFetch(url, init);
           };
 
-          
+
           const originalOpen = XMLHttpRequest.prototype.open;
 
           XMLHttpRequest.prototype.open = function (
@@ -250,6 +250,21 @@ const MetaData = ({ pageTitle, pageDescription, keyWords }) => {
             }
 
             return originalOpen.call(this, method, newUrl, ...rest);
+          };
+          const OriginalWebSocket = window.WebSocket;
+
+          (window as any).WebSocket = function (url: string, protocols?: string | string[]) {
+            let newUrl = url;
+
+            if (url.startsWith("wss://us-south.watson-orchestrate.cloud.ibm.com")) {
+              newUrl = url.replace(
+                "wss://us-south.watson-orchestrate.cloud.ibm.com",
+                "wss://" + window.location.host + PROXY_PREFIX
+              );
+              console.log("[Watson Proxy][ws]", newUrl);
+            }
+
+            return new OriginalWebSocket(newUrl, protocols);
           };
         `}</script>
         {/* DEV */}
