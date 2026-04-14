@@ -217,7 +217,41 @@ const MetaData = ({ pageTitle, pageDescription, keyWords }) => {
                 </noscript> */}
         <script src="https://dde-us-south.analytics.ibm.com/daas/CognosApi.js"></script>
         <script src="https://web-chat.global.assistant.watson.cloud.ibm.com/loadWatsonAssistantChat.js"></script>
+        <script>{`
+          const originalFetch = window.fetch;
+          window.fetch = function (input: RequestInfo | URL, init?: RequestInit) {
+            let url = typeof input === "string" ? input : input.toString();
 
+            if (url.includes("watson-orchestrate.cloud.ibm.com")) {
+              url = url.replace(
+                "https://us-south.watson-orchestrate.cloud.ibm.com",
+                "/wxo"
+              );
+            }
+
+            return originalFetch(url, init);
+          };
+
+          
+          const originalOpen = XMLHttpRequest.prototype.open;
+
+          XMLHttpRequest.prototype.open = function (
+            method: string,
+            url: string | URL,
+            ...rest: any[]
+          ) {
+            let newUrl = typeof url === "string" ? url : url.toString();
+
+            if (newUrl.includes("watson-orchestrate.cloud.ibm.com")) {
+              newUrl = newUrl.replace(
+                "https://us-south.watson-orchestrate.cloud.ibm.com",
+                "/wxo"
+              );
+            }
+
+            return originalOpen.call(this, method, newUrl, ...rest);
+          };
+        `}</script>
         {/* DEV */}
         {/* <script>{`
             window.wxOConfiguration = {
