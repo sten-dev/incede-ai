@@ -238,10 +238,6 @@ const MetaData = ({ pageTitle, pageDescription, keyWords }) => {
                 url = url.replace(IBM_HOST, PROXY_PREFIX);
                 console.log("[Watson Proxy][fetch]", url);
               }
-              
-              if (url.includes("stream=true")) {
-                url = url.replace("stream=true", "stream=false");
-              }
 
               return originalFetch.call(this, url, init);
             };
@@ -265,25 +261,24 @@ const MetaData = ({ pageTitle, pageDescription, keyWords }) => {
             /**
              * ✅ Optional: Patch WebSocket
              */
-            // var OriginalWebSocket = window.WebSocket;
+            var OriginalWebSocket = window.WebSocket;
 
-            // window.WebSocket = function (url, protocols) {
-            //   var newUrl = url;
+            window.WebSocket = function (url, protocols) {
+              var newUrl = url;
 
-            //   if (typeof url === "string" &&
-            //       url.indexOf("wss://us-south.watson-orchestrate.cloud.ibm.com") === 0) {
+              if (typeof url === "string" &&
+                  url.indexOf("wss://us-south.watson-orchestrate.cloud.ibm.com") === 0) {
 
-            //     newUrl = url.replace(
-            //       "wss://us-south.watson-orchestrate.cloud.ibm.com",
-            //       "wss://" + window.location.host + PROXY_PREFIX
-            //     );
+                newUrl = url.replace(
+                  "wss://us-south.watson-orchestrate.cloud.ibm.com",
+                  "wss://" + window.location.host + PROXY_PREFIX
+                );
 
-            //     console.log("[Watson Proxy][ws]", newUrl);
-            //   }
+                console.log("[Watson Proxy][ws]", newUrl);
+              }
 
-            //   return new OriginalWebSocket(newUrl, protocols);
-            // };
-            window.WebSocket = undefined;
+              return new OriginalWebSocket(newUrl, protocols);
+            };
           }
           patchWatsonRequests();
         `}</script>
@@ -324,7 +319,6 @@ const MetaData = ({ pageTitle, pageDescription, keyWords }) => {
             transportOptions: {
               polling: true
             },
-            streaming: false,
             rootElementID: "root",
             deploymentPlatform: "ibmcloud",
             crn: "crn:v1:bluemix:public:watsonx-orchestrate:us-south:a/0781f29958be4f588e177e1250f85e99:01472fb1-37b5-46dd-8479-0e23044b68d2::",
