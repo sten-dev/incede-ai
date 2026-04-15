@@ -12,24 +12,6 @@ const MetaData = ({ pageTitle, pageDescription, keyWords }) => {
     <React.Fragment>
       <Helmet>
         <html lang="en" />
-        {/* <meta http-equiv="Content-Security-Policy" content="
-          default-src 'self';
-          script-src 'self' 'unsafe-inline' 'unsafe-eval' 
-            https://us-south.watson-orchestrate.cloud.ibm.com 
-            https://www.googletagmanager.com 
-            https://snap.licdn.com 
-            https://dde-us-south.analytics.ibm.com 
-            https://web-chat.global.assistant.watson.cloud.ibm.com;
-          connect-src 'self' 
-            https://us-south.watson-orchestrate.cloud.ibm.com 
-            https://dde-us-south.analytics.ibm.com 
-            https://web-chat.global.assistant.watson.cloud.ibm.com;
-          img-src 'self' data: https: 
-            https://px.ads.linkedin.com;
-          font-src 'self' https://fonts.googleapis.com;
-          style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-          frame-src 'self' https://www.googletagmanager.com;
-        " /> */}
         <title>{pageTitle || title}</title>
         <meta name="description" content={pageDescription || description} />
         <link
@@ -158,7 +140,6 @@ const MetaData = ({ pageTitle, pageDescription, keyWords }) => {
           content={`${withPrefix("/")}img/og-image.jpg`}
         />
         <meta name="twitter:card" content="summary_large_image" />
-        {/* Google Analytics removed to prevent Firefox Enhanced Tracking Protection blocking
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=UA-161931343-1"
@@ -185,8 +166,6 @@ const MetaData = ({ pageTitle, pageDescription, keyWords }) => {
             "GTM-KVWHF6H"
           )}
         </script>
-        */}
-        {/* LinkedIn Insight Tag removed to prevent Firefox Enhanced Tracking Protection blocking
         <script type="text/javascript">
           _linkedin_partner_id = "7125988"; window._linkedin_data_partner_ids =
           window._linkedin_data_partner_ids || [];
@@ -212,83 +191,15 @@ const MetaData = ({ pageTitle, pageDescription, keyWords }) => {
                `,
           }}
         />
-        */}
         {/* <noscript>
                     <React.Fragment>
                         <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KVWHF6H"
                         height="0" width="0" style="display:none;visibility:hidden" ></iframe>
                     </React.Fragment>
                 </noscript> */}
-        {/* IBM Analytics script removed to prevent Firefox Enhanced Tracking Protection blocking
         <script src="https://dde-us-south.analytics.ibm.com/daas/CognosApi.js"></script>
-        */}
         <script src="https://web-chat.global.assistant.watson.cloud.ibm.com/loadWatsonAssistantChat.js"></script>
-        <script>{`
-          function patchWatsonRequests() {
-            var IBM_HOST = "https://us-south.watson-orchestrate.cloud.ibm.com";
-            var PROXY_PREFIX = "/wxo";
 
-            // جلوگیری از دوباره اجرا شدن
-            if (window.__wxoPatched) return;
-            window.__wxoPatched = true;
-
-            /**
-             * ✅ Patch fetch
-             */
-            var originalFetch = window.fetch;
-
-            window.fetch = function (input, init) {
-              var url = typeof input === "string" ? input : input.url || input.toString();
-
-              if (url && url.indexOf(IBM_HOST) === 0) {
-                url = url.replace(IBM_HOST, PROXY_PREFIX);
-                console.log("[Watson Proxy][fetch]", url);
-              }
-
-              return originalFetch.call(this, url, init);
-            };
-
-            /**
-             * ✅ Patch XMLHttpRequest (used by Axios)
-             */
-            var originalOpen = XMLHttpRequest.prototype.open;
-
-            XMLHttpRequest.prototype.open = function (method, url, async, user, password) {
-              var newUrl = typeof url === "string" ? url : url.toString();
-
-              if (newUrl && newUrl.indexOf(IBM_HOST) === 0) {
-                newUrl = newUrl.replace(IBM_HOST, PROXY_PREFIX);
-                console.log("[Watson Proxy][xhr]", newUrl);
-              }
-
-              return originalOpen.call(this, method, newUrl, async !== false, user, password);
-            };
-
-            /**
-             * Patch WebSocket to prevent direct IBM cloud connections
-             */
-            var OriginalWebSocket = window.WebSocket;
-
-            window.WebSocket = function (url, protocols) {
-              var newUrl = url;
-
-              if (typeof url === "string" &&
-                  url.indexOf("wss://us-south.watson-orchestrate.cloud.ibm.com") === 0) {
-
-                // Redirect WebSocket to proxy endpoint
-                newUrl = url.replace(
-                  "wss://us-south.watson-orchestrate.cloud.ibm.com",
-                  "wss://" + window.location.host + PROXY_PREFIX
-                );
-
-                console.log("[Watson Proxy][ws]", newUrl);
-              }
-
-              return new OriginalWebSocket(newUrl, protocols);
-            };
-          }
-          patchWatsonRequests();
-        `}</script>
         {/* DEV */}
         {/* <script>{`
             window.wxOConfiguration = {
@@ -321,15 +232,7 @@ const MetaData = ({ pageTitle, pageDescription, keyWords }) => {
         <script>{`
           window.wxOConfiguration = {
             orchestrationID: "0781f29958be4f588e177e1250f85e99_01472fb1-37b5-46dd-8479-0e23044b68d2",
-            hostURL: "/wxo",
-            assetURL: "/wxo/wxochat",
-            transportOptions: {
-              polling: true,
-              websocket: false,
-              pollingInterval: 5000,
-              maxRetries: 3,
-              retryDelay: 2000
-            },
+            hostURL: "https://us-south.watson-orchestrate.cloud.ibm.com",
             rootElementID: "root",
             deploymentPlatform: "ibmcloud",
             crn: "crn:v1:bluemix:public:watsonx-orchestrate:us-south:a/0781f29958be4f588e177e1250f85e99:01472fb1-37b5-46dd-8479-0e23044b68d2::",
@@ -344,14 +247,9 @@ const MetaData = ({ pageTitle, pageDescription, keyWords }) => {
           };
           setTimeout(function () {
             const script = document.createElement('script');
-            script.src = '/wxo/wxochat/wxoLoader.js';
+            script.src = 'https://us-south.watson-orchestrate.cloud.ibm.com/wxochat/wxoLoader.js?embed=true';
             script.addEventListener('load', function () {
-                console.log('Watson Orchestrate script loaded successfully');
                 wxoLoader.init();
-            });
-            script.addEventListener('error', function() {
-                console.warn('Watson Orchestrate script blocked by browser privacy protection');
-                // Optionally show fallback message or alternative contact method
             });
             document.head.appendChild(script);
           }, 0);

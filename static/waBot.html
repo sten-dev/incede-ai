@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Watson Orchestrate</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script>
+      window.wxOConfiguration = {
+        orchestrationID:
+          "0781f29958be4f588e177e1250f85e99_01472fb1-37b5-46dd-8479-0e23044b68d2",
+        hostURL: "https://us-south.watson-orchestrate.cloud.ibm.com",
+        rootElementID: "root",
+        deploymentPlatform: "ibmcloud",
+        crn:
+          "crn:v1:bluemix:public:watsonx-orchestrate:us-south:a/0781f29958be4f588e177e1250f85e99:01472fb1-37b5-46dd-8479-0e23044b68d2::",
+        chatOptions: {
+          agentId: "88ced7d6-c856-4f4b-be37-7cc461ac1391",
+          agentEnvironmentId: "2b868236-463a-44f6-ac12-934c35d9c3eb",
+        },
+        style: {
+          headerColor: "#5C4ABB",
+          primaryColor: "#5C4ABB",
+        },
+      };
+      setTimeout(function() {
+        const script = document.createElement("script");
+        script.src =
+          "https://us-south.watson-orchestrate.cloud.ibm.com/wxochat/wxoLoader.js?embed=true";
+        script.addEventListener("load", function() {
+          wxoLoader.init();
+        });
+        document.head.appendChild(script);
+      }, 0);
+    </script>
+
+    <!-- IBM Script -->
+    <script src="https://us-south.watson-orchestrate.cloud.ibm.com/wxochat/wxoLoader.js"></script>
+  </body>
+</html>
