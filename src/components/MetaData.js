@@ -265,27 +265,27 @@ const MetaData = ({ pageTitle, pageDescription, keyWords }) => {
             };
 
             /**
-             * ✅ Optional: Patch WebSocket
+             * Patch WebSocket to prevent direct IBM cloud connections
              */
-            // var OriginalWebSocket = window.WebSocket;
+            var OriginalWebSocket = window.WebSocket;
 
-            // window.WebSocket = function (url, protocols) {
-            //   var newUrl = url;
+            window.WebSocket = function (url, protocols) {
+              var newUrl = url;
 
-            //   if (typeof url === "string" &&
-            //       url.indexOf("wss://us-south.watson-orchestrate.cloud.ibm.com") === 0) {
+              if (typeof url === "string" &&
+                  url.indexOf("wss://us-south.watson-orchestrate.cloud.ibm.com") === 0) {
 
-            //     newUrl = url.replace(
-            //       "wss://us-south.watson-orchestrate.cloud.ibm.com",
-            //       "wss://" + window.location.host + PROXY_PREFIX
-            //     );
+                // Redirect WebSocket to proxy endpoint
+                newUrl = url.replace(
+                  "wss://us-south.watson-orchestrate.cloud.ibm.com",
+                  "wss://" + window.location.host + PROXY_PREFIX
+                );
 
-            //     console.log("[Watson Proxy][ws]", newUrl);
-            //   }
+                console.log("[Watson Proxy][ws]", newUrl);
+              }
 
-            //   return new OriginalWebSocket(newUrl, protocols);
-            // };
-            // Keep WebSocket enabled for polling fallback
+              return new OriginalWebSocket(newUrl, protocols);
+            };
           }
           patchWatsonRequests();
         `}</script>
