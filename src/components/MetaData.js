@@ -158,6 +158,7 @@ const MetaData = ({ pageTitle, pageDescription, keyWords }) => {
           content={`${withPrefix("/")}img/og-image.jpg`}
         />
         <meta name="twitter:card" content="summary_large_image" />
+        {/* Google Analytics removed to prevent Firefox Enhanced Tracking Protection blocking
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=UA-161931343-1"
@@ -184,6 +185,8 @@ const MetaData = ({ pageTitle, pageDescription, keyWords }) => {
             "GTM-KVWHF6H"
           )}
         </script>
+        */}
+        {/* LinkedIn Insight Tag removed to prevent Firefox Enhanced Tracking Protection blocking
         <script type="text/javascript">
           _linkedin_partner_id = "7125988"; window._linkedin_data_partner_ids =
           window._linkedin_data_partner_ids || [];
@@ -209,13 +212,16 @@ const MetaData = ({ pageTitle, pageDescription, keyWords }) => {
                `,
           }}
         />
+        */}
         {/* <noscript>
                     <React.Fragment>
                         <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KVWHF6H"
                         height="0" width="0" style="display:none;visibility:hidden" ></iframe>
                     </React.Fragment>
                 </noscript> */}
+        {/* IBM Analytics script removed to prevent Firefox Enhanced Tracking Protection blocking
         <script src="https://dde-us-south.analytics.ibm.com/daas/CognosApi.js"></script>
+        */}
         <script src="https://web-chat.global.assistant.watson.cloud.ibm.com/loadWatsonAssistantChat.js"></script>
         <script>{`
           function patchWatsonRequests() {
@@ -279,7 +285,7 @@ const MetaData = ({ pageTitle, pageDescription, keyWords }) => {
 
             //   return new OriginalWebSocket(newUrl, protocols);
             // };
-            window.WebSocket = undefined;
+            // Keep WebSocket enabled for polling fallback
           }
           patchWatsonRequests();
         `}</script>
@@ -318,7 +324,10 @@ const MetaData = ({ pageTitle, pageDescription, keyWords }) => {
             hostURL: "/wxo",
             assetURL: "/wxo/wxochat",
             transportOptions: {
-              polling: true
+              polling: true,
+              pollingInterval: 5000,
+              maxRetries: 3,
+              retryDelay: 2000
             },
             rootElementID: "root",
             deploymentPlatform: "ibmcloud",
