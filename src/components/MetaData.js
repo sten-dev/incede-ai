@@ -316,6 +316,9 @@ const MetaData = ({ pageTitle, pageDescription, keyWords }) => {
             orchestrationID: "0781f29958be4f588e177e1250f85e99_01472fb1-37b5-46dd-8479-0e23044b68d2",
             hostURL: "/wxo",
             assetURL: "/wxo/wxochat",
+            transportOptions: {
+              polling: true
+            },
             rootElementID: "root",
             deploymentPlatform: "ibmcloud",
             crn: "crn:v1:bluemix:public:watsonx-orchestrate:us-south:a/0781f29958be4f588e177e1250f85e99:01472fb1-37b5-46dd-8479-0e23044b68d2::",
