@@ -325,6 +325,7 @@ const MetaData = ({ pageTitle, pageDescription, keyWords }) => {
             assetURL: "/wxo/wxochat",
             transportOptions: {
               polling: true,
+              websocket: false,
               pollingInterval: 5000,
               maxRetries: 3,
               retryDelay: 2000
