@@ -238,6 +238,10 @@ const MetaData = ({ pageTitle, pageDescription, keyWords }) => {
                 url = url.replace(IBM_HOST, PROXY_PREFIX);
                 console.log("[Watson Proxy][fetch]", url);
               }
+              
+              if (url.includes("stream=true")) {
+                url = url.replace("stream=true", "stream=false");
+              }
 
               return originalFetch.call(this, url, init);
             };
