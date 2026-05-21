@@ -80,33 +80,53 @@ class ContactModal extends Component {
 
   handleSubmit = async event => {
     event.preventDefault();
-    
-    let result = await httpClient(`contact-details`, 'POST', {
-      ...this.state.contactInfo
-    });
 
-    if (result && result.success) {
-      this.setState({
-        hasDetailsSubmitted: true,
-        contactInfo: {
-          name: '',
-          email: '',
-          phone: '',
-          company: '',
-          reason: '',
-          date: ''
-        },
-        message: 'Thank you for contacting us. We will respond to you ASAP!'
-      });
+    const response = await fetch(
+        'https://gx55ium3trbgjjb6hs4i7wwaci0weqho.lambda-url.ap-south-1.on.aws/',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(this.state.contactInfo),
+        }
+      )
+
+      if (response.ok) {
+        this.setState({
+          hasDetailsSubmitted: true,
+          contactInfo: {
+            name: '',
+            email: '',
+            phone: '',
+            company: '',
+            reason: '',
+            date: ''
+          },
+          message: 'Thank you for contacting us. We will respond to you ASAP!'
+        });
       setTimeout(() => {
         this.props.onClose();
       }, 2000);
-    } else {
-      this.setState({
-        hasDetailsSubmitted: false,
-        message: 'Error while submitting the details'
-      });
-    }
+      } else {
+         this.setState({
+          hasDetailsSubmitted: false,
+          message: 'Error while submitting the details'
+        });
+      }
+    
+    // let result = await httpClient(`contact-details`, 'POST', {
+    //   ...this.state.contactInfo
+    // });
+
+    // if (result && result.success) {
+     
+    // } else {
+    //   this.setState({
+    //     hasDetailsSubmitted: false,
+    //     message: 'Error while submitting the details'
+    //   });
+    // }
   };
 
   handleOnChange = event => {
